@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:var(--paper);color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);transition:color .18s ease}
+    a:hover{color:var(--cobalt)}
+    input{font-family:var(--nova);color:var(--navy);box-sizing:border-box}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:3px}
+  </style>
+</helmet>
+<div style="min-height:100vh;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)">
+  <aside data-screen-label="Brand panel" style="position:relative;overflow:hidden;background:var(--navy);color:#fdfdfd;display:flex;flex-direction:column;justify-content:space-between;padding:44px 56px 48px">
+    <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 82% -10%, #2a6a9e40 0%, #1b447200 55%),linear-gradient(168deg,#14263c 0%,#0f1c2d 55%,#0c1726 100%)"></span>
+    <a href="MySBDC Homepage.dc.html" style="position:relative;font-size:19px;font-weight:800;letter-spacing:-.02em;color:#fdfdfd;text-decoration:none;align-self:flex-start">NorCal <span style="color:var(--pool);font-weight:800">SBDC</span></a>
+    <div style="position:relative;margin:56px 0">
+      <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(48px,4.6vw,72px);letter-spacing:-.05em;line-height:.95">Tell us once.</h1>
+      <p style="margin:22px 0 0;max-width:40ch;font-size:16.5px;line-height:1.55;color:#ffffffd6">Form 641 is the only form. After that, registering for a training or booking your advisor is one click.</p>
+    </div>
+    <div style="position:relative;display:flex;flex-direction:column;gap:12px">
+      <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;color:#ffffffd6"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:var(--pool)"></span>No fee, ever</span>
+      <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;color:#ffffffd6"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:var(--pool)"></span>Confidential by law</span>
+      <span style="display:flex;align-items:center;gap:11px;font-size:14.5px;color:#ffffffd6"><span style="flex:none;width:8px;height:8px;border-radius:50%;background:var(--pool)"></span>Español disponible</span>
+    </div>
+  </aside>
+  <main data-screen-label="Sign in" style="display:flex;align-items:center;justify-content:center;padding:56px 48px">
+    <div style="width:min(460px,100%)">
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(34px,3vw,44px);letter-spacing:-.05em;line-height:1">Sign in to MySBDC</h2>
+        <p style="margin:12px 0 0;font-size:15px;color:var(--slate)">New or returning — this is the same screen.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:34px">
+          <button onClick="{{ social }}" style="display:flex;align-items:center;justify-content:center;gap:14px;min-height:54px;background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;transition:border-color .18s ease,box-shadow .18s ease" style-hover="border-color:var(--cobalt);box-shadow:0 0 0 1px var(--cobalt)"><span style="flex:none;width:26px;height:26px;border-radius:50%;border:1px solid #0f1c2d29;display:grid;place-items:center;font-size:12px;font-weight:800">G</span>Continue with Google</button>
+          <button onClick="{{ social }}" style="display:flex;align-items:center;justify-content:center;gap:14px;min-height:54px;background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;transition:border-color .18s ease,box-shadow .18s ease" style-hover="border-color:var(--cobalt);box-shadow:0 0 0 1px var(--cobalt)"><span style="flex:none;width:26px;height:26px;border:1px solid #0f1c2d29;display:grid;place-items:center;font-size:12px;font-weight:800">M</span>Continue with Microsoft</button>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;margin:30px 0">
+          <span style="flex:1;height:1px;background:#0f1c2d29"></span>
+          <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">Or use email</span>
+          <span style="flex:1;height:1px;background:#0f1c2d29"></span>
+        </div>
+        <label for="si-email" style="display:block;margin:0 0 8px;font-size:13.5px;font-weight:750">Email address <span style="font-weight:400;color:var(--slate-light)">(required)</span></label>
+        <input id="si-email" type="email" autocomplete="email" placeholder="jane@example.com" value="{{ email }}" onChange="{{ onEmail }}" style="{{ emailStyle }}">
+        <sc-if value="{{ err }}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin:8px 0 0;font-size:12.5px;font-weight:750;color:#8a2626">{{ err }}</p></sc-if>
+        <button onClick="{{ sendLink }}" style="display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;margin-top:14px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:15.5px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease,transform .18s ease" style-hover="background:#144b8c;transform:translateY(-2px)">Email me a sign-in link</button>
+        <p style="margin:12px 0 0;font-size:13.5px;color:var(--slate)">No password to remember.</p>
+        <div style="margin-top:34px;padding-top:24px;border-top:1px solid #0f1c2d29">
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--slate)"><strong style="font-weight:750;color:var(--navy)">New here?</strong> Signing in creates your account. Next you’ll fill SBA Form 641 once — about 10 minutes, and you can stop and come back. Returning with your 641 on file? You land on the dashboard, not on the form.</p>
+          <p style="margin:14px 0 0;font-size:12.5px;color:var(--slate-light)">Your information is confidential and is never sold. <a href="#" style="font-weight:750;border-bottom:1px solid;padding-bottom:1px;text-decoration:none">Privacy notice</a></p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0 0 16px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--evergreen)">Link sent</p>
+        <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(34px,3vw,44px);letter-spacing:-.05em;line-height:1">Check your email.</h2>
+        <p style="margin:16px 0 0;max-width:44ch;font-size:15px;line-height:1.6;color:var(--slate)">We sent a sign-in link to <strong style="font-weight:750;color:var(--navy)">{{ email }}</strong>. It works for 15 minutes. Nothing arrives? Check spam, or <a href="#" onClick="{{ resend }}" style="font-weight:750;border-bottom:1px solid;padding-bottom:1px;text-decoration:none">send it again</a>.</p>
+        <div style="margin-top:30px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" arrow="{{ true }}" href="MySBDC Dashboard.dc.html" hint-size="auto,50px">Open MySBDC (demo)</x-import></div>
+      </sc-if>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { email: '', sent: false, err: false };
+  renderVals() {
+    return {
+      email: this.state.email, sent: this.state.sent, notSent: !this.state.sent, err: this.state.err,
+      emailStyle: { display: 'block', width: '100%', height: '54px', padding: '0 16px', fontSize: '15.5px', background: '#fdfdfd', borderRadius: '4px',
+        border: this.state.err ? '2px solid #c23c3c' : '1px solid #0f1c2d5c' },
+      onEmail: (e) => this.setState({ email: e.target.value, err: false }),
+      social: () => this.setState({ sent: true, email: this.state.email || 'you@yourbusiness.com' }),
+      sendLink: () => {
+        const ok = /.+@.+\..+/.test(this.state.email.trim());
+        if (!ok) { this.setState({ err: 'That email doesn\u2019t look complete \u2014 check for a typo.' }); return; }
+        this.setState({ sent: true, err: false });
+      },
+      resend: (e) => e.preventDefault()
+    };
+  }
+}
+</script>
+</body>
+</html>

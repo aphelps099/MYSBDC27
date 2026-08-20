@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="No-fee, confidential business advising across 36 Northern California counties — plus specialty programs for capital, tech, food, manufacturing, government contracting and veterans.">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="stylesheet" href="https://use.typekit.net/pkl5rjs.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body{margin:0;background:var(--paper);color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);text-decoration:none;transition:color .18s ease,background .18s ease}
+    a:hover{color:var(--cobalt)}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
+    input::placeholder{color:#43536b99}
+  </style>
+</helmet>
+<div style="overflow-x:clip">
+<section data-screen-label="Hero" style="background:var(--navy);color:#fdfdfd">
+  <header>
+    <div style="width:min(1400px,100% - 96px);margin:0 auto;height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC home" style="display:block"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-white-180h.png" alt="America’s SBDC California, Northern California Network" style="height:52px;width:auto;display:block"></a>
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:24px">
+        <a href="Advising.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em;border-bottom:2px solid var(--pool);padding-bottom:3px" style-hover="color:var(--pool)">Advising</a>
+        <a href="Trainings.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em" style-hover="color:var(--pool)">Training</a>
+        <a href="Funding.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em" style-hover="color:var(--pool)">Funding</a>
+        <a href="Stories.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em" style-hover="color:var(--pool)">Stories</a>
+        <a href="About.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em" style-hover="color:var(--pool)">About</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:22px">
+        <a href="MySBDC Sign In.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;border-bottom:1px solid #ffffff8a;padding-bottom:2px;white-space:nowrap" style-hover="color:var(--pool);border-color:var(--pool)">MySBDC Log in</a>
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" small="{{ true }}" href="#" style="flex:none;white-space:nowrap" hint-size="auto,43px">Get Started</x-import>
+      </div>
+    </div>
+  </header>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:80px 0 96px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:72px;align-items:center">
+    <div>
+    <p style="margin:0 0 26px;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">Advising</p>
+    <h1 style="margin:0;max-width:14ch;font-family:var(--sera);font-weight:400;font-size:clamp(54px,5.4vw,84px);letter-spacing:-.05em;line-height:.95;color:#fdfdfd;text-wrap:balance">Confidential. No fee. <em style="font-style:italic;color:var(--pool)">Ever.</em></h1>
+    <p style="margin:28px 0 0;max-width:520px;font-size:18px;line-height:1.5;color:#ffffffd6">One-on-one advising from people who have run businesses — free to you, thanks to the SBA and CalOSBA. It’s a conversation, not another assessment.</p>
+    <div style="display:flex;align-items:center;gap:26px;margin-top:44px">
+      <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" arrow="{{ true }}" href="#" hint-size="auto,50px">Start in MySBDC</x-import>
+      <span style="font-size:13px;color:#ffffffab;font-weight:700">About 20 minutes. $0 to work with us.</span>
+    </div>
+    </div>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
+        <div style="height:220px"><image-slot id="advisor-1" shape="rect" placeholder="Advisor headshot"></image-slot></div>
+        <div style="height:220px;transform:translateY(28px)"><image-slot id="advisor-2" shape="rect" placeholder="Advisor headshot"></image-slot></div>
+        <div style="height:220px"><image-slot id="advisor-3" shape="rect" placeholder="Advisor headshot"></image-slot></div>
+        <div style="height:220px;transform:translateY(28px);border-bottom:5px solid var(--berry)"><image-slot id="advisor-4" shape="rect" placeholder="Advisor headshot"></image-slot></div>
+      </div>
+      <p style="margin:46px 0 0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a;text-align:right">The people you’ll actually talk to</p>
+    </div>
+  </div>
+</section>
+<section data-screen-label="Core services" aria-label="Core services" style="background:var(--paper);padding:100px 0;border-bottom:1px solid #0f1c2d29">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.7fr) 1fr;gap:80px;align-items:start">
+    <div>
+      <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">01 — For every business</p>
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(42px,3.8vw,58px);letter-spacing:-.05em;line-height:.95;color:var(--navy)">Everyone gets the good stuff.</h2>
+      <p style="margin:26px 0 0;max-width:420px;font-size:15px;line-height:1.55;color:var(--slate)">The core offer is universal: an advisor, real training and a library that’s open all night. One signup covers it all.</p>
+    </div>
+    <div style="border-top:3px solid var(--navy)">
+      <div style="display:grid;grid-template-columns:96px 1fr;gap:28px;padding:30px 0;border-bottom:1px solid #0f1c2d29">
+        <span style="font-family:var(--sera);font-weight:400;font-size:34px;letter-spacing:-.03em;color:var(--navy)">01</span>
+        <span><strong style="display:block;font-size:18px;font-weight:750;color:var(--navy)">One-on-one advising.</strong><span style="display:block;margin-top:6px;font-size:15px;line-height:1.5;color:var(--slate)">Business planning, marketing and sales, financial management. Private conversations, built around your business.</span></span>
+      </div>
+      <div style="display:grid;grid-template-columns:96px 1fr;gap:28px;padding:30px 0;border-bottom:1px solid #0f1c2d29">
+        <span style="font-family:var(--sera);font-weight:400;font-size:34px;letter-spacing:-.03em;color:var(--navy)">02</span>
+        <span><strong style="display:block;font-size:18px;font-weight:750;color:var(--navy)">Interactive training.</strong><span style="display:block;margin-top:6px;font-size:15px;line-height:1.5;color:var(--slate)">Live online and in person, across the network. <a href="Training Calendar.dc.html" style="border-bottom:1px solid;padding-bottom:2px;font-weight:750">See the calendar</a></span></span>
+      </div>
+      <div style="display:grid;grid-template-columns:96px 1fr;gap:28px;padding:30px 0">
+        <span style="font-family:var(--sera);font-weight:400;font-size:34px;letter-spacing:-.03em;color:var(--navy)">03</span>
+        <span><strong style="display:block;font-size:18px;font-weight:750;color:var(--navy)">Recorded webinars.</strong><span style="display:block;margin-top:6px;font-size:15px;line-height:1.5;color:var(--slate)">On-demand, whenever the shop is quiet. Watch what matters, skip what doesn’t.</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-screen-label="Find your specialist" aria-label="Specialty programs" style="background:var(--cream);padding:100px 0 110px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+      <div>
+        <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">02 — Specialty programs</p>
+        <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(42px,3.8vw,58px);letter-spacing:-.05em;line-height:.95;color:var(--navy)">Find your specialist.</h2>
+      </div>
+      <p style="margin:0;max-width:380px;font-size:15px;line-height:1.5;color:var(--slate)">Four specialist tracks, one network. Start in MySBDC and we route you to the right people.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px">
+      <sc-for list="{{ programs }}" as="p" hint-placeholder-count="4">
+        <a href="#" style="display:flex;flex-direction:column;gap:12px;padding:38px 40px 34px;background:var(--paper);border:1px solid #0f1c2d29;border-top:5px solid var(--berry);border-radius:5px;color:var(--navy);transition:transform .18s cubic-bezier(.2,.75,.25,1),box-shadow .18s ease" style-hover="color:var(--cobalt);transform:translateY(-4px);box-shadow:0 32px 64px #0e1a2b28">
+          <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">{{ p.need }}</span>
+          <span style="font-family:var(--sera);font-weight:400;font-size:32px;letter-spacing:-.04em;line-height:1.05;color:inherit">{{ p.name }}</span>
+          <span style="font-size:14px;line-height:1.55;color:var(--slate)">{{ p.body }}</span>
+          <span style="margin-top:auto;padding-top:18px;border-top:1px solid #0f1c2d29;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:13px;font-weight:750"><span style="color:var(--berry)">{{ p.proof }}</span><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:28px">
+      <sc-for list="{{ morePrograms }}" as="m" hint-placeholder-count="4">
+        <a href="#" style="display:flex;flex-direction:column;gap:10px;padding:26px 28px;background:var(--paper);border:1px solid #0f1c2d29;border-radius:5px;color:var(--navy);transition:transform .18s cubic-bezier(.2,.75,.25,1),box-shadow .18s ease" style-hover="color:var(--cobalt);transform:translateY(-4px);box-shadow:0 24px 48px #0e1a2b21">
+          <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">{{ m.need }}</span>
+          <strong style="font-size:16px;font-weight:750;letter-spacing:-.01em;line-height:1.25;color:inherit">{{ m.name }}</strong>
+          <span style="margin-top:auto;padding-top:8px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section data-screen-label="Client voice" aria-label="What clients say" style="background:var(--paper);padding:100px 0 0">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto">
+    <p style="margin:0 0 56px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">03 — In their words</p>
+    <div style="display:grid;grid-template-columns:.85fr 1.15fr;gap:88px;align-items:center">
+      <figure style="margin:0;position:relative;padding:0 26px 26px 0">
+        <span style="position:absolute;top:26px;right:0;bottom:0;left:26px;background:var(--pool)"></span>
+        <img src="https://www.norcalsbdc.org/wp-content/uploads/sites/9/2024/07/2024-Client-Success-Story-Yarrow-Goods-Owners.jpeg" alt="The owners of Yarrow Goods" style="position:relative;width:100%;height:440px;object-fit:cover;object-position:50% 35%;filter:saturate(.88) contrast(1.03);display:block;border-bottom:5px solid var(--berry)">
+      </figure>
+      <div>
+        <blockquote style="margin:0;max-width:21ch;font-family:var(--sera);font-weight:400;font-size:clamp(30px,2.8vw,42px);letter-spacing:-.04em;line-height:1.12;color:var(--navy);text-wrap:pretty">“Our advisor had actually done this before. Every meeting ended with something we could do that week.”</blockquote>
+        <div style="display:flex;align-items:baseline;gap:22px;margin-top:30px">
+          <span style="font-size:15px;font-weight:750;color:var(--navy)">Yarrow Goods</span>
+          <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">Marin SBDC · $138K raised, sales up 20%</span>
+        </div>
+        <p style="margin:44px 0 0;padding-top:26px;border-top:1px solid #0f1c2d29;max-width:520px;font-size:14px;line-height:1.6;color:var(--slate)">20,317 businesses received one-on-one advising last year — 80,229 hours of it. <a href="#" style="border-bottom:1px solid;padding-bottom:2px;font-weight:750">Read client stories</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-screen-label="A to Z topics" aria-label="Advising topics A to Z" style="background:var(--paper);padding:100px 0 110px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.7fr) 1fr;gap:80px;align-items:start">
+    <div>
+      <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">04 — A to Z</p>
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(42px,3.8vw,58px);letter-spacing:-.05em;line-height:.95;color:var(--navy)">If it’s in your business, it’s in our wheelhouse.</h2>
+      <p style="margin:26px 0 0;max-width:400px;font-size:15px;line-height:1.55;color:var(--slate)">If you don’t see your topic, ask anyway — an advisor will find the right person.</p>
+
+    </div>
+    <div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;padding-top:8px">
+        <sc-for list="{{ topics }}" as="t" hint-placeholder-count="20">
+          <span style="font-size:13px;font-weight:700;color:var(--navy);border:1px solid #0f1c2d2e;padding:9px 14px;border-radius:2px;background:#fff">{{ t }}</span>
+        </sc-for>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section data-screen-label="Your next step" aria-label="Sign up" style="display:grid;grid-template-columns:1fr 1fr;border-bottom:5px solid var(--berry)">
+  <div style="background:var(--cream);color:var(--navy);aspect-ratio:4/5;max-height:680px;display:flex;flex-direction:column;justify-content:center;padding:64px 56px 64px max(48px,calc((100vw - 1400px)/2))">
+    <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">05 — Not sure where you fit?</span>
+    <h2 style="margin:22px 0 0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(32px,2.8vw,44px);letter-spacing:-.05em;line-height:1;color:var(--navy)">Start general. We’ll route you to the specialist.</h2>
+    <p style="margin:20px 0 0;max-width:44ch;font-size:15px;line-height:1.55;color:var(--slate)">Every advisor is backed by the full network — specialty centers for finance, tech, agriculture, and more. You never have to pick the right door.</p>
+    <a href="#" style="display:inline-flex;align-items:center;gap:10px;margin-top:44px;font-size:14px;font-weight:750;border-bottom:1px solid;padding-bottom:3px;align-self:flex-start">Find your SBDC <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></a>
+  </div>
+  <div style="position:relative;background:var(--navy);color:#fdfdfd;aspect-ratio:4/5;max-height:680px;display:flex;flex-direction:column;justify-content:center;padding:64px max(48px,calc((100vw - 1400px)/2)) 64px 56px;overflow:hidden">
+    <img src="https://americassbdc.org/wp-content/uploads/2018/01/bg-star.png" alt="" aria-hidden="true" style="position:absolute;right:-120px;bottom:-140px;width:480px;height:auto;opacity:.08;pointer-events:none">
+    <span style="position:relative;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--pool)">06 — Your next step</span>
+    <p style="position:relative;margin:22px 0 0;font-size:clamp(32px,2.8vw,44px);font-weight:400;letter-spacing:-.02em;line-height:1.05">Ready when you are. <strong style="font-weight:800">No fee. <span style="color:var(--pool)">Ever.</span></strong></p>
+    <p style="position:relative;margin:18px 0 0;max-width:40ch;font-size:15px;line-height:1.5;color:#ffffffd6">Confidential advising with someone who's done it before. It's a conversation, not another assessment.</p>
+    <div style="position:relative;margin-top:40px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" arrow="{{ true }}" href="MySBDC Sign In.dc.html" hint-size="auto,50px">Start in MySBDC</x-import></div>
+    <span style="position:relative;margin-top:22px;font-size:13px;font-weight:700;color:#ffffffab">Prefer to talk first? <a href="tel:18332757232" style="color:var(--pool);font-weight:750;border-bottom:1px solid var(--pool);padding-bottom:2px" style-hover="color:#fdfdfd;border-color:#fdfdfd">(833) ASK-SBDC</a> · Mon – Fri 9 – 5</span>
+  </div>
+</section>
+<footer data-screen-label="Footer" style="background:var(--footer-ink);color:#fdfdfdcc;border-top:5px solid var(--berry)">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:60px 0 48px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;align-items:start">
+    <div>
+      <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-white-180h.png" alt="America’s SBDC California, Northern California Network" style="height:48px;width:auto"></a>
+      <p style="margin:18px 0 0;font-size:13px;line-height:1.55;color:#ffffffab"><strong style="color:#fdfdfd">Your Business, Better.</strong> Confidential business advising. No fee.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Work with us</h3>
+      <a href="Advising.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Advising</a>
+      <a href="Trainings.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Training</a>
+      <a href="Funding.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Funding</a>
+      <a href="Resources.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Resources</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Network</h3>
+      <a href="Stories.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Stories</a>
+      <a href="About.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">About</a>
+      <a href="Careers.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Careers</a>
+      <a href="Partners.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Become a Partner</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Contact</h3>
+      <a href="MySBDC Sign In.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">MySBDC Log in</a>
+      <a href="mailto:info@norcalsbdc.org" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">info@norcalsbdc.org</a>
+      <a href="tel:18332757232" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">(833) ASK-SBDC</a>
+      <span style="font-size:12px;color:#ffffff8a">Mon – Fri, 9 AM – 5 PM</span>
+    </div>
+  </div>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:22px 0 34px;border-top:1px solid #ffffff2e;display:flex;align-items:center;gap:40px;flex-wrap:wrap">
+    <span style="display:block;background:var(--paper);padding:9px 14px;border-radius:4px;flex:none"><img src="assets/required-partner-logos.png" alt="America’s SBDC California accredited member, Cal Poly Humboldt, SCALE powered by CalOSBA, U.S. Small Business Administration" style="width:340px;max-width:100%;height:auto;display:block"></span>
+    <p style="margin:0;flex:1;min-width:380px;font-size:11px;line-height:1.55;color:#ffffff6e">Funded in part through a cooperative agreement with the U.S. Small Business Administration and grants from the California Office of the Small Business Advocate. Opinions expressed are those of the author(s) and do not necessarily reflect their views. Hosted by Cal Poly Humboldt Sponsored Programs Foundation. © 2026 NorCal SBDC</p>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { need: 'All', query: '' };
+  renderVals() {
+    const PROGRAMS = [
+      { name: 'Certified Capital Advisors', need: 'Capital', body: 'Specialized finance consultants for loan readiness and packaging, equipment and real-estate financing, buy/sell consulting — plus Fundica, an AI-powered grant and financing finder, and 100+ lender partners.', proof: '594+ businesses · $250M+ in working capital since 2018' },
+      { name: 'Tech Futures Group', need: 'Tech advisory · VC-ready', body: 'Entrepreneurs-in-Residence paired one-on-one with founders, plus specialists in IP, fundraising, financial projections and SBIR/STTR federal grants. No cost, no equity.', proof: '538+ startups · $194M raised since 2012' },
+      { name: 'ProBiz', need: 'Contracting', body: 'Contracting readiness with CalChamber, the CA Hispanic and Cal Asian Chambers, California Capital and APEX: training, one-on-one advising, bid prep and certification help.', proof: '870+ clients won $500M+ in contracts last year' },
+      { name: 'AI Advising', need: 'AI', body: 'Hands-on workshop series — AI basics, AI-assisted marketing and more — plus the AI Masterclass on learn.norcalsbdc.org. Practical help with real tasks, not broad AI claims.', proof: 'Learn it in an afternoon, use it Monday' }
+    ];
+    const TOPICS = ['Advertising', 'Agribusiness', 'AI', 'Bookkeeping', 'Branding', 'Business planning', 'Cash flow', 'Credit repair', 'Cybersecurity', 'E-commerce', 'Exporting', 'Franchising', 'Grants', 'Hiring & HR', 'International trade', 'Lease negotiation', 'Loan packaging', 'Marketing', 'Patents & trademarks', 'Permits & licensing', 'Pricing', 'QuickBooks', 'Real estate', 'Restaurants', 'Retail', 'Social media', 'Solar & energy', 'Supply chain', 'Taxes', 'Website strategy'];
+    const morePrograms = [
+      { name: 'EATS — Food & Hospitality', need: 'Food' },
+      { name: 'Manufacturing Program', need: 'Manufacturing' },
+      { name: 'NorCal APEX Accelerator', need: 'Gov contracts' },
+      { name: 'NorCal VBOC', need: 'Veterans' }
+    ];
+    return { programs: PROGRAMS, morePrograms, topics: TOPICS };
+  }
+}
+</script>
+</body>
+</html>

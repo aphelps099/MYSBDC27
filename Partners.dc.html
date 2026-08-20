@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="Partner with NorCal SBDC — funders, hosts, lenders and chambers bringing no-fee business advising to Northern California communities.">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="stylesheet" href="https://use.typekit.net/pkl5rjs.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:var(--paper);color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);text-decoration:none;transition:color .18s ease,background .18s ease}
+    a:hover{color:var(--cobalt)}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
+  </style>
+</helmet>
+<div style="overflow-x:clip">
+<section data-screen-label="Header" style="background:var(--navy);color:#fdfdfd">
+  <header>
+    <div style="width:min(1400px,100% - 96px);margin:0 auto;height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC home" style="display:block"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-white-180h.png" alt="America’s SBDC California, Northern California Network" style="height:52px;width:auto;display:block"></a>
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:24px">
+        <a href="Advising.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em" style-hover="color:var(--pool)">Advising</a>
+        <a href="Trainings.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em" style-hover="color:var(--pool)">Training</a>
+        <a href="Funding.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em" style-hover="color:var(--pool)">Funding</a>
+        <a href="Stories.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em" style-hover="color:var(--pool)">Stories</a>
+        <a href="About.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em;border-bottom:2px solid var(--pool);padding-bottom:3px" style-hover="color:var(--pool)">About</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:22px">
+        <a href="MySBDC Sign In.dc.html" style="color:#fdfdfd;font-size:13px;font-weight:750;border-bottom:1px solid #ffffff8a;padding-bottom:2px;white-space:nowrap" style-hover="color:var(--pool);border-color:var(--pool)">MySBDC Log in</a>
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" small="{{ true }}" href="#inquire" style="flex:none;white-space:nowrap" hint-size="auto,43px">Partner with us</x-import>
+      </div>
+    </div>
+  </header>
+</section>
+<section data-screen-label="Hero" aria-label="Our partners" style="background:var(--paper);border-bottom:1px solid #0f1c2d29">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;max-width:860px;padding:120px 0 128px;text-align:center;display:flex;flex-direction:column;align-items:center">
+    <p style="margin:0 0 30px;font-size:12px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">Our network</p>
+    <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(58px,6vw,96px);letter-spacing:-.05em;line-height:.92;color:var(--navy);text-wrap:balance">Our partners</h1>
+    <span style="display:block;width:72px;height:3px;background:var(--berry);margin:38px 0"></span>
+    <p style="margin:0;max-width:56ch;font-size:20px;line-height:1.6;color:var(--slate);text-wrap:pretty">Financial, volunteer and in-kind — every hour of no-fee, confidential advising in Northern California is underwritten by a partner. Here’s who holds it up, and how to join them.</p>
+    <div style="display:flex;align-items:center;gap:26px;margin-top:48px;flex-wrap:wrap;justify-content:center">
+      <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" arrow="{{ true }}" href="#inquire" hint-size="auto,50px">Start a conversation</x-import>
+    </div>
+  </div>
+</section>
+<section data-screen-label="Current partners" aria-label="Current partners" style="background:var(--paper);padding:96px 0 104px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.62fr) 1fr;gap:80px;align-items:start;padding-bottom:64px">
+    <div>
+      <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">01 — Who’s already in</p>
+      <h2 style="margin:0;max-width:18ch;font-family:var(--sera);font-weight:400;font-size:clamp(34px,3vw,46px);letter-spacing:-.05em;line-height:.98;color:var(--navy)">A network held up by many hands.</h2>
+    </div>
+    <p style="margin:0;max-width:52ch;font-size:16px;line-height:1.6;color:var(--slate);align-self:end">Three tiers hold the network up: federal and state funders who underwrite the hours, universities and colleges who host the centers, and corporate partners who contribute tools and volunteer expertise.</p>
+  </div>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.62fr) 1fr;gap:80px;align-items:start;padding:56px 0;border-top:1px solid #0f1c2d29">
+    <div>
+      <p style="margin:0 0 18px;display:flex;align-items:center;gap:14px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)"><span style="display:block;width:26px;height:3px;background:var(--berry)"></span>Funders</p>
+      <h3 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(28px,2.4vw,36px);letter-spacing:-.04em;line-height:1;color:var(--navy)">Federal &amp; state</h3>
+      <p style="margin:18px 0 0;max-width:40ch;font-size:15px;line-height:1.55;color:var(--slate)">Their appropriations are what make advising no-fee. Every client hour in the 36 counties traces back here.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);border:1px solid #0f1c2d29;border-radius:5px;background:var(--paper)">
+      <div style="padding:36px 34px;border-right:1px solid #0f1c2d29">
+        <p style="margin:0 0 14px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Powered by</p>
+        <strong style="display:block;font-size:24px;font-weight:800;letter-spacing:-.01em;color:var(--navy)">SBA</strong>
+        <p style="margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--slate)">U.S. Small Business Administration</p>
+      </div>
+      <div style="padding:36px 34px">
+        <p style="margin:0 0 14px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">State of California</p>
+        <strong style="display:block;font-size:24px;font-weight:800;letter-spacing:-.01em;color:var(--navy)">CalOSBA</strong>
+        <p style="margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--slate)">Office of the Small Business Advocate</p>
+      </div>
+    </div>
+  </div>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.62fr) 1fr;gap:80px;align-items:start;padding:56px 0;border-top:1px solid #0f1c2d29">
+    <div>
+      <p style="margin:0 0 18px;display:flex;align-items:center;gap:14px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)"><span style="display:block;width:26px;height:3px;background:var(--berry)"></span>Hosts</p>
+      <h3 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(28px,2.4vw,36px);letter-spacing:-.04em;line-height:1;color:var(--navy)">Host institutions</h3>
+      <p style="margin:18px 0 0;max-width:40ch;font-size:15px;line-height:1.55;color:var(--slate)">Universities and colleges give the centers a room, a campus and a community — closer to the businesses they serve.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #0f1c2d29;border-radius:5px;background:var(--paper)">
+      <div style="padding:30px 28px;border-right:1px solid #0f1c2d29;font-size:17px;font-weight:750;color:var(--navy)">Cal Poly Humboldt</div>
+      <div style="padding:30px 28px;border-right:1px solid #0f1c2d29;font-size:17px;font-weight:750;color:var(--navy)">Butte College</div>
+      <div style="padding:30px 28px;font-size:17px;font-weight:750;color:var(--navy)">Sierra College</div>
+      <div style="padding:30px 28px;border-top:1px solid #0f1c2d29;border-right:1px solid #0f1c2d29;font-size:17px;font-weight:750;color:var(--navy)">Sonoma State University</div>
+      <div style="padding:30px 28px;border-top:1px solid #0f1c2d29;border-right:1px solid #0f1c2d29;font-size:17px;font-weight:750;color:var(--navy)">Shasta College</div>
+      <div style="padding:30px 28px;border-top:1px solid #0f1c2d29;font-size:14px;line-height:1.5;color:var(--slate-light)">And host campuses across 36 counties</div>
+    </div>
+  </div>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.62fr) 1fr;gap:80px;align-items:start;padding:56px 0 0;border-top:1px solid #0f1c2d29">
+    <div>
+      <p style="margin:0 0 18px;display:flex;align-items:center;gap:14px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)"><span style="display:block;width:26px;height:3px;background:var(--berry)"></span>Corporate</p>
+      <h3 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(28px,2.4vw,36px);letter-spacing:-.04em;line-height:1;color:var(--navy)">Resource partners</h3>
+      <p style="margin:18px 0 0;max-width:40ch;font-size:15px;line-height:1.55;color:var(--slate)">In-kind tools, volunteer hours and specialist expertise our advisors put directly in front of clients.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);border:1px solid #0f1c2d29;border-radius:5px;background:var(--paper)">
+      <div style="padding:44px 34px;border-right:1px solid #0f1c2d29;font-size:22px;font-weight:800;letter-spacing:-.01em;color:var(--navy)">Intuit</div>
+      <div style="padding:44px 34px;font-size:22px;font-weight:800;letter-spacing:-.01em;color:var(--navy)">Constant Contact</div>
+    </div>
+  </div>
+</section>
+<section data-screen-label="What you get" aria-label="What partnership returns" style="background:var(--pool);padding:104px 0 112px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;max-width:820px;text-align:center;display:flex;flex-direction:column;align-items:center">
+    <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#0f1c2d99">02 — What partnership returns</p>
+    <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(42px,3.8vw,58px);letter-spacing:-.05em;line-height:.95;color:var(--navy);text-wrap:balance">Your investment, on the record.</h2>
+    <span style="display:block;width:64px;height:3px;background:var(--navy);margin:34px 0"></span>
+    <p style="margin:0;font-size:21px;line-height:1.6;color:#0f1c2dcc;text-wrap:pretty">Advisors on the ground, co-hosted training, and a referral path that closes the loop — reported by clients, verified annually, attributable to your region.</p>
+  </div>
+  <div style="width:min(1400px,100% - 96px);margin:96px auto 0;display:grid;grid-template-columns:repeat(3,1fr)">
+      <div style="padding:0 48px 0 0;border-right:1px solid #0f1c2d33;">
+        <p style="margin:0;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#0f1c2d99">Capital unlocked, last two years</p>
+        <strong style="display:block;margin-top:16px;font-family:var(--sera);font-weight:400;font-size:clamp(52px,4.4vw,74px);letter-spacing:-.05em;line-height:.9;color:var(--navy)">$1.56B</strong>
+        <p style="margin:18px 0 0;font-size:14px;line-height:1.55;color:#0f1c2dbb">Loans and equity for client businesses across 36 counties.</p>
+      </div>
+      <div style="padding:0 48px 0 48px;border-right:1px solid #0f1c2d33;">
+        <p style="margin:0;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#0f1c2d99">Local jobs supported</p>
+        <strong style="display:block;margin-top:16px;font-family:var(--sera);font-weight:400;font-size:clamp(52px,4.4vw,74px);letter-spacing:-.05em;line-height:.9;color:var(--navy)">111K</strong>
+        <p style="margin:18px 0 0;font-size:14px;line-height:1.55;color:#0f1c2dbb">Verified annually by third-party research. No multipliers.</p>
+      </div>
+      <div style="padding:0 0 0 48px;">
+        <p style="margin:0;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#0f1c2d99">Client satisfaction</p>
+        <strong style="display:block;margin-top:16px;font-family:var(--sera);font-weight:400;font-size:clamp(52px,4.4vw,74px);letter-spacing:-.05em;line-height:.9;color:var(--navy)">99%</strong>
+        <p style="margin:18px 0 0;font-size:14px;line-height:1.55;color:#0f1c2dbb">Businesses who’d recommend the advising you funded.</p>
+      </div>
+  </div>
+</section>
+<section id="inquire" data-screen-label="Partner inquiry" aria-label="Partner with us" style="display:grid;grid-template-columns:1fr 1fr;border-bottom:5px solid var(--berry)">
+  <div style="background:var(--paper);color:var(--navy);aspect-ratio:4/5;max-height:620px;display:flex;flex-direction:column;justify-content:center;padding:64px 56px 64px max(48px,calc((100vw - 1400px)/2))">
+    <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">03 — Current opportunities</span>
+    <h2 style="margin:22px 0 0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(30px,2.6vw,40px);letter-spacing:-.05em;line-height:1;color:var(--navy)">Open RFPs and host opportunities.</h2>
+    <p style="margin:20px 0 0;max-width:42ch;font-size:15px;line-height:1.55;color:var(--slate)">We periodically seek host institutions and service providers across the region. Posted opportunities include scope, term and submission deadlines.</p>
+    <a href="#" style="display:inline-flex;align-items:center;gap:10px;margin-top:44px;font-size:14px;font-weight:750;border-bottom:1px solid;padding-bottom:3px;align-self:flex-start">Explore current RFPs <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></a>
+  </div>
+  <div style="position:relative;background:var(--navy);color:#fdfdfd;aspect-ratio:4/5;max-height:620px;display:flex;flex-direction:column;justify-content:center;padding:64px max(48px,calc((100vw - 1400px)/2)) 64px 56px;overflow:hidden">
+    <img src="https://americassbdc.org/wp-content/uploads/2018/01/bg-star.png" alt="" aria-hidden="true" style="position:absolute;right:-120px;bottom:-140px;width:460px;height:auto;opacity:.08;pointer-events:none">
+    <span style="position:relative;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--pool)">04 — Start here</span>
+    <p style="position:relative;margin:22px 0 0;font-size:clamp(30px,2.8vw,42px);font-weight:400;letter-spacing:-.02em;line-height:1.08">Bring no-fee advising <strong style="font-weight:800">to your <span style="color:var(--pool)">community.</span></strong></p>
+    <p style="position:relative;margin:18px 0 0;max-width:38ch;font-size:15px;line-height:1.5;color:#ffffffd6">Tell us who you serve and what they need. We’ll come back with what a partnership could look like.</p>
+    <div style="position:relative;margin-top:40px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" arrow="{{ true }}" href="mailto:info@norcalsbdc.org" hint-size="auto,50px">Start a conversation</x-import></div>
+    <span style="position:relative;margin-top:22px;font-size:13px;font-weight:700;color:#ffffffab">Or call <a href="tel:18332757232" style="color:var(--pool);font-weight:750;border-bottom:1px solid var(--pool);padding-bottom:2px" style-hover="color:#fdfdfd;border-color:#fdfdfd">(833) ASK-SBDC</a> · Mon – Fri 9 – 5</span>
+  </div>
+</section>
+<footer data-screen-label="Footer" style="background:var(--footer-ink);color:#fdfdfdcc">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:60px 0 48px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;align-items:start">
+    <div>
+      <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-white-180h.png" alt="America’s SBDC California, Northern California Network" style="height:48px;width:auto"></a>
+      <p style="margin:18px 0 0;font-size:13px;line-height:1.55;color:#ffffffab"><strong style="color:#fdfdfd">Your Business, Better.</strong> Confidential business advising. No fee.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Work with us</h3>
+      <a href="Advising.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Advising</a>
+      <a href="Trainings.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Training</a>
+      <a href="Funding.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Funding</a>
+      <a href="Resources.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Resources</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Network</h3>
+      <a href="Stories.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Stories</a>
+      <a href="About.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">About</a>
+      <a href="Careers.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Careers</a>
+      <a href="Partners.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Become a Partner</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Contact</h3>
+      <a href="MySBDC Sign In.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">MySBDC Log in</a>
+      <a href="mailto:info@norcalsbdc.org" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">info@norcalsbdc.org</a>
+      <a href="tel:18332757232" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">(833) ASK-SBDC</a>
+      <span style="font-size:12px;color:#ffffff8a">Mon – Fri, 9 AM – 5 PM</span>
+    </div>
+  </div>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:22px 0 34px;border-top:1px solid #ffffff2e;display:flex;align-items:center;gap:40px;flex-wrap:wrap">
+    <span style="display:block;background:var(--paper);padding:9px 14px;border-radius:4px;flex:none"><img src="assets/required-partner-logos.png" alt="America’s SBDC California accredited member, Cal Poly Humboldt, SCALE powered by CalOSBA, U.S. Small Business Administration" style="width:340px;max-width:100%;height:auto;display:block"></span>
+    <p style="margin:0;flex:1;min-width:380px;font-size:11px;line-height:1.55;color:#ffffff6e">Funded in part through a cooperative agreement with the U.S. Small Business Administration and grants from the California Office of the Small Business Advocate. Opinions expressed are those of the author(s) and do not necessarily reflect their views. Hosted by Cal Poly Humboldt Sponsored Programs Foundation. © 2026 NorCal SBDC</p>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

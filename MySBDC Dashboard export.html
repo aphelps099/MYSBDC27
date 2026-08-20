@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#0f1c2d">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#0f1c2d"/>
+<text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="150" font-weight="800" letter-spacing="-4"><tspan fill="#8fc5d9">My</tspan><tspan fill="#fdfdfd">SBDC</tspan></text>
+<rect x="480" y="480" width="240" height="10" fill="#c23c3c"/>
+</svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="MySBDC — your advisor, your next step, and what's coming up.">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="stylesheet" href="https://use.typekit.net/pkl5rjs.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--cream);color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);text-decoration:none;transition:color .18s ease,background .18s ease}
+    a:hover{color:var(--cobalt)}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:3px}
+    input,textarea,select{font:inherit}
+  </style>
+</helmet>
+<div style="min-height:100vh">
+<header data-screen-label="Header" style="background:var(--navy);color:#fdfdfd">
+  <div style="width:min(1120px,100% - 64px);margin:0 auto;min-height:74px;display:flex;align-items:center;gap:34px">
+    <a href="MySBDC Homepage.dc.html" style="font-size:20px;font-weight:800;letter-spacing:-.03em;color:#fdfdfd"><span style="color:var(--pool)">My</span>SBDC</a>
+    <nav aria-label="MySBDC" style="display:flex;align-items:center;gap:26px;margin-left:8px">
+      <a href="#" aria-current="page" style="color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em;border-bottom:2px solid var(--pool);padding:4px 0 6px">Home</a>
+      <a href="Training Calendar.dc.html" style="color:#ffffffad;font-size:13px;font-weight:750;letter-spacing:.02em;padding:4px 0 6px" style-hover="color:#fdfdfd">Training</a>
+      <a href="Resources.dc.html" style="color:#ffffffad;font-size:13px;font-weight:750;letter-spacing:.02em;padding:4px 0 6px" style-hover="color:#fdfdfd">Resources</a>
+      <a href="#" onClick="{{ openWin }}" style="color:#ffffffad;font-size:13px;font-weight:750;letter-spacing:.02em;padding:4px 0 6px" style-hover="color:#fdfdfd">Milestones</a>
+    </nav>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:18px">
+      <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" small="{{ true }}" href="MySBDC Homepage.dc.html" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Visit website</x-import>
+      <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#ffffff8a">North Coast SBDC</span>
+      <button aria-label="Notifications" style="position:relative;width:38px;height:38px;display:grid;place-items:center;background:none;border:none;color:#fdfdfd;cursor:pointer;padding:0"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.6 2.6H4.4L6 16z"></path><path d="M10 21a2.2 2.2 0 0 0 4 0"></path></svg><span style="position:absolute;top:6px;right:7px;width:8px;height:8px;border-radius:50%;background:var(--berry);border:2px solid var(--navy)"></span></button>
+      <button onClick="{{ openSettings }}" aria-label="Settings" style="width:38px;height:38px;display:grid;place-items:center;background:none;border:none;color:#fdfdfd;cursor:pointer;padding:0"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="3.2"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.06-1.58 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.67 9.4a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.1 4.64l.06.06c.5.5 1.23.63 1.87.34A1.7 1.7 0 0 0 10.09 3.5V3.4a2 2 0 1 1 4 0v.09c0 .7.42 1.32 1.06 1.58.64.29 1.37.16 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87c.26.64.88 1.06 1.58 1.06H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1z"></path></svg></button>
+      <span style="width:36px;height:36px;border-radius:50%;background:var(--pool);color:var(--navy);display:grid;place-items:center;font-size:11px;font-weight:800">AP</span>
+    </div>
+  </div>
+</header>
+<sc-if value="{{ regBanner }}" hint-placeholder-val="{{ false }}">
+  <div role="status" style="background:var(--pool-pale);border-bottom:1px solid #0f1c2d29">
+    <div style="width:min(1120px,100% - 64px);margin:0 auto;display:flex;align-items:center;gap:12px;padding:13px 0">
+      <span style="flex:none;width:19px;height:19px;border-radius:50%;background:var(--evergreen);color:#fdfdfd;display:grid;place-items:center;font-size:10px;font-weight:800">✓</span>
+      <span style="font-size:14px;color:var(--navy)"><strong style="font-weight:750">You’re registered.</strong> The Zoom link is in your email — and right here.</span>
+    </div>
+  </div>
+</sc-if>
+<div data-screen-label="Greeting" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#e0eef4 0%,#eeece2 68%,#f5f1e8 100%)">
+  <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.16;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span>
+  
+  <section style="position:relative;width:min(1120px,100% - 64px);margin:0 auto;padding:46px 0 40px">
+    <p style="margin:0 0 16px;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">Tuesday, August 19</p>
+    <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(38px,4.4vw,50px);letter-spacing:-.05em;line-height:.95;color:var(--navy)">Hi Avery.</h1>
+    <p style="margin:12px 0 0;font-size:16px;color:var(--slate)">Here’s what’s next.</p>
+  </section>
+</div>
+<main style="width:min(1120px,100% - 64px);margin:0 auto;padding:0 0 72px">
+  <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:26px;align-items:start;margin-top:34px">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <section data-screen-label="Next step" aria-label="Your next step" style="background:var(--paper);border:1px solid #0f1c2d29;border-top:5px solid var(--berry)">
+        <div style="padding:26px 32px 28px">
+          <p style="display:flex;align-items:center;gap:9px;margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="5" y="5" width="14" height="16" rx="1"></rect><path d="M9 5a3 3 0 0 1 6 0"></path><path d="M9 14l2.2 2.2L15 11.5"></path></svg>Your next step</p>
+          <p style="margin:16px 0 0;font-family:var(--sera);font-weight:400;font-size:clamp(22px,2vw,27px);letter-spacing:-.03em;line-height:1.15;color:var(--navy);max-width:24ch">Upload your P&amp;L before Thursday’s session.</p>
+          <p style="margin:10px 0 0;max-width:56ch;font-size:14px;line-height:1.55;color:var(--slate)">“I need last month’s numbers to finish your projections before the lender introduction. Rough is fine — we’ll clean it up together.”</p>
+          <p style="display:flex;align-items:center;gap:10px;margin:14px 0 0"><span style="width:26px;height:26px;border-radius:50%;background:var(--pool);color:var(--navy);display:grid;place-items:center;font-size:9px;font-weight:800">DW</span><span style="font-size:12.5px;color:var(--slate-light)"><strong style="font-weight:750;color:var(--slate)">Dana Whitfield</strong> · Aug 18</span></p>
+          <div style="display:flex;align-items:center;gap:24px;margin-top:22px;flex-wrap:wrap">
+            <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" small="{{ true }}" href="#" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Upload document</x-import>
+            <a href="#" style="font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">I need more time</a>
+          </div>
+        </div>
+      </section>
+      <section data-screen-label="Coming up" aria-label="Coming up" style="position:relative;overflow:hidden;background:var(--paper);border:1px solid #0f1c2d29;padding:24px 32px 10px">
+        
+        <p style="position:relative;display:flex;align-items:center;gap:9px;margin:0 0 4px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3" y="5" width="18" height="16" rx="1"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Coming up</p>
+        <sc-for list="{{ comingUp }}" as="c" hint-placeholder-count="1">
+          <div style="position:relative;display:grid;grid-template-columns:56px 1fr;gap:20px;align-items:start;padding:16px 0;border-bottom:1px solid #0f1c2d29">
+            <span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--berry)">{{ c.month }}</span><span style="font-family:var(--sera);font-weight:400;font-size:27px;letter-spacing:-.03em;line-height:1;color:var(--navy)">{{ c.day }}</span></span>
+            <span>
+              <span style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><span style="font-size:15.5px;font-weight:750;letter-spacing:-.01em;color:var(--navy)">{{ c.title }}</span><span style="display:inline-flex;align-items:center;padding:3px 8px;background:var(--pool-pale);font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)">{{ c.chip }}</span></span>
+              <span style="display:block;margin-top:3px;font-size:13px;color:var(--slate)">{{ c.meta }}</span>
+              <span style="display:flex;align-items:center;gap:18px;margin-top:8px;flex-wrap:wrap">
+                <a href="#" style="font-size:12.5px;font-weight:750;border-bottom:1px solid;padding-bottom:1px">Add to calendar</a>
+                <sc-if value="{{ c.cancel }}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{ c.cancel }}" style="font-size:12.5px;font-weight:750;color:var(--slate);border-bottom:1px solid;padding-bottom:1px">Can’t make it?</a></sc-if>
+              </span>
+            </span>
+          </div>
+        </sc-for>
+      </section>
+      <section data-screen-label="Trainings" aria-label="Trainings for you">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:24px">
+          <button data-drawer="trainings" onClick="{{ toggleDrawer }}" aria-expanded="{{ trainingsOpen }}" style="display:flex;align-items:center;gap:12px;padding:0;background:none;border:none;cursor:pointer;font-family:var(--nova)">
+            <span style="width:26px;height:26px;display:grid;place-items:center;border:1px solid #0f1c2d3d;font-size:14px;font-weight:400;color:var(--navy);line-height:1">{{ trainingsMark }}</span>
+            <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">Trainings for you</span>
+          </button>
+          <a href="Training Calendar.dc.html" style="font-size:12.5px;font-weight:750;border-bottom:1px solid;padding-bottom:1px">Full calendar</a>
+        </div>
+        <sc-if value="{{ trainingsOpen }}" hint-placeholder-val="{{ true }}">
+        <sc-for list="{{ openEvents }}" as="e" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:center;padding:14px 0;border-bottom:1px solid #0f1c2d29">
+            <span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--berry)">{{ e.month }}</span><span style="font-family:var(--sera);font-weight:400;font-size:24px;letter-spacing:-.03em;line-height:1;color:var(--navy)">{{ e.day }}</span></span>
+            <span>
+              <span style="display:block;font-size:15px;font-weight:750;letter-spacing:-.01em;color:var(--navy)">{{ e.title }}</span>
+              <span style="display:block;margin-top:2px;font-size:12.5px;color:var(--slate)">{{ e.meta }}</span>
+            </span>
+            <button onClick="{{ e.register }}" style="flex:none;min-height:40px;padding:0 20px;font-family:var(--nova);font-size:12.5px;font-weight:700;color:var(--navy);background:none;border:1px solid #0f1c2d5c;border-radius:4px;cursor:pointer;transition:color .18s ease,border-color .18s ease,background .18s ease" style-hover="color:#fdfdfd;background:var(--cobalt);border-color:var(--cobalt)">Register</button>
+          </div>
+        </sc-for>
+        </sc-if>
+      </section>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <section data-screen-label="Your business" aria-label="Your business" style="position:relative;overflow:hidden;background:linear-gradient(148deg,#1d3a5f 0%,#14263e 46%,#0f1c2d 100%);color:#fdfdfd">
+        
+        <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span>
+        <div style="position:relative;padding:22px 26px 24px">
+          <span style="display:block;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">Your business</span>
+          <strong style="display:block;margin-top:8px;font-family:var(--sera);font-weight:400;font-size:25px;letter-spacing:-.04em;line-height:1">Northstar Provisions</strong>
+          <span style="display:block;margin-top:5px;font-size:12.5px;color:#ffffffab">Food &amp; beverage — retail · LLC · Eureka, Humboldt County</span>
+          <div style="margin-top:16px;border-top:1px solid #ffffff29">
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid #ffffff29"><span style="font-size:12.5px;color:#ffffffab">Working on</span><strong style="font-size:12.5px;font-weight:750">Access to capital</strong></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid #ffffff29"><span style="font-size:12.5px;color:#ffffffab">Current priority</span><strong style="font-size:12.5px;font-weight:750">Complete lender package</strong></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:9px 0"><span style="font-size:12.5px;color:#ffffffab">Client since</span><strong style="font-size:12.5px;font-weight:750">March 2025</strong></div>
+          </div>
+        </div>
+      </section>
+      <section data-screen-label="Advisor" aria-label="Your advisor" style="background:var(--paper);border:1px solid #0f1c2d29">
+        <button onClick="{{ openSheet }}" aria-label="Play Dana's intro video" style="position:relative;display:block;width:100%;aspect-ratio:16/10;padding:0;border:none;background:var(--pool-pale);cursor:pointer;overflow:hidden">
+          <image-slot id="advisor-dana-video" shape="rect" placeholder="Dana's 30-second intro — drop a video poster here"></image-slot>
+          <span style="position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:10px;padding:9px 14px;background:#0f1c2df2;color:#fdfdfd">
+            <span style="width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid var(--pool)"></span>
+            <span style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">Meet Dana · 0:30</span>
+          </span>
+          <span style="position:absolute;inset:auto 0 0 0;height:5px;background:var(--berry)"></span>
+        </button>
+        <div style="padding:20px 26px 24px">
+          <span style="display:block;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Your advisor</span>
+          <strong style="display:block;margin-top:6px;font-family:var(--sera);font-weight:400;font-size:25px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Dana Whitfield</strong>
+          <span style="display:block;margin-top:5px;font-size:13px;color:var(--slate)">Food &amp; hospitality · Loans, cash flow, menu costing</span>
+          <div style="margin-top:16px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" small="{{ true }}" href="#" onClick="{{ openSheet }}" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Schedule a meeting</x-import></div>
+          <a href="#" style="display:inline-block;margin-top:12px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Send Dana a message</a>
+        </div>
+      </section>
+      <section data-screen-label="Resources" aria-label="Recommended for you" style="background:var(--paper);border:1px solid #0f1c2d29;padding:20px 26px 22px">
+        <button data-drawer="resources" onClick="{{ toggleDrawer }}" aria-expanded="{{ resourcesOpen }}" style="display:flex;align-items:center;gap:12px;width:100%;padding:0;background:none;border:none;cursor:pointer;font-family:var(--nova);text-align:left">
+          <span style="width:26px;height:26px;display:grid;place-items:center;border:1px solid #0f1c2d3d;font-size:14px;color:var(--navy);line-height:1">{{ resourcesMark }}</span>
+          <span style="font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Recommended by Dana</span>
+          <span style="margin-left:auto;font-size:11px;color:var(--slate-light)">3</span>
+        </button>
+        <sc-if value="{{ resourcesOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:8px">
+          <sc-for list="{{ resources }}" as="r" hint-placeholder-count="3">
+            <a href="#" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px solid #0f1c2d29;color:var(--navy)" style-hover="color:var(--cobalt)">
+              <span style="font-size:13.5px;font-weight:750;color:inherit">{{ r.name }}</span>
+              <span style="font-size:11.5px;color:var(--slate-light);white-space:nowrap">{{ r.kind }}</span>
+            </a>
+          </sc-for>
+        </div>
+        <a href="Resources.dc.html" style="display:inline-block;margin-top:14px;font-size:12.5px;font-weight:750;border-bottom:1px solid;padding-bottom:1px">Browse all resources</a>
+        </sc-if>
+      </section>
+    </div>
+  </div>
+  <section data-screen-label="Milestones" aria-label="Your milestones" style="position:relative;overflow:hidden;margin-top:40px;background:linear-gradient(155deg,#e9f2f6 0%,#f7f4ec 52%,#fdfdfd 100%);border:1px solid #0f1c2d29;border-top:5px solid var(--berry)">
+    <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.14;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span>
+    <span aria-hidden="true" style="position:absolute;right:-40px;bottom:-70px;pointer-events:none;color:var(--navy);opacity:.05"><svg width="210" height="210" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M5 21V4"></path><path d="M5 4h13l-2.5 4L18 12H5"></path></svg></span>
+    <div style="position:relative;padding:30px 34px 32px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap">
+        <div>
+          <p style="display:flex;align-items:center;gap:9px;margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M5 21V4"></path><path d="M5 4h13l-2.5 4L18 12H5"></path></svg>Your milestones</p>
+          <h2 style="margin:12px 0 0;font-family:var(--sera);font-weight:400;font-size:clamp(26px,2.4vw,32px);letter-spacing:-.04em;line-height:1;color:var(--navy)">Anything new with your business?</h2>
+          <p style="margin:10px 0 0;max-width:54ch;font-size:14px;line-height:1.55;color:var(--slate)">Funding, a hire, better sales, a new location — {{ growthNote }}</p>
+        </div>
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" small="{{ true }}" href="#" onClick="{{ openWin }}" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Share a milestone</x-import>
+      </div>
+      <button data-drawer="mhist" onClick="{{ toggleDrawer }}" aria-expanded="{{ mhistOpen }}" style="display:flex;align-items:center;gap:12px;margin-top:24px;padding:14px 0 0;width:100%;background:none;border:none;border-top:1px solid #0f1c2d29;cursor:pointer;font-family:var(--nova);text-align:left">
+        <span style="width:26px;height:26px;display:grid;place-items:center;border:1px solid #0f1c2d3d;font-size:14px;color:var(--navy);line-height:1">{{ mhistMark }}</span>
+        <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate)">Recent milestones</span>
+        <span style="margin-left:auto;font-size:11px;color:var(--slate-light)">3</span>
+      </button>
+      <sc-if value="{{ mhistOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:14px">
+        <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="3">
+          <div style="padding:16px 24px 4px 0;border-right:{{ m.rule }}">
+            <span style="display:block;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">{{ m.when }}</span>
+            <strong style="display:block;margin-top:5px;font-size:14.5px;font-weight:750;color:var(--navy)">{{ m.what }}</strong>
+            <span style="display:block;margin-top:3px;font-size:12.5px;color:var(--slate)">{{ m.detail }}</span>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+  <p style="margin:40px 0 0;padding-top:18px;border-top:1px solid #0f1c2d29;font-size:12.5px;line-height:1.6;color:var(--slate-light)"><strong style="font-weight:750;color:var(--slate)">Private conversations.</strong> Your numbers and notes are visible to you and your advisor only — never shared with a lender unless you choose to apply.</p>
+</main>
+<sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeSettings }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Settings sheet" role="dialog" aria-label="Settings" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid #0f1c2d29">
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Settings</h2>
+      <button onClick="{{ closeSettings }}" aria-label="Close" style="width:44px;height:44px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:17px;color:var(--navy);cursor:pointer">✕</button>
+    </div>
+    <div style="padding:26px 30px 36px">
+      <p style="margin:0 0 10px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Account</p>
+      <div style="border-top:1px solid #0f1c2d29">
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Name</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">Avery Patel</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Email</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">avery@northstar.co</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Phone</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">(707) 555-0184</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Language</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">English</strong></div>
+      </div>
+      <a href="#" style="display:inline-block;margin-top:12px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Edit account details</a>
+      <p style="margin:32px 0 6px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Notifications</p>
+      <p style="margin:0 0 12px;font-size:12.5px;color:var(--slate)">How we reach you between sessions. No noise — change anything, anytime.</p>
+      <div style="border-top:1px solid #0f1c2d29">
+        <sc-for list="{{ notifs }}" as="n" hint-placeholder-count="5">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:13px 0;border-bottom:1px solid #0f1c2d29">
+            <span><strong style="display:block;font-size:13.5px;font-weight:750;color:var(--navy)">{{ n.label }}</strong><span style="display:block;margin-top:2px;font-size:12px;color:var(--slate)">{{ n.body }}</span></span>
+            <button data-key="{{ n.key }}" onClick="{{ toggleNotif }}" role="switch" aria-checked="{{ n.on }}" aria-label="{{ n.label }}" style="{{ n.trackStyle }}"><span style="{{ n.knobStyle }}"></span></button>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:14px 0 0;display:flex;align-items:center;gap:7px;font-size:12px;color:var(--slate-light)"><span style="width:7px;height:7px;border-radius:50%;background:var(--evergreen)"></span>Saved automatically.</p>
+      <p style="margin:28px 0 0;padding-top:18px;border-top:1px solid #0f1c2d29;font-size:12px;line-height:1.6;color:var(--slate-light)">Your data stays between you and your advisor. <a href="#" style="border-bottom:1px solid;padding-bottom:1px;color:var(--slate)">Privacy</a> · <a href="MySBDC Sign In.dc.html" style="border-bottom:1px solid;padding-bottom:1px;color:var(--slate)">Sign out</a></p>
+    </div>
+  </aside>
+</sc-if>
+<sc-if value="{{ winOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeWin }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Milestone sheet" role="dialog" aria-label="Share your business growth" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid #0f1c2d29">
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Share your growth</h2>
+      <button onClick="{{ closeWin }}" aria-label="Close" style="width:44px;height:44px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:17px;color:var(--navy);cursor:pointer">✕</button>
+    </div>
+    <sc-if value="{{ winForm }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:26px 30px 36px">
+        <div style="padding:13px 16px;background:var(--pool-pale);margin:0 0 24px">
+          <p style="margin:0;font-size:12.5px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Northstar Provisions · North Coast SBDC.</strong> We already have your record — just add what changed. About four minutes.</p>
+        </div>
+        <p style="margin:0 0 10px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">What changed? <span style="font-weight:400;letter-spacing:0;text-transform:none;color:var(--slate-light)">(required)</span></p>
+        <div role="radiogroup" aria-label="What changed" style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ winKinds }}" as="k" hint-placeholder-count="5">
+            <button data-kind="{{ k.name }}" onClick="{{ pickKind }}" style="{{ k.cardStyle }}">
+              <span style="{{ k.dotStyle }}"></span>
+              <span style="text-align:left"><span style="display:block;font-size:14px;font-weight:750">{{ k.name }}</span><span style="display:block;margin-top:2px;font-size:12px;color:var(--slate);font-weight:400">{{ k.body }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px">
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)">Rough amount</span><input type="text" placeholder="$ — a range is fine" style="min-height:46px;padding:0 12px;font-size:14px;color:var(--navy);background:#fff;border:1px solid #0f1c2d3d;border-radius:4px;outline:none"></label>
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)">When</span><input type="text" placeholder="August 2026" style="min-height:46px;padding:0 12px;font-size:14px;color:var(--navy);background:#fff;border:1px solid #0f1c2d3d;border-radius:4px;outline:none"></label>
+        </div>
+        <p style="margin:8px 0 0;font-size:11.5px;color:var(--slate-light)">Nothing here is audited — your best guess is enough.</p>
+        <label style="display:flex;flex-direction:column;gap:7px;margin-top:20px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)">The story, in a line or two <span style="font-weight:400;letter-spacing:0;text-transform:none">(optional)</span></span><textarea rows="3" placeholder="What made it possible? Anyone we should thank?" style="padding:12px;font-size:14px;font-family:var(--nova);color:var(--navy);background:#fff;border:1px solid #0f1c2d3d;border-radius:4px;outline:none;resize:vertical"></textarea></label>
+        <button onClick="{{ submitWin }}" style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:50px;margin-top:24px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">Submit</button>
+        <p style="margin:12px 0 0;font-size:12px;line-height:1.55;color:var(--slate-light)">Nothing is published with your name on it. A reviewer at your center checks every milestone before it counts toward impact reporting.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ winDone }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:32px 30px 36px">
+        <p style="margin:0 0 14px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--evergreen)">Submitted</p>
+        <h3 style="margin:0;font-family:var(--sera);font-weight:400;font-size:32px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Thank you, Avery.</h3>
+        <p style="margin:16px 0 0;font-size:14.5px;line-height:1.6;color:var(--slate)">A reviewer at North Coast SBDC will check this before it counts — you’ll get a thank-you by email when it lands. Dana may follow up on the details.</p>
+        <button onClick="{{ closeWin }}" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;margin-top:28px;background:none;border:1px solid #0f1c2d5c;border-radius:4px;font-family:var(--nova);font-size:14px;font-weight:700;color:var(--navy);cursor:pointer">Back to dashboard</button>
+      </div>
+    </sc-if>
+  </aside>
+</sc-if>
+<sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeSheet }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Advisor sheet" role="dialog" aria-label="Your advisor" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid #0f1c2d29">
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Your advisor</h2>
+      <button onClick="{{ closeSheet }}" aria-label="Close" style="width:44px;height:44px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:17px;color:var(--navy);cursor:pointer">✕</button>
+    </div>
+    <div style="padding:28px 30px 36px">
+      <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;align-items:center">
+        <figure style="margin:0;position:relative;padding:0 10px 10px 0">
+          <span style="position:absolute;top:10px;right:0;bottom:0;left:10px;background:var(--pool)"></span>
+          <span style="position:relative;display:block;width:102px;height:102px;overflow:hidden;background:var(--pool-pale)"><image-slot id="advisor-dana-sheet" shape="rect" placeholder="Headshot"></image-slot></span>
+        </figure>
+        <div>
+          <strong style="display:block;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Dana Whitfield</strong>
+          <span style="display:block;margin-top:8px;font-size:13.5px;color:var(--slate)">Business advisor, North Coast SBDC</span>
+          <span style="display:block;margin-top:4px;font-size:13.5px;color:var(--slate)">11 years advising · 300+ clients</span>
+        </div>
+      </div>
+      <div style="margin-top:22px;padding:16px 18px;background:var(--pool-pale)">
+        <p style="margin:0;font-size:13.5px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Why Dana:</strong> you asked for help with money, loans and cash flow. That’s her specialty — and she works with North Coast food businesses like yours.</p>
+      </div>
+      <p style="margin:26px 0 10px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">In her words</p>
+      <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--slate)">“I spent eleven years running two restaurants before I started advising, so I know what it’s like when the numbers keep you up at night. Bring whatever you have — a shoebox of receipts is a fine place to start. We’ll sort it together.”</p>
+      <div style="margin-top:24px;border-top:1px solid #0f1c2d29">
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Helps with</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy);text-align:right">Loans · Cash flow · Menu costing</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Languages</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">English, Spanish</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Meets by</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">Video, phone, or in person</strong></div>
+      </div>
+      <a href="#" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Dana on LinkedIn</a>
+      <sc-if value="{{ notBooked }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:32px 0 12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Pick a time</p>
+        <div role="radiogroup" aria-label="Session times" style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
+            <button data-slot="{{ s.id }}" onClick="{{ pickSlot }}" style="{{ s.cardStyle }}">
+              <span style="{{ s.dotStyle }}"></span>
+              <span style="text-align:left"><span style="display:block;font-size:14px;font-weight:750">{{ s.when }}</span><span style="display:block;margin-top:2px;font-size:12px;color:var(--slate);font-weight:400">{{ s.mode }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="margin-top:18px">
+          <button onClick="{{ confirmBooking }}" style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:50px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">{{ confirmLabel }}</button>
+          <p style="margin:10px 0 0;font-size:12px;color:var(--slate-light)">A 30-minute conversation, not another assessment. Reschedule anytime.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ booked }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="display:flex;align-items:flex-start;gap:12px;margin-top:32px;padding:16px 18px;background:var(--pool-pale)">
+          <span style="flex:none;width:19px;height:19px;border-radius:50%;background:var(--evergreen);color:#fdfdfd;display:grid;place-items:center;font-size:10px;font-weight:800;margin-top:2px">✓</span>
+          <span style="font-size:14px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Booked — {{ bookedWhen }}.</strong> Dana sent a calendar invite to your email. The video link lives there and on your dashboard.</span>
+        </div>
+      </sc-if>
+    </div>
+  </aside>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { registered: {}, regBanner: false, sheetOpen: false, slotId: 's1', booked: false, bookedWhen: '', winOpen: false, winDone: false, winKind: 'Raised capital', settingsOpen: false, drawers: { trainings: true, resources: false, mhist: false },
+    notifs: { training: true, advisor: true, sms: false, checkin: true, intel: true } };
+  renderVals() {
+    const EVENTS = [
+      { id: 'e1', day: '01', month: 'Sep', title: 'Pricing for profit', meta: 'Tue 10:00 AM · Online on Zoom · 90 minutes · Free' },
+      { id: 'e2', day: '16', month: 'Sep', title: 'Hiring your first employee in California', meta: 'Wed 2:00 PM · Arcata · 2 hours · Free' },
+      { id: 'e3', day: '24', month: 'Sep', title: 'Selling online: your first web store', meta: 'Thu 10:00 AM · Online on Zoom · 90 minutes · Free' }
+    ];
+    const setReg = (id, on) => this.setState(s => {
+      const registered = { ...s.registered, [id]: on };
+      return { registered, regBanner: on ? true : Object.values(registered).some(Boolean) };
+    });
+    const openEvents = EVENTS.filter(e => !this.state.registered[e.id]).map(e => ({ ...e, register: () => setReg(e.id, true) }));
+    const comingUp = [
+      { month: 'Aug', day: '21', title: 'Session with Dana', meta: 'Video · 45 minutes · P&L review before the lender introduction', chip: 'Advising', cancel: false },
+      ...EVENTS.filter(e => this.state.registered[e.id]).map(e => ({
+        month: e.month, day: e.day, title: e.title, meta: e.meta, chip: '✓ Registered',
+        cancel: (ev) => { ev.preventDefault(); setReg(e.id, false); }
+      }))
+    ];
+    const SLOTS = [
+      { id: 's1', when: 'Thu, Aug 21 · 10:00 AM', mode: 'Video' },
+      { id: 's2', when: 'Fri, Aug 22 · 2:00 PM', mode: 'Video or phone' },
+      { id: 's3', when: 'Mon, Aug 25 · 9:30 AM', mode: 'In person · Eureka office' }
+    ];
+    const slots = SLOTS.map(s => {
+      const sel = this.state.slotId === s.id;
+      return { ...s,
+        cardStyle: { display: 'flex', gap: '12px', alignItems: 'center', padding: '13px 15px', width: '100%', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)', border: sel ? '2px solid var(--cobalt)' : '1px solid #0f1c2d3d', background: sel ? 'var(--pool-pale)' : '#fdfdfd', borderRadius: '4px', textAlign: 'left' },
+        dotStyle: { flex: 'none', width: '18px', height: '18px', borderRadius: '50%', boxSizing: 'border-box', border: sel ? '6px solid var(--cobalt)' : '2px solid var(--slate-light)', background: sel ? '#fdfdfd' : 'none' } };
+    });
+    const pickedSlot = SLOTS.find(s => s.id === this.state.slotId);
+    const WIN_KINDS = [
+      { name: 'Raised capital', body: 'A loan closed, or investment came in.' },
+      { name: 'Hired someone', body: 'Full or part time — including your first.' },
+      { name: 'Sales grew', body: 'A better month, quarter, or year.' },
+      { name: 'Started the business', body: 'You opened, launched, or made your first sale.' },
+      { name: 'Something else', body: 'A lease, a location, a big contract.' }
+    ];
+    const winKinds = WIN_KINDS.map(k => {
+      const sel = this.state.winKind === k.name;
+      return { ...k,
+        cardStyle: { display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '12px 15px', width: '100%', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)', border: sel ? '2px solid var(--cobalt)' : '1px solid #0f1c2d3d', background: sel ? 'var(--pool-pale)' : '#fdfdfd', borderRadius: '4px', textAlign: 'left' },
+        dotStyle: { flex: 'none', width: '18px', height: '18px', borderRadius: '50%', marginTop: '2px', boxSizing: 'border-box', border: sel ? '6px solid var(--cobalt)' : '2px solid var(--slate-light)', background: sel ? '#fdfdfd' : 'none' } };
+    });
+    return {
+      comingUp, openEvents, slots, winKinds,
+      nowrapBtn: { style: { whiteSpace: 'nowrap', flex: 'none' } },
+      regBanner: this.state.regBanner,
+      growthNote: this.state.winDone ? 'submitted. A reviewer at your center checks it before it counts.' : 'it takes about four minutes, and it helps the next business get help.',
+      resources: [
+        { name: 'Loan package checklist', kind: 'Checklist' },
+        { name: 'Cash flow forecast (13 weeks)', kind: 'Template' },
+        { name: 'Menu costing worksheet', kind: 'Template' }
+      ],
+      milestones: [
+        { when: 'Jun 2026', what: 'Signed a five-year lease', detail: 'Old Town Eureka storefront', rule: '1px solid #0f1c2d29' },
+        { when: 'Apr 2026', what: 'First employee hired', detail: 'Full-time baker', rule: '1px solid #0f1c2d29' },
+        { when: 'Mar 2025', what: 'Became an SBDC client', detail: 'Matched with Dana', rule: 'none' }
+      ].map((m, i, a) => ({ ...m, rule: i < a.length - 1 ? '1px solid #0f1c2d29' : 'none' })),
+      settingsOpen: this.state.settingsOpen,
+      toggleDrawer: (e) => {
+        const k = e.currentTarget.dataset.drawer;
+        this.setState(s => ({ drawers: { ...s.drawers, [k]: !s.drawers[k] } }));
+      },
+      trainingsOpen: this.state.drawers.trainings, trainingsMark: this.state.drawers.trainings ? '\u2212' : '+',
+      resourcesOpen: this.state.drawers.resources, resourcesMark: this.state.drawers.resources ? '\u2212' : '+',
+      mhistOpen: this.state.drawers.mhist, mhistMark: this.state.drawers.mhist ? '\u2212' : '+',
+      openSettings: () => this.setState({ settingsOpen: true }),
+      closeSettings: () => this.setState({ settingsOpen: false }),
+      toggleNotif: (e) => {
+        const k = e.currentTarget.dataset.key;
+        this.setState(s => ({ notifs: { ...s.notifs, [k]: !s.notifs[k] } }));
+      },
+      notifs: [
+        { key: 'training', label: 'Training reminders', body: 'Email the day before anything you registered for.' },
+        { key: 'advisor', label: 'Messages from Dana', body: 'Email when your advisor sends a note or next step.' },
+        { key: 'sms', label: 'Text reminders', body: 'A text 30 minutes before sessions and trainings.' },
+        { key: 'checkin', label: 'Milestone check-ins', body: 'A short "anything new?" email, quarterly at most.' },
+        { key: 'intel', label: 'SBDCIntel newsletter', body: 'Monthly — funding deadlines and trainings near you.' }
+      ].map(n => {
+        const on = !!this.state.notifs[n.key];
+        return { ...n, on,
+          trackStyle: { flex: 'none', position: 'relative', width: '42px', height: '24px', padding: 0, border: 'none', borderRadius: '3px', cursor: 'pointer', background: on ? 'var(--cobalt)' : '#0f1c2d3d', transition: 'background .18s ease' },
+          knobStyle: { position: 'absolute', top: '3px', left: on ? '21px' : '3px', width: '18px', height: '18px', background: '#fdfdfd', borderRadius: '2px', transition: 'left .18s ease', display: 'block' } };
+      }),
+      sheetOpen: this.state.sheetOpen,
+      openSheet: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sheetOpen: true }); },
+      closeSheet: () => this.setState({ sheetOpen: false }),
+      pickSlot: (e) => this.setState({ slotId: e.currentTarget.dataset.slot }),
+      confirmBooking: () => this.setState({ booked: true, bookedWhen: pickedSlot ? pickedSlot.when : '' }),
+      confirmLabel: pickedSlot ? `Book ${pickedSlot.when}` : 'Book a session',
+      notBooked: !this.state.booked, booked: this.state.booked, bookedWhen: this.state.bookedWhen,
+      winOpen: this.state.winOpen,
+      winForm: !this.state.winDone, winDone: this.state.winDone,
+      openWin: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ winOpen: true, winDone: false }); },
+      closeWin: () => this.setState({ winOpen: false }),
+      pickKind: (e) => this.setState({ winKind: e.currentTarget.dataset.kind }),
+      submitWin: () => this.setState({ winDone: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

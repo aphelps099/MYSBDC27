@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="The full NorCal SBDC training calendar. Live webinars and in-person workshops across 36 Northern California counties. No fee.">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="stylesheet" href="https://use.typekit.net/pkl5rjs.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:var(--paper);color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);text-decoration:none;transition:color .18s ease,background .18s ease}
+    a:hover{color:var(--cobalt)}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
+  </style>
+</helmet>
+<div style="overflow-x:clip">
+<section data-screen-label="Hero" style="background:var(--cream)">
+  <header>
+    <div style="width:min(1400px,100% - 96px);margin:0 auto;height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC home" style="display:block"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png" alt="America’s SBDC California, Northern California Network" style="height:52px;width:auto;display:block"></a>
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:24px">
+        <a href="Advising.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Advising</a>
+        <a href="Trainings.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em;border-bottom:2px solid var(--cobalt);padding-bottom:3px;color:var(--cobalt)">Training</a>
+        <a href="Funding.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Funding</a>
+        <a href="Stories.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Stories</a>
+        <a href="About.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">About</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:22px">
+        <a href="MySBDC Sign In.dc.html" style="font-size:13px;font-weight:750;border-bottom:1px solid #0f1c2d66;padding-bottom:2px;white-space:nowrap" style-hover="border-color:var(--cobalt)">MySBDC Log in</a>
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" small="{{ true }}" href="#" style="flex:none;white-space:nowrap" hint-size="auto,43px">Get Started</x-import>
+      </div>
+    </div>
+  </header>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:64px 0 72px;display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:end">
+    <div>
+      <p style="margin:0 0 24px;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)"><a href="Trainings.dc.html" style="color:var(--berry)">Training</a> · Calendar</p>
+      <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(50px,4.8vw,72px);letter-spacing:-.05em;line-height:.95;color:var(--navy);text-wrap:balance">Every training. One calendar.</h1>
+      <p style="margin:26px 0 0;max-width:460px;font-size:18px;line-height:1.5;color:var(--slate)">Live webinars and in-person workshops across the network. All at no fee.</p>
+    </div>
+    <div style="background:var(--navy);color:#fdfdfd;padding:26px 30px;border-bottom:5px solid var(--berry)">
+      <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">Before you register</span>
+      <span style="display:block;margin-top:10px;font-size:15px;line-height:1.5;color:#ffffffd6">Registration happens in MySBDC. Browsing is open to everyone.</span>
+      <span style="display:flex;gap:24px;margin-top:16px;align-items:center">
+        <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:750;color:var(--pool)" style-hover="color:#fdfdfd">Log in <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></a>
+        <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:750;color:#fdfdfd;border-bottom:1px solid #ffffff8a;padding-bottom:2px" style-hover="color:var(--pool);border-color:var(--pool)">New here? Get started</a>
+      </span>
+    </div>
+  </div>
+</section>
+<section data-screen-label="Calendar" aria-label="Training calendar" style="background:var(--paper);padding:72px 0 110px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding-bottom:26px;border-bottom:3px solid var(--navy)">
+      <div role="group" aria-label="Filter by topic" style="display:flex;gap:8px;flex-wrap:wrap">
+        <sc-for list="{{ topics }}" as="t" hint-placeholder-count="5">
+          <button onClick="{{ t.pick }}" style="font-family:var(--nova);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:10px 16px;border-radius:2px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }};cursor:pointer">{{ t.name }}</button>
+        </sc-for>
+      </div>
+      <div role="group" aria-label="Filter by format" style="display:flex;gap:8px">
+        <sc-for list="{{ formats }}" as="f" hint-placeholder-count="3">
+          <button onClick="{{ f.pick }}" style="font-family:var(--nova);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:10px 16px;border-radius:2px;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }};cursor:pointer">{{ f.name }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <sc-for list="{{ months }}" as="m" hint-placeholder-count="2">
+      <div style="display:grid;grid-template-columns:minmax(240px,.55fr) 1fr;gap:64px;align-items:start;padding-top:56px">
+        <div>
+          <p style="margin:0 0 18px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">{{ m.num }} — {{ m.year }}</p>
+          <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(38px,3.2vw,50px);letter-spacing:-.05em;line-height:.95;color:var(--navy)">{{ m.name }}</h2>
+          <p style="margin:20px 0 0;font-size:14px;color:var(--slate)">{{ m.count }}</p>
+        </div>
+        <div>
+          <sc-for list="{{ m.events }}" as="ev" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:96px 1fr 190px;gap:28px;align-items:start;padding:26px 0;border-bottom:1px solid var(--line)">
+              <span><span style="display:block;font-family:var(--sera);font-weight:400;font-size:34px;letter-spacing:-.03em;line-height:1;color:var(--navy)">{{ ev.day }}</span><span style="display:block;margin-top:6px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">{{ ev.dow }}</span></span>
+              <span>
+                <span style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span style="font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--cobalt);border:1px solid #1b5faf59;background:#1b5faf14;padding:4px 9px;border-radius:2px">{{ ev.topic }}</span><span style="font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--slate);border:1px solid #0f1c2d2e;padding:4px 9px;border-radius:2px">{{ ev.format }}</span></span>
+                <a href="#" style="display:block;margin-top:10px;font-size:19px;font-weight:750;letter-spacing:-.01em;color:var(--navy)" style-hover="color:var(--cobalt)">{{ ev.title }}</a>
+                <span style="display:block;margin-top:6px;font-size:13px;color:var(--slate)">{{ ev.meta }}</span>
+                <button onClick="{{ ev.toggle }}" aria-expanded="{{ ev.open }}" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-family:var(--nova);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:none;border:none;padding:0;cursor:pointer;border-bottom:1px solid #0f1c2d66;padding-bottom:2px"><span style="font-weight:800;font-size:14px;line-height:1">{{ ev.toggleGlyph }}</span> {{ ev.toggleLabel }}</button>
+                <sc-if value="{{ ev.open }}" hint-placeholder-val="{{ false }}">
+                  <span style="display:block;margin-top:14px;padding:16px 20px;background:var(--cream);border-left:3px solid var(--navy)">
+                    <span style="display:block;font-size:14px;line-height:1.55;color:var(--slate)">{{ ev.details }}</span>
+                    <span style="display:flex;gap:8px 22px;flex-wrap:wrap;margin-top:12px;font-size:12px;font-weight:700;color:var(--navy)"><span>{{ ev.time }}</span><span>{{ ev.instructor }}</span><span>{{ ev.audience }}</span></span>
+                  </span>
+                </sc-if>
+              </span>
+              <span style="justify-self:end;text-align:right">
+                <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px;color:var(--navy)" style-hover="color:var(--cobalt)">Log in to register <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></a>
+                <span style="display:block;margin-top:8px;font-size:12px;color:var(--slate-light)">Free · {{ ev.length }}</span>
+              </span>
+            </div>
+          </sc-for>
+          <sc-if value="{{ m.empty }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:32px 0;font-size:15px;color:var(--slate)">Nothing matches those filters this month. Clear a filter, or check the next month.</p>
+          </sc-if>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+<section data-screen-label="Your next step" aria-label="Sign up" style="display:grid;grid-template-columns:1.35fr 1fr;background:var(--navy)">
+  <a href="#" style="grid-row:1 / span 2;display:flex;flex-direction:column;justify-content:center;padding:92px 64px 92px max(48px,calc((100vw - 1400px)/2));background:var(--navy);color:#fdfdfd" style-hover="background:#13233a;color:#fdfdfd">
+    <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--pool)">03 — Your next step</span>
+    <span style="display:block;margin-top:26px;max-width:15ch;font-size:clamp(40px,3.4vw,54px);font-weight:400;letter-spacing:-.02em;line-height:1.12;text-wrap:balance">One login. <strong style="font-weight:800">Every seat <span style="color:var(--pool)">saved.</span></strong></span>
+    <span style="display:block;margin-top:22px;max-width:400px;font-size:16px;line-height:1.5;color:#ffffffd6">Create your MySBDC account in about 20 minutes.<span style="display:block">$0 to work with us.</span></span>
+    <span style="display:inline-flex;align-items:center;gap:11px;margin-top:38px;font-size:16px;font-weight:750;color:var(--pool)">Get started <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></span>
+  </a>
+  <div style="display:flex;flex-direction:column;justify-content:center;gap:12px;min-height:280px;padding:52px max(48px,calc((100vw - 1400px)/2)) 52px 56px;background:var(--pool);color:var(--navy)">
+    <strong style="font-weight:800;font-size:clamp(46px,3.6vw,62px);letter-spacing:-.03em;line-height:1">2 min</strong>
+    <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#0f1c2d99">To register once you’re in</span>
+  </div>
+  <a href="#" style="display:flex;flex-direction:column;justify-content:center;gap:12px;min-height:280px;padding:52px max(48px,calc((100vw - 1400px)/2)) 52px 56px;background:var(--cream);color:var(--navy)" style-hover="background:#efe9dc;color:var(--navy)">
+    <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">04 — SBDCIntel</span>
+    <strong style="font-size:clamp(22px,1.8vw,28px);font-weight:750;letter-spacing:-.02em;line-height:1.2;max-width:16ch">Get next month’s trainings in your inbox.</strong>
+    <span style="display:inline-flex;align-items:center;gap:10px;margin-top:6px;font-size:14px;font-weight:750">Sign up for the newsletter <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></span>
+  </a>
+</section>
+<footer data-screen-label="Footer" style="background:var(--footer-ink);color:#fdfdfdcc;border-top:5px solid var(--berry)">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:60px 0 48px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;align-items:start">
+    <div>
+      <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-white-180h.png" alt="America’s SBDC California, Northern California Network" style="height:48px;width:auto"></a>
+      <p style="margin:18px 0 0;font-size:13px;line-height:1.55;color:#ffffffab"><strong style="color:#fdfdfd">Your Business, Better.</strong> Confidential business advising. No fee.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Work with us</h3>
+      <a href="Advising.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Advising</a>
+      <a href="Trainings.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Training</a>
+      <a href="Funding.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Funding</a>
+      <a href="Resources.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Resources</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Network</h3>
+      <a href="Stories.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Stories</a>
+      <a href="#" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">About</a>
+      <a href="Careers.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Careers</a>
+      <a href="Partners.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Become a Partner</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Contact</h3>
+      <a href="MySBDC Sign In.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">MySBDC Log in</a>
+      <a href="mailto:info@norcalsbdc.org" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">info@norcalsbdc.org</a>
+      <a href="tel:18332757232" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">(833) ASK-SBDC</a>
+      <span style="font-size:12px;color:#ffffff8a">Mon – Fri, 9 AM – 5 PM</span>
+    </div>
+  </div>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:22px 0 34px;border-top:1px solid #ffffff2e;display:flex;align-items:center;gap:40px;flex-wrap:wrap">
+    <span style="display:block;background:var(--paper);padding:9px 14px;border-radius:4px;flex:none"><img src="assets/required-partner-logos.png" alt="America’s SBDC California accredited member, Cal Poly Humboldt, SCALE powered by CalOSBA, U.S. Small Business Administration" style="width:340px;max-width:100%;height:auto;display:block"></span>
+    <p style="margin:0;flex:1;min-width:380px;font-size:11px;line-height:1.55;color:#ffffff6e">Funded in part through a cooperative agreement with the U.S. Small Business Administration and grants from the California Office of the Small Business Advocate. Opinions expressed are those of the author(s) and do not necessarily reflect their views. Hosted by Cal Poly Humboldt Sponsored Programs Foundation. © 2026 NorCal SBDC</p>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { topic: 'All topics', format: 'All formats', open: {} };
+  renderVals() {
+    const DATA = [
+      { id: 's1', month: 'September', year: '2026', day: '01', dow: 'Tue', topic: 'Finance', format: 'Online', title: 'Pricing for profit: know your numbers before you set them', meta: 'Taught by NorCal finance advisors · Q&A included', length: '90 min', time: '10:00 – 11:30 AM', instructor: 'Led by NorCal finance advisors', audience: 'Any stage', details: 'Cost of goods, margin targets and the difference between busy and profitable. You’ll work through a pricing worksheet on one of your own products or services, so bring real numbers.' },
+      { id: 's2', month: 'September', year: '2026', day: '03', dow: 'Thu', topic: 'Marketing', format: 'Online', title: 'A marketing plan on one page', meta: 'Leave with your plan drafted', length: '90 min', time: '12:00 – 1:30 PM', instructor: 'Led by a NorCal marketing advisor', audience: 'Early-stage friendly', details: 'One page: who you serve, what you say, where you say it, and how you’ll know it worked. We fill it in together during the session — no homework left behind.' },
+      { id: 's3', month: 'September', year: '2026', day: '09', dow: 'Wed', topic: 'Capital', format: 'Online', title: 'Loan readiness: what lenders actually look for', meta: 'With guest SBA lender panel', length: '90 min', time: '10:00 – 11:30 AM', instructor: 'Guest SBA lender panel', audience: 'Preparing to borrow', details: 'The five Cs of credit in plain language, the documents lenders open first, and the red flags that stall an application. Ends with open Q&A — ask the lenders directly.' },
+      { id: 's4', month: 'September', year: '2026', day: '16', dow: 'Wed', topic: 'Operations', format: 'In person', title: 'Hiring your first employee in California', meta: 'Cal Poly Humboldt SBDC · Arcata', length: '2 hrs', time: '2:00 – 4:00 PM', instructor: 'With an HR compliance specialist', audience: 'Hiring in the next 6 months', details: 'Classification, payroll setup, required postings and the paperwork that matters on day one. Includes a first-hire checklist you take with you.' },
+      { id: 's5', month: 'September', year: '2026', day: '24', dow: 'Thu', topic: 'Marketing', format: 'Online', title: 'Selling online: from farmers market to first web store', meta: 'Bring your product list — we build as we go', length: '90 min', time: '10:00 – 11:30 AM', instructor: 'Led by an ecommerce advisor', audience: 'Product businesses', details: 'Platform choice, product photos with a phone, and shipping that doesn’t eat the margin. We set up a working storefront live during the session.' },
+      { id: 'o1', month: 'October', year: '2026', day: '01', dow: 'Thu', topic: 'Finance', format: 'Online', title: 'Cash flow for the slow season', meta: 'Plan Q4 before Q4 plans you', length: '90 min', time: '10:00 – 11:30 AM', instructor: 'Led by NorCal finance advisors', audience: 'Seasonal businesses', details: 'A 13-week cash flow view you can keep updated in under 15 minutes a week. Spot the pinch two months early, and know your options before you need them.' },
+      { id: 'o2', month: 'October', year: '2026', day: '07', dow: 'Wed', topic: 'Capital', format: 'In person', title: 'Meet the lenders: community capital fair', meta: 'Solano-Napa SBDC · Fairfield', length: 'Half day', time: '9:00 AM – 1:00 PM', instructor: '12+ community lenders attending', audience: 'Any stage', details: 'CDFIs, credit unions and SBA lenders in one room. Short intro sessions, then open tables — bring your questions and a one-page summary of your business if you have one.' },
+      { id: 'o3', month: 'October', year: '2026', day: '14', dow: 'Wed', topic: 'Operations', format: 'Online', title: 'Systems that run without you', meta: 'SOPs, checklists and the handoff that sticks', length: '90 min', time: '12:00 – 1:30 PM', instructor: 'Led by an operations advisor', audience: 'Owners doing everything', details: 'Turn the things only you know how to do into checklists someone else can follow. You’ll write your first SOP during the session.' },
+      { id: 'o4', month: 'October', year: '2026', day: '21', dow: 'Wed', topic: 'Finance', format: 'Online', title: 'Reading your P&L without dread', meta: 'Bring last month’s statement', length: '90 min', time: '10:00 – 11:30 AM', instructor: 'Led by NorCal finance advisors', audience: 'Early-stage friendly', details: 'Line by line, in plain language: what each number says about the business, which three to watch monthly, and what to ask your bookkeeper.' },
+      { id: 'o5', month: 'October', year: '2026', day: '28', dow: 'Wed', topic: 'Marketing', format: 'In person', title: 'Holiday retail readiness workshop', meta: 'Marin SBDC · San Rafael', length: '2 hrs', time: '2:00 – 4:00 PM', instructor: 'Led by retail advisors', audience: 'Retail + food businesses', details: 'Inventory planning, staffing for peak weeks and a promotion calendar through New Year’s. Leave with your holiday plan on paper.' }
+    ];
+    const chip = (name, key) => ({
+      name,
+      pick: () => this.setState({ [key]: name }),
+      bg: this.state[key] === name ? 'var(--navy)' : 'transparent',
+      color: this.state[key] === name ? '#fdfdfd' : 'var(--navy)',
+      border: this.state[key] === name ? 'var(--navy)' : '#0f1c2d3d'
+    });
+    const topics = ['All topics', 'Finance', 'Marketing', 'Operations', 'Capital'].map(n => chip(n, 'topic'));
+    const formats = ['All formats', 'Online', 'In person'].map(n => chip(n, 'format'));
+    const match = ev => (this.state.topic === 'All topics' || ev.topic === this.state.topic) && (this.state.format === 'All formats' || ev.format === this.state.format);
+    const decorate = ev => {
+      const open = !!this.state.open[ev.id];
+      return { ...ev, open,
+        toggle: () => this.setState(s => ({ open: { ...s.open, [ev.id]: !s.open[ev.id] } })),
+        toggleGlyph: open ? '−' : '+',
+        toggleLabel: open ? 'Less' : 'More details' };
+    };
+    const months = ['September', 'October'].map((name, i) => {
+      const events = DATA.filter(ev => ev.month === name && match(ev)).map(decorate);
+      return { name, year: DATA.find(e => e.month === name).year, num: '0' + (i + 1), events, empty: events.length === 0, count: events.length === 1 ? '1 training' : events.length + ' trainings' };
+    });
+    return { topics, formats, months };
+  }
+}
+</script>
+</body>
+</html>

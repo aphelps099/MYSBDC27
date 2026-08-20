@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:#dcd8cd;color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased}
+    a{color:var(--navy)}
+    a:hover{color:var(--cobalt)}
+  </style>
+</helmet>
+<div style="padding:56px 64px 96px">
+  <p style="margin:0 0 6px;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--berry)">NorCal SBDC — Evergreen ad set</p>
+  <h1 style="margin:0 0 48px;font-family:var(--sera);font-weight:400;font-size:40px;letter-spacing:-.05em;color:var(--navy)">Headline-led · Quotes · Direct asks</h1>
+
+  <p style="margin:0 0 20px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate)">Headline-led (1080 × 1080)</p>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ headlineAds }}" as="a" hint-placeholder-count="6">
+      <div style="width:440px;flex:none">
+        <div style="{{ a.frame }}">
+          <sc-if value="{{ a.grain }}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span></sc-if>
+          <span style="{{ a.brandStyle }}">NORCAL <strong style="font-weight:800">SBDC</strong></span>
+          <span style="position:relative;display:block;margin-top:auto;font-family:var(--sera);font-weight:400;font-size:34px;letter-spacing:-.04em;line-height:1.04;text-wrap:balance">{{ a.headline }}</span>
+          <span style="{{ a.tagStyle }}">Your Business People.</span>
+          <span style="position:relative;display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-size:14px;font-weight:750">{{ a.cta }} <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" color="{{ a.arrow }}" hint-size="14px,14px"></x-import></span>
+        </div>
+        <p style="margin:12px 0 0;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">{{ a.name }}</p>
+      </div>
+    </sc-for>
+  </div>
+
+  <p style="margin:64px 0 20px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate)">Quote series (1080 × 1080)</p>
+  <div style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start">
+    <sc-for list="{{ quoteAds }}" as="q" hint-placeholder-count="3">
+      <div style="width:440px;flex:none">
+        <div style="position:relative;display:flex;flex-direction:column;aspect-ratio:1/1;padding:44px;background:var(--cream);color:var(--navy);border-bottom:6px solid var(--berry);overflow:hidden">
+          <span aria-hidden="true" style="position:absolute;top:8px;left:36px;font-family:var(--sera);font-size:200px;line-height:1;color:#c23c3c1f;pointer-events:none">“</span>
+          <span style="position:relative;display:block;margin-top:auto;font-family:var(--sera);font-weight:400;font-size:31px;letter-spacing:-.04em;line-height:1.12;text-wrap:balance">{{ q.quote }}</span>
+          <span style="position:relative;display:block;margin-top:22px;font-size:12px;font-weight:750;color:var(--slate)">— {{ q.who }}</span>
+          <span style="position:relative;display:block;margin-top:26px;padding-top:18px;border-top:1px solid #0f1c2d29;font-size:12px;font-weight:800;letter-spacing:.13em;color:var(--navy)">NORCAL <strong style="font-weight:800;color:var(--berry)">SBDC</strong></span>
+        </div>
+        <p style="margin:12px 0 0;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">{{ q.name }}</p>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const navyFrame = { position: 'relative', display: 'flex', flexDirection: 'column', aspectRatio: '1/1', padding: '44px', overflow: 'hidden', color: '#fdfdfd',
+      background: 'radial-gradient(120% 90% at 82% -10%, #2a6a9e59 0%, #1b447200 55%), radial-gradient(90% 110% at -8% 108%, #12395e8c 0%, #0f1c2d00 60%), linear-gradient(168deg, #16283f 0%, #0f1c2d 52%, #0b1523 100%)' };
+    const creamFrame = { position: 'relative', display: 'flex', flexDirection: 'column', aspectRatio: '1/1', padding: '44px', overflow: 'hidden', color: 'var(--navy)', background: 'var(--cream)', borderBottom: '6px solid var(--berry)' };
+    const poolFrame = { position: 'relative', display: 'flex', flexDirection: 'column', aspectRatio: '1/1', padding: '44px', overflow: 'hidden', color: 'var(--navy)', background: 'linear-gradient(160deg, #a2cfdf 0%, #8fc5d9 55%, #7ab4cb 100%)' };
+    const brandLight = { position: 'relative', fontSize: '13px', fontWeight: 400, letterSpacing: '.13em', color: '#fdfdfd' };
+    const brandDark = { position: 'relative', fontSize: '13px', fontWeight: 400, letterSpacing: '.13em', color: 'var(--navy)' };
+    const tagLight = { position: 'relative', display: 'block', marginTop: '18px', fontSize: '12px', fontWeight: 800, letterSpacing: '.15em', textTransform: 'uppercase', color: '#8fc5d9' };
+    const tagDark = { position: 'relative', display: 'block', marginTop: '18px', fontSize: '12px', fontWeight: 800, letterSpacing: '.15em', textTransform: 'uppercase', color: 'var(--berry)' };
+    const mk = (name, headline, cta, kind) => kind === 'navy'
+      ? { name, headline, cta, frame: navyFrame, brandStyle: brandLight, tagStyle: tagLight, arrow: '#8fc5d9', grain: true }
+      : kind === 'pool'
+        ? { name, headline, cta, frame: poolFrame, brandStyle: brandDark, tagStyle: { ...tagDark, color: '#0f1c2d99' }, arrow: '#0f1c2d', grain: true }
+        : { name, headline, cta, frame: creamFrame, brandStyle: brandDark, tagStyle: tagDark, arrow: '#c23c3c', grain: false };
+    return {
+      headlineAds: [
+        mk('The question', 'What would you do with the right advice at the right time?', 'Find out', 'navy'),
+        mk('The reframe', 'You don\u2019t need a business degree. You need someone who\u2019s done it.', 'Meet them', 'cream'),
+        mk('The permission', 'It\u2019s okay to not know everything. That\u2019s what we\u2019re here for.', 'Get help', 'pool'),
+        mk('The contrast', 'Consultants bill. Advisors show up. We\u2019re advisors.', 'Free advising', 'cream'),
+        mk('The truth', 'Most businesses don\u2019t fail from bad ideas. They fail from bad timing.', 'Get ahead', 'navy'),
+        mk('The admission', 'We can\u2019t guarantee success. But we can shorten the learning curve.', 'Start learning', 'pool'),
+        mk('Simple ask', 'Got 30 minutes? That\u2019s enough to start.', 'Book a call', 'cream'),
+        mk('Objection killer', 'Yes, it\u2019s really free. No, there\u2019s no catch.', 'See for yourself', 'navy'),
+        mk('Local', '18 centers. 36 counties. There\u2019s one near you.', 'Find yours', 'pool')
+      ],
+      quoteAds: [
+        { name: 'Quote — surprise', quote: '\u201cI expected a government program. I got someone in my corner.\u201d', who: 'Restaurant owner, Sacramento' },
+        { name: 'Quote — specific', quote: '\u201cMaria told me I wasn\u2019t ready for an SBA loan. She was right. Six months later, I was.\u201d', who: 'Contractor, Fresno' },
+        { name: 'Quote — simple', quote: '\u201cI didn\u2019t know what I didn\u2019t know. Now I do.\u201d', who: 'Retail owner, Chico' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

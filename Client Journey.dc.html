@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:var(--paper);color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);text-decoration:none;transition:color .18s ease}
+    a:hover{color:var(--cobalt)}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:3px}
+  </style>
+</helmet>
+<div style="overflow-x:clip">
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;background:var(--navy);color:#fdfdfd">
+  <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 82% -10%, #2a6a9e59 0%, #1b447200 55%),radial-gradient(90% 110% at -8% 108%, #12395e8c 0%, #0f1c2d00 60%),linear-gradient(168deg, #16283f 0%, #0f1c2d 52%, #0b1523 100%)"></span>
+  <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span>
+  <span aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,#8fc5d900 0%,#8fc5d966 38%,#8fc5d900 78%)"></span>
+  <div style="position:relative;width:min(1400px,100% - 96px);margin:0 auto;padding:26px 0 0;display:flex;justify-content:space-between;align-items:center;gap:24px">
+    <span style="font-size:15px;font-weight:800;letter-spacing:.02em">NorCal <span style="font-weight:400">SBDC</span> <span style="color:var(--pool);font-weight:400">· Brand House</span></span>
+    <a href="#" style="font-size:12.5px;font-weight:750;color:#ffffffab;border-bottom:1px solid #ffffff5c;padding-bottom:2px" style-hover="color:#fdfdfd">Back to Brand House HQ</a>
+  </div>
+  <div style="position:relative;width:min(1400px,100% - 96px);margin:0 auto;padding:92px 0 96px">
+    <p style="margin:0 0 26px;font-size:12px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">Client Journey</p>
+    <h1 style="margin:0;max-width:15ch;font-family:var(--sera);font-weight:400;font-size:clamp(52px,5.2vw,82px);letter-spacing:-.05em;line-height:.95;text-wrap:balance">From first contact to <em style="font-style:italic;color:var(--pool)">measurable impact.</em></h1>
+    <p style="margin:28px 0 0;max-width:540px;font-size:18px;line-height:1.5;color:#ffffffd6">How a client moves through the NorCal SBDC system — the typical journey from discovery to results. For staff, advisors, new hires, and partners.</p>
+    <p style="margin:56px 0 0;display:flex;align-items:center;gap:12px;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#ffffff8a">Scroll to explore <span style="display:inline-block;width:1px;height:34px;background:linear-gradient(180deg,#8fc5d9,transparent)"></span></p>
+  </div>
+</section>
+<section data-screen-label="Standard journey" aria-label="The standard client journey" style="background:var(--paper);padding:100px 0 110px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+      <div>
+        <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">01 — The standard journey</p>
+        <h2 style="margin:0;max-width:18ch;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97">Nine steps. One relationship.</h2>
+      </div>
+      <p style="margin:0;max-width:380px;font-size:15px;line-height:1.5;color:var(--slate)">Every client, every county, every program — the shape of the journey is the same. The pace and the doors differ.</p>
+    </div>
+    <div style="margin-top:64px;display:flex;flex-direction:column">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="9">
+        <div style="display:grid;grid-template-columns:minmax(120px,220px) 1fr;gap:clamp(24px,4vw,72px);padding:44px 0;border-top:1px solid #0f1c2d29">
+          <div>
+            <span style="display:block;font-family:var(--sera);font-weight:400;font-size:clamp(48px,4.4vw,72px);letter-spacing:-.05em;line-height:.9;color:{{ s.numColor }}">{{ s.num }}</span>
+            <sc-if value="{{ s.timing }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block;margin-top:16px;padding:5px 10px;background:var(--pool-pale);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)">{{ s.timing }}</span></sc-if>
+            <sc-if value="{{ s.flag }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block;margin-top:16px;padding:5px 10px;border:1px solid #0f1c2d3d;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">{{ s.flag }}</span></sc-if>
+          </div>
+          <div>
+            <h3 style="margin:0;font-size:22px;font-weight:750;letter-spacing:-.01em">{{ s.title }}</h3>
+            <p style="margin:10px 0 0;max-width:62ch;font-size:15px;line-height:1.55;color:var(--slate)">{{ s.body }}</p>
+            <sc-if value="{{ s.chips }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+                <sc-for list="{{ s.chips }}" as="c" hint-placeholder-count="4">
+                  <span style="display:inline-flex;align-items:center;padding:6px 12px;background:var(--pool-pale);border-radius:2px;font-size:12px;font-weight:700;color:var(--navy)">{{ c }}</span>
+                </sc-for>
+              </div>
+            </sc-if>
+            <p style="margin:20px 0 0;font-family:var(--sera);font-style:italic;font-size:17px;letter-spacing:-.01em;color:var(--navy)">{{ s.quote }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section data-screen-label="TFG fast track" aria-label="The TFG fast track" style="position:relative;overflow:hidden;background:var(--navy);color:#fdfdfd;padding:96px 0 104px">
+  <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(110% 80% at 88% -6%, #2a6a9e4d 0%, #1b447200 55%),linear-gradient(168deg, #142639 0%, #0f1c2d 60%, #0c1726 100%)"></span>
+  <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.45;mix-blend-mode:overlay;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span>
+  <div style="position:relative;width:min(1400px,100% - 96px);margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+      <div>
+        <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">02 — The TFG fast track</p>
+        <h2 style="margin:0;max-width:18ch;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97">The accelerated path for tech ventures.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;text-align:right">
+        <strong style="font-family:var(--sera);font-weight:400;font-size:clamp(44px,4vw,64px);letter-spacing:-.05em;line-height:1;color:var(--pool)">$1B+</strong>
+        <span style="font-size:10px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:#ffffff8a">Venture funding raised by TFG clients</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);margin-top:60px;border-top:1px solid #ffffff29">
+      <sc-for list="{{ tfg }}" as="t" hint-placeholder-count="6">
+        <div style="padding:28px 20px 0 0;border-right:{{ t.rule }}">
+          <span style="display:block;font-family:var(--sera);font-weight:400;font-size:15px;letter-spacing:-.01em;color:var(--pool)">{{ t.num }}</span>
+          <strong style="display:block;margin-top:10px;font-size:15px;font-weight:750;letter-spacing:-.01em">{{ t.title }}</strong>
+          <span style="display:block;margin-top:6px;font-size:12.5px;line-height:1.5;color:#ffffffab">{{ t.body }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section data-screen-label="Quick reference" aria-label="Where does the client go" style="background:var(--cream);padding:100px 0 110px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.7fr) 1fr;gap:80px;align-items:start">
+    <div>
+      <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">03 — Quick reference</p>
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97">Where does the client go?</h2>
+      <p style="margin:26px 0 0;max-width:400px;font-size:15px;line-height:1.55;color:var(--slate)">Clients may be in more than one program at once. The CI team routes; this table is the shorthand.</p>
+    </div>
+    <div style="border-top:3px solid var(--navy)">
+      <div style="display:grid;grid-template-columns:1.3fr 1fr .8fr;gap:20px;padding:14px 0;border-bottom:1px solid #0f1c2d29">
+        <span style="font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">If the client needs…</span>
+        <span style="font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">They go to…</span>
+        <span style="font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Typical timeline</span>
+      </div>
+      <sc-for list="{{ routes }}" as="r" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:1.3fr 1fr .8fr;gap:20px;padding:17px 0;border-bottom:1px solid #0f1c2d29">
+          <span style="font-size:14.5px;font-weight:400;color:var(--slate)">{{ r.need }}</span>
+          <strong style="font-size:14.5px;font-weight:750">{{ r.program }}</strong>
+          <span style="font-size:14.5px;color:var(--slate)">{{ r.time }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section data-screen-label="FY2024 numbers" aria-label="FY2024 key numbers" style="background:var(--paper);padding:100px 0 104px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto">
+    <p style="margin:0 0 56px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">04 — FY2024 key numbers</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,64px)">
+      <div><strong style="display:block;font-family:var(--sera);font-weight:400;font-size:clamp(44px,4vw,68px);letter-spacing:-.05em;line-height:1">13,227</strong><span style="display:block;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Clients counseled</span></div>
+      <div><strong style="display:block;font-family:var(--sera);font-weight:400;font-size:clamp(44px,4vw,68px);letter-spacing:-.05em;line-height:1">55,508</strong><span style="display:block;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Advising hours</span></div>
+      <div><strong style="display:block;font-family:var(--sera);font-weight:400;font-size:clamp(44px,4vw,68px);letter-spacing:-.05em;line-height:1;color:var(--evergreen)">$513.7M</strong><span style="display:block;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Capital accessed</span></div>
+      <div><strong style="display:block;font-family:var(--sera);font-weight:400;font-size:clamp(44px,4vw,68px);letter-spacing:-.05em;line-height:1">3,681</strong><span style="display:block;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Jobs created</span></div>
+    </div>
+    <p style="margin:56px 0 0;padding:16px 18px;background:var(--cream);max-width:760px;font-size:12.5px;line-height:1.6;color:var(--slate)"><strong style="font-weight:750;color:var(--navy)">Editorial note:</strong> step 7 quotes $549M (all client capital, FY2024 reporting) while this band shows $513.7M — confirm whether these measure different windows before publishing. ProBiz appears here as “General Advising”; the public site frames it around procurement — confirm which framing Brand House carries.</p>
+  </div>
+</section>
+<footer data-screen-label="Footer" style="background:var(--navy);color:#fdfdfdcc">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:36px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+    <a href="#" style="font-size:13px;font-weight:750;color:#fdfdfd;border-bottom:1px solid #ffffff5c;padding-bottom:2px" style-hover="color:var(--pool)">Back to Brand House HQ</a>
+    <span style="font-size:12px;color:#ffffff8a">© 2026 NorCal SBDC</span>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const steps = [
+      { num: '01', title: 'Client discovers SBDC', body: 'Discovery happens everywhere — the website, a lender, a chamber mixer, a friend who got funded. Whatever the door, it leads to the same place.', chips: ['norcalsbdc.org', 'Partner referral', 'Lenders & chambers', 'Word of mouth', 'Event / workshop', 'Social media', 'SBA.gov'], quote: '“All roads lead to one intake process.”' },
+      { num: '02', title: 'Centralized intake (CI team)', body: 'A single point of entry for all 36 counties. The CI team screens, gathers basic info, and determines needs.', chips: ['Neoserra CRM record created'], timing: 'Within 48 hours of first contact', quote: '“One front door, regardless of county.”' },
+      { num: '03', title: 'Needs assessment & program matching', body: 'The CI team routes each client to the right program — or several.', chips: ['TFG — Tech Ventures', 'Finance Center — Capital', 'ProBiz — General Advising', 'SBDC Health — Healthcare', 'AI U — Tech Training', 'Manufacturing', 'Specialty Programs'], quote: '“Clients may be referred to multiple programs simultaneously.”' },
+      { num: '04', title: 'Matched with an expert advisor', body: 'From a network of 300+ professionals, matched on industry expertise, geographic location, language needs, and the specific business challenge.', timing: 'Within 1 week of intake', quote: '“No-cost. No strings. Just expertise.”' },
+      { num: '05', title: 'One-on-one advising begins', body: 'Sessions in person, virtual, or hybrid — tracked in Neoserra. Typical topics: business plan review, financial analysis, market strategy, capital access planning, operations optimization.', quote: '“Advisors typically work with clients for 3–12 months.”' },
+      { num: '06', title: 'Training programs & workshops', body: 'Workshops, webinars, multi-week courses like AI U, and industry intensives run alongside advising.', quote: '“Training complements 1-on-1 advising.”' },
+      { num: '07', title: 'Capital access & funding support', body: 'SBA loan packaging, grant applications (SBIR/STTR), investor pitch prep, alternative lending, and SSBCI access.', flag: 'If applicable', quote: '“$549M in client capital accessed (FY2024).”' },
+      { num: '08', title: 'Measurable business impact', body: 'Tracked via the API Collection Tool across revenue growth, jobs created and retained, capital accessed, businesses started, and contracts awarded.', quote: '“Every dollar, every job, every business — we track it.”' },
+      { num: '09', title: 'Ongoing support & re-engagement', body: 'Clients return for advising, cycle through programs, and their stories generate the referrals that start the journey again.', quote: '“The relationship doesn\u2019t end — it evolves.”' }
+    ].map((s, i) => ({ ...s, numColor: i % 2 ? 'var(--pool)' : 'var(--berry)', chips: s.chips || false, timing: s.timing || false, flag: s.flag || false }));
+    const tfg = [
+      { title: 'Discovery', body: 'Tech venture identified at any door.' },
+      { title: 'TFG intake', body: 'Screened for venture fit and stage.' },
+      { title: 'Capital strategy', body: 'Funding roadmap matched to the raise.' },
+      { title: 'Investor readiness', body: 'Financials, deck, and data room hardened.' },
+      { title: 'Pitch + fund', body: 'Warm introductions, real terms.' },
+      { title: 'Scale + impact', body: 'Growth tracked, outcomes measured.' }
+    ].map((t, i, a) => ({ ...t, num: '0' + (i + 1), rule: i < a.length - 1 ? '1px solid #ffffff29' : 'none' }));
+    const routes = [
+      { need: 'General business advising', program: 'ProBiz', time: '1–6 months' },
+      { need: 'A loan or capital access', program: 'Finance Center', time: '2–8 weeks' },
+      { need: 'Venture funding for a tech startup', program: 'TFG', time: '3–12 months' },
+      { need: 'Healthcare practice support', program: 'SBDC Health', time: '1–3 sessions' },
+      { need: 'AI and technology training', program: 'AI University', time: '4–8 week course' },
+      { need: 'Manufacturing growth', program: 'Manufacturing', time: '2–6 months' }
+    ];
+    return { steps, tfg, routes };
+  }
+}
+</script>
+</body>
+</html>

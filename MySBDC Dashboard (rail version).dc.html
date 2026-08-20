@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="MySBDC — your advisor, your next step, trainings, milestones and assigned resources in one place.">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="stylesheet" href="https://use.typekit.net/pkl5rjs.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#f5f7f8;color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);text-decoration:none;transition:color .18s ease,background .18s ease}
+    a:hover{color:var(--cobalt)}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:3px}
+    input,textarea,select{font:inherit}
+  </style>
+</helmet>
+<div style="min-height:100vh;background:#f5f7f8">
+<aside data-screen-label="Rail" aria-label="MySBDC navigation" style="position:fixed;inset:0 auto 0 0;width:244px;min-height:100vh;background:var(--navy);color:var(--white);display:flex;flex-direction:column;z-index:60">
+  <div style="padding:27px 26px 22px;border-bottom:1px solid #ffffff26">
+    <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC homepage" style="display:block;width:120px"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-white-180h.png" alt="America’s SBDC California, Northern California Network" style="width:100%;height:auto;object-fit:contain;object-position:left center;display:block"></a>
+    <div style="margin-top:22px;font-size:23px;font-weight:800;letter-spacing:-.035em"><span style="color:var(--pool)">My</span>SBDC</div>
+  </div>
+  <nav style="display:grid;padding:24px 0">
+    <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+      <a href="#" style="display:grid;grid-template-columns:30px 1fr;align-items:center;gap:9px;min-height:50px;padding:0 26px;font-size:14px;font-weight:600;color:{{ n.color }};background:{{ n.bg }};border-left:3px solid {{ n.rule }}" style-hover="color:var(--white);background:#ffffff0e">
+        <span style="font-size:10px;font-weight:800;letter-spacing:.08em;color:{{ n.numColor }}">{{ n.num }}</span>
+        {{ n.label }}
+      </a>
+    </sc-for>
+  </nav>
+  <div style="margin-top:auto;padding:20px 22px 24px;border-top:1px solid #ffffff26">
+    <a href="#" style="display:block;font-size:13px;font-weight:700;color:#ffffffad;padding:6px 0" style-hover="color:var(--white)">Help and feedback</a>
+    <div style="display:grid;grid-template-columns:38px 1fr;align-items:center;gap:11px;margin-top:15px">
+      <span style="width:38px;height:38px;border-radius:50%;background:var(--pool);color:var(--navy);display:grid;place-items:center;font-size:11px;font-weight:800">AP</span>
+      <span style="overflow:hidden"><strong style="display:block;font-size:13px;font-weight:750;color:var(--white)">Avery Patel</strong><small style="display:block;font-size:11px;color:#ffffff8a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">avery@northstar.co</small></span>
+    </div>
+  </div>
+</aside>
+<div style="min-height:100vh;margin-left:244px">
+  <header data-screen-label="Topbar" style="position:sticky;top:0;z-index:40;min-height:74px;display:flex;align-items:center;gap:30px;padding:0 42px;background:#fdfdfdf5;backdrop-filter:blur(14px);border-bottom:1px solid var(--silver)">
+    <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--slate-light)"><strong style="font-weight:750;color:var(--navy)">MySBDC</strong><span>/</span>Dashboard</div>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:26px">
+      <span style="display:grid;align-content:center;min-height:48px;padding:4px 16px;border-left:2px solid var(--berry)">
+        <span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">Your center</span>
+        <strong style="font-size:14px;font-weight:750">North Coast SBDC</strong>
+      </span>
+      <span style="width:38px;height:38px;border-radius:50%;background:var(--pool);color:var(--navy);display:grid;place-items:center;font-size:11px;font-weight:800">AP</span>
+    </div>
+  </header>
+  <main style="width:min(100%,1460px);margin:0 auto;padding:32px 42px 64px;background:var(--cream)">
+    <section style="display:flex;justify-content:space-between;align-items:flex-end;gap:36px;padding:48px 0 34px;flex-wrap:wrap">
+      <div>
+        <p style="margin:0 0 12px;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">North Coast SBDC · Updated today</p>
+        <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(38px,3.2vw,50px);letter-spacing:-.05em;line-height:1;color:var(--navy)">Good morning, Avery.</h1>
+        <p style="margin:14px 0 0;font-size:17px;color:var(--slate)">Here’s where things stand.</p>
+      </div>
+
+    </section>
+    <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <section aria-label="My next step" style="background:var(--navy);color:#fdfdfd;border-bottom:5px solid var(--berry)">
+          <div style="padding:36px 40px">
+            <span style="display:flex;align-items:center;gap:10px">
+              <span style="width:9px;height:9px;border-radius:50%;background:var(--berry);flex:none"></span>
+              <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--pool)">My next step</span>
+            </span>
+            <p style="margin:18px 0 0;max-width:22ch;font-size:clamp(26px,2.2vw,34px);font-weight:400;letter-spacing:-.02em;line-height:1.14">Upload your P&amp;L <strong style="font-weight:800">before Thursday’s <span style="color:var(--pool)">session.</span></strong></p>
+            <p style="margin:14px 0 0;max-width:48ch;font-size:15px;line-height:1.5;color:#ffffffd6">Dana needs last month’s numbers to finish your projections before the lender introduction. Set by your advisor, Aug 18.</p>
+            <span style="display:flex;align-items:center;gap:22px;margin-top:30px;flex-wrap:wrap">
+              <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" small="{{ true }}" href="#" hint-size="auto,43px">Upload document</x-import>
+              <a href="#" style="font-size:13px;font-weight:750;color:var(--pool);border-bottom:1px solid var(--pool);padding-bottom:2px" style-hover="color:#fdfdfd;border-color:#fdfdfd">I need more time</a>
+            </span>
+          </div>
+        </section>
+        <section aria-label="Upcoming trainings" style="background:var(--paper);border:1px solid var(--silver)">
+          <div style="padding:28px 34px 0;display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap">
+            <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:27px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Register in one click</h2>
+            <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">North Coast SBDC + online</span>
+          </div>
+          <sc-if value="{{ regBanner }}" hint-placeholder-val="{{ false }}">
+            <div role="status" style="display:flex;align-items:center;gap:12px;margin:20px 34px 0;padding:14px 18px;background:var(--pool-pale)">
+              <span style="flex:none;width:19px;height:19px;border-radius:50%;background:var(--evergreen);color:#fdfdfd;display:grid;place-items:center;font-size:10px;font-weight:800">✓</span>
+              <span style="font-size:14px;color:var(--navy)"><strong style="font-weight:750">You’re registered.</strong> The Zoom link is in your email — and right here.</span>
+            </div>
+          </sc-if>
+          <div style="padding:0 34px 30px;margin-top:22px">
+            <sc-for list="{{ events }}" as="e" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:74px 1fr auto;gap:24px;align-items:center;padding:18px 0;border-top:1px solid var(--line);border-left:{{ e.rowRule }};padding-left:{{ e.rowPad }}">
+                <span><span style="display:block;font-family:var(--sera);font-weight:400;font-size:28px;letter-spacing:-.03em;line-height:1;color:var(--navy)">{{ e.day }}</span><span style="display:block;margin-top:4px;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">{{ e.month }}</span></span>
+                <span>
+                  <span style="display:block;font-size:16px;font-weight:750;letter-spacing:-.01em;color:var(--navy)">{{ e.title }}</span>
+                  <span style="display:block;margin-top:5px;font-size:13px;color:var(--slate)">{{ e.meta }}</span>
+                  <sc-if value="{{ e.on }}" hint-placeholder-val="{{ false }}">
+                    <span style="display:flex;align-items:center;gap:18px;margin-top:10px;flex-wrap:wrap">
+                      <span style="display:inline-flex;align-items:center;gap:7px;padding:5px 10px;background:var(--pool-pale);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)">✓ Registered</span>
+                      <a href="#" style="font-size:12.5px;font-weight:750;border-bottom:1px solid;padding-bottom:1px">Add to calendar</a>
+                      <a href="#" onClick="{{ e.cancel }}" style="font-size:12.5px;font-weight:750;color:var(--slate);border-bottom:1px solid;padding-bottom:1px">Can’t make it?</a>
+                    </span>
+                    <span style="display:block;margin-top:8px;font-size:12px;color:var(--slate-light)">The Join button appears here 15 minutes before start.</span>
+                  </sc-if>
+                </span>
+                <button onClick="{{ e.toggle }}" style="flex:none;align-self:start;margin-top:4px;min-height:40px;padding:0 18px;font-family:var(--nova);font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:{{ e.btnColor }};background:{{ e.btnBg }};border:1px solid {{ e.btnBorder }};border-radius:4px;cursor:pointer;white-space:nowrap">{{ e.btnLabel }}</button>
+              </div>
+            </sc-for>
+            <a href="Training Calendar.dc.html" style="display:inline-block;margin-top:22px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">See the full calendar</a>
+          </div>
+        </section>
+        <section aria-label="Share your business growth" style="background:var(--paper);border:1px solid var(--silver)">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:28px;padding:26px 34px;flex-wrap:wrap">
+            <div>
+              <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:27px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Did your business grow?</h2>
+              <p style="margin:10px 0 0;max-width:52ch;font-size:14px;line-height:1.5;color:var(--slate)">Raised capital, hired, grew sales — tell us in about four minutes. Your numbers help the next business get help.</p>
+            </div>
+            <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="secondary" small="{{ true }}" href="#" onClick="{{ openWin }}" hint-size="auto,43px">Share your growth</x-import>
+          </div>
+          <sc-if value="{{ winLogged }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:12px;margin:0 34px;padding:14px 0;border-top:1px solid var(--line)">
+              <span style="width:7px;height:7px;border-radius:50%;background:var(--evergreen);flex:none"></span>
+              <span style="font-size:13px;color:var(--slate)"><strong style="font-weight:750;color:var(--navy)">Submitted — a reviewer at your center checks it before it counts.</strong></span>
+            </div>
+          </sc-if>
+          <div style="margin:0 34px;padding:14px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px">
+            <span style="font-size:13px;color:var(--slate)">Last logged: Signed a five-year lease</span>
+            <span style="font-size:12px;color:var(--slate-light)">Jun 2026</span>
+          </div>
+        </section>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <section aria-label="My advisor" style="background:var(--paper);border:1px solid var(--silver)">
+          <div style="display:grid;grid-template-columns:104px 1fr;gap:18px;padding:26px 28px 22px;align-items:center">
+            <span style="width:104px;height:104px;overflow:hidden;background:var(--pool-pale);flex:none"><image-slot id="advisor-dana" shape="rect" placeholder="Advisor photo"></image-slot></span>
+            <span>
+              <span style="display:block;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">My advisor</span>
+              <strong style="display:block;margin-top:8px;font-family:var(--sera);font-weight:400;font-size:26px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Dana Whitfield</strong>
+              <span style="display:block;margin-top:8px;font-size:13px;color:var(--slate)">Food &amp; hospitality · North Coast SBDC</span>
+            </span>
+          </div>
+          <div style="padding:0 28px 26px">
+            <p style="margin:0;font-size:14px;line-height:1.55;color:var(--slate)">Ran two restaurants for eleven years. Menu costing, permits and first-hire questions.</p>
+            <div style="margin-top:20px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" small="{{ true }}" href="#" onClick="{{ openSheet }}" hint-size="auto,43px">Book a session</x-import></div>
+            <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:18px">
+              <a href="#" onClick="{{ openSheet }}" style="font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Meet Dana</a>
+              <a href="#" style="font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Send a message</a>
+              <a href="#" style="font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Last session notes</a>
+            </div>
+            <p style="margin:20px 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--slate-light)">Next session: Thu, Aug 21 · 10:00 AM · Video</p>
+          </div>
+        </section>
+        <section aria-label="Assigned resources" style="background:var(--paper);border:1px solid var(--silver)">
+          <div style="padding:26px 28px 24px">
+            <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">Assigned by Dana</span>
+            <div style="margin-top:16px">
+              <sc-for list="{{ resources }}" as="r" hint-placeholder-count="4">
+                <a href="#" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);color:var(--navy)" style-hover="color:var(--cobalt)">
+                  <span style="display:flex;align-items:baseline;gap:11px"><span style="width:7px;height:7px;border-radius:50%;background:{{ r.dot }};flex:none;transform:translateY(-2px)"></span><span style="font-size:14px;font-weight:750;color:inherit">{{ r.name }}</span></span>
+                  <span style="font-size:12px;color:var(--slate-light);white-space:nowrap">{{ r.kind }}</span>
+                </a>
+              </sc-for>
+            </div>
+            <a href="Resources.dc.html" style="display:inline-block;margin-top:20px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Browse all resources</a>
+          </div>
+        </section>
+        <section aria-label="Confidentiality" style="background:var(--pool-pale);padding:22px 26px">
+          <p style="margin:0;font-size:13px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Private conversations.</strong> Your numbers and notes are visible to you and your advisor only — never shared with a lender unless you choose to apply.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+<sc-if value="{{ winOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeWin }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Milestone sheet" role="dialog" aria-label="Share your business growth" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid var(--line)">
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Share your growth</h2>
+      <button onClick="{{ closeWin }}" aria-label="Close" style="width:44px;height:44px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:17px;color:var(--navy);cursor:pointer">✕</button>
+    </div>
+    <sc-if value="{{ winForm }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:26px 30px 36px">
+        <div style="padding:13px 16px;background:var(--pool-pale);margin:0 0 24px">
+          <p style="margin:0;font-size:12.5px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Northstar Provisions · North Coast SBDC.</strong> We already have your record — just add what changed. About four minutes.</p>
+        </div>
+        <p style="margin:0 0 10px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">What changed? <span style="font-weight:400;letter-spacing:0;text-transform:none;color:var(--slate-light)">(required)</span></p>
+        <div role="radiogroup" aria-label="What changed" style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ winKinds }}" as="k" hint-placeholder-count="5">
+            <button data-kind="{{ k.name }}" onClick="{{ pickKind }}" style="{{ k.cardStyle }}">
+              <span style="{{ k.dotStyle }}"></span>
+              <span style="text-align:left"><span style="display:block;font-size:14px;font-weight:750">{{ k.name }}</span><span style="display:block;margin-top:2px;font-size:12px;color:var(--slate);font-weight:400">{{ k.body }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px">
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)">Rough amount</span><input type="text" placeholder="$ — a range is fine" style="min-height:46px;padding:0 12px;font-size:14px;color:var(--navy);background:#fff;border:1px solid #0f1c2d3d;border-radius:4px;outline:none"></label>
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)">When</span><input type="text" placeholder="August 2026" style="min-height:46px;padding:0 12px;font-size:14px;color:var(--navy);background:#fff;border:1px solid #0f1c2d3d;border-radius:4px;outline:none"></label>
+        </div>
+        <p style="margin:8px 0 0;font-size:11.5px;color:var(--slate-light)">Nothing here is audited — your best guess is enough.</p>
+        <label style="display:flex;flex-direction:column;gap:7px;margin-top:20px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)">The story, in a line or two <span style="font-weight:400;letter-spacing:0;text-transform:none">(optional)</span></span><textarea rows="3" placeholder="What made it possible? Anyone we should thank?" style="padding:12px;font-size:14px;font-family:var(--nova);color:var(--navy);background:#fff;border:1px solid #0f1c2d3d;border-radius:4px;outline:none;resize:vertical"></textarea></label>
+        <button onClick="{{ submitWin }}" style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:50px;margin-top:24px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">Submit</button>
+        <p style="margin:12px 0 0;font-size:12px;line-height:1.55;color:var(--slate-light)">Nothing is published with your name on it. A reviewer at your center checks every milestone before it counts toward impact reporting.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ winDone }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:32px 30px 36px">
+        <p style="margin:0 0 14px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--evergreen)">Submitted</p>
+        <h3 style="margin:0;font-family:var(--sera);font-weight:400;font-size:32px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Thank you, Avery.</h3>
+        <p style="margin:16px 0 0;font-size:14.5px;line-height:1.6;color:var(--slate)">A reviewer at North Coast SBDC will check this before it counts — you’ll get a thank-you by email when it lands. Dana may follow up on the details.</p>
+        <button onClick="{{ closeWin }}" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;margin-top:28px;background:none;border:1px solid #0f1c2d5c;border-radius:4px;font-family:var(--nova);font-size:14px;font-weight:700;color:var(--navy);cursor:pointer">Back to dashboard</button>
+      </div>
+    </sc-if>
+  </aside>
+</sc-if>
+<sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeSheet }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Advisor sheet" role="dialog" aria-label="Your advisor" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid var(--line)">
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Your advisor</h2>
+      <button onClick="{{ closeSheet }}" aria-label="Close" style="width:44px;height:44px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:17px;color:var(--navy);cursor:pointer">✕</button>
+    </div>
+    <div style="padding:28px 30px 36px">
+      <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;align-items:center">
+        <figure style="margin:0;position:relative;padding:0 10px 10px 0">
+          <span style="position:absolute;top:10px;right:0;bottom:0;left:10px;background:var(--pool)"></span>
+          <span style="position:relative;display:block;width:102px;height:102px;overflow:hidden;background:var(--pool-pale)"><image-slot id="advisor-dana-sheet" shape="rect" placeholder="Headshot"></image-slot></span>
+        </figure>
+        <div>
+          <strong style="display:block;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Dana Whitfield</strong>
+          <span style="display:block;margin-top:8px;font-size:13.5px;color:var(--slate)">Business advisor, North Coast SBDC</span>
+          <span style="display:block;margin-top:4px;font-size:13.5px;color:var(--slate)">11 years advising · 300+ clients</span>
+        </div>
+      </div>
+      <div style="margin-top:22px;padding:16px 18px;background:var(--pool-pale)">
+        <p style="margin:0;font-size:13.5px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Why Dana:</strong> you asked for help with money, loans and cash flow. That’s her specialty — and she works with North Coast food businesses like yours.</p>
+      </div>
+      <p style="margin:26px 0 10px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">In her words</p>
+      <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--slate)">“I spent eleven years running two restaurants before I started advising, so I know what it’s like when the numbers keep you up at night. Bring whatever you have — a shoebox of receipts is a fine place to start. We’ll sort it together.”</p>
+      <div style="margin-top:24px;border-top:1px solid var(--line)">
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line)"><span style="font-size:13.5px;color:var(--slate)">Helps with</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy);text-align:right">Loans · Cash flow · Menu costing</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line)"><span style="font-size:13.5px;color:var(--slate)">Languages</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">English, Spanish</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line)"><span style="font-size:13.5px;color:var(--slate)">Meets by</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">Video, phone, or in person</strong></div>
+      </div>
+      <a href="#" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Dana on LinkedIn</a>
+      <sc-if value="{{ notBooked }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:32px 0 12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Pick a time</p>
+        <div role="radiogroup" aria-label="Session times" style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
+            <button data-slot="{{ s.id }}" onClick="{{ pickSlot }}" style="{{ s.cardStyle }}">
+              <span style="{{ s.dotStyle }}"></span>
+              <span style="text-align:left"><span style="display:block;font-size:14px;font-weight:750">{{ s.when }}</span><span style="display:block;margin-top:2px;font-size:12px;color:var(--slate);font-weight:400">{{ s.mode }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="margin-top:18px">
+          <button onClick="{{ confirmBooking }}" style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:50px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">{{ confirmLabel }}</button>
+          <p style="margin:10px 0 0;font-size:12px;color:var(--slate-light)">A 30-minute conversation, not another assessment. Reschedule anytime.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ booked }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="display:flex;align-items:flex-start;gap:12px;margin-top:32px;padding:16px 18px;background:var(--pool-pale)">
+          <span style="flex:none;width:19px;height:19px;border-radius:50%;background:var(--evergreen);color:#fdfdfd;display:grid;place-items:center;font-size:10px;font-weight:800;margin-top:2px">✓</span>
+          <span style="font-size:14px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Booked — {{ bookedWhen }}.</strong> Dana sent a calendar invite to your email. The video link lives there and on your dashboard.</span>
+        </div>
+      </sc-if>
+    </div>
+  </aside>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { registered: {}, regBanner: false, sheetOpen: false, slotId: 's1', booked: false, bookedWhen: '', winOpen: false, winDone: false, winKind: 'Raised capital' };
+  renderVals() {
+    const nav = [
+      { num: '01', label: 'Dashboard', active: true },
+      { num: '02', label: '641 intake' },
+      { num: '03', label: 'My advisor' },
+      { num: '04', label: 'My trainings' },
+      { num: '05', label: 'Business progress' },
+      { num: '06', label: 'Resources' }
+    ].map(n => ({
+      ...n,
+      color: n.active ? 'var(--white)' : '#ffffffad',
+      bg: n.active ? '#ffffff0e' : 'transparent',
+      rule: n.active ? 'var(--berry)' : 'transparent',
+      numColor: n.active ? 'var(--pool)' : '#ffffff5e'
+    }));
+    const EVENTS = [
+      { id: 'e1', day: '01', month: 'Sep', title: 'Pricing for profit', meta: 'Tue 10:00 AM · Online · 90 min' },
+      { id: 'e2', day: '16', month: 'Sep', title: 'Hiring your first employee in California', meta: 'Wed 2:00 PM · Arcata · 2 hrs' },
+      { id: 'e3', day: '24', month: 'Sep', title: 'Selling online: your first web store', meta: 'Thu 10:00 AM · Online · 90 min' }
+    ];
+    const setReg = (id, on) => this.setState(s => {
+      const registered = { ...s.registered, [id]: on };
+      return { registered, regBanner: on ? true : Object.values(registered).some(Boolean) };
+    });
+    const events = EVENTS.map(e => {
+      const on = !!this.state.registered[e.id];
+      return { ...e, on,
+        toggle: () => setReg(e.id, !on),
+        cancel: (ev) => { ev.preventDefault(); setReg(e.id, false); },
+        rowRule: on ? '3px solid var(--berry)' : '3px solid transparent',
+        rowPad: on ? '18px' : '0px',
+        btnLabel: on ? 'Registered ✓' : 'Register',
+        btnBg: on ? 'var(--evergreen)' : 'var(--cobalt)',
+        btnColor: '#fdfdfd',
+        btnBorder: on ? 'var(--evergreen)' : 'var(--cobalt)'
+      };
+    });
+    const SLOTS = [
+      { id: 's1', when: 'Thu, Aug 21 · 10:00 AM', mode: 'Video' },
+      { id: 's2', when: 'Fri, Aug 22 · 2:00 PM', mode: 'Video or phone' },
+      { id: 's3', when: 'Mon, Aug 25 · 9:30 AM', mode: 'In person · Eureka office' }
+    ];
+    const slots = SLOTS.map(s => {
+      const sel = this.state.slotId === s.id;
+      return { ...s,
+        cardStyle: { display: 'flex', gap: '12px', alignItems: 'center', padding: '13px 15px', width: '100%', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)', border: sel ? '2px solid var(--cobalt)' : '1px solid #0f1c2d3d', background: sel ? 'var(--pool-pale)' : '#fdfdfd', borderRadius: '4px', textAlign: 'left' },
+        dotStyle: { flex: 'none', width: '18px', height: '18px', borderRadius: '50%', boxSizing: 'border-box', border: sel ? '6px solid var(--cobalt)' : '2px solid var(--slate-light)', background: sel ? '#fdfdfd' : 'none' } };
+    });
+    const pickedSlot = SLOTS.find(s => s.id === this.state.slotId);
+    const WIN_KINDS = [
+      { name: 'Raised capital', body: 'A loan closed, or investment came in.' },
+      { name: 'Hired someone', body: 'Full or part time — including your first.' },
+      { name: 'Sales grew', body: 'A better month, quarter, or year.' },
+      { name: 'Started the business', body: 'You opened, launched, or made your first sale.' },
+      { name: 'Something else', body: 'A lease, a location, a big contract.' }
+    ];
+    const winKinds = WIN_KINDS.map(k => {
+      const sel = this.state.winKind === k.name;
+      return { ...k,
+        cardStyle: { display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '12px 15px', width: '100%', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)', border: sel ? '2px solid var(--cobalt)' : '1px solid #0f1c2d3d', background: sel ? 'var(--pool-pale)' : '#fdfdfd', borderRadius: '4px', textAlign: 'left' },
+        dotStyle: { flex: 'none', width: '18px', height: '18px', borderRadius: '50%', marginTop: '2px', boxSizing: 'border-box', border: sel ? '6px solid var(--cobalt)' : '2px solid var(--slate-light)', background: sel ? '#fdfdfd' : 'none' } };
+    });
+    return {
+      nav, events, slots, winKinds,
+      winOpen: this.state.winOpen,
+      winForm: !this.state.winDone, winDone: this.state.winDone,
+      winLogged: this.state.winDone && !this.state.winOpen,
+      openWin: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ winOpen: true, winDone: false }); },
+      closeWin: () => this.setState({ winOpen: false }),
+      pickKind: (e) => this.setState({ winKind: e.currentTarget.dataset.kind }),
+      submitWin: () => this.setState({ winDone: true }),
+      regBanner: this.state.regBanner,
+      sheetOpen: this.state.sheetOpen,
+      openSheet: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sheetOpen: true }); },
+      closeSheet: () => this.setState({ sheetOpen: false }),
+      pickSlot: (e) => this.setState({ slotId: e.currentTarget.dataset.slot }),
+      confirmBooking: () => this.setState({ booked: true, bookedWhen: pickedSlot ? pickedSlot.when : '' }),
+      confirmLabel: pickedSlot ? `Book ${pickedSlot.when}` : 'Book a session',
+      notBooked: !this.state.booked, booked: this.state.booked, bookedWhen: this.state.bookedWhen,
+      resources: [
+        { name: 'Cash flow forecast (13 weeks)', kind: 'Template', dot: 'var(--evergreen)' },
+        { name: 'Loan package checklist', kind: 'Checklist', dot: 'var(--evergreen)' },
+        { name: 'Menu costing worksheet', kind: 'Template', dot: 'var(--berry)' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

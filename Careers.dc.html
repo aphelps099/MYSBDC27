@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="Careers at NorCal SBDC — help Northern California businesses grow. Open roles across 36 counties, hosted by Cal Poly Humboldt.">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="stylesheet" href="https://use.typekit.net/pkl5rjs.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:var(--paper);color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);text-decoration:none;transition:color .18s ease,background .18s ease}
+    a:hover{color:var(--cobalt)}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
+  </style>
+</helmet>
+<div style="overflow-x:clip">
+<section data-screen-label="Hero" style="background:var(--cream)">
+  <header>
+    <div style="width:min(1400px,100% - 96px);margin:0 auto;height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC home" style="display:block"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png" alt="America’s SBDC California, Northern California Network" style="height:52px;width:auto;display:block"></a>
+      <nav aria-label="Primary" style="display:flex;align-items:center;gap:24px">
+        <a href="Advising.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Advising</a>
+        <a href="Trainings.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Training</a>
+        <a href="Funding.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Funding</a>
+        <a href="Stories.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Stories</a>
+        <a href="About.dc.html" style="font-size:13px;font-weight:750;letter-spacing:.02em;border-bottom:2px solid var(--cobalt);padding-bottom:3px;color:var(--cobalt)">About</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:22px">
+        <a href="MySBDC Sign In.dc.html" style="font-size:13px;font-weight:750;border-bottom:1px solid #0f1c2d66;padding-bottom:2px;white-space:nowrap" style-hover="border-color:var(--cobalt)">MySBDC Log in</a>
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" small="{{ true }}" href="#openings" style="flex:none;white-space:nowrap" hint-size="auto,43px">See open roles</x-import>
+      </div>
+    </div>
+  </header>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:88px 0 96px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:88px;align-items:center">
+    <div>
+      <p style="margin:0 0 24px;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)"><a href="About.dc.html" style="color:var(--berry)">About us</a> · Careers</p>
+      <h1 style="margin:0;max-width:15ch;font-family:var(--sera);font-weight:400;font-size:clamp(52px,5.2vw,80px);letter-spacing:-.05em;line-height:.95;color:var(--navy);text-wrap:balance">Do the work that <em style="font-style:italic">keeps towns going.</em></h1>
+      <p style="margin:26px 0 0;max-width:480px;font-size:18px;line-height:1.5;color:var(--slate)">Advisors, specialists and staff across 36 counties. Employed through the Cal Poly Humboldt Sponsored Programs Foundation, with university benefits and remote-friendly teams.</p>
+      <div style="display:flex;align-items:center;gap:24px;margin-top:44px;flex-wrap:wrap">
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" arrow="{{ true }}" href="#openings" hint-size="auto,50px">See open roles</x-import>
+        <span style="font-size:13px;color:var(--slate-light);font-weight:700">{{ openCount }} open now</span>
+      </div>
+    </div>
+    <figure style="margin:0;position:relative;padding:0 26px 26px 0">
+      <span style="position:absolute;top:26px;right:0;bottom:0;left:26px;background:var(--pool)"></span>
+      <span style="position:relative;display:block;background:var(--pool-pale)">
+        <img src="assets/about-redwoods-coast.webp" alt="Redwoods along the Northern California coast" style="width:100%;height:440px;object-fit:cover;filter:saturate(.88) contrast(1.03);display:block">
+        <span style="position:absolute;left:0;right:0;bottom:0;background:var(--navy);color:#fdfdfd;padding:14px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:5px solid var(--berry)">
+          <span style="font-size:14px;font-weight:750">36 counties</span>
+          <span style="font-size:11px;color:#ffffffab;letter-spacing:.07em;text-transform:uppercase">Eureka to San Jose</span>
+        </span>
+      </span>
+    </figure>
+  </div>
+</section>
+<section data-screen-label="Why here" aria-label="Why work here" style="background:var(--navy);color:#fdfdfd;padding:96px 0 104px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start">
+    <div>
+      <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">01 — Why here</p>
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(42px,3.8vw,58px);letter-spacing:-.05em;line-height:.95;color:#fdfdfd">Nothing to sell. Someone to help.</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:26px;padding-top:8px">
+      <p style="margin:0;font-size:17px;line-height:1.45;color:#ffffffab"><strong style="color:#fdfdfd;font-weight:750">The work is real.</strong> Your clients are the bakery on the corner and the startup in the garage. You’ll see what your advice did, usually within the year.</p>
+      <p style="margin:0;font-size:17px;line-height:1.45;color:#ffffffab"><strong style="color:#fdfdfd;font-weight:750">University benefits.</strong> Employed through the Cal Poly Humboldt Sponsored Programs Foundation — health, retirement, paid leave.</p>
+      <p style="margin:0;font-size:17px;line-height:1.45;color:#ffffffab"><strong style="color:#fdfdfd;font-weight:750">Where you already live.</strong> Most roles are remote or hybrid within the region. We hire for the county, not just the headquarters.</p>
+      <p style="margin:0;font-size:17px;line-height:1.45;color:#ffffffab"><strong style="color:#fdfdfd;font-weight:750">Operators welcome.</strong> Many of our advisors came from running their own businesses. That experience counts here more than a résumé format.</p>
+    </div>
+  </div>
+</section>
+<section id="openings" data-screen-label="Open roles" aria-label="Open roles" style="background:var(--paper);padding:96px 0 110px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+      <div>
+        <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">02 — Open roles</p>
+        <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(42px,3.8vw,58px);letter-spacing:-.05em;line-height:.95;color:var(--navy)">Who we’re looking for.</h2>
+      </div>
+      <p style="margin:0;max-width:340px;font-size:15px;line-height:1.5;color:var(--slate)">Don’t see your role? Send us a note — we open positions across the network throughout the year.</p>
+    </div>
+    <div style="margin-top:52px;border-top:3px solid var(--navy)">
+      <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="5">
+        <a href="{{ j.href }}" style="display:grid;grid-template-columns:1fr 200px 180px auto;gap:32px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);color:var(--navy)" style-hover="color:var(--cobalt)">
+          <span>
+            <span style="display:block;font-family:var(--sera);font-weight:400;font-size:27px;letter-spacing:-.03em;line-height:1.05;color:inherit">{{ j.title }}</span>
+            <span style="display:block;margin-top:7px;font-size:14px;color:var(--slate)">{{ j.team }}</span>
+          </span>
+          <span style="font-size:13px;font-weight:700;color:var(--slate)">{{ j.location }}</span>
+          <span><span style="font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--slate);border:1px solid #0f1c2d2e;padding:4px 9px;border-radius:2px">{{ j.type }}</span></span>
+          <span style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:750;white-space:nowrap">View role <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></span>
+        </a>
+      </sc-for>
+    </div>
+    <p style="margin:36px 0 0;font-size:15px;color:var(--slate)">All positions are posted through the Cal Poly Humboldt Sponsored Programs Foundation. <a href="mailto:info@norcalsbdc.org" style="border-bottom:1px solid;padding-bottom:2px;font-weight:750">Send a general inquiry</a></p>
+  </div>
+</section>
+<section data-screen-label="Hiring process" aria-label="How hiring works" style="background:var(--cream);padding:96px 0 104px">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
+      <div>
+        <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">03 — How hiring works</p>
+        <h2 style="margin:0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(38px,3.4vw,52px);letter-spacing:-.05em;line-height:.98;color:var(--navy)">Three conversations, no gauntlet.</h2>
+      </div>
+      <p style="margin:0;max-width:340px;font-size:15px;line-height:1.5;color:var(--slate)">We aim to go from application to offer in about four weeks.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:52px;border-bottom:5px solid var(--berry)">
+      <div style="background:var(--navy);color:#fdfdfd;padding:44px 44px 40px;display:flex;flex-direction:column;gap:12px">
+        <strong style="font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1;color:var(--pool)">01</strong>
+        <strong style="font-size:19px;font-weight:750;letter-spacing:-.01em">Apply.</strong>
+        <span style="font-size:14px;line-height:1.5;color:#ffffffd6">Résumé and a short note about the businesses you want to help. No cover-letter theater.</span>
+      </div>
+      <div style="background:var(--pool);color:var(--navy);padding:44px 44px 40px;display:flex;flex-direction:column;gap:12px">
+        <strong style="font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1;color:#0f1c2d99">02</strong>
+        <strong style="font-size:19px;font-weight:750;letter-spacing:-.01em">Talk with the team.</strong>
+        <span style="font-size:14px;line-height:1.5;color:#0f1c2dcc">A conversation with the center director and an advisor you’d work beside.</span>
+      </div>
+      <div style="background:var(--paper);color:var(--navy);padding:44px 44px 40px;display:flex;flex-direction:column;gap:12px">
+        <strong style="font-weight:800;font-size:44px;letter-spacing:-.03em;line-height:1;color:var(--berry)">03</strong>
+        <strong style="font-size:19px;font-weight:750;letter-spacing:-.01em">Work a real case.</strong>
+        <span style="font-size:14px;line-height:1.5;color:var(--slate)">We walk through an anonymized client situation together. It’s the job, so it’s the interview.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-screen-label="Apply" aria-label="Apply" style="display:grid;grid-template-columns:1fr 1fr;border-bottom:5px solid var(--berry)">
+  <div style="background:var(--cream);color:var(--navy);aspect-ratio:4/5;max-height:620px;display:flex;flex-direction:column;justify-content:center;padding:64px 56px 64px max(48px,calc((100vw - 1400px)/2))">
+    <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">04 — Equal opportunity</span>
+    <h2 style="margin:22px 0 0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(30px,2.6vw,40px);letter-spacing:-.05em;line-height:1;color:var(--navy)">Everyone is welcome to apply.</h2>
+    <p style="margin:20px 0 0;max-width:44ch;font-size:15px;line-height:1.55;color:var(--slate)">NorCal SBDC and the Cal Poly Humboldt Sponsored Programs Foundation are equal-opportunity employers. Services and employment are provided on a nondiscriminatory basis.</p>
+    <a href="mailto:info@norcalsbdc.org" style="display:inline-flex;align-items:center;gap:10px;margin-top:44px;font-size:14px;font-weight:750;border-bottom:1px solid;padding-bottom:3px;align-self:flex-start">Questions about a role <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></a>
+  </div>
+  <div style="position:relative;background:var(--navy);color:#fdfdfd;aspect-ratio:4/5;max-height:620px;display:flex;flex-direction:column;justify-content:center;padding:64px max(48px,calc((100vw - 1400px)/2)) 64px 56px;overflow:hidden">
+    <img src="https://americassbdc.org/wp-content/uploads/2018/01/bg-star.png" alt="" aria-hidden="true" style="position:absolute;right:-120px;bottom:-140px;width:460px;height:auto;opacity:.08;pointer-events:none">
+    <span style="position:relative;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--pool)">05 — Your next step</span>
+    <p style="position:relative;margin:22px 0 0;font-size:clamp(30px,2.8vw,42px);font-weight:400;letter-spacing:-.02em;line-height:1.08">Help someone <strong style="font-weight:800">build <span style="color:var(--pool)">something.</span></strong></p>
+    <p style="position:relative;margin:18px 0 0;max-width:38ch;font-size:15px;line-height:1.5;color:#ffffffd6">{{ openCount }} roles open across the network right now.</p>
+    <div style="position:relative;margin-top:40px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" arrow="{{ true }}" href="#openings" hint-size="auto,50px">See open roles</x-import></div>
+  </div>
+</section>
+<footer data-screen-label="Footer" style="background:var(--footer-ink);color:#fdfdfdcc">
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:60px 0 48px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;align-items:start">
+    <div>
+      <a href="MySBDC Homepage.dc.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-white-180h.png" alt="America’s SBDC California, Northern California Network" style="height:48px;width:auto"></a>
+      <p style="margin:18px 0 0;font-size:13px;line-height:1.55;color:#ffffffab"><strong style="color:#fdfdfd">Your Business, Better.</strong> Confidential business advising. No fee.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Work with us</h3>
+      <a href="Advising.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Advising</a>
+      <a href="Trainings.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Training</a>
+      <a href="Funding.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Funding</a>
+      <a href="Resources.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Resources</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Network</h3>
+      <a href="Stories.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Stories</a>
+      <a href="About.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">About</a>
+      <a href="Careers.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Careers</a>
+      <a href="Partners.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Become a Partner</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:9px">
+      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Contact</h3>
+      <a href="MySBDC Sign In.dc.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">MySBDC Log in</a>
+      <a href="mailto:info@norcalsbdc.org" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">info@norcalsbdc.org</a>
+      <a href="tel:18332757232" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">(833) ASK-SBDC</a>
+      <span style="font-size:12px;color:#ffffff8a">Mon – Fri, 9 AM – 5 PM</span>
+    </div>
+  </div>
+  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:22px 0 34px;border-top:1px solid #ffffff2e;display:flex;align-items:center;gap:40px;flex-wrap:wrap">
+    <span style="display:block;background:var(--paper);padding:9px 14px;border-radius:4px;flex:none"><img src="assets/required-partner-logos.png" alt="America’s SBDC California accredited member, Cal Poly Humboldt, SCALE powered by CalOSBA, U.S. Small Business Administration" style="width:340px;max-width:100%;height:auto;display:block"></span>
+    <p style="margin:0;flex:1;min-width:380px;font-size:11px;line-height:1.55;color:#ffffff6e">Funded in part through a cooperative agreement with the U.S. Small Business Administration and grants from the California Office of the Small Business Advocate. Opinions expressed are those of the author(s) and do not necessarily reflect their views. Hosted by Cal Poly Humboldt Sponsored Programs Foundation. © 2026 NorCal SBDC</p>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const jobs = [
+      { title: 'Business Advisor', team: 'Advising · General business', location: 'Eureka / Hybrid', type: 'Full time', href: 'Role - Business Advisor.dc.html' },
+      { title: 'Certified Capital Advisor', team: 'SBDC Finance Center', location: 'Sacramento / Remote', type: 'Full time' },
+      { title: 'Food & Hospitality Specialist', team: 'EATS program', location: 'Santa Cruz / Hybrid', type: 'Contract' },
+      { title: 'Government Contracting Advisor', team: 'NorCal APEX Accelerator', location: 'Fairfield / Hybrid', type: 'Full time' },
+      { title: 'Training Coordinator', team: 'Training & events', location: 'Remote (NorCal)', type: 'Full time' },
+      { title: 'Marketing Communications Specialist', team: 'Lead center', location: 'Eureka / Hybrid', type: 'Full time' }
+    ];
+    return { jobs: jobs.map(j => ({ ...j, href: j.href ?? '#' })), openCount: jobs.length };
+  }
+}
+</script>
+</body>
+</html>

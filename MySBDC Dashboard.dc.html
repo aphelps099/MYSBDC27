@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="MySBDC — your advisor, your next step, and what's coming up.">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="stylesheet" href="https://use.typekit.net/pkl5rjs.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--cream);color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.5}
+    a{color:var(--navy);text-decoration:none;transition:color .18s ease,background .18s ease}
+    a:hover{color:var(--cobalt)}
+    *:focus-visible{outline:3px solid var(--pool);outline-offset:3px}
+    input,textarea,select{font:inherit}
+    @keyframes om-conf{0%{transform:translate3d(0,-20px,0) rotate(0) scale(1);opacity:0}8%{opacity:1}100%{transform:translate3d(var(--dx,0),150px,0) rotate(var(--rot,240deg)) scale(.72);opacity:0}}
+    @keyframes om-step{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes om-pop{0%{transform:scale(.4);opacity:0}62%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+    .om-step>*{animation:om-step .45s cubic-bezier(.2,.75,.25,1) both}
+    .om-step>*:nth-child(2){animation-delay:.05s}.om-step>*:nth-child(3){animation-delay:.1s}.om-step>*:nth-child(4){animation-delay:.15s}.om-step>*:nth-child(5){animation-delay:.2s}.om-step>*:nth-child(6){animation-delay:.25s}
+    @media (prefers-reduced-motion:reduce){[style*="om-conf"]{animation:none !important;opacity:0}.om-step>*{animation:none !important}}
+  </style>
+</helmet>
+<div style="min-height:100vh">
+<header data-screen-label="Header" style="position:relative;background:linear-gradient(180deg,#15263c 0%,#0f1c2d 100%);color:#fdfdfd">
+  <span aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,#8fc5d900 0%,#8fc5d959 34%,#8fc5d900 76%);pointer-events:none"></span>
+  <div style="width:min(1120px,100% - 64px);margin:0 auto;height:78px;display:flex;align-items:stretch;gap:34px">
+    <a href="MySBDC Homepage.dc.html" style="display:flex;flex-direction:column;justify-content:center;gap:3px;color:#fdfdfd">
+      <span style="font-size:20px;font-weight:800;letter-spacing:-.03em;line-height:1"><span style="color:var(--pool)">My</span>SBDC</span>
+      <span style="font-size:8.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:#ffffff70">North Coast SBDC</span>
+    </a>
+    <nav aria-label="MySBDC" style="display:flex;align-items:stretch;gap:4px;margin-left:8px">
+      <a href="#" aria-current="page" style="display:flex;align-items:center;padding:0 14px;color:#fdfdfd;font-size:13px;font-weight:750;letter-spacing:.02em;box-shadow:inset 0 -2px 0 var(--pool)">Home</a>
+      <a href="#" onClick="{{ openCat }}" style="display:flex;align-items:center;padding:0 14px;color:#ffffffa3;font-size:13px;font-weight:750;letter-spacing:.02em;transition:color .18s ease,box-shadow .22s cubic-bezier(.2,.75,.25,1)" style-hover="color:#fdfdfd;box-shadow:inset 0 -2px 0 #8fc5d980">Training</a>
+      <a href="Resources.dc.html" style="display:flex;align-items:center;padding:0 14px;color:#ffffffa3;font-size:13px;font-weight:750;letter-spacing:.02em;transition:color .18s ease,box-shadow .22s cubic-bezier(.2,.75,.25,1)" style-hover="color:#fdfdfd;box-shadow:inset 0 -2px 0 #8fc5d980">Resources</a>
+      <a href="#" onClick="{{ openWin }}" style="display:flex;align-items:center;padding:0 14px;color:#ffffffa3;font-size:13px;font-weight:750;letter-spacing:.02em;transition:color .18s ease,box-shadow .22s cubic-bezier(.2,.75,.25,1)" style-hover="color:#fdfdfd;box-shadow:inset 0 -2px 0 #8fc5d980">Milestones</a>
+    </nav>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+      <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="pool" small="{{ true }}" href="MySBDC Homepage.dc.html" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Visit website</x-import>
+      <span aria-hidden="true" style="width:1px;height:26px;background:#ffffff29;margin:0 8px"></span>
+      <button aria-label="Notifications" style="position:relative;width:38px;height:38px;display:grid;place-items:center;background:none;border:none;color:#ffffffc4;cursor:pointer;padding:0;border-radius:4px;transition:background .18s ease,color .18s ease" style-hover="background:#ffffff14;color:#fdfdfd"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.6 2.6H4.4L6 16z"></path><path d="M10 21a2.2 2.2 0 0 0 4 0"></path></svg><span style="position:absolute;top:6px;right:7px;width:8px;height:8px;border-radius:50%;background:var(--berry);border:2px solid var(--navy)"></span></button>
+      <button onClick="{{ openSettings }}" aria-label="Settings" style="width:38px;height:38px;display:grid;place-items:center;background:none;border:none;color:#ffffffc4;cursor:pointer;padding:0;border-radius:4px;transition:background .18s ease,color .18s ease" style-hover="background:#ffffff14;color:#fdfdfd"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="3.2"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.06-1.58 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.67 9.4a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 7.1 4.64l.06.06c.5.5 1.23.63 1.87.34A1.7 1.7 0 0 0 10.09 3.5V3.4a2 2 0 1 1 4 0v.09c0 .7.42 1.32 1.06 1.58.64.29 1.37.16 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87c.26.64.88 1.06 1.58 1.06H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1z"></path></svg></button>
+      <span style="width:34px;height:34px;border-radius:50%;background:var(--pool);color:var(--navy);display:grid;place-items:center;font-size:11px;font-weight:800;box-shadow:0 0 0 1px #0f1c2d,0 0 0 2.5px #8fc5d966;margin-left:4px">AP</span>
+    </div>
+  </div>
+</header>
+<sc-if value="{{ regBanner }}" hint-placeholder-val="{{ false }}">
+  <div role="status" style="background:var(--pool-pale);border-bottom:1px solid #0f1c2d29">
+    <div style="width:min(1120px,100% - 64px);margin:0 auto;display:flex;align-items:center;gap:12px;padding:13px 0">
+      <span style="flex:none;width:19px;height:19px;border-radius:50%;background:var(--evergreen);color:#fdfdfd;display:grid;place-items:center;font-size:10px;font-weight:800">✓</span>
+      <span style="font-size:14px;color:var(--navy)"><strong style="font-weight:750">You’re registered.</strong> The Zoom link is in your email — and right here.</span>
+    </div>
+  </div>
+</sc-if>
+<div data-screen-label="Greeting" style="position:relative;overflow:hidden;background:linear-gradient(180deg,#e0eef4 0%,#eeece2 68%,#f5f1e8 100%)">
+  <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.16;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span>
+  <img src="https://americassbdc.org/wp-content/uploads/2018/01/bg-star.png" alt="" aria-hidden="true" style="position:absolute;right:-80px;top:-120px;width:320px;height:auto;opacity:.035;pointer-events:none">
+  <section style="position:relative;width:min(1120px,100% - 64px);margin:0 auto;padding:46px 0 40px">
+    <p style="margin:0 0 16px;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">Tuesday, August 19</p>
+    <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(38px,4.4vw,50px);letter-spacing:-.05em;line-height:.95;color:var(--navy)">Hi Avery.</h1>
+    <p style="margin:12px 0 0;font-size:16px;color:var(--slate)">{{ greetingSub }}</p>
+    <sc-if value="{{ preMatch }}" hint-placeholder-val="{{ false }}">
+      <p style="display:inline-flex;align-items:center;gap:9px;margin:20px 0 0;padding:8px 14px;background:#fdfdfd;border:1px solid #0f1c2d29;font-size:12.5px;font-weight:750;color:var(--navy)"><span style="width:8px;height:8px;border-radius:50%;background:var(--cobalt)"></span>{{ statusLine }}</p>
+    </sc-if>
+  </section>
+</div>
+<main style="width:min(1120px,100% - 64px);margin:0 auto;padding:0 0 72px">
+  <div style="display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:26px;align-items:start;margin-top:34px">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <section data-screen-label="Next step" aria-label="Your next step" style="background:var(--paper);border:1px solid #0f1c2d29;border-top:5px solid var(--berry)">
+        <sc-if value="{{ isReceived }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:26px 32px 28px">
+          <p style="display:flex;align-items:center;gap:9px;margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">What happens now</p>
+          <p style="margin:16px 0 0;font-family:var(--sera);font-weight:400;font-size:clamp(22px,2vw,27px);letter-spacing:-.03em;line-height:1.15;color:var(--navy);max-width:26ch">We’ve received your info. Expect to hear from us within 48 hours.</p>
+          <p style="margin:10px 0 0;max-width:56ch;font-size:14px;line-height:1.55;color:var(--slate)">Someone from our intake team will reach out to confirm your details and match you with the right program — one front door, regardless of county.</p>
+          <p style="margin:18px 0 0;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--slate-light)"><span style="width:8px;height:8px;border-radius:50%;background:var(--evergreen)"></span>Received Tuesday, Aug 19 at 2:14 PM</p>
+          <div style="display:flex;align-items:center;gap:24px;margin-top:22px;padding-top:20px;border-top:1px solid #0f1c2d29;flex-wrap:wrap">
+            <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" small="{{ true }}" href="#" onClick="{{ openCat }}" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Register for a training now</x-import>
+            <span style="font-size:12.5px;color:var(--slate-light)">You don&rsquo;t have to wait — 82 free trainings are open to you today.</span>
+          </div>
+        </div>
+        </sc-if>
+        <sc-if value="{{ isMatching }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:26px 32px 28px">
+          <p style="display:flex;align-items:center;gap:9px;margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">What happens now</p>
+          <p style="margin:16px 0 0;font-family:var(--sera);font-weight:400;font-size:clamp(22px,2vw,27px);letter-spacing:-.03em;line-height:1.15;color:var(--navy);max-width:26ch">We’re matching you with an advisor.</p>
+          <p style="margin:10px 0 0;max-width:56ch;font-size:14px;line-height:1.55;color:var(--slate)">Matched on industry, county, language, and what you asked for help with — within one week of intake. You’ll get an email the moment it’s set.</p>
+          <div style="display:flex;align-items:center;gap:24px;margin-top:22px;flex-wrap:wrap">
+            <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" small="{{ true }}" href="#" onClick="{{ openCat }}" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Register for a training now</x-import>
+            <span style="font-size:12.5px;color:var(--slate-light)">All 82 are free and open to you already.</span>
+          </div>
+        </div>
+        </sc-if>
+        <sc-if value="{{ isActive }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:26px 32px 28px">
+          <p style="display:flex;align-items:center;gap:9px;margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="5" y="5" width="14" height="16" rx="1"></rect><path d="M9 5a3 3 0 0 1 6 0"></path><path d="M9 14l2.2 2.2L15 11.5"></path></svg>Your next step</p>
+          <p style="margin:16px 0 0;font-family:var(--sera);font-weight:400;font-size:clamp(22px,2vw,27px);letter-spacing:-.03em;line-height:1.15;color:var(--navy);max-width:24ch">Upload your P&amp;L before Thursday’s session.</p>
+          <p style="margin:10px 0 0;max-width:56ch;font-size:14px;line-height:1.55;color:var(--slate)">“I need last month’s numbers to finish your projections before the lender introduction. Rough is fine — we’ll clean it up together.”</p>
+          <p style="display:flex;align-items:center;gap:10px;margin:14px 0 0"><span style="width:26px;height:26px;border-radius:50%;background:var(--pool);color:var(--navy);display:grid;place-items:center;font-size:9px;font-weight:800">DW</span><span style="font-size:12.5px;color:var(--slate-light)"><strong style="font-weight:750;color:var(--slate)">Dana Whitfield</strong> · Aug 18</span></p>
+          <div style="display:flex;align-items:center;gap:24px;margin-top:22px;flex-wrap:wrap">
+            <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" small="{{ true }}" href="#" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Upload document</x-import>
+            <a href="#" style="font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">I need more time</a>
+          </div>
+        </div>
+        </sc-if>
+      </section>
+      <section data-screen-label="Coming up" aria-label="Coming up" style="position:relative;overflow:hidden;background:var(--paper);border:1px solid #0f1c2d29;padding:24px 32px 10px">
+        
+        <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 4px">
+          <p style="display:flex;align-items:center;gap:9px;margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><rect x="3" y="5" width="18" height="16" rx="1"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>My trainings</p>
+          <button onClick="{{ openCat }}" style="background:none;border:none;padding:0 0 1px;cursor:pointer;font-family:var(--nova);font-size:12.5px;font-weight:750;color:var(--navy);border-bottom:1px solid" style-hover="color:var(--cobalt)">See all trainings</button>
+        </div>
+        <sc-for list="{{ comingUp }}" as="c" hint-placeholder-count="1">
+          <div style="position:relative;display:grid;grid-template-columns:56px 1fr;gap:20px;align-items:start;padding:16px 0;border-bottom:1px solid #0f1c2d29">
+            <span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--berry)">{{ c.month }}</span><span style="font-family:var(--sera);font-weight:400;font-size:27px;letter-spacing:-.03em;line-height:1;color:var(--navy)">{{ c.day }}</span></span>
+            <span>
+              <span style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><span style="font-size:15.5px;font-weight:750;letter-spacing:-.01em;color:var(--navy)">{{ c.title }}</span><span style="display:inline-flex;align-items:center;padding:3px 8px;background:var(--pool-pale);font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)">{{ c.chip }}</span></span>
+              <span style="display:block;margin-top:3px;font-size:13px;color:var(--slate)">{{ c.meta }}</span>
+              <span style="display:flex;align-items:center;gap:18px;margin-top:8px;flex-wrap:wrap">
+                <a href="#" style="font-size:12.5px;font-weight:750;border-bottom:1px solid;padding-bottom:1px">Add to calendar</a>
+                <sc-if value="{{ c.cancel }}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{ c.cancel }}" style="font-size:12.5px;font-weight:750;color:var(--slate);border-bottom:1px solid;padding-bottom:1px">Can’t make it?</a></sc-if>
+              </span>
+            </span>
+          </div>
+        </sc-for>
+        <sc-if value="{{ noRegs }}" hint-placeholder-val="{{ false }}">
+          <p style="position:relative;margin:0;padding:14px 0 16px;font-size:13px;color:var(--slate-light)">No trainings booked yet — <a href="#" onClick="{{ openCat }}" style="font-weight:750;border-bottom:1px solid;padding-bottom:1px">see all trainings</a> and register in one click.</p>
+        </sc-if>
+      </section>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <section data-screen-label="Your business" aria-label="Your business" style="position:relative;overflow:hidden;background:linear-gradient(148deg,#1d3a5f 0%,#14263e 46%,#0f1c2d 100%);color:#fdfdfd">
+        <img src="https://americassbdc.org/wp-content/uploads/2018/01/bg-star.png" alt="" aria-hidden="true" style="position:absolute;right:-70px;bottom:-80px;width:280px;height:auto;opacity:.09;pointer-events:none;filter:brightness(3)">
+        <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span>
+        <div style="position:relative;padding:22px 26px 24px">
+          <span style="display:block;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">Your business</span>
+          <strong style="display:block;margin-top:8px;font-family:var(--sera);font-weight:400;font-size:25px;letter-spacing:-.04em;line-height:1">Northstar Provisions</strong>
+          <span style="display:block;margin-top:5px;font-size:12.5px;color:#ffffffab">Food &amp; beverage — retail · LLC · Eureka, Humboldt County</span>
+          <div style="margin-top:16px;border-top:1px solid #ffffff29">
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid #ffffff29"><span style="font-size:12.5px;color:#ffffffab">Working on</span><strong style="font-size:12.5px;font-weight:750">Access to capital</strong></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid #ffffff29"><span style="font-size:12.5px;color:#ffffffab">Current priority</span><strong style="font-size:12.5px;font-weight:750">Complete lender package</strong></div>
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid #ffffff29"><span style="font-size:12.5px;color:#ffffffab">Client since</span><strong style="font-size:12.5px;font-weight:750">March 2025</strong></div>
+            <div style="padding:11px 0 2px">
+              <span style="display:block;font-size:12.5px;color:#ffffffab">Your programs</span>
+              <span style="display:flex;flex-wrap:wrap;gap:7px;margin-top:8px">
+                <sc-for list="{{ programs }}" as="p" hint-placeholder-count="2">
+                  <span style="display:inline-flex;align-items:center;padding:5px 10px;background:#ffffff1f;border:1px solid #ffffff33;border-radius:2px;font-size:11px;font-weight:750;color:#fdfdfd">{{ p }}</span>
+                </sc-for>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <sc-if value="{{ preMatch }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Advisor pending" aria-label="Your advisor" style="background:var(--paper);border:1px solid #0f1c2d29;padding:24px 26px 26px">
+        <span style="display:block;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Your advisor</span>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:14px">
+          <span style="flex:none;width:54px;height:54px;border-radius:50%;border:1px dashed #0f1c2d5c;display:grid;place-items:center;font-family:var(--sera);font-size:22px;color:var(--slate-light)">?</span>
+          <span style="font-size:13.5px;line-height:1.5;color:var(--slate)">{{ advisorPendingNote }}</span>
+        </div>
+      </section>
+      </sc-if>
+      <sc-if value="{{ isActive }}" hint-placeholder-val="{{ true }}">
+      <section data-screen-label="Advisor" aria-label="Your advisor" style="background:var(--paper);border:1px solid #0f1c2d29">
+        <button onClick="{{ openSheet }}" aria-label="Play Dana's intro video" style="position:relative;display:block;width:100%;aspect-ratio:16/10;padding:0;border:none;background:var(--pool-pale);cursor:pointer;overflow:hidden">
+          <image-slot id="advisor-dana-video" shape="rect" placeholder="Dana's 30-second intro — drop a video poster here"></image-slot>
+          <span style="position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:10px;padding:9px 14px;background:#0f1c2df2;color:#fdfdfd">
+            <span style="width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:9px solid var(--pool)"></span>
+            <span style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase">Meet Dana · 0:30</span>
+          </span>
+          <span style="position:absolute;inset:auto 0 0 0;height:5px;background:var(--berry)"></span>
+        </button>
+        <div style="padding:20px 26px 24px">
+          <span style="display:block;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Your advisor</span>
+          <strong style="display:block;margin-top:6px;font-family:var(--sera);font-weight:400;font-size:25px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Dana Whitfield</strong>
+          <span style="display:block;margin-top:5px;font-size:13px;color:var(--slate)">Food &amp; hospitality · Loans, cash flow, menu costing</span>
+          <div style="margin-top:16px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" small="{{ true }}" href="#" onClick="{{ openSheet }}" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Schedule a meeting</x-import></div>
+          <a href="#" onClick="{{ openMsg }}" style="display:inline-block;margin-top:12px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Send Dana a message</a>
+        </div>
+      </section>
+      </sc-if>
+      <section data-screen-label="Resources" aria-label="Recommended for you" style="background:var(--paper);border:1px solid #0f1c2d29;padding:20px 26px 22px">
+        <button data-drawer="resources" onClick="{{ toggleDrawer }}" aria-expanded="{{ resourcesOpen }}" style="display:flex;align-items:center;gap:12px;width:100%;padding:0;background:none;border:none;cursor:pointer;font-family:var(--nova);text-align:left">
+          <span style="width:26px;height:26px;display:grid;place-items:center;border:1px solid #0f1c2d3d;font-size:14px;color:var(--navy);line-height:1">{{ resourcesMark }}</span>
+          <span style="font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Recommended by Dana</span>
+          <span style="margin-left:auto;font-size:11px;color:var(--slate-light)">3</span>
+        </button>
+        <sc-if value="{{ resourcesOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:8px">
+          <sc-for list="{{ resources }}" as="r" hint-placeholder-count="3">
+            <a href="#" style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px solid #0f1c2d29;color:var(--navy)" style-hover="color:var(--cobalt)">
+              <span style="font-size:13.5px;font-weight:750;color:inherit">{{ r.name }}</span>
+              <span style="font-size:11.5px;color:var(--slate-light);white-space:nowrap">{{ r.kind }}</span>
+            </a>
+          </sc-for>
+        </div>
+        <a href="Resources.dc.html" style="display:inline-block;margin-top:14px;font-size:12.5px;font-weight:750;border-bottom:1px solid;padding-bottom:1px">Browse all resources</a>
+        </sc-if>
+      </section>
+    </div>
+  </div>
+  <section data-screen-label="Milestones" aria-label="Your milestones" style="position:relative;overflow:hidden;margin-top:40px;background:linear-gradient(155deg,#e9f2f6 0%,#f7f4ec 52%,#fdfdfd 100%);border:1px solid #0f1c2d29;border-top:5px solid var(--berry)">
+    <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;opacity:.14;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;)"></span>
+    <span aria-hidden="true" style="position:absolute;right:-40px;bottom:-70px;pointer-events:none;color:var(--navy);opacity:.05"><svg width="210" height="210" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M5 21V4"></path><path d="M5 4h13l-2.5 4L18 12H5"></path></svg></span>
+    <div style="position:relative;padding:30px 34px 32px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap">
+        <div>
+          <p style="display:flex;align-items:center;gap:9px;margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none"><path d="M5 21V4"></path><path d="M5 4h13l-2.5 4L18 12H5"></path></svg>Your milestones</p>
+          <h2 style="margin:12px 0 0;font-family:var(--sera);font-weight:400;font-size:clamp(26px,2.4vw,32px);letter-spacing:-.04em;line-height:1;color:var(--navy)">Anything new with your business?</h2>
+          <p style="margin:10px 0 0;max-width:54ch;font-size:14px;line-height:1.55;color:var(--slate)">Funding, a hire, better sales, a new location — {{ growthNote }}</p>
+        </div>
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" small="{{ true }}" href="#" onClick="{{ openWin }}" dc-props="{{ nowrapBtn }}" hint-size="auto,43px">Share a milestone</x-import>
+      </div>
+      <button data-drawer="mhist" onClick="{{ toggleDrawer }}" aria-expanded="{{ mhistOpen }}" style="display:flex;align-items:center;gap:12px;margin-top:24px;padding:14px 0 0;width:100%;background:none;border:none;border-top:1px solid #0f1c2d29;cursor:pointer;font-family:var(--nova);text-align:left">
+        <span style="width:26px;height:26px;display:grid;place-items:center;border:1px solid #0f1c2d3d;font-size:14px;color:var(--navy);line-height:1">{{ mhistMark }}</span>
+        <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate)">Recent milestones</span>
+        <span style="margin-left:auto;font-size:11px;color:var(--slate-light)">3</span>
+      </button>
+      <sc-if value="{{ mhistOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:14px">
+        <sc-for list="{{ milestones }}" as="m" hint-placeholder-count="3">
+          <div style="padding:16px 24px 4px 0;border-right:{{ m.rule }}">
+            <span style="display:block;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">{{ m.when }}</span>
+            <strong style="display:block;margin-top:5px;font-size:14.5px;font-weight:750;color:var(--navy)">{{ m.what }}</strong>
+            <span style="display:block;margin-top:3px;font-size:12.5px;color:var(--slate)">{{ m.detail }}</span>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+    </div>
+  </section>
+  <p style="margin:40px 0 0;padding-top:18px;border-top:1px solid #0f1c2d29;font-size:12.5px;line-height:1.6;color:var(--slate-light)"><strong style="font-weight:750;color:var(--slate)">Private conversations.</strong> Your numbers and notes are visible to you and your advisor only — never shared with a lender unless you choose to apply.</p>
+</main>
+<sc-if value="{{ catOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeCat }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Training catalog" role="dialog" aria-label="All trainings" style="position:fixed;inset:0 0 0 auto;width:min(680px,100vw);background:var(--cream);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid #0f1c2d29">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 34px">
+        <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">All trainings</span>
+        <button onClick="{{ closeCat }}" aria-label="Close" style="width:40px;height:40px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:15px;color:var(--navy);cursor:pointer">✕</button>
+      </div>
+    </div>
+    <div class="om-step" style="padding:30px 34px 44px">
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Every upcoming training.</h2>
+      <p style="margin:10px 0 0;font-size:13.5px;line-height:1.5;color:var(--slate)">You&rsquo;re signed in, so registering is one click — no forms, ever. Everything is free.</p>
+      <input type="search" placeholder="Search trainings — QuickBooks, loans, marketing…" value="{{ catQuery }}" onChange="{{ onCatQuery }}" aria-label="Search trainings" style="display:block;width:100%;height:50px;margin-top:20px;padding:0 16px;font-family:var(--nova);font-size:14.5px;color:var(--navy);background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;box-sizing:border-box">
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+        <sc-for list="{{ catFilters }}" as="cf" hint-placeholder-count="3">
+          <button data-f="{{ cf.name }}" onClick="{{ onCatFilter }}" aria-pressed="{{ cf.on }}" style="{{ cf.style }}">{{ cf.name }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+        <sc-for list="{{ catTopics }}" as="ct" hint-placeholder-count="7">
+          <button data-t="{{ ct.name }}" onClick="{{ onCatTopic }}" aria-pressed="{{ ct.on }}" style="{{ ct.style }}">{{ ct.name }}</button>
+        </sc-for>
+      </div>
+      <p style="margin:16px 0 0;font-size:12px;font-weight:750;color:var(--slate-light)">{{ catCount }}</p>
+      <div style="margin-top:2px">
+        <sc-for list="{{ catRows }}" as="e" hint-placeholder-count="8">
+          <sc-if value="{{ e.header }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:26px 0 2px;padding-bottom:10px;border-bottom:3px solid var(--navy);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">{{ e.label }}</p>
+          </sc-if>
+          <sc-if value="{{ e.row }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid #0f1c2d29">
+            <span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--berry)">{{ e.month }}</span><span style="font-family:var(--sera);font-weight:400;font-size:24px;letter-spacing:-.03em;line-height:1;color:var(--navy)">{{ e.day }}</span></span>
+            <span>
+              <span style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><span style="font-size:14.5px;font-weight:750;letter-spacing:-.01em;color:var(--navy)">{{ e.title }}</span><span style="display:inline-flex;align-items:center;padding:3px 8px;background:var(--pool-pale);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)">{{ e.format }}</span><span style="display:inline-flex;align-items:center;padding:3px 8px;border:1px solid #0f1c2d29;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--slate)">{{ e.topic }}</span></span>
+              <span style="display:block;margin-top:3px;font-size:12.5px;color:var(--slate)">{{ e.meta }}</span>
+            </span>
+            <sc-if value="{{ e.isReg }}" hint-placeholder-val="{{ false }}">
+              <span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+                <span style="display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:750;color:var(--evergreen)"><span style="width:16px;height:16px;border-radius:50%;background:var(--evergreen);color:#fdfdfd;display:grid;place-items:center;font-size:9px;font-weight:800">✓</span>Registered</span>
+                <a href="#" onClick="{{ e.unregister }}" style="font-size:11.5px;font-weight:750;color:var(--slate);border-bottom:1px solid;padding-bottom:1px">Can&rsquo;t make it?</a>
+              </span>
+            </sc-if>
+            <sc-if value="{{ e.notReg }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ e.register }}" style="flex:none;min-height:40px;padding:0 20px;font-family:var(--nova);font-size:12.5px;font-weight:700;color:var(--navy);background:none;border:1px solid #0f1c2d5c;border-radius:4px;cursor:pointer;transition:color .18s ease,border-color .18s ease,background .18s ease" style-hover="color:#fdfdfd;background:var(--cobalt);border-color:var(--cobalt)">Register</button>
+            </sc-if>
+          </div>
+          </sc-if>
+        </sc-for>
+      </div>
+      <sc-if value="{{ catMore }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ showMoreCat }}" style="display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;margin-top:18px;background:none;border:1px solid #0f1c2d5c;border-radius:4px;font-family:var(--nova);font-size:13.5px;font-weight:700;color:var(--navy);cursor:pointer;transition:border-color .18s ease" style-hover="border-color:var(--cobalt);color:var(--cobalt)">{{ catMoreLabel }}</button>
+      </sc-if>
+      <p style="margin:20px 0 0;font-size:12.5px;line-height:1.6;color:var(--slate-light)">Registered trainings land in <strong style="font-weight:750;color:var(--slate)">Coming up</strong> on your dashboard, with the Zoom link in your email. Prefer the website? <a href="Training Calendar.dc.html" style="font-weight:750;border-bottom:1px solid;padding-bottom:1px">Open the full calendar</a> — you stay signed in there too.</p>
+    </div>
+  </aside>
+</sc-if>
+<sc-if value="{{ msgOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeMsg }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Message sheet" role="dialog" aria-label="Message Dana" style="position:fixed;inset:0 0 0 auto;width:min(520px,100vw);background:var(--cream);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 30px;background:var(--paper);border-bottom:1px solid #0f1c2d29">
+      <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Message Dana</span>
+      <button onClick="{{ closeMsg }}" aria-label="Close" style="width:40px;height:40px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:15px;color:var(--navy);cursor:pointer">✕</button>
+    </div>
+    <div class="om-step" style="padding:30px 34px 40px">
+      <sc-if value="{{ msgNotSent }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;gap:13px">
+          <span style="flex:none;width:44px;height:44px;border-radius:50%;background:var(--pool);color:var(--navy);display:grid;place-items:center;font-size:13px;font-weight:800">DW</span>
+          <span><strong style="display:block;font-size:15px;font-weight:750;color:var(--navy)">Dana Whitfield</strong><span style="display:block;margin-top:2px;font-size:12.5px;color:var(--slate)">Replies by email, usually within one business day</span></span>
+        </div>
+        <textarea rows="6" placeholder="No need to be formal — a question, a worry, or just what changed this week." value="{{ msgText }}" onChange="{{ onMsgText }}" style="display:block;width:100%;margin-top:22px;padding:14px;font-family:var(--nova);font-size:14.5px;line-height:1.55;color:var(--navy);background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;resize:vertical;box-sizing:border-box"></textarea>
+        <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--slate-light)">Attachments? Reply to the email copy this sends you — anything you attach there reaches Dana too.</p>
+        <button onClick="{{ sendMsg }}" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:50px;margin-top:20px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:14.5px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">Send to Dana</button>
+        <p style="margin:14px 0 0;font-size:12px;line-height:1.6;color:var(--slate-light)">Private between you and your advisor — never shared with a lender or anyone else.</p>
+      </sc-if>
+      <sc-if value="{{ msgSent }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0 0 14px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--evergreen)">Sent</p>
+        <h3 style="margin:0;font-family:var(--sera);font-weight:400;font-size:28px;letter-spacing:-.04em;line-height:1.05;color:var(--navy)">On its way to Dana.</h3>
+        <p style="margin:14px 0 0;font-size:14px;line-height:1.6;color:var(--slate)">She replies by email, usually within one business day. A copy just went to avery@northstar.co — if it&rsquo;s urgent, call the center at <a href="tel:17074450430" style="font-weight:750;border-bottom:1px solid;padding-bottom:1px">(707) 445-0430</a>.</p>
+        <button onClick="{{ closeMsg }}" style="display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 26px;margin-top:24px;background:none;border:1px solid #0f1c2d5c;border-radius:4px;font-family:var(--nova);font-size:13.5px;font-weight:700;color:var(--navy);cursor:pointer">Back to dashboard</button>
+      </sc-if>
+    </div>
+  </aside>
+</sc-if>
+<sc-if value="{{ settingsOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeSettings }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Settings sheet" role="dialog" aria-label="Settings" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid #0f1c2d29">
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Settings</h2>
+      <button onClick="{{ closeSettings }}" aria-label="Close" style="width:44px;height:44px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:17px;color:var(--navy);cursor:pointer">✕</button>
+    </div>
+    <div style="padding:26px 30px 36px">
+      <p style="margin:0 0 10px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Account</p>
+      <div style="border-top:1px solid #0f1c2d29">
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Name</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">Avery Patel</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Email</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">avery@northstar.co</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Phone</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">(707) 555-0184</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Language</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">English</strong></div>
+      </div>
+      <a href="#" style="display:inline-block;margin-top:12px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Edit account details</a>
+      <p style="margin:32px 0 6px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Notifications</p>
+      <p style="margin:0 0 12px;font-size:12.5px;color:var(--slate)">How we reach you between sessions. No noise — change anything, anytime.</p>
+      <div style="border-top:1px solid #0f1c2d29">
+        <sc-for list="{{ notifs }}" as="n" hint-placeholder-count="5">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;padding:13px 0;border-bottom:1px solid #0f1c2d29">
+            <span><strong style="display:block;font-size:13.5px;font-weight:750;color:var(--navy)">{{ n.label }}</strong><span style="display:block;margin-top:2px;font-size:12px;color:var(--slate)">{{ n.body }}</span></span>
+            <button data-key="{{ n.key }}" onClick="{{ toggleNotif }}" role="switch" aria-checked="{{ n.on }}" aria-label="{{ n.label }}" style="{{ n.trackStyle }}"><span style="{{ n.knobStyle }}"></span></button>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:14px 0 0;display:flex;align-items:center;gap:7px;font-size:12px;color:var(--slate-light)"><span style="width:7px;height:7px;border-radius:50%;background:var(--evergreen)"></span>Saved automatically.</p>
+      <p style="margin:28px 0 0;padding-top:18px;border-top:1px solid #0f1c2d29;font-size:12px;line-height:1.6;color:var(--slate-light)">Your data stays between you and your advisor. <a href="#" style="border-bottom:1px solid;padding-bottom:1px;color:var(--slate)">Privacy</a> · <a href="MySBDC Sign In.dc.html" style="border-bottom:1px solid;padding-bottom:1px;color:var(--slate)">Sign out</a></p>
+    </div>
+  </aside>
+</sc-if>
+<sc-if value="{{ winOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeWin }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Milestone sheet" role="dialog" aria-label="Share your growth" style="position:fixed;inset:0 0 0 auto;width:min(720px,100vw);background:var(--cream);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid #0f1c2d29">
+      <div style="height:4px;background:#0f1c2d14"><span style="{{ winBarStyle }}"></span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 30px">
+        <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Share your growth</span>
+        <div style="display:flex;align-items:center;gap:16px">
+          <span style="font-size:12px;color:var(--slate-light)">{{ winStepNote }}</span>
+          <button onClick="{{ closeWin }}" aria-label="Close" style="width:40px;height:40px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:15px;color:var(--navy);cursor:pointer">✕</button>
+        </div>
+      </div>
+    </div>
+    <div class="om-step" style="padding:36px 44px 48px;font-size:16px">
+      <sc-if value="{{ wsSelect }}" hint-placeholder-val="{{ true }}">
+        <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:32px;letter-spacing:-.04em;line-height:1.02;color:var(--navy);max-width:18ch">How has the SBDC supported your business?</h2>
+        <p style="margin:12px 0 0;font-size:14px;line-height:1.55;color:var(--slate)">Select every area that applies. Each one adds a short screen with only the questions that area needs.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:26px">
+          <sc-for list="{{ selCards }}" as="c" hint-placeholder-count="4">
+            <button data-key="{{ c.key }}" onClick="{{ onSelCard }}" aria-pressed="{{ c.on }}" style="{{ c.cardStyle }}">
+              <span style="{{ c.boxStyle }}">{{ c.mark }}</span>
+              <span style="position:relative;text-align:left"><span style="display:block;font-size:15px;font-weight:750">{{ c.title }}</span><span style="display:block;margin-top:4px;max-width:52ch;font-size:12.5px;line-height:1.5;color:var(--slate);font-weight:400">{{ c.body }}</span></span>
+              <span aria-hidden="true" style="{{ c.wmStyle }}">{{ c.wm }}</span>
+            </button>
+          </sc-for>
+        </div>
+        <p style="margin:14px 0 0;font-size:12.5px;color:var(--slate-light)">{{ selNote }}</p>
+      </sc-if>
+      <sc-if value="{{ wsStart }}" hint-placeholder-val="{{ false }}">
+        
+        <div style="position:relative;overflow:hidden;padding:22px 26px 24px;background:#f7e9e6;border-left:5px solid var(--berry)">
+          <span aria-hidden="true" style="position:absolute;right:14px;bottom:-34px;font-family:var(--sera);font-size:110px;line-height:1;color:#0f1c2d14;pointer-events:none">△</span>
+          <h2 style="position:relative;margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1;color:var(--navy)">You started a business</h2>
+          <p style="position:relative;margin:10px 0 0;max-width:46ch;font-size:13.5px;line-height:1.55;color:var(--slate)">This is the first thing we record. Everything else opens once we have the date.</p>
+        </div>
+        <p style="margin:26px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">When did you start doing business?</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <select name="startMonth" aria-label="Month" value="{{ winF.startMonth }}" onChange="{{ onWinField }}" style="height:52px;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:15px;background:#fdfdfd;color:var(--navy)">
+            <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+          </select>
+          <select name="startYear" aria-label="Year" value="{{ winF.startYear }}" onChange="{{ onWinField }}" style="height:52px;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:15px;background:#fdfdfd;color:var(--navy)">
+            <option>2026</option><option>2025</option><option>2024</option>
+          </select>
+        </div>
+        <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--slate-light)">Your first sale, or the day your licence or registration started — whichever came first.</p>
+        <div role="status" style="display:flex;gap:12px;margin-top:22px;padding:14px 16px;background:#e7f1ea;border-left:5px solid var(--evergreen)">
+          <span style="flex:none;width:20px;height:20px;border-radius:50%;background:var(--evergreen);color:#fdfdfd;display:grid;place-items:center;font-size:11px;font-weight:800">✓</span>
+          <span style="font-size:13px;line-height:1.55;color:var(--navy)">Two more screens just opened — <strong style="font-weight:750">funding</strong> and <strong style="font-weight:750">new employees</strong>. You can report both, or neither.</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{ wsSales }}" hint-placeholder-val="{{ false }}">
+        
+        <div style="position:relative;overflow:hidden;padding:22px 26px 24px;background:#e3edf7;border-left:5px solid var(--cobalt)">
+          <span aria-hidden="true" style="position:absolute;right:14px;bottom:-34px;font-family:var(--sera);font-size:110px;line-height:1;color:#0f1c2d14;pointer-events:none">↗</span>
+          <h2 style="position:relative;margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Sales and gross revenue</h2>
+          <p style="position:relative;margin:10px 0 0;max-width:46ch;font-size:13.5px;line-height:1.55;color:var(--slate)">Enter your gross revenue for your most recent fiscal year. Your tax return has it.</p>
+        </div>
+        <p style="margin:26px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">Last year&rsquo;s gross revenue</p>
+        <input name="rev" inputmode="numeric" placeholder="$ 412,000" value="{{ winF.rev }}" onChange="{{ onWinField }}" style="{{ winInput }}">
+        <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--slate-light)">Usually on your business tax return: Form 1120 line 1a, 1120S line 1a, 1065 line 1a, or Schedule C line 1.</p>
+        <div style="margin:20px 0 0;padding:14px 16px;background:#eae6db;border-radius:4px;font-size:13px;line-height:1.55;color:var(--slate)">Last reported: <strong style="font-weight:750;color:var(--navy)">$343,000</strong> for 2024. We calculate the increase — you don&rsquo;t have to.</div>
+      </sc-if>
+      <sc-if value="{{ wsFunding }}" hint-placeholder-val="{{ false }}">
+        
+        <div style="position:relative;overflow:hidden;padding:22px 26px 24px;background:#dcecf2;border-left:5px solid var(--navy)">
+          <span aria-hidden="true" style="position:absolute;right:14px;bottom:-34px;font-family:var(--sera);font-size:110px;line-height:1;color:#0f1c2d14;pointer-events:none">$</span>
+          <h2 style="position:relative;margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Business funding</h2>
+          <p style="position:relative;margin:10px 0 0;max-width:46ch;font-size:13.5px;line-height:1.55;color:var(--slate)">Tell us about funding you secured since you last worked with your advisor.</p>
+        </div>
+        <p style="margin:26px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">In the last 12 months, did you invest your own money?</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <sc-for list="{{ ownBtns }}" as="o" hint-placeholder-count="2">
+            <button data-v="{{ o.v }}" onClick="{{ onOwn }}" aria-pressed="{{ o.on }}" style="{{ o.style }}"><span style="{{ o.box }}">{{ o.mark }}</span>{{ o.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ ownYes }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:22px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">How much did you invest?</p>
+          <input name="ownAmt" inputmode="numeric" placeholder="$ 10,000" value="{{ winF.ownAmt }}" onChange="{{ onWinField }}" style="{{ winInput }}">
+        </sc-if>
+        <p style="margin:24px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">Any other funding or investment?</p>
+        <div style="display:flex;flex-wrap:wrap;gap:9px">
+          <sc-for list="{{ winSrcChips }}" as="s" hint-placeholder-count="7">
+            <button data-src="{{ s.name }}" onClick="{{ onSrcChip }}" aria-pressed="{{ s.on }}" style="{{ s.chipStyle }}">{{ s.name }}</button>
+          </sc-for>
+        </div>
+        <sc-for list="{{ winSrcBlocks }}" as="b" hint-placeholder-count="0">
+          <div style="padding:16px 18px 18px;background:#fdfdfd;border:1px solid #0f1c2d29;border-left:5px solid var(--cobalt);margin-top:12px">
+            <strong style="display:block;font-size:13.5px;font-weight:750;color:var(--navy)">{{ b.name }}</strong>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:750;color:var(--navy)">Amount approved</span><input data-src="{{ b.name }}" data-field="amt" inputmode="numeric" placeholder="$ 128,000" value="{{ b.amt }}" onChange="{{ onSrcField }}" style="height:48px;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:14.5px;background:#fdfdfd"></label>
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:750;color:var(--navy)">Date approved</span><input data-src="{{ b.name }}" data-field="date" placeholder="Jun 2026" value="{{ b.date }}" onChange="{{ onSrcField }}" style="height:48px;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:14.5px;background:#fdfdfd"></label>
+            </div>
+          </div>
+        </sc-for>
+        <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--slate-light)">Tap a source to add its amount and date. Only the sources you tap ask for numbers.</p>
+      </sc-if>
+      <sc-if value="{{ wsJobs }}" hint-placeholder-val="{{ false }}">
+        
+        <div style="position:relative;overflow:hidden;padding:22px 26px 24px;background:#e7f1ea;border-left:5px solid var(--evergreen)">
+          <span aria-hidden="true" style="position:absolute;right:14px;bottom:-34px;font-family:var(--sera);font-size:110px;line-height:1;color:#0f1c2d14;pointer-events:none">+</span>
+          <h2 style="position:relative;margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1;color:var(--navy)">New employees</h2>
+          <p style="position:relative;margin:10px 0 0;max-width:46ch;font-size:13.5px;line-height:1.55;color:var(--slate)">How many people are on your payroll now, compared with your last report?</p>
+        </div>
+        <p style="margin:26px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">Full-time employees added</p>
+        <div style="display:grid;grid-template-columns:52px 1fr 52px;gap:10px">
+          <button data-k="ft" data-d="-1" onClick="{{ stepJobs }}" aria-label="Fewer full-time" style="height:52px;background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;font-size:20px;color:var(--navy);cursor:pointer">−</button>
+          <input name="ft" inputmode="numeric" aria-label="Full-time employees added" value="{{ winF.ft }}" onChange="{{ onWinField }}" style="height:52px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:17px;text-align:center;background:#fdfdfd">
+          <button data-k="ft" data-d="1" onClick="{{ stepJobs }}" aria-label="More full-time" style="height:52px;background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;font-size:20px;color:var(--navy);cursor:pointer">+</button>
+        </div>
+        <p style="margin:20px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">Part-time employees added</p>
+        <div style="display:grid;grid-template-columns:52px 1fr 52px;gap:10px">
+          <button data-k="pt" data-d="-1" onClick="{{ stepJobs }}" aria-label="Fewer part-time" style="height:52px;background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;font-size:20px;color:var(--navy);cursor:pointer">−</button>
+          <input name="pt" inputmode="numeric" aria-label="Part-time employees added" value="{{ winF.pt }}" onChange="{{ onWinField }}" style="height:52px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:17px;text-align:center;background:#fdfdfd">
+          <button data-k="pt" data-d="1" onClick="{{ stepJobs }}" aria-label="More part-time" style="height:52px;background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;font-size:20px;color:var(--navy);cursor:pointer">+</button>
+        </div>
+        <p style="margin:20px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">When did you hire?</p>
+        <select name="hireMonth" aria-label="When did you hire" value="{{ winF.hireMonth }}" onChange="{{ onWinField }}" style="height:52px;width:100%;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:15px;background:#fdfdfd;color:var(--navy)">
+          <sc-for list="{{ winMonths }}" as="m" hint-placeholder-count="8"><option>{{ m }}</option></sc-for>
+        </select>
+        <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--slate-light)">If you hired at different times, use the most recent month.</p>
+        <div style="margin:20px 0 0;padding:14px 16px;background:#eae6db;border-radius:4px;font-size:13px;line-height:1.55;color:var(--slate)">Count people you kept on as well as people you hired. Include yourself if this is your first business.</div>
+      </sc-if>
+      <sc-if value="{{ wsFinal }}" hint-placeholder-val="{{ false }}">
+        <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:32px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Almost done.</h2>
+        <p style="margin:12px 0 0;font-size:14px;color:var(--slate)">Share your experience, then sign to finish.</p>
+        <p style="margin:26px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">How did working with the SBDC help? <span style="font-weight:400;letter-spacing:0;text-transform:none;color:var(--slate-light)">(optional)</span></p>
+        <textarea name="story" rows="4" placeholder="My advisor sat down with three years of messy books and helped me build a real cash-flow plan." value="{{ winF.story }}" onChange="{{ onWinField }}" style="display:block;width:100%;padding:14px;font-family:var(--nova);font-size:14.5px;line-height:1.5;color:var(--navy);background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;resize:vertical;box-sizing:border-box"></textarea>
+        <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--slate-light)">English or Spanish — either is fine.</p>
+        <p style="margin:26px 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">Can we share this?</p>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ shareOpts }}" as="o" hint-placeholder-count="2">
+            <button data-k="{{ o.k }}" onClick="{{ onShareOpt }}" aria-pressed="{{ o.on }}" style="{{ o.style }}">
+              <span style="{{ o.box }}">{{ o.mark }}</span>
+              <span style="text-align:left"><span style="display:block;font-size:14px;font-weight:750">{{ o.title }}</span><span style="display:block;margin-top:3px;font-size:12.5px;line-height:1.5;color:var(--slate);font-weight:400">{{ o.body }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+        <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--slate-light)">Both optional. Neither changes how your milestone counts.</p>
+        <div style="margin:20px 0 0;padding:14px 16px;background:#eae6db;border-radius:4px;font-size:13px;line-height:1.55;color:var(--slate);display:flex;gap:12px"><span style="flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--navy);display:grid;place-items:center;font-size:10px;font-weight:800;color:var(--navy)">✓</span><span><strong style="font-weight:750;color:var(--navy)">Please note:</strong> submitting this form confirms that working with the SBDC contributed to the results above.</span></div>
+        <p style="margin:24px 0 6px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">Signature</p>
+        <p style="margin:0 0 10px;font-size:12.5px;color:var(--slate)">Type your full name to accept the terms above.</p>
+        <input name="sig" autocomplete="name" placeholder="Avery Patel" value="{{ winF.sig }}" onChange="{{ onWinField }}" style="{{ winSigInput }}">
+        <p style="margin:8px 0 0;font-size:12px;line-height:1.5;color:var(--slate-light)">Dated August 20, 2026.</p>
+      </sc-if>
+      <sc-if value="{{ wsDone }}" hint-placeholder-val="{{ false }}">
+        <div aria-hidden="true" style="position:relative;height:0;overflow:visible"><span style="position:absolute;left:4%;top:-10px;width:6px;height:8px;background:var(--berry);--dx:-44px;--rot:140deg;animation:om-conf 1.1s cubic-bezier(.2,.6,.4,1) 0s forwards"></span><span style="position:absolute;left:9.3%;top:-10px;width:9px;height:11px;background:var(--pool);--dx:-22px;--rot:193deg;animation:om-conf 1.4000000000000001s cubic-bezier(.2,.6,.4,1) 0.37s forwards"></span><span style="position:absolute;left:14.6%;top:-10px;width:12px;height:5px;background:var(--evergreen);--dx:0px;--rot:246deg;animation:om-conf 1.2000000000000002s cubic-bezier(.2,.6,.4,1) 0.34s forwards"></span><span style="position:absolute;left:19.9%;top:-10px;width:6px;height:8px;background:var(--cobalt);--dx:22px;--rot:299deg;animation:om-conf 1.5s cubic-bezier(.2,.6,.4,1) 0.31s forwards"></span><span style="position:absolute;left:25.2%;top:-10px;width:9px;height:11px;background:#e8b64c;--dx:44px;--rot:352deg;animation:om-conf 1.3s cubic-bezier(.2,.6,.4,1) 0.28s forwards"></span><span style="position:absolute;left:30.5%;top:-10px;width:12px;height:5px;background:var(--berry);--dx:-44px;--rot:145deg;animation:om-conf 1.1s cubic-bezier(.2,.6,.4,1) 0.25s forwards"></span><span style="position:absolute;left:35.8%;top:-10px;width:6px;height:8px;background:var(--pool);--dx:-22px;--rot:198deg;animation:om-conf 1.4000000000000001s cubic-bezier(.2,.6,.4,1) 0.22s forwards"></span><span style="position:absolute;left:41.1%;top:-10px;width:9px;height:11px;background:var(--evergreen);--dx:0px;--rot:251deg;animation:om-conf 1.2000000000000002s cubic-bezier(.2,.6,.4,1) 0.19s forwards"></span><span style="position:absolute;left:46.4%;top:-10px;width:12px;height:5px;background:var(--cobalt);--dx:22px;--rot:304deg;animation:om-conf 1.5s cubic-bezier(.2,.6,.4,1) 0.16s forwards"></span><span style="position:absolute;left:51.699999999999996%;top:-10px;width:6px;height:8px;background:#e8b64c;--dx:44px;--rot:357deg;animation:om-conf 1.3s cubic-bezier(.2,.6,.4,1) 0.13s forwards"></span><span style="position:absolute;left:57%;top:-10px;width:9px;height:11px;background:var(--berry);--dx:-44px;--rot:150deg;animation:om-conf 1.1s cubic-bezier(.2,.6,.4,1) 0.1s forwards"></span><span style="position:absolute;left:62.3%;top:-10px;width:12px;height:5px;background:var(--pool);--dx:-22px;--rot:203deg;animation:om-conf 1.4000000000000001s cubic-bezier(.2,.6,.4,1) 0.07s forwards"></span><span style="position:absolute;left:67.6%;top:-10px;width:6px;height:8px;background:var(--evergreen);--dx:0px;--rot:256deg;animation:om-conf 1.2000000000000002s cubic-bezier(.2,.6,.4,1) 0.04s forwards"></span><span style="position:absolute;left:72.89999999999999%;top:-10px;width:9px;height:11px;background:var(--cobalt);--dx:22px;--rot:309deg;animation:om-conf 1.5s cubic-bezier(.2,.6,.4,1) 0.01s forwards"></span><span style="position:absolute;left:78.2%;top:-10px;width:12px;height:5px;background:#e8b64c;--dx:44px;--rot:362deg;animation:om-conf 1.3s cubic-bezier(.2,.6,.4,1) 0.38s forwards"></span><span style="position:absolute;left:83.5%;top:-10px;width:6px;height:8px;background:var(--berry);--dx:-44px;--rot:155deg;animation:om-conf 1.1s cubic-bezier(.2,.6,.4,1) 0.35s forwards"></span><span style="position:absolute;left:88.8%;top:-10px;width:9px;height:11px;background:var(--pool);--dx:-22px;--rot:208deg;animation:om-conf 1.4000000000000001s cubic-bezier(.2,.6,.4,1) 0.32s forwards"></span><span style="position:absolute;left:94.1%;top:-10px;width:12px;height:5px;background:var(--evergreen);--dx:0px;--rot:261deg;animation:om-conf 1.2000000000000002s cubic-bezier(.2,.6,.4,1) 0.29s forwards"></span></div>
+        <div style="text-align:center;padding-top:14px">
+          <span style="display:inline-grid;place-items:center;width:72px;height:72px;border-radius:50%;border:2.5px solid var(--evergreen);color:var(--evergreen);font-size:30px;animation:om-pop .5s cubic-bezier(.2,.75,.25,1) both">✓</span>
+          <p style="margin:18px 0 0;font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--evergreen)">Submission complete</p>
+          <h2 style="margin:14px 0 0;font-family:var(--sera);font-weight:400;font-size:34px;letter-spacing:-.04em;line-height:1.02;color:var(--navy)">Thank you, Avery. This counts.</h2>
+          <p style="margin:14px auto 0;max-width:44ch;font-size:14.5px;line-height:1.6;color:var(--slate)">{{ doneSummary }}</p>
+        </div>
+        <div style="margin-top:30px;padding:22px 24px;background:#fdfdfd;border:1px solid #0f1c2d29">
+          <strong style="display:block;font-size:15px;font-weight:750;color:var(--navy)">Have another business to report?</strong>
+          <p style="margin:8px 0 0;font-size:13px;line-height:1.55;color:var(--slate)">Every business you report helps us show what this work adds up to. Your details are already saved.</p>
+          <button onClick="{{ shareMore }}" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:50px;margin-top:16px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:14.5px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">Share more</button>
+        </div>
+        <p style="margin:30px auto 0;max-width:46ch;text-align:center;font-size:13.5px;line-height:1.7;color:var(--slate)">A copy goes to avery@northstar.co in a few minutes. Your center reviews it, usually within a week — and it joins the network total as a number only, never with your name.</p>
+      </sc-if>
+      <sc-if value="{{ winNav }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:32px;padding-top:20px;border-top:1px solid #0f1c2d29">
+          <sc-if value="{{ winBackable }}" hint-placeholder-val="{{ false }}"><a href="#" onClick="{{ goWinBack }}" style="font-size:13.5px;font-weight:750;color:var(--navy)">‹ Back</a></sc-if>
+          <sc-if value="{{ winNotBackable }}" hint-placeholder-val="{{ true }}"><span></span></sc-if>
+          <button onClick="{{ goWinNext }}" style="display:inline-flex;align-items:center;gap:11px;min-height:50px;padding:0 30px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:14.5px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">{{ winNextLabel }}<x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" color="#fdfdfd" hint-size="13px,13px"></x-import></button>
+        </div>
+      </sc-if>
+    </div>
+  </aside>
+  <sc-if value="{{ winConfirm }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:#0f1c2d80;z-index:90;display:grid;place-items:center;padding:24px">
+      <div role="dialog" aria-label="Confirm your submission" style="width:min(460px,100%);background:var(--paper);border-top:5px solid var(--berry);padding:28px 30px 30px;box-shadow:0 42px 85px #0e1a2b33">
+        <h3 style="margin:0;font-family:var(--sera);font-weight:400;font-size:27px;letter-spacing:-.04em;color:var(--navy)">Does this look right?</h3>
+        <p style="margin:8px 0 0;font-size:13px;color:var(--slate)">You answered a few small screens — here&rsquo;s the whole picture.</p>
+        <div style="margin-top:18px;border-top:1px solid #0f1c2d29">
+          <sc-for list="{{ confirmRows }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:12.5px;color:var(--slate)">{{ r.k }}</span><strong style="font-size:13px;font-weight:750;color:var(--navy);text-align:right">{{ r.v }}</strong></div>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:22px">
+          <button onClick="{{ editWin }}" style="flex:1;min-height:48px;background:none;border:1px solid #0f1c2d5c;border-radius:4px;font-family:var(--nova);font-size:14px;font-weight:700;color:var(--navy);cursor:pointer">Go back</button>
+          <button onClick="{{ reallySubmit }}" style="flex:1;min-height:48px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:14px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">Submit</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</sc-if>
+<sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeSheet }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
+  <aside data-screen-label="Advisor sheet" role="dialog" aria-label="Your advisor" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid #0f1c2d29">
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Your advisor</h2>
+      <button onClick="{{ closeSheet }}" aria-label="Close" style="width:44px;height:44px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:17px;color:var(--navy);cursor:pointer">✕</button>
+    </div>
+    <div style="padding:28px 30px 36px">
+      <div style="display:grid;grid-template-columns:112px 1fr;gap:20px;align-items:center">
+        <figure style="margin:0;position:relative;padding:0 10px 10px 0">
+          <span style="position:absolute;top:10px;right:0;bottom:0;left:10px;background:var(--pool)"></span>
+          <span style="position:relative;display:block;width:102px;height:102px;overflow:hidden;background:var(--pool-pale)"><image-slot id="advisor-dana-sheet" shape="rect" placeholder="Headshot"></image-slot></span>
+        </figure>
+        <div>
+          <strong style="display:block;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Dana Whitfield</strong>
+          <span style="display:block;margin-top:8px;font-size:13.5px;color:var(--slate)">Business advisor, North Coast SBDC</span>
+          <span style="display:block;margin-top:4px;font-size:13.5px;color:var(--slate)">11 years advising · 300+ clients</span>
+        </div>
+      </div>
+      <div style="margin-top:22px;padding:16px 18px;background:var(--pool-pale)">
+        <p style="margin:0;font-size:13.5px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Why Dana:</strong> you asked for help with money, loans and cash flow. That’s her specialty — and she works with North Coast food businesses like yours.</p>
+      </div>
+      <p style="margin:26px 0 10px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">In her words</p>
+      <p style="margin:0;font-size:14.5px;line-height:1.6;color:var(--slate)">“I spent eleven years running two restaurants before I started advising, so I know what it’s like when the numbers keep you up at night. Bring whatever you have — a shoebox of receipts is a fine place to start. We’ll sort it together.”</p>
+      <div style="margin-top:24px;border-top:1px solid #0f1c2d29">
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Helps with</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy);text-align:right">Loans · Cash flow · Menu costing</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Languages</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">English, Spanish</strong></div>
+        <div style="display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid #0f1c2d29"><span style="font-size:13.5px;color:var(--slate)">Meets by</span><strong style="font-size:13.5px;font-weight:750;color:var(--navy)">Video, phone, or in person</strong></div>
+      </div>
+      <a href="#" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">Dana on LinkedIn</a>
+      <sc-if value="{{ notBooked }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:32px 0 12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Pick a time</p>
+        <div role="radiogroup" aria-label="Session times" style="display:flex;flex-direction:column;gap:9px">
+          <sc-for list="{{ slots }}" as="s" hint-placeholder-count="3">
+            <button data-slot="{{ s.id }}" onClick="{{ pickSlot }}" style="{{ s.cardStyle }}">
+              <span style="{{ s.dotStyle }}"></span>
+              <span style="text-align:left"><span style="display:block;font-size:14px;font-weight:750">{{ s.when }}</span><span style="display:block;margin-top:2px;font-size:12px;color:var(--slate);font-weight:400">{{ s.mode }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="margin-top:18px">
+          <button onClick="{{ confirmBooking }}" style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:50px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:background .18s ease" style-hover="background:var(--cobalt-dark)">{{ confirmLabel }}</button>
+          <p style="margin:10px 0 0;font-size:12px;color:var(--slate-light)">A 30-minute conversation, not another assessment. Reschedule anytime.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ booked }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="display:flex;align-items:flex-start;gap:12px;margin-top:32px;padding:16px 18px;background:var(--pool-pale)">
+          <span style="flex:none;width:19px;height:19px;border-radius:50%;background:var(--evergreen);color:#fdfdfd;display:grid;place-items:center;font-size:10px;font-weight:800;margin-top:2px">✓</span>
+          <span style="font-size:14px;line-height:1.55;color:var(--navy)"><strong style="font-weight:750">Booked — {{ bookedWhen }}.</strong> Dana sent a calendar invite to your email. The video link lives there and on your dashboard.</span>
+        </div>
+      </sc-if>
+    </div>
+  </aside>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;stage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Active client&quot;,&quot;options&quot;:[&quot;Just signed up&quot;,&quot;Matching&quot;,&quot;Active client&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Journey state&quot;}}">
+class Component extends DCLogic {
+  state = { registered: {}, regBanner: false, sheetOpen: false, slotId: 's1', booked: false, bookedWhen: '', winOpen: false, winIdx: 0, winConfirm: false, winDoneFlag: false, winSel: { jobs: false, sales: false, start: false, funded: false }, winSrcs: {}, winShare: { anon: true, quote: false }, winF: { rev: '', own: null, ownAmt: '', ft: '0', pt: '0', hireMonth: 'May 2026', startMonth: 'March', startYear: '2026', story: '', sig: '' }, settingsOpen: false, catOpen: false, msgOpen: false, msgSent: false, msgText: '', catFilter: 'All', catTopic: 'All topics', catQuery: '', catShow: 14, drawers: { trainings: true, resources: false, mhist: false },
+    notifs: { training: true, advisor: true, sms: false, checkin: true, intel: true } };
+  renderVals() {
+    const stage = this.props.stage ?? 'Active client';
+    const isReceived = stage === 'Just signed up', isMatching = stage === 'Matching', isActive = !isReceived && !isMatching;
+    const stageIdx = isReceived ? 0 : isMatching ? 1 : 2;
+    const journeyNames = ['Intake', 'Matched', 'Advising', 'Active'];
+    const journey = journeyNames.map((name, i) => {
+      const done = i < stageIdx, now = i === stageIdx;
+      return { name, tail: i < journeyNames.length - 1,
+        dot: { flex: 'none', width: '10px', height: '10px', borderRadius: '50%', boxSizing: 'border-box',
+          background: done ? 'var(--evergreen)' : now ? 'var(--cobalt)' : 'none',
+          border: done || now ? 'none' : '1.5px solid #0f1c2d3d' },
+        label: { fontSize: '11px', fontWeight: 800, letterSpacing: '.13em', textTransform: 'uppercase',
+          color: now ? 'var(--navy)' : done ? 'var(--slate)' : 'var(--slate-light)' } };
+    });
+    const W_TITLES = {
+      'Money & loans': ['SBA loans, explained plainly', 'Cash flow clinic (bring your numbers)', 'Pricing for profit', 'Reading your P&L without dread', 'Loan-ready in 90 days', 'Bookkeeping basics that stick'],
+      'Marketing': ['Marketing on a $0 budget', 'Instagram that actually sells', 'Your first email list', 'Local SEO for storefronts', 'Branding on a budget'],
+      'Starting up': ['Business plan in a day', 'Licenses and permits walk-through', 'Choosing your entity: LLC, corp, or neither', 'From idea to first sale', 'Food business licensing walk-through'],
+      'Operations': ['QuickBooks for restaurants', 'Hiring your first employee in California', 'Inventory without spreadsheet pain', 'Contracts every owner should read'],
+      'Tech & AI': ['AI U: practical AI for small business', 'Selling online: your first web store', 'Point-of-sale systems compared', 'Automate the boring parts'],
+      'Government contracts': ['Getting certified: small business set-asides', 'Winning your first government contract', 'ProBiz: procurement office hours']
+    };
+    const W_TOPICS = Object.keys(W_TITLES);
+    const W_TIMES = ['9:00 AM', '10:00 AM', '12:00 PM', '2:00 PM', '5:30 PM'];
+    const W_DOWS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const W_LOCS = ['Arcata', 'Eureka', 'Redding', 'Chico', 'Santa Rosa', 'Napa'];
+    const W_DURS = ['60 minutes', '90 minutes', '2 hours', 'Half day'];
+    const CATALOG = [];
+    for (let i = 0; i < 82; i++) {
+      const d = new Date(2026, 8, 1 + Math.floor(i * 60 / 82));
+      const topic = W_TOPICS[i % W_TOPICS.length];
+      const pool = W_TITLES[topic];
+      const title = pool[Math.floor(i / W_TOPICS.length) % pool.length];
+      const inPerson = i % 3 === 1;
+      const meta = W_DOWS[d.getDay()] + ' ' + W_TIMES[i % W_TIMES.length] + ' \u00b7 ' + (inPerson ? W_LOCS[i % W_LOCS.length] : (i % 11 === 7 ? 'Online \u00b7 4-week course' : 'Online on Zoom')) + ' \u00b7 ' + W_DURS[(i * 7) % W_DURS.length];
+      CATALOG.push({ id: 'g' + i, day: String(d.getDate()).padStart(2, '0'), month: d.toLocaleString('en-US', { month: 'short' }), monthLong: d.toLocaleString('en-US', { month: 'long' }), title, meta, format: inPerson ? 'In person' : 'Online', topic });
+    }
+    CATALOG[0] = { ...CATALOG[0], id: 'e1', title: 'Pricing for profit', topic: 'Money & loans', rec: true };
+    CATALOG[12] = { ...CATALOG[12], id: 'e2', title: 'Hiring your first employee in California', topic: 'Operations', format: 'In person', rec: true };
+    CATALOG[20] = { ...CATALOG[20], id: 'e3', title: 'Selling online: your first web store', topic: 'Tech & AI', format: 'Online', rec: true };
+    const EVENTS = CATALOG.filter(e => e.rec);
+    const setReg = (id, on) => this.setState(s => {
+      const registered = { ...s.registered, [id]: on };
+      return { registered, regBanner: on ? true : Object.values(registered).some(Boolean) };
+    });
+    const openEvents = EVENTS.filter(e => !this.state.registered[e.id]).map(e => ({ ...e, meta: e.meta + ' · Free', register: () => setReg(e.id, true) }));
+    const comingUp = [
+      { month: 'Aug', day: '21', title: 'Session with Dana', meta: 'Video · 45 minutes · P&L review before the lender introduction', chip: 'Advising', cancel: false },
+      ...CATALOG.filter(e => this.state.registered[e.id]).map(e => ({
+        month: e.month, day: e.day, title: e.title, meta: e.meta + ' · Free', chip: '✓ Registered',
+        cancel: (ev) => { ev.preventDefault(); setReg(e.id, false); }
+      }))
+    ];
+    const SLOTS = [
+      { id: 's1', when: 'Thu, Aug 21 · 10:00 AM', mode: 'Video' },
+      { id: 's2', when: 'Fri, Aug 22 · 2:00 PM', mode: 'Video or phone' },
+      { id: 's3', when: 'Mon, Aug 25 · 9:30 AM', mode: 'In person · Eureka office' }
+    ];
+    const slots = SLOTS.map(s => {
+      const sel = this.state.slotId === s.id;
+      return { ...s,
+        cardStyle: { display: 'flex', gap: '12px', alignItems: 'center', padding: '13px 15px', width: '100%', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)', border: sel ? '2px solid var(--cobalt)' : '1px solid #0f1c2d3d', background: sel ? 'var(--pool-pale)' : '#fdfdfd', borderRadius: '4px', textAlign: 'left' },
+        dotStyle: { flex: 'none', width: '18px', height: '18px', borderRadius: '50%', boxSizing: 'border-box', border: sel ? '6px solid var(--cobalt)' : '2px solid var(--slate-light)', background: sel ? '#fdfdfd' : 'none' } };
+    });
+    const pickedSlot = SLOTS.find(s => s.id === this.state.slotId);
+    const wSel = this.state.winSel, wF = this.state.winF, wSrcs = this.state.winSrcs;
+    const wSeq = ['select'];
+    if (wSel.start) wSeq.push('start');
+    if (wSel.sales) wSeq.push('sales');
+    if (wSel.funded || wSel.start) wSeq.push('funding');
+    if (wSel.jobs || wSel.start) wSeq.push('jobs');
+    wSeq.push('final');
+    const wIdx = Math.min(this.state.winIdx, wSeq.length - 1);
+    const wCur = this.state.winDoneFlag ? 'done' : wSeq[wIdx];
+    const wSelCount = Object.values(wSel).filter(Boolean).length;
+    const W_CARDS = [
+      { key: 'jobs', title: 'I hired new employees', body: 'You added full-time or part-time staff since working with the SBDC. Count yourself if you started the business.', tint: '#e7f1ea', wm: '+' },
+      { key: 'sales', title: 'I increased my sales', body: 'Your gross revenue grew compared with what you last reported. You\u2019ll enter last year\u2019s total from your tax return.', tint: '#e3edf7', wm: '\u2197' },
+      { key: 'start', title: 'I started a new business', body: 'You registered a new business and began operating \u2014 selling products or services, hiring, or investing capital.', tint: '#f7e9e6', wm: '\u25b3' },
+      { key: 'funded', title: 'I got my business funded', body: 'You secured capital such as your own investment, a bank or SBA loan, a grant, or another funding source.', tint: '#dcecf2', wm: '$' }
+    ];
+    const selCards = W_CARDS.map(c => {
+      const on = !!wSel[c.key];
+      return { ...c, on, mark: on ? '\u2713' : '',
+        cardStyle: { position: 'relative', overflow: 'hidden', display: 'flex', gap: '14px', alignItems: 'flex-start', width: '100%', padding: '18px 18px 16px', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)', textAlign: 'left', background: c.tint, border: 'none', borderLeft: on ? '5px solid var(--navy)' : '5px solid transparent', boxShadow: on ? 'inset 0 0 0 1px #0f1c2d3d' : 'inset 0 0 0 1px #0f1c2d1f' },
+        boxStyle: { position: 'relative', flex: 'none', width: '22px', height: '22px', marginTop: '1px', borderRadius: '3px', textAlign: 'center', font: '800 13px/22px var(--nova)', background: on ? 'var(--navy)' : '#fdfdfd', color: '#fdfdfd', border: on ? 'none' : '2px solid #0f1c2d5c', boxSizing: 'border-box' },
+        wmStyle: { position: 'absolute', right: '10px', bottom: '-26px', fontFamily: 'var(--sera)', fontSize: '92px', lineHeight: 1, color: '#0f1c2d14', pointerEvents: 'none' } };
+    });
+    const wSrcNames = ['SBA loan', 'Bank loan', 'Micro-loan', 'Line of credit', 'Grant', 'Investor', 'Equipment financing'];
+    const winSrcChips = wSrcNames.map(name => {
+      const on = !!wSrcs[name];
+      return { name, on, chipStyle: { display: 'flex', alignItems: 'center', minHeight: '44px', padding: '0 16px', cursor: 'pointer', fontFamily: 'var(--nova)', fontSize: '13px', fontWeight: on ? 700 : 400, color: on ? '#fdfdfd' : 'var(--navy)', background: on ? 'var(--navy)' : '#fdfdfd', border: '1px solid #0f1c2d5c', borderRadius: '3px' } };
+    });
+    const winSrcBlocks = Object.keys(wSrcs).map(name => ({ name, amt: wSrcs[name].amt, date: wSrcs[name].date }));
+    const wNum = (s) => { const d = String(s || '').replace(/[^0-9]/g, ''); return d ? parseInt(d, 10) : 0; };
+    const wFundTotal = (wF.own === 'yes' ? wNum(wF.ownAmt) : 0) + winSrcBlocks.reduce((t, x) => t + wNum(x.amt), 0);
+    const wJobsTotal = wNum(wF.ft) + wNum(wF.pt);
+    const wParts = [];
+    if (wFundTotal > 0) wParts.push('$' + wFundTotal.toLocaleString() + ' in funding');
+    if (wJobsTotal > 0) wParts.push(wJobsTotal + (wJobsTotal === 1 ? ' job' : ' jobs'));
+    if (wSel.sales && wF.rev) wParts.push('$' + wNum(wF.rev).toLocaleString() + ' in sales');
+    let doneSummary = 'Your update is on its way into this year\u2019s Humboldt County totals.';
+    if (wParts.length === 1) doneSummary = wParts[0] + (wParts[0].indexOf(' jobs') > -1 ? ' are on their way' : ' is on its way') + ' into this year\u2019s Humboldt County totals.';
+    if (wParts.length === 2) doneSummary = wParts[0] + ' and ' + wParts[1] + ' are on their way into this year\u2019s Humboldt County totals.';
+    if (wParts.length >= 3) doneSummary = wParts.slice(0, -1).join(', ') + ', and ' + wParts[wParts.length - 1] + ' are on their way into this year\u2019s Humboldt County totals.';
+    const confirmRows = [];
+    if (wSel.start) confirmRows.push({ k: 'Business started', v: wF.startMonth + ' ' + wF.startYear });
+    if (wSel.sales) confirmRows.push({ k: 'Gross revenue (last year)', v: wF.rev || '\u2014' });
+    if (wSeq.includes('funding')) confirmRows.push({ k: 'Funding reported', v: wFundTotal ? '$' + wFundTotal.toLocaleString() : '\u2014' });
+    if (wSeq.includes('jobs')) confirmRows.push({ k: 'Employees added', v: wF.ft + ' full-time \u00b7 ' + wF.pt + ' part-time' });
+    const wShare = this.state.winShare;
+    confirmRows.push({ k: 'Sharing', v: wShare.anon && wShare.quote ? 'Anonymous numbers + quote OK' : wShare.anon ? 'Anonymous numbers only' : wShare.quote ? 'Quote OK, numbers private' : 'Keep it all private' });
+    confirmRows.push({ k: 'Signature', v: wF.sig || '\u2014' });
+    return {
+      comingUp, openEvents, slots,
+      noRegs: !Object.values(this.state.registered).some(Boolean),
+      msgOpen: this.state.msgOpen, msgSent: this.state.msgSent, msgNotSent: !this.state.msgSent, msgText: this.state.msgText,
+      openMsg: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ msgOpen: true, msgSent: false, sheetOpen: false }); },
+      closeMsg: () => this.setState({ msgOpen: false, msgText: this.state.msgSent ? '' : this.state.msgText }),
+      onMsgText: (e) => this.setState({ msgText: e.target.value }),
+      sendMsg: () => { if (!this.state.msgText.trim()) return; this.setState({ msgSent: true }); },
+      catOpen: this.state.catOpen,
+      openCat: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ catOpen: true }); },
+      closeCat: () => this.setState({ catOpen: false }),
+      onCatFilter: (e) => this.setState({ catFilter: e.currentTarget.dataset.f, catShow: 14 }),
+      onCatTopic: (e) => this.setState({ catTopic: e.currentTarget.dataset.t, catShow: 14 }),
+      onCatQuery: (e) => this.setState({ catQuery: e.target.value, catShow: 14 }),
+      catQuery: this.state.catQuery,
+      showMoreCat: () => this.setState(s => ({ catShow: s.catShow + 24 })),
+      catFilters: ['All', 'Online', 'In person'].map(name => {
+        const on = this.state.catFilter === name;
+        return { name, on, style: { display: 'flex', alignItems: 'center', minHeight: '38px', padding: '0 16px', cursor: 'pointer', fontFamily: 'var(--nova)', fontSize: '12.5px', fontWeight: on ? 700 : 400, color: on ? '#fdfdfd' : 'var(--navy)', background: on ? 'var(--navy)' : '#fdfdfd', border: '1px solid #0f1c2d5c', borderRadius: '3px' } };
+      }),
+      catTopics: ['All topics'].concat(W_TOPICS).map(name => {
+        const on = this.state.catTopic === name;
+        const st = (on) => ({ display: 'flex', alignItems: 'center', minHeight: '38px', padding: '0 14px', cursor: 'pointer', fontFamily: 'var(--nova)', fontSize: '12.5px', fontWeight: on ? 700 : 400, color: on ? '#fdfdfd' : 'var(--navy)', background: on ? 'var(--navy)' : '#fdfdfd', border: '1px solid #0f1c2d5c', borderRadius: '3px' });
+        return { name, on, style: st(on) };
+      }),
+      ...(() => {
+        const q = this.state.catQuery.trim().toLowerCase();
+        const filtered = CATALOG.filter(e =>
+          (this.state.catFilter === 'All' || e.format === this.state.catFilter) &&
+          (this.state.catTopic === 'All topics' || e.topic === this.state.catTopic) &&
+          (!q || (e.title + ' ' + e.topic + ' ' + e.meta).toLowerCase().indexOf(q) > -1));
+        const shown = filtered.slice(0, this.state.catShow);
+        const rows = [];
+        let lastMonth = '';
+        shown.forEach(e => {
+          if (e.monthLong !== lastMonth) { lastMonth = e.monthLong; rows.push({ header: true, row: false, label: e.monthLong + ' 2026' }); }
+          rows.push({ ...e, header: false, row: true, isReg: !!this.state.registered[e.id], notReg: !this.state.registered[e.id],
+            meta: e.meta + ' \u00b7 Free',
+            register: () => setReg(e.id, true),
+            unregister: (ev) => { ev.preventDefault(); setReg(e.id, false); } });
+        });
+        const hidden = filtered.length - shown.length;
+        return { catRows: rows,
+          catCount: filtered.length === CATALOG.length ? CATALOG.length + ' trainings in the next 60 days' : filtered.length + ' of ' + CATALOG.length + ' trainings match',
+          catMore: hidden > 0, catMoreLabel: 'Show ' + Math.min(hidden, 24) + ' more of ' + hidden };
+      })(),
+      nowrapBtn: { style: { whiteSpace: 'nowrap', flex: 'none' } },
+      isReceived, isMatching, isActive, preMatch: !isActive,
+      statusLine: isReceived ? 'Your Form 641 is in — we’ll be in touch within 48 hours.' : 'We’re matching you with an advisor — done within a week.',
+      greetingSub: isReceived ? 'Welcome — your request is in.' : isMatching ? 'You’re almost set up.' : 'Here’s what’s next.',
+      advisorPendingNote: isReceived ? 'Assigned after our intake team confirms your details — matched to your county and what you asked for help with.' : 'Matching in progress — you’ll see their name, photo, and a booking link here within the week.',
+      programs: ['Finance Center — Capital', 'ProBiz — Advising'],
+      regBanner: this.state.regBanner,
+      growthNote: this.state.winDoneFlag ? 'submitted. A reviewer at your center checks it before it counts.' : 'it takes about four minutes, and it helps the next business get help.',
+      resources: [
+        { name: 'Loan package checklist', kind: 'Checklist' },
+        { name: 'Cash flow forecast (13 weeks)', kind: 'Template' },
+        { name: 'Menu costing worksheet', kind: 'Template' }
+      ],
+      milestones: [
+        { when: 'Jun 2026', what: 'Signed a five-year lease', detail: 'Old Town Eureka storefront', rule: '1px solid #0f1c2d29' },
+        { when: 'Apr 2026', what: 'First employee hired', detail: 'Full-time baker', rule: '1px solid #0f1c2d29' },
+        { when: 'Mar 2025', what: 'Became an SBDC client', detail: 'Matched with Dana', rule: 'none' }
+      ].map((m, i, a) => ({ ...m, rule: i < a.length - 1 ? '1px solid #0f1c2d29' : 'none' })),
+      settingsOpen: this.state.settingsOpen,
+      toggleDrawer: (e) => {
+        const k = e.currentTarget.dataset.drawer;
+        this.setState(s => ({ drawers: { ...s.drawers, [k]: !s.drawers[k] } }));
+      },
+      trainingsOpen: this.state.drawers.trainings, trainingsMark: this.state.drawers.trainings ? '\u2212' : '+',
+      resourcesOpen: this.state.drawers.resources, resourcesMark: this.state.drawers.resources ? '\u2212' : '+',
+      mhistOpen: this.state.drawers.mhist, mhistMark: this.state.drawers.mhist ? '\u2212' : '+',
+      openSettings: () => this.setState({ settingsOpen: true }),
+      closeSettings: () => this.setState({ settingsOpen: false }),
+      toggleNotif: (e) => {
+        const k = e.currentTarget.dataset.key;
+        this.setState(s => ({ notifs: { ...s.notifs, [k]: !s.notifs[k] } }));
+      },
+      notifs: [
+        { key: 'training', label: 'Training reminders', body: 'Email the day before anything you registered for.' },
+        { key: 'advisor', label: 'Messages from Dana', body: 'Email when your advisor sends a note or next step.' },
+        { key: 'sms', label: 'Text reminders', body: 'A text 30 minutes before sessions and trainings.' },
+        { key: 'checkin', label: 'Milestone check-ins', body: 'A short "anything new?" email, quarterly at most.' },
+        { key: 'intel', label: 'SBDCIntel newsletter', body: 'Monthly — funding deadlines and trainings near you.' }
+      ].map(n => {
+        const on = !!this.state.notifs[n.key];
+        return { ...n, on,
+          trackStyle: { flex: 'none', position: 'relative', width: '42px', height: '24px', padding: 0, border: 'none', borderRadius: '3px', cursor: 'pointer', background: on ? 'var(--cobalt)' : '#0f1c2d3d', transition: 'background .18s ease' },
+          knobStyle: { position: 'absolute', top: '3px', left: on ? '21px' : '3px', width: '18px', height: '18px', background: '#fdfdfd', borderRadius: '2px', transition: 'left .18s ease', display: 'block' } };
+      }),
+      sheetOpen: this.state.sheetOpen,
+      openSheet: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sheetOpen: true }); },
+      closeSheet: () => this.setState({ sheetOpen: false }),
+      pickSlot: (e) => this.setState({ slotId: e.currentTarget.dataset.slot }),
+      confirmBooking: () => this.setState({ booked: true, bookedWhen: pickedSlot ? pickedSlot.when : '' }),
+      confirmLabel: pickedSlot ? `Book ${pickedSlot.when}` : 'Book a session',
+      notBooked: !this.state.booked, booked: this.state.booked, bookedWhen: this.state.bookedWhen,
+      winOpen: this.state.winOpen, winConfirm: this.state.winConfirm,
+      wsSelect: wCur === 'select', wsSales: wCur === 'sales', wsFunding: wCur === 'funding', wsJobs: wCur === 'jobs', wsStart: wCur === 'start', wsFinal: wCur === 'final', wsDone: wCur === 'done',
+      winNav: wCur !== 'done', winBackable: wIdx > 0 && wCur !== 'done', winNotBackable: wIdx === 0, winNextLabel: wCur === 'final' ? 'Submit' : 'Continue',
+      winStepNote: wCur === 'done' ? '' : 'Step ' + (wIdx + 1) + ' of ' + wSeq.length,
+      winBarStyle: { display: 'block', height: '4px', background: 'var(--cobalt)', width: (wCur === 'done' ? 100 : Math.round(((wIdx + 1) / (wSeq.length + 1)) * 100)) + '%', transition: 'width .3s ease' },
+      selCards, selNote: wSelCount ? wSelCount + ' selected \u00b7 adds ' + (wSeq.length - 2) + (wSeq.length - 2 === 1 ? ' screen' : ' screens') : 'Select at least one to continue.',
+      winF: wF, winSrcChips, winSrcBlocks, confirmRows, doneSummary,
+      shareOpts: [
+        { k: 'anon', title: 'Share my impact anonymously', body: 'Your numbers join county and network totals \u2014 never with your name or business attached.' },
+        { k: 'quote', title: 'You may use my quote', body: 'What you wrote above may appear in SBDC reporting, credited to \u201ca Humboldt County business owner.\u201d' }
+      ].map(o => {
+        const on = !!wShare[o.k];
+        return { ...o, on, mark: on ? '\u2713' : '',
+          style: { display: 'flex', gap: '13px', alignItems: 'flex-start', width: '100%', padding: '14px 16px', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)', textAlign: 'left', background: '#fdfdfd', border: on ? '2px solid var(--cobalt)' : '1px solid #0f1c2d5c', borderRadius: '4px' },
+          box: { flex: 'none', width: '20px', height: '20px', marginTop: '1px', borderRadius: '3px', textAlign: 'center', font: '800 12px/20px var(--nova)', background: on ? 'var(--cobalt)' : 'none', color: '#fdfdfd', border: on ? 'none' : '2px solid #0f1c2d5c', boxSizing: 'border-box' } };
+      }),
+      onShareOpt: (e) => { const k = e.currentTarget.dataset.k; this.setState(s => ({ winShare: { ...s.winShare, [k]: !s.winShare[k] } })); },
+      winMonths: ['August 2026', 'July 2026', 'June 2026', 'May 2026', 'April 2026', 'March 2026', 'February 2026', 'January 2026'],
+      winInput: { display: 'block', width: '100%', height: '52px', padding: '0 14px', fontSize: '16px', color: 'var(--navy)', background: '#fdfdfd', border: '1px solid #0f1c2d5c', borderRadius: '4px', boxSizing: 'border-box' },
+      winSigInput: { display: 'block', width: '100%', height: '58px', padding: '0 16px', fontSize: '24px', fontFamily: 'var(--sera)', fontStyle: 'italic', letterSpacing: '-.02em', color: 'var(--navy)', background: '#fdfdfd', border: '1px solid #0f1c2d5c', borderRadius: '4px', boxSizing: 'border-box' },
+      ownYes: wF.own === 'yes',
+      ownBtns: ['Yes', 'No'].map(label => {
+        const v = label.toLowerCase(), on = wF.own === v;
+        return { label, v, on, mark: on ? '\u2713' : '',
+          style: { display: 'flex', alignItems: 'center', gap: '12px', minHeight: '54px', padding: '0 16px', cursor: 'pointer', fontFamily: 'var(--nova)', fontSize: '15px', fontWeight: 750, color: 'var(--navy)', background: '#fdfdfd', border: on ? '2px solid var(--cobalt)' : '1px solid #0f1c2d5c', borderRadius: '4px' },
+          box: { flex: 'none', width: '20px', height: '20px', borderRadius: '3px', textAlign: 'center', font: '800 12px/20px var(--nova)', background: on ? 'var(--cobalt)' : 'none', color: '#fdfdfd', border: on ? 'none' : '2px solid #0f1c2d5c', boxSizing: 'border-box' } };
+      }),
+      onOwn: (e) => this.setState(s => ({ winF: { ...s.winF, own: e.currentTarget.dataset.v } })),
+      onSelCard: (e) => { const k = e.currentTarget.dataset.key; this.setState(s => ({ winSel: { ...s.winSel, [k]: !s.winSel[k] } })); },
+      onWinField: (e) => { const n = e.target.name, v = e.target.value; this.setState(s => ({ winF: { ...s.winF, [n]: v } })); },
+      stepJobs: (e) => { const k = e.currentTarget.dataset.k, d = parseInt(e.currentTarget.dataset.d, 10); this.setState(s => ({ winF: { ...s.winF, [k]: String(Math.max(0, (parseInt(s.winF[k], 10) || 0) + d)) } })); },
+      onSrcChip: (e) => { const n = e.currentTarget.dataset.src; this.setState(s => { const winSrcs = { ...s.winSrcs }; if (winSrcs[n]) delete winSrcs[n]; else winSrcs[n] = { amt: '', date: '' }; return { winSrcs }; }); },
+      onSrcField: (e) => { const n = e.target.dataset.src, fl = e.target.dataset.field, v = e.target.value; this.setState(s => ({ winSrcs: { ...s.winSrcs, [n]: { ...s.winSrcs[n], [fl]: v } } })); },
+      goWinBack: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ winIdx: Math.max(0, wIdx - 1) }); },
+      goWinNext: () => { if (wCur === 'select' && !wSelCount) return; if (wCur === 'final') { this.setState({ winConfirm: true }); return; } this.setState({ winIdx: wIdx + 1 }); },
+      editWin: () => this.setState({ winConfirm: false }),
+      reallySubmit: () => this.setState({ winConfirm: false, winDoneFlag: true }),
+      shareMore: () => this.setState({ winIdx: 0, winDoneFlag: false, winSel: { jobs: false, sales: false, start: false, funded: false }, winSrcs: {}, winF: { rev: '', own: null, ownAmt: '', ft: '0', pt: '0', hireMonth: 'May 2026', startMonth: 'March', startYear: '2026', story: '', sig: '' } }),
+      openWin: (e) => { if (e && e.preventDefault) e.preventDefault(); const wasDone = this.state.winDoneFlag; this.setState({ winOpen: true, winDoneFlag: false, winConfirm: false, winIdx: 0, ...(wasDone ? { winSel: { jobs: false, sales: false, start: false, funded: false }, winSrcs: {}, winF: { rev: '', own: null, ownAmt: '', ft: '0', pt: '0', hireMonth: 'May 2026', startMonth: 'March', startYear: '2026', story: '', sig: '' } } : {}) }); },
+      closeWin: () => this.setState({ winOpen: false, winConfirm: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

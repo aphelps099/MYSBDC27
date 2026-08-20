@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/styles.css">
+  <script src="_ds/fav-norcal-sbdc-design-system-979e6eb6-b3d1-48a1-881d-d0810bec8357/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:#e9e6df;color:var(--navy);font-family:var(--nova);-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.5}
+    a{color:#144b8c;text-decoration:none}
+    a:hover{color:#0f1c2d}
+    input,select{font-family:var(--nova);color:var(--navy);box-sizing:border-box}
+    input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--pool);outline-offset:2px}
+  </style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+<header data-screen-label="Topbar" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 36px;background:#fdfdfd;border-bottom:1px solid #0f1c2d29">
+  <a href="MySBDC Homepage.dc.html" style="font-size:16px;font-weight:800;letter-spacing:.02em;color:var(--navy)">NorCal <span style="font-weight:400">SBDC</span></a>
+  <div style="display:flex;align-items:center;gap:18px">
+    <a href="#" onClick="{{ saveLater }}" style="font-size:12.5px;font-weight:750;border-bottom:1px solid #144b8c;padding-bottom:1px">Save and finish later</a>
+    <span style="padding:6px 9px;border:1px solid #0f1c2d5c;border-radius:3px;font-size:10px;font-weight:800;letter-spacing:.06em">EN / ES</span>
+  </div>
+</header>
+<sc-if value="{{ savedNote }}" hint-placeholder-val="{{ false }}">
+  <div role="status" style="padding:10px 36px;background:var(--pool-pale, #dcecf2);border-bottom:1px solid #0f1c2d29;font-size:12.5px;color:#0f1c2d"><strong style="font-weight:750">Saved.</strong> We emailed you a link — it works for 30 days, and your answers keep.</div>
+</sc-if>
+<sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+<main data-screen-label="Form 641" style="flex:1;display:flex;justify-content:center;padding:44px 24px 72px">
+  <div style="width:min(760px,100%);background:#fdfdfd;border:1px solid #0f1c2d29;border-radius:6px;overflow:hidden;align-self:flex-start">
+    <div style="height:5px;background:#0f1c2d12" aria-hidden="true"><span style="{{ scrubStyle }}"></span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 48px 0">
+      <span style="font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#687080">SBA Form 641 · <span style="color:var(--navy)">{{ stepName }}</span></span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:#687080"><span style="width:7px;height:7px;border-radius:50%;background:#00675c"></span>Saved just now</span>
+    </div>
+    <div style="padding:26px 48px 34px">
+      <div>
+        <sc-if value="{{ hasErrors }}" hint-placeholder-val="{{ false }}">
+          <div role="alert" style="display:flex;gap:11px;padding:13px 14px;background:#faf1f1;border:1px solid #c23c3c;border-left:4px solid #c23c3c;border-radius:4px;margin:0 0 22px">
+            <div>
+              <p style="margin:0;font-size:13px;font-weight:750;color:#8a2626">{{ errorTitle }}</p>
+              <p style="margin:4px 0 0;font-size:12.5px;color:#2c3240">{{ errorList }}</p>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+          <h1 style="margin:0 0 8px;font-family:var(--sera);font-weight:400;font-size:36px;letter-spacing:-.04em;line-height:.98">Let&rsquo;s start with you.</h1>
+          <p style="margin:0 0 24px;font-size:14.5px;color:#687080">This opens your client record. No fee, and everything you enter is confidential.</p>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div>
+                <label for="f-first" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">First name <span style="font-weight:400;color:#687080">(required)</span></label>
+                <input id="f-first" name="firstName" autocomplete="given-name" value="{{ f.firstName }}" onChange="{{ onField }}" style="{{ inFirst }}">
+                <sc-if value="{{ errFirst }}" hint-placeholder-val="{{ false }}"><p style="margin:6px 0 0;font-size:12px;font-weight:750;color:#8a2626">{{ errFirst }}</p></sc-if>
+              </div>
+              <div>
+                <label for="f-last" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">Last name <span style="font-weight:400;color:#687080">(required)</span></label>
+                <input id="f-last" name="lastName" autocomplete="family-name" value="{{ f.lastName }}" onChange="{{ onField }}" style="{{ inLast }}">
+                <sc-if value="{{ errLast }}" hint-placeholder-val="{{ false }}"><p style="margin:6px 0 0;font-size:12px;font-weight:750;color:#8a2626">{{ errLast }}</p></sc-if>
+              </div>
+            </div>
+            <div>
+              <label style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">Email <span style="font-weight:400;color:#687080">(required)</span></label>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:10px 12px;background:#f7f7f5;border:1px solid #0f1c2d5c;border-radius:4px;font-size:14.5px;color:#2c3240">{{ f.email }}<span style="flex:none;display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:750;color:#144b8c"><span style="flex:none;width:15px;height:15px;border-radius:50%;background:#00675c;color:#fdfdfd;font-size:9px;font-weight:800;line-height:15px;text-align:center">✓</span>From your account</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+              <div>
+                <label for="f-phone" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">Phone <span style="font-weight:400;color:#687080">(required)</span></label>
+                <input id="f-phone" name="phone" autocomplete="tel" inputmode="tel" value="{{ f.phone }}" onChange="{{ onField }}" style="{{ inPhone }}">
+                <sc-if value="{{ errPhone }}" hint-placeholder-val="{{ false }}"><p style="margin:6px 0 0;font-size:12px;font-weight:750;color:#8a2626">{{ errPhone }}</p></sc-if>
+                <sc-if value="{{ noErrPhone }}" hint-placeholder-val="{{ true }}"><p style="margin:6px 0 0;font-size:11.5px;color:#687080">Your advisor uses this to schedule your first meeting.</p></sc-if>
+              </div>
+              <div>
+                <label for="f-zip" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">ZIP code <span style="font-weight:400;color:#687080">(required)</span></label>
+                <input id="f-zip" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="5" value="{{ f.zip }}" onChange="{{ onField }}" style="{{ inZip }}">
+                <sc-if value="{{ errZip }}" hint-placeholder-val="{{ false }}"><p style="margin:6px 0 0;font-size:12px;font-weight:750;color:#8a2626">{{ errZip }}</p></sc-if>
+              </div>
+            </div>
+            <sc-if value="{{ centerChip }}" hint-placeholder-val="{{ true }}">
+              <span style="display:inline-flex;align-self:flex-start;align-items:center;gap:7px;padding:6px 10px;background:#dcecf2;border-radius:3px;font-size:11.5px;font-weight:750;color:#0f1c2d"><span style="width:7px;height:7px;border-radius:50%;background:#1b5faf"></span>{{ centerName }} · <a href="#" style="border-bottom:1px solid #144b8c;font-weight:750">Not right?</a></span>
+            </sc-if>
+            <div>
+              <label for="f-lang" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">Preferred language</label>
+              <select id="f-lang" name="language" value="{{ f.language }}" onChange="{{ onField }}" style="height:48px;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:15px;max-width:270px;width:100%;background:#fdfdfd">
+                <option>English</option><option>Español</option><option>Tiếng Việt</option><option>中文</option><option>Tagalog</option><option>한국어</option><option>Other</option>
+              </select>
+              <p style="margin:6px 0 0;font-size:11.5px;color:#687080">We match you with an advisor who speaks it where we can.</p>
+            </div>
+            <div style="padding:14px;background:#dcecf2;border-radius:4px"><p style="margin:0;font-size:12.5px;line-height:1.55;color:#0f1c2d">Why we ask: this form is how the SBA funds no-fee advising. Your details set up your record — they are never sold or published.</p></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+          <h1 style="margin:0 0 8px;font-family:var(--sera);font-weight:400;font-size:36px;letter-spacing:-.04em;line-height:.98">Are you in business today?</h1>
+          <p style="margin:0 0 24px;font-size:14.5px;color:#687080">Either answer is a good answer — it just changes what we ask next.</p>
+          <div role="radiogroup" aria-label="Are you in business today?" style="display:flex;flex-direction:column;gap:10px;max-width:560px">
+            <sc-for list="{{ gateOpts }}" as="o" hint-placeholder-count="2">
+              <button data-value="{{ o.value }}" onClick="{{ onGate }}" style="{{ o.cardStyle }}">
+                <span style="{{ o.dotStyle }}"></span>
+                <span style="text-align:left"><span style="display:block;font-size:15px;font-weight:750">{{ o.title }}</span><span style="display:block;margin-top:4px;font-size:12.5px;line-height:1.45;color:#2c3240;font-weight:400">{{ o.body }}</span></span>
+              </button>
+            </sc-for>
+          </div>
+          <p style="margin:16px 0 0;font-size:12px;color:#687080">Not sure? Pick the closest one — your advisor sorts out the details with you.</p>
+        </sc-if>
+
+        <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+          <h1 style="margin:0 0 8px;font-family:var(--sera);font-weight:400;font-size:36px;letter-spacing:-.04em;line-height:.98">{{ stageTitle }}</h1>
+          <p style="margin:0 0 24px;font-size:14.5px;color:#687080">{{ stageSub }}</p>
+          <div role="radiogroup" aria-label="Stage of business" style="display:flex;flex-direction:column;gap:10px;max-width:560px">
+            <sc-for list="{{ stageOpts }}" as="o" hint-placeholder-count="3">
+              <button data-value="{{ o.value }}" onClick="{{ onStage }}" style="{{ o.cardStyle }}">
+                <span style="{{ o.dotStyle }}"></span>
+                <span style="text-align:left"><span style="display:block;font-size:15px;font-weight:750">{{ o.title }}</span><sc-if value="{{ o.body }}" hint-placeholder-val="{{ false }}"><span style="display:block;margin-top:4px;font-size:12.5px;line-height:1.45;color:#2c3240;font-weight:400">{{ o.body }}</span></sc-if></span>
+              </button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ inBiz }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:22px 0 0;max-width:560px">
+              <label for="f-start" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">When did you start doing business? <span style="font-weight:400;color:#687080">(required)</span></label>
+              <input id="f-start" name="startDate" placeholder="March 2025" value="{{ f.startDate }}" onChange="{{ onField }}" style="{{ inStart }}">
+              <p style="margin:6px 0 0;font-size:11.5px;color:#687080">Month and year is enough — your best guess is fine.</p>
+            </div>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+          <h1 style="margin:0 0 8px;font-family:var(--sera);font-weight:400;font-size:36px;letter-spacing:-.04em;line-height:.98">{{ detailsTitle }}</h1>
+          <p style="margin:0 0 24px;font-size:14.5px;color:#687080">Rough numbers are fine — nothing here is audited.</p>
+          <div style="display:flex;flex-direction:column;gap:16px;max-width:560px">
+            <div>
+              <label for="f-biz" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">Business name <span style="font-weight:400;color:#687080">{{ bizNameNote }}</span></label>
+              <input id="f-biz" name="bizName" value="{{ f.bizName }}" onChange="{{ onField }}" style="{{ inBizName }}">
+              <p style="margin:6px 0 0;font-size:11.5px;color:#687080">{{ bizNameHelp }}</p>
+            </div>
+            <div>
+              <label for="f-ind" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">What kind of business? <span style="font-weight:400;color:#687080">(required)</span></label>
+              <select id="f-ind" name="industry" value="{{ f.industry }}" onChange="{{ onField }}" style="height:48px;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:15px;width:100%;background:#fdfdfd">
+                <option>Agriculture and farming</option><option>Construction and trades</option><option>Food and beverage — retail</option><option>Food and beverage — production</option><option>Health and wellness</option><option>Manufacturing</option><option>Professional services</option><option>Retail — online</option><option>Retail — storefront</option><option>Technology</option><option>Tourism and hospitality</option><option>Something else</option>
+              </select>
+            </div>
+            <div>
+              <label for="f-ent" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">How is it set up? <span style="font-weight:400;color:#687080">(required)</span></label>
+              <select id="f-ent" name="entity" value="{{ f.entity }}" onChange="{{ onField }}" style="height:48px;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:15px;width:100%;background:#fdfdfd">
+                <option>Sole proprietor</option><option>Partnership</option><option>LLC</option><option>Corporation</option><option>Nonprofit</option><option>Not registered yet</option>
+              </select>
+            </div>
+            <sc-if value="{{ inBiz }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <label style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">Employees, including you <span style="font-weight:400;color:#687080">(required)</span></label>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                  <div><input aria-label="Full time employees" name="ft" inputmode="numeric" value="{{ f.ft }}" onChange="{{ onField }}" style="{{ inPlain }}"><p style="margin:5px 0 0;font-size:11px;color:#687080">Full time</p></div>
+                  <div><input aria-label="Part time employees" name="pt" inputmode="numeric" value="{{ f.pt }}" onChange="{{ onField }}" style="{{ inPlain }}"><p style="margin:5px 0 0;font-size:11px;color:#687080">Part time</p></div>
+                </div>
+              </div>
+              <div>
+                <label for="f-rev" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">Sales over the last 12 months <span style="font-weight:400;color:#687080">(required)</span></label>
+                <select id="f-rev" name="revenue" value="{{ f.revenue }}" onChange="{{ onField }}" style="height:48px;padding:0 12px;border:1px solid #0f1c2d5c;border-radius:4px;font-size:15px;width:100%;background:#fdfdfd">
+                  <option>Under $25,000</option><option>$25,000 – $100,000</option><option>$100,000 – $250,000</option><option>$250,000 – $1M</option><option>Over $1M</option><option>Prefer a rough guess later</option>
+                </select>
+                <p style="margin:6px 0 0;font-size:11.5px;line-height:1.5;color:#687080">Why we ask: the SBA funds this program based on who it reaches. A range is enough — never an exact figure.</p>
+              </div>
+            </sc-if>
+            <div>
+              <label style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">What do you want help with? <span style="font-weight:400;color:#687080">(required)</span></label>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ topicOpts }}" as="t" hint-placeholder-count="6">
+                  <button data-topic="{{ t.name }}" onClick="{{ onTopic }}" aria-pressed="{{ t.on }}" style="{{ t.chipStyle }}">{{ t.label }}</button>
+                </sc-for>
+              </div>
+              <p style="margin:6px 0 0;font-size:11.5px;color:#687080">Pick up to three. This seeds your advisor match.</p>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isStep5 }}" hint-placeholder-val="{{ false }}">
+          <h1 style="margin:0 0 8px;font-family:var(--sera);font-weight:400;font-size:36px;letter-spacing:-.04em;line-height:.98">Does this look right?</h1>
+          <p style="margin:0 0 18px;font-size:14.5px;color:#687080">Fix anything now — every Edit link returns here.</p>
+          <div style="border-top:1px solid #0f1c2d29;margin:0 0 22px">
+            <sc-for list="{{ reviewRows }}" as="row" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid #0f1c2d29">
+                <div>
+                  <div style="font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#687080">{{ row.label }}</div>
+                  <div style="margin-top:4px;font-size:13px;line-height:1.5">{{ row.line1 }}<br>{{ row.line2 }}</div>
+                </div>
+                <a href="#" data-step="{{ row.step }}" onClick="{{ goToStep }}" style="flex:none;font-size:12px;font-weight:750;border-bottom:1px solid #144b8c">Edit</a>
+              </div>
+            </sc-for>
+          </div>
+          <div style="padding:20px;border:1px solid #0f1c2d29;border-top:4px solid #c23c3c;border-radius:4px">
+            <p style="margin:0 0 12px;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase">Request for counseling</p>
+            <div style="padding:14px;background:#f7f7f5;border:1px solid #0f1c2d29;border-radius:3px;font-size:12.5px;line-height:1.6;color:#2c3240">
+              I request business counseling from the Small Business Development Center. I agree to cooperate should I be selected to participate in surveys designed to evaluate SBA services. I authorize SBDC to furnish relevant information to the assigned management counselor(s)…
+              <sc-if value="{{ certOpen }}" hint-placeholder-val="{{ false }}"><span> I understand that any counselor has agreed not to recommend goods or services from sources in which he/she has an interest, and not to accept fees or commissions developing from this counseling relationship. In consideration of the counselor(s) furnishing management or technical assistance, I waive all claims against SBDC personnel, and that of its resource counselors and hosts, arising from this assistance.</span></sc-if>
+            </div>
+            <p style="margin:8px 0 16px;font-size:11.5px;font-weight:750"><a href="#" onClick="{{ toggleCert }}" style="border-bottom:1px solid #144b8c">{{ certLinkLabel }}</a> <span style="font-weight:400;color:#687080">— it expands right here, no new tab.</span></p>
+            <button onClick="{{ toggleAgree }}" aria-pressed="{{ agreeOn }}" style="display:flex;align-items:flex-start;gap:11px;min-height:44px;margin:0 0 4px;background:none;border:none;padding:0;cursor:pointer;font-family:var(--nova);font-size:13.5px;line-height:1.45;color:var(--navy);text-align:left">
+              <span style="{{ agreeBox }}">{{ agreeMark }}</span>
+              <span>I&rsquo;ve read and agree to the request for counseling <span style="color:#687080">(required)</span></span>
+            </button>
+            <button onClick="{{ toggleSurvey }}" aria-pressed="{{ surveyOn }}" style="display:flex;align-items:flex-start;gap:11px;min-height:44px;margin:0 0 16px;background:none;border:none;padding:0;cursor:pointer;font-family:var(--nova);font-size:13.5px;line-height:1.45;color:var(--navy);text-align:left">
+              <span style="{{ surveyBox }}">{{ surveyMark }}</span>
+              <span>The SBA may contact me for a follow-up survey <span style="color:#687080">(optional)</span></span>
+            </button>
+            <label for="f-sig" style="display:block;margin:0 0 6px;font-size:12px;font-weight:750">Sign with your full name <span style="font-weight:400;color:#687080">(required)</span></label>
+            <input id="f-sig" name="signature" value="{{ f.signature }}" onChange="{{ onField }}" style="{{ inSig }}">
+            <p style="margin:8px 0 0;font-size:11.5px;color:#687080">Typing your name signs the form. Today&rsquo;s date is recorded automatically.</p>
+            <sc-if value="{{ errSign }}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin:10px 0 0;font-size:12px;font-weight:750;color:#8a2626">{{ errSign }}</p></sc-if>
+          </div>
+        </sc-if>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin:30px 0 0;padding-top:20px;border-top:1px solid #0f1c2d29">
+          <div style="display:flex;align-items:center;gap:18px">
+            <sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ goBack }}" style="display:flex;align-items:center;justify-content:center;min-width:96px;min-height:50px;background:none;border:1px solid #0f1c2d5c;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:var(--navy);cursor:pointer">Back</button>
+            </sc-if>
+            <span style="font-size:12px;color:#687080">{{ stepLabel }} · {{ timeLeft }}</span>
+          </div>
+          <button onClick="{{ goNext }}" style="display:inline-flex;align-items:center;gap:12px;min-height:50px;padding:0 30px;background:var(--cobalt);border:none;border-radius:4px;font-family:var(--nova);font-size:15px;font-weight:700;color:#fdfdfd;cursor:pointer;transition:transform .18s ease,background .18s ease" style-hover="background:#144b8c;transform:translateY(-2px)">{{ nextLabel }}<x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" color="#fdfdfd" hint-size="14px,14px"></x-import></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</sc-if>
+<sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Success" style="flex:1;display:flex;justify-content:center;padding:44px 24px 72px">
+  <div style="width:min(640px,100%);background:#fdfdfd;border:1px solid #0f1c2d29;border-radius:6px;overflow:hidden;align-self:flex-start">
+    <div style="padding:38px 40px 32px;background:var(--navy);color:#fdfdfd">
+      <p style="margin:0 0 14px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">Signup complete</p>
+      <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:44px;letter-spacing:-.05em;line-height:.94">You&rsquo;re in, {{ f.firstName }}.</h1>
+      <p style="margin:14px 0 0;font-size:14px;line-height:1.55;color:#dcecf2">Your request is on its way to the {{ centerName }}. You never fill this form again — everything from here is one click.</p>
+    </div>
+    <div style="padding:28px 40px 32px">
+      <p style="margin:0 0 14px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">What happens next</p>
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;gap:13px;padding:12px 0;border-top:1px solid #0f1c2d29"><span style="flex:none;font-size:12px;font-weight:800;color:var(--berry);width:24px">01</span><div><div style="font-size:13.5px;font-weight:750">An advisor is assigned</div><div style="margin-top:3px;font-size:12.5px;line-height:1.5;color:#2c3240">Within one business day, matched by county and what you asked for help with.</div></div></div>
+        <div style="display:flex;gap:13px;padding:12px 0;border-top:1px solid #0f1c2d29"><span style="flex:none;font-size:12px;font-weight:800;color:var(--berry);width:24px">02</span><div><div style="font-size:13.5px;font-weight:750">They reach out to schedule</div><div style="margin-top:3px;font-size:12.5px;line-height:1.5;color:#2c3240">By phone or email — your first meeting is a conversation, not another assessment.</div></div></div>
+        <div style="display:flex;gap:13px;padding:12px 0;border-top:1px solid #0f1c2d29;border-bottom:1px solid #0f1c2d29"><span style="flex:none;font-size:12px;font-weight:800;color:var(--berry);width:24px">03</span><div><div style="font-size:13.5px;font-weight:750">Your dashboard is ready now</div><div style="margin-top:3px;font-size:12.5px;line-height:1.5;color:#2c3240">One recommended training is already picked from your answers.</div></div></div>
+      </div>
+      <div style="margin:24px 0 0;padding:18px 20px;background:#dcecf2">
+        <p style="margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--navy)">Start today — register in one click</p>
+        <sc-for list="{{ quickTrainings }}" as="t" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid #0f1c2d29">
+            <span><strong style="display:block;font-size:13.5px;font-weight:750;color:var(--navy)">{{ t.title }}</strong><span style="display:block;margin-top:2px;font-size:11.5px;color:#2c3240">{{ t.meta }}</span></span>
+            <sc-if value="{{ t.notReg }}" hint-placeholder-val="{{ true }}"><button onClick="{{ t.register }}" style="flex:none;min-height:38px;padding:0 18px;font-family:var(--nova);font-size:12px;font-weight:700;color:var(--navy);background:#fdfdfd;border:1px solid #0f1c2d5c;border-radius:4px;cursor:pointer;transition:color .18s ease,background .18s ease,border-color .18s ease" style-hover="color:#fdfdfd;background:var(--cobalt);border-color:var(--cobalt)">Register</button></sc-if>
+            <sc-if value="{{ t.isReg }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:750;color:#00675c"><span style="width:15px;height:15px;border-radius:50%;background:#00675c;color:#fdfdfd;display:grid;place-items:center;font-size:8px;font-weight:800">✓</span>Registered — Zoom link emailed</span></sc-if>
+          </div>
+        </sc-for>
+        <p style="margin:10px 0 0;font-size:11px;color:#687080">No signup forms — your 641 covers everything, forever.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin:22px 0 0">
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" arrow="{{ true }}" href="MySBDC Dashboard.dc.html" dc-props="{{ wideBtn }}" hint-size="100%,50px">Go to MySBDC</x-import>
+        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="secondary" href="MySBDC Dashboard.dc.html" dc-props="{{ wideBtn }}" hint-size="100%,50px">See all 82 trainings</x-import>
+      </div>
+      <p style="margin:16px 0 0;font-size:12px;color:#687080">A copy of your signed form is in your email and on your dashboard.</p>
+    </div>
+  </div>
+</main>
+</sc-if>
+<footer style="padding:18px 36px;font-size:11.5px;color:#687080;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap">
+  <span>Funded in part by the U.S. Small Business Administration. No fee. Confidential.</span>
+  <a href="MySBDC Sign In.dc.html">Back to sign in</a>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startAt&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Step 1&quot;,&quot;options&quot;:[&quot;Step 1&quot;,&quot;Gate&quot;,&quot;Review&quot;,&quot;Success&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Preview&quot;}}">
+class Component extends DCLogic {
+  state = {
+    step: 1, maxSeen: 1, savedNote: false, certOpen: false, errs: {},
+    f: { firstName: 'Jane', lastName: 'Doe', email: 'jane@example.com', phone: '(555) 123-4567', zip: '95928', language: 'English',
+      gate: null, stage: null, startDate: '', bizName: '', industry: 'Food and beverage — retail', entity: 'LLC', ft: '', pt: '',
+      revenue: '$100,000 – $250,000', topics: [], agree: false, survey: false, signature: '' },
+    quickRegs: {}
+  };
+  componentDidUpdate(prev) {
+    if (prev.startAt !== this.props.startAt && this.props.startAt) {
+      const map = { 'Step 1': 1, 'Gate': 2, 'Review': 5, 'Success': 6 };
+      const s = map[this.props.startAt] ?? 1;
+      this.setState({ step: s, maxSeen: Math.max(this.state.maxSeen, s) });
+    }
+  }
+  input(err) {
+    return { display: 'flex', alignItems: 'center', height: '48px', padding: '0 12px', width: '100%',
+      border: err ? '2px solid #c23c3c' : '1px solid #0f1c2d5c', borderRadius: '4px', fontSize: '15px', background: '#fdfdfd' };
+  }
+  set(patch) { this.setState(s => ({ f: { ...s.f, ...patch } })); }
+  validate(step) {
+    const { f } = this.state, errs = {};
+    if (step === 1) {
+      if (!f.firstName.trim()) errs.firstName = 'Your first name is missing.';
+      if (!f.lastName.trim()) errs.lastName = 'Your last name is missing.';
+      const digits = f.phone.replace(/\D/g, '');
+      if (digits.length !== 10) errs.phone = 'That number looks short — it needs 10 digits.';
+      if (!/^\d{5}$/.test(f.zip)) errs.zip = 'ZIP codes have 5 digits.';
+    }
+    if (step === 2 && !f.gate) errs.gate = 'Pick the closest one — your advisor sorts out the details.';
+    if (step === 3 && !f.stage) errs.stage = 'Pick the closest stage.';
+    if (step === 4 && f.topics.length === 0) errs.topics = 'Pick at least one topic — it seeds your advisor match.';
+    return errs;
+  }
+  renderVals() {
+    const { step, f, errs, savedNote, certOpen } = this.state;
+    const inBiz = f.gate === 'yes';
+    const labels = ['Contact details', 'Your business', 'Stage of business', 'Business details', 'Review and sign'];
+    const times = ['About 10 minutes', 'About 8 minutes left', 'About 5 minutes left', 'About 3 minutes left', 'Last step'];
+    const scrubStyle = { display: 'block', height: '5px', background: 'var(--cobalt)', width: Math.max(4, Math.round(((step - 1) / labels.length) * 100)) + '%', transition: 'width .5s cubic-bezier(.2,.75,.25,1)' };
+    const rail = labels.map((label, i) => {
+      const n = i + 1, doneStep = n < step, now = n === step;
+      return { n, label, done: doneStep, now, notDone: !doneStep,
+        mark: doneStep ? '✓' : String(n),
+        circle: { flex: 'none', width: '22px', height: '22px', borderRadius: '50%', textAlign: 'center', font: '800 11px/22px var(--nova)',
+          background: doneStep ? '#00675c' : now ? '#1b5faf' : 'none', color: (doneStep || now) ? '#fdfdfd' : '#687080',
+          border: (doneStep || now) ? 'none' : '1px solid #68708066', lineHeight: '22px' },
+        labelStyle: { fontSize: '13px', fontWeight: now ? 750 : 400, color: now ? '#0f1c2d' : '#687080' } };
+    });
+    const card = (on) => ({ display: 'flex', gap: '12px', padding: '16px 15px', width: '100%', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)',
+      border: on ? '2px solid #1b5faf' : '1px solid #0f1c2d5c', background: on ? '#dcecf2' : '#fdfdfd', borderRadius: '4px', textAlign: 'left' });
+    const dot = (on) => ({ flex: 'none', width: '20px', height: '20px', borderRadius: '50%', marginTop: '2px',
+      border: on ? '6px solid #1b5faf' : '2px solid #687080', background: on ? '#fdfdfd' : 'none', boxSizing: 'border-box' });
+    const gateOpts = [
+      { value: 'yes', title: 'Yes — I\u2019m running a business', body: 'You\u2019re making sales, or you\u2019re registered and operating.' },
+      { value: 'no', title: 'Not yet — I\u2019m planning or starting', body: 'You have an idea, or you\u2019re getting ready to launch.' }
+    ].map(o => ({ ...o, cardStyle: card(f.gate === o.value), dotStyle: dot(f.gate === o.value) }));
+    const stageList = inBiz
+      ? [{ value: 'lt1', title: 'Less than a year', body: '' }, { value: '1to3', title: 'One to three years', body: '' }, { value: 'gt3', title: 'More than three years', body: '' }]
+      : [{ value: 'idea', title: 'It\u2019s an idea', body: 'You\u2019re exploring whether it could work.' }, { value: 'plan', title: 'I\u2019m working on a plan', body: 'Business plan, licences, funding — in progress.' }, { value: 'launch', title: 'I\u2019m ready to launch', body: 'Opening within the next few months.' }];
+    const stageOpts = stageList.map(o => ({ ...o, cardStyle: card(f.stage === o.value), dotStyle: dot(f.stage === o.value) }));
+    const topicNames = ['Money and loans', 'Cash flow', 'Marketing', 'Hiring', 'Starting up', 'Selling more'];
+    const topicOpts = topicNames.map(name => {
+      const on = f.topics.includes(name);
+      return { name, on, label: on ? '✓ ' + name : name,
+        chipStyle: { display: 'flex', alignItems: 'center', minHeight: '44px', padding: '0 14px', cursor: 'pointer', fontFamily: 'var(--nova)', color: 'var(--navy)',
+          border: on ? '2px solid #1b5faf' : '1px solid #0f1c2d5c', background: on ? '#dcecf2' : '#fdfdfd', borderRadius: '3px',
+          fontSize: '13px', fontWeight: on ? 700 : 400 } };
+    });
+    const stageNames = { lt1: 'Less than a year', '1to3': 'One to three years', gt3: 'More than three years', idea: 'It\u2019s an idea', plan: 'Working on a plan', launch: 'Ready to launch' };
+    const reviewRows = [
+      { step: 1, label: 'Contact', line1: `${f.firstName} ${f.lastName} · ${f.email}`, line2: `${f.phone} · Butte County center` },
+      { step: 4, label: 'Business', line1: `${f.bizName || 'No business name yet'} · ${f.entity} · ${f.industry}`, line2: inBiz ? `In business since ${f.startDate || '—'} · ${f.ft || 0} FT, ${f.pt || 0} PT` : `Pre-venture · ${stageNames[f.stage] || '—'}` },
+      { step: 4, label: 'Help with', line1: f.topics.join(' · ') || '—', line2: '' }
+    ];
+    const errKeys = Object.keys(errs).filter(k => k !== 'sign');
+    const fieldNames = { firstName: 'First name', lastName: 'Last name', phone: 'Phone number', zip: 'ZIP code', gate: 'Your answer', stage: 'Stage', topics: 'Help topics' };
+    const checkbox = (on) => ({ flex: 'none', width: '20px', height: '20px', borderRadius: '2px', textAlign: 'center', marginTop: '2px',
+      background: on ? '#1b5faf' : 'none', border: on ? 'none' : '2px solid #687080', color: '#fdfdfd', font: '800 12px/20px var(--nova)', boxSizing: 'border-box' });
+    const QUICK = [
+      { id: 'q1', title: 'Pricing for profit', meta: 'Tue Sep 1 · 10:00 AM · Online on Zoom · Free' },
+      { id: 'q2', title: 'SBA loans, explained plainly', meta: 'Wed Oct 7 · 12:00 PM · Online on Zoom · Free' },
+      { id: 'q3', title: 'Marketing on a $0 budget', meta: 'Tue Oct 14 · 5:30 PM · Online on Zoom · Free' }
+    ];
+    return {
+      f, savedNote, certOpen, inBiz,
+      quickTrainings: QUICK.map(t => ({ ...t, isReg: !!this.state.quickRegs[t.id], notReg: !this.state.quickRegs[t.id],
+        register: () => this.setState(s => ({ quickRegs: { ...s.quickRegs, [t.id]: true } })) })),
+      notDone: step <= 5, done: step === 6,
+      isStep1: step === 1, isStep2: step === 2, isStep3: step === 3, isStep4: step === 4, isStep5: step === 5,
+      scrubStyle, stepName: labels[step - 1] || 'Done',
+      rail, gateOpts, stageOpts, topicOpts, reviewRows,
+      hasErrors: errKeys.length > 0,
+      errorTitle: errKeys.length === 1 ? 'One thing needs a look' : `${errKeys.length === 2 ? 'Two' : errKeys.length} things need a look`,
+      errorList: errKeys.map(k => fieldNames[k] || k).join(' · '),
+      errFirst: errs.firstName || false, errLast: errs.lastName || false,
+      errPhone: errs.phone || false, noErrPhone: !errs.phone, errZip: errs.zip || false,
+      errSign: errs.sign || false,
+      inFirst: this.input(errs.firstName), inLast: this.input(errs.lastName), inPhone: this.input(errs.phone), inZip: this.input(errs.zip),
+      inStart: this.input(false), inBizName: this.input(false), inPlain: this.input(false),
+      inSig: { ...this.input(false), height: '52px', fontFamily: 'var(--sera)', fontSize: '21px', letterSpacing: '-.02em', maxWidth: '420px' },
+      centerChip: /^\d{5}$/.test(f.zip), centerName: 'Butte County center',
+      stageTitle: inBiz ? 'How long have you been at it?' : 'How far along are you?',
+      stageSub: inBiz ? 'Counted from your first sale.' : 'There\u2019s no wrong stage — this helps us pick your advisor.',
+      detailsTitle: inBiz ? 'Tell us about the business.' : 'Tell us about the plan.',
+      bizNameNote: inBiz ? '(required)' : '(optional)',
+      bizNameHelp: inBiz ? 'Legal or working name — you can change it later.' : 'A working name, if you have one.',
+      certLinkLabel: certOpen ? 'Collapse the agreement' : 'Read the full agreement',
+      agreeOn: f.agree, surveyOn: f.survey, agreeBox: checkbox(f.agree), surveyBox: checkbox(f.survey),
+      agreeMark: f.agree ? '✓' : '', surveyMark: f.survey ? '✓' : '',
+      canBack: step > 1 && step <= 5,
+      stepLabel: `Step ${step} of 5`, timeLeft: times[step - 1] || '',
+      nextLabel: step === 5 ? 'Sign and finish' : 'Continue',
+      wideBtn: { style: { width: '100%' } },
+      onField: (e) => this.set({ [e.target.name]: e.target.value }),
+      onGate: (e) => this.set({ gate: e.currentTarget.dataset.value, stage: null }),
+      onStage: (e) => this.set({ stage: e.currentTarget.dataset.value }),
+      onTopic: (e) => {
+        const t = e.currentTarget.dataset.topic;
+        this.setState(s => {
+          const has = s.f.topics.includes(t);
+          if (!has && s.f.topics.length >= 3) return null;
+          return { f: { ...s.f, topics: has ? s.f.topics.filter(x => x !== t) : [...s.f.topics, t] } };
+        });
+      },
+      toggleAgree: () => this.set({ agree: !f.agree }),
+      toggleSurvey: () => this.set({ survey: !f.survey }),
+      toggleCert: (e) => { e.preventDefault(); this.setState({ certOpen: !certOpen }); },
+      saveLater: (e) => { e.preventDefault(); this.setState({ savedNote: true }); },
+      goBack: () => this.setState({ step: Math.max(1, step - 1), errs: {} }),
+      goToStep: (e) => { e.preventDefault(); const n = Number(e.currentTarget.dataset.step); if (n < step || n <= this.state.maxSeen) this.setState({ step: n, errs: {} }); },
+      goNext: () => {
+        if (step === 5) {
+          const errs = {};
+          if (!f.agree && !f.signature.trim()) errs.sign = 'Check the agreement box and type your full name to sign.';
+          else if (!f.agree) errs.sign = 'Check the agreement box — it\u2019s the required one above.';
+          else if (!f.signature.trim()) errs.sign = 'Type your full name to sign.';
+          if (Object.keys(errs).length) { this.setState({ errs }); return; }
+          this.setState({ step: 6, errs: {} });
+          return;
+        }
+        const errs = this.validate(step);
+        if (Object.keys(errs).length) { this.setState({ errs }); return; }
+        this.setState({ step: step + 1, maxSeen: Math.max(this.state.maxSeen, step + 1), errs: {}, savedNote: false });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
