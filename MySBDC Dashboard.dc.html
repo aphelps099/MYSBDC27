@@ -358,11 +358,11 @@
 </sc-if>
 <sc-if value="{{ winOpen }}" hint-placeholder-val="{{ false }}">
   <div onClick="{{ closeWin }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
-  <aside data-screen-label="Milestone sheet" role="dialog" aria-label="Share your growth" style="position:fixed;inset:0 0 0 auto;width:min(720px,100vw);background:var(--cream);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+  <aside data-screen-label="Milestone sheet" role="dialog" aria-label="Share your success" style="position:fixed;inset:0 0 0 auto;width:min(720px,100vw);background:var(--cream);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
     <div style="position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid #0f1c2d29">
       <div style="height:4px;background:#0f1c2d14"><span style="{{ winBarStyle }}"></span></div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 30px">
-        <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Share your growth</span>
+        <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Share your success</span>
         <div style="display:flex;align-items:center;gap:16px">
           <span style="font-size:12px;color:var(--slate-light)">{{ winStepNote }}</span>
           <button onClick="{{ closeWin }}" aria-label="Close" style="width:40px;height:40px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:15px;color:var(--navy);cursor:pointer">✕</button>
@@ -763,10 +763,10 @@ class Component extends DCLogic {
       })(),
       nowrapBtn: { style: { whiteSpace: 'nowrap', flex: 'none' } },
       isReceived, isMatching, isActive, preMatch: !isActive,
-      statusLine: isReceived ? 'Your Form 641 is in — we’ll be in touch within 48 hours.' : 'We’re matching you with an advisor — done within a week.',
+      statusLine: isReceived ? 'Your Form 641 is in — we’ll be in touch within 48 hours.' : 'We’re matching you with an advisor now.',
       greetingSub: isReceived ? 'Welcome — your request is in.' : isMatching ? 'You’re almost set up.' : 'Here’s what’s next.',
-      advisorPendingNote: isReceived ? 'Assigned after our intake team confirms your details — matched to your county and what you asked for help with.' : 'Matching in progress — you’ll see their name, photo, and a booking link here within the week.',
-      programs: ['Finance Center — Capital', 'ProBiz — Advising'],
+      advisorPendingNote: isReceived ? 'Assigned after our intake team confirms your details — matched to your county and what you asked for help with.' : 'Matching in progress — you’ll see their name, photo, and a booking link here as soon as they’re assigned.',
+      programs: ['Finance Center — Capital', 'One-on-one advising'],
       regBanner: this.state.regBanner,
       growthNote: this.state.winDoneFlag ? 'submitted. A reviewer at your center checks it before it counts.' : 'it takes about four minutes, and it helps the next business get help.',
       resources: [

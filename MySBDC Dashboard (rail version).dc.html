@@ -117,13 +117,13 @@
             <a href="Training Calendar.dc.html" style="display:inline-block;margin-top:22px;font-size:13px;font-weight:750;border-bottom:1px solid;padding-bottom:2px">See the full calendar</a>
           </div>
         </section>
-        <section aria-label="Share your business growth" style="background:var(--paper);border:1px solid var(--silver)">
+        <section aria-label="Share your success" style="background:var(--paper);border:1px solid var(--silver)">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:28px;padding:26px 34px;flex-wrap:wrap">
             <div>
               <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:27px;letter-spacing:-.04em;line-height:1;color:var(--navy)">Did your business grow?</h2>
               <p style="margin:10px 0 0;max-width:52ch;font-size:14px;line-height:1.5;color:var(--slate)">Raised capital, hired, grew sales — tell us in about four minutes. Your numbers help the next business get help.</p>
             </div>
-            <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="secondary" small="{{ true }}" href="#" onClick="{{ openWin }}" hint-size="auto,43px">Share your growth</x-import>
+            <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="secondary" small="{{ true }}" href="#" onClick="{{ openWin }}" hint-size="auto,43px">Share your success</x-import>
           </div>
           <sc-if value="{{ winLogged }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex;align-items:center;gap:12px;margin:0 34px;padding:14px 0;border-top:1px solid var(--line)">
@@ -181,9 +181,9 @@
 </div>
 <sc-if value="{{ winOpen }}" hint-placeholder-val="{{ false }}">
   <div onClick="{{ closeWin }}" style="position:fixed;inset:0;background:#0f1c2d66;z-index:70"></div>
-  <aside data-screen-label="Milestone sheet" role="dialog" aria-label="Share your business growth" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
+  <aside data-screen-label="Milestone sheet" role="dialog" aria-label="Share your success" style="position:fixed;inset:0 0 0 auto;width:min(480px,100vw);background:var(--paper);border-top:5px solid var(--berry);z-index:80;overflow-y:auto;box-shadow:-24px 0 64px #0e1a2b33">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 30px;border-bottom:1px solid var(--line)">
-      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Share your growth</h2>
+      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;color:var(--navy)">Share your success</h2>
       <button onClick="{{ closeWin }}" aria-label="Close" style="width:44px;height:44px;background:none;border:1px solid #0f1c2d3d;border-radius:4px;font-size:17px;color:var(--navy);cursor:pointer">✕</button>
     </div>
     <sc-if value="{{ winForm }}" hint-placeholder-val="{{ true }}">

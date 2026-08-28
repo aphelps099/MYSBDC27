@@ -108,7 +108,7 @@
         <span style="font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">They go to…</span>
         <span style="font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Typical timeline</span>
       </div>
-      <sc-for list="{{ routes }}" as="r" hint-placeholder-count="6">
+      <sc-for list="{{ routes }}" as="r" hint-placeholder-count="7">
         <div style="display:grid;grid-template-columns:1.3fr 1fr .8fr;gap:20px;padding:17px 0;border-bottom:1px solid #0f1c2d29">
           <span style="font-size:14.5px;font-weight:400;color:var(--slate)">{{ r.need }}</span>
           <strong style="font-size:14.5px;font-weight:750">{{ r.program }}</strong>
@@ -127,7 +127,6 @@
       <div><strong style="display:block;font-family:var(--sera);font-weight:400;font-size:clamp(44px,4vw,68px);letter-spacing:-.05em;line-height:1;color:var(--evergreen)">$513.7M</strong><span style="display:block;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Capital accessed</span></div>
       <div><strong style="display:block;font-family:var(--sera);font-weight:400;font-size:clamp(44px,4vw,68px);letter-spacing:-.05em;line-height:1">3,681</strong><span style="display:block;margin-top:12px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Jobs created</span></div>
     </div>
-    <p style="margin:56px 0 0;padding:16px 18px;background:var(--cream);max-width:760px;font-size:12.5px;line-height:1.6;color:var(--slate)"><strong style="font-weight:750;color:var(--navy)">Editorial note:</strong> step 7 quotes $549M (all client capital, FY2024 reporting) while this band shows $513.7M — confirm whether these measure different windows before publishing. ProBiz appears here as “General Advising”; the public site frames it around procurement — confirm which framing Brand House carries.</p>
   </div>
 </section>
 <footer data-screen-label="Footer" style="background:var(--navy);color:#fdfdfdcc">
@@ -144,12 +143,12 @@ class Component extends DCLogic {
     const steps = [
       { num: '01', title: 'Client discovers SBDC', body: 'Discovery happens everywhere — the website, a lender, a chamber mixer, a friend who got funded. Whatever the door, it leads to the same place.', chips: ['norcalsbdc.org', 'Partner referral', 'Lenders & chambers', 'Word of mouth', 'Event / workshop', 'Social media', 'SBA.gov'], quote: '“All roads lead to one intake process.”' },
       { num: '02', title: 'Centralized intake (CI team)', body: 'A single point of entry for all 36 counties. The CI team screens, gathers basic info, and determines needs.', chips: ['Neoserra CRM record created'], timing: 'Within 48 hours of first contact', quote: '“One front door, regardless of county.”' },
-      { num: '03', title: 'Needs assessment & program matching', body: 'The CI team routes each client to the right program — or several.', chips: ['TFG — Tech Ventures', 'Finance Center — Capital', 'ProBiz — General Advising', 'SBDC Health — Healthcare', 'AI U — Tech Training', 'Manufacturing', 'Specialty Programs'], quote: '“Clients may be referred to multiple programs simultaneously.”' },
-      { num: '04', title: 'Matched with an expert advisor', body: 'From a network of 300+ professionals, matched on industry expertise, geographic location, language needs, and the specific business challenge.', timing: 'Within 1 week of intake', quote: '“No-cost. No strings. Just expertise.”' },
+      { num: '03', title: 'Needs assessment & program matching', body: 'The CI team routes each client to the right program — or several.', chips: ['TFG — Tech Ventures', 'Finance Center — Capital', 'ProBiz — Contracting', 'SBDC Health — Healthcare', 'AI U — Tech Training', 'Manufacturing', 'Specialty Programs'], quote: '“Clients may be referred to multiple programs simultaneously.”' },
+      { num: '04', title: 'Matched with an expert advisor', body: 'From a network of 300+ professionals, matched on industry expertise, geographic location, language needs, and the specific business challenge.', quote: '“No-cost. No strings. Just expertise.”' },
       { num: '05', title: 'One-on-one advising begins', body: 'Sessions in person, virtual, or hybrid — tracked in Neoserra. Typical topics: business plan review, financial analysis, market strategy, capital access planning, operations optimization.', quote: '“Advisors typically work with clients for 3–12 months.”' },
       { num: '06', title: 'Training programs & workshops', body: 'Workshops, webinars, multi-week courses like AI U, and industry intensives run alongside advising.', quote: '“Training complements 1-on-1 advising.”' },
-      { num: '07', title: 'Capital access & funding support', body: 'SBA loan packaging, grant applications (SBIR/STTR), investor pitch prep, alternative lending, and SSBCI access.', flag: 'If applicable', quote: '“$549M in client capital accessed (FY2024).”' },
-      { num: '08', title: 'Measurable business impact', body: 'Tracked via the API Collection Tool across revenue growth, jobs created and retained, capital accessed, businesses started, and contracts awarded.', quote: '“Every dollar, every job, every business — we track it.”' },
+      { num: '07', title: 'Capital access & funding support', body: 'SBA loan packaging, grant applications (SBIR/STTR), investor pitch prep, alternative lending, and SSBCI access.', flag: 'If applicable', quote: '“$549M in client capital accessed (2025).”' },
+      { num: '08', title: 'Measurable business impact', body: 'Tracked through Milestone Collection across revenue growth, jobs created and retained, capital accessed, businesses started, and contracts awarded.', quote: '“Every dollar, every job, every business — we track it.”' },
       { num: '09', title: 'Ongoing support & re-engagement', body: 'Clients return for advising, cycle through programs, and their stories generate the referrals that start the journey again.', quote: '“The relationship doesn\u2019t end — it evolves.”' }
     ].map((s, i) => ({ ...s, numColor: i % 2 ? 'var(--pool)' : 'var(--berry)', chips: s.chips || false, timing: s.timing || false, flag: s.flag || false }));
     const tfg = [
@@ -161,7 +160,8 @@ class Component extends DCLogic {
       { title: 'Scale + impact', body: 'Growth tracked, outcomes measured.' }
     ].map((t, i, a) => ({ ...t, num: '0' + (i + 1), rule: i < a.length - 1 ? '1px solid #ffffff29' : 'none' }));
     const routes = [
-      { need: 'General business advising', program: 'ProBiz', time: '1–6 months' },
+      { need: 'General business advising', program: 'One-on-one advising', time: '1–6 months' },
+      { need: 'Government or supplier-diversity contracts', program: 'ProBiz', time: 'Varies' },
       { need: 'A loan or capital access', program: 'Finance Center', time: '2–8 weeks' },
       { need: 'Venture funding for a tech startup', program: 'TFG', time: '3–12 months' },
       { need: 'Healthcare practice support', program: 'SBDC Health', time: '1–3 sessions' },
