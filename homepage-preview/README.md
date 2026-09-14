@@ -1,0 +1,47 @@
+# MySBDC — refined homepage and special-program signup preview
+
+A modern-classic, responsive design preview based on `aphelps099/MYSBDC27` at `f01d1908b67bf043ef5973f9eac1b3bbf1d6f97b`, including its homepage, Advising program inventory, intake, and AWS initiative.
+
+## Design
+
+- Proxima Sera for the brand promise and selected editorial statements; Proxima Nova for navigation, supporting headings, forms, and body copy. Retains Adobe kit `pkl5rjs` and system fallbacks.
+- “Your business, better.” becomes the main headline, paired with the existing Laila O’Boyle photograph.
+- Shorter service summaries, native expandable specialty rows, compact impact figures, two original client stories, and the approved navy/pool/cream action mosaic.
+- Mobile layouts stack naturally, with 48–52px primary controls, visible menu text, generous form fields, and no fixed overlays.
+- Lightweight one-time native animation replaces GSAP loading. All content remains visible, and motion cancels when reduced motion is enabled.
+
+## Signup behavior
+
+`signup.html?program=tfg` carries a public program slug through selection, contact details, review, and completion. Ten options cover the repository’s program inventory plus general advising. New clients provide contact information and a ZIP; existing clients provide their existing email and optional request details. Back/edit preserves inputs. Start over clears them.
+
+This is an interaction prototype. It performs no authentication, account matching, ZIP-to-center lookup, consent signing, enrollment, email delivery, or API writes. Entries are held only in the page’s memory. No localStorage, sessionStorage, cookies, or personal details in URLs. Newsletter also remains a non-submitting preview. Without JavaScript, native forms cannot submit and live signup links are provided.
+
+The completion panel explicitly explains that nothing was submitted. It links to live general signup or the existing team contact. AWS retains its distinct `aws-sbdc@amazon.com` inquiry path from the supplied AWS Initiative page. Program selection is not automatically passed to the external live form. The MySBDC header link remains the existing dashboard preview and is labeled accordingly.
+
+## Production integration
+
+- Allowlist the program slug on the server, map it to verified program IDs, and preserve source/referral separately from program interest.
+- For new clients, carry the selected program into the complete required intake and existing consent process; confirm eligibility and location through authoritative data. A syntactically valid ZIP is not a territory match.
+- For existing clients, authenticate or verify account ownership before linking the request. Never infer an existing client record from an unverified email or expose whether an email exists. Reuse verified client records to avoid duplicates.
+- Route a request only after successful server response. Add loading, retry, duplicate-request protection, and truthful completion feedback when connected.
+- Keep AWS partner inquiries distinct from SBDC enrollment and do not promise funding or acceptance.
+
+## Accessibility and verification
+
+Target: WCAG 2.2 AA. Reference: https://www.w3.org/TR/WCAG22/
+
+Verified with DOM interaction checks: program selection; new and existing paths; invalid input; error-summary focus and field relationships; edit/back/reset; safe text rendering; AWS continuation; menu Escape and focus return; no network writes or stored personal details; valid landmarks, labels, local references, and anchors. JavaScript and CSS syntax checked.
+
+Primary text pairs are 5.47:1 or higher; white on the blue action is 8.19:1. Form borders are 4.24:1 against white (above the 3:1 non-text requirement). Reduced-motion and forced-color rules are included. No conformance certification is claimed: browser reflow, 200%/400% zoom, screen-reader behavior, real font rendering, and third-party destination accessibility still require manual audit. This environment did not provide visual browser testing for the static preview.
+
+Existing photography, logos, and fonts retain supplied URLs. Local partner marks are unchanged. Direct image requests were restricted during this session; actual image loading in a browser was not reverified. The Adobe Fonts stylesheet returned HTTP 200. No substitute client photography was invented.
+
+## Content provenance
+
+Program names and descriptions are adapted from `Advising.dc.html`; the AWS email comes from `AWS Initiative.dc.html`. Existing FY2025 homepage values ($549M, 712, 3,723, $201M) are retained as source draft content, not independently audited; the separate $548M brand figure should be reconciled before launch. Client stories and photo captions are preserved from the previous homepage preview.
+
+Live links were resolved against https://www.norcalsbdc.org/ on September 14, 2026, including https://www.norcalsbdc.org/find-your-sbdc/, https://www.norcalsbdc.org/restaurant-program/, https://www.norcalsbdc.org/services/regional/tfg/, and https://www.norcalsbdc.org/services/regional/ptac/.
+
+## Files
+
+Serve this directory as a static site. `index.html` is the homepage; `signup.html` is the program-aware preview; `refined.css` is the shared design system; `app.js`, `signup.js`, and `motion.js` handle progressive interactions. There is no build step or third-party JavaScript dependency.
