@@ -103,7 +103,7 @@
   .homepage .hero-strip p { gap: 8px; }
 }
 
-/* Color-overlay opening. Blend only the photograph; keep type and controls solid. */
+/* Integrated opening: original photo color, navy at edges only. */
 .color-overlay .site-header,
 .color-overlay .hero { background: var(--navy); color: var(--paper); }
 .color-overlay .header-inner { border-bottom: 1px solid #485566; }
@@ -152,24 +152,15 @@
   isolation: isolate;
 }
 .color-overlay .hero-photo > img {
-  filter: grayscale(1) contrast(1.07) brightness(.9);
+  filter: none;
   object-position: 54% 32%;
 }
-.color-overlay .hero-photo::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: #2774a6;
-  mix-blend-mode: color;
-  opacity: .9;
-  z-index: 1;
-  pointer-events: none;
-}
+.color-overlay .hero-photo::before { display: none; }
 .color-overlay .hero-photo::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #0f1c2d 0%, #0f1c2def 24%, #0f1c2d80 53%, #0f1c2d24 100%), linear-gradient(0deg, #0f1c2d88, transparent 40%);
+  background: linear-gradient(90deg, #0f1c2d 0%, #0f1c2def 20%, #0f1c2d88 33%, #0f1c2d00 48%);
   z-index: 2;
   pointer-events: none;
 }
@@ -218,7 +209,7 @@
     min-height: 0;
   }
   .color-overlay .hero-photo > img { object-position: 54% 38%; }
-  .color-overlay .hero-photo::after { background: linear-gradient(180deg, #0f1c2d 0%, #0f1c2d22 24%, #0f1c2d11 65%, #0f1c2d 100%); }
+  .color-overlay .hero-photo::after { background: linear-gradient(180deg, #0f1c2d 0%, #0f1c2d00 20%, #0f1c2d00 82%, #0f1c2d 100%); }
   .color-overlay .hero-photo figcaption { right: var(--edge); left: var(--edge); bottom: 18px; width: fit-content; }
   .color-overlay .hero-strip { padding-block: 20px; }
 }
