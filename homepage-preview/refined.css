@@ -51,7 +51,8 @@
 }
 .homepage .help-section .eyebrow { color: var(--slate); letter-spacing: .085em; }
 .homepage .services { margin-top: 44px; gap: 40px; }
-.homepage .service { padding-top: 0; gap: 18px; }
+.homepage .service { border-top: 2px solid var(--navy); padding-top: 23px; gap: 18px; }
+.homepage .story-image { border-bottom: 2px solid var(--berry); }
 .homepage .service h3 { font-weight: 600; font-size: clamp(1.65rem, 2.25vw, 2.25rem); letter-spacing: -.035em; }
 .homepage .service p { max-width: 28em; }
 .homepage .service .text-link { padding-top: 12px; }
