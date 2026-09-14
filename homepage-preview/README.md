@@ -61,3 +61,7 @@ The blue blend and grayscale filter were removed after review: people must retai
 `impact.html` adds a dedicated, responsive editorial impact page, linked from the main navigation. It uses Proxima Nova, an oversized capital result, three supporting result statements, the two existing natural-color client stories, regional reach, and advising/partnership links. `impact.css` is page-scoped. Existing homepage stories and signup are unchanged.
 
 FY2025 figures are taken directly from the supplied draft ($549M, 712 businesses, 3,723 jobs, $201M sales growth). An “About these numbers” disclosure explains their draft status and that the separate client stories can cover other periods. No invented year comparisons, geographic breakdowns, ROI estimates, downloadable reports, or growth charts are included. Photography retains its original color. Static counts are readable immediately and are not animated from zero.
+
+## Brand color restraint
+
+Hero headlines use one color: white on navy, navy on light backgrounds. Do not split display headlines into red/blue or white/blue phrases. Editorial labels on light surfaces are slate/navy. Red is reserved for sparse, thin accent rules, such as the 2px line under client photos; it is not a heading or label color. Semantic validation errors retain their accessible error treatment. Photography stays natural in color. This direction supersedes earlier two-tone headline treatments.

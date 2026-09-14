@@ -3,9 +3,9 @@
 All pages follow the FAV NorCal SBDC design system plus these page-composition rules established on the homepage (`MySBDC Homepage.dc.html`):
 
 1. **Numbered editorial spine** — every major section gets a caps micro-label with a running number ("01 — How we help"). Numbers restart per page and follow scan order.
-2. **Band alternation** — sections alternate paper/cream and full-bleed navy; never two same-color bands adjacent. Berry label color on light bands, pool on navy.
+2. **Band alternation** — sections alternate paper/cream and full-bleed navy; never two same-color bands adjacent. Use neutral navy/slate labels on light bands, pool or white on navy. Keep hero headlines single-color; reserve red/berry for sparse thin accent rules, never split red/blue headlines.
 3. **Asymmetric two-column grids** — narrow meta column (label + serif question/claim headline + one link or CTA) opposite the content payload (ruled list, metric grid, photo cards).
-4. **Photography carries proof** — real client photos from norcalsbdc.org, `saturate(.86–.88) contrast(1.03)`, always grounded: navy caption bar with 5px berry bottom rule (hero) or a 5px berry rule under the image (story cards). Never floating unframed images.
+4. **Photography carries proof** — real client photos from norcalsbdc.org, natural color and skin tones, always grounded: navy caption bar with 2px berry bottom rule (hero) or a 2px berry rule under the image (story cards). Never floating unframed images.
 5. **Color-block mosaics only for action moments** — sign-up/partner/newsletter CTAs use edge-to-edge navy + pool + cream blocks; text inside still aligns to the 1400px shell via `padding: … max(48px, calc((100vw - 1400px)/2))`.
 6. **One action per section**; short declarative copy pairs; CSS `Arrow` component, no icons.
 7. **Shell** — `width:min(1400px,100% - 96px)`; page wrapper `overflow-x:clip`; no fixed min-widths.

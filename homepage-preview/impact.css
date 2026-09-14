@@ -6,7 +6,7 @@
 .impact-kicker .eyebrow{margin:0}
 .impact-kicker>p:last-child{font-size:.9375rem;color:var(--slate)}
 .impact-intro h1{font-family:var(--nova);font-size:clamp(3rem,5.8vw,5.8rem);font-weight:600;line-height:1.025;letter-spacing:-.05em;max-width:16em}
-.impact-intro h1 span{color:var(--berry)}
+.impact-intro h1 span{color:inherit}
 .impact-intro-bottom{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-top:28px}
 .impact-intro-bottom p{font-size:1.1875rem;color:var(--slate);max-width:31em}
 .impact-intro-bottom .text-link{flex:none}
@@ -16,7 +16,7 @@
 .capital-heading p{color:var(--pool);font-size:.875rem}
 .capital-layout{display:grid;grid-template-columns:1.6fr 1fr;align-items:center;gap:56px;padding-top:28px}
 .capital-value{display:block;font-size:clamp(6rem,14vw,14rem);line-height:.95;font-weight:600;letter-spacing:-.075em;white-space:nowrap}
-.capital-value>span{color:var(--pool);font-weight:500}
+.capital-value>span{color:inherit;font-weight:500}
 .capital-number>p{font-size:1.25rem;color:var(--pool);margin-top:23px}
 .capital-description{padding-top:10px;border-left:2px solid var(--pool);padding-left:30px}
 .capital-description>p{font-size:clamp(1.7rem,2.8vw,2.7rem);letter-spacing:-.035em;line-height:1.08;font-weight:500}
