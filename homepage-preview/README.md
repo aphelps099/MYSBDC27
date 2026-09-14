@@ -64,4 +64,8 @@ FY2025 figures are taken directly from the supplied draft ($549M, 712 businesses
 
 ## Brand color restraint
 
-Hero headlines use one color: white on navy, navy on light backgrounds. Do not split display headlines into red/blue or white/blue phrases. Editorial labels on light surfaces are slate/navy. Red is reserved for sparse, thin accent rules, such as the 2px line under client photos; it is not a heading or label color. Semantic validation errors retain their accessible error treatment. Photography stays natural in color. This direction supersedes earlier two-tone headline treatments.
+Hero headlines use one color: white on navy, navy on light backgrounds. Do not split display headlines into red/blue or white/blue phrases. Editorial labels on light surfaces are slate/navy. Red is an optional, rare accent; it is not a heading or label color and does not need to appear in every section. Client photos have no accent border. Semantic validation errors retain their accessible error treatment. Photography stays natural in color. This direction supersedes earlier two-tone headline treatments.
+
+## Open page rhythm
+
+The homepage and impact page use spacing, type scale, alignment, and broad color fields to organize content. Decorative header, section, card, statistic, accordion, photograph, and footer rules have been removed, including mobile navigation separators. Story composition and natural-color images are preserved. Open program rows retain their plus/minus affordance and generous tap targets. Link underlines, the current-page navigation cue, input/button boundaries, and keyboard focus remain. Signup form styles are unchanged. CSS parsing and targeted structural checks cover this refinement; no additional browser audit was performed.
