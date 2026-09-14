@@ -1,4 +1,17 @@
 (() => {
+  const announcement = document.querySelector('[data-announcement]');
+  const dismiss = announcement?.querySelector('.announcement-close');
+  if (announcement && dismiss) {
+    const storageKey = `mysbdc:announcement:${announcement.dataset.announcement}`;
+    try { announcement.hidden = sessionStorage.getItem(storageKey) === 'dismissed'; } catch {}
+    dismiss.hidden = false;
+    dismiss.addEventListener('click', () => {
+      const restoreFocus = announcement.contains(document.activeElement);
+      announcement.hidden = true;
+      try { sessionStorage.setItem(storageKey, 'dismissed'); } catch {}
+      if (restoreFocus) document.querySelector('.site-header .brand')?.focus({ preventScroll: true });
+    });
+  }
   const button = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#primary-nav');
   function closeMenu(restore = false) {

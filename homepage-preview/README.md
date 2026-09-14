@@ -14,7 +14,7 @@ A modern, Nova-led responsive design preview based on `aphelps099/MYSBDC27` at `
 
 `signup.html?program=tfg` carries a public program slug through selection, contact details, review, and completion. Ten options cover the repository’s program inventory plus general advising. New clients provide contact information and a ZIP; existing clients provide their existing email and optional request details. Back/edit preserves inputs. Start over clears them.
 
-This is an interaction prototype. It performs no authentication, account matching, ZIP-to-center lookup, consent signing, enrollment, email delivery, or API writes. Entries are held only in the page’s memory. No localStorage, sessionStorage, cookies, or personal details in URLs. Newsletter also remains a non-submitting preview. Without JavaScript, native forms cannot submit and live signup links are provided.
+This is an interaction prototype. It performs no authentication, account matching, ZIP-to-center lookup, consent signing, enrollment, email delivery, or API writes. Entries are held only in the page’s memory. Intake data is never written to localStorage, sessionStorage, cookies, or URLs. Newsletter also remains a non-submitting preview. Without JavaScript, native forms cannot submit and live signup links are provided.
 
 The completion panel explicitly explains that nothing was submitted. It links to live general signup or the existing team contact. AWS retains its distinct `aws-sbdc@amazon.com` inquiry path from the supplied AWS Initiative page. Program selection is not automatically passed to the external live form. The MySBDC header link remains the existing dashboard preview and is labeled accordingly.
 
@@ -69,3 +69,11 @@ Hero headlines use one color: white on navy, navy on light backgrounds. Do not s
 ## Open page rhythm
 
 The homepage and impact page use spacing, type scale, alignment, and broad color fields to organize content. Decorative header, section, statistic, accordion, and footer rules have been removed, including mobile navigation separators. The homepage retains two intentional accents: 4px berry underlines beneath the story photos and 2px navy rules above the three service columns, with their original spacing. Homepage “Read story” links use a matching 2px berry underline with navy text. The impact page keeps its open layout. Story composition and natural-color images are preserved. Open program rows retain their plus/minus affordance and generous tap targets. Link underlines, the current-page navigation cue, input/button boundaries, and keyboard focus remain. Signup form styles are unchanged. CSS parsing and targeted structural checks cover this refinement; no additional browser audit was performed.
+
+## Navigation and announcements
+
+The homepage and impact page share a shorter primary navigation: Services, Programs, and Impact, followed by MySBDC and Get started. About remains in the footer. MySBDC links retain their dashboard-preview destination and identify it in their accessible label and tooltip. The mobile menu also includes Get started.
+
+A slim cream announcement bar sits above the header on both pages. Its initial evergreen message is “Practical workshops. Fresh ideas.” with a link to the existing training calendar. Edit the text and destination directly in both HTML files, and change `data-announcement` when publishing a different announcement. The close button has a 44px target and transfers keyboard focus to the home link when dismissed. A versioned sessionStorage flag remembers dismissal across these pages for the current browser tab; it contains no personal data. If browser storage is unavailable, closing still works for the current page. Without JavaScript the announcement link remains available and the close button stays hidden.
+
+The outdated 16-center figure is removed from both pages. The existing 36-county statement and local-center finder remain; no replacement center count is assumed. Focused DOM checks cover banner dismissal, session persistence, unavailable storage, keyboard focus, menu behavior, and page references. Visual browser testing is still pending.

@@ -14,6 +14,30 @@
 
 @media(min-width:701px) and (max-width:850px){.hero h1{font-size:3.9rem}.programs-grid{grid-template-columns:1fr 1.15fr}.hero-action{gap:8px 14px}.hero-strip{flex-wrap:wrap}}
 
+/* Announcement and a shorter public navigation. */
+.announcement { background: var(--cream); color: var(--navy); }
+.announcement-inner { position: relative; display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 48px; }
+.announcement-copy { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2px 16px; font-size: .875rem; line-height: 1.4; }
+.announcement-link { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.announcement-close { position: absolute; right: 0; top: 50%; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 12px; border: 0; border-radius: 2px; background: transparent; color: var(--navy); }
+.announcement-close:hover { background: #e7e2d8; }
+.announcement-close svg { width: 20px; height: 20px; }
+.primary-nav .mobile-start { display: none; }
+@media (min-width: 1101px) {
+  .site-header:not(.signup-header) .header-inner { min-height: 100px; gap: 44px; }
+  .primary-nav { margin-left: auto; gap: 32px; }
+  .primary-nav a, .header-actions .login { white-space: nowrap; }
+  .header-actions { gap: 24px; }
+}
+@media (max-width: 1100px) {
+  .primary-nav .mobile-start { display: inline-flex; align-self: start; min-height: 48px; margin-top: 12px; padding: 12px 24px; }
+}
+@media (max-width: 700px) {
+  .announcement-inner { justify-content: start; padding: 10px 48px 10px 0; }
+  .announcement-copy { justify-content: start; gap: 0 12px; }
+}
+@media print { .announcement { display: none; } }
+
 /* Nova-led opening: scoped to the homepage; stories and signup retain their design. */
 .homepage .site-header,
 .homepage .hero { background: var(--paper); }
