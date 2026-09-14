@@ -12,6 +12,6 @@
       running.add(animation); animation.finished.then(() => running.delete(animation)).catch(() => {});
     }
   }, { threshold: .12 });
-  document.querySelectorAll('.hero-copy, .hero-photo, .service, .programs-intro, .story').forEach(el => observer.observe(el));
+  document.querySelectorAll('.hero-copy, .homepage:not(.color-overlay) .hero-photo, .service, .programs-intro, .story').forEach(el => observer.observe(el));
   preference.addEventListener('change', event => { if (event.matches) { observer.disconnect(); running.forEach(animation => animation.cancel()); running.clear(); } });
 })();

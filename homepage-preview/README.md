@@ -49,3 +49,7 @@ Serve this directory as a static site. `index.html` is the homepage; `signup.htm
 ## Team-review refinement
 
 The opening uses a continuous white field, stronger upright Proxima Nova, tighter section rhythm, and direct service names. The original stories section is preserved exactly, including its responsive CSS. The signup interactions and existing accessibility behavior are unchanged. The hosted preview remains owner-private; team access must be explicitly configured before sharing the link.
+
+## Color-overlay hero direction
+
+The opening now joins headline and photograph on a full-width navy field. A blue color blend and a directional navy gradient treat the existing client photo; solid white/pool type and buttons remain outside the blend layers. A solid navy caption preserves readable attribution. The hero photograph is static so the protective gradient cannot shift beneath text. On mobile, the image follows the copy and bleeds to the edges, with a vertical gradient joining them. No theme switch, autoplay, or new image is introduced. The stories section and signup behavior remain unchanged. Image-level contrast still requires browser QA before publication beyond this private design preview.
