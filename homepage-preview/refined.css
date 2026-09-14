@@ -13,3 +13,92 @@
 @media(forced-colors:active){.button,.choice,.signup-card{border:1px solid ButtonText}.choice:has(input:checked){outline:2px solid Highlight}.hero-photo figcaption{background:Canvas;color:CanvasText}}
 
 @media(min-width:701px) and (max-width:850px){.hero h1{font-size:3.9rem}.programs-grid{grid-template-columns:1fr 1.15fr}.hero-action{gap:8px 14px}.hero-strip{flex-wrap:wrap}}
+
+/* Nova-led opening: scoped to the homepage; stories and signup retain their design. */
+.homepage .site-header,
+.homepage .hero { background: var(--paper); }
+.homepage .header-inner { border-bottom-color: transparent; }
+.homepage .hero-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: clamp(36px, 4.5vw, 72px);
+  padding-block: 46px 54px;
+  align-items: center;
+}
+.homepage .hero-copy { padding-block: 24px; }
+.homepage .hero .eyebrow { color: var(--slate); letter-spacing: .085em; margin-bottom: 24px; }
+.homepage .hero h1 {
+  font-family: var(--nova);
+  font-weight: 600;
+  font-size: clamp(3.5rem, 6.6vw, 6.9rem);
+  line-height: .99;
+  letter-spacing: -.055em;
+  max-width: 10em;
+}
+.homepage .hero-accent { color: var(--berry); }
+.homepage .hero-description { font-size: 1.25rem; max-width: 24em; margin-top: 28px; }
+.homepage .hero-action { margin-top: 30px; }
+.homepage .hero-photo { min-height: 455px; border-bottom-width: 3px; }
+.homepage .hero-photo figcaption { padding-block: 17px; }
+.homepage .hero-strip { padding-block: 18px 26px; border-color: var(--line); }
+.homepage .hero-strip p { gap: 30px; }
+.homepage .help-section { background: var(--paper); padding-block: 70px 88px; }
+.homepage .help-section .section-heading { align-items: end; }
+.homepage .help-section h2 {
+  font-size: clamp(2.5rem, 4.2vw, 4.25rem);
+  font-weight: 500;
+  letter-spacing: -.045em;
+  line-height: 1.03;
+}
+.homepage .help-section .eyebrow { color: var(--slate); letter-spacing: .085em; }
+.homepage .services { margin-top: 44px; gap: 40px; }
+.homepage .service { border-top: 2px solid var(--navy); padding-top: 23px; gap: 18px; }
+.homepage .service h3 { font-weight: 600; font-size: clamp(1.65rem, 2.25vw, 2.25rem); letter-spacing: -.035em; }
+.homepage .service p { max-width: 28em; }
+.homepage .service .text-link { padding-top: 12px; }
+.homepage .programs-section { padding-block: 76px; }
+.homepage .programs-grid { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 80px; }
+.homepage .programs-intro h2 {
+  font-family: var(--nova);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+  max-width: 11em;
+}
+.homepage .programs-intro .eyebrow { letter-spacing: .085em; }
+.homepage .programs-intro > p:not(.eyebrow) { max-width: 24em; }
+.homepage .program-list summary { padding-block: 22px; font-size: 1.375rem; }
+.homepage .program-list summary small { margin-top: 7px; }
+@media (min-width: 701px) and (max-width: 1100px) {
+  .homepage .hero-grid { gap: 32px; padding-block: 25px 38px; }
+  .homepage .hero-photo { min-height: 425px; }
+  .homepage .hero-description { font-size: 1.125rem; }
+  .homepage .hero-copy { padding-block: 16px; }
+  .homepage .programs-grid { gap: 45px; }
+  .homepage .services { gap: 28px; }
+}
+@media (max-width: 700px) {
+  .homepage .hero-grid { grid-template-columns: 1fr; gap: 26px; padding-block: 20px 28px; }
+  .homepage .hero-copy { padding-block: 10px 0; }
+  .homepage .hero .eyebrow { margin-bottom: 20px; }
+  .homepage .hero h1 { font-size: clamp(3.35rem, 13.2vw, 5.5rem); letter-spacing: -.05em; line-height: 1; }
+  .homepage .hero-description { margin-top: 22px; font-size: 1.125rem; max-width: 26em; }
+  .homepage .hero-action { margin-top: 23px; }
+  .homepage .hero-photo { min-height: 0; aspect-ratio: 1.2; }
+  .homepage .hero-strip { padding-block: 18px 20px; }
+  .homepage .hero-strip p { gap: 12px; }
+  .homepage .help-section { padding-block: 46px 58px; }
+  .homepage .help-section h2 { font-size: 2.5rem; }
+  .homepage .services { margin-top: 30px; }
+  .homepage .service { padding-block: 24px; gap: 13px; }
+  .homepage .service h3 { font-size: 1.85rem; }
+  .homepage .service:last-child { padding-bottom: 0; }
+  .homepage .programs-section { padding-block: 56px; }
+  .homepage .programs-grid { grid-template-columns: 1fr; gap: 30px; }
+  .homepage .programs-intro h2 { font-size: 2.55rem; }
+  .homepage .program-list summary { font-size: 1.3rem; }
+}
+@media (max-width: 360px) {
+  .homepage .hero h1 { font-size: 3.1rem; }
+  .homepage .hero-strip p { gap: 8px; }
+}

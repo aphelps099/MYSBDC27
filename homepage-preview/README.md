@@ -1,10 +1,10 @@
 # MySBDC — refined homepage and special-program signup preview
 
-A modern-classic, responsive design preview based on `aphelps099/MYSBDC27` at `f01d1908b67bf043ef5973f9eac1b3bbf1d6f97b`, including its homepage, Advising program inventory, intake, and AWS initiative.
+A modern, Nova-led responsive design preview based on `aphelps099/MYSBDC27` at `f01d1908b67bf043ef5973f9eac1b3bbf1d6f97b`, including its homepage, Advising program inventory, intake, and AWS initiative.
 
 ## Design
 
-- Proxima Sera for the brand promise and selected editorial statements; Proxima Nova for navigation, supporting headings, forms, and body copy. Retains Adobe kit `pkl5rjs` and system fallbacks.
+- Proxima Nova leads the hero, service headings, and specialist section with upright medium/semibold type. Proxima Sera remains a restrained accent in the lower call to action and signup introduction. Retains Adobe kit `pkl5rjs` and system fallbacks.
 - “Your business, better.” becomes the main headline, paired with the existing Laila O’Boyle photograph.
 - Shorter service summaries, native expandable specialty rows, compact impact figures, two original client stories, and the approved navy/pool/cream action mosaic.
 - Mobile layouts stack naturally, with 48–52px primary controls, visible menu text, generous form fields, and no fixed overlays.
@@ -45,3 +45,7 @@ Live links were resolved against https://www.norcalsbdc.org/ on September 14, 20
 ## Files
 
 Serve this directory as a static site. `index.html` is the homepage; `signup.html` is the program-aware preview; `refined.css` is the shared design system; `app.js`, `signup.js`, and `motion.js` handle progressive interactions. There is no build step or third-party JavaScript dependency.
+
+## Team-review refinement
+
+The opening uses a continuous white field, stronger upright Proxima Nova, tighter section rhythm, and direct service names. The original stories section is preserved exactly, including its responsive CSS. The signup interactions and existing accessibility behavior are unchanged. The hosted preview remains owner-private; team access must be explicitly configured before sharing the link.
