@@ -55,3 +55,9 @@ The opening uses a continuous white field, stronger upright Proxima Nova, tighte
 The opening now joins headline and photograph on a full-width navy field. The photograph retains its original color and natural skin tones. A directional navy fade is restricted to the left edge on desktop and top/bottom edges on mobile; the center and right of the portrait have no tint. Solid white/pool type and buttons remain above the image. A solid navy caption preserves readable attribution. The hero photograph is static so the protective gradient cannot shift beneath text. On mobile, the image follows the copy and bleeds to the edges, with a vertical gradient joining them. No theme switch, autoplay, or new image is introduced. The stories section and signup behavior remain unchanged. Image-level contrast still requires browser QA before publication beyond this private design preview.
 
 The blue blend and grayscale filter were removed after review: people must retain natural skin tones.
+
+## Impact page
+
+`impact.html` adds a dedicated, responsive editorial impact page, linked from the main navigation. It uses Proxima Nova, an oversized capital result, three supporting result statements, the two existing natural-color client stories, regional reach, and advising/partnership links. `impact.css` is page-scoped. Existing homepage stories and signup are unchanged.
+
+FY2025 figures are taken directly from the supplied draft ($549M, 712 businesses, 3,723 jobs, $201M sales growth). An “About these numbers” disclosure explains their draft status and that the separate client stories can cover other periods. No invented year comparisons, geographic breakdowns, ROI estimates, downloadable reports, or growth charts are included. Photography retains its original color. Static counts are readable immediately and are not animated from zero.
