@@ -20,10 +20,11 @@ ROUTES={
  'MySBDC Intake.dc.html':'intake.html','Training Calendar.dc.html':'calendar.html',
 }
 NATIVE={'MySBDC Dashboard.dc.html','MySBDC Sign In.dc.html','MySBDC Intake.dc.html','Training Calendar.dc.html'}
+FOOTER=(OUT/'templates/footer.html').read_text()
 for source,target in ROUTES.items():
  if source in NATIVE: continue
  text=(ROOT/source).read_text()
- text=text.replace('<html>','<html lang="en">').replace('<body>','<body class="public-preview">')
+ text=text.replace('<html>','<html lang="en">').replace('<body>','<body id="page-top" class="public-preview">')
  title='NorCal SBDC · Your business, better' if target=='index.html' else source.replace('.dc.html','')+' · NorCal SBDC'
  text=text.replace('<head>',f'<head>\n<title>{title}</title>\n<meta name="robots" content="noindex,nofollow">')
  text=text.replace('src="./support.js"','src="../support.js"')
@@ -31,15 +32,21 @@ for source,target in ROUTES.items():
  text=text.replace('href="_ds/','href="../_ds/').replace('src="_ds/','src="../_ds/')
  text=text.replace('src="assets/','src="../assets/').replace('src="uploads/','src="../uploads/')
  for old,new in ROUTES.items(): text=text.replace(old,new)
+ # One shared footer, with the newsletter built into it, across the public preview.
+ text=re.sub(r'<section\b[^>]*data-screen-label="Newsletter"[\s\S]*?</section>', '', text)
+ text=re.sub(r'<footer\b[\s\S]*?</footer>', lambda _: FOOTER, text)
  # Load responsive overrides after the design component's own styles.
- text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css">\n</helmet>')
- text=text.replace('</body>','<script type="module" src="assets/public.js"></script>\n</body>')
+ text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261023-footer">\n</helmet>')
+ text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261023-footer"></script>\n</body>')
  # Classify retained inline layouts so mobile behavior is explicit and repeatable.
  def classify(m):
   tag,attrs=m.group(1),m.group(2)
   style=re.search(r'style="([^"]*)"',attrs)
   if not style:return m.group(0)
   s=style.group(1);classes=[]
+  if 'var(--sera)' in s and tag not in {'h1','blockquote'}:
+   classes.append('preview-sans-title')
+   if tag=='strong':classes.append('preview-stat')
   if 'width:min(' in s and '100% - ' in s: classes.append('preview-shell')
   if 'display:flex' in s and 'margin-top:44px' in s: classes.append('preview-actions')
   if 'display:grid' in s:
@@ -60,4 +67,11 @@ for source,target in ROUTES.items():
       { day: '04', month: 'Nov', title: 'Business plan in a day', meta: 'Wed · 10:00 AM · 2 hours', format: 'Online' }
     ];""",text)
  (OUT/target).write_text(text)
+# The native calendar shares the same footer and its lightweight interactions.
+calendar=(OUT/'calendar.html').read_text()
+calendar=calendar.replace('<body class="public-preview">','<body id="page-top" class="public-preview">')
+calendar=re.sub(r'<footer\b[\s\S]*?</footer>',lambda _: FOOTER,calendar)
+if 'src="assets/public.js' not in calendar:
+ calendar=calendar.replace('</body>','<script type="module" src="assets/public.js?v=20261023-footer"></script></body>')
+(OUT/'calendar.html').write_text(calendar)
 print(f'Prepared {len(ROUTES)-len(NATIVE)} marketing pages in {OUT}')

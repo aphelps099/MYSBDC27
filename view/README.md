@@ -44,6 +44,9 @@ python3 -m http.server 8765 --bind 127.0.0.1
 Dashboard, auth, calendar, and resources use native HTML, CSS and JavaScript modules;
 there is no build step. The original design files are unchanged. To refresh the copied
 marketing pages, run `python3 view/tools/build_view.py` from the repository root.
+The shared public footer is in `view/templates/footer.html`; the build script applies
+it to the marketing pages and calendar. Public section headings and dashboard cards
+use Proxima Nova, with Proxima Sera reserved for primary page headlines and quotations.
 
 Run `python3 view/tools/verify.py` to check local routes, assets, and script syntax.
 Browser verification should cover document completion and reload, registration,

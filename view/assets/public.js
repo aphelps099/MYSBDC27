@@ -15,6 +15,21 @@ const obs=new MutationObserver(enhance);obs.observe(document.body,{childList:tru
 document.addEventListener('click',event=>{const a=event.target.closest('a');if(!a)return;const hash=new URL(a.href,location.href).hash;if(hash==='#preview-impact'){event.preventDefault();const proof=document.querySelector('[data-screen-label="The proof"]');show('The impact is in the work.',`<p>${esc(proof?.innerText||'Explore the outcomes of no-fee advising across Northern California.')}</p><p>Figures shown are retained from the existing design draft.</p><a class="public-action" href="stories.html">Explore client stories →</a>`)}if(hash==='#preview-detail'){event.preventDefault();const section=a.closest('[data-screen-label]')?.getAttribute('data-screen-label');const title=a.querySelector('h2,h3,strong')?.textContent||a.textContent.trim().slice(0,75);show(title,`<p>${esc(a.textContent.trim())}</p><p>${section==='Story grid'?'Explore the featured stories in this preview, or see how MySBDC brings advising and practical tools together.':'Explore this part of the service through the MySBDC preview.'}</p><a class="public-action" href="${section==='On-demand'?'dashboard.html#resources':section==='Story grid'?'stories.html':'sign-in.html?new=1'}">${section==='Story grid'?'Back to stories':section==='On-demand'?'Explore resources':'Get started'} →</a>`)}
  if(a.href.startsWith('mailto:')||a.href.startsWith('tel:')){event.preventDefault();show('Start a conversation.',`<p>Contact the NorCal SBDC team at <strong>info@norcalsbdc.org</strong> or <strong>(833) ASK-SBDC</strong>.</p><p>Monday–Friday, 9 AM–5 PM.</p><a class="public-action" href="sign-in.html?new=1">Explore the client journey →</a>`)}
 });
-document.addEventListener('click',event=>{const button=event.target.closest('button');if(!button||dialog.contains(button))return;const t=button.textContent.trim();if(/subscribe|sign me up|join the list/i.test(t)){event.preventDefault();show('A little useful news.',`<p>Funding opportunities, practical tools, and trainings near you.</p><form id="preview-newsletter"><label for="news-email">Email address</label><input id="news-email" type="email" required placeholder="you@example.com"><button class="public-action" type="submit">Preview subscription</button></form><p style="font-size:12px">Showcase only. No subscription or email will be sent.</p>`)}});
+document.addEventListener('click',event=>{const button=event.target.closest('button');if(!button||dialog.contains(button)||button.closest('[data-footer-newsletter]'))return;const t=button.textContent.trim();if(/subscribe|sign me up|join the list/i.test(t)){event.preventDefault();show('A little useful news.',`<p>Funding opportunities, practical tools, and trainings near you.</p><form id="preview-newsletter"><label for="news-email">Email address</label><input id="news-email" type="email" required placeholder="you@example.com"><button class="public-action" type="submit">Preview subscription</button></form><p style="font-size:12px">Showcase only. No subscription or email will be sent.</p>`)}});
 dialog.addEventListener('submit',event=>{event.preventDefault();if(event.target.id==='preview-newsletter'){dialog.close();show('You’re on the preview list.',`<p>This shows the subscription confirmation. No email address was sent or added to a mailing list.</p><a class="public-action" href="dashboard.html">Explore MySBDC →</a>`)}});
 dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()}});
+
+// Keep the footer signup in place; this showcase never sends or stores the address.
+document.addEventListener('submit', event => {
+ const form=event.target.closest('[data-footer-newsletter]');
+ if(!form)return;
+ event.preventDefault();
+ const input=form.querySelector('input');
+ if(!input)return;
+ if(!input.checkValidity()){input.reportValidity();return;}
+ form.classList.add('is-complete');
+ form.querySelector('.footer-input-row').innerHTML='<span>✓ &nbsp; You’re on the preview list.</span>';
+ form.querySelector('label').textContent='A little insight goes a long way.';
+ form.querySelector('label').removeAttribute('for');
+ form.querySelector('[role="status"]').textContent='Preview complete. No email was sent or added to a mailing list.';
+});

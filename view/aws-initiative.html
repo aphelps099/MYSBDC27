@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../support.js"></script>
 </head>
-<body class="public-preview">
+<body id="page-top" class="public-preview">
 <x-dc>
 <helmet>
   <meta name="description" content="NorCal SBDC and AWS are offering Northern California small businesses up to $25K in cloud and AI partner funding — with no-cost SBDC advising to find the right fit.">
@@ -25,7 +25,7 @@
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
     details summary::-webkit-details-marker{display:none}
   </style>
-<link rel="stylesheet" href="assets/public.css">
+<link rel="stylesheet" href="assets/public.css?v=20261023-footer">
 </helmet>
 <div style="overflow-x:clip">
 <div data-screen-label="Co-brand bar" style="background:var(--navy);color:#fdfdfd;border-bottom:1px solid #ffffff2e">
@@ -68,7 +68,7 @@
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
       <div>
         <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">01 — Here’s how we help</p>
-        <h2 style="margin:0;max-width:18ch;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97;color:var(--navy)">Advice first. Technology second.</h2>
+        <h2 style="margin:0;max-width:18ch;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97;color:var(--navy)" class="preview-sans-title">Advice first. Technology second.</h2>
       </div>
       <p style="margin:0;max-width:360px;font-size:15px;line-height:1.5;color:var(--slate)">This isn’t just about technology — it’s about competing and thriving in a digital economy.</p>
     </div>
@@ -96,7 +96,7 @@
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
       <div>
         <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">02 — AWS partners</p>
-        <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97;color:var(--navy)">Who you’ll work with.</h2>
+        <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97;color:var(--navy)" class="preview-sans-title">Who you’ll work with.</h2>
       </div>
       <p style="margin:0;max-width:400px;font-size:15px;line-height:1.5;color:var(--slate)">AWS hand-picked these firms to help small businesses modernize. Each brings something different — we help you figure out which one fits.</p>
     </div>
@@ -107,7 +107,7 @@
             <img src="{{ p.logo }}" alt="{{ p.name }}" style="height:34px;width:auto;max-width:180px;object-fit:contain;object-position:left center;display:block">
             <span style="font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--cobalt);border:1px solid #1b5faf59;background:#1b5faf14;padding:4px 9px;border-radius:2px;white-space:nowrap">{{ p.badge }}</span>
           </span>
-          <span style="display:block;margin-top:6px;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1.05;color:var(--navy)">{{ p.name }}</span>
+          <span style="display:block;margin-top:6px;font-family:var(--sera);font-weight:400;font-size:30px;letter-spacing:-.04em;line-height:1.05;color:var(--navy)" class="preview-sans-title">{{ p.name }}</span>
           <span style="font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">{{ p.focus }}</span>
           <span style="font-size:14px;line-height:1.55;color:var(--slate)">{{ p.body }}</span>
           <span style="display:block;margin-top:4px;padding-top:16px;border-top:1px solid #0f1c2d29"><span style="display:block;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">What they offer</span><span style="display:block;margin-top:7px;font-size:14px;line-height:1.5;color:var(--navy)">{{ p.offer }}</span></span>
@@ -121,7 +121,7 @@
   <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start" class="preview-shell preview-grid">
     <div>
       <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">03 — The SBDC role</p>
-      <h2 style="margin:0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97;color:#fdfdfd">We’re the advisors in the middle.</h2>
+      <h2 style="margin:0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97;color:#fdfdfd" class="preview-sans-title">We’re the advisors in the middle.</h2>
       <p style="margin:28px 0 0;max-width:420px;font-size:17px;line-height:1.55;color:#ffffffbd">Technology is the easy part. Figuring out what you actually need — and whether you’re ready for it — is harder. That’s where we come in. No-cost advising, always.</p>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:10px;padding-top:8px">
@@ -135,7 +135,7 @@
   <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,1fr) 1fr;gap:80px;align-items:start" class="preview-shell preview-grid">
     <div>
       <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">04 — Ready to get started?</p>
-      <h2 style="margin:0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97;color:var(--navy)">Send one email. That’s the whole form.</h2>
+      <h2 style="margin:0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.6vw,54px);letter-spacing:-.05em;line-height:.97;color:var(--navy)" class="preview-sans-title">Send one email. That’s the whole form.</h2>
       <p style="margin:26px 0 0;max-width:440px;font-size:16px;line-height:1.55;color:var(--slate)">The AWS team will follow up within 2 business days to match you with the right partner and discuss next steps.</p>
       <div style="margin-top:44px"><x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" arrow="{{ true }}" href="{{ mailto }}" hint-size="auto,50px">Email AWS to get started</x-import></div>
       <p style="margin:26px 0 0;font-size:13px;font-weight:700;color:var(--slate-light)">All SBDC advisory services are provided at no cost to you.</p>
@@ -159,7 +159,7 @@
       </summary>
       <div style="display:grid;grid-template-columns:minmax(280px,.6fr) 1fr;gap:72px;margin-top:36px" class="preview-grid">
         <div>
-          <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(28px,2.4vw,38px);letter-spacing:-.04em;line-height:1.05;color:var(--navy)">The short version.</h2>
+          <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(28px,2.4vw,38px);letter-spacing:-.04em;line-height:1.05;color:var(--navy)" class="preview-sans-title">The short version.</h2>
           <p style="margin:20px 0 0;font-size:15px;line-height:1.6;color:var(--slate)">Our role is advisory — we help you figure out what you need and connect you with vetted partners. We don’t build the technology ourselves, and we can’t guarantee outcomes. But we’ll do our best to point you in the right direction.</p>
           <p style="margin:20px 0 0;font-size:13px;color:var(--slate-light)">Last updated January 2026 · NorCal SBDC Lead Center, 876 7th Street, Arcata, CA 95501</p>
         </div>
@@ -191,7 +191,7 @@
 <section data-screen-label="Closing" aria-label="Contact" style="display:grid;grid-template-columns:1fr 1fr;border-bottom:5px solid var(--berry)" class="preview-grid">
   <div style="background:var(--cream);color:var(--navy);aspect-ratio:4/5;max-height:600px;display:flex;flex-direction:column;justify-content:center;padding:64px 56px 64px max(48px,calc((100vw - 1400px)/2))">
     <span style="font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--slate-light)">06 — Not sure yet?</span>
-    <h2 style="margin:22px 0 0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(30px,2.6vw,40px);letter-spacing:-.05em;line-height:1;color:var(--navy)">Start with an advisor instead.</h2>
+    <h2 style="margin:22px 0 0;max-width:16ch;font-family:var(--sera);font-weight:400;font-size:clamp(30px,2.6vw,40px);letter-spacing:-.05em;line-height:1;color:var(--navy)" class="preview-sans-title">Start with an advisor instead.</h2>
     <p style="margin:20px 0 0;max-width:42ch;font-size:15px;line-height:1.55;color:var(--slate)">If you’re not sure whether cloud or AI is your next move, sign up for general advising. We’ll tell you honestly — and this initiative will still be here.</p>
     <a href="advising.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:44px;font-size:14px;font-weight:750;border-bottom:1px solid;padding-bottom:3px;align-self:flex-start">Explore advising <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Arrow" hint-size="14px,14px"></x-import></a>
   </div>
@@ -204,39 +204,73 @@
     <span style="position:relative;margin-top:22px;font-size:13px;font-weight:700;color:#ffffffab">Questions? <a href="tel:18332757232" style="color:var(--pool);font-weight:750;border-bottom:1px solid var(--pool);padding-bottom:2px" style-hover="color:#fdfdfd;border-color:#fdfdfd">(833) ASK-SBDC</a> · Mon – Fri 9 – 5</span>
   </div>
 </section>
-<footer data-screen-label="Footer" style="background:var(--footer-ink);color:#fdfdfdcc">
-  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:60px 0 48px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;align-items:start" class="preview-shell preview-grid">
-    <div>
-      <a href="index.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-white-180h.png" alt="America’s SBDC California, Northern California Network" style="height:48px;width:auto"></a>
-      <p style="margin:18px 0 0;font-size:13px;line-height:1.55;color:#ffffffab"><strong style="color:#fdfdfd">Your Business, Better.</strong> Confidential business advising. No fee.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:9px">
-      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Work with us</h3>
-      <a href="advising.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Advising</a>
-      <a href="training.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Training</a>
-      <a href="funding.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Funding</a>
-      <a href="resources.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Resources</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:9px">
-      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Network</h3>
-      <a href="stories.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Stories</a>
-      <a href="about.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">About</a>
-      <a href="careers.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Careers</a>
-      <a href="partners.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">Become a Partner</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:9px">
-      <h3 style="margin:0 0 5px;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">Contact</h3>
-      <a href="sign-in.html" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">MySBDC Log in</a>
-      <a href="mailto:info@norcalsbdc.org" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">info@norcalsbdc.org</a>
-      <a href="tel:18332757232" style="color:#fdfdfdcc;font-size:13px;font-weight:700" style-hover="color:var(--pool)">(833) ASK-SBDC</a>
-      <span style="font-size:12px;color:#ffffff8a">Mon – Fri, 9 AM – 5 PM</span>
+<footer id="site-footer" class="site-footer" data-screen-label="Footer">
+  <div class="footer-inner">
+    <section class="footer-newsletter" aria-labelledby="footer-news-title">
+      <div>
+        <p class="footer-kicker">SBDCIntel · The monthly brief</p>
+        <h2 id="footer-news-title">One email.<br>Worth opening.</h2>
+        <p class="footer-news-copy">Fresh ideas, useful trainings, and funding opportunities.<br>Good things for your next chapter.</p>
+      </div>
+      <form class="footer-signup" data-footer-newsletter>
+        <label for="footer-email">A little insight, delivered monthly.</label>
+        <div class="footer-input-row">
+          <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="you@business.com" required aria-describedby="footer-signup-note">
+          <button type="submit">Sign me up <span aria-hidden="true">↗</span></button>
+        </div>
+        <p id="footer-signup-note" class="footer-form-note" role="status">No noise. Unsubscribe anytime. Preview signup only.</p>
+      </form>
+    </section>
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <a class="footer-wordmark" href="index.html" aria-label="NorCal SBDC home">NorCal <span>SBDC</span></a>
+        <p class="footer-tagline">Your business, better.</p>
+        <p class="footer-brand-copy">Local people. Practical advice.<br>Here for your next move, at no fee.</p>
+        <a class="footer-start" href="sign-in.html?new=1">Let’s get started <span aria-hidden="true">↗</span></a>
+      </div>
+      <nav class="footer-link-group" aria-label="Footer services">
+        <h3>For your business</h3>
+        <a href="advising.html">Business advising</a>
+        <a href="training.html">Training &amp; workshops</a>
+        <a href="funding.html">Access to funding</a>
+        <a href="resources.html">Tools &amp; resources</a>
+        <a href="sign-in.html">MySBDC log in <span aria-hidden="true">↗</span></a>
+      </nav>
+      <nav class="footer-link-group" aria-label="Footer network">
+        <h3>Our network</h3>
+        <a href="about.html">About NorCal SBDC</a>
+        <a href="stories.html">Client stories</a>
+        <a href="partners.html">Become a partner</a>
+        <a href="careers.html">Careers</a>
+      </nav>
+      <div class="footer-link-group footer-contact">
+        <h3>Let’s connect</h3>
+        <a href="mailto:info@norcalsbdc.org">info@norcalsbdc.org</a>
+        <a href="tel:18332757232">(833) ASK-SBDC</a>
+        <p>Monday–Friday<br>9 AM–5 PM Pacific</p>
+        <span class="footer-local"><span aria-hidden="true"></span> Rooted in Northern California</span>
+      </div>
     </div>
   </div>
-  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:22px 0 34px;border-top:1px solid #ffffff2e;display:flex;align-items:center;gap:40px;flex-wrap:wrap" class="preview-shell">
-    <span style="display:block;background:var(--paper);padding:9px 14px;border-radius:4px;flex:none"><img src="../assets/required-partner-logos.png" alt="America’s SBDC California accredited member, Cal Poly Humboldt, SCALE powered by CalOSBA, U.S. Small Business Administration" style="width:340px;max-width:100%;height:auto;display:block"></span>
-    <p style="margin:0;flex:1;min-width:380px;font-size:11px;line-height:1.55;color:#ffffff6e">Funded in part through a cooperative agreement with the U.S. Small Business Administration and grants from the California Office of the Small Business Advocate. Opinions expressed are those of the author(s) and do not necessarily reflect their views. Hosted by Cal Poly Humboldt Sponsored Programs Foundation. © 2026 NorCal SBDC</p>
+  <div class="footer-foundation">
+    <div class="footer-inner">
+      <div class="footer-partners">
+        <div class="footer-partner-logos">
+          <p class="footer-kicker">Stronger, together.</p>
+          <img src="../assets/required-partner-logos.png" width="520" alt="America’s SBDC California accredited member, Cal Poly Humboldt, SCALE powered by CalOSBA, U.S. Small Business Administration">
+        </div>
+        <p class="footer-legal">Funded in part through a cooperative agreement with the U.S. Small Business Administration and grants from the California Office of the Small Business Advocate. Opinions expressed are those of the author(s) and do not necessarily reflect their views. Hosted by Cal Poly Humboldt Sponsored Programs Foundation.</p>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 NorCal SBDC</span>
+        <span>Confidential advising. Real possibilities.</span>
+        <a href="#page-top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
   </div>
+  <div class="preview-note">Showcase preview · Monday, October 26 <a href="dashboard.html">Explore MySBDC dashboard →</a></div>
 </footer>
+
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
@@ -264,6 +298,6 @@ class Component extends DCLogic {
   }
 }
 </script>
-<script type="module" src="assets/public.js"></script>
+<script type="module" src="assets/public.js?v=20261023-footer"></script>
 </body>
 </html>
