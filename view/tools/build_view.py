@@ -32,12 +32,21 @@ for source,target in ROUTES.items():
  text=text.replace('href="_ds/','href="../_ds/').replace('src="_ds/','src="../_ds/')
  text=text.replace('src="assets/','src="../assets/').replace('src="uploads/','src="../uploads/')
  for old,new in ROUTES.items(): text=text.replace(old,new)
+ # User direction: no decorative numbering, arrows, or hairline rules.
+ text=re.sub(r'(>\s*)0\d\s*[—–-]\s*',r'\1',text)
+ text=re.sub(r'<(span|strong)\b[^>]*>\s*0\d\s*</\1>','',text)
+ text=re.sub(r'\{\{\s*\w+\.num\s*\}\}\s*[—–-]\s*','',text)
+ text=text.replace('grid-template-columns:96px 1fr','grid-template-columns:1fr')
+ text=re.sub(r'<x-import\b[^>]*component-from-global-scope="[^"]*\.Arrow"[^>]*></x-import>','',text)
+ text=text.replace(' arrow="{{ true }}"','')
+ text=re.sub(r"border(?:-(?:top|right|bottom|left))?:1px[^;\"'\n}<]*",lambda m:m.group(0).split(':')[0]+':0',text)
+ text=re.sub(r"'1px solid [^']*'","'none'",text)
  # One shared footer, with the newsletter built into it, across the public preview.
  text=re.sub(r'<section\b[^>]*data-screen-label="Newsletter"[\s\S]*?</section>', '', text)
  text=re.sub(r'<footer\b[\s\S]*?</footer>', lambda _: FOOTER, text)
  # Load responsive overrides after the design component's own styles.
- text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261023-footer">\n</helmet>')
- text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261023-footer"></script>\n</body>')
+ text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261023-workflow">\n</helmet>')
+ text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261023-workflow"></script>\n</body>')
  # Classify retained inline layouts so mobile behavior is explicit and repeatable.
  def classify(m):
   tag,attrs=m.group(1),m.group(2)
@@ -66,7 +75,7 @@ for source,target in ROUTES.items():
       { day: '03', month: 'Nov', title: 'Cash flow clinic: bring your numbers', meta: 'Tue · 9:00 AM · Eureka · 90 minutes', format: 'In person' },
       { day: '04', month: 'Nov', title: 'Business plan in a day', meta: 'Wed · 10:00 AM · 2 hours', format: 'Online' }
     ];""",text)
- (OUT/target).write_text(text)
+ (OUT/target).write_text('\n'.join(line.rstrip() for line in text.splitlines())+'\n')
 # The native calendar shares the same footer and its lightweight interactions.
 calendar=(OUT/'calendar.html').read_text()
 calendar=calendar.replace('<body class="public-preview">','<body id="page-top" class="public-preview">')

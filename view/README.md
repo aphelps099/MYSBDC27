@@ -51,3 +51,20 @@ use Proxima Nova, with Proxima Sera reserved for primary page headlines and quot
 Run `python3 view/tools/verify.py` to check local routes, assets, and script syntax.
 Browser verification should cover document completion and reload, registration,
 booking, messaging, milestone validation/submission, new-client intake, and phone widths.
+
+
+## Workflow and document exchange
+
+`workflow.html` is the interactive client journey, timeline, and proposed API blueprint.
+It follows the supplied Emumba client-design concept for document exchanges. Vendor API
+paths, embed implementation, and production dates remain unconfirmed. The API paths on
+this page are proposed MySBDC interfaces, not a claim about existing vendor capabilities.
+
+`dashboard.html?demo=upload` opens the document wizard directly. Add/drop up to five
+files, review metadata and an optional note, then finish the local simulation. File
+bytes are never read or sent. Only filenames, sizes, a note, and request state are saved.
+Open View documents and use Preview advisor return to demonstrate the return/download.
+`dashboard.html?demo=milestone#milestones` opens the milestone wizard.
+
+Follow `view/AGENTS.md`: no decorative section numbers, no hairlines outside the footer,
+no ornamental navigation arrows, and no preview notice over content.
