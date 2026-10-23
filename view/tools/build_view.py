@@ -1,0 +1,63 @@
+"""Copy the approved marketing designs into the isolated /view preview.
+
+Dashboard, sign-in, intake and calendar are native HTML/JS; the retained
+marketing pages use the repository's existing design runtime and tokens.
+"""
+from pathlib import Path
+import re
+
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/'view'
+ROUTES={
+ 'MySBDC Homepage.dc.html':'index.html','Advising.dc.html':'advising.html',
+ 'Trainings.dc.html':'training.html','Funding.dc.html':'funding.html',
+ 'Stories.dc.html':'stories.html','About.dc.html':'about.html',
+ 'Resources.dc.html':'resources.html','Partners.dc.html':'partners.html',
+ 'Careers.dc.html':'careers.html','Role - Business Advisor.dc.html':'business-advisor.html',
+ 'Story - Jump Aero.dc.html':'story-jump-aero.html','Story - Yarrow Goods.dc.html':'story-yarrow-goods.html',
+ 'AWS Initiative.dc.html':'aws-initiative.html',
+ 'MySBDC Dashboard.dc.html':'dashboard.html','MySBDC Sign In.dc.html':'sign-in.html',
+ 'MySBDC Intake.dc.html':'intake.html','Training Calendar.dc.html':'calendar.html',
+}
+NATIVE={'MySBDC Dashboard.dc.html','MySBDC Sign In.dc.html','MySBDC Intake.dc.html','Training Calendar.dc.html'}
+for source,target in ROUTES.items():
+ if source in NATIVE: continue
+ text=(ROOT/source).read_text()
+ text=text.replace('<html>','<html lang="en">').replace('<body>','<body class="public-preview">')
+ title='NorCal SBDC · Your business, better' if target=='index.html' else source.replace('.dc.html','')+' · NorCal SBDC'
+ text=text.replace('<head>',f'<head>\n<title>{title}</title>\n<meta name="robots" content="noindex,nofollow">')
+ text=text.replace('src="./support.js"','src="../support.js"')
+ text=text.replace('src="./image-slot.js"','src="../image-slot.js"')
+ text=text.replace('href="_ds/','href="../_ds/').replace('src="_ds/','src="../_ds/')
+ text=text.replace('src="assets/','src="../assets/').replace('src="uploads/','src="../uploads/')
+ for old,new in ROUTES.items(): text=text.replace(old,new)
+ # Load responsive overrides after the design component's own styles.
+ text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css">\n</helmet>')
+ text=text.replace('</body>','<script type="module" src="assets/public.js"></script>\n</body>')
+ # Classify retained inline layouts so mobile behavior is explicit and repeatable.
+ def classify(m):
+  tag,attrs=m.group(1),m.group(2)
+  style=re.search(r'style="([^"]*)"',attrs)
+  if not style:return m.group(0)
+  s=style.group(1);classes=[]
+  if 'width:min(' in s and '100% - ' in s: classes.append('preview-shell')
+  if 'display:flex' in s and 'margin-top:44px' in s: classes.append('preview-actions')
+  if 'display:grid' in s:
+   classes.append('preview-compact-grid' if re.search(r'grid-template-columns:(?:112px|56px|80px)',s) else 'preview-grid')
+  if tag=='section' and re.search(r'padding:(?:[789]\d|1\d\d)px',s):classes.append('preview-section')
+  if classes:
+   if 'class="' in attrs:attrs=attrs.replace('class="','class="'+' '.join(classes)+' ',1)
+   else:attrs+=' class="'+' '.join(classes)+'"'
+  return '<'+tag+attrs+'>'
+ text=re.sub(r'<([\w-]+)(\s[^<>]*?)>',classify,text)
+ text=text.replace('About 20 minutes.','About 10 minutes.').replace('in about 20 minutes','in about 10 minutes')
+ if target=='training.html':
+  text=text.replace('Tue, Sep 1 · 10:00 AM','Wed, Oct 28 · 10:00 AM')
+  text=re.sub(r"const events = \[[\s\S]*?\];", """const events = [
+      { day: '28', month: 'Oct', title: 'Pricing for profit', meta: 'Wed · 10:00 AM · 90 minutes', format: 'Online' },
+      { day: '30', month: 'Oct', title: 'Marketing on a $0 budget', meta: 'Fri · 12:00 PM · 60 minutes', format: 'Online' },
+      { day: '03', month: 'Nov', title: 'Cash flow clinic: bring your numbers', meta: 'Tue · 9:00 AM · Eureka · 90 minutes', format: 'In person' },
+      { day: '04', month: 'Nov', title: 'Business plan in a day', meta: 'Wed · 10:00 AM · 2 hours', format: 'Online' }
+    ];""",text)
+ (OUT/target).write_text(text)
+print(f'Prepared {len(ROUTES)-len(NATIVE)} marketing pages in {OUT}')
