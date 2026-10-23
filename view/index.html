@@ -24,7 +24,8 @@
     a:hover{color:var(--cobalt)}
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
   </style>
-<link rel="stylesheet" href="assets/public.css?v=20261023-workflow">
+<link rel="stylesheet" href="assets/public.css?v=20261023-refined">
+<link rel="stylesheet" href="assets/navigation.css?v=20261023-refined">
 </helmet>
 <div style="overflow-x:clip">
 <sc-if value="{{ showAnnouncement }}" hint-placeholder-val="{{ true }}">
@@ -36,22 +37,27 @@
   </div>
 </sc-if>
 <section data-screen-label="Hero" style="background:var(--cream);position:relative;z-index:1">
-  <header>
-    <div style="width:min(1400px,100% - 96px);margin:0 auto;height:88px;display:flex;align-items:center;justify-content:space-between;gap:24px" class="preview-shell">
-      <a href="#" aria-label="NorCal SBDC home" style="display:block"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png" alt="America’s SBDC California, Northern California Network" style="height:52px;width:auto;display:block"></a>
-      <nav aria-label="Primary" style="display:flex;align-items:center;gap:24px">
-        <a href="advising.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Advising</a>
-        <a href="training.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Training</a>
-        <a href="funding.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Funding</a>
-        <a href="stories.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">Stories</a>
-        <a href="about.html" style="font-size:13px;font-weight:750;letter-spacing:.02em">About</a>
-      </nav>
-      <div style="display:flex;align-items:center;gap:22px">
-        <a href="sign-in.html" style="font-size:13px;font-weight:750;border-bottom:0;padding-bottom:2px;white-space:nowrap" style-hover="border-color:var(--cobalt)">MySBDC Log in</a>
-        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" small="{{ true }}" href="#" style="flex:none;white-space:nowrap" hint-size="auto,43px">Get Started</x-import>
-      </div>
+  <header class="site-header ">
+  <div class="site-header-inner">
+    <a class="site-logo" href="index.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png" alt="America’s SBDC California, Northern California Network" width="100" height="69"></a>
+    <nav class="site-nav" id="site-navigation" aria-label="Primary">
+      <a href="advising.html" data-i18n="advising">Advising</a>
+      <a href="training.html" data-i18n="training">Training</a>
+      <a href="funding.html" data-i18n="funding">Funding</a>
+      <a href="stories.html" data-i18n="stories">Stories</a>
+      <a href="about.html" data-i18n="about">About</a>
+      <a class="mobile-start" href="sign-in.html?new=1" data-i18n="start">Get started</a>
+      <a class="mobile-signin" href="sign-in.html" data-i18n="login">MySBDC sign in</a>
+    </nav>
+    <div class="site-header-actions">
+      <label class="language-control"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><select data-language aria-label="Language"><option value="en">English</option><option value="es">Español</option></select></label>
+      <a class="site-signin" href="sign-in.html" data-i18n="login">MySBDC sign in</a>
+      <a class="site-cta" href="sign-in.html?new=1" data-i18n="start">Get started</a>
+      <button class="site-menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span class="menu-glyph" aria-hidden="true"></span><span data-i18n="menu">Menu</span></button>
     </div>
-  </header>
+  </div>
+</header>
+
   <div style="width:min(1400px,100% - 96px);margin:0 auto;padding-top:64px;display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center" class="preview-shell preview-grid">
     <div style="padding-bottom:96px">
       <p style="margin:0 0 24px;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Your Business, Better.</p>
@@ -236,6 +242,6 @@ class Component extends DCLogic {
   }
 }
 </script>
-<script type="module" src="assets/public.js?v=20261023-workflow"></script>
+<script type="module" src="assets/public.js?v=20261023-refined"></script>
 </body>
 </html>

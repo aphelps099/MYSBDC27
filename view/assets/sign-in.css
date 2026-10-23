@@ -1,0 +1,40 @@
+body[data-page=signin]{background:#fbfcfc;color:#172d40;font-family:var(--nova,Arial,sans-serif);-webkit-font-smoothing:antialiased}
+.signin-layout{min-height:100dvh;display:grid;grid-template-columns:minmax(340px,.86fr) 1.14fr}
+.signin-brand{position:relative;overflow:hidden;padding:42px clamp(38px,5.2vw,86px);background:radial-gradient(ellipse at 100% 100%,#274d61 0,transparent 66%),#10263b;color:white;display:flex;flex-direction:column;justify-content:space-between;gap:60px}
+.signin-wordmark{font-size:25px;font-weight:750;letter-spacing:-.045em;align-self:flex-start;color:white}.signin-wordmark span{color:#8fc5d9}.signin-wordmark:hover{color:#c0e3ee}
+.signin-story{max-width:380px;padding-block:36px}
+.signin-product{display:block;color:#a5d0e0;font-size:14px;letter-spacing:.015em;font-weight:600;margin-bottom:26px}
+.signin-story h2{font:550 clamp(38px,3.7vw,55px)/1.08 var(--nova,Arial);letter-spacing:-.035em;max-width:10ch;text-wrap:initial}
+.signin-story p{font-size:16px;line-height:1.7;color:#b6c9d8;max-width:32ch;margin-top:26px}
+.signin-trust{display:flex;gap:10px;align-items:center;color:#b6c9d8;font-size:12px;line-height:1.5}
+.signin-trust svg{width:19px;height:19px;color:#8fc5d9;flex:none}
+.signin-surface{display:flex;flex-direction:column;min-width:0}
+.signin-toolbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 42px 0;font-size:12px;color:#667381}
+.signin-toolbar>a{color:inherit;padding-block:8px}.signin-toolbar>a:hover{color:#1b5faf}.signin-toolbar .language-control{margin:0}
+.signin-main{flex:1;display:grid;place-items:center;padding:44px 44px 38px}
+.signin-box{width:min(400px,100%)}
+.signin-box .signin-label{font-size:12px;font-weight:600;color:#5c6c79;margin:0 0 15px}
+.signin-box h1{font:600 clamp(34px,3vw,43px)/1.12 var(--nova,Arial);letter-spacing:-.035em;margin:0 0 14px;text-wrap:balance}
+.signin-box .signin-lead{font-size:16px;line-height:1.55;color:#6a7580;margin:0 0 32px}
+.signin-box .field{gap:10px}.signin-box .field label{font-size:13px;font-weight:600;color:#34495a}
+.signin-box .field input{border:0;background:#eef2f4;border-radius:7px;min-height:52px;padding:15px 16px;font:400 16px/1.4 var(--nova,Arial);transition:background .18s}
+.signin-box .field input:hover{background:#e7edef}.signin-box .field input:focus{background:#eef4f8;outline:2px solid #1b5faf;outline-offset:2px}
+.signin-box .field input::placeholder{color:#7c8994;opacity:1}
+.signin-box .btn{margin-top:16px;min-height:50px;width:100%;border:0;border-radius:7px;font:600 15px/1.4 var(--nova,Arial);box-shadow:0 4px 12px #17497f12;transform:none;transition:background .18s,box-shadow .18s}
+.signin-box .btn:hover{box-shadow:0 6px 18px #17497f24}
+.signin-box .signin-hint{font-size:12px;color:#6e7e8a;margin-top:12px;text-align:center;line-height:1.5}
+.signin-box .signin-or{text-align:center;color:#7c8790;font-size:12px;margin:27px 0 15px}
+.signin-providers{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.signin-providers button{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;border:0;border-radius:7px;background:#eef2f4;color:#263d50;font:500 14px/1.4 var(--nova,Arial);cursor:pointer;transition:background .18s}
+.signin-providers button:hover{background:#e3eaee}.signin-providers svg{width:18px;height:18px;flex:none}
+.signin-account{margin-top:29px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;font-size:13px;color:#78838d}
+.signin-account a{color:#1b5faf;font-weight:600}.signin-account a:hover{color:#103f73}
+.signin-help{margin-top:25px;text-align:center;font-size:12px;color:#78838d}.signin-help summary{cursor:pointer;display:inline-block;list-style:none}.signin-help summary::-webkit-details-marker{display:none}.signin-help summary:hover{color:#1b5faf}.signin-help p{margin-top:12px;line-height:1.6;padding:14px 18px;background:#eef2f4;border-radius:7px;color:#526573}
+.signin-footer{padding:0 32px 26px;color:#7a8792;font-size:10px;line-height:1.6;text-align:center}
+.signin-preview{display:block;margin:6px auto 0;border:0;background:none;padding:4px;color:#4b6c83;cursor:pointer;font:500 11px var(--nova,Arial)}.signin-preview:hover{color:#1b5faf}
+.signin-box .signin-receipt{background:#eef3f5;border-radius:8px;padding:18px 20px;margin:22px 0;color:#34495a;font-size:14px;overflow-wrap:anywhere}
+.signin-box .signin-back{margin-top:24px;border:0;background:none;padding:0;font-size:13px;color:#47677d;cursor:pointer}
+.signin-box .success-mark{border-radius:14px;background:#e8eff4;color:#427c9a;width:52px;height:52px}
+@media(max-width:960px){.signin-layout{grid-template-columns:.8fr 1.2fr}.signin-brand{padding:34px}.signin-story h2{font-size:40px}.signin-main{padding:40px 34px}.signin-toolbar{padding:25px 30px 0}}
+@media(max-width:700px){.signin-layout{display:block}.signin-brand{padding:24px;background:#10263b}.signin-wordmark{font-size:22px}.signin-story,.signin-trust{display:none}.signin-toolbar{padding:20px 24px 0}.signin-main{padding:38px 28px}.signin-box h1{font-size:36px}.signin-box .signin-lead{margin-bottom:28px}.signin-footer{padding:0 25px 26px}.signin-box .signin-account{margin-top:25px}.signin-help{margin-top:20px}}
+@media(prefers-reduced-motion:reduce){.signin-layout *{transition:none!important}}

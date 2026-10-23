@@ -68,3 +68,10 @@ Open View documents and use Preview advisor return to demonstrate the return/dow
 
 Follow `view/AGENTS.md`: no decorative section numbers, no hairlines outside the footer,
 no ornamental navigation arrows, and no preview notice over content.
+
+## Sign-in and navigation refinement
+
+- The default sign-in is for returning clients; `?new=1` keeps the new-client journey and `?training=<id>` retains the registration destination. Google, Microsoft, and email access are simulations, clearly identified in the footer and confirmation state.
+- Public pages share `templates/header.html`, `assets/navigation.css`, and `assets/navigation.js`. Marketing page buttons use the same restrained proportions. The native calendar shares the header.
+- English is the default. The language dropdown persists an English/Spanish preference locally. The homepage, sign-in, and shared navigation have Spanish copy; other service-page bodies, the dashboard, intake, and workflow documentation remain in English in this preview.
+- `assets/sign-in.css` isolates the sign-in layout from the dashboard and intake forms.
