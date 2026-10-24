@@ -2,7 +2,7 @@ export const KEY='mysbdc-showcase-v1';
 export const baseState=()=>({profile:{first:'Avery',last:'Phelps',business:'Northstar Provisions',email:'avery@example.com',industry:'Food & beverage',location:'Eureka, Humboldt County',priority:'Access to capital'},stage:'active',registered:[],upload:null,extension:false,booking:null,messages:[],milestones:[],notificationsRead:false,prefs:{training:true,advisor:true,sms:false,checkin:true,intel:false}});
 export function readState(){try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v&&typeof v==='object')return {...baseState(),...v,profile:{...baseState().profile,...v.profile},prefs:{...baseState().prefs,...v.prefs}}}catch{}return baseState()}
 export function saveState(s){try{localStorage.setItem(KEY,JSON.stringify(s));return true}catch{return false}}
-export function resetState(){try{localStorage.removeItem(KEY);localStorage.removeItem(KEY+'-intake')}catch{}return baseState()}
+export function resetState(){try{localStorage.removeItem(KEY);localStorage.removeItem(KEY+'-intake');localStorage.removeItem(KEY+'-milestone-draft')}catch{}return baseState()}
 export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const trainings=[
  {id:'pricing',day:28,month:'Oct',date:'2026-10-28',time:'10:00 AM',end:'11:30 AM',start:'20261028T100000',finish:'20261028T113000',title:'Pricing for profit',topic:'Money & loans',format:'Online',location:'Online',duration:'90 minutes',description:'Know your numbers before you set your prices. Work through costs, margins, and a practical pricing exercise you can use in your business this week.',recommended:true},

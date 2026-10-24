@@ -81,3 +81,11 @@ no ornamental navigation arrows, and no preview notice over content.
 The three advising section overrides are in `templates/advising/`, with scoped styles in `assets/advising.css`. `tools/build_view.py` incorporates them without changing the original Advising design. The testimonial wording and reported results are retained from that design.
 
 The shared language control uses a globe-only disclosure with English and Español choices, keyboard navigation, Escape dismissal, and outside-click dismissal. Public navigation sits beside the logo and uses text-color hover feedback.
+
+## Milestones, stories, and training showcase
+
+- `share-milestone.html` is a dedicated progressive-disclosure experience, linked from every dashboard milestone entry. It collects business starts, distinct funding sources, year-over-year gross revenue, separate jobs created/retained, SBDC contribution, and optional story-contact permission.
+- Drafts save in this browser and resume from the dashboard. The review supports edits and category/source changes. Completion saves a stable-ID sample record, displays a thank-you with confetti (disabled for reduced motion), and makes the full record viewable in milestone history. No impact submission, verification, signature, or email happens.
+- `assets/milestone-model.js` contains branching, validation, summaries, and record conversion. Run `node view/tools/test_milestones.mjs` for meaningful branching/data checks.
+- Training uses the Navy plate direction from the root `Training Thumbnails.dc.html`, adapted with sans-serif titles and no hairlines. `assets/training-cards.js` and `.css` share the four track colors across the training landing page, public calendar, and dashboard. Sample event dates and registration handoffs are retained.
+- `templates/story/yarrow.html` is a concise adaptation of https://www.marinsbdc.org/client-stories/yarrow-goods/ (reviewed October 23, 2026). It replaces placeholder copy and the unverified first-hire claim. The original source is linked on the page. The advising excerpt uses the same published quote.

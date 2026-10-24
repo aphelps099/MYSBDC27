@@ -57,6 +57,20 @@ for source,target in ROUTES.items():
    section=(OUT/'templates/advising'/filename).read_text()
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
   text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261023-advising">\n</helmet>')
+ if target=='training.html':
+  saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
+  for label,filename in {'Hero':'hero.html','Upcoming trainings':'upcoming.html'}.items():
+   section=(OUT/'templates/training'/filename).read_text().replace('{{HEADER}}',saved_header)
+   text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/training-cards.css?v=20261023-progress">\n</helmet>')
+  text=text.replace('</body>','<script type="module" src="assets/training-public.js?v=20261023-progress"></script>\n</body>')
+ if target=='story-yarrow-goods.html':
+  saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
+  content=(OUT/'templates/story/yarrow.html').read_text().replace('{{HEADER}}',saved_header)
+  start=text.index('<section data-screen-label="Story hero"')
+  end=text.index('<footer',start)
+  text=text[:start]+content+text[end:]
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/story.css?v=20261023-progress">\n</helmet>')
  # Load responsive overrides after the design component's own styles.
  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261023-advising">\n<link rel="stylesheet" href="assets/navigation.css?v=20261023-advising">\n</helmet>')
  text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261023-advising"></script>\n</body>')

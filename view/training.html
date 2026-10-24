@@ -24,12 +24,13 @@
     a:hover{color:var(--cobalt)}
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
   </style>
+<link rel="stylesheet" href="assets/training-cards.css?v=20261023-progress">
 <link rel="stylesheet" href="assets/public.css?v=20261023-advising">
 <link rel="stylesheet" href="assets/navigation.css?v=20261023-advising">
 </helmet>
 <div style="overflow-x:clip">
 <section data-screen-label="Hero" style="background:var(--cream)">
-  <header class="site-header ">
+<header class="site-header ">
   <div class="site-header-inner">
     <a class="site-logo" href="index.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png" alt="America’s SBDC California, Northern California Network" width="100" height="69"></a>
     <nav class="site-nav" id="site-navigation" aria-label="Primary">
@@ -49,48 +50,11 @@
     </div>
   </div>
 </header>
+<div class="training-public-shell training-public-hero"><div class="training-public-copy"><p class="eyebrow">A little learning. A lot of possibility.</p><h1>Learn what matters.<br>Put it to work.</h1><p>Practical workshops for the business you’re building. Learn with people who know the work—and leave with something you can use.</p><a class="public-action" href="calendar.html">Find your next training</a></div><div class="training-feature-art" data-training-feature></div></div>
+</section>
 
-  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:72px 0 96px;display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center" class="preview-shell preview-grid">
-    <div>
-      <p style="margin:0 0 24px;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Training</p>
-      <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(54px,5.2vw,78px);letter-spacing:-.05em;line-height:.95;color:var(--navy);text-wrap:balance">Learn what matters. Then put it to work.</h1>
-      <p style="margin:26px 0 0;max-width:460px;font-size:18px;line-height:1.5;color:var(--slate)">Live workshops, on-demand courses and practical tools, selected for the stage you are in. No fee.</p>
-      <div style="margin-top:44px">
-        <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" href="#upcoming" hint-size="auto,50px">See upcoming trainings</x-import>
-      </div>
-    </div>
-    <div style="background:var(--paper);border:0;border-top:3px solid var(--navy)">
-      <div style="padding:30px 34px 26px;border-bottom:5px solid var(--berry)">
-        <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">Next live session</span>
-        <span style="display:block;margin-top:14px;font-family:var(--sera);font-weight:400;font-size:clamp(26px,2.2vw,34px);letter-spacing:-.04em;line-height:1.05;color:var(--navy)" class="preview-sans-title">Pricing for profit: know your numbers before you set them.</span>
-        <span style="display:flex;gap:8px 22px;flex-wrap:wrap;margin-top:18px;font-size:13px;font-weight:700;color:var(--slate)"><span>Wed, Oct 28 · 10:00 AM</span><span>Online · Live webinar</span><span>90 minutes</span></span>
-      </div>
-      <div style="padding:18px 34px;display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fdfdfd">
-        <span style="font-size:13px;font-weight:750">Free · Register in 2 minutes</span>
-        <a href="#" style="display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:750;color:var(--pool)" style-hover="color:#fdfdfd">Save a seat </a>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="upcoming" data-screen-label="Upcoming trainings" aria-label="Upcoming live trainings" style="background:var(--navy);color:#fdfdfd;padding:100px 0 110px" class="preview-section">
-  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start" class="preview-shell preview-grid">
-    <div>
-      <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">Live this month</p>
-      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(46px,4.4vw,66px);letter-spacing:-.05em;line-height:.95;color:#fdfdfd" class="preview-sans-title">What’s on the calendar?</h2>
-      <p style="max-width:420px;margin:28px 0 0;font-size:17px;line-height:1.55;color:#ffffffbd">Taught by advisors and practitioners. Ask questions, leave with something you can use the same week.</p>
-      <a href="calendar.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:44px;font-size:14px;font-weight:750;color:var(--pool);border-bottom:0;padding-bottom:3px" style-hover="color:#fdfdfd;border-color:#fdfdfd">See the full calendar </a>
-    </div>
-    <div>
-      <sc-for list="{{ events }}" as="ev" hint-placeholder-count="4">
-        <a href="#" style="display:grid;grid-template-columns:112px 1fr auto;gap:28px;align-items:baseline;padding:26px 0;border-bottom:0;color:#fdfdfd" style-hover="color:var(--pool)" class="preview-compact-grid">
-          <span><span style="display:block;font-family:var(--sera);font-weight:400;font-size:34px;letter-spacing:-.03em;line-height:1;color:inherit" class="preview-sans-title">{{ ev.day }}</span><span style="display:block;margin-top:6px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#ffffff8a">{{ ev.month }}</span></span>
-          <span><span style="display:block;font-size:19px;font-weight:750;letter-spacing:-.01em;color:inherit">{{ ev.title }}</span><span style="display:block;margin-top:8px;font-size:13px;color:#ffffffab">{{ ev.meta }}</span></span>
-          <span style="font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">{{ ev.format }}</span>
-        </a>
-      </sc-for>
-    </div>
-  </div>
-</section>
+<section id="upcoming" class="training-public-section" data-screen-label="Upcoming trainings" aria-label="Upcoming live trainings"><div class="training-public-shell"><div class="section-heading"><div><p class="eyebrow">Make time for your next move</p><h2>Good things on the calendar.</h2></div><a href="calendar.html">Explore all trainings</a></div><div class="training-track-legend"><span><i class="track-startup"></i>Startup Series</span><span><i class="track-growth" style="--track:#7fb0e8"></i>Growth Series</span><span><i class="track-industry"></i>Industry Series</span><span><i class="track-ai"></i>AI Series</span></div><div class="learning-grid" data-training-upcoming></div><p class="sample-note">Sample showcase schedule · Sign in to save your place in the preview.</p></div></section>
+
 <section data-screen-label="On-demand" aria-label="On-demand courses" style="background:var(--cream);padding:105px 0" class="preview-section">
   <div style="width:min(1400px,100% - 96px);margin:0 auto" class="preview-shell">
     <div style="display:grid;grid-template-columns:minmax(300px,.7fr) 1fr;gap:80px;align-items:start" class="preview-grid">
@@ -241,6 +205,7 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script type="module" src="assets/training-public.js?v=20261023-progress"></script>
 <script type="module" src="assets/public.js?v=20261023-advising"></script>
 </body>
 </html>

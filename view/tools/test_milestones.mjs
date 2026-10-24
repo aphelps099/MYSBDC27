@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+const source=await readFile(new URL('../assets/milestone-model.js',import.meta.url),'utf8');
+const {freshDraft,steps,validate,toRecord,reviewGroups,numeric}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+let d=freshDraft();assert.ok(validate(d,'choose'));
+d.types=['funding'];d.sources=['own','loan'];d.funding={own:{amount:'10,000.50',date:'2026-09-01'},loan:{amount:'128000',date:'2026-10-01'}};d.support='unsure';d.name='Sample Client';d.confirmed=true;
+assert.deepEqual(steps(d),['choose','sources','funding-own','funding-loan','context','review']);
+assert.equal(validate(d,'funding-own'),'');assert.equal(toRecord(d).values.funding,138000.5);
+d.funding.loan.amount='-20';assert.ok(validate(d,'funding-loan'));d.funding.loan.amount='10.999';assert.ok(validate(d,'funding-loan'));d.funding.loan.amount='128000';d.funding.loan.date='2027-01-01';assert.ok(validate(d,'funding-loan'));d.funding.loan.date='2026-10-01';
+d.types=['sales','jobs'];d.revenue='412000';d.previousRevenue='343000';d.fullTime='2';d.retainedFull='1';d.jobsDate='2026-10-20';assert.equal(validate(d,'jobs'),'');assert.equal(toRecord(d).values.sales,69000);assert.equal(toRecord(d).values.jobs,2);assert.equal(toRecord(d).values.retainedFull,1);assert.ok(!('funding' in toRecord(d).values));assert.ok(!steps(d).includes('sources'));assert.ok(reviewGroups(d).every(g=>!g.step.startsWith('funding')));
+d.partTime='1.5';assert.ok(validate(d,'jobs'));d.partTime='0';d.revenue='0';d.previousRevenue='0';assert.ok(!JSON.stringify(reviewGroups(d)).includes('NaN'));assert.ok(Number.isNaN(numeric('')));assert.ok(Number.isNaN(numeric('Infinity')));assert.equal(numeric('$1,234.50'),1234.5);
+assert.equal(toRecord(d).id,toRecord(d).id);console.log('PASS: branching, funding totals, validation, revenue deltas, jobs separation, deselection, and stable submission IDs.');
