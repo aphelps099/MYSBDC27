@@ -51,9 +51,15 @@ for source,target in ROUTES.items():
   logo='americas-sbdc-norcal-white-180h.png' if dark else 'americas-sbdc-norcal-400w.png'
   return HEADER.replace('{{THEME}}','site-header--dark' if dark else '').replace('{{LOGO}}','https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/'+logo)
  text=re.sub(r'<header\b[\s\S]*?</header>',header,text)
+ # Page-specific refinements live inside /view so the original designs are preserved.
+ if target=='advising.html':
+  for label,filename in {'Core services':'core-services.html','Find your specialist':'specialists.html','Client voice':'client-voice.html'}.items():
+   section=(OUT/'templates/advising'/filename).read_text()
+   text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261023-advising">\n</helmet>')
  # Load responsive overrides after the design component's own styles.
- text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261023-refined">\n<link rel="stylesheet" href="assets/navigation.css?v=20261023-refined">\n</helmet>')
- text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261023-refined"></script>\n</body>')
+ text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261023-advising">\n<link rel="stylesheet" href="assets/navigation.css?v=20261023-advising">\n</helmet>')
+ text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261023-advising"></script>\n</body>')
  # Classify retained inline layouts so mobile behavior is explicit and repeatable.
  def classify(m):
   tag,attrs=m.group(1),m.group(2)
@@ -88,8 +94,8 @@ calendar=(OUT/'calendar.html').read_text()
 calendar=calendar.replace('<body class="public-preview">','<body id="page-top" class="public-preview">')
 calendar=re.sub(r'<footer\b[\s\S]*?</footer>',lambda _: FOOTER,calendar)
 calendar=re.sub(r'<header\b[\s\S]*?</header>',lambda _: HEADER.replace('{{THEME}}','').replace('{{LOGO}}','https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png'),calendar)
-if 'assets/navigation.css' not in calendar:calendar=calendar.replace('</head>','<link rel="stylesheet" href="assets/navigation.css?v=20261023-refined"></head>')
-calendar=re.sub(r'(assets/public\.(?:css|js)\?v=)[^"]+',r'\g<1>20261023-refined',calendar)
+if 'assets/navigation.css' not in calendar:calendar=calendar.replace('</head>','<link rel="stylesheet" href="assets/navigation.css?v=20261023-advising"></head>')
+calendar=re.sub(r'(assets/(?:public|navigation)\.(?:css|js)\?v=)[^"]+',r'\g<1>20261023-advising',calendar)
 if 'src="assets/public.js' not in calendar:
  calendar=calendar.replace('</body>','<script type="module" src="assets/public.js?v=20261023-footer"></script></body>')
 (OUT/'calendar.html').write_text(calendar)

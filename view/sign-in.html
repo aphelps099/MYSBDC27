@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>Sign in · MySBDC</title>
-<link rel="stylesheet" href="assets/app.css?v=20261023-refined">
-<link rel="stylesheet" href="assets/navigation.css?v=20261023-refined">
-<link rel="stylesheet" href="assets/sign-in.css?v=20261023-refined">
-<script type="module" src="assets/auth.js?v=20261023-refined"></script>
+<link rel="stylesheet" href="assets/app.css?v=20261023-advising">
+<link rel="stylesheet" href="assets/navigation.css?v=20261023-advising">
+<link rel="stylesheet" href="assets/sign-in.css?v=20261023-advising">
+<script type="module" src="assets/auth.js?v=20261023-advising"></script>
 </head>
 <body data-page="signin">
 <div class="signin-layout">
@@ -22,7 +22,7 @@
   <div class="signin-surface">
     <div class="signin-toolbar">
       <a href="index.html" data-i18n="website">Back to website</a>
-      <label class="language-control"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><select data-language aria-label="Language"><option value="en">English</option><option value="es">Español</option></select></label>
+      <details class="language-control"><summary aria-label="Choose language" title="Choose language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg></summary><div class="language-menu" aria-label="Language"><button type="button" data-language-choice="en" aria-label="English" lang="en" aria-pressed="true">English<span aria-hidden="true">✓</span></button><button type="button" data-language-choice="es" aria-label="Español" lang="es" aria-pressed="false">Español<span aria-hidden="true">✓</span></button></div></details>
     </div>
     <main class="signin-main"><div class="signin-box" id="auth-content"></div></main>
     <footer class="signin-footer"><span data-i18n="preview">Showcase preview · Sign-in is simulated. No email is sent or account created.</span><button class="signin-preview" data-auth="sample" data-i18n="tryPreview">Try the sample account</button></footer>

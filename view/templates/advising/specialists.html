@@ -1,0 +1,27 @@
+<section class="advising-section advising-specialists" data-screen-label="Find your specialist" aria-labelledby="specialists-title" id="specialists">
+  <div class="advising-shell">
+    <div class="advising-section-heading">
+      <div><p class="advising-kicker">Specialty programs</p><h2 id="specialists-title">Find your specialist.</h2></div>
+      <p class="advising-intro">Start with your business. We’ll connect you with the right expertise across the network.</p>
+    </div>
+    <div class="advising-program-grid">
+      <sc-for list="{{ programs }}" as="p" hint-placeholder-count="4">
+        <a class="advising-program" href="#preview-detail">
+          <span class="advising-program-need">{{ p.need }}</span>
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.body }}</p>
+          <span class="advising-program-proof">{{ p.proof }}</span>
+          <span class="advising-program-action">Explore this program</span>
+        </a>
+      </sc-for>
+    </div>
+    <div class="advising-more">
+      <p class="advising-more-label">More expertise across the network</p>
+      <div class="advising-more-grid">
+        <sc-for list="{{ morePrograms }}" as="m" hint-placeholder-count="4">
+          <a class="advising-more-link" href="#preview-detail"><span>{{ m.need }}</span><strong>{{ m.name }}</strong></a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>

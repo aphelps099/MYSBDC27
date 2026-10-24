@@ -24,8 +24,8 @@
     a:hover{color:var(--cobalt)}
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
   </style>
-<link rel="stylesheet" href="assets/public.css?v=20261023-refined">
-<link rel="stylesheet" href="assets/navigation.css?v=20261023-refined">
+<link rel="stylesheet" href="assets/public.css?v=20261023-advising">
+<link rel="stylesheet" href="assets/navigation.css?v=20261023-advising">
 </helmet>
 <div style="overflow-x:clip">
 <section data-screen-label="Header" style="background:var(--navy);color:#fdfdfd">
@@ -42,7 +42,7 @@
       <a class="mobile-signin" href="sign-in.html" data-i18n="login">MySBDC sign in</a>
     </nav>
     <div class="site-header-actions">
-      <label class="language-control"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><select data-language aria-label="Language"><option value="en">English</option><option value="es">Español</option></select></label>
+      <details class="language-control"><summary aria-label="Choose language" title="Choose language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg></summary><div class="language-menu" aria-label="Language"><button type="button" data-language-choice="en" aria-label="English" lang="en" aria-pressed="true">English<span aria-hidden="true">✓</span></button><button type="button" data-language-choice="es" aria-label="Español" lang="es" aria-pressed="false">Español<span aria-hidden="true">✓</span></button></div></details>
       <a class="site-signin" href="sign-in.html" data-i18n="login">MySBDC sign in</a>
       <a class="site-cta" href="sign-in.html?new=1" data-i18n="start">Get started</a>
       <button class="site-menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span class="menu-glyph" aria-hidden="true"></span><span data-i18n="menu">Menu</span></button>
@@ -233,6 +233,6 @@ class Component extends DCLogic {
   }
 }
 </script>
-<script type="module" src="assets/public.js?v=20261023-refined"></script>
+<script type="module" src="assets/public.js?v=20261023-advising"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import {language,t,translateUI} from './locale.js?v=20261023-refined';
+import {language,t,translateUI} from './locale.js?v=20261023-advising';
 import {KEY,readState,saveState,esc,icon} from './data.js?v=20261023-workflow';
 let state=readState(),mode=new URLSearchParams(location.search).get('new')==='1'?'new':'returning';
 const requestedTraining=new URLSearchParams(location.search).get('training');

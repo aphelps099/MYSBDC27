@@ -1,0 +1,55 @@
+/* Advising: calm typography, useful grouping, and spacing in place of rules. */
+.advising-shell{width:min(1400px,calc(100% - 96px));margin-inline:auto}
+.advising-section{padding:86px 0;color:#162c3d;font-family:var(--nova,Arial,sans-serif)}
+.advising-section p,.advising-section h2,.advising-section h3{margin:0}
+.advising-section .advising-kicker{font-size:11px;line-height:1.5;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9c4144;margin-bottom:18px}
+.advising-section-heading{display:grid;grid-template-columns:1.1fr 1fr;align-items:end;gap:80px;margin-bottom:36px}
+.public-preview .advising-section h2{font:600 clamp(34px,3.3vw,46px)/1.12 var(--nova,Arial)!important;letter-spacing:-.035em;text-wrap:balance}
+.advising-section .advising-intro{max-width:44ch;color:#63717a;font-size:16px;line-height:1.65;padding-bottom:3px}
+.advising-core{background:#fdfdfd}
+.advising-services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.advising-service{display:flex;flex-direction:column;align-items:flex-start;padding:30px 30px 27px;background:#f1f5f5;border-radius:12px;min-width:0}
+.advising-service-icon{display:grid;place-items:center;width:44px;height:44px;background:#dfeaec;color:#446674;border-radius:12px;margin-bottom:23px}
+.advising-service-icon svg{width:23px;height:23px}
+.advising-section .advising-service h3{font-size:23px;font-weight:600;line-height:1.2;letter-spacing:-.025em;margin-bottom:13px}
+.advising-section .advising-service p{font-size:15px;line-height:1.65;color:#5c6b77;margin-bottom:24px;max-width:35ch}
+.advising-service a{margin-top:auto;font-size:13px;font-weight:600;color:#1b5faf;padding-block:5px}
+.advising-service a:hover{color:#103c6a}
+.advising-specialists{background:#f4f1e9}
+.advising-program-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.advising-program{display:flex;flex-direction:column;align-items:start;padding:32px 36px 28px;border-radius:12px;background:#fdfdfd;color:#162c3d;transition:background .2s,box-shadow .2s}
+.advising-program:hover{background:#f6fafb;color:#162c3d;box-shadow:0 8px 24px #15394c0a}
+.advising-program-need{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#6b7a85;margin-bottom:14px}
+.advising-section .advising-program h3{font-size:28px;font-weight:600;letter-spacing:-.025em;line-height:1.2;margin:0 0 15px;color:inherit}
+.advising-section .advising-program p{font-size:15px;line-height:1.65;color:#606f7b;max-width:61ch;margin-bottom:24px}
+.advising-program-proof{font-size:12px;font-weight:500;line-height:1.55;margin-top:auto;color:#496c7d;padding:12px 15px;background:#edf3f5;border-radius:7px;width:100%}
+.advising-program-action{font-size:13px;font-weight:600;color:#1b5faf;margin-top:20px}
+.advising-program:hover .advising-program-action{color:#103c6a}
+.advising-more{margin-top:34px}
+.advising-section .advising-more-label{font-size:13px;font-weight:500;color:#6c7880;margin-bottom:16px}
+.advising-more-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.advising-more-link{padding:20px 22px;background:#ebece7;border-radius:9px;display:flex;flex-direction:column;gap:9px;transition:background .2s}
+.advising-more-link>span{font-size:11px;font-weight:500;color:#667982}
+.advising-more-link strong{font-size:16px;line-height:1.35;font-weight:600;letter-spacing:-.015em;color:#263f50}
+.advising-more-link:hover{background:#e2e9e9}
+.advising-client{background:#fdfdfd;padding-bottom:20px}
+.advising-client-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,6vw,88px);align-items:center}
+.advising-client-photo{margin:0;aspect-ratio:1.22;border-radius:14px;overflow:hidden;background:#f5f0eb;align-self:stretch;max-height:490px}
+.advising-client-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform:scale(1.14);transform-origin:50% 100%;filter:saturate(.9)}
+.advising-client-content{padding:8px 0}
+.advising-client-content blockquote{margin:0;max-width:31ch;font:500 clamp(26px,2.5vw,35px)/1.28 var(--nova,Arial);letter-spacing:-.025em;color:#193146;text-wrap:pretty}
+.advising-client-name{display:flex;gap:12px;align-items:baseline;margin-top:24px;font-size:13px;color:#7a8791}
+.advising-client-name strong{font-weight:600;font-size:15px;color:#193146}
+.advising-client-results{display:flex;gap:48px;margin:25px 0 24px}
+.advising-client-results>div{display:flex;flex-direction:column;gap:4px}
+.advising-client-results strong{font-size:28px;font-weight:500;line-height:1.1;letter-spacing:-.025em;color:#416a7b;font-variant-numeric:lining-nums}
+.advising-client-results span{font-size:11px;color:#6c7d88}
+.advising-story-link{font-size:13px;font-weight:600;color:#1b5faf}
+.advising-story-link:hover{color:#103c6a}
+.advising-network-proof{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:30px;background:#f1f5f5;padding:21px 28px;border-radius:9px;font-size:13px;line-height:1.6;color:#657681}
+.advising-network-proof strong{font-weight:600;color:#2f4e60}
+.advising-network-proof a{flex:none;font-size:13px;font-weight:600;color:#1b5faf}
+.advising-section a:focus-visible{outline:3px solid #8fc5d9;outline-offset:5px}
+@media(max-width:1100px){.advising-shell{width:calc(100% - 56px)}.advising-section-heading{gap:48px}.advising-service{padding:25px}.advising-section .advising-service h3{font-size:21px}.advising-program{padding:28px}.advising-section .advising-program h3{font-size:25px}.advising-more-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.advising-client-layout{gap:40px}.advising-client-photo{aspect-ratio:.9}.advising-client-photo img{transform:scale(1.28)}}
+@media(max-width:760px){.advising-shell{width:calc(100% - 40px)}.advising-section{padding:56px 0}.advising-section-heading{grid-template-columns:1fr;gap:20px;margin-bottom:28px}.public-preview .advising-section h2{font-size:35px!important}.advising-section .advising-kicker{font-size:10px;margin-bottom:15px}.advising-section .advising-intro{font-size:15px;max-width:40ch}.advising-services{grid-template-columns:1fr;gap:13px}.advising-service{padding:25px}.advising-service-icon{margin-bottom:20px}.advising-section .advising-service h3{font-size:23px}.advising-section .advising-service p{margin-bottom:17px;max-width:none}.advising-program-grid{grid-template-columns:1fr;gap:16px}.advising-program{padding:26px}.advising-section .advising-program h3{font-size:25px}.advising-program-proof{font-size:12px}.advising-more-grid{gap:12px}.advising-more-link{padding:18px}.advising-more-link strong{font-size:14px}.advising-client-layout{grid-template-columns:1fr;gap:30px}.advising-client-photo{aspect-ratio:1.22;max-height:360px}.advising-client-photo img{transform:scale(1.14)}.advising-client-content blockquote{font-size:27px;max-width:none}.advising-client-results{gap:45px}.advising-network-proof{align-items:flex-start;flex-direction:column;gap:14px;padding:21px 23px;margin-top:28px}.advising-client{padding-bottom:10px}}
+@media(prefers-reduced-motion:reduce){.advising-section *{transition:none!important}}

@@ -75,3 +75,9 @@ no ornamental navigation arrows, and no preview notice over content.
 - Public pages share `templates/header.html`, `assets/navigation.css`, and `assets/navigation.js`. Marketing page buttons use the same restrained proportions. The native calendar shares the header.
 - English is the default. The language dropdown persists an English/Spanish preference locally. The homepage, sign-in, and shared navigation have Spanish copy; other service-page bodies, the dashboard, intake, and workflow documentation remain in English in this preview.
 - `assets/sign-in.css` isolates the sign-in layout from the dashboard and intake forms.
+
+## Advising section cleanup
+
+The three advising section overrides are in `templates/advising/`, with scoped styles in `assets/advising.css`. `tools/build_view.py` incorporates them without changing the original Advising design. The testimonial wording and reported results are retained from that design.
+
+The shared language control uses a globe-only disclosure with English and Español choices, keyboard navigation, Escape dismissal, and outside-click dismissal. Public navigation sits beside the logo and uses text-color hover feedback.
