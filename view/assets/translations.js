@@ -3,6 +3,8 @@ const es={
  'New partnership opportunities. Explore current RFPs.':'Nuevas oportunidades de colaboración. Consulta las convocatorias.',
  'Learn more':'Más información', 'Your Business, Better.':'Tu negocio, mejor.',
  'Business is personal. The advice should be, too.':'Tu negocio es personal. La asesoría también debería serlo.',
+ 'Business is personal.':'Tu negocio es personal.',
+ 'The advice should be, too.':'La asesoría también debería serlo.',
  'Confidential, practical advising at no fee, across 36 Northern California counties.':'Asesoría práctica y confidencial, sin costo, en 36 condados del norte de California.',
  'Get Started':'Comenzar', 'It’s a conversation, not another assessment.':'Una conversación para conocer tu negocio.',
  'How we help':'Cómo te ayudamos', 'What does your business need next?':'¿Qué necesita tu negocio ahora?',

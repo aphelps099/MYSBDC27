@@ -24,8 +24,8 @@
     a:hover{color:var(--cobalt)}
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
   </style>
-<link rel="stylesheet" href="assets/public.css?v=20261023-advising">
-<link rel="stylesheet" href="assets/navigation.css?v=20261023-advising">
+<link rel="stylesheet" href="assets/public.css?v=20261024-hero">
+<link rel="stylesheet" href="assets/navigation.css?v=20261024-hero">
 </helmet>
 <div style="overflow-x:clip">
 <sc-if value="{{ showAnnouncement }}" hint-placeholder-val="{{ true }}">
@@ -61,7 +61,7 @@
   <div style="width:min(1400px,100% - 96px);margin:0 auto;padding-top:64px;display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center" class="preview-shell preview-grid">
     <div style="padding-bottom:96px">
       <p style="margin:0 0 24px;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Your Business, Better.</p>
-      <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(54px,5.2vw,78px);letter-spacing:-.05em;line-height:.95;color:var(--navy);text-wrap:balance">Business is personal. The advice should be, too.</h1>
+      <h1 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(54px,5.2vw,78px);letter-spacing:-.05em;line-height:.95;color:var(--navy);text-wrap:balance" class="homepage-hero-title"><span class="hero-sentence">Business is personal.</span> <span class="hero-sentence">The advice should be, too.</span></h1>
       <p style="margin:26px 0 0;max-width:460px;font-size:18px;line-height:1.5;color:var(--slate)">Confidential, practical advising at no fee, across 36 Northern California counties.</p>
       <div style="display:flex;align-items:center;gap:24px;margin-top:34px">
         <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" href="#" hint-size="auto,50px">Get Started</x-import>
@@ -242,6 +242,6 @@ class Component extends DCLogic {
   }
 }
 </script>
-<script type="module" src="assets/public.js?v=20261023-advising"></script>
+<script type="module" src="assets/public.js?v=20261024-hero"></script>
 </body>
 </html>

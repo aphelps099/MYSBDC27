@@ -1,5 +1,5 @@
 import {language,translateUI} from './locale.js?v=20261023-advising';
-import {translateHomepage} from './translations.js?v=20261023-advising';
+import {translateHomepage} from './translations.js?v=20261024-hero';
 function enhanceNavigation(){
  translateUI();
  const home=/\/(?:index\.html)?$/.test(location.pathname);

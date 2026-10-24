@@ -1,4 +1,4 @@
-import './navigation.js?v=20261023-advising';
+import './navigation.js?v=20261024-hero';
 import {esc,trainings} from './data.js?v=20261023-workflow';
 const current=location.pathname.split('/').pop()||'index.html';
 const dialog=document.createElement('dialog');dialog.className='public-dialog';dialog.setAttribute('aria-labelledby','public-dialog-title');document.body.append(dialog);

@@ -10,5 +10,5 @@ The user's preferences override the older numbered editorial style in the reposi
 - Preserve the original designs outside `/view`.
 - Integration endpoints and delivery estimates are proposals until confirmed by the development teams. Never present simulated API calls or document uploads as real.
 
-- Keep the public navigation close to the logo, with a conventional text-color hover and no pill background.
+- Keep the public navigation grouped toward the logo, with comfortable breathing room between them, a conventional text-color hover, and no pill background.
 - The language control shows only a globe when closed; language names appear after opening its dropdown.
