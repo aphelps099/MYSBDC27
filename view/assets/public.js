@@ -1,11 +1,11 @@
-import './navigation.js?v=20261025-motion';
+import './navigation.js?v=20261025-footer';
 import {esc,trainings} from './data.js?v=20261023-workflow';
 const current=location.pathname.split('/').pop()||'index.html';
 const dialog=document.createElement('dialog');dialog.className='public-dialog';dialog.setAttribute('aria-labelledby','public-dialog-title');document.body.append(dialog);
 function show(title,content){dialog.innerHTML=`<button class="close" aria-label="Close dialog">×</button><h2 id="public-dialog-title">${esc(title)}</h2>${content}`;dialog.querySelector('.close').onclick=()=>dialog.close();dialog.showModal();}
 function infer(a){const t=a.textContent.trim().replace(/\s+/g,' ').toLowerCase(),section=a.closest('[data-screen-label]')?.getAttribute('data-screen-label')||'';if(a.hasAttribute('aria-label')&&a.getAttribute('aria-label').includes('home'))return 'index.html';
  const exact={advising:'advising.html',training:'training.html',funding:'funding.html',stories:'stories.html',about:'about.html',resources:'resources.html','log in':'sign-in.html'};
- if(exact[t])return exact[t];if(section==='How we help'){if(t.startsWith('advising'))return 'advising.html';if(t.startsWith('training'))return 'training.html';if(t.startsWith('funding'))return 'funding.html';}if(t.includes('start in mysbdc')||t.includes('meet your advisor')||t.includes('dream with us')||t.includes('find your sbdc')||t.includes('start with an advisor')||t.includes('apply to tech futures'))return 'sign-in.html?new=1';if(t.includes('read client stories'))return 'stories.html';if(t.includes('meet our partners')||t.includes('partner with the finance'))return 'partners.html#inquire';if(t.includes('browse all courses'))return 'dashboard.html#resources';if(t.includes('get started')||t.includes('tell us once')||t.includes('sign up for advising'))return 'sign-in.html?new=1';if(t.includes('log in'))return 'sign-in.html';if(t.includes('jump aero'))return 'story-jump-aero.html';if(t.includes('yarrow goods'))return 'story-yarrow-goods.html';if(t.includes('all success stories')||t==='see more stories')return 'stories.html';if(t.includes('advising people'))return 'advising.html';if(t.includes('training knowledge'))return 'training.html';if(t.includes('funding capital'))return 'funding.html';if(section==='Announcement'||t.includes('explore current rfps')||t.includes('funders + hosts'))return 'partners.html#inquire';if(t.includes('impact report'))return '#preview-impact';if(t.includes('save a seat'))return 'sign-in.html?training=pricing';if(section==='Upcoming trainings'){const found=trainings.find(x=>t.includes(x.title.toLowerCase()));return found?'sign-in.html?training='+found.id:'calendar.html'}if(t.includes('calendar')||t.includes('trainings'))return 'calendar.html';if(section==='Resource library')return 'dashboard.html#resources';return '#preview-detail';
+ if(exact[t])return exact[t];if(section==='How we help'){if(t.startsWith('advising'))return 'advising.html';if(t.startsWith('training'))return 'training.html';if(t.startsWith('funding'))return 'funding.html';}if(t.includes('start in mysbdc')||t.includes('meet your advisor')||t.includes('dream with us')||t.includes('find your sbdc')||t.includes('start with an advisor')||t.includes('apply to tech futures'))return 'sign-in.html?new=1';if(t.includes('read client stories'))return 'stories.html';if(t.includes('meet our partners')||t.includes('partner with the finance'))return 'partners.html#inquire';if(t.includes('browse all courses'))return 'dashboard.html#resources';if(t.includes('get started')||t.includes('tell us once')||t.includes('sign up for advising'))return 'sign-in.html?new=1';if(t.includes('log in'))return 'sign-in.html';if(t.includes('jump aero'))return 'story-jump-aero.html';if(t.includes('yarrow goods'))return 'story-yarrow-goods.html';if(t.includes('all success stories')||t==='see more stories')return 'stories.html';if(t.includes('advising people'))return 'advising.html';if(t.includes('training knowledge'))return 'training.html';if(t.includes('funding capital'))return 'funding.html';if(section==='Announcement'||t.includes('explore current rfps')||t.includes('funders + hosts'))return 'partners.html#inquire';if(t.includes('impact report'))return '#preview-impact';if(t.includes('save a seat'))return 'sign-in.html?training=pricing';if(section==='Upcoming trainings'){const found=trainings.find(x=>t.includes(x.title.toLowerCase()));return found?'sign-in.html?training='+found.id:'calendar.html'}if(t.includes('in your inbox'))return '#site-footer';if(t.includes('calendar')||t.includes('trainings'))return 'calendar.html';if(section==='Resource library')return 'dashboard.html#resources';return '#preview-detail';
 }
 function enhance(){const root=document.querySelector('#dc-root');if(!root||!root.querySelector('header'))return;for(const a of root.querySelectorAll('a[href="#"]')){a.href=infer(a)}
  for(const a of root.querySelectorAll('header nav a')){const path=new URL(a.href).pathname.split('/').pop();if(path===current){a.setAttribute('aria-current','page')}}
@@ -29,10 +29,12 @@ document.addEventListener('submit', event => {
  event.preventDefault();
  const input=form.querySelector('input');
  if(!input)return;
+ input.required=true;
  if(!input.checkValidity()){input.reportValidity();return;}
+ input.value='';
  form.classList.add('is-complete');
- form.querySelector('.footer-input-row').innerHTML='<span>✓ &nbsp; You’re on the preview list.</span>';
- form.querySelector('label').textContent='A little insight goes a long way.';
- form.querySelector('label').removeAttribute('for');
- form.querySelector('[role="status"]').textContent='Preview complete. No email was sent or added to a mailing list.';
+ form.querySelector('.newsletter-fields').hidden=true;
+ const confirmation=form.querySelector('.newsletter-success');
+ confirmation.hidden=false;
+ confirmation.focus({preventScroll:true});
 });

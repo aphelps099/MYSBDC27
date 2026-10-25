@@ -20,8 +20,8 @@ ROUTES={
  'MySBDC Intake.dc.html':'intake.html','Training Calendar.dc.html':'calendar.html',
 }
 NATIVE={'MySBDC Dashboard.dc.html','MySBDC Sign In.dc.html','MySBDC Intake.dc.html','Training Calendar.dc.html'}
-FOOTER=(OUT/'templates/footer.html').read_text()
-HEADER=(OUT/'templates/header.html').read_text()
+FOOTER=(OUT/'templates/footer.html').read_text().rstrip()
+HEADER=(OUT/'templates/header.html').read_text().rstrip()
 for source,target in ROUTES.items():
  if source in NATIVE: continue
  text=(ROOT/source).read_text()
@@ -79,8 +79,8 @@ for source,target in ROUTES.items():
   text=text[:start]+content+text[end:]
   text=text.replace('</helmet>','<link rel="stylesheet" href="assets/story.css?v=20261023-progress">\n</helmet>')
  # Load responsive overrides after the design component's own styles.
- text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261025-motion">\n<link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">\n</helmet>')
- text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261025-motion"></script>\n</body>')
+ text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261025-footer">\n<link rel="stylesheet" href="assets/footer.css?v=20261025-footer">\n<link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">\n</helmet>')
+ text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261025-footer"></script>\n</body>')
  # Classify retained inline layouts so mobile behavior is explicit and repeatable.
  def classify(m):
   tag,attrs=m.group(1),m.group(2)
@@ -116,8 +116,8 @@ calendar=calendar.replace('<body class="public-preview">','<body id="page-top" c
 calendar=re.sub(r'<footer\b[\s\S]*?</footer>',lambda _: FOOTER,calendar)
 calendar=re.sub(r'<header\b[\s\S]*?</header>',lambda _: HEADER.replace('{{THEME}}','').replace('{{LOGO}}','https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png'),calendar)
 if 'assets/navigation.css' not in calendar:calendar=calendar.replace('</head>','<link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace"></head>')
-calendar=re.sub(r'(assets/(?:public|navigation)\.(?:css|js)\?v=)[^"]+',r'\g<1>20261025-motion',calendar)
-calendar=calendar.replace('assets/navigation.css?v=20261025-motion','assets/navigation.css?v=20261025-navspace')
+calendar=re.sub(r'(assets/public\.(?:css|js)\?v=)[^"]+',r'\g<1>20261025-footer',calendar)
+if 'assets/footer.css' not in calendar:calendar=calendar.replace('</head>','<link rel="stylesheet" href="assets/footer.css?v=20261025-footer"></head>')
 if 'src="assets/public.js' not in calendar:
  calendar=calendar.replace('</body>','<script type="module" src="assets/public.js?v=20261023-footer"></script></body>')
 (OUT/'calendar.html').write_text(calendar)

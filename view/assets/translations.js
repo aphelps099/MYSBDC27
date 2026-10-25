@@ -1,5 +1,17 @@
 // Spanish preview copy for the homepage. Other service-page bodies remain English.
 const es={
+ 'The monthly email':'El boletín mensual',
+ 'Good things for':'Buenas ideas para',
+ 'your next chapter.':'tu próxima etapa.',
+ 'Fresh ideas, useful trainings, and funding opportunities. A little perspective for the business you’re building.':'Ideas nuevas, capacitaciones útiles y oportunidades de financiamiento. Una nueva perspectiva para el negocio que estás construyendo.',
+ 'One email. Worth opening.':'Un correo que vale la pena abrir.',
+ 'Email address':'Correo electrónico',
+ 'Subscribe':'Suscribirme',
+ 'No noise. Unsubscribe anytime.':'Solo lo útil. Cancela cuando quieras.',
+ 'Preview signup only. No email will be sent.':'Suscripción de muestra. No se enviará ningún correo.',
+ 'Thanks for your interest.':'Gracias por tu interés.',
+ 'This is a preview of your signup confirmation. No email was sent or saved.':'Esta es una muestra de la confirmación de tu suscripción. No se envió ni guardó ningún correo.',
+ 'MySBDC sign in':'Ingresar a MySBDC',
  'New partnership opportunities. Explore current RFPs.':'Nuevas oportunidades de colaboración. Consulta las convocatorias.',
  'Learn more':'Más información', 'Your Business, Better.':'Tu negocio, mejor.',
  'Business is personal. The advice should be, too.':'Tu negocio es personal. La asesoría también debería serlo.',
@@ -50,10 +62,7 @@ const es={
  'Preview complete. No email was sent or added to a mailing list.':'Vista previa completada. No se envió ningún correo ni se agregó a una lista.'
 };
 const originals=new WeakMap();
-export function translateHomepage(lang){
- const root=document.querySelector('#dc-root');
- // Resolve prototype links from their original English labels before translation.
- if(!root||root.querySelector('a[href="#"]'))return;
+function translateText(root,lang){
  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
  while(walker.nextNode()){
   const node=walker.currentNode;
@@ -64,4 +73,14 @@ export function translateHomepage(lang){
   if(node.textContent!==next)node.textContent=next;
  }
  const input=root.querySelector('#footer-email');if(input)input.placeholder=lang==='es'?'tu@empresa.com':'you@business.com';
+}
+export function translateHomepage(lang){
+ const root=document.querySelector('#dc-root');
+ // Resolve prototype links from their original English labels before translation.
+ if(!root||root.querySelector('a[href="#"]'))return;
+ translateText(root,lang);
+}
+export function translateFooter(lang){
+ const footer=document.querySelector('.site-footer');
+ if(footer){footer.lang=lang;translateText(footer,lang)}
 }

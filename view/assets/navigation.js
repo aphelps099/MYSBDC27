@@ -1,7 +1,8 @@
 import {language,translateUI} from './locale.js?v=20261023-advising';
-import {translateHomepage} from './translations.js?v=20261024-hero';
+import {translateHomepage,translateFooter} from './translations.js?v=20261025-footer';
 function enhanceNavigation(){
  translateUI();
+ translateFooter(language());
  const home=/\/(?:index\.html)?$/.test(location.pathname);
  if(home){translateHomepage(language());document.documentElement.lang=language()}
  for(const header of document.querySelectorAll('.site-header')){header.lang=language();const page=location.pathname.split('/').pop(),active=page==='calendar.html'?'training.html':page?.startsWith('story-')?'stories.html':page;for(const a of header.querySelectorAll('.site-nav a')){if(a.getAttribute('href')===active)a.setAttribute('aria-current','page')}}

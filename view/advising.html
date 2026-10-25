@@ -27,7 +27,8 @@
     input::placeholder{color:#43536b99}
   </style>
 <link rel="stylesheet" href="assets/advising.css?v=20261023-advising">
-<link rel="stylesheet" href="assets/public.css?v=20261025-motion">
+<link rel="stylesheet" href="assets/public.css?v=20261025-footer">
+<link rel="stylesheet" href="assets/footer.css?v=20261025-footer">
 <link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">
 </helmet>
 <div style="overflow-x:clip">
@@ -52,7 +53,6 @@
     </div>
   </div>
 </header>
-
   <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:80px 0 96px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:72px;align-items:center" class="preview-shell preview-grid">
     <div>
     <p style="margin:0 0 26px;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--pool)">Advising</p>
@@ -184,18 +184,27 @@
 <footer id="site-footer" class="site-footer" data-screen-label="Footer">
   <div class="footer-inner">
     <section class="footer-newsletter" aria-labelledby="footer-news-title">
-      <div>
-        <p class="footer-kicker">SBDCIntel · The monthly brief</p>
-        <h2 id="footer-news-title">One email.<br>Worth opening.</h2>
-        <p class="footer-news-copy">Fresh ideas, useful trainings, and funding opportunities.<br>Good things for your next chapter.</p>
+      <div class="footer-newsletter-copy">
+        <div class="footer-news-brand"><span>SBDCIntel</span><span>The monthly email</span></div>
+        <h2 id="footer-news-title" class="footer-news-title"><span>Good things for</span> <span>your next chapter.</span></h2>
+        <p class="footer-news-copy">Fresh ideas, useful trainings, and funding opportunities. A little perspective for the business you’re building.</p>
       </div>
       <form class="footer-signup" data-footer-newsletter>
-        <label for="footer-email">A little insight, delivered monthly.</label>
-        <div class="footer-input-row">
-          <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="you@business.com" required aria-describedby="footer-signup-note">
-          <button type="submit">Sign me up </button>
+        <div class="newsletter-fields">
+          <p class="newsletter-form-intro">One email. Worth opening.</p>
+          <label for="footer-email">Email address</label>
+          <div class="footer-input-row">
+            <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="you@business.com" required="required" aria-describedby="footer-signup-note">
+            <button type="submit">Subscribe</button>
+          </div>
+          <p class="footer-form-note">No noise. Unsubscribe anytime.</p>
+          <p id="footer-signup-note" class="footer-preview-note">Preview signup only. No email will be sent.</p>
         </div>
-        <p id="footer-signup-note" class="footer-form-note" role="status">No noise. Unsubscribe anytime. Preview signup only.</p>
+        <div class="newsletter-success" role="status" tabindex="-1" hidden="hidden">
+          <span class="newsletter-success-icon" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3>Thanks for your interest.</h3>
+          <p>This is a preview of your signup confirmation. No email was sent or saved.</p>
+        </div>
       </form>
     </section>
     <div class="footer-main">
@@ -203,7 +212,7 @@
         <a class="footer-wordmark" href="index.html" aria-label="NorCal SBDC home">NorCal <span>SBDC</span></a>
         <p class="footer-tagline">Your business, better.</p>
         <p class="footer-brand-copy">Local people. Practical advice.<br>Here for your next move, at no fee.</p>
-        <a class="footer-start" href="sign-in.html?new=1">Let’s get started </a>
+        <a class="footer-start" href="sign-in.html?new=1">Let’s get started</a>
       </div>
       <nav class="footer-link-group" aria-label="Footer services">
         <h3>For your business</h3>
@@ -211,7 +220,7 @@
         <a href="training.html">Training &amp; workshops</a>
         <a href="funding.html">Access to funding</a>
         <a href="resources.html">Tools &amp; resources</a>
-        <a href="sign-in.html">MySBDC log in </a>
+        <a href="sign-in.html">MySBDC sign in</a>
       </nav>
       <nav class="footer-link-group" aria-label="Footer network">
         <h3>Our network</h3>
@@ -222,32 +231,23 @@
       </nav>
       <div class="footer-link-group footer-contact">
         <h3>Let’s connect</h3>
+        <a class="footer-phone" href="tel:18332757232">(833) ASK-SBDC</a>
         <a href="mailto:info@norcalsbdc.org">info@norcalsbdc.org</a>
-        <a href="tel:18332757232">(833) ASK-SBDC</a>
         <p>Monday–Friday<br>9 AM–5 PM Pacific</p>
-        <span class="footer-local"><span aria-hidden="true"></span> Rooted in Northern California</span>
       </div>
     </div>
-  </div>
-  <div class="footer-foundation">
-    <div class="footer-inner">
-      <div class="footer-partners">
-        <div class="footer-partner-logos">
-          <p class="footer-kicker">Stronger, together.</p>
-          <img src="../assets/required-partner-logos.png" width="520" alt="America’s SBDC California accredited member, Cal Poly Humboldt, SCALE powered by CalOSBA, U.S. Small Business Administration">
-        </div>
-        <p class="footer-legal">Funded in part through a cooperative agreement with the U.S. Small Business Administration and grants from the California Office of the Small Business Advocate. Opinions expressed are those of the author(s) and do not necessarily reflect their views. Hosted by Cal Poly Humboldt Sponsored Programs Foundation.</p>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 NorCal SBDC</span>
-        <span>Confidential advising. Real possibilities.</span>
-        <a href="#page-top">Back to top </a>
-      </div>
+    <div class="footer-partners">
+      <div class="footer-partner-logos"><img src="../assets/required-partner-logos.png" width="520" alt="America’s SBDC California accredited member, Cal Poly Humboldt, SCALE powered by CalOSBA, U.S. Small Business Administration"></div>
+      <p class="footer-legal">Funded in part through a cooperative agreement with the U.S. Small Business Administration and grants from the California Office of the Small Business Advocate. Opinions expressed are those of the author(s) and do not necessarily reflect their views. Hosted by Cal Poly Humboldt Sponsored Programs Foundation.</p>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NorCal SBDC</span>
+      <span>Rooted in Northern California</span>
+      <a href="#page-top">Back to top</a>
     </div>
   </div>
   <div class="preview-note">Showcase preview · Monday, October 26 <a href="dashboard.html">Explore MySBDC dashboard</a> <a href="workflow.html">How MySBDC works</a></div>
 </footer>
-
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
@@ -271,6 +271,6 @@ class Component extends DCLogic {
   }
 }
 </script>
-<script type="module" src="assets/public.js?v=20261025-motion"></script>
+<script type="module" src="assets/public.js?v=20261025-footer"></script>
 </body>
 </html>
