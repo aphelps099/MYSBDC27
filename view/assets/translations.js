@@ -1,5 +1,7 @@
 // Spanish preview copy for the homepage. Other service-page bodies remain English.
 const es={
+ 'Good things. In your inbox.':'Buenas ideas. En tu correo.',
+ 'SBDCIntel · Once a month. Unsubscribe anytime.':'SBDCIntel · Una vez al mes. Cancela cuando quieras.',
  'Good things.':'Buenas ideas.',
  'In your inbox.':'En tu correo.',
  'Practical ideas, upcoming trainings, and funding opportunities. Selected for your small business.':'Ideas prácticas, próximos talleres y oportunidades de financiamiento. Seleccionadas para tu pequeño negocio.',

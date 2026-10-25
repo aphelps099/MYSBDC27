@@ -25,8 +25,8 @@
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
     details summary::-webkit-details-marker{display:none}
   </style>
-<link rel="stylesheet" href="assets/public.css?v=20261025-footer-editorial">
-<link rel="stylesheet" href="assets/footer.css?v=20261025-footer-editorial-clean">
+<link rel="stylesheet" href="assets/public.css?v=20261025-footer-navy">
+<link rel="stylesheet" href="assets/footer.css?v=20261025-footer-navy">
 <link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">
 </helmet>
 <div style="overflow-x:clip">
@@ -207,37 +207,31 @@
   </div>
 </section>
 <footer id="site-footer" class="site-footer" data-screen-label="Footer">
-  <section class="footer-newsletter" aria-labelledby="footer-news-title">
-    <div class="footer-inner footer-newsletter-layout">
-      <div class="footer-newsletter-copy">
-        <div class="footer-news-brand"><span>SBDCIntel</span></div>
-        <h2 id="footer-news-title" class="footer-news-title"><span>Good things.</span> <span>In your inbox.</span></h2>
-        <p class="footer-news-copy">Practical ideas, upcoming trainings, and funding opportunities. Selected for your small business.</p>
-      </div>
-      <form class="footer-signup" data-footer-newsletter>
-        <div class="newsletter-fields">
-          <p class="newsletter-form-intro">A little insight goes a long way.</p>
-          <label for="footer-email">Email address</label>
-          <div class="footer-input-row">
-            <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="you@business.com" required="required" aria-describedby="footer-form-note">
-            <button type="submit">Subscribe</button>
-          </div>
-          <p id="footer-form-note" class="footer-form-note">Once a month. Always useful. Unsubscribe anytime.</p>
-        </div>
-        <div class="newsletter-success" role="status" tabindex="-1" hidden="hidden">
-          <span class="newsletter-success-icon" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <h3>Thanks for your interest.</h3>
-          <p>This is a preview of your signup confirmation. No email was sent or saved.</p>
-        </div>
-      </form>
-    </div>
-  </section>
   <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="footer-wordmark" href="index.html" aria-label="NorCal SBDC home">NorCal <span>SBDC</span></a>
+      <p>Your business, better.</p>
+    </div>
     <div class="footer-main">
-      <div class="footer-brand-block">
-        <h2 class="footer-invitation"><span>Your next move.</span> <span>Let’s make it.</span></h2>
-        <a class="footer-start" href="sign-in.html?new=1">Let’s get started</a>
-      </div>
+      <section class="footer-newsletter" aria-labelledby="footer-news-title">
+        <h2 id="footer-news-title" class="footer-news-title">Good things. In your inbox.</h2>
+        <p class="footer-news-copy">Practical ideas, upcoming trainings, and funding opportunities. Selected for your small business.</p>
+        <form class="footer-signup" data-footer-newsletter>
+          <div class="newsletter-fields">
+            <label class="footer-email-label" for="footer-email">Email address</label>
+            <div class="footer-input-row">
+              <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="you@business.com" required="required" aria-describedby="footer-form-note">
+              <button type="submit">Subscribe</button>
+            </div>
+            <p id="footer-form-note" class="footer-form-note">SBDCIntel · Once a month. Unsubscribe anytime.</p>
+          </div>
+          <div class="newsletter-success" role="status" tabindex="-1" hidden="hidden">
+            <span class="newsletter-success-icon" aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>Thanks for your interest.</h3>
+            <p>This is a preview of your signup confirmation. No email was sent or saved.</p>
+          </div>
+        </form>
+      </section>
       <nav class="footer-link-group footer-services" aria-label="Footer services">
         <a href="advising.html">Advising</a>
         <a href="training.html">Training</a>
@@ -256,10 +250,6 @@
         <p>Monday–Friday<br>9 AM–5 PM Pacific</p>
         <a class="footer-sign-in" href="sign-in.html">MySBDC sign in</a>
       </div>
-    </div>
-    <div class="footer-signature">
-      <a class="footer-wordmark" href="index.html" aria-label="NorCal SBDC home">NorCal <span>SBDC</span></a>
-      <p class="footer-signature-copy"><strong>Your business, better.</strong><span>Rooted in Northern California</span></p>
     </div>
   </div>
   <div class="footer-foundation">
@@ -304,6 +294,6 @@ class Component extends DCLogic {
   }
 }
 </script>
-<script type="module" src="assets/public.js?v=20261025-footer-editorial"></script>
+<script type="module" src="assets/public.js?v=20261025-footer-navy"></script>
 </body>
 </html>
