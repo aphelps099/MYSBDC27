@@ -1,5 +1,5 @@
 import {language,translateUI} from './locale.js?v=20261023-advising';
-import {translateHomepage,translateFooter} from './translations.js?v=20261025-footer';
+import {translateHomepage,translateFooter} from './translations.js?v=20261025-footer-editorial';
 function enhanceNavigation(){
  translateUI();
  translateFooter(language());

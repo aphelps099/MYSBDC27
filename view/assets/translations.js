@@ -1,5 +1,15 @@
 // Spanish preview copy for the homepage. Other service-page bodies remain English.
 const es={
+ 'Good things.':'Buenas ideas.',
+ 'In your inbox.':'En tu correo.',
+ 'Practical ideas, upcoming trainings, and funding opportunities. Selected for your small business.':'Ideas prácticas, próximos talleres y oportunidades de financiamiento. Seleccionadas para tu pequeño negocio.',
+ 'Once a month. Always useful. Unsubscribe anytime.':'Una vez al mes. Siempre útil. Cancela cuando quieras.',
+ 'Good business starts with people.':'Un buen negocio empieza con las personas.',
+ 'Your next move.':'Tu próximo paso.',
+ 'Let’s make it.':'Démoslo juntos.',
+ 'Confidential advice. No fee. Just possibility.':'Asesoría confidencial. Sin costo. Con posibilidades.',
+ 'Resources':'Recursos',
+ 'Serving 36 Northern California counties.':'Al servicio de 36 condados del norte de California.',
  'The monthly email':'El boletín mensual',
  'Good things for':'Buenas ideas para',
  'your next chapter.':'tu próxima etapa.',
