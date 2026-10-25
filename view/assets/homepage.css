@@ -1,0 +1,11 @@
+/* A compact announcement in normal document flow, with a quiet dismiss control. */
+.home-announcement{background:var(--navy);color:#fdfdfd;font-family:var(--nova,Arial,sans-serif)}
+.home-announcement[hidden]{display:none}
+.home-announcement-inner{position:relative;width:min(1400px,calc(100% - 96px));min-height:44px;margin-inline:auto;padding:11px 44px;display:flex;align-items:center;justify-content:center;gap:20px;font-size:13px;line-height:1.5}
+.home-announcement-inner>span{font-weight:650}
+.home-announcement-inner>a{flex:none;color:var(--pool);font-size:11px;font-weight:750;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.home-announcement-inner>a:hover{color:white}
+.announcement-close{position:absolute;right:-8px;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:6px;background:transparent;color:#b2c6d4;cursor:pointer;transition:color .18s,background .18s}
+.announcement-close:hover{color:white;background:#ffffff12}
+.announcement-close:focus-visible{outline:3px solid var(--pool);outline-offset:0}
+@media(max-width:720px){.home-announcement-inner{width:calc(100% - 36px);padding:11px 36px 11px 0;justify-content:flex-start;flex-wrap:wrap;gap:4px 12px;font-size:12px;line-height:1.4}.home-announcement-inner>a{font-size:10px}.announcement-close{right:-8px}}

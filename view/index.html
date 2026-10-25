@@ -24,18 +24,21 @@
     a:hover{color:var(--cobalt)}
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
   </style>
-<link rel="stylesheet" href="assets/public.css?v=20261024-hero">
-<link rel="stylesheet" href="assets/navigation.css?v=20261024-hero">
+<link rel="stylesheet" href="assets/homepage.css?v=20261025-motion">
+<link rel="stylesheet" href="assets/public.css?v=20261025-motion">
+<link rel="stylesheet" href="assets/navigation.css?v=20261025-motion">
 </helmet>
 <div style="overflow-x:clip">
-<sc-if value="{{ showAnnouncement }}" hint-placeholder-val="{{ true }}">
-  <div data-screen-label="Announcement" style="background:var(--navy);color:#fdfdfd;padding:11px 0">
-    <div style="width:min(1400px,100% - 96px);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:18px;font-size:13px" class="preview-shell">
-      <span style="font-weight:750">New partnership opportunities. Explore current RFPs.</span>
-      <a href="#" style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:11px;letter-spacing:.13em;text-transform:uppercase;border-bottom:0;padding-bottom:2px;color:var(--pool)" style-hover="color:#fdfdfd;border-color:#fdfdfd">Learn more </a>
-    </div>
+<aside class="home-announcement" data-screen-label="Announcement" aria-label="Announcement">
+  <div class="home-announcement-inner">
+    <span>New partnership opportunities. Explore current RFPs.</span>
+    <a href="partners.html#inquire">Learn more</a>
+    <button type="button" class="announcement-close" aria-label="Dismiss announcement" title="Dismiss announcement">
+      <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
   </div>
-</sc-if>
+</aside>
+
 <section data-screen-label="Hero" style="background:var(--cream);position:relative;z-index:1">
   <header class="site-header ">
   <div class="site-header-inner">
@@ -242,6 +245,7 @@ class Component extends DCLogic {
   }
 }
 </script>
-<script type="module" src="assets/public.js?v=20261024-hero"></script>
+<script type="module" src="assets/homepage.js?v=20261025-motion"></script>
+<script type="module" src="assets/public.js?v=20261025-motion"></script>
 </body>
 </html>
