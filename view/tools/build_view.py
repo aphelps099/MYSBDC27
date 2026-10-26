@@ -78,11 +78,13 @@ for source,target in ROUTES.items():
   text=text.replace('</body>','<script type="module" src="assets/homepage.js?v=20261025-motion"></script>\n</body>')
   text=re.sub(r'<h1([^>]*)>Business is personal\. The advice should be, too\.</h1>',r'<h1\1 class="homepage-hero-title"><span class="hero-sentence">Business is personal.</span> <span class="hero-sentence">The advice should be, too.</span></h1>',text)
  if target=='advising.html':
-  saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
+  saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0).replace('site-header--dark','').replace('americas-sbdc-norcal-white-180h.png','americas-sbdc-norcal-400w.png')
   for label,filename in {'Hero':'hero.html','Core services':'core-services.html','Find your specialist':'specialists.html','Client voice':'client-voice.html'}.items():
    section=(OUT/'templates/advising'/filename).read_text().replace('{{HEADER}}',saved_header)
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-people">\n</helmet>')
+  fieldwork=(OUT/'templates/advising/fieldwork.html').read_text()
+  text=text.replace('<section class="advising-section advising-specialists"',fieldwork+'<section class="advising-section advising-specialists"')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-editorial">\n</helmet>')
  if target=='training.html':
   saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
   for label,filename in {'Hero':'hero.html','Upcoming trainings':'upcoming.html'}.items():

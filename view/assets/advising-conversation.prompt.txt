@@ -1,0 +1,11 @@
+Generated with the built-in image_gen tool for the advising preview.
+Fictional illustrative scene; not a photograph of actual SBDC staff or clients.
+
+Use case: photorealistic-natural.
+Asset type: full-width editorial photograph for the NorCal SBDC advising website preview, landscape 2400 by 1200 composition.
+Primary request: a beautifully observed, candid scene of a small-business owner and a business advisor working through a practical decision together in an independent Northern California ceramics and home-goods shop.
+Scene: a light-filled working shop with handmade bowls, warm timber shelving, a few leafy plants, and large street-facing windows. Honest everyday small-business space, tactile and lived in, not luxury showroom and not corporate office.
+Subjects: an adult woman shop owner in her late 30s with dark wavy hair and a simple linen apron, and an adult man advisor in his late 50s wearing a soft navy overshirt, seated at the same large wooden worktable. They are focused on a notebook and a laptop together, sharing a small natural smile, photographed as an unposed moment. Anatomically natural hands, relaxed real posture. They are fictional illustrative people, not specific SBDC staff or clients.
+Composition: wide cinematic horizontal photograph with the two people clustered around center-right, both faces clearly visible, waist-up environmental view. Include substantial shop context on left and right, with a few softly out-of-focus ceramic pieces in the foreground. All important faces and hands within the middle 60% of the image so responsive crops work. Do not have people look at camera.
+Style: premium magazine documentary photography, 35mm lens, natural skin texture, subtle grain, restrained rich color, beautifully composed but not staged stock photography. Soft overcast window light from the left, warm wood, sage greenery, cream walls, hints of powder blue and navy. Gentle contrast and excellent shadow detail.
+Constraints: no text, no graphics, no logos, no watermark, no handshake, no cash, no fake charts, no exaggerated smiles, no dramatic teal-and-orange grading. Laptop screen seen obliquely with no legible text. Preserve believable authentic shop details.
