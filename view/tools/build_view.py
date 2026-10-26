@@ -64,7 +64,7 @@ for source,target in ROUTES.items():
   for label,filename in sections.items():
    section=(OUT/'templates'/page/filename).read_text().replace('{{HEADER}}',saved_header)
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/editorial.css?v=20261026-layout">\n</helmet>')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/editorial.css?v=20261026-people">\n</helmet>')
   if target=='stories.html':
    text=text.replace('ALL.slice(0, 4)','ALL.slice(0, 6)').replace("    const stagger = ['0', '48px', '96px'];\n",'')
    text=text.replace("stories: visible.map((s, i) => ({ ...s, mt: stagger[i % 3], href: s.href ?? '#' })),", "stories: visible.map(s => ({ ...s, href: s.href ?? '#', titleFirst: s.name === 'Yarrow Goods' ? '$138K raised.' : s.claim, titleSecond: s.name === 'Yarrow Goods' ? 'Sales up 20%.' : '', imageClass: s.name === 'Yarrow Goods' ? 'story-card-yarrow' : '' })),")
@@ -78,24 +78,25 @@ for source,target in ROUTES.items():
   text=text.replace('</body>','<script type="module" src="assets/homepage.js?v=20261025-motion"></script>\n</body>')
   text=re.sub(r'<h1([^>]*)>Business is personal\. The advice should be, too\.</h1>',r'<h1\1 class="homepage-hero-title"><span class="hero-sentence">Business is personal.</span> <span class="hero-sentence">The advice should be, too.</span></h1>',text)
  if target=='advising.html':
-  for label,filename in {'Core services':'core-services.html','Find your specialist':'specialists.html','Client voice':'client-voice.html'}.items():
-   section=(OUT/'templates/advising'/filename).read_text()
+  saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
+  for label,filename in {'Hero':'hero.html','Core services':'core-services.html','Find your specialist':'specialists.html','Client voice':'client-voice.html'}.items():
+   section=(OUT/'templates/advising'/filename).read_text().replace('{{HEADER}}',saved_header)
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261023-advising">\n</helmet>')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-people">\n</helmet>')
  if target=='training.html':
   saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
   for label,filename in {'Hero':'hero.html','Upcoming trainings':'upcoming.html'}.items():
    section=(OUT/'templates/training'/filename).read_text().replace('{{HEADER}}',saved_header)
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/training-cards.css?v=20261023-progress">\n</helmet>')
-  text=text.replace('</body>','<script type="module" src="assets/training-public.js?v=20261023-progress"></script>\n</body>')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/training-cards.css?v=20261026-calm">\n</helmet>')
+  text=text.replace('</body>','<script type="module" src="assets/training-public.js?v=20261026-calm"></script>\n</body>')
  if target=='story-yarrow-goods.html':
   saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
   content=(OUT/'templates/story/yarrow.html').read_text().replace('{{HEADER}}',saved_header)
   start=text.index('<section data-screen-label="Story hero"')
   end=text.index('<footer',start)
   text=text[:start]+content+text[end:]
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/story.css?v=20261023-progress">\n</helmet>')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/story.css?v=20261026-people">\n</helmet>')
  # Load responsive overrides after the design component's own styles.
  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261026-layout">\n<link rel="stylesheet" href="assets/footer.css?v=20261026-layout">\n<link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">\n</helmet>')
  text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261026-layout"></script>\n</body>')

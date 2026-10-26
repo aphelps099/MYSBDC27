@@ -7,7 +7,8 @@
 .editorial-button:hover{background:#144c8b;color:#fff}
 .editorial-testimonial{padding:88px 0;background:var(--cream)}
 .testimonial-layout{max-width:1160px;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,88px);align-items:center}
-.testimonial-photo{margin:0;overflow:hidden;aspect-ratio:1/1.08}
+.testimonial-photo{margin:0 18px 18px 0;position:relative;isolation:isolate;aspect-ratio:1/1.08}.testimonial-photo::before{content:"";position:absolute;inset:18px -18px -23px 18px;background:var(--pool);z-index:-1}
+.testimonial-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--berry);z-index:1}
 .testimonial-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:54% 42%}
 .testimonial-copy blockquote{margin:25px 0 0;max-width:29ch;font:400 clamp(28px,2.65vw,38px)/1.2 var(--sera);letter-spacing:-.035em;text-wrap:pretty;color:var(--navy)}
 .testimonial-attribution{display:flex;flex-direction:column;gap:6px;margin-top:27px}
@@ -28,7 +29,7 @@
 .stories-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 32px}
 .story-card{display:flex;flex-direction:column;color:var(--navy);text-decoration:none;min-width:0}
 .story-card:hover{color:var(--cobalt)}
-.story-card-image{display:block;aspect-ratio:4/3;overflow:hidden;background:#f4f0eb}
+.story-card-image{display:block;aspect-ratio:4/3;overflow:hidden;background:#f4f0eb;border-bottom:5px solid var(--berry)}
 .story-card-image img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9);transition:filter .2s}
 .story-card-image .story-card-yarrow{object-position:50% 100%!important;transform:scale(1.42);transform-origin:50% 88%}
 .story-card:hover img{filter:saturate(1)}
@@ -66,9 +67,9 @@
 .funding-proof p{font-size:14px;line-height:1.6;color:#c1cbd5;max-width:28ch;margin:13px 0 0}
 .funding-page [data-screen-label="What kind of funding"] h2{max-width:20ch}
 .funding-page [data-screen-label="Common questions"] h2{max-width:15ch}
-.funding-page [data-screen-label="Client voice"] figure{overflow:hidden;padding:0!important}
-.funding-page [data-screen-label="Client voice"] figure>span{display:none}
-.funding-page [data-screen-label="Client voice"] figure>img{object-position:50% 100%!important;transform:scale(1.25);transform-origin:50% 85%;border:0!important}
+.funding-page [data-screen-label="Client voice"] figure{overflow:visible;padding:0 18px 18px 0!important}
+.funding-page [data-screen-label="Client voice"] figure>span{display:block;inset:18px 0 0 18px!important}
+.funding-page [data-screen-label="Client voice"] figure>img{object-position:50% 100%!important;transform:none;border:0!important;border-bottom:5px solid var(--berry)!important}
 .funding-page [data-screen-label="Client voice"] blockquote+div{flex-direction:column;align-items:flex-start!important;gap:8px!important}
 .funding-page [data-screen-label="Client voice"] blockquote~p{margin-top:28px!important;padding-top:0!important}
 .about-page [data-screen-label="The network"] .preview-grid p{max-width:34ch}

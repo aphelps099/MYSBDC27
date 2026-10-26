@@ -14,3 +14,6 @@ The user's preferences override the older numbered editorial style in the reposi
 - The language control shows only a globe when closed; language names appear after opening its dropdown.
 
 - Use `#091321` (the existing `--footer-ink` token) for the shared footer background on every public page.
+
+- Frame advisor and client portraits with a substantial red bottom rule. Feature testimonials may also use a square pool-blue offset rectangle; avoid rounded photo corners. Keep people’s faces prominent in the crop.
+- Constrain body copy to readable measures and keep supporting proof inside its relevant column. Public training cards use soft series colors, with dark text and clearly visible search controls.

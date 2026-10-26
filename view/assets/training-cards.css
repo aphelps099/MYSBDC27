@@ -2,3 +2,55 @@
 .training-public-hero .public-action{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;min-height:48px;background:#1b5faf;color:white;border-radius:6px;font:600 15px/1.4 var(--nova)}.training-public-hero .public-action:hover{background:#144b8c;color:white}
 .learning-grid{border:0!important}.learning-card-actions summary{list-style:none}.learning-card-actions summary::-webkit-details-marker{display:none}.learning-card-actions summary::after{content:' +';margin-left:4px}.learning-card-actions details[open] summary::after{content:' −'}
 .learning-grid{padding:0!important;background:transparent}
+
+/* Public calendar: a quiet, color-coded editorial catalogue. */
+.training-art--soft{--art-bg:#dfe8ed;--art-ink:#315767;background:var(--art-bg);color:#172e40}
+.training-art--soft.track-startup{--art-bg:#dce9e6;--art-ink:#365f59}
+.training-art--soft.track-industry{--art-bg:#e4e8dc;--art-ink:#526447}
+.training-art--soft.track-ai{--art-bg:#f0e5ce;--art-ink:#786034}
+.training-art--soft::before{display:none}
+.training-art--soft .training-art-top span{color:var(--art-ink);font-weight:650}
+.training-art--soft .training-art-bottom{color:var(--art-ink)}
+.learning-card--public{border-radius:5px;background:#fcfcf9;box-shadow:none}
+.learning-card--public .training-art{aspect-ratio:auto;min-height:212px;padding:25px 27px 24px;gap:25px}
+.learning-card--public .training-art-top img{display:none}
+.learning-card--public .training-art-top span{text-align:left;font-size:10px;letter-spacing:.1em}
+.learning-card--public .training-art h3{font-size:26px;line-height:1.16;max-width:23ch}
+.learning-card--public .learning-card-body{padding:25px 27px 27px}
+.learning-card--public .learning-card-date{margin-bottom:15px}
+.learning-card--public .learning-card-date strong{font-size:20px;font-weight:600;letter-spacing:-.025em}
+.learning-card--public .learning-card-body>p{color:#536571;font-size:14px;line-height:1.65}
+.learning-card--public .learning-card-actions{margin-top:25px}
+.learning-card--public .learning-card-actions .btn{background:#e0eaf0;color:#204b6a;font-weight:650}
+.learning-card--public .learning-card-actions .btn:hover{background:#cbdfe9;color:#123c5b}
+.learning-card--public .learning-card-location{color:#566e7a}
+.training-public-hero>.training-public-copy>p:not(.eyebrow){max-width:38ch}
+.training-public-section{background:#f0f0e9}
+.training-feature-art .training-art--soft{padding:28px 30px}
+.training-feature-art .training-art--soft .training-art-top img{height:40px}
+.training-feature-art .learning-card-actions{background:#fcfcf9}
+.calendar-page{background:#f1f1e9}
+.calendar-page .site-header{background:#f1f1e9}
+.calendar-shell{width:min(1280px,calc(100% - 80px));padding-bottom:64px}
+.calendar-hero{display:grid;grid-template-columns:1.4fr 1fr;align-items:end;gap:70px;padding:52px 0 37px}
+.calendar-hero .eyebrow{font-size:11px;color:#526b73;letter-spacing:.13em;font-weight:650;margin:0 0 21px}
+.calendar-page .calendar-hero h1{font:600 clamp(38px,4vw,57px)/1.08 var(--nova);letter-spacing:-.045em;margin:0;text-wrap:initial}
+.calendar-hero .calendar-intro{font-size:17px;line-height:1.65;color:#52646d;max-width:34ch;margin:0 0 2px}
+.calendar-finder{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:25px;padding:25px 28px 28px;background:#dce7e7;border-radius:6px}
+.calendar-finder label{display:block;font-size:12px;line-height:1.4;font-weight:650;color:#2e4d5b;margin-bottom:10px}
+.calendar-input-wrap{position:relative}
+.calendar-input-wrap svg{width:21px;height:21px;position:absolute;top:18px;left:18px;color:#426576;pointer-events:none}
+.calendar-finder input,.calendar-finder select{display:block;min-height:57px;width:100%;border:0;border-radius:4px;background:#fff;color:#193447;font:400 15px/1.5 var(--nova);padding:15px 18px;box-shadow:0 3px 10px #263c4707}
+.calendar-finder input{padding-left:52px}
+.calendar-finder input::placeholder{color:#5c727d;opacity:1}
+.calendar-finder select{padding-right:35px}
+.calendar-finder :is(input,select):focus-visible{outline:3px solid #286a93;outline-offset:3px}
+.calendar-results-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:25px 0 27px}
+.calendar-results-heading .filter-chips{margin:0;gap:7px}
+.calendar-results-heading .chip{background:transparent;color:#536874;border-radius:4px;padding:9px 16px;font-size:13px;font-weight:550}
+.calendar-results-heading .chip[aria-pressed=true]{background:#d5e3e7;color:#193b50;font-weight:650}
+.calendar-results-heading .chip:hover{background:#e0e8e8}
+.calendar-results-heading .results-count{margin:0;color:#536874;font-size:13px}
+.calendar-page .demo-note{margin-top:30px;font-size:11px;color:#65747c}
+@media(max-width:1050px){.calendar-hero{gap:35px;grid-template-columns:1.3fr 1fr}.calendar-hero .calendar-intro{font-size:16px}.calendar-finder{grid-template-columns:1fr 230px}.learning-card--public .training-art{min-height:205px}}
+@media(max-width:700px){.calendar-shell{width:calc(100% - 40px);padding-bottom:42px}.calendar-hero{grid-template-columns:1fr;gap:22px;padding:30px 0}.calendar-page .calendar-hero h1{font-size:39px}.calendar-hero .calendar-intro{max-width:35ch;font-size:16px}.calendar-finder{grid-template-columns:1fr;gap:18px;padding:22px 20px}.calendar-finder input,.calendar-finder select{font-size:16px}.calendar-results-heading{gap:16px;align-items:flex-start;flex-direction:column;margin:22px 0}.calendar-results-heading .chip{padding:9px 16px}.calendar-results-heading .results-count{font-size:12px}.learning-card--public .training-art{min-height:195px}.learning-card--public .training-art h3{font-size:27px}.learning-card--public .learning-card-body{padding:23px 26px}}
