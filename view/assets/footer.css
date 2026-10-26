@@ -1,5 +1,5 @@
 /* One navy footer integrates the newsletter, navigation, and contact details. */
-.site-footer{--footer-navy:#0c1c30;--footer-pool:#8fc5d9;--footer-muted:#b6c5d2;background:var(--footer-navy);color:#f7f9fb;font-family:var(--nova,Arial,sans-serif)}
+.site-footer{--footer-navy:#091321;--footer-pool:#8fc5d9;--footer-muted:#b6c5d2;background:var(--footer-navy);color:#f7f9fb;font-family:var(--nova,Arial,sans-serif)}
 .footer-inner{width:min(1400px,calc(100% - 96px));margin-inline:auto}
 .site-footer p,.site-footer h2,.site-footer h3{margin:0}
 .site-footer a{color:inherit;text-decoration:none;transition:color .2s,background .2s}

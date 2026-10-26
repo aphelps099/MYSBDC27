@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../support.js"></script>
 </head>
-<body id="page-top" class="public-preview">
+<body id="page-top" class="public-preview funding-page">
 <x-dc>
 <helmet>
   <meta name="description" content="Become lender-ready with a certified capital advisor at your side — no fee, confidential, 100+ lender partners. NorCal SBDC Finance Center.">
@@ -24,12 +24,13 @@
     a:hover{color:var(--cobalt)}
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
   </style>
-<link rel="stylesheet" href="assets/public.css?v=20261025-footer-navy">
-<link rel="stylesheet" href="assets/footer.css?v=20261025-footer-navy">
+<link rel="stylesheet" href="assets/editorial.css?v=20261026-layout">
+<link rel="stylesheet" href="assets/public.css?v=20261026-layout">
+<link rel="stylesheet" href="assets/footer.css?v=20261026-layout">
 <link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">
 </helmet>
 <div style="overflow-x:clip">
-<section data-screen-label="Hero" style="background:var(--cream)">
+<section class="funding-opening" data-screen-label="Hero">
   <header class="site-header ">
   <div class="site-header-inner">
     <a class="site-logo" href="index.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png" alt="America’s SBDC California, Northern California Network" width="100" height="69"></a>
@@ -50,23 +51,24 @@
     </div>
   </div>
 </header>
-  <div style="width:min(1400px,100% - 96px);margin:0 auto;padding:88px 0 100px" class="preview-shell">
-    <p style="margin:0 0 24px;font-size:13px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--evergreen)">SBDC Finance Center · Access to Capital</p>
-    <h1 style="margin:0;max-width:15ch;font-family:var(--sera);font-weight:400;font-size:clamp(54px,5.4vw,84px);letter-spacing:-.05em;line-height:.95;color:var(--navy);text-wrap:balance">Get your business <em style="font-style:italic;color:var(--evergreen)">funded.</em></h1>
-    <p style="margin:26px 0 0;max-width:560px;font-size:18px;line-height:1.5;color:var(--slate)">Work one-on-one with a certified capital advisor who prepares you, packages your loan and connects you to the right lender from 100+ financial institution partners — confidential, and at no cost to you.</p>
-    <div style="display:flex;align-items:center;gap:26px;margin-top:44px;flex-wrap:wrap" class="preview-actions">
-      <x-import component-from-global-scope="NorCalSBDCDesignSystem_979e6e.Button" variant="primary" href="#" hint-size="auto,50px">Start in MySBDC</x-import>
-      <span style="font-size:13px;color:var(--slate-light);font-weight:700">Rather talk about money than type about it? <a href="tel:18332757232" style="font-weight:750;border-bottom:0;padding-bottom:2px;color:var(--navy)">(833) ASK-SBDC</a></span>
-    </div>
+  <div class="editorial-shell funding-hero-copy">
+    <div><p class="editorial-kicker">SBDC Finance Center · Access to capital</p><h1>Get your business <em>funded.</em></h1></div>
+    <div class="funding-hero-intro"><p>Work one-on-one with a certified capital advisor. Prepare your financials, build your loan package, and connect with the right lender from 100+ financial institution partners.</p><a class="editorial-button" href="sign-in.html?new=1">Start in MySBDC</a><span class="funding-hero-note">Confidential. At no cost to you.</span></div>
+  </div>
+  <figure class="funding-photo" id="funding-photo" data-parallax-photo>
+    <img src="assets/funding-workshop.jpg" width="1672" height="941" alt="Illustrative photograph of two woodworking business owners reviewing an oak table in their workshop" fetchpriority="high">
+    <figcaption>Equipment. Space. Room to grow.</figcaption>
+  </figure>
+</section>
+
+<section class="funding-proof" data-screen-label="Proof bar" aria-label="Results">
+  <div class="editorial-shell funding-proof-grid">
+    <div><strong>$250M+</strong><p>In working capital accessed by our clients since 2018</p></div>
+    <div><strong>594+</strong><p>Businesses funded with an advisor at their side</p></div>
+    <div><strong>90%</strong><p>Say our financial advising made a significant difference</p></div>
   </div>
 </section>
-<section data-screen-label="Proof bar" aria-label="Results" style="background:var(--navy);color:#fdfdfd;padding:56px 0">
-  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:56px" class="preview-shell preview-grid">
-    <div style="display:flex;align-items:baseline;gap:18px"><strong style="font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.2vw,54px);letter-spacing:-.05em;line-height:1;color:var(--pool)" class="preview-sans-title preview-stat">$250M+</strong><span style="font-size:13px;font-weight:700;color:#ffffffab">in working capital accessed by our clients since 2018</span></div>
-    <div style="display:flex;align-items:baseline;gap:18px"><strong style="font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.2vw,54px);letter-spacing:-.05em;line-height:1;color:var(--pool)" class="preview-sans-title preview-stat">594+</strong><span style="font-size:13px;font-weight:700;color:#ffffffab">businesses funded with an advisor at their side</span></div>
-    <div style="display:flex;align-items:baseline;gap:18px"><strong style="font-family:var(--sera);font-weight:400;font-size:clamp(40px,3.2vw,54px);letter-spacing:-.05em;line-height:1;color:var(--pool)" class="preview-sans-title preview-stat">90%</strong><span style="font-size:13px;font-weight:700;color:#ffffffab">say our financial advising made a significant difference</span></div>
-  </div>
-</section>
+
 <section data-screen-label="What kind of funding" aria-label="What kind of funding" style="background:var(--cream);padding:100px 0 110px" class="preview-section">
   <div style="width:min(1400px,100% - 96px);margin:0 auto" class="preview-shell">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap">
@@ -266,6 +268,7 @@ class Component extends DCLogic {
   }
 }
 </script>
-<script type="module" src="assets/public.js?v=20261025-footer-navy"></script>
+<script type="module" src="assets/funding.js?v=20261026-layout"></script>
+<script type="module" src="assets/public.js?v=20261026-layout"></script>
 </body>
 </html>

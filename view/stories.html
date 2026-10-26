@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../support.js"></script>
 </head>
-<body id="page-top" class="public-preview">
+<body id="page-top" class="public-preview stories-page">
 <x-dc>
 <helmet>
   <meta name="description" content="Client success stories from the NorCal SBDC — real businesses, real outcomes, across 36 Northern California counties.">
@@ -24,8 +24,9 @@
     a:hover{color:var(--cobalt)}
     *:focus-visible{outline:3px solid var(--pool);outline-offset:4px}
   </style>
-<link rel="stylesheet" href="assets/public.css?v=20261025-footer-navy">
-<link rel="stylesheet" href="assets/footer.css?v=20261025-footer-navy">
+<link rel="stylesheet" href="assets/editorial.css?v=20261026-layout">
+<link rel="stylesheet" href="assets/public.css?v=20261026-layout">
+<link rel="stylesheet" href="assets/footer.css?v=20261026-layout">
 <link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">
 </helmet>
 <div style="overflow-x:clip">
@@ -73,44 +74,34 @@
     </div>
   </div>
 </section>
-<section data-screen-label="Story grid" aria-label="More stories" style="background:var(--paper);padding:100px 0 110px" class="preview-section">
-  <div style="width:min(1400px,100% - 96px);margin:0 auto" class="preview-shell">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:40px;flex-wrap:wrap">
-      <p style="margin:0;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--slate-light)">From every corner of the network</p>
-      <span style="font-size:13px;font-weight:700;color:var(--slate)">36 counties · thousands of stories</span>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:64px 44px;margin-top:56px" class="preview-grid">
+<section class="stories-collection" data-screen-label="Story grid" aria-label="More stories" id="client-stories">
+  <div class="editorial-shell">
+    <div class="stories-collection-heading"><p class="editorial-kicker">From every corner of the network</p><p>36 counties · thousands of stories</p></div>
+    <div class="stories-card-grid">
       <sc-for list="{{ stories }}" as="s" hint-placeholder-count="6">
-        <a href="{{ s.href }}" style="display:block;color:var(--navy);margin-top:{{ s.mt }}" style-hover="color:var(--cobalt)">
-          <span style="display:block;aspect-ratio:16/12;overflow:hidden;background:var(--pool-pale);border-bottom:5px solid var(--berry)"><img src="{{ s.img }}" alt="{{ s.alt }}" style="width:100%;height:100%;object-fit:cover;object-position:{{ s.pos }};filter:saturate(.86) contrast(1.03);display:block"></span>
-          <span style="display:block;padding-top:20px">
-            <span style="display:block;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--slate-light)">{{ s.meta }}</span>
-            <span style="display:block;margin-top:10px;font-family:var(--sera);font-weight:400;font-size:26px;letter-spacing:-.03em;line-height:1.08;color:inherit" class="preview-sans-title">{{ s.claim }}</span>
-            <span style="border-top:0;display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:13px;font-size:13px;font-weight:750"><strong>{{ s.name }}</strong><span style="display:inline-flex;align-items:center;gap:9px">Read story </span></span>
-          </span>
+        <a href="{{ s.href }}" class="story-card">
+          <span class="story-card-image"><img class="{{ s.imageClass }}" src="{{ s.img }}" alt="{{ s.alt }}" style="object-position:{{ s.pos }}" loading="lazy"></span>
+          <span class="story-card-meta">{{ s.meta }}</span>
+          <h3><span>{{ s.titleFirst }}</span><span class="story-card-line">{{ s.titleSecond }}</span></h3>
+          <span class="story-card-bottom"><strong>{{ s.name }}</strong><span>Read story</span></span>
         </a>
       </sc-for>
     </div>
-    <sc-if value="{{ showMoreButton }}" hint-placeholder-val="{{ true }}">
-      <div style="display:flex;justify-content:center;margin-top:72px">
-        <button onClick="{{ seeMore }}" style="font-family:var(--nova);font-size:14px;font-weight:750;letter-spacing:.02em;padding:15px 32px;min-height:50px;border-radius:4px;border:0;background:transparent;color:var(--navy);cursor:pointer;transition:transform .18s ease,background .18s ease" style-hover="background:var(--navy);color:#fdfdfd;transform:translateY(-2px)">See more stories</button>
-      </div>
-    </sc-if>
+    <sc-if value="{{ showMoreButton }}" hint-placeholder-val="{{ true }}"><div class="stories-more"><button onClick="{{ seeMore }}" class="editorial-button editorial-button--quiet">See more stories</button></div></sc-if>
   </div>
 </section>
-<section data-screen-label="The proof" aria-label="Verified results" style="background:var(--cream);padding:96px 0" class="preview-section">
-  <div style="width:min(1400px,100% - 96px);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.7fr) 1fr;gap:80px;align-items:center" class="preview-shell preview-grid">
-    <div>
-      <p style="margin:0 0 22px;font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--berry)">Behind the stories</p>
-      <h2 style="margin:0;font-family:var(--sera);font-weight:400;font-size:clamp(38px,3.4vw,52px);letter-spacing:-.05em;line-height:.98;color:var(--navy)" class="preview-sans-title">The number is large. The work is specific.</h2>
-    </div>
-    <div style="display:flex;gap:8px 64px;flex-wrap:wrap;align-items:baseline">
-      <span style="display:flex;align-items:baseline;gap:14px"><strong style="font-family:var(--sera);font-weight:400;font-size:52px;letter-spacing:-.05em;line-height:1;color:var(--navy)" class="preview-sans-title preview-stat">$549M</strong><span style="font-size:13px;font-weight:700;color:var(--slate)">capital accessed</span></span>
-      <span style="display:flex;align-items:baseline;gap:14px"><strong style="font-family:var(--sera);font-weight:400;font-size:52px;letter-spacing:-.05em;line-height:1;color:var(--navy)" class="preview-sans-title preview-stat">712</strong><span style="font-size:13px;font-weight:700;color:var(--slate)">businesses started</span></span>
-      <span style="display:flex;align-items:baseline;gap:14px"><strong style="font-family:var(--sera);font-weight:400;font-size:52px;letter-spacing:-.05em;line-height:1;color:var(--navy)" class="preview-sans-title preview-stat">3,723</strong><span style="font-size:13px;font-weight:700;color:var(--slate)">jobs created</span></span>
-    </div>
+
+<section class="stories-proof" data-screen-label="The proof" aria-label="Verified results" id="behind-the-stories">
+  <div class="editorial-shell">
+    <div class="stories-proof-heading"><div><p class="editorial-kicker">Behind the stories</p><h2><span>The number is large.</span><span>The work is specific.</span></h2></div><p>Real businesses.<br>Results from across our network.</p></div>
+    <dl class="stories-proof-grid">
+      <div><dt>Capital accessed</dt><dd>$549M</dd></div>
+      <div><dt>Businesses started</dt><dd>712</dd></div>
+      <div><dt>Jobs created</dt><dd>3,723</dd></div>
+    </dl>
   </div>
 </section>
+
 <section data-screen-label="Your next step" aria-label="Sign up" style="position:relative;background:var(--navy);color:#fdfdfd;padding:120px 0 130px;text-align:center;overflow:hidden;border-bottom:5px solid var(--berry)" class="preview-section">
   <img src="https://americassbdc.org/wp-content/uploads/2018/01/bg-star.png" alt="" aria-hidden="true" style="position:absolute;right:-140px;bottom:-160px;width:520px;height:auto;opacity:.08;pointer-events:none">
   <div style="position:relative;width:min(760px,100% - 96px);margin:0 auto;display:flex;flex-direction:column;align-items:center" class="preview-shell">
@@ -197,16 +188,15 @@ class Component extends DCLogic {
       { name: 'New Age Meats', meta: 'Food tech · San Francisco', claim: 'Reinventing what’s for dinner.', img: 'https://www.norcalsbdc.org/wp-content/uploads/2021/01/new-age-meats-2.jpg', alt: 'New Age Meats', pos: '50% 50%' },
       { name: 'Churn', meta: 'Food & beverage', claim: 'Scooping up a loyal following.', img: 'https://www.norcalsbdc.org/wp-content/uploads/2022/09/churn-2.jpg', alt: 'Churn ice cream shop', pos: '50% 50%' }
     ];
-    const visible = this.state.showAll ? ALL : ALL.slice(0, 4);
-    const stagger = ['0', '48px', '96px'];
+    const visible = this.state.showAll ? ALL : ALL.slice(0, 6);
     return {
-      stories: visible.map((s, i) => ({ ...s, mt: stagger[i % 3], href: s.href ?? '#' })),
+      stories: visible.map(s => ({ ...s, href: s.href ?? '#', titleFirst: s.name === 'Yarrow Goods' ? '$138K raised.' : s.claim, titleSecond: s.name === 'Yarrow Goods' ? 'Sales up 20%.' : '', imageClass: s.name === 'Yarrow Goods' ? 'story-card-yarrow' : '' })),
       showMoreButton: !this.state.showAll,
       seeMore: () => this.setState({ showAll: true })
     };
   }
 }
 </script>
-<script type="module" src="assets/public.js?v=20261025-footer-navy"></script>
+<script type="module" src="assets/public.js?v=20261026-layout"></script>
 </body>
 </html>

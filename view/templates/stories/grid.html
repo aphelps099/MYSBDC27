@@ -1,0 +1,16 @@
+<section class="stories-collection" data-screen-label="Story grid" aria-label="More stories" id="client-stories">
+  <div class="editorial-shell">
+    <div class="stories-collection-heading"><p class="editorial-kicker">From every corner of the network</p><p>36 counties · thousands of stories</p></div>
+    <div class="stories-card-grid">
+      <sc-for list="{{ stories }}" as="s" hint-placeholder-count="6">
+        <a href="{{ s.href }}" class="story-card">
+          <span class="story-card-image"><img class="{{ s.imageClass }}" src="{{ s.img }}" alt="{{ s.alt }}" style="object-position:{{ s.pos }}" loading="lazy"></span>
+          <span class="story-card-meta">{{ s.meta }}</span>
+          <h3><span>{{ s.titleFirst }}</span><span class="story-card-line">{{ s.titleSecond }}</span></h3>
+          <span class="story-card-bottom"><strong>{{ s.name }}</strong><span>Read story</span></span>
+        </a>
+      </sc-for>
+    </div>
+    <sc-if value="{{ showMoreButton }}" hint-placeholder-val="{{ true }}"><div class="stories-more"><button onClick="{{ seeMore }}" class="editorial-button editorial-button--quiet">See more stories</button></div></sc-if>
+  </div>
+</section>

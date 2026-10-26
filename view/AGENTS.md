@@ -12,3 +12,5 @@ The user's preferences override the older numbered editorial style in the reposi
 
 - Keep the public navigation grouped toward the logo, with comfortable breathing room between them, a conventional text-color hover, and no pill background.
 - The language control shows only a globe when closed; language names appear after opening its dropdown.
+
+- Use `#091321` (the existing `--footer-ink` token) for the shared footer background on every public page.

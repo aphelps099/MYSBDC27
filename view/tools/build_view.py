@@ -52,6 +52,24 @@ for source,target in ROUTES.items():
   return HEADER.replace('{{THEME}}','site-header--dark' if dark else '').replace('{{LOGO}}','https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/'+logo)
  text=re.sub(r'<header\b[\s\S]*?</header>',header,text)
  # Page-specific refinements live inside /view so the original designs are preserved.
+ if target in {'about.html','stories.html','funding.html'}:
+  page=target.removesuffix('.html')
+  text=text.replace('class="public-preview"',f'class="public-preview {page}-page"')
+  sections={
+   'about.html':{'Client voice':'client-voice.html','Your next step':'next-step.html'},
+   'stories.html':{'Story grid':'grid.html','The proof':'proof.html'},
+   'funding.html':{'Hero':'hero.html','Proof bar':'proof.html'},
+  }[target]
+  saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
+  for label,filename in sections.items():
+   section=(OUT/'templates'/page/filename).read_text().replace('{{HEADER}}',saved_header)
+   text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/editorial.css?v=20261026-layout">\n</helmet>')
+  if target=='stories.html':
+   text=text.replace('ALL.slice(0, 4)','ALL.slice(0, 6)').replace("    const stagger = ['0', '48px', '96px'];\n",'')
+   text=text.replace("stories: visible.map((s, i) => ({ ...s, mt: stagger[i % 3], href: s.href ?? '#' })),", "stories: visible.map(s => ({ ...s, href: s.href ?? '#', titleFirst: s.name === 'Yarrow Goods' ? '$138K raised.' : s.claim, titleSecond: s.name === 'Yarrow Goods' ? 'Sales up 20%.' : '', imageClass: s.name === 'Yarrow Goods' ? 'story-card-yarrow' : '' })),")
+  if target=='funding.html':
+   text=text.replace('</body>','<script type="module" src="assets/funding.js?v=20261026-layout"></script>\n</body>')
  # Keep the homepage headline's sentences together for a calmer silhouette.
  if target=='index.html':
   announcement=(OUT/'templates/home/announcement.html').read_text()
@@ -79,8 +97,8 @@ for source,target in ROUTES.items():
   text=text[:start]+content+text[end:]
   text=text.replace('</helmet>','<link rel="stylesheet" href="assets/story.css?v=20261023-progress">\n</helmet>')
  # Load responsive overrides after the design component's own styles.
- text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261025-footer-navy">\n<link rel="stylesheet" href="assets/footer.css?v=20261025-footer-navy">\n<link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">\n</helmet>')
- text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261025-footer-navy"></script>\n</body>')
+ text=text.replace('</helmet>','<link rel="stylesheet" href="assets/public.css?v=20261026-layout">\n<link rel="stylesheet" href="assets/footer.css?v=20261026-layout">\n<link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace">\n</helmet>')
+ text=text.replace('</body>','<script type="module" src="assets/public.js?v=20261026-layout"></script>\n</body>')
  # Classify retained inline layouts so mobile behavior is explicit and repeatable.
  def classify(m):
   tag,attrs=m.group(1),m.group(2)
@@ -116,9 +134,9 @@ calendar=calendar.replace('<body class="public-preview">','<body id="page-top" c
 calendar=re.sub(r'<footer\b[\s\S]*?</footer>',lambda _: FOOTER,calendar)
 calendar=re.sub(r'<header\b[\s\S]*?</header>',lambda _: HEADER.replace('{{THEME}}','').replace('{{LOGO}}','https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png'),calendar)
 if 'assets/navigation.css' not in calendar:calendar=calendar.replace('</head>','<link rel="stylesheet" href="assets/navigation.css?v=20261025-navspace"></head>')
-calendar=re.sub(r'(assets/public\.(?:css|js)\?v=)[^"]+',r'\g<1>20261025-footer-navy',calendar)
-calendar=re.sub(r'(assets/footer\.css\?v=)[^"]+',r'\g<1>20261025-footer-navy',calendar)
-if 'assets/footer.css' not in calendar:calendar=calendar.replace('</head>','<link rel="stylesheet" href="assets/footer.css?v=20261025-footer-navy"></head>')
+calendar=re.sub(r'(assets/public\.(?:css|js)\?v=)[^"]+',r'\g<1>20261026-layout',calendar)
+calendar=re.sub(r'(assets/footer\.css\?v=)[^"]+',r'\g<1>20261026-layout',calendar)
+if 'assets/footer.css' not in calendar:calendar=calendar.replace('</head>','<link rel="stylesheet" href="assets/footer.css?v=20261026-layout"></head>')
 if 'src="assets/public.js' not in calendar:
  calendar=calendar.replace('</body>','<script type="module" src="assets/public.js?v=20261023-footer"></script></body>')
 (OUT/'calendar.html').write_text(calendar)
