@@ -84,7 +84,7 @@ for source,target in ROUTES.items():
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
   fieldwork=(OUT/'templates/advising/fieldwork.html').read_text()
   text=text.replace('<section class="advising-section advising-specialists"',fieldwork+'<section class="advising-section advising-specialists"')
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-editorial">\n</helmet>')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-portraits">\n</helmet>')
  if target=='training.html':
   saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
   for label,filename in {'Hero':'hero.html','Upcoming trainings':'upcoming.html'}.items():
