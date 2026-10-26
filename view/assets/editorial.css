@@ -57,8 +57,8 @@
 .funding-hero-copy h1 em{color:var(--evergreen)}
 .funding-hero-intro>p{margin:0 0 26px;max-width:45ch;font:400 17px/1.65 var(--nova);color:var(--slate)}
 .funding-hero-note{display:block;font-size:12px;color:var(--slate-light);margin-top:14px}
-.funding-photo{height:clamp(340px,38vw,560px);margin:0;overflow:hidden;position:relative;background:#a29480}
-.funding-photo>img{display:block;width:100%;height:calc(100% + 48px);max-width:none;position:absolute;top:-24px;object-fit:cover;object-position:50% 0%;transform:translate3d(0,var(--photo-shift,0px),0)}
+.funding-photo{height:clamp(360px,46vw,660px);margin:0;overflow:hidden;position:relative;background:#a29480}
+.funding-photo>img{display:block;width:100%;height:calc(100% + 48px);max-width:none;position:absolute;top:-24px;object-fit:cover;object-position:50% 50%;transform:translate3d(0,var(--photo-shift,0px),0)}
 .funding-photo::after{content:'';position:absolute;inset:55% 0 0;background:linear-gradient(transparent,#091321a6);pointer-events:none}
 .funding-photo figcaption{position:absolute;z-index:1;bottom:30px;left:max(48px,calc((100% - 1280px)/2));color:#fff;font:550 clamp(19px,2vw,26px)/1.3 var(--nova);letter-spacing:-.025em}
 .funding-proof{background:var(--navy);color:#fff;padding:42px 0 44px}
@@ -67,11 +67,11 @@
 .funding-proof p{font-size:14px;line-height:1.6;color:#c1cbd5;max-width:28ch;margin:13px 0 0}
 .funding-page [data-screen-label="What kind of funding"] h2{max-width:20ch}
 .funding-page [data-screen-label="Common questions"] h2{max-width:15ch}
-.funding-page [data-screen-label="Client voice"] figure{overflow:visible;padding:0 18px 18px 0!important}
-.funding-page [data-screen-label="Client voice"] figure>span{display:block;inset:18px 0 0 18px!important}
-.funding-page [data-screen-label="Client voice"] figure>img{object-position:50% 100%!important;transform:none;border:0!important;border-bottom:5px solid var(--berry)!important}
-.funding-page [data-screen-label="Client voice"] blockquote+div{flex-direction:column;align-items:flex-start!important;gap:8px!important}
-.funding-page [data-screen-label="Client voice"] blockquote~p{margin-top:28px!important;padding-top:0!important}
+.funding-client-photo{margin:0;aspect-ratio:1.15;overflow:hidden;background:#f4f0eb;border-bottom:5px solid var(--berry)}
+.funding-client-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 100%;transform:scale(1.38);transform-origin:50% 100%}
+.funding-testimonial .testimonial-copy blockquote{font:500 clamp(27px,2.5vw,36px)/1.28 var(--nova);max-width:28ch;letter-spacing:-.025em}
+.funding-client-result{margin:25px 0;font:550 20px/1.5 var(--nova);color:#376473;max-width:30ch}
+.funding-client-result span{white-space:nowrap}
 .about-page [data-screen-label="The network"] .preview-grid p{max-width:34ch}
 .about-page [data-screen-label="The region"] .preview-grid p{max-width:35ch}
 @media(max-width:1000px){
@@ -110,9 +110,9 @@
  .funding-hero-copy{grid-template-columns:1fr;gap:26px;padding-top:32px;padding-bottom:32px}
  .funding-hero-copy h1{font-size:54px!important;margin-top:20px}
  .funding-hero-intro>p{font-size:16px;margin-bottom:23px}
- .funding-photo{height:360px}
- .funding-photo>img{object-position:63% 0%;height:100%;top:0;transform:none}
- .funding-photo figcaption{left:20px;bottom:23px;font-size:20px}
+ .funding-photo{height:auto;aspect-ratio:1.7}
+ .funding-photo>img{object-position:65% 50%;height:100%;top:0;transform:none}
+ .funding-photo figcaption{left:20px;bottom:18px;font-size:16px}
  .funding-proof{padding:32px 0}
  .funding-proof-grid{gap:27px}
  .funding-proof strong{font-size:32px}
@@ -130,6 +130,6 @@
  .funding-proof-grid{grid-template-columns:1fr;gap:25px}
  .funding-proof-grid>div{display:grid;grid-template-columns:135px 1fr;gap:20px;align-items:start}
  .funding-proof p{margin:0;font-size:13px}
- .funding-photo{height:330px}
+ .funding-photo{height:auto;aspect-ratio:1.6}
 }
 @media(prefers-reduced-motion:reduce){.funding-photo>img{transform:none!important}.story-card img,.editorial-button{transition:none}}

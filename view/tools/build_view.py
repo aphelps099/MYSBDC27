@@ -58,13 +58,13 @@ for source,target in ROUTES.items():
   sections={
    'about.html':{'Client voice':'client-voice.html','Your next step':'next-step.html'},
    'stories.html':{'Story grid':'grid.html','The proof':'proof.html'},
-   'funding.html':{'Hero':'hero.html','Proof bar':'proof.html'},
+   'funding.html':{'Hero':'hero.html','Proof bar':'proof.html','Client voice':'client-voice.html'},
   }[target]
   saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
   for label,filename in sections.items():
    section=(OUT/'templates'/page/filename).read_text().replace('{{HEADER}}',saved_header)
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/editorial.css?v=20261026-people">\n</helmet>')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/editorial.css?v=20261026-quiet">\n</helmet>')
   if target=='stories.html':
    text=text.replace('ALL.slice(0, 4)','ALL.slice(0, 6)').replace("    const stagger = ['0', '48px', '96px'];\n",'')
    text=text.replace("stories: visible.map((s, i) => ({ ...s, mt: stagger[i % 3], href: s.href ?? '#' })),", "stories: visible.map(s => ({ ...s, href: s.href ?? '#', titleFirst: s.name === 'Yarrow Goods' ? '$138K raised.' : s.claim, titleSecond: s.name === 'Yarrow Goods' ? 'Sales up 20%.' : '', imageClass: s.name === 'Yarrow Goods' ? 'story-card-yarrow' : '' })),")
@@ -78,13 +78,14 @@ for source,target in ROUTES.items():
   text=text.replace('</body>','<script type="module" src="assets/homepage.js?v=20261025-motion"></script>\n</body>')
   text=re.sub(r'<h1([^>]*)>Business is personal\. The advice should be, too\.</h1>',r'<h1\1 class="homepage-hero-title"><span class="hero-sentence">Business is personal.</span> <span class="hero-sentence">The advice should be, too.</span></h1>',text)
  if target=='advising.html':
-  saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0).replace('site-header--dark','').replace('americas-sbdc-norcal-white-180h.png','americas-sbdc-norcal-400w.png')
+  saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
   for label,filename in {'Hero':'hero.html','Core services':'core-services.html','Find your specialist':'specialists.html','Client voice':'client-voice.html'}.items():
    section=(OUT/'templates/advising'/filename).read_text().replace('{{HEADER}}',saved_header)
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
   fieldwork=(OUT/'templates/advising/fieldwork.html').read_text()
   text=text.replace('<section class="advising-section advising-specialists"',fieldwork+'<section class="advising-section advising-specialists"')
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-portraits">\n</helmet>')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-focus">\n</helmet>')
+  text=text.replace('</body>','<script type="module" src="assets/advising.js?v=20261026-focus"></script>\n</body>')
  if target=='training.html':
   saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
   for label,filename in {'Hero':'hero.html','Upcoming trainings':'upcoming.html'}.items():
