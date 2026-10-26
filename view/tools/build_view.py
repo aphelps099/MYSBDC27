@@ -82,7 +82,7 @@ for source,target in ROUTES.items():
   for label,filename in {'Hero':'hero.html','Core services':'core-services.html','Find your specialist':'specialists.html','Client voice':'client-voice.html'}.items():
    section=(OUT/'templates/advising'/filename).read_text().replace('{{HEADER}}',saved_header)
    text=re.sub(r'<section\b[^>]*data-screen-label="'+re.escape(label)+r'"[\s\S]*?</section>',lambda _: section,text)
-  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-attention">\n</helmet>')
+  text=text.replace('</helmet>','<link rel="stylesheet" href="assets/advising.css?v=20261026-cleanhero">\n</helmet>')
  if target=='training.html':
   saved_header=re.search(r'<header\b[\s\S]*?</header>',text).group(0)
   for label,filename in {'Hero':'hero.html','Upcoming trainings':'upcoming.html'}.items():

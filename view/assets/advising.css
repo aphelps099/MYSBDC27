@@ -67,19 +67,6 @@
 .advising-hero-cta{display:inline-flex;align-items:center;justify-content:center;background:var(--pool);color:#102539;padding:16px 25px;min-height:54px;font:600 15px/1.4 var(--nova);border-radius:5px;transition:background .2s}
 .advising-hero-cta:hover{background:#b9dfea;color:#102539}
 .advising-hero-trust{margin:19px 0 0;color:#b8cbd4;font:400 13px/1.5 var(--nova)}
-.advising-people-intro{padding-block:30px 32px;display:flex;align-items:center;gap:40px;justify-content:space-between}
-.advising-people-intro>p{margin:0;color:#aabecb;font:400 14px/1.65 var(--nova);flex:none}
-.advising-people-intro>p strong{color:#eff4f6;font-weight:500}
-.advising-people-links{display:flex;gap:36px}
-.advising-person-preview{display:flex;align-items:center;gap:14px;color:#fff;min-width:0}
-.advising-person-preview>img{width:58px;height:64px;flex:none;object-fit:cover;object-position:50% 30%;border-bottom:4px solid var(--berry)}
-.advising-person-preview:nth-child(2)>img{object-position:50% 44%}
-.advising-person-preview>span{display:grid;gap:5px}
-.advising-person-preview strong{font:500 13px/1.4 var(--nova);color:#eef3f6}
-.advising-person-preview>span>span{font:400 11px/1.4 var(--nova);color:#aabecb}
-.advising-person-preview:hover strong{color:var(--pool)}
-.advising-team-link{font:550 13px/1.5 var(--nova);color:var(--pool);padding-block:10px;flex:none}
-.advising-team-link:hover{color:#fff}
 .advising-opening a:focus-visible{outline:3px solid var(--pool);outline-offset:5px}
 @media(min-width:1700px){.advising-hero-stage{min-height:680px}.advising-hero-image{object-position:50% 8%}}
 @media(max-width:1100px){
@@ -88,10 +75,6 @@
  .advising-hero-content{padding-block:76px 80px}
  .public-preview .advising-hero-content h1{font-size:clamp(48px,5.7vw,62px)}
  .advising-hero-intro{font-size:17px;max-width:35ch}
- .advising-people-intro{gap:28px;flex-wrap:wrap}
- .advising-people-links{gap:24px}
- .advising-people-intro>p{font-size:13px}
- .advising-team-link{margin-left:auto}
 }
 @media(max-width:760px){
  .advising-hero-stage{display:block;min-height:0;overflow:hidden;border-bottom:0}
@@ -106,20 +89,11 @@
  .advising-hero-intro{font-size:17px;margin:23px 0 25px;max-width:36ch}
  .advising-hero-trust{font-size:12px;margin-top:17px}
  .advising-wide-break{display:none}
- .advising-people-intro{padding-block:30px 35px;gap:26px}
- .advising-people-intro>p{width:100%;font-size:15px}
- .advising-people-links{width:100%;gap:22px;justify-content:space-between}
- .advising-person-preview{align-items:start;flex-direction:column;gap:11px;flex:1}
- .advising-person-preview>img{width:58px;height:64px}
- .advising-person-preview strong{font-size:13px}
- .advising-person-preview>span>span{font-size:11px}
- .advising-team-link{margin:0;padding:0}
 }
 @media(max-width:420px){
  .public-preview .advising-hero-content h1{font-size:clamp(32px,9.4vw,39px)!important}
  .advising-hero-intro{font-size:16px}
  .advising-hero-cta{font-size:14px;padding-inline:20px}
  .advising-hero-image{height:280px;min-height:0;object-position:100% 50%}
- .advising-person-preview strong{font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){.advising-opening a{transition:none}}
