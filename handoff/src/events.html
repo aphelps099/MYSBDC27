@@ -1,0 +1,77 @@
+<!-- layout: app | active: events | title: Training -->
+    <header class="page-intro">
+      <h1>Training</h1>
+      <p class="lead">Practical workshops led by people who have run businesses. Always free. Register with one tap.</p>
+    </header>
+
+    <section class="mysbdc-upcoming-events" aria-label="Upcoming training">
+      <div class="toolbar">
+        <div class="search"><label class="visually-hidden" for="q">Search training</label>{{icon:search}}<input id="q" type="search" placeholder="Search by topic, like “loans” or “marketing”"></div>
+        <div class="field" style="flex:0 1 260px"><label class="visually-hidden" for="topic">Topic</label><select id="topic"><option>All topics</option><option>Money and loans</option><option>Starting up</option><option>Marketing</option><option>Technology</option><option>Hiring</option><option>Government contracts</option></select></div>
+      </div>
+      <div class="chips" role="group" aria-label="Show" data-toggle-group data-filters="#event-list">
+        <button class="chip" type="button" data-value="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-value="Online" aria-pressed="false">Online</button>
+        <button class="chip" type="button" data-value="In person" aria-pressed="false">In person</button>
+        <button class="chip" type="button" data-value="registered" aria-pressed="false">My registrations</button>
+      </div>
+      <p class="small muted mt-24" role="status">7 upcoming trainings · All times Pacific</p>
+      <div class="events on-cream mt-16" id="event-list">
+        <article class="event" data-format="Online">
+          <div class="entry-event-date"><span class="month">Nov</span><span class="day">10</span></div>
+          <div class="entry-contents">
+            <h3 class="entry-title"><a href="#">AI U: practical AI for small business</a></h3>
+            <div class="entry-details"><span class="detail">Tuesday, 10:00 AM</span><span class="detail format">{{icon:video sm}} Online</span><span class="detail duration">60 minutes</span><span class="detail topic">Technology</span></div>
+          </div>
+          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+        </article>
+        <article class="event" data-format="Online">
+          <div class="entry-event-date"><span class="month">Nov</span><span class="day">12</span></div>
+          <div class="entry-contents">
+            <h3 class="entry-title"><a href="#">Business plan in a day</a></h3>
+            <div class="entry-details"><span class="detail">Thursday, 10:00 AM</span><span class="detail format">{{icon:video sm}} Online</span><span class="detail duration">2 hours</span><span class="detail topic">Starting up</span></div>
+          </div>
+          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+        </article>
+        <article class="event" data-format="Online">
+          <div class="entry-event-date"><span class="month">Nov</span><span class="day">17</span></div>
+          <div class="entry-contents">
+            <h3 class="entry-title"><a href="#">Loan-ready: build your lender package</a></h3>
+            <div class="entry-details"><span class="detail">Tuesday, 9:00 AM</span><span class="detail format">{{icon:video sm}} Online</span><span class="detail duration">90 minutes</span><span class="detail topic">Money and loans</span></div>
+          </div>
+          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="true">Registered</button></div>
+        </article>
+        <article class="event" data-format="Online">
+          <div class="entry-event-date"><span class="month">Nov</span><span class="day">17</span></div>
+          <div class="entry-contents">
+            <h3 class="entry-title"><a href="#">Selling online: your first web store</a></h3>
+            <div class="entry-details"><span class="detail">Tuesday, 12:00 PM</span><span class="detail format">{{icon:video sm}} Online</span><span class="detail duration">90 minutes</span><span class="detail topic">Technology</span></div>
+          </div>
+          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+        </article>
+        <article class="event" data-format="In person">
+          <div class="entry-event-date"><span class="month">Nov</span><span class="day">19</span></div>
+          <div class="entry-contents">
+            <h3 class="entry-title"><a href="#">Cash flow clinic: bring your numbers</a></h3>
+            <div class="entry-details"><span class="detail">Thursday, 9:00 AM</span><span class="detail format">{{icon:pin sm}} In person</span><span class="detail duration">90 minutes · Eureka</span><span class="detail topic">Money and loans</span></div>
+          </div>
+          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+        </article>
+        <article class="event" data-format="Online">
+          <div class="entry-event-date"><span class="month">Nov</span><span class="day">19</span></div>
+          <div class="entry-contents">
+            <h3 class="entry-title"><a href="#">Getting started with government contracts</a></h3>
+            <div class="entry-details"><span class="detail">Thursday, 2:00 PM</span><span class="detail format">{{icon:video sm}} Online</span><span class="detail duration">90 minutes</span><span class="detail topic">Government contracts</span></div>
+          </div>
+          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+        </article>
+        <article class="event" data-format="In person">
+          <div class="entry-event-date"><span class="month">Dec</span><span class="day">1</span></div>
+          <div class="entry-contents">
+            <h3 class="entry-title"><a href="#">Hiring your first employee</a></h3>
+            <div class="entry-details"><span class="detail">Tuesday, 2:00 PM</span><span class="detail format">{{icon:pin sm}} In person</span><span class="detail duration">90 minutes · Arcata</span><span class="detail topic">Hiring</span></div>
+          </div>
+          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+        </article>
+      </div>
+    </section>

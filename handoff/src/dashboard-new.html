@@ -1,0 +1,103 @@
+<!-- layout: app | active: dashboard | title: Welcome | state: new -->
+    <header class="page-intro">
+      <p class="eyebrow">Monday, November 9</p>
+      <h1>Welcome, Avery.</h1>
+      <p class="lead">You’re signed up. Here is what happens next, and what you can do today.</p>
+    </header>
+
+    <!-- New client: no advisor yet. The hero explains the wait and removes the guesswork. -->
+    <section class="mysbdc-client-next-steps-overview on-navy" style="grid-template-columns:1fr" aria-labelledby="journey-title">
+      <div class="next-main">
+        <p class="eyebrow pool">What happens next</p>
+        <h2 id="journey-title" style="max-width:16em">We’re matching you with <em>your advisor.</em></h2>
+        <p class="lead">A person at North Coast SBDC is reading your request now. We match on your industry, your county and what you asked for help with.</p>
+        <ol class="journey">
+          <li class="done"><span class="state">Done</span><strong>Request received</strong><p>Monday, November 9 at 9:14 AM</p></li>
+          <li class="now"><span class="state">In progress</span><strong>Advisor match</strong><p>We’ll email you, usually within two business days.</p></li>
+          <li><span class="state">Next</span><strong>Your first session</strong><p>A conversation, not another form. By video, phone or in person.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="dash-grid mt-24">
+      <div class="span-7 stack">
+        <section class="card" aria-labelledby="start-now">
+          <div class="card-head">
+            <h2 class="eyebrow" id="start-now">{{icon:calendar sm}} You don’t have to wait</h2>
+            <a class="link" href="events.html">See all training</a>
+          </div>
+          <h3 style="font-size:24px;letter-spacing:-.02em">Free training, chosen from your answers.</h3>
+          <p class="muted mt-8">Register with one tap. No more forms.</p>
+          <div class="events mt-24">
+            <article class="event">
+              <div class="entry-event-date"><span class="month">Nov</span><span class="day">12</span></div>
+              <div class="entry-contents">
+                <h3 class="entry-title"><a href="events.html">Business plan in a day</a></h3>
+                <div class="entry-details"><span class="detail">Thursday, 10:00 AM</span><span class="detail">{{icon:video sm}} Online</span><span class="detail">2 hours</span></div>
+              </div>
+              <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+            </article>
+            <article class="event">
+              <div class="entry-event-date"><span class="month">Nov</span><span class="day">17</span></div>
+              <div class="entry-contents">
+                <h3 class="entry-title"><a href="events.html">Loan-ready: build your lender package</a></h3>
+                <div class="entry-details"><span class="detail">Tuesday, 9:00 AM</span><span class="detail">{{icon:video sm}} Online</span><span class="detail">90 minutes</span></div>
+              </div>
+              <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+            </article>
+            <article class="event">
+              <div class="entry-event-date"><span class="month">Nov</span><span class="day">19</span></div>
+              <div class="entry-contents">
+                <h3 class="entry-title"><a href="events.html">Cash flow clinic: bring your numbers</a></h3>
+                <div class="entry-details"><span class="detail">Thursday, 9:00 AM</span><span class="detail">{{icon:pin sm}} Eureka</span><span class="detail">90 minutes</span></div>
+              </div>
+              <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="starter">
+          <div class="card-head">
+            <h2 class="eyebrow" id="starter">{{icon:book sm}} A good place to start</h2>
+            <a class="link" href="resources.html">All resources</a>
+          </div>
+          <div class="events">
+            <div class="resource-row"><span class="tile-icon">{{icon:doc}}</span><div><h3>Your one-page business plan</h3><p class="small muted">Worksheet · 20 minutes</p></div><a class="link" href="resources.html">Open</a></div>
+            <div class="resource-row"><span class="tile-icon">{{icon:doc}}</span><div><h3>Make the most of your first session</h3><p class="small muted">Checklist · 5 minutes</p></div><a class="link" href="resources.html">Open</a></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="span-5 stack">
+        <section class="card mysbdc-client-counselor-overview" aria-labelledby="advisor-pending">
+          <div class="advisor-top">
+            <div class="placeholder-portrait">{{icon:user}}</div>
+            <div>
+              <p class="eyebrow">Your advisor</p>
+              <h3 id="advisor-pending">A real person, in your corner.</h3>
+            </div>
+          </div>
+          <div class="advisor-body">
+            <p>Their name, photo and booking calendar will appear here as soon as you’re matched.</p>
+            <p class="small muted mt-8">Advising is confidential and always at no cost.</p>
+            <div class="actions">
+              <a class="btn btn-quiet btn-block" href="#help">{{icon:phone}} Talk to someone now</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="card navy mysbdc-client-overview" aria-labelledby="business-name">
+          <p class="eyebrow pool">Your business</p>
+          <h2 class="mt-16" id="business-name">Northstar Provisions</h2>
+          <p class="small" style="color:#C9D3DF">Food and beverage · Eureka, Humboldt County</p>
+          <dl class="facts">
+            <div><dt>You asked for help with</dt><dd>Access to capital</dd></div>
+            <div><dt>Your center</dt><dd>North Coast SBDC</dd></div>
+            <div><dt>Signed up</dt><dd>November 9, 2026</dd></div>
+          </dl>
+          <p class="on-navy mt-16"><a class="link" href="settings.html#business">Add more about your business</a></p>
+        </section>
+      </div>
+
+      <p class="span-12 note">{{icon:lock}}<span><strong>Private by default.</strong> Your numbers and notes are seen only by you and your SBDC team. Nothing is shared with a lender unless you choose to apply.</span></p>
+    </div>

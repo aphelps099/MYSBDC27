@@ -1,0 +1,146 @@
+<!-- layout: bare | title: Get started -->
+<div class="intake">
+  <header class="intake-header">
+    <a class="wordmark" href="signup.html"><b>My</b>SBDC</a>
+    <button class="btn btn-sm" type="button"><span>Save<span class="label-long"> and finish later</span></span></button>
+  </header>
+
+  <!-- Progress: words and position, never colour alone. On phones it collapses to "Step 2 of 5 · Your business". -->
+  <nav class="steps" aria-label="Sign-up progress">
+    <ol>
+      <li>About you</li>
+      <li>Your business</li>
+      <li>Your goals</li>
+      <li>For the SBA</li>
+      <li>Review and sign</li>
+    </ol>
+    <p class="count" aria-live="polite"></p>
+  </nav>
+
+  <div class="intake-body">
+    <main id="main-content">
+      <form id="intake-form" novalidate>
+
+        <section class="step-panel" aria-labelledby="s1">
+          <h1 id="s1">Let’s start with you.</h1>
+          <p class="lead">This opens your client record. There is no fee, and everything you enter is confidential.</p>
+          <div class="form-grid">
+            <div class="field"><label for="first">First name</label><input id="first" name="first" type="text" autocomplete="given-name" required></div>
+            <div class="field"><label for="last">Last name</label><input id="last" name="last" type="text" autocomplete="family-name" required></div>
+            <div class="field full"><label for="remail">Email address</label><input id="remail" name="email" type="email" autocomplete="email" value="avery@example.com" required><p class="hint">{{icon:check sm}} From the account you just created.</p></div>
+            <div class="field"><label for="phone">Mobile phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(707) 555-0148" required><p class="hint">Your advisor uses this to set up your first meeting.</p></div>
+            <div class="field"><label for="lang">Preferred language</label><select id="lang" name="language"><option>English</option><option>Español</option><option>Tiếng Việt</option><option>中文</option><option>Tagalog</option><option>한국어</option><option>Another language</option></select></div>
+            <div class="field full"><label for="street">Home address</label><input id="street" name="street" type="text" autocomplete="street-address" required></div>
+            <div class="field"><label for="city">City</label><input id="city" name="city" type="text" autocomplete="address-level2" required></div>
+            <div class="field"><label for="zip">ZIP code</label><input id="zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required><p class="hint">We use your ZIP code to find your local center.</p></div>
+          </div>
+          <div class="intake-nav"><a class="link" href="signup.html">Back</a><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+
+        <section class="step-panel" aria-labelledby="s2">
+          <h1 id="s2">Are you in business today?</h1>
+          <p class="lead">Either answer is a good answer. It only changes what we ask next.</p>
+          <fieldset>
+            <legend class="visually-hidden">Are you in business today?</legend>
+            <div class="options">
+              <label class="option"><input type="radio" name="inbusiness" value="yes" checked><span><strong>Yes, I’m in business</strong><small>I’m already selling a product or service.</small></span></label>
+              <label class="option"><input type="radio" name="inbusiness" value="no"><span><strong>Not yet. I’m working on it.</strong><small>I have an idea, or I’m getting ready to open.</small></span></label>
+            </div>
+          </fieldset>
+          <div class="form-grid">
+            <div class="field full"><label for="bizname"><span data-if-business>Business name</span><span data-if-idea hidden>Working name <span class="optional">(optional)</span></span></label><input id="bizname" name="business" type="text" autocomplete="organization"></div>
+            <div class="field full"><label for="industry">What kind of business?</label><select id="industry" name="industry"><option>Food and beverage</option><option>Retail, storefront</option><option>Retail, online</option><option>Professional services</option><option>Construction and trades</option><option>Health and wellness</option><option>Manufacturing</option><option>Agriculture and farming</option><option>Technology</option><option>Tourism and hospitality</option><option>Something else</option></select></div>
+            <div class="field" data-if-business><label for="started">When did you start?</label><input id="started" name="started" type="text" placeholder="March 2025"><p class="hint">Month and year is enough.</p></div>
+            <div class="field" data-if-business><label for="entity">How is it set up?</label><select id="entity" name="entity"><option>Sole proprietor</option><option>Partnership</option><option>LLC</option><option>Corporation</option><option>Nonprofit</option><option>Not registered yet</option><option>I’m not sure</option></select></div>
+            <div class="field" data-if-business><label for="ft">Full-time employees, including you</label><input id="ft" name="ft" type="number" min="0" inputmode="numeric" value="1"></div>
+            <div class="field" data-if-business><label for="pt">Part-time employees</label><input id="pt" name="pt" type="number" min="0" inputmode="numeric" value="0"></div>
+            <div class="field full" data-if-business><label for="sales">Sales over the last 12 months</label><select id="sales" name="sales"><option>Under $25,000</option><option>$25,000 to $100,000</option><option>$100,000 to $250,000</option><option>$250,000 to $1 million</option><option>Over $1 million</option><option>I’d rather talk it through with my advisor</option></select><p class="hint">A range is enough. Nothing here is audited.</p></div>
+          </div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+
+        <section class="step-panel" aria-labelledby="s3">
+          <h1 id="s3">What do you want help with?</h1>
+          <p class="lead">Choose up to three. This is how we pick your advisor.</p>
+          <fieldset>
+            <legend class="visually-hidden">Areas of help</legend>
+            <div class="option-grid">
+              <label class="option"><input type="checkbox" name="topics" value="capital" checked><span><strong>Money and loans</strong><small>Funding, lenders, cash flow</small></span></label>
+              <label class="option"><input type="checkbox" name="topics" value="start"><span><strong>Starting a business</strong><small>Plans, permits, first steps</small></span></label>
+              <label class="option"><input type="checkbox" name="topics" value="marketing"><span><strong>Marketing and sales</strong><small>Finding and keeping customers</small></span></label>
+              <label class="option"><input type="checkbox" name="topics" value="ops"><span><strong>Running the business</strong><small>Pricing, operations, bookkeeping</small></span></label>
+              <label class="option"><input type="checkbox" name="topics" value="hiring"><span><strong>Hiring</strong><small>First employee, payroll, HR</small></span></label>
+              <label class="option"><input type="checkbox" name="topics" value="tech"><span><strong>Technology and AI</strong><small>Websites, tools, selling online</small></span></label>
+              <label class="option"><input type="checkbox" name="topics" value="gov"><span><strong>Government contracts</strong><small>Selling to public agencies</small></span></label>
+              <label class="option"><input type="checkbox" name="topics" value="unsure"><span><strong>I’m not sure yet</strong><small>We’ll figure it out together</small></span></label>
+            </div>
+          </fieldset>
+          <div class="field"><label for="story">Anything you’d like your advisor to know? <span class="optional">(optional)</span></label><textarea id="story" name="story" maxlength="1000"></textarea><p class="hint">A sentence or two is plenty.</p></div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+
+        <section class="step-panel" aria-labelledby="s4">
+          <h1 id="s4">A few questions for the SBA.</h1>
+          <p class="lead">These are optional. Skip any you’d rather not answer. They never affect the help you receive.</p>
+          <div class="form-grid">
+            <div class="field"><label for="gender">Gender <span class="optional">(optional)</span></label><select id="gender" name="gender"><option>Prefer not to say</option><option>Woman</option><option>Man</option><option>Non-binary</option><option>I describe myself another way</option></select></div>
+            <div class="field"><label for="veteran">Military status <span class="optional">(optional)</span></label><select id="veteran" name="veteran"><option>Prefer not to say</option><option>Not a veteran</option><option>Veteran</option><option>Service-disabled veteran</option><option>Active duty, Reserve or National Guard</option><option>Military spouse</option></select></div>
+            <div class="field"><label for="ethnicity">Hispanic or Latino origin <span class="optional">(optional)</span></label><select id="ethnicity" name="ethnicity"><option>Prefer not to say</option><option>Yes</option><option>No</option></select></div>
+            <div class="field"><label for="race">Race <span class="optional">(optional)</span></label><select id="race" name="race"><option>Prefer not to say</option><option>American Indian or Alaska Native</option><option>Asian</option><option>Black or African American</option><option>Native Hawaiian or Pacific Islander</option><option>White</option><option>More than one</option></select></div>
+            <div class="field full"><label for="heard">How did you hear about us? <span class="optional">(optional)</span></label><select id="heard" name="heard"><option>Choose one</option><option>A friend or another business owner</option><option>A lender or bank</option><option>Online search</option><option>Social media</option><option>A chamber or community group</option><option>Something else</option></select></div>
+          </div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+
+        <section class="step-panel" aria-labelledby="s5">
+          <h1 id="s5">Does this look right?</h1>
+          <p class="lead">Change anything now. Then sign, and you’re done.</p>
+          <div class="review">
+            <div class="review-group"><h3>About you</h3><p><span data-echo="first">Avery</span> <span data-echo="last">Phelps</span> · <span data-echo="email">avery@example.com</span> · <span data-echo="phone">(707) 555-0148</span></p><button class="link" type="button" data-step="0">Change</button></div>
+            <div class="review-group"><h3>Your business</h3><p><span data-echo="business">Northstar Provisions</span> · <span data-echo="industry">Food and beverage</span> · <span data-echo="entity">LLC</span></p><button class="link" type="button" data-step="1">Change</button></div>
+            <div class="review-group"><h3>Your goals</h3><p>Money and loans</p><button class="link" type="button" data-step="2">Change</button></div>
+          </div>
+          <fieldset>
+            <legend>Request for counseling</legend>
+            <div class="agreement" tabindex="0" role="region" aria-label="Request for counseling, full text">
+              <p>I request business counseling service from the Small Business Development Center (SBDC). I agree to cooperate should I be selected to participate in surveys designed to evaluate SBA services. I understand that any information disclosed will be held in strict confidence.</p>
+              <p class="mt-16">I authorize the SBDC to furnish relevant information to the assigned counselor(s). I further understand that any counselor has agreed not to recommend goods or services from sources in which they have an interest, and not to accept fees or commissions developing from this counseling relationship.</p>
+              <p class="mt-16">In consideration of the counselor(s) furnishing management or technical assistance, I waive all claims against SBA personnel, and that of its resource partners and host organizations, arising from this assistance.</p>
+            </div>
+            <div class="options mt-16">
+              <label class="option"><input type="checkbox" name="agree" required><span><strong>I have read and agree to the request for counseling</strong></span></label>
+              <label class="option"><input type="checkbox" name="survey"><span><strong>The SBA may contact me for a follow-up survey</strong><small>Optional</small></span></label>
+            </div>
+          </fieldset>
+          <div class="field signature"><label for="sign">Sign by typing your full name</label><input id="sign" name="signature" type="text" autocomplete="name" required><p class="hint">Today’s date, November 9, 2026, is recorded with your signature.</p></div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Sign and finish</button></div>
+        </section>
+
+        <section class="step-panel" aria-labelledby="s6">
+          <div class="sent-mark" style="background:#DDEFEA;color:var(--mysbdc-brand-evergreen)">{{icon:check}}</div>
+          <h1 id="s6">You’re in, <span data-echo="first">Avery</span>.</h1>
+          <p class="lead">Your request is with your local SBDC. You never need to fill out this form again.</p>
+          <div class="card">
+            <p class="eyebrow berry">What happens next</p>
+            <ul class="options mt-16">
+              <li><strong>We match you with an advisor.</strong> <span class="muted">Usually within two business days. We’ll email you.</span></li>
+              <li><strong>They reach out to set a time.</strong> <span class="muted">Your first meeting is a conversation, not another form.</span></li>
+              <li><strong>Your dashboard is ready now.</strong> <span class="muted">Free training is open to you today.</span></li>
+            </ul>
+          </div>
+          <div class="actions"><a class="btn btn-primary" href="dashboard-new.html">Go to my dashboard</a></div>
+        </section>
+      </form>
+    </main>
+
+    <!-- Plain-language reassurance that changes with each step. -->
+    <aside class="why" aria-label="Why we ask">
+      <div data-why="0"><h2>Why we ask</h2><p class="mt-8">This is SBA Form 641. It is how the SBA funds advising at no cost to you. Your details set up your record. They are never sold or published.</p></div>
+      <div data-why="1" hidden><h2>Rough numbers are fine</h2><p class="mt-8">The SBA funds this program based on who it reaches. A range is enough, and your best guess is welcome.</p></div>
+      <div data-why="2" hidden><h2>How matching works</h2><p class="mt-8">We match you with an advisor who knows your industry and the kind of help you asked for. You can change advisors at any time.</p></div>
+      <div data-why="3" hidden><h2>Always optional</h2><p class="mt-8">The SBA asks these questions to understand who its programs reach. Your answers are reported only as totals, never with your name.</p></div>
+      <div data-why="4" hidden><h2>What you’re signing</h2><p class="mt-8">A request for advising, and a promise from us to keep what you share confidential. It is not a contract and it costs nothing.</p></div>
+      <p class="help">{{icon:phone sm}} <strong class="mt-8" style="display:block">Rather do this by phone?</strong><span class="small">Call your local SBDC and we’ll fill it in with you.</span></p>
+    </aside>
+  </div>
+</div>
