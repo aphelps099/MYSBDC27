@@ -1,30 +1,19 @@
 <!-- layout: app | active: dashboard | title: Home | main: home reveal -->
     <div class="home-lead">
       <h1 class="hello">Good morning, Avery.</h1>
-      <p class="hello-sub">One thing to do before Thursday.</p>
+      <p class="hello-sub">Here is the latest from your advisor.</p>
 
-      <!-- Your next step: the one soft sheet on the page. One task, one filled button. -->
-      <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-label next-step-title">
+      <!-- Your next step: the advisor's latest note from Neoserra, shown as written. An action link appears only when the note has one. -->
+      <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-label">
         <div class="next-head">
-          <p class="kicker" id="next-step-label">Your next step</p>
-          <p class="due">{{icon:clock}} Due Thursday</p>
+          <h2 class="kicker" id="next-step-label">Your next step</h2>
+          <p class="due">Friday, November 6</p>
         </div>
-        <h2 class="next-title" id="next-step-title">Upload last month’s <em>profit and loss</em> statement.</h2>
-        <p class="next-why">Rough is fine, and a phone photo works. Dana will clean it up with you.</p>
-        <div class="do">
-          <button class="btn btn-primary btn-lg" type="button">{{icon:upload}} Upload statement</button>
-          <button class="link" type="button">I need more time</button>
-          <p class="reassure">{{icon:lock}} Only you and your SBDC team can see it</p>
-        </div>
-
-        <div class="package">
-          <h3 id="package-title">Document 3 of 4 <span>in your lender package</span></h3>
-          <ol class="track" aria-labelledby="package-title">
-            <li class="done"><span class="name">Business plan</span><span class="state">{{icon:check}} Done</span></li>
-            <li class="done"><span class="name">Tax returns</span><span class="state">{{icon:check}} Done</span></li>
-            <li class="now" aria-current="step"><span class="name">Profit and loss</span><span class="state">Due Thursday</span></li>
-            <li><span class="name">Cash flow forecast</span><span class="state">To do</span></li>
-          </ol>
+        <p class="memo">Please upload last month’s profit and loss statement before we meet on Thursday. Rough is fine, and a phone photo works. We’ll clean it up together.</p>
+        <p class="memo-from"><img src="assets/img/advisor-dana-face.jpg" alt="" width="40" height="40"><span><strong>Dana Whitfield</strong>, your advisor</span></p>
+        <div class="memo-links">
+          <a class="link" href="#">{{icon:upload}} Upload your statement</a>
+          <a class="link" href="#">Reply to Dana</a>
         </div>
       </section>
     </div>
@@ -66,10 +55,17 @@
         </div>
       </section>
 
-      <section class="mysbdc-client-milestones-overview-plain" aria-labelledby="milestone-title">
-        <h2 class="sec" id="milestone-title">Anything new with your business?</h2>
-        <p class="sec-sub">A new hire, a loan, a launch. Tell us in about four minutes.</p>
-        <a class="link" href="milestones.html">Share a milestone</a>
+      <section class="milestones mysbdc-client-milestones-overview" aria-labelledby="milestone-title">
+        <p class="kicker">{{icon:flag}} Your milestones</p>
+        <h2 id="milestone-title">Anything new with your business?</h2>
+        <p>Pick what changed. It takes about four minutes, and your best guess is enough.</p>
+        <div class="ms-grid">
+          <a href="milestones.html">{{icon:users}}<span>Hired someone</span></a>
+          <a href="milestones.html">{{icon:chart}}<span>Sales grew</span></a>
+          <a href="milestones.html">{{icon:coins}}<span>Got funding</span></a>
+          <a href="milestones.html">{{icon:store}}<span>Started a business</span></a>
+        </div>
+        <p class="ms-last"><span>Last shared: Got funding, June 2026</span><a class="link" href="milestones.html">See all milestones</a></p>
       </section>
     </div>
 
@@ -84,8 +80,7 @@
           </div>
         </div>
         <div class="adv-actions">
-          <button class="btn btn-sm btn-outline" type="button">Book a session</button>
-          <button class="link" type="button">Send a message</button>
+          <button class="link" type="button">{{icon:message}} Send a message</button>
         </div>
       </section>
 
