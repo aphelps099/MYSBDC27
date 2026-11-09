@@ -39,7 +39,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 | `#site-branding`, `#site-logo`, `#site-title` | Logo and centre name in the header |
 | `#header`, `#site-utility-navigation`, `.site-user-navigation` | Top utility bar and account menu |
 | `#page`, `#main-content`, `#footer` | Page frame |
-| `.mysbdc-client-next-steps-overview` | The next step (headline, button, progress) |
+| `.mysbdc-client-next-steps-overview` | The next step: `.memo` (note text), `.memo-from` (author), `.memo-links` (optional link) |
+| `.mysbdc-client-milestones-overview` | Milestone band on Home |
 | `.mysbdc-client-counselor-overview` | Advisor card |
 | `.mysbdc-client-overview` | Business card |
 | `.mysbdc-user-upcoming-events`, `article.event`, `.entry-event-date`, `.entry-title`, `.entry-details .detail`, `.btn-event-register` | Event rows |
@@ -56,9 +57,15 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 2. **On phones the rail becomes a four-item bottom tab bar.** Settings is in the account menu.
 3. **The page is warm paper, not white.** Soft gradients plus a fine grain (`--grain`, `--grain-mid`,
    `--navy-depth` tokens). No flat white or flat navy surfaces.
-4. **Home has two surfaces only.** The next-step sheet (small "Your next step" label, due date, one
-   headline, one filled button, named progress) and the navy business card at the top right.
-   Everything else sits directly on the page. On phones the business card follows the next step.
+4. **Home is mostly open page, with a few quiet surfaces.**
+   - *Your next step* is the advisor's latest note from Neoserra, shown as written in a serif
+     reading size, with who wrote it and when. There is no big button and no progress tracker.
+     If the note carries a link, it appears as a text link under the note (`.memo-links`), beside
+     "Reply to Dana". With no note yet (new client), the same sheet shows a note from the center.
+   - *Your business* is the navy card at the top right; on phones it follows the next step.
+   - *Your advisor* sits in a light rounded container with one action: Send a message. There is no booking.
+   - *Your milestones* is a pool-tinted band with four direct links, one per milestone type.
+   - Coming up and the advisor's picked resources sit directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
 5. **Sign-in has no password.** Google, Microsoft, or a link by email.
 6. **Form 641 is five short steps** with a plain-language "why we ask" panel beside each one,
@@ -86,7 +93,7 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 - **Form 641 fields.** The steps cover contact, business, goals, optional demographics and the
   signed request for counseling. Check the field list and agreement wording against the current SBA form
   and what Neoserra requires before build.
-- **Data not yet on staging.** The next-step task, the lender-package checklist, advisor photo and bio,
+- **Data not yet on staging.** The next-step note (text, author, date and optional link from Neoserra), advisor photo,
   advisor-picked resources and milestone history are designed here but need a source in Neoserra or WordPress.
 - **Placeholder links.** Help, Get help, Privacy, Accessibility and "Talk to someone now" point at `#help`-style anchors until real destinations exist.
 - **Fonts.** The Typekit kit serves Proxima Nova at 300, 400, 500, 700 and 900 only, so the stylesheet uses those weights.
