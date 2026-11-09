@@ -35,7 +35,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 | --- | --- |
 | `--mysbdc-brand-*` custom properties | Same names and values as `main.css`. New: `navy-soft`, `pool-pale`, `signal-dark` |
 | `#site-menu`, `.primary-navigation .menu-item.active > a > .icon/.label` | The rail |
-| `body.site-menu-active` | Widening the rail to a labelled sidebar (optional) |
+| `#site-menu-toggle`, `.burger-icon .bar`, `body.site-menu-active` | Widening the rail to a labelled sidebar |
+| `#site-branding`, `#site-logo`, `#site-title` | Logo and centre name in the header |
 | `#header`, `#site-utility-navigation`, `.site-user-navigation` | Top utility bar and account menu |
 | `#page`, `#main-content`, `#footer` | Page frame |
 | `.mysbdc-client-next-steps-overview` | The next step (headline, button, progress) |
@@ -46,17 +47,19 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 
 ## What changed from staging, and why
 
-1. **The rail always shows a word under each icon.** Icon-only navigation is the first thing
-   that loses a less confident user. `body.site-menu-active` still widens it to a full sidebar,
-   but the menu button is gone because the labels are always visible.
-2. **On phones the rail becomes a bottom tab bar**, within thumb reach, instead of a hidden menu.
-   It has four items; Settings is in the account menu.
-3. **The rail and top bar are light.** Cream rail, white page. Navy is the colour of words, not surfaces.
-4. **Home has no cards.** One white page: a greeting, the next step as a large serif headline with
-   one filled button, a named progress line, then plain typographic lists. The business summary sits
-   top right (down to 980px wide) and moves directly under the next step on phones. A new client
-   sees the same layout with "We're matching you with your advisor" and a three-step line.
-   Home styles are section 13 of the stylesheet, scoped to `.home`, and sized in rem.
+1. **The shell stays close to the staging theme.** Navy header across the top with the hamburger
+   (`#site-menu-toggle`), logo and centre name, then help, language and the account menu. Below it,
+   the navy `#site-menu` rail with a pool bar on the active item; the hamburger widens it to a
+   labelled sidebar (`body.site-menu-active`). Two differences: each icon keeps a word under it,
+   because icon-only navigation loses less confident users, and below 1200px the widened sidebar
+   overlays the page instead of squeezing it.
+2. **On phones the rail becomes a four-item bottom tab bar.** Settings is in the account menu.
+3. **The page is warm paper, not white.** Soft gradients plus a fine grain (`--grain`, `--grain-mid`,
+   `--navy-depth` tokens). No flat white or flat navy surfaces.
+4. **Home has two surfaces only.** The next-step sheet (small "Your next step" label, due date, one
+   headline, one filled button, named progress) and the navy business card at the top right.
+   Everything else sits directly on the page. On phones the business card follows the next step.
+   Home styles are section 13 of the stylesheet and sized in rem.
 5. **Sign-in has no password.** Google, Microsoft, or a link by email.
 6. **Form 641 is five short steps** with a plain-language "why we ask" panel beside each one,
    optional SBA questions clearly marked optional, and a phone alternative.
@@ -85,6 +88,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
   and what Neoserra requires before build.
 - **Data not yet on staging.** The next-step task, the lender-package checklist, advisor photo and bio,
   advisor-picked resources and milestone history are designed here but need a source in Neoserra or WordPress.
+- **Placeholder links.** Help, Get help, Privacy, Accessibility and "Talk to someone now" point at `#help`-style anchors until real destinations exist.
+- **Fonts.** The Typekit kit serves Proxima Nova at 300, 400, 500, 700 and 900 only, so the stylesheet uses those weights.
 - **Spanish.** The language control is designed; no Spanish copy is included.
 
 All names, dates, numbers and the advisor are sample content. Photos are the repository's existing preview images.

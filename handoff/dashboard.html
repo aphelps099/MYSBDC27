@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Home · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css">
-<script defer src="assets/mysbdc.js"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=b6e5659e">
+<script defer src="assets/mysbdc.js?v=b6e5659e"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -43,31 +43,15 @@
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- Rail navigation. Always shows icon + word (body.site-menu-active widens it to a full sidebar). On phones it becomes a four-item bottom tab bar; Settings moves to the account menu. -->
-<div id="site-menu">
-  <a id="site-branding" href="dashboard.html" aria-label="MySBDC home"><span><b>My</b>SBDC</span></a>
-  <nav class="primary-navigation" aria-label="Main">
-    <ul class="menu">
-        <li class="menu-item active"><a href="dashboard.html" aria-current="page"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-home"/></svg></span><span class="label">Home</span></a></li>
-        <li class="menu-item"><a href="events.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-calendar"/></svg></span><span class="label">Training</span></a></li>
-        <li class="menu-item"><a href="milestones.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-flag"/></svg></span><span class="label">Milestones</span></a></li>
-        <li class="menu-item"><a href="resources.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-book"/></svg></span><span class="label">Resources</span></a></li>
-    </ul>
-    <ul class="menu bottom">
-        <li class="menu-item desktop-only"><a href="settings.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-settings"/></svg></span><span class="label">Settings</span></a></li>
-        <li class="menu-item desktop-only"><a href="#help"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-help"/></svg></span><span class="label">Help</span></a></li>
-    </ul>
-  </nav>
-</div>
-
 <header id="header">
-  <a class="mobile-brand" href="dashboard.html"><b>My</b>SBDC</a>
-  <p class="center">North Coast SBDC</p>
+  <button id="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="burger-icon"><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Menu</span></button>
+  <a id="site-branding" href="dashboard.html" aria-label="MySBDC home, North Coast SBDC"><span id="site-logo"><b>My</b>SBDC</span><span id="site-title">North Coast SBDC</span></a>
   <div id="site-utility-navigation">
+    <a class="util-btn" href="#help" aria-label="Help"><svg class="icon " aria-hidden="true"><use href="#i-help"/></svg><span class="label">Help</span></a>
     <button class="util-btn" type="button" aria-label="Language: English. Change language"><svg class="icon " aria-hidden="true"><use href="#i-globe"/></svg><span class="label">English</span></button>
     <div class="site-user-navigation">
       <details>
-        <summary aria-label="Your account"><span class="avatar">AP</span><span class="name">Avery</span></summary>
+        <summary aria-label="Your account, Avery"><span class="avatar">AP</span><span class="name">Avery</span></summary>
         <div class="dropdown-menu">
           <p class="who"><strong>Avery Phelps</strong>avery@example.com</p>
           <a class="dropdown-item" href="settings.html"><svg class="icon " aria-hidden="true"><use href="#i-settings"/></svg>Settings</a>
@@ -79,20 +63,40 @@
   </div>
 </header>
 
+<!-- Menu rail (Crown's #site-menu). Icon + word; the toggle widens it to a labelled sidebar. On phones it is a four-item bottom tab bar. -->
+<div id="site-menu">
+  <nav class="primary-navigation" aria-label="Main">
+    <ul class="menu">
+        <li class="menu-item active"><a href="dashboard.html" aria-current="page"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-home"/></svg></span><span class="label">Home</span></a></li>
+        <li class="menu-item"><a href="events.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-calendar"/></svg></span><span class="label">Training</span></a></li>
+        <li class="menu-item"><a href="milestones.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-flag"/></svg></span><span class="label">Milestones</span></a></li>
+        <li class="menu-item"><a href="resources.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-book"/></svg></span><span class="label">Resources</span></a></li>
+    </ul>
+    <ul class="menu bottom">
+        <li class="menu-item desktop-only"><a href="settings.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-settings"/></svg></span><span class="label">Settings</span></a></li>
+    </ul>
+  </nav>
+</div>
+
 <div id="page">
   <main id="main-content" class="container home reveal">
     <div class="home-lead">
-      <h1 class="hello">Good morning, Avery. <span>One thing before Thursday.</span></h1>
+      <h1 class="hello">Good morning, Avery.</h1>
+      <p class="hello-sub">One thing to do before Thursday.</p>
 
-      <!-- Next step: one task, one button, directly on the page. -->
-      <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-title">
-        <h2 class="next-title" id="next-step-title"><span class="visually-hidden">Your next step: </span>Upload last month’s <em>profit and loss</em> statement.</h2>
-        <p class="next-why">Dana needs it for Thursday’s session. Rough is fine, and a phone photo works.</p>
+      <!-- Your next step: the one soft sheet on the page. One task, one filled button. -->
+      <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-label next-step-title">
+        <div class="next-head">
+          <p class="kicker" id="next-step-label">Your next step</p>
+          <p class="due"><svg class="icon " aria-hidden="true"><use href="#i-clock"/></svg> Due Thursday</p>
+        </div>
+        <h2 class="next-title" id="next-step-title">Upload last month’s <em>profit and loss</em> statement.</h2>
+        <p class="next-why">Rough is fine, and a phone photo works. Dana will clean it up with you.</p>
         <div class="do">
           <button class="btn btn-primary btn-lg" type="button"><svg class="icon " aria-hidden="true"><use href="#i-upload"/></svg> Upload statement</button>
           <button class="link" type="button">I need more time</button>
+          <p class="reassure"><svg class="icon " aria-hidden="true"><use href="#i-lock"/></svg> Only you and your SBDC team can see it</p>
         </div>
-        <p class="reassure"><svg class="icon " aria-hidden="true"><use href="#i-lock"/></svg> Only you and your SBDC team can see it.</p>
 
         <div class="package">
           <h3 id="package-title">Document 3 of 4 <span>in your lender package</span></h3>
@@ -106,10 +110,14 @@
       </section>
     </div>
 
-    <!-- Business summary: top right on desktop, straight after the next step on phones. -->
+    <!-- Your business: navy card, top right on desktop, straight after the next step on phones. -->
     <section class="home-biz mysbdc-client-overview" aria-labelledby="business-name">
       <h2 id="business-name"><span class="kicker">Your business</span><span class="h-name">Northstar Provisions</span></h2>
-      <p>Food and beverage in Eureka. Working on access to capital. Client since March&nbsp;2025.</p>
+      <p class="where">Food and beverage · Eureka</p>
+      <dl class="biz-facts">
+        <div><dt>Working on</dt><dd>Access to capital</dd></div>
+        <div><dt>Client since</dt><dd>March 2025</dd></div>
+      </dl>
       <a class="link" href="settings.html#business">Edit details</a>
     </section>
 
@@ -120,19 +128,19 @@
           <a class="link" href="events.html">All training</a>
         </div>
         <div class="rows">
-          <article class="row event">
+          <article class="row">
             <p class="date"><b>12</b><span>Nov</span></p>
             <div>
               <h3>Session with Dana</h3>
-              <p>Thursday, 2:00&nbsp;PM · Video call · 45&nbsp;minutes</p>
+              <p class="meta"><span>Thursday, 2:00&nbsp;PM</span><span>Video call</span><span>45&nbsp;minutes</span></p>
             </div>
             <a class="link" href="#">Details<span class="visually-hidden">: session with Dana</span></a>
           </article>
-          <article class="row event">
+          <article class="row">
             <p class="date"><b>17</b><span>Nov</span></p>
             <div>
               <h3>Loan-ready: build your lender&nbsp;package</h3>
-              <p>Tuesday, 9:00&nbsp;AM · Online · <span class="ok"><svg class="icon " aria-hidden="true"><use href="#i-check"/></svg> Registered</span></p>
+              <p class="meta"><span>Tuesday, 9:00&nbsp;AM</span><span>Online</span><span class="ok"><svg class="icon " aria-hidden="true"><use href="#i-check"/></svg> Registered</span></p>
             </div>
             <a class="link" href="events.html">Details<span class="visually-hidden">: Loan-ready training</span></a>
           </article>
@@ -150,7 +158,7 @@
       <section class="mysbdc-client-counselor-overview" aria-labelledby="advisor-name">
         <h2 class="kicker">Your advisor</h2>
         <div class="adv">
-          <img src="assets/img/advisor-dana.jpg" alt="Dana Whitfield, your advisor" width="152" height="152">
+          <img src="assets/img/advisor-dana-face.jpg" alt="Dana Whitfield, your advisor" width="60" height="60">
           <div>
             <strong class="h-name" id="advisor-name">Dana Whitfield</strong>
             <p>Replies within one business&nbsp;day</p>

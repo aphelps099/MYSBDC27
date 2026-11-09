@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Milestones · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css">
-<script defer src="assets/mysbdc.js"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=b6e5659e">
+<script defer src="assets/mysbdc.js?v=b6e5659e"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -43,31 +43,15 @@
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- Rail navigation. Always shows icon + word (body.site-menu-active widens it to a full sidebar). On phones it becomes a four-item bottom tab bar; Settings moves to the account menu. -->
-<div id="site-menu">
-  <a id="site-branding" href="dashboard.html" aria-label="MySBDC home"><span><b>My</b>SBDC</span></a>
-  <nav class="primary-navigation" aria-label="Main">
-    <ul class="menu">
-        <li class="menu-item"><a href="dashboard.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-home"/></svg></span><span class="label">Home</span></a></li>
-        <li class="menu-item"><a href="events.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-calendar"/></svg></span><span class="label">Training</span></a></li>
-        <li class="menu-item active"><a href="milestones.html" aria-current="page"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-flag"/></svg></span><span class="label">Milestones</span></a></li>
-        <li class="menu-item"><a href="resources.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-book"/></svg></span><span class="label">Resources</span></a></li>
-    </ul>
-    <ul class="menu bottom">
-        <li class="menu-item desktop-only"><a href="settings.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-settings"/></svg></span><span class="label">Settings</span></a></li>
-        <li class="menu-item desktop-only"><a href="#help"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-help"/></svg></span><span class="label">Help</span></a></li>
-    </ul>
-  </nav>
-</div>
-
 <header id="header">
-  <a class="mobile-brand" href="dashboard.html"><b>My</b>SBDC</a>
-  <p class="center">North Coast SBDC</p>
+  <button id="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="burger-icon"><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Menu</span></button>
+  <a id="site-branding" href="dashboard.html" aria-label="MySBDC home, North Coast SBDC"><span id="site-logo"><b>My</b>SBDC</span><span id="site-title">North Coast SBDC</span></a>
   <div id="site-utility-navigation">
+    <a class="util-btn" href="#help" aria-label="Help"><svg class="icon " aria-hidden="true"><use href="#i-help"/></svg><span class="label">Help</span></a>
     <button class="util-btn" type="button" aria-label="Language: English. Change language"><svg class="icon " aria-hidden="true"><use href="#i-globe"/></svg><span class="label">English</span></button>
     <div class="site-user-navigation">
       <details>
-        <summary aria-label="Your account"><span class="avatar">AP</span><span class="name">Avery</span></summary>
+        <summary aria-label="Your account, Avery"><span class="avatar">AP</span><span class="name">Avery</span></summary>
         <div class="dropdown-menu">
           <p class="who"><strong>Avery Phelps</strong>avery@example.com</p>
           <a class="dropdown-item" href="settings.html"><svg class="icon " aria-hidden="true"><use href="#i-settings"/></svg>Settings</a>
@@ -78,6 +62,21 @@
     </div>
   </div>
 </header>
+
+<!-- Menu rail (Crown's #site-menu). Icon + word; the toggle widens it to a labelled sidebar. On phones it is a four-item bottom tab bar. -->
+<div id="site-menu">
+  <nav class="primary-navigation" aria-label="Main">
+    <ul class="menu">
+        <li class="menu-item"><a href="dashboard.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-home"/></svg></span><span class="label">Home</span></a></li>
+        <li class="menu-item"><a href="events.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-calendar"/></svg></span><span class="label">Training</span></a></li>
+        <li class="menu-item active"><a href="milestones.html" aria-current="page"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-flag"/></svg></span><span class="label">Milestones</span></a></li>
+        <li class="menu-item"><a href="resources.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-book"/></svg></span><span class="label">Resources</span></a></li>
+    </ul>
+    <ul class="menu bottom">
+        <li class="menu-item desktop-only"><a href="settings.html"><span class="icon-wrap"><svg class="icon " aria-hidden="true"><use href="#i-settings"/></svg></span><span class="label">Settings</span></a></li>
+    </ul>
+  </nav>
+</div>
 
 <div id="page">
   <main id="main-content" class="container reveal">
