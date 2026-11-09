@@ -4,6 +4,10 @@ Draft of the 2027 MySBDC / NorCal SBDC website. Every page is a self-rendering
 design file (`*.dc.html`) that loads the shared runtime (`support.js`) and the
 FAV NorCal SBDC design system (`_ds/`) at view time.
 
+## Refined homepage preview
+
+Open [`homepage-preview/index.html`](homepage-preview/index.html) for the mobile-first “Your business, better.” design, including special-program signup. This is a non-submitting prototype. The original design files remain available below. Integration and accessibility notes are in [`homepage-preview/README.md`](homepage-preview/README.md).
+
 ## Preview
 
 **`index.html` is the preview entry point** — it lists every page, screen, and
