@@ -217,7 +217,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .switch-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 0}
 .switch-row strong{display:block} .switch-row small{display:block;margin-top:2px;font-size:15.5px;color:var(--mysbdc-brand-slate-light)}
 .switch{position:relative;display:inline-flex;align-items:center;gap:12px;cursor:pointer;font-weight:700;font-size:15px}
-.switch input{appearance:none;width:60px;height:34px;margin:0;border-radius:99px;background:var(--mysbdc-field-border);cursor:pointer;transition:background .2s}
+.switch input{position:relative;flex:none;appearance:none;width:60px;height:34px;margin:0;border-radius:99px;background:var(--mysbdc-field-border);cursor:pointer;transition:background .2s}
 .switch input::after{content:"";position:absolute;left:4px;top:50%;translate:0 -50%;width:26px;height:26px;border-radius:50%;background:#fff;transition:left .2s}
 .switch input:checked{background:var(--mysbdc-brand-evergreen)}
 .switch input:checked::after{left:30px}
