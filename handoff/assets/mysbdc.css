@@ -555,9 +555,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .ms-sheet .step-panel fieldset.mt-24,.ms-sheet .step-panel fieldset.mt-32{margin-top:30px}
 
 /* Milestone form card: one object. An expressive band per milestone type (name, built-in progress,
-   a giant cropped icon fading into a soft gradient), then the form beside its help column.
-   The type colour carries through the card: selected answers, the continue button, the help tint. */
-.ms-flow{grid-template-columns:minmax(0,1fr);max-width:1040px}
+   a giant cropped icon fading into a soft gradient), then the form sheet.
+   The type colour carries through the card: selected answers and the continue button. The help panel floats beside it. */
 .ms-card{--c1:var(--mysbdc-brand-signal);--b1:#A9D2EE;--b2:#DCEDF8;--tint:#E8F1FA;border-radius:10px;overflow:hidden;background:var(--mysbdc-brand-white)}
 .ms-card[data-type=sales]{--c1:#00574E;--b1:#A6DDCD;--b2:#DDF2EA;--tint:#E3F1EE}
 .ms-card[data-type=funding]{--c1:#0F1C2D;--b1:#F3D78E;--b2:#FBEFCB;--tint:#F7F0DC}
@@ -575,8 +574,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .ms-band .steps li.done{color:#2C3240}
 .ms-band .steps li.current{color:var(--mysbdc-brand-navy);font-weight:700}
 .ms-band .steps .count{padding:10px 0 0;font-size:1rem;color:var(--mysbdc-brand-navy)}
-.ms-body{display:grid;grid-template-columns:minmax(0,1fr) 300px}
-.ms-body:has(.why[hidden]){grid-template-columns:minmax(0,1fr)}
 .ms-card .ms-sheet{padding:clamp(24px,3.4vw,48px);background:var(--mysbdc-brand-white)}
 .ms-card .ms-sheet .step-panel h1{font-size:clamp(1.875rem,3vw,2.625rem)}
 .ms-card .ms-sheet .step-panel .lead{margin-bottom:30px}
@@ -589,12 +586,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .ms-card .stepper button:hover{background:var(--tint)}
 .ms-card .review-group{background:var(--tint)}
 .ms-card .on-file{background:var(--tint)}
-.ms-flow .ms-card .why{position:static;align-content:start;padding:clamp(24px,3vw,44px) clamp(20px,2.2vw,28px);border-radius:0;background:var(--tint)}
-.ms-flow .ms-card .why h2{font:700 1.1875rem/1.25 var(--font-sans)}
-.ms-flow .ms-card .why .help{padding:0;margin-top:14px;background:none}
-.ms-flow .ms-card .why .icon{color:var(--c1)}
-@media(max-width:939px){.ms-body{grid-template-columns:minmax(0,1fr)}}
 .ms-choice[data-type=hired] .tile{background:var(--mysbdc-brand-signal);color:#fff}
 .ms-choice[data-type=sales] .tile{background:#00675C;color:#fff}
 .ms-choice[data-type=funding] .tile{background:#F3D78E;color:var(--mysbdc-brand-navy)}
 .ms-choice[data-type=started] .tile{background:#B33434;color:#fff}
+
+.ms-flow .why{align-self:start;margin-top:54px}
+.ms-flow .why .help{padding:0;margin-top:6px;background:none}
+@media(max-width:939px){.ms-flow .why{margin-top:0}}
