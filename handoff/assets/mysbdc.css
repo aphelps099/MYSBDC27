@@ -360,9 +360,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 /* 13 — Home. Content sits on the textured page; two surfaces only: the next-step sheet and the navy business card.
    Sizes are rem so the page follows the reader's own browser text size. */
 .home{--ink:var(--mysbdc-brand-navy);--ink-2:var(--mysbdc-brand-slate);--ink-3:#4F5767;--side:340px;
-  display:grid;grid-template-columns:minmax(0,1fr) var(--side);grid-template-rows:auto 1fr auto;
-  grid-template-areas:"lead biz" "lead adv" "more adv";column-gap:clamp(32px,4.5vw,64px);font-size:1.125rem;line-height:1.5}
-.home-lead{grid-area:lead}.home-biz{grid-area:biz}.home-adv{grid-area:adv}.home-more{grid-area:more}
+  display:grid;grid-template-columns:minmax(0,1fr) var(--side);grid-template-areas:"main side" "ms ms";column-gap:clamp(32px,4.5vw,64px);align-items:start;font-size:1.125rem;line-height:1.5}
+.home-main{grid-area:main;min-width:0}.home-side{grid-area:side;min-width:0}
 .home .link{font-size:1.0625rem}
 .kicker{display:flex;align-items:center;gap:8px;font:700 .875rem/1.3 var(--font-sans);letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
 
@@ -373,10 +372,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 /* Your next step: the one soft sheet on the page. Tight, labelled, one filled button. */
 .mysbdc-client-next-steps-overview{position:relative;isolation:isolate;margin-top:clamp(18px,2vw,24px);padding:clamp(20px,2vw,28px);border-radius:6px;background:radial-gradient(90% 70% at 0 0,#fffdf8,transparent 70%),linear-gradient(180deg,#fcf9f2,#f6f1e6);box-shadow:0 1px 0 #fffffff2 inset,0 1px 2px #0f1c2d12,0 24px 56px -34px #0f1c2d52}
 .mysbdc-client-next-steps-overview::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--grain-mid);opacity:.45;mix-blend-mode:soft-light;pointer-events:none}
-.next-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px}
-.next-head .kicker{color:#A83030}
-.due{display:inline-flex;align-items:center;gap:7px;font:700 1rem/1.3 var(--font-sans);color:var(--ink)}
-.due .icon{width:18px;height:18px}
+.mysbdc-client-next-steps-overview>.kicker{color:#A83030}
 .memo{max-width:34em;margin-top:12px;font:400 clamp(1.375rem,1.9vw,1.6875rem)/1.32 var(--font-serif);letter-spacing:-.018em;color:var(--ink);text-wrap:pretty}
 .memo-from{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:1rem;color:var(--ink-2)}
 .memo-from img,.memo-from .ph{width:40px;height:40px;flex:none;border-radius:50%;object-fit:cover;filter:saturate(.88) contrast(1.03)}
@@ -387,7 +383,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .memo-links .link .icon{width:19px;height:19px}
 
 /* Your business: the navy card, top right. Layered light and grain so it reads as depth, not a flat block. */
-.home-biz{position:relative;align-self:start;padding:clamp(24px,2.4vw,30px) clamp(24px,2.4vw,30px) clamp(14px,1.4vw,18px);border-radius:6px;background:radial-gradient(60% 50% at 78% 22%,#8fc5d91f,transparent 70%),var(--navy-depth);color:#fff;overflow:hidden;isolation:isolate;box-shadow:0 26px 50px -30px #0f1c2d8c}
+.home-biz{position:relative;padding:clamp(24px,2.4vw,30px) clamp(24px,2.4vw,30px) clamp(14px,1.4vw,18px);border-radius:6px;background:radial-gradient(60% 50% at 78% 22%,#8fc5d91f,transparent 70%),var(--navy-depth);color:#fff;overflow:hidden;isolation:isolate;box-shadow:0 26px 50px -30px #0f1c2d8c}
 .home-biz::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--grain);opacity:.5;mix-blend-mode:overlay}
 .home-biz .kicker{color:var(--mysbdc-brand-pool)}
 .h-name{display:block;margin-top:12px;font:700 clamp(1.375rem,1.8vw,1.5625rem)/1.15 var(--font-sans);letter-spacing:-.02em;text-wrap:balance}
@@ -417,19 +413,24 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .btn-outline:hover{background:var(--mysbdc-brand-signal);color:#fff}
 .btn-outline[aria-pressed=true]::before{content:"✓";font-weight:700}
 
-/* Milestones: a pool-tinted band with four direct ways in */
-.milestones{position:relative;isolation:isolate;padding:clamp(22px,2.4vw,32px);border-radius:6px;background:radial-gradient(80% 120% at 100% 0%,#8fc5d98c,transparent 65%),linear-gradient(135deg,#e3eff3,#d3e6ed);box-shadow:0 20px 44px -32px #0f1c2d52}
-.milestones::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--grain-mid);opacity:.5;mix-blend-mode:soft-light;pointer-events:none}
+/* Milestones: a full-width closing feature. Client photo on the left, four direct ways in on the right. */
+.milestones{grid-area:ms;position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);margin-top:clamp(44px,5vw,72px);border-radius:6px;overflow:hidden;background:radial-gradient(70% 110% at 100% 0%,#8fc5d999,transparent 65%),linear-gradient(135deg,#e6f0f3,#d2e5ec);box-shadow:0 26px 56px -36px #0f1c2d66}
+.milestones::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--grain-mid);opacity:.5;mix-blend-mode:soft-light;pointer-events:none}
+.ms-photo{position:relative;min-height:340px;border-bottom:5px solid var(--mysbdc-brand-berry)}
+.ms-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;filter:saturate(.88) contrast(1.03)}
+.ms-body{padding:clamp(24px,3.2vw,44px)}
 .milestones .kicker{color:var(--ink)}
 .milestones .kicker .icon{width:18px;height:18px}
-.milestones h2{margin-top:10px;font:400 clamp(1.625rem,2.4vw,2.125rem)/1.1 var(--font-serif);letter-spacing:-.026em;text-wrap:balance}
-.milestones>p{max-width:32em;margin-top:8px;color:var(--ink-2);text-wrap:pretty}
-.ms-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:20px}
-.ms-grid a{display:flex;flex-direction:column;gap:10px;min-height:96px;padding:14px 16px;border-radius:5px;background:#ffffffa6;color:var(--ink);font:700 1.0625rem/1.2 var(--font-sans);text-decoration:none;transition:background .18s,transform .18s,box-shadow .18s}
-.ms-grid a:hover,.ms-grid a:focus-visible{background:#fff;transform:translateY(-2px);box-shadow:0 14px 26px -18px #0f1c2d66}
-.ms-grid .icon{color:var(--mysbdc-brand-signal)}
-.ms-grid span{margin-top:auto}
-.ms-last{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;margin-top:14px;font-size:1rem;color:var(--ink-2)}
+.milestones h2{margin-top:12px;font:400 clamp(1.75rem,2.9vw,2.625rem)/1.06 var(--font-serif);letter-spacing:-.028em;text-wrap:balance}
+.ms-body>p{max-width:30em;margin-top:10px;color:var(--ink-2);text-wrap:pretty}
+.ms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
+.ms-grid a{display:grid;grid-template-columns:44px minmax(0,1fr);gap:2px 14px;align-items:center;min-height:76px;padding:12px 16px;border-radius:5px;background:#ffffffb8;color:var(--ink);text-decoration:none;transition:background .18s,transform .18s,box-shadow .18s}
+.ms-grid a:hover,.ms-grid a:focus-visible{background:#fff;transform:translateY(-2px);box-shadow:0 14px 26px -18px #0f1c2d80}
+.ms-grid .tile{grid-row:span 2;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--mysbdc-brand-navy);color:var(--mysbdc-brand-pool)}
+.ms-grid .tile .icon{width:22px;height:22px}
+.ms-grid strong{align-self:end;font:700 1.0625rem/1.2 var(--font-sans)}
+.ms-grid small{align-self:start;font-size:.9375rem;line-height:1.3;color:var(--ink-2)}
+.ms-last{display:flex;flex-wrap:wrap;align-items:center;gap:2px 18px;margin-top:14px;font-size:1rem;color:var(--ink-2)}
 .ms-last .link{min-height:44px;font-size:1rem}
 
 /* Right column under the card */
@@ -453,9 +454,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .private .icon{width:19px;height:19px;margin-top:2px}
 
 @media(max-width:1099px){.home{--side:300px}}
-@media(max-width:1199px){.ms-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ms-grid a{min-height:76px}}
+@media(max-width:1099px){.milestones{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}}
 @media(max-width:939px){
-  .home{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:"lead" "biz" "more" "adv"}
+  .home{display:flex;flex-direction:column}
+  .home-main,.home-side{display:contents}
+  .home-lead{order:1}.home-biz{order:2}.home-more{order:3}.home-adv{order:4}.milestones{order:5}
   .home-biz{margin-top:20px}
   .biz-facts{display:flex;flex-wrap:wrap;gap:12px 48px}
   .biz-facts div{display:block}
@@ -464,7 +467,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 }
 @media(max-width:759px){
   .home{font-size:1.0625rem}
-  .mysbdc-client-next-steps-overview,.home-biz,.milestones{padding:20px 18px}
+  .mysbdc-client-next-steps-overview,.home-biz{padding:20px 18px}
+  .milestones{grid-template-columns:minmax(0,1fr)}
+  .ms-photo{min-height:0;aspect-ratio:16/9}
+  .ms-body{padding:20px 18px}
+  .ms-grid{grid-template-columns:minmax(0,1fr)}
   .home-adv>section:not(.mysbdc-client-counselor-overview),.home-adv>.private{padding-inline:0}
   .home-biz{padding-bottom:10px}
   .row{grid-template-columns:54px minmax(0,1fr);align-items:start}
