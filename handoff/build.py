@@ -8,9 +8,10 @@ Each file in src/ is one page body. The first line names its layout:
 The layouts below are the shared template parts (header.php, the rail, footer.php in theme terms).
 Output is plain static HTML in handoff/ with no build tooling needed to view it.
 """
-import pathlib, re
+import pathlib, re, hashlib
 ROOT = pathlib.Path(__file__).parent
 ICONS = (ROOT / 'src' / '_icons.svg').read_text()
+VER = hashlib.md5((ROOT / 'assets' / 'mysbdc.css').read_bytes() + (ROOT / 'assets' / 'mysbdc.js').read_bytes()).hexdigest()[:8]
 
 def icon(name, cls=''):
     return f'<svg class="icon {cls}" aria-hidden="true"><use href="#i-{name}"/></svg>'
@@ -22,8 +23,8 @@ HEAD = '''<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>{title} · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css">
-<script defer src="assets/mysbdc.js"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v={ver}">
+<script defer src="assets/mysbdc.js?v={ver}"></script>
 </head>
 '''
 
@@ -38,28 +39,15 @@ def app(body, m):
         href = home if key == 'dashboard' else href
         return f'<li class="menu-item{act}{extra}"><a href="{href}"{cur}><span class="icon-wrap">{icon(ic)}</span><span class="label">{label}</span></a></li>'
     items = '\n        '.join(item(*n) for n in NAV)
-    return HEAD.format(title=m['title']) + f'''<body>
+    return HEAD.format(title=m['title'], ver=VER) + f'''<body>
 {ICONS}
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- Rail navigation. Always shows icon + word (body.site-menu-active widens it to a full sidebar). On phones it becomes a four-item bottom tab bar; Settings moves to the account menu. -->
-<div id="site-menu">
-  <a id="site-branding" href="{home}" aria-label="MySBDC home"><span><b>My</b>SBDC</span></a>
-  <nav class="primary-navigation" aria-label="Main">
-    <ul class="menu">
-        {items}
-    </ul>
-    <ul class="menu bottom">
-        {item('settings', 'settings.html', 'settings', 'Settings', ' desktop-only')}
-        <li class="menu-item desktop-only"><a href="#help"><span class="icon-wrap">{icon('help')}</span><span class="label">Help</span></a></li>
-    </ul>
-  </nav>
-</div>
-
 <header id="header">
-  <a class="mobile-brand" href="{home}"><b>My</b>SBDC</a>
-  <p class="center">North Coast SBDC</p>
+  <button id="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="burger-icon"><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Menu</span></button>
+  <a id="site-branding" href="{home}" aria-label="MySBDC home, North Coast SBDC"><span id="site-logo"><b>My</b>SBDC</span><span id="site-title">North Coast SBDC</span></a>
   <div id="site-utility-navigation">
+    <a class="util-btn" href="#help" aria-label="Help">{icon('help')}<span class="label">Help</span></a>
     <button class="util-btn" type="button" aria-label="Language: English. Change language">{icon('globe')}<span class="label">English</span></button>
     <div class="site-user-navigation">
       <details>
@@ -74,6 +62,18 @@ def app(body, m):
     </div>
   </div>
 </header>
+
+<!-- Menu rail (Crown's #site-menu). Icon + word; the toggle widens it to a labelled sidebar. On phones it is a four-item bottom tab bar. -->
+<div id="site-menu">
+  <nav class="primary-navigation" aria-label="Main">
+    <ul class="menu">
+        {items}
+    </ul>
+    <ul class="menu bottom">
+        {item('settings', 'settings.html', 'settings', 'Settings', ' desktop-only')}
+    </ul>
+  </nav>
+</div>
 
 <div id="page">
   <main id="main-content" class="container {m.get("main","reveal")}">
@@ -92,7 +92,7 @@ def app(body, m):
 '''
 
 def bare(body, m):
-    return HEAD.format(title=m['title']) + f'<body>\n{ICONS}\n<a class="skip-link" href="#main-content">Skip to content</a>\n{body}\n</body>\n</html>\n'
+    return HEAD.format(title=m['title'], ver=VER) + f'<body>\n{ICONS}\n<a class="skip-link" href="#main-content">Skip to content</a>\n{body}\n</body>\n</html>\n'
 
 LAYOUTS = {'app': app, 'bare': bare}
 

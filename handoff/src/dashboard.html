@@ -1,16 +1,21 @@
 <!-- layout: app | active: dashboard | title: Home | main: home reveal -->
     <div class="home-lead">
-      <h1 class="hello">Good morning, Avery. <span>One thing before Thursday.</span></h1>
+      <h1 class="hello">Good morning, Avery.</h1>
+      <p class="hello-sub">One thing to do before you meet Dana on Thursday.</p>
 
-      <!-- Next step: one task, one button, directly on the page. -->
+      <!-- Your next step: the one soft sheet on the page. One task, one filled button. -->
       <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-title">
-        <h2 class="next-title" id="next-step-title"><span class="visually-hidden">Your next step: </span>Upload last month’s <em>profit and loss</em> statement.</h2>
-        <p class="next-why">Dana needs it for Thursday’s session. Rough is fine, and a phone photo works.</p>
+        <div class="next-head">
+          <p class="kicker">Your next step</p>
+          <p class="due">{{icon:clock}} Due Thursday</p>
+        </div>
+        <h2 class="next-title" id="next-step-title">Upload last month’s <em>profit and loss</em> statement.</h2>
+        <p class="next-why">Rough is fine, and a phone photo works. Dana will clean it up with you.</p>
         <div class="do">
           <button class="btn btn-primary btn-lg" type="button">{{icon:upload}} Upload statement</button>
           <button class="link" type="button">I need more time</button>
+          <p class="reassure">{{icon:lock}} Only you and your SBDC team can see it</p>
         </div>
-        <p class="reassure">{{icon:lock}} Only you and your SBDC team can see it.</p>
 
         <div class="package">
           <h3 id="package-title">Document 3 of 4 <span>in your lender package</span></h3>
@@ -24,10 +29,14 @@
       </section>
     </div>
 
-    <!-- Business summary: top right on desktop, straight after the next step on phones. -->
+    <!-- Your business: navy card, top right on desktop, straight after the next step on phones. -->
     <section class="home-biz mysbdc-client-overview" aria-labelledby="business-name">
       <h2 id="business-name"><span class="kicker">Your business</span><span class="h-name">Northstar Provisions</span></h2>
-      <p>Food and beverage in Eureka. Working on access to capital. Client since March&nbsp;2025.</p>
+      <p class="where">Food and beverage · Eureka</p>
+      <dl class="biz-facts">
+        <div><dt>Working on</dt><dd>Access to capital</dd></div>
+        <div><dt>Client since</dt><dd>March 2025</dd></div>
+      </dl>
       <a class="link" href="settings.html#business">Edit details</a>
     </section>
 
