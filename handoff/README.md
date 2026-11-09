@@ -35,24 +35,28 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 | --- | --- |
 | `--mysbdc-brand-*` custom properties | Same names and values as `main.css`. New: `navy-soft`, `pool-pale`, `signal-dark` |
 | `#site-menu`, `.primary-navigation .menu-item.active > a > .icon/.label` | The rail |
-| `#site-menu-toggle`, `body.site-menu-active` | Expanding the rail to a labelled sidebar |
+| `body.site-menu-active` | Widening the rail to a labelled sidebar (optional) |
 | `#header`, `#site-utility-navigation`, `.site-user-navigation` | Top utility bar and account menu |
 | `#page`, `#main-content`, `#footer` | Page frame |
-| `.mysbdc-client-next-steps-overview` | The next-step hero |
+| `.mysbdc-client-next-steps-overview` | The next step (headline, button, progress) |
 | `.mysbdc-client-counselor-overview` | Advisor card |
 | `.mysbdc-client-overview` | Business card |
 | `.mysbdc-user-upcoming-events`, `article.event`, `.entry-event-date`, `.entry-title`, `.entry-details .detail`, `.btn-event-register` | Event rows |
-| `.mysbdc-client-milestones-overview` | Milestone prompt |
 | `.btn`, `.btn-primary`, `.btn-sm`, `.eyebrow`, `.dropdown-menu`, `.dropdown-item` | Same names as Bootstrap; the values here are the intended look |
 
 ## What changed from staging, and why
 
 1. **The rail always shows a word under each icon.** Icon-only navigation is the first thing
-   that loses a less confident user. It still expands with the menu button.
+   that loses a less confident user. `body.site-menu-active` still widens it to a full sidebar,
+   but the menu button is gone because the labels are always visible.
 2. **On phones the rail becomes a bottom tab bar**, within thumb reach, instead of a hidden menu.
-3. **The top bar is light, not navy.** One navy edge (the rail) frames the page; the content gets the attention.
-4. **Home leads with one next step**, in the advisor's own words, with the larger goal beside it.
-   A new client sees a three-stage tracker in the same place, so the page never looks empty.
+   It has four items; Settings is in the account menu.
+3. **The rail and top bar are light.** Cream rail, white page. Navy is the colour of words, not surfaces.
+4. **Home has no cards.** One white page: a greeting, the next step as a large serif headline with
+   one filled button, a named progress line, then plain typographic lists. The business summary sits
+   top right (down to 980px wide) and moves directly under the next step on phones. A new client
+   sees the same layout with "We're matching you with your advisor" and a three-step line.
+   Home styles are section 13 of the stylesheet, scoped to `.home`, and sized in rem.
 5. **Sign-in has no password.** Google, Microsoft, or a link by email.
 6. **Form 641 is five short steps** with a plain-language "why we ask" panel beside each one,
    optional SBA questions clearly marked optional, and a phone alternative.
