@@ -82,8 +82,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 
 Each milestone type is its own short form, matching the staging routes. Every form is three steps
 (the question, the detail, review and confirm) on one sheet, with a help panel that changes per step.
-- The card (`.ms-card[data-type]`) has a coloured band per type (blue hired, green sales, navy funding,
-  red started) holding the type name, the progress, and a giant cropped icon (`.ms-giant`) as texture.
+- The card (`.ms-card[data-type]`) has a light coloured band per type (sky blue hired, mint sales, gold funding,
+  coral started) with navy text holding the type name, the progress, and a giant cropped icon (`.ms-giant`) as texture.
   This band is the one sanctioned use of a soft gradient in the app.
 - Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
 - `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch).
