@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Milestones · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=da4b7d60">
-<script defer src="assets/mysbdc.js?v=da4b7d60"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=2185a3d6">
+<script defer src="assets/mysbdc.js?v=2185a3d6"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -79,32 +79,28 @@
 </div>
 
 <div id="page">
-  <main id="main-content" class="container reveal">
-    <header class="page-intro">
-      <h1>Look how far you’ve come.</h1>
-      <p class="lead">Tell us what changed. It takes about four minutes, your best guess is enough, and it helps the next business get help.</p>
+  <main id="main-content" class="container ms-page reveal">
+    <header class="ms-head">
+      <h1>What’s new with your business?</h1>
+      <p>Pick one. Three short steps, about four minutes.</p>
     </header>
 
-    <section aria-labelledby="choose">
-      <h2 class="eyebrow berry" id="choose"><svg class="icon sm" aria-hidden="true"><use href="#i-flag"/></svg> What would you like to share?</h2>
-      <div class="choice-grid mt-24">
-        <a class="choice-card" href="#"><span class="tile-icon"><svg class="icon " aria-hidden="true"><use href="#i-users"/></svg></span><h3>Hired employees</h3><p>You added full-time or part-time staff.</p><span class="go">Share this</span></a>
-        <a class="choice-card" href="#"><span class="tile-icon"><svg class="icon " aria-hidden="true"><use href="#i-chart"/></svg></span><h3>Increased sales</h3><p>Your sales grew compared with last year.</p><span class="go">Share this</span></a>
-        <a class="choice-card" href="#"><span class="tile-icon"><svg class="icon " aria-hidden="true"><use href="#i-store"/></svg></span><h3>Started a business</h3><p>You registered and began operating.</p><span class="go">Share this</span></a>
-        <a class="choice-card" href="#"><span class="tile-icon"><svg class="icon " aria-hidden="true"><use href="#i-coins"/></svg></span><h3>Received funding</h3><p>A loan, grant, investment or your own capital.</p><span class="go">Share this</span></a>
-      </div>
-    </section>
+    <!-- Four milestone types. Each tile opens its own short form. -->
+    <nav class="ms-choices" aria-label="Share a milestone">
+        <a class="ms-choice" data-type="hired" href="milestone-hired.html"><svg class="ms-giant" aria-hidden="true"><use href="#i-users"/></svg><strong>Hired someone</strong><small>Full-time or part-time</small></a>
+        <a class="ms-choice" data-type="sales" href="milestone-sales.html"><svg class="ms-giant" aria-hidden="true"><use href="#i-chart"/></svg><strong>Sales grew</strong><small>Compared with last year</small></a>
+        <a class="ms-choice" data-type="funding" href="milestone-funding.html"><svg class="ms-giant" aria-hidden="true"><use href="#i-coins"/></svg><strong>Got funding</strong><small>A loan, grant or investment</small></a>
+        <a class="ms-choice" data-type="started" href="milestone-started.html"><svg class="ms-giant" aria-hidden="true"><use href="#i-store"/></svg><strong>Started a business</strong><small>Registered and operating</small></a>
+    </nav>
 
-    <section class="card mt-32" aria-labelledby="history">
-      <div class="card-head"><h2 class="eyebrow" id="history">Your milestones so far</h2></div>
-      <div class="events">
-        <div class="resource-row"><span class="tile-icon"><svg class="icon " aria-hidden="true"><use href="#i-coins"/></svg></span><div><h3>Received funding · $45,000 equipment loan</h3><p class="small muted">Shared June 2026</p></div><span class="badge green"><svg class="icon sm" aria-hidden="true"><use href="#i-check"/></svg> Confirmed</span></div>
-        <div class="resource-row"><span class="tile-icon"><svg class="icon " aria-hidden="true"><use href="#i-users"/></svg></span><div><h3>Hired employees · 2 part-time</h3><p class="small muted">Shared February 2026</p></div><span class="badge green"><svg class="icon sm" aria-hidden="true"><use href="#i-check"/></svg> Confirmed</span></div>
-        <div class="resource-row"><span class="tile-icon"><svg class="icon " aria-hidden="true"><use href="#i-store"/></svg></span><div><h3>Started a business · Northstar Provisions</h3><p class="small muted">Shared March 2025</p></div><span class="badge green"><svg class="icon sm" aria-hidden="true"><use href="#i-check"/></svg> Confirmed</span></div>
-      </div>
+    <section class="ms-history" aria-labelledby="history">
+      <h2 class="ms-label" id="history">Shared so far</h2>
+      <ul class="ms-log">
+        <li><strong>Got funding</strong><span>$45,000 equipment loan · June 2026</span></li>
+        <li><strong>Hired someone</strong><span>2 part-time · February 2026</span></li>
+        <li><strong>Started a business</strong><span>Northstar Provisions · March 2025</span></li>
+      </ul>
     </section>
-
-    <p class="note mt-24"><svg class="icon " aria-hidden="true"><use href="#i-lock"/></svg><span><strong>Nothing is published with your name.</strong> Someone at your center reviews each milestone before it counts toward our reporting to the SBA.</span></p>
   </main>
 </div>
 

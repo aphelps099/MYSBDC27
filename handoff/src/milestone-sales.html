@@ -1,0 +1,51 @@
+<!-- layout: app | active: milestones | title: Sales grew | main: ms-page ms-flow reveal -->
+    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+
+    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
+    <div class="ms-card" data-type="sales">
+      <svg class="ms-giant" aria-hidden="true"><use href="#i-chart"/></svg>
+      <div class="ms-top">
+        <p class="ms-label">Sales grew</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+      </div>
+      <form data-stepper novalidate>
+        <section class="step-panel" aria-labelledby="h1">
+          <h1 id="h1">What were your sales last year?</h1>
+          <p class="lead">Total sales before expenses. A rounded number is fine.</p>
+          <div class="form-grid">
+            <div class="field"><label for="year">Year</label><select id="year" name="year"><option>2025</option><option>2024</option></select></div>
+            <div class="field"><label for="rev">Total sales</label><div class="money"><input id="rev" name="rev" type="text" inputmode="decimal" value="412,000" required></div></div>
+          </div>
+          <p class="on-file mt-16">We have <strong>$343,000</strong> on file for the year before.<button class="link" type="button">That’s not right</button></p>
+          <div class="intake-nav"><a class="link" href="milestones.html">Cancel</a><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+        <section class="step-panel" aria-labelledby="h2">
+          <h1 id="h2">Where does that number come from?</h1>
+          <p class="lead">Any of these is fine. No paperwork needed.</p>
+          <fieldset><legend class="visually-hidden">Source of the number</legend>
+            <div class="options">
+              <label class="option"><input type="radio" name="basis" value="books" checked><span><strong>My bookkeeping</strong></span></label>
+              <label class="option"><input type="radio" name="basis" value="tax"><span><strong>My tax return</strong></span></label>
+              <label class="option"><input type="radio" name="basis" value="guess"><span><strong>My best estimate</strong></span></label>
+            </div>
+          </fieldset>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+        <section class="step-panel" aria-labelledby="h3">
+          <h1 id="h3">Does this look right?</h1>
+          <p class="ms-sentence mt-24">Your sales for <b data-echo="year">2025</b> were <b>$<span data-echo="rev">412,000</span></b>, up from $343,000 the year before.</p>
+          <button class="link" type="button" data-step="0">Change</button>
+          <fieldset class="mt-24">
+            <legend>Did the SBDC help with this?</legend>
+            <div class="pills">
+              <label class="option"><input type="radio" name="support" value="yes" checked><span><strong>Yes</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="partly"><span><strong>In part</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="unsure"><span><strong>Not sure</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="no"><span><strong>No</strong></span></label>
+            </div>
+          </fieldset>
+          <div class="field signature"><label for="sign">Type your name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required></div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=sales">Share milestone</button></div>
+        </section>
+      </form>
+    </div>

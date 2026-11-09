@@ -19,7 +19,12 @@ python3 -m http.server 8000      # from the repository root
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
 | `events.html` | Training | `/events/` |
-| `milestones.html` | Milestones | `/milestones/` |
+| `milestones.html` | Milestones: choose a type, plus history | `/milestones/` |
+| `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
+| `milestone-sales.html` | Milestone form: sales grew (3 steps) | `/milestones/new/increased-revenue/` |
+| `milestone-funding.html` | Milestone form: got funding (3 steps) | `/milestones/new/received-funding/` |
+| `milestone-started.html` | Milestone form: started a business (3 steps, with a "not yet" exit) | `/milestones/new/started-business/` and `/not-started/` |
+| `milestone-done.html` | Thank-you, with a prompt to add another | `/milestones/new/*/success/` |
 | `resources.html` | Resources | `/resources/` |
 
 - `assets/mysbdc.css` is the whole design: tokens, shell, components. No framework.
@@ -63,14 +68,40 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
      If the note carries a link, it appears as a text link under the note (`.memo-links`), beside
      "Reply to Dana". With no note yet (new client), the same sheet shows a note from the center.
    - *Your business* is the navy card at the top right; on phones it follows the next step.
-   - *Your advisor* sits in a light rounded container with one action: Send a message. There is no booking.
-   - *Your milestones* is a pool-tinted band with four direct links, one per milestone type.
-   - Coming up and the advisor's picked resources sit directly on the page.
+   - *Your advisor* sits in a light rounded container: name, specialty, Send a message (there is
+     no booking), and the resources the advisor picked for this client.
+   - *Your milestones* is a flat pool band across the full width with four tiles, one per milestone type.
+   - Coming up sits directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
 5. **Sign-in has no password.** Google, Microsoft, or a link by email.
 6. **Form 641 is five short steps** with a plain-language "why we ask" panel beside each one,
    optional SBA questions clearly marked optional, and a phone alternative.
 7. **Settings is one page**, in sections that save independently.
+
+## Milestone forms
+
+Each milestone type is its own short form, matching the staging routes. The design is minimal:
+- One white card per screen (`.ms-card[data-type]`). The milestone's colour is a single straight wash
+  from the top-right corner fading to white, with a bold white icon (`.ms-giant`) cropped off that corner.
+  Colours: blue hired, green sales, gold funding, coral started. Buttons are navy on every form.
+- Progress is one row: the milestone name, three short dashes and "Step 1 of 3".
+- One serif question per step. Counts are a large serif number between round − and + buttons.
+  Choices are soft filled rows. Help is one quiet line (`.ms-tip`), not a sidebar.
+- The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?" and a typed name.
+- `milestone-done.html` is a congratulations page with confetti (skipped for reduced motion) and a
+  line that fits the milestone (`?type=`).
+- Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
+  `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch);
+  `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
+The fields are a starting set drawn from the earlier preview; check them against what Neoserra's
+milestone records require.
+
+## Surface rule: flat
+
+App surfaces are solid colours with a 6px radius. No gradients, no grain and no soft drop shadows on
+cards, panels, bands or tiles. Separation comes from colour and spacing. The one shadow in the
+vocabulary is the brand's solid offset plate (`box-shadow: 10px 10px 0 <colour>`, the About page's pool
+plate at a smaller scale), used on a single focal surface per page; on Home that is the next step.
 
 ## Accessibility
 

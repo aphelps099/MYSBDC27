@@ -1,0 +1,61 @@
+<!-- layout: app | active: milestones | title: Got funding | main: ms-page ms-flow reveal -->
+    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+
+    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
+    <div class="ms-card" data-type="funding">
+      <svg class="ms-giant" aria-hidden="true"><use href="#i-coins"/></svg>
+      <div class="ms-top">
+        <p class="ms-label">Got funding</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+      </div>
+      <form data-stepper novalidate>
+        <section class="step-panel" aria-labelledby="h1">
+          <h1 id="h1">What kind of funding was it?</h1>
+          <p class="lead">Choose one. You can add another when you finish.</p>
+          <fieldset><legend class="visually-hidden">Kind of funding</legend>
+            <div class="options">
+              <label class="option"><input type="radio" name="kind" value="loan" checked><span><strong>A loan or line of credit</strong></span></label>
+              <label class="option"><input type="radio" name="kind" value="grant"><span><strong>A grant</strong></span></label>
+              <label class="option"><input type="radio" name="kind" value="own"><span><strong>My own money</strong></span></label>
+              <label class="option"><input type="radio" name="kind" value="equity"><span><strong>An investor</strong></span></label>
+              <label class="option"><input type="radio" name="kind" value="other"><span><strong>Something else</strong></span></label>
+            </div>
+          </fieldset>
+          <p class="ms-tip"><strong>Does my own money count?</strong> Yes. Savings you put into the business are an investment.</p>
+          <div class="intake-nav"><a class="link" href="milestones.html">Cancel</a><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+        <section class="step-panel" aria-labelledby="h2">
+          <h1 id="h2">How much, and when?</h1>
+          <p class="lead">A rounded amount is fine.</p>
+          <div class="form-grid">
+            <div class="field"><label for="amt">Amount</label><div class="money"><input id="amt" name="amt" type="text" inputmode="decimal" value="45,000" required></div></div>
+            <div class="field"><label for="fwhen">Month</label><select id="fwhen" name="fwhen"><option>November 2026</option><option>October 2026</option><option>September 2026</option><option>August 2026</option><option>July 2026</option><option>June 2026</option><option>May 2026</option><option>April 2026</option><option>March 2026</option><option>February 2026</option><option>January 2026</option><option>Earlier</option></select></div>
+            <div class="field full" data-show-if="kind=loan"><label for="ltype">Type of loan</label><select id="ltype" name="ltype"><option>Bank loan</option><option>SBA loan</option><option>Micro-loan</option><option>Line of credit</option><option>Equipment financing</option><option>Another kind</option></select></div>
+            <div class="field full"><label for="from">Who is it from? <span class="optional">(optional)</span></label><input id="from" name="from" type="text" placeholder="Redwood Capital Bank"></div>
+          </div>
+          <fieldset class="mt-24"><legend>Do you have the money yet?</legend>
+            <div class="pills" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+              <label class="option"><input type="radio" name="status" value="received" checked><span><strong>Yes, received</strong></span></label>
+              <label class="option"><input type="radio" name="status" value="approved"><span><strong>Approved, not yet</strong></span></label>
+            </div>
+          </fieldset>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+        <section class="step-panel" aria-labelledby="h3">
+          <h1 id="h3">Does this look right?</h1>
+          <p class="ms-sentence mt-24">You got <b>$<span data-echo="amt">45,000</span></b> in <b data-echo="fwhen">November 2026</b>. <b data-echo="kind">A loan or line of credit</b>.</p>
+          <button class="link" type="button" data-step="0">Change</button>
+          <fieldset class="mt-24">
+            <legend>Did the SBDC help with this?</legend>
+            <div class="pills">
+              <label class="option"><input type="radio" name="support" value="yes" checked><span><strong>Yes</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="partly"><span><strong>In part</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="unsure"><span><strong>Not sure</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="no"><span><strong>No</strong></span></label>
+            </div>
+          </fieldset>
+          <div class="field signature"><label for="sign">Type your name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required></div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=funding">Share milestone</button></div>
+        </section>
+      </form>
+    </div>
