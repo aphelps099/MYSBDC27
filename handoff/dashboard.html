@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Home · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=b83e17fb">
-<script defer src="assets/mysbdc.js?v=b83e17fb"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=da4b7d60">
+<script defer src="assets/mysbdc.js?v=da4b7d60"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -80,16 +80,14 @@
 
 <div id="page">
   <main id="main-content" class="container home reveal">
+  <div class="home-main">
     <div class="home-lead">
       <h1 class="hello">Good morning, Avery.</h1>
       <p class="hello-sub">Here is the latest from your advisor.</p>
 
       <!-- Your next step: the advisor's latest note from Neoserra, shown as written. An action link appears only when the note has one. -->
       <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-label">
-        <div class="next-head">
-          <h2 class="kicker" id="next-step-label">Your next step</h2>
-          <p class="due">Friday, November 6</p>
-        </div>
+        <h2 class="kicker" id="next-step-label">Your next step</h2>
         <p class="memo">Please upload last month’s profit and loss statement before we meet on Thursday. Rough is fine, and a phone photo works. We’ll clean it up together.</p>
         <p class="memo-from"><img src="assets/img/advisor-dana-face.jpg" alt="" width="40" height="40"><span><strong>Dana Whitfield</strong>, your advisor</span></p>
         <div class="memo-links">
@@ -98,17 +96,6 @@
         </div>
       </section>
     </div>
-
-    <!-- Your business: navy card, top right on desktop, straight after the next step on phones. -->
-    <section class="home-biz mysbdc-client-overview" aria-labelledby="business-name">
-      <h2 id="business-name"><span class="kicker">Your business</span><span class="h-name">Northstar Provisions</span></h2>
-      <p class="where">Food and beverage · Eureka</p>
-      <dl class="biz-facts">
-        <div><dt>Working on</dt><dd>Access to capital</dd></div>
-        <div><dt>Client since</dt><dd>March 2025</dd></div>
-      </dl>
-      <a class="link" href="settings.html#business">Edit details</a>
-    </section>
 
     <div class="home-more">
       <section class="mysbdc-user-upcoming-events" aria-labelledby="coming-up">
@@ -136,19 +123,20 @@
         </div>
       </section>
 
-      <section class="milestones mysbdc-client-milestones-overview" aria-labelledby="milestone-title">
-        <p class="kicker"><svg class="icon " aria-hidden="true"><use href="#i-flag"/></svg> Your milestones</p>
-        <h2 id="milestone-title">Anything new with your business?</h2>
-        <p>Pick what changed. It takes about four minutes, and your best guess is enough.</p>
-        <div class="ms-grid">
-          <a href="milestones.html"><svg class="icon " aria-hidden="true"><use href="#i-users"/></svg><span>Hired someone</span></a>
-          <a href="milestones.html"><svg class="icon " aria-hidden="true"><use href="#i-chart"/></svg><span>Sales grew</span></a>
-          <a href="milestones.html"><svg class="icon " aria-hidden="true"><use href="#i-coins"/></svg><span>Got funding</span></a>
-          <a href="milestones.html"><svg class="icon " aria-hidden="true"><use href="#i-store"/></svg><span>Started a business</span></a>
-        </div>
-        <p class="ms-last"><span>Last shared: Got funding, June 2026</span><a class="link" href="milestones.html">See all milestones</a></p>
-      </section>
     </div>
+  </div>
+
+  <div class="home-side">
+    <!-- Your business: navy card, top right on desktop, straight after the next step on phones. -->
+    <section class="home-biz mysbdc-client-overview" aria-labelledby="business-name">
+      <h2 id="business-name"><span class="kicker">Your business</span><span class="h-name">Northstar Provisions</span></h2>
+      <p class="where">Food and beverage · Eureka</p>
+      <dl class="biz-facts">
+        <div><dt>Working on</dt><dd>Access to capital</dd></div>
+        <div><dt>Client since</dt><dd>March 2025</dd></div>
+      </dl>
+      <a class="link" href="settings.html#business">Edit details</a>
+    </section>
 
     <aside class="home-adv" aria-label="Your advisor and resources">
       <section class="mysbdc-client-counselor-overview" aria-labelledby="advisor-name">
@@ -157,7 +145,7 @@
           <img src="assets/img/advisor-dana-face.jpg" alt="Dana Whitfield, your advisor" width="60" height="60">
           <div>
             <strong class="h-name" id="advisor-name">Dana Whitfield</strong>
-            <p>Replies within one business&nbsp;day</p>
+            <p>Loans, cash flow and food&nbsp;businesses</p>
           </div>
         </div>
         <div class="adv-actions">
@@ -176,6 +164,23 @@
 
       <p class="private"><svg class="icon " aria-hidden="true"><use href="#i-lock"/></svg><span>Private. Only you and your SBDC team see your information.</span></p>
     </aside>
+  </div>
+
+    <!-- Milestones: full-width closing band. Each tile opens that milestone's form. -->
+    <section class="milestones mysbdc-client-milestones-overview" aria-labelledby="milestone-title">
+      <div class="ms-intro">
+        <p class="kicker"><svg class="icon " aria-hidden="true"><use href="#i-flag"/></svg> Your milestones</p>
+        <h2 id="milestone-title">Anything new with your business?</h2>
+        <p>Tell us what changed. It takes about four minutes, and your best guess is enough.</p>
+        <p class="ms-last"><span>Last shared: Got funding, June 2026</span><a class="link" href="milestones.html">See all milestones</a></p>
+      </div>
+      <div class="ms-grid">
+        <a href="milestones.html"><span class="tile"><svg class="icon " aria-hidden="true"><use href="#i-users"/></svg></span><strong>Hired someone</strong><small>Full-time or part-time</small></a>
+        <a href="milestones.html"><span class="tile"><svg class="icon " aria-hidden="true"><use href="#i-chart"/></svg></span><strong>Sales grew</strong><small>Compared with last year</small></a>
+        <a href="milestones.html"><span class="tile"><svg class="icon " aria-hidden="true"><use href="#i-coins"/></svg></span><strong>Got funding</strong><small>A loan, grant or investment</small></a>
+        <a href="milestones.html"><span class="tile"><svg class="icon " aria-hidden="true"><use href="#i-store"/></svg></span><strong>Started a business</strong><small>Registered and operating</small></a>
+      </div>
+    </section>
   </main>
 </div>
 

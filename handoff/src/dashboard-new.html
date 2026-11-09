@@ -1,28 +1,16 @@
 <!-- layout: app | active: dashboard | title: Welcome | state: new | main: home reveal -->
+  <div class="home-main">
     <div class="home-lead">
       <h1 class="hello">Welcome, Avery.</h1>
       <p class="hello-sub">You’re signed up. Here is what happens next.</p>
 
       <!-- New client, no advisor yet: the same sheet carries a note from the center. -->
       <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-label">
-        <div class="next-head">
-          <h2 class="kicker" id="next-step-label">Your next step</h2>
-          <p class="due">{{icon:check}} Nothing to do yet</p>
-        </div>
-        <p class="memo">We’re matching you with your advisor. A person here is reading your request, and we’ll email you, usually within two business days.</p>
+        <h2 class="kicker" id="next-step-label">Your next step</h2>
+        <p class="memo">We’re matching you with your advisor. A person here is reading your request, and we’ll email you, usually within two business days. Nothing to do until then.</p>
         <p class="memo-from"><span class="ph">{{icon:mail}}</span><span><strong>North Coast SBDC</strong> · Monday, November 9</span></p>
       </section>
     </div>
-
-    <section class="home-biz mysbdc-client-overview" aria-labelledby="business-name">
-      <h2 id="business-name"><span class="kicker">Your business</span><span class="h-name">Northstar Provisions</span></h2>
-      <p class="where">Food and beverage · Eureka</p>
-      <dl class="biz-facts">
-        <div><dt>Help with</dt><dd>Access to capital</dd></div>
-        <div><dt>Your center</dt><dd>North Coast SBDC</dd></div>
-      </dl>
-      <a class="link" href="settings.html#business">Edit details</a>
-    </section>
 
     <div class="home-more">
       <section class="mysbdc-user-upcoming-events" aria-labelledby="start-now">
@@ -53,6 +41,18 @@
         </div>
       </section>
     </div>
+  </div>
+
+  <div class="home-side">
+    <section class="home-biz mysbdc-client-overview" aria-labelledby="business-name">
+      <h2 id="business-name"><span class="kicker">Your business</span><span class="h-name">Northstar Provisions</span></h2>
+      <p class="where">Food and beverage · Eureka</p>
+      <dl class="biz-facts">
+        <div><dt>Help with</dt><dd>Access to capital</dd></div>
+        <div><dt>Your center</dt><dd>North Coast SBDC</dd></div>
+      </dl>
+      <a class="link" href="settings.html#business">Edit details</a>
+    </section>
 
     <aside class="home-adv" aria-label="Your advisor">
       <section class="mysbdc-client-counselor-overview" aria-labelledby="advisor-name">
@@ -71,3 +71,4 @@
 
       <p class="private">{{icon:lock}}<span>Private. Only you and your SBDC team see your information.</span></p>
     </aside>
+  </div>
