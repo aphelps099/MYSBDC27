@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Started a business · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=db1edeaf">
-<script defer src="assets/mysbdc.js?v=db1edeaf"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=2185a3d6">
+<script defer src="assets/mysbdc.js?v=2185a3d6"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -80,29 +80,26 @@
 
 <div id="page">
   <main id="main-content" class="container ms-page ms-flow reveal">
-    <div class="ms-main">
-      <a class="link ms-back" href="milestones.html">Back to milestones</a>
-      <!-- One card: a coloured band (type, progress, giant cropped icon) over the form sheet. -->
-      <div class="ms-card" data-type="started">
-        <header class="ms-band">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-store"/></svg>
-          <p class="kicker">Share a milestone</p>
-          <p class="ms-band-title">Started a business</p>
-        <nav class="steps inline" aria-label="Progress">
-          <ol><li>Your status</li><li>The details</li><li>Review</li></ol>
-          <p class="count" aria-live="polite"></p>
-        </nav>
-        </header>
-      <form class="ms-sheet" data-stepper novalidate>
+    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+
+    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
+    <div class="ms-card" data-type="started">
+      <svg class="ms-giant" aria-hidden="true"><use href="#i-store"/></svg>
+      <div class="ms-top">
+        <p class="ms-label">Started a business</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+      </div>
+      <form data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
           <h1 id="h1">Have you started doing business?</h1>
           <p class="lead">Either answer is fine. It only changes what we ask next.</p>
           <fieldset><legend class="visually-hidden">Have you started doing business?</legend>
             <div class="options">
-              <label class="option"><input type="radio" name="open" value="yes" checked><span><strong>Yes, I’m open</strong><small>I’m registered and have made a sale, hired, or put money in.</small></span></label>
-              <label class="option"><input type="radio" name="open" value="no"><span><strong>Not yet</strong><small>I’m still getting ready.</small></span></label>
+              <label class="option"><input type="radio" name="open" value="yes" checked><span><strong>Yes, I’m open</strong></span></label>
+              <label class="option"><input type="radio" name="open" value="no"><span><strong>Not yet</strong></span></label>
             </div>
           </fieldset>
+          <p class="ms-tip"><strong>What counts as open?</strong> You’ve registered and made a sale, hired someone, or put money in.</p>
           <div class="intake-nav"><a class="link" href="milestones.html">Cancel</a><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
         </section>
         <section class="step-panel" data-when="open=yes" aria-labelledby="h2">
@@ -117,37 +114,27 @@
         </section>
         <section class="step-panel" data-when="open=yes" aria-labelledby="h3">
           <h1 id="h3">Does this look right?</h1>
-          <p class="lead">Change anything now. Then confirm, and you’re done.</p>
-          <div class="review">
-            <div class="review-group"><h3>Your business</h3><p><span data-echo="bname">Northstar Provisions</span> · <span data-echo="setup">LLC</span> · started <span data-echo="swhen">November 2026</span></p><button class="link" type="button" data-step="1">Change</button></div>
-          </div>
-          <fieldset>
+          <p class="ms-sentence mt-24"><b data-echo="bname">Northstar Provisions</b> opened in <b data-echo="swhen">November 2026</b> as <b data-echo="setup">LLC</b>.</p>
+          <button class="link" type="button" data-step="1">Change</button>
+          <fieldset class="mt-24">
             <legend>Did the SBDC help with this?</legend>
-            <div class="option-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+            <div class="pills">
               <label class="option"><input type="radio" name="support" value="yes" checked><span><strong>Yes</strong></span></label>
               <label class="option"><input type="radio" name="support" value="partly"><span><strong>In part</strong></span></label>
               <label class="option"><input type="radio" name="support" value="unsure"><span><strong>Not sure</strong></span></label>
               <label class="option"><input type="radio" name="support" value="no"><span><strong>No</strong></span></label>
             </div>
           </fieldset>
-          <div class="field signature"><label for="sign">Type your full name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required><p class="hint">This confirms the details are right to the best of your knowledge.</p></div>
+          <div class="field signature"><label for="sign">Type your name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required></div>
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=started">Share milestone</button></div>
         </section>
         <section class="step-panel" data-when="open=no" data-end aria-labelledby="h4">
           <h1 id="h4">That’s all right. There’s no rush.</h1>
-          <p class="lead">Every business starts on its own schedule. When you open, come back and tell us. Until then, Dana can help with whatever is in the way.</p>
+          <p class="lead">When you open, come back and tell us. Until then, Dana can help with whatever is in the way.</p>
           <div class="intake-nav" style="justify-content:flex-start;gap:28px"><a class="btn btn-primary" href="dashboard.html">Back to home</a><a class="link" href="events.html">See free training</a></div>
         </section>
       </form>
-      </div>
     </div>
-
-    <aside class="why" aria-label="Help with this step">
-      <div data-why="0"><h2>What counts as started?</h2><p class="mt-8">You’ve registered the business and done at least one of these: made a sale, hired someone, or put money in.</p></div>
-      <div data-why="1" hidden><h2>Why the date?</h2><p class="mt-8">The SBA reports new businesses by quarter. The month tells us which one.</p></div>
-      <div data-why="2" hidden><h2>What happens next</h2><p class="mt-8">Dana reviews this before it counts. She may get in touch to check a detail.</p></div>
-      <p class="help"><svg class="icon sm" aria-hidden="true"><use href="#i-message"/></svg> <strong class="mt-8" style="display:block">Not sure what to enter?</strong><span class="small">Leave your best guess. Dana can fix it with you later.</span></p>
-    </aside>
   </main>
 </div>
 

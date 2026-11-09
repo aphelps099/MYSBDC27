@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Got funding · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=db1edeaf">
-<script defer src="assets/mysbdc.js?v=db1edeaf"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=2185a3d6">
+<script defer src="assets/mysbdc.js?v=2185a3d6"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -80,32 +80,29 @@
 
 <div id="page">
   <main id="main-content" class="container ms-page ms-flow reveal">
-    <div class="ms-main">
-      <a class="link ms-back" href="milestones.html">Back to milestones</a>
-      <!-- One card: a coloured band (type, progress, giant cropped icon) over the form sheet. -->
-      <div class="ms-card" data-type="funding">
-        <header class="ms-band">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-coins"/></svg>
-          <p class="kicker">Share a milestone</p>
-          <p class="ms-band-title">Got funding</p>
-        <nav class="steps inline" aria-label="Progress">
-          <ol><li>The kind</li><li>The amount</li><li>Review</li></ol>
-          <p class="count" aria-live="polite"></p>
-        </nav>
-        </header>
-      <form class="ms-sheet" data-stepper novalidate>
+    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+
+    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
+    <div class="ms-card" data-type="funding">
+      <svg class="ms-giant" aria-hidden="true"><use href="#i-coins"/></svg>
+      <div class="ms-top">
+        <p class="ms-label">Got funding</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+      </div>
+      <form data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
           <h1 id="h1">What kind of funding was it?</h1>
-          <p class="lead">Choose one. If you received more than one, you can add another when you finish.</p>
+          <p class="lead">Choose one. You can add another when you finish.</p>
           <fieldset><legend class="visually-hidden">Kind of funding</legend>
             <div class="options">
-              <label class="option"><input type="radio" name="kind" value="loan" checked><span><strong>A loan or line of credit</strong><small>From a bank, the SBA, a micro-lender or for equipment</small></span></label>
-              <label class="option"><input type="radio" name="kind" value="grant"><span><strong>A grant</strong><small>Money you don’t repay</small></span></label>
-              <label class="option"><input type="radio" name="kind" value="own"><span><strong>My own money</strong><small>Savings or personal funds you put into the business</small></span></label>
-              <label class="option"><input type="radio" name="kind" value="equity"><span><strong>An investor</strong><small>Money in exchange for a share of the business</small></span></label>
+              <label class="option"><input type="radio" name="kind" value="loan" checked><span><strong>A loan or line of credit</strong></span></label>
+              <label class="option"><input type="radio" name="kind" value="grant"><span><strong>A grant</strong></span></label>
+              <label class="option"><input type="radio" name="kind" value="own"><span><strong>My own money</strong></span></label>
+              <label class="option"><input type="radio" name="kind" value="equity"><span><strong>An investor</strong></span></label>
               <label class="option"><input type="radio" name="kind" value="other"><span><strong>Something else</strong></span></label>
             </div>
           </fieldset>
+          <p class="ms-tip"><strong>Does my own money count?</strong> Yes. Savings you put into the business are an investment.</p>
           <div class="intake-nav"><a class="link" href="milestones.html">Cancel</a><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
         </section>
         <section class="step-panel" aria-labelledby="h2">
@@ -118,42 +115,31 @@
             <div class="field full"><label for="from">Who is it from? <span class="optional">(optional)</span></label><input id="from" name="from" type="text" placeholder="Redwood Capital Bank"></div>
           </div>
           <fieldset class="mt-24"><legend>Do you have the money yet?</legend>
-            <div class="option-grid">
+            <div class="pills" style="grid-template-columns:repeat(2,minmax(0,1fr))">
               <label class="option"><input type="radio" name="status" value="received" checked><span><strong>Yes, received</strong></span></label>
-              <label class="option"><input type="radio" name="status" value="approved"><span><strong>Approved, not yet received</strong></span></label>
+              <label class="option"><input type="radio" name="status" value="approved"><span><strong>Approved, not yet</strong></span></label>
             </div>
           </fieldset>
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
         </section>
         <section class="step-panel" aria-labelledby="h3">
           <h1 id="h3">Does this look right?</h1>
-          <p class="lead">Change anything now. Then confirm, and you’re done.</p>
-          <div class="review">
-            <div class="review-group"><h3>Kind of funding</h3><p><span data-echo="kind">A loan or line of credit</span></p><button class="link" type="button" data-step="0">Change</button></div>
-            <div class="review-group"><h3>Amount and date</h3><p>$<span data-echo="amt">45,000</span> · <span data-echo="fwhen">November 2026</span> · <span data-echo="status">Yes, received</span></p><button class="link" type="button" data-step="1">Change</button></div>
-          </div>
-          <fieldset>
+          <p class="ms-sentence mt-24">You got <b>$<span data-echo="amt">45,000</span></b> in <b data-echo="fwhen">November 2026</b>. <b data-echo="kind">A loan or line of credit</b>.</p>
+          <button class="link" type="button" data-step="0">Change</button>
+          <fieldset class="mt-24">
             <legend>Did the SBDC help with this?</legend>
-            <div class="option-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+            <div class="pills">
               <label class="option"><input type="radio" name="support" value="yes" checked><span><strong>Yes</strong></span></label>
               <label class="option"><input type="radio" name="support" value="partly"><span><strong>In part</strong></span></label>
               <label class="option"><input type="radio" name="support" value="unsure"><span><strong>Not sure</strong></span></label>
               <label class="option"><input type="radio" name="support" value="no"><span><strong>No</strong></span></label>
             </div>
           </fieldset>
-          <div class="field signature"><label for="sign">Type your full name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required><p class="hint">This confirms the details are right to the best of your knowledge.</p></div>
+          <div class="field signature"><label for="sign">Type your name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required></div>
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=funding">Share milestone</button></div>
         </section>
       </form>
-      </div>
     </div>
-
-    <aside class="why" aria-label="Help with this step">
-      <div data-why="0"><h2>Does my own money count?</h2><p class="mt-8">Yes. Putting your own savings into the business is an investment, and the SBA counts it.</p></div>
-      <div data-why="1" hidden><h2>Approved or received?</h2><p class="mt-8">Either counts. Tell us which so we record the right date.</p></div>
-      <div data-why="2" hidden><h2>What happens next</h2><p class="mt-8">Dana reviews this before it counts. She may get in touch to check a detail.</p></div>
-      <p class="help"><svg class="icon sm" aria-hidden="true"><use href="#i-message"/></svg> <strong class="mt-8" style="display:block">Not sure what to enter?</strong><span class="small">Leave your best guess. Dana can fix it with you later.</span></p>
-    </aside>
   </main>
 </div>
 

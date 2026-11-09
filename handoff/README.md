@@ -80,16 +80,19 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 
 ## Milestone forms
 
-Each milestone type is its own short form, matching the staging routes. Every form is three steps
-(the question, the detail, review and confirm) on one sheet, with a help panel that changes per step.
-- The card (`.ms-card[data-type]`) has a light coloured band per type (sky blue hired, mint sales, gold funding,
-  coral started) with navy text holding the type name, the progress, and a giant cropped icon (`.ms-giant`) as texture.
-  This band is the one sanctioned use of a soft gradient in the app.
+Each milestone type is its own short form, matching the staging routes. The design is minimal:
+- One white card per screen (`.ms-card[data-type]`). The milestone's colour is a single straight wash
+  from the top-right corner fading to white, with a bold white icon (`.ms-giant`) cropped off that corner.
+  Colours: blue hired, green sales, gold funding, coral started. Buttons are navy on every form.
+- Progress is one row: the milestone name, three short dashes and "Step 1 of 3".
+- One serif question per step. Counts are a large serif number between round − and + buttons.
+  Choices are soft filled rows. Help is one quiet line (`.ms-tip`), not a sidebar.
+- The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?" and a typed name.
+- `milestone-done.html` is a congratulations page with confetti (skipped for reduced motion) and a
+  line that fits the milestone (`?type=`).
 - Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
-- `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch).
-- `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
-- `data-echo="field"` prints an answer on the review step. Number fields use `.stepper` with − and + buttons.
-- The review step asks whether the SBDC helped and takes a typed name as confirmation.
+  `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch);
+  `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
 The fields are a starting set drawn from the earlier preview; check them against what Neoserra's
 milestone records require.
 

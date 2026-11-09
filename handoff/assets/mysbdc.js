@@ -117,7 +117,7 @@
       whys.forEach(w => w.hidden = +w.dataset.why !== mark);
       const steps = $('.steps'), why = $('.why');
       if (steps) steps.hidden = last; if (why) why.hidden = last;
-      if (count && !last) count.textContent = 'Step ' + (mark + 1) + ' of ' + marks.length + ' · ' + marks[mark].textContent.trim();
+      if (count && !last) count.textContent = 'Step ' + (mark + 1) + ' of ' + marks.length + (count.hasAttribute('data-short') ? '' : ' · ' + marks[mark].textContent.trim());
       if (ready) { const h = $('h1', panel); h.tabIndex = -1; h.focus({ preventScroll: true }); scrollTo(0, 0); }
       ready = true;
       $$('[data-echo]', flow).forEach(el => { const t = label(el.dataset.echo); if (t) el.textContent = t; });
@@ -142,6 +142,23 @@
     };
     flow.addEventListener('change', gate);
     gate(); show(+(new URLSearchParams(location.search).get('step') || 1) - 1);
+  }
+
+  // Congratulations page: a line that fits the milestone, and a burst of confetti (skipped for reduced motion).
+  const cheer = $('[data-congrats]');
+  if (cheer) {
+    const lines = { hired: 'New hires are a big step.', sales: 'Growing sales is hard-won.', funding: 'New funding opens doors.', started: 'Opening your doors is a big day.' };
+    const t = new URLSearchParams(location.search).get('type'); if (lines[t]) cheer.textContent = lines[t];
+  }
+  const field = $('[data-confetti]');
+  if (field) {
+    const colors = ['#1B5FAF', '#8FC5D9', '#C23C3C', '#00675C', '#F0C75E', '#0F1C2D'], still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const frac = x => x - Math.floor(x);
+    for (let i = 0; i < 64; i++) {
+      const a = frac(Math.sin(i * 12.9898) * 43758.5453), b = frac(Math.sin(i * 78.233) * 12543.123), c = frac(Math.sin(i * 39.425) * 9871.77), k = i % 3, el = document.createElement('i');
+      el.style.cssText = `left:${Math.round(a * 100)}%;top:${Math.round(b * b * 170)}px;width:${[10, 7, 16][k]}px;height:${[10, 18, 6][k]}px;border-radius:${k ? '2px' : '50%'};background:${colors[i % 6]};transform:rotate(${Math.round(c * 300 - 150)}deg);animation-delay:${(c * .5).toFixed(2)}s` + (still ? ';animation:none' : '');
+      field.append(el);
+    }
   }
 
   // One polite live region for confirmations.

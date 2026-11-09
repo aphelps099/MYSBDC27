@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Sales grew · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=db1edeaf">
-<script defer src="assets/mysbdc.js?v=db1edeaf"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=2185a3d6">
+<script defer src="assets/mysbdc.js?v=2185a3d6"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -80,71 +80,56 @@
 
 <div id="page">
   <main id="main-content" class="container ms-page ms-flow reveal">
-    <div class="ms-main">
-      <a class="link ms-back" href="milestones.html">Back to milestones</a>
-      <!-- One card: a coloured band (type, progress, giant cropped icon) over the form sheet. -->
-      <div class="ms-card" data-type="sales">
-        <header class="ms-band">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-chart"/></svg>
-          <p class="kicker">Share a milestone</p>
-          <p class="ms-band-title">Sales grew</p>
-        <nav class="steps inline" aria-label="Progress">
-          <ol><li>Your sales</li><li>The source</li><li>Review</li></ol>
-          <p class="count" aria-live="polite"></p>
-        </nav>
-        </header>
-      <form class="ms-sheet" data-stepper novalidate>
+    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+
+    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
+    <div class="ms-card" data-type="sales">
+      <svg class="ms-giant" aria-hidden="true"><use href="#i-chart"/></svg>
+      <div class="ms-top">
+        <p class="ms-label">Sales grew</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+      </div>
+      <form data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
           <h1 id="h1">What were your sales last year?</h1>
-          <p class="lead">Total sales before expenses, for your most recent full year. A rounded number is fine.</p>
+          <p class="lead">Total sales before expenses. A rounded number is fine.</p>
           <div class="form-grid">
             <div class="field"><label for="year">Year</label><select id="year" name="year"><option>2025</option><option>2024</option></select></div>
             <div class="field"><label for="rev">Total sales</label><div class="money"><input id="rev" name="rev" type="text" inputmode="decimal" value="412,000" required></div></div>
-            <p class="on-file full"><svg class="icon " aria-hidden="true"><use href="#i-doc"/></svg><span>We have <strong>$343,000</strong> on file for the year before.<button class="link" type="button">That’s not right</button></span></p>
           </div>
+          <p class="on-file mt-16">We have <strong>$343,000</strong> on file for the year before.<button class="link" type="button">That’s not right</button></p>
           <div class="intake-nav"><a class="link" href="milestones.html">Cancel</a><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
         </section>
         <section class="step-panel" aria-labelledby="h2">
           <h1 id="h2">Where does that number come from?</h1>
-          <p class="lead">Any of these is fine. It only tells Dana how firm the number is.</p>
+          <p class="lead">Any of these is fine. No paperwork needed.</p>
           <fieldset><legend class="visually-hidden">Source of the number</legend>
             <div class="options">
-              <label class="option"><input type="radio" name="basis" value="books" checked><span><strong>My bookkeeping</strong><small>A profit and loss statement or accounting software</small></span></label>
+              <label class="option"><input type="radio" name="basis" value="books" checked><span><strong>My bookkeeping</strong></span></label>
               <label class="option"><input type="radio" name="basis" value="tax"><span><strong>My tax return</strong></span></label>
-              <label class="option"><input type="radio" name="basis" value="guess"><span><strong>My best estimate</strong><small>Dana will help you confirm it later</small></span></label>
+              <label class="option"><input type="radio" name="basis" value="guess"><span><strong>My best estimate</strong></span></label>
             </div>
           </fieldset>
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
         </section>
         <section class="step-panel" aria-labelledby="h3">
           <h1 id="h3">Does this look right?</h1>
-          <p class="lead">Change anything now. Then confirm, and you’re done.</p>
-          <div class="review">
-            <div class="review-group"><h3>Sales for <span data-echo="year">2025</span></h3><p>$<span data-echo="rev">412,000</span> · up from $343,000 the year before</p><button class="link" type="button" data-step="0">Change</button></div>
-            <div class="review-group"><h3>Source</h3><p><span data-echo="basis">My bookkeeping</span></p><button class="link" type="button" data-step="1">Change</button></div>
-          </div>
-          <fieldset>
+          <p class="ms-sentence mt-24">Your sales for <b data-echo="year">2025</b> were <b>$<span data-echo="rev">412,000</span></b>, up from $343,000 the year before.</p>
+          <button class="link" type="button" data-step="0">Change</button>
+          <fieldset class="mt-24">
             <legend>Did the SBDC help with this?</legend>
-            <div class="option-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+            <div class="pills">
               <label class="option"><input type="radio" name="support" value="yes" checked><span><strong>Yes</strong></span></label>
               <label class="option"><input type="radio" name="support" value="partly"><span><strong>In part</strong></span></label>
               <label class="option"><input type="radio" name="support" value="unsure"><span><strong>Not sure</strong></span></label>
               <label class="option"><input type="radio" name="support" value="no"><span><strong>No</strong></span></label>
             </div>
           </fieldset>
-          <div class="field signature"><label for="sign">Type your full name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required><p class="hint">This confirms the details are right to the best of your knowledge.</p></div>
+          <div class="field signature"><label for="sign">Type your name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required></div>
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=sales">Share milestone</button></div>
         </section>
       </form>
-      </div>
     </div>
-
-    <aside class="why" aria-label="Help with this step">
-      <div data-why="0"><h2>What counts as sales?</h2><p class="mt-8">Everything customers paid you in the year, before any costs. Sometimes called gross revenue.</p></div>
-      <div data-why="1" hidden><h2>No paperwork needed</h2><p class="mt-8">You don’t need to upload anything. We only ask so Dana knows whether to double-check with you.</p></div>
-      <div data-why="2" hidden><h2>What happens next</h2><p class="mt-8">Dana reviews this before it counts. She may get in touch to check a detail.</p></div>
-      <p class="help"><svg class="icon sm" aria-hidden="true"><use href="#i-message"/></svg> <strong class="mt-8" style="display:block">Not sure what to enter?</strong><span class="small">Leave your best guess. Dana can fix it with you later.</span></p>
-    </aside>
   </main>
 </div>
 

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Hired someone · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=db1edeaf">
-<script defer src="assets/mysbdc.js?v=db1edeaf"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=2185a3d6">
+<script defer src="assets/mysbdc.js?v=2185a3d6"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -80,27 +80,24 @@
 
 <div id="page">
   <main id="main-content" class="container ms-page ms-flow reveal">
-    <div class="ms-main">
-      <a class="link ms-back" href="milestones.html">Back to milestones</a>
-      <!-- One card: a coloured band (type, progress, giant cropped icon) over the form sheet. -->
-      <div class="ms-card" data-type="hired">
-        <header class="ms-band">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-users"/></svg>
-          <p class="kicker">Share a milestone</p>
-          <p class="ms-band-title">Hired someone</p>
-        <nav class="steps inline" aria-label="Progress">
-          <ol><li>How many</li><li>When</li><li>Review</li></ol>
-          <p class="count" aria-live="polite"></p>
-        </nav>
-        </header>
-      <form class="ms-sheet" data-stepper novalidate>
+    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+
+    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
+    <div class="ms-card" data-type="hired">
+      <svg class="ms-giant" aria-hidden="true"><use href="#i-users"/></svg>
+      <div class="ms-top">
+        <p class="ms-label">Hired someone</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+      </div>
+      <form data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
           <h1 id="h1">How many people did you hire?</h1>
-          <p class="lead">Count only people added since your last update in February 2026.</p>
+          <p class="lead">Since your last update in February. Your best guess is fine.</p>
           <div class="count-grid">
             <div class="field"><label for="ft">Full-time</label><div class="stepper"><button type="button" data-inc="-1" aria-label="One fewer, full-time">−</button><input id="ft" name="ft" type="number" min="0" inputmode="numeric" value="1" required><button type="button" data-inc="1" aria-label="One more, full-time">+</button></div><p class="hint">35 hours a week or more</p></div>
             <div class="field"><label for="pt">Part-time</label><div class="stepper"><button type="button" data-inc="-1" aria-label="One fewer, part-time">−</button><input id="pt" name="pt" type="number" min="0" inputmode="numeric" value="0" required><button type="button" data-inc="1" aria-label="One more, part-time">+</button></div></div>
           </div>
+          <p class="ms-tip"><strong>Who counts?</strong> Anyone on your payroll, including you. Contractors don’t.</p>
           <div class="intake-nav"><a class="link" href="milestones.html">Cancel</a><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
         </section>
         <section class="step-panel" aria-labelledby="h2">
@@ -108,7 +105,7 @@
           <p class="lead">The month is enough. If there were several, use the most recent.</p>
           <div class="field" style="max-width:320px"><label for="when">Month</label><select id="when" name="when"><option>November 2026</option><option>October 2026</option><option>September 2026</option><option>August 2026</option><option>July 2026</option><option>June 2026</option><option>May 2026</option><option>April 2026</option><option>March 2026</option><option>February 2026</option><option>January 2026</option><option>Earlier</option></select></div>
           <fieldset class="mt-32">
-            <legend>Did this also save any jobs that might have been lost? <span class="optional">(optional)</span></legend>
+            <legend>Did this also save jobs that might have been lost? <span class="optional">(optional)</span></legend>
             <div class="count-grid">
               <div class="field"><label for="rft">Full-time jobs kept</label><div class="stepper"><button type="button" data-inc="-1" aria-label="One fewer, full-time jobs kept">−</button><input id="rft" name="rft" type="number" min="0" inputmode="numeric" value="0" required><button type="button" data-inc="1" aria-label="One more, full-time jobs kept">+</button></div></div>
               <div class="field"><label for="rpt">Part-time jobs kept</label><div class="stepper"><button type="button" data-inc="-1" aria-label="One fewer, part-time jobs kept">−</button><input id="rpt" name="rpt" type="number" min="0" inputmode="numeric" value="0" required><button type="button" data-inc="1" aria-label="One more, part-time jobs kept">+</button></div></div>
@@ -118,33 +115,22 @@
         </section>
         <section class="step-panel" aria-labelledby="h3">
           <h1 id="h3">Does this look right?</h1>
-          <p class="lead">Change anything now. Then confirm, and you’re done.</p>
-          <div class="review">
-            <div class="review-group"><h3>New hires</h3><p><span data-echo="ft">1</span> full-time · <span data-echo="pt">0</span> part-time</p><button class="link" type="button" data-step="0">Change</button></div>
-            <div class="review-group"><h3>When</h3><p><span data-echo="when">November 2026</span> · Jobs kept: <span data-echo="rft">0</span> full-time, <span data-echo="rpt">0</span> part-time</p><button class="link" type="button" data-step="1">Change</button></div>
-          </div>
-          <fieldset>
+          <p class="ms-sentence mt-24">You hired <b><span data-echo="ft">1</span> full-time</b> and <b><span data-echo="pt">0</span> part-time</b> in <b data-echo="when">November 2026</b>.</p>
+          <button class="link" type="button" data-step="0">Change</button>
+          <fieldset class="mt-24">
             <legend>Did the SBDC help with this?</legend>
-            <div class="option-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+            <div class="pills">
               <label class="option"><input type="radio" name="support" value="yes" checked><span><strong>Yes</strong></span></label>
               <label class="option"><input type="radio" name="support" value="partly"><span><strong>In part</strong></span></label>
               <label class="option"><input type="radio" name="support" value="unsure"><span><strong>Not sure</strong></span></label>
               <label class="option"><input type="radio" name="support" value="no"><span><strong>No</strong></span></label>
             </div>
           </fieldset>
-          <div class="field signature"><label for="sign">Type your full name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required><p class="hint">This confirms the details are right to the best of your knowledge.</p></div>
+          <div class="field signature"><label for="sign">Type your name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required></div>
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=hired">Share milestone</button></div>
         </section>
       </form>
-      </div>
     </div>
-
-    <aside class="why" aria-label="Help with this step">
-      <div data-why="0"><h2>Who counts?</h2><p class="mt-8">Anyone on your payroll, including you if you now pay yourself. Contractors don’t count.</p></div>
-      <div data-why="1" hidden><h2>Why the month?</h2><p class="mt-8">The SBA reports jobs by quarter. The month tells us which one.</p></div>
-      <div data-why="2" hidden><h2>What happens next</h2><p class="mt-8">Dana reviews this before it counts. She may get in touch to check a detail.</p></div>
-      <p class="help"><svg class="icon sm" aria-hidden="true"><use href="#i-message"/></svg> <strong class="mt-8" style="display:block">Not sure what to enter?</strong><span class="small">Leave your best guess. Dana can fix it with you later.</span></p>
-    </aside>
   </main>
 </div>
 
