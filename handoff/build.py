@@ -42,7 +42,7 @@ def app(body, m):
 {ICONS}
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<!-- Rail navigation. Always shows icon + word; expands to a full sidebar with #site-menu-toggle. On phones it becomes the bottom tab bar. -->
+<!-- Rail navigation. Always shows icon + word (body.site-menu-active widens it to a full sidebar). On phones it becomes a four-item bottom tab bar; Settings moves to the account menu. -->
 <div id="site-menu">
   <a id="site-branding" href="{home}" aria-label="MySBDC home"><span><b>My</b>SBDC</span></a>
   <nav class="primary-navigation" aria-label="Main">
@@ -50,14 +50,13 @@ def app(body, m):
         {items}
     </ul>
     <ul class="menu bottom">
-        {item('settings', 'settings.html', 'settings', 'Settings')}
+        {item('settings', 'settings.html', 'settings', 'Settings', ' desktop-only')}
         <li class="menu-item desktop-only"><a href="#help"><span class="icon-wrap">{icon('help')}</span><span class="label">Help</span></a></li>
     </ul>
   </nav>
 </div>
 
 <header id="header">
-  <button id="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">{icon('menu')}<span class="visually-hidden">Show or hide menu labels</span></button>
   <a class="mobile-brand" href="{home}"><b>My</b>SBDC</a>
   <p class="center">North Coast SBDC</p>
   <div id="site-utility-navigation">
@@ -77,7 +76,7 @@ def app(body, m):
 </header>
 
 <div id="page">
-  <main id="main-content" class="container reveal">
+  <main id="main-content" class="container {m.get("main","reveal")}">
 {body}
   </main>
 </div>
