@@ -473,3 +473,80 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
   .row>.link,.row>.btn{grid-column:2;justify-self:start}
   .row>.btn{margin-top:8px;padding:0 28px}
 }
+
+/* 14 — Milestones: the landing page, the four short forms and the thank-you. Flat surfaces only.
+   One focal surface per page carries the solid offset plate: the form sheet, or the tile under the pointer. */
+.ms-page{--ink:var(--mysbdc-brand-navy);--ink-2:var(--mysbdc-brand-slate);--ink-3:#4F5767;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:clamp(32px,4.5vw,64px);align-items:start;font-size:1.125rem;line-height:1.5}
+.ms-page .link{font-size:1.0625rem}
+.ms-head h1{font:400 clamp(2.125rem,3.6vw,3.25rem)/1.05 var(--font-serif);letter-spacing:-.022em;word-spacing:.05em;text-wrap:balance}
+.ms-head p{max-width:32em;margin-top:10px;color:var(--ink-2);text-wrap:pretty}
+.ms-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:clamp(22px,2.6vw,32px)}
+.ms-choice{display:grid;grid-template-columns:52px minmax(0,1fr);gap:4px 18px;align-content:start;min-height:112px;padding:22px 24px;border-radius:6px;background:#FBF8F1;color:var(--ink);text-decoration:none;transition:transform .16s,box-shadow .16s,background .16s}
+.ms-choice:hover,.ms-choice:focus-visible{background:var(--mysbdc-brand-white);transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--mysbdc-brand-pool);outline:0}
+.ms-choice:focus-visible{box-shadow:9px 9px 0 var(--mysbdc-brand-pool),0 0 0 3px var(--mysbdc-brand-signal)}
+.ms-choice .tile{grid-row:span 2;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--mysbdc-brand-navy);color:var(--mysbdc-brand-pool)}
+.ms-choice strong{align-self:end;font:700 1.3125rem/1.2 var(--font-sans);letter-spacing:-.012em}
+.ms-choice small{font-size:1rem;line-height:1.4;color:var(--ink-2)}
+.ms-history{margin-top:clamp(44px,5vw,64px)}
+.ms-history h2{font:700 clamp(1.375rem,1.9vw,1.625rem)/1.15 var(--font-sans);letter-spacing:-.022em}
+.ms-log{display:grid;gap:18px;margin-top:18px}
+.ms-log li{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:2px 16px;align-items:baseline}
+.ms-log time{font:700 .875rem/1.3 var(--font-sans);letter-spacing:.1em;text-transform:uppercase;color:#A32E2E}
+.ms-log strong{font:700 1.1875rem/1.25 var(--font-sans)}
+.ms-log span{display:block;font-size:1rem;color:var(--ink-2)}
+.ms-log .ok{display:inline-flex;align-items:center;gap:5px;font-weight:700;color:var(--mysbdc-brand-evergreen)}
+.ms-log .ok .icon{width:16px;height:16px;stroke-width:2.6}
+.ms-aside{display:grid;gap:22px;padding:clamp(20px,2vw,24px);border-radius:6px;background:#FBF8F1;font-size:1rem}
+.ms-aside h2{font:700 1.1875rem/1.25 var(--font-sans)}
+.ms-aside p{margin-top:6px;color:var(--ink-2);text-wrap:pretty}
+.ms-aside .icon{color:var(--mysbdc-brand-signal)}
+.ms-aside li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:0 10px}
+
+/* The form */
+.ms-back{margin-bottom:6px}
+.ms-flow .kicker{margin-bottom:14px}
+.steps.inline{background:none}
+.steps.inline ol{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none;margin:0;padding:0 0 18px;gap:8px}
+.steps.inline li{font-size:1rem;font-weight:500;color:var(--ink-3)}
+.steps.inline li::before{background:#CFC8B8}
+.steps.inline li.done::before{background:var(--mysbdc-brand-evergreen)}
+.steps.inline li.current::before{background:var(--mysbdc-brand-signal)}
+.steps.inline li.done,.steps.inline li.current{color:var(--ink)}
+.steps.inline li.current{font-weight:700}
+.steps.inline .count{padding:0 0 14px;font-size:1rem}
+.ms-sheet{padding:clamp(22px,3vw,40px);border-radius:6px;background:#FBF8F1;box-shadow:10px 10px 0 var(--mysbdc-brand-pool)}
+.ms-sheet .step-panel h1{font:400 clamp(1.75rem,2.8vw,2.5rem)/1.08 var(--font-serif);letter-spacing:-.024em;text-wrap:balance}
+.ms-sheet .step-panel .lead{max-width:32em;margin:10px 0 26px;font-size:1.125rem}
+.ms-sheet .step-panel fieldset{margin-bottom:24px}
+.ms-sheet .intake-nav{margin-top:32px}
+.ms-sheet .review-group{background:var(--mysbdc-brand-white)}
+.ms-sheet .field label,.ms-sheet legend{font-size:1.0625rem}
+.count-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.stepper{display:grid;grid-template-columns:56px minmax(0,1fr) 56px;gap:6px}
+.stepper input{text-align:center;font-weight:700;font-size:1.375rem;appearance:textfield;-moz-appearance:textfield}
+.stepper input::-webkit-inner-spin-button{appearance:none}
+.stepper button{min-height:56px;border:1.5px solid var(--mysbdc-field-border);border-radius:var(--radius);background:var(--mysbdc-brand-white);font:700 1.5rem/1 var(--font-sans);color:var(--ink);cursor:pointer}
+.stepper button:hover{border-color:var(--ink);background:var(--mysbdc-brand-pool-pale)}
+.money{position:relative}
+.money::before{content:"$";position:absolute;left:16px;top:50%;translate:0 -50%;font-weight:700;color:var(--ink-2)}
+.money input{padding-left:34px;font-weight:700;font-size:1.25rem}
+.on-file{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;border-radius:var(--radius);background:var(--mysbdc-brand-pool-pale);font-size:1rem;color:var(--ink-2)}
+.on-file .link{display:flex;min-height:44px;font-size:1rem}
+.on-file .icon{width:20px;height:20px;margin-top:2px;color:var(--mysbdc-brand-signal)}
+.ms-flow .why{top:calc(var(--bar) + 24px);padding:clamp(20px,2vw,24px);background:#FBF8F1;border-radius:6px}
+.ms-flow .why h2{font:700 1.1875rem/1.25 var(--font-sans)}
+.ms-flow .why .help{background:var(--mysbdc-brand-white)}
+.ms-done .sent-mark{background:#DDEFEA;color:var(--mysbdc-brand-evergreen)}
+.ms-next{margin-top:clamp(32px,4vw,48px)}
+.ms-next h2{font:700 clamp(1.375rem,1.9vw,1.625rem)/1.15 var(--font-sans);letter-spacing:-.022em}
+.ms-next>p{margin-top:6px;color:var(--ink-2)}
+@media(max-width:1099px){.ms-page{grid-template-columns:minmax(0,1fr) 280px}}
+@media(max-width:939px){.ms-page{grid-template-columns:minmax(0,1fr)}.ms-flow .why{position:static}}
+@media(max-width:759px){
+  .ms-page{font-size:1.0625rem}
+  .ms-choices,.count-grid{grid-template-columns:minmax(0,1fr)}
+  .ms-choice{min-height:0;padding:18px}
+  .ms-log li{grid-template-columns:minmax(0,1fr)}
+  .steps.inline li{font-size:0}
+  .ms-sheet{padding:20px 18px;box-shadow:6px 6px 0 var(--mysbdc-brand-pool)}
+}

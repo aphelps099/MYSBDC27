@@ -1,26 +1,36 @@
-<!-- layout: app | active: milestones | title: Milestones -->
-    <header class="page-intro">
-      <h1>Look how far you’ve come.</h1>
-      <p class="lead">Tell us what changed. It takes about four minutes, your best guess is enough, and it helps the next business get help.</p>
-    </header>
+<!-- layout: app | active: milestones | title: Milestones | main: ms-page reveal -->
+    <div class="ms-main">
+      <header class="ms-head">
+        <h1>What’s new with your business?</h1>
+        <p>Choose what changed. Each one is three short steps, about four minutes, and your best guess is enough.</p>
+      </header>
 
-    <section aria-labelledby="choose">
-      <h2 class="eyebrow berry" id="choose">{{icon:flag sm}} What would you like to share?</h2>
-      <div class="choice-grid mt-24">
-        <a class="choice-card" href="#"><span class="tile-icon">{{icon:users}}</span><h3>Hired employees</h3><p>You added full-time or part-time staff.</p><span class="go">Share this</span></a>
-        <a class="choice-card" href="#"><span class="tile-icon">{{icon:chart}}</span><h3>Increased sales</h3><p>Your sales grew compared with last year.</p><span class="go">Share this</span></a>
-        <a class="choice-card" href="#"><span class="tile-icon">{{icon:store}}</span><h3>Started a business</h3><p>You registered and began operating.</p><span class="go">Share this</span></a>
-        <a class="choice-card" href="#"><span class="tile-icon">{{icon:coins}}</span><h3>Received funding</h3><p>A loan, grant, investment or your own capital.</p><span class="go">Share this</span></a>
+      <!-- Four milestone types. Each tile opens its own short form. -->
+      <nav class="ms-choices" aria-label="Share a milestone">
+        <a class="ms-choice" href="milestone-hired.html"><span class="tile">{{icon:users}}</span><strong>Hired someone</strong><small>You added full-time or part-time staff.</small></a>
+        <a class="ms-choice" href="milestone-sales.html"><span class="tile">{{icon:chart}}</span><strong>Sales grew</strong><small>Your sales went up compared with last year.</small></a>
+        <a class="ms-choice" href="milestone-funding.html"><span class="tile">{{icon:coins}}</span><strong>Got funding</strong><small>A loan, a grant, an investment or your own money.</small></a>
+        <a class="ms-choice" href="milestone-started.html"><span class="tile">{{icon:store}}</span><strong>Started a business</strong><small>You registered and began operating.</small></a>
+      </nav>
+
+      <section class="ms-history" aria-labelledby="history">
+        <h2 id="history">What you’ve shared so far</h2>
+        <ul class="ms-log">
+          <li><time datetime="2026-06">June 2026</time><div><strong>Got funding</strong><span>$45,000 equipment loan</span></div><span class="ok">{{icon:check}} Confirmed</span></li>
+          <li><time datetime="2026-02">Feb 2026</time><div><strong>Hired someone</strong><span>2 part-time</span></div><span class="ok">{{icon:check}} Confirmed</span></li>
+          <li><time datetime="2025-03">March 2025</time><div><strong>Started a business</strong><span>Northstar Provisions</span></div><span class="ok">{{icon:check}} Confirmed</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="ms-aside" aria-label="Why we ask">
+      <div>
+        <h2>Why we ask</h2>
+        <p>Your progress is how the SBA decides to keep advising free. Every milestone you share helps the next business get help.</p>
       </div>
-    </section>
-
-    <section class="card mt-32" aria-labelledby="history">
-      <div class="card-head"><h2 class="eyebrow" id="history">Your milestones so far</h2></div>
-      <div class="events">
-        <div class="resource-row"><span class="tile-icon">{{icon:coins}}</span><div><h3>Received funding · $45,000 equipment loan</h3><p class="small muted">Shared June 2026</p></div><span class="badge green">{{icon:check sm}} Confirmed</span></div>
-        <div class="resource-row"><span class="tile-icon">{{icon:users}}</span><div><h3>Hired employees · 2 part-time</h3><p class="small muted">Shared February 2026</p></div><span class="badge green">{{icon:check sm}} Confirmed</span></div>
-        <div class="resource-row"><span class="tile-icon">{{icon:store}}</span><div><h3>Started a business · Northstar Provisions</h3><p class="small muted">Shared March 2025</p></div><span class="badge green">{{icon:check sm}} Confirmed</span></div>
-      </div>
-    </section>
-
-    <p class="note mt-24">{{icon:lock}}<span><strong>Nothing is published with your name.</strong> Someone at your center reviews each milestone before it counts toward our reporting to the SBA.</span></p>
+      <ul class="options">
+        <li>{{icon:lock}}<span>Nothing is published with your name.</span></li>
+        <li>{{icon:check}}<span>Your best guess is fine. Nothing is audited.</span></li>
+        <li>{{icon:message}}<span>Dana reviews each one and may follow up.</span></li>
+      </ul>
+    </aside>

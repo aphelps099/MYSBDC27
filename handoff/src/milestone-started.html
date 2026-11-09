@@ -1,0 +1,63 @@
+<!-- layout: app | active: milestones | title: Started a business | main: ms-page ms-flow reveal -->
+    <div class="ms-main">
+      <a class="link ms-back" href="milestones.html">Back to milestones</a>
+      <p class="kicker">{{icon:store}} Share a milestone · Started a business</p>
+      <nav class="steps inline" aria-label="Progress">
+        <ol><li>Your status</li><li>The details</li><li>Review</li></ol>
+        <p class="count" aria-live="polite"></p>
+      </nav>
+
+      <form class="ms-sheet" data-stepper novalidate>
+        <section class="step-panel" aria-labelledby="h1">
+          <h1 id="h1">Have you started doing business?</h1>
+          <p class="lead">Either answer is fine. It only changes what we ask next.</p>
+          <fieldset><legend class="visually-hidden">Have you started doing business?</legend>
+            <div class="options">
+              <label class="option"><input type="radio" name="open" value="yes" checked><span><strong>Yes, I’m open</strong><small>I’m registered and have made a sale, hired, or put money in.</small></span></label>
+              <label class="option"><input type="radio" name="open" value="no"><span><strong>Not yet</strong><small>I’m still getting ready.</small></span></label>
+            </div>
+          </fieldset>
+          <div class="intake-nav"><a class="link" href="milestones.html">Cancel</a><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+        <section class="step-panel" data-when="open=yes" aria-labelledby="h2">
+          <h1 id="h2">Tell us about the start.</h1>
+          <p class="lead">The month is enough for the date.</p>
+          <div class="form-grid">
+            <div class="field full"><label for="bname">Business name</label><input id="bname" name="bname" type="text" autocomplete="organization" value="Northstar Provisions" required></div>
+            <div class="field"><label for="swhen">When did you start?</label><select id="swhen" name="swhen"><option>November 2026</option><option>October 2026</option><option>September 2026</option><option>August 2026</option><option>July 2026</option><option>June 2026</option><option>May 2026</option><option>April 2026</option><option>March 2026</option><option>February 2026</option><option>January 2026</option><option>Earlier</option></select></div>
+            <div class="field"><label for="setup">How is it set up?</label><select id="setup" name="setup"><option>LLC</option><option>Sole proprietor</option><option>Partnership</option><option>Corporation</option><option>Nonprofit</option><option>I’m not sure</option></select></div>
+          </div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next">Continue</button></div>
+        </section>
+        <section class="step-panel" data-when="open=yes" aria-labelledby="h3">
+          <h1 id="h3">Does this look right?</h1>
+          <p class="lead">Change anything now. Then confirm, and you’re done.</p>
+          <div class="review">
+            <div class="review-group"><h3>Your business</h3><p><span data-echo="bname">Northstar Provisions</span> · <span data-echo="setup">LLC</span> · started <span data-echo="swhen">November 2026</span></p><button class="link" type="button" data-step="1">Change</button></div>
+          </div>
+          <fieldset>
+            <legend>Did the SBDC help with this?</legend>
+            <div class="option-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
+              <label class="option"><input type="radio" name="support" value="yes" checked><span><strong>Yes</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="partly"><span><strong>In part</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="unsure"><span><strong>Not sure</strong></span></label>
+              <label class="option"><input type="radio" name="support" value="no"><span><strong>No</strong></span></label>
+            </div>
+          </fieldset>
+          <div class="field signature"><label for="sign">Type your full name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required><p class="hint">This confirms the details are right to the best of your knowledge.</p></div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=started">Share milestone</button></div>
+        </section>
+        <section class="step-panel" data-when="open=no" data-end aria-labelledby="h4">
+          <h1 id="h4">That’s all right. There’s no rush.</h1>
+          <p class="lead">Every business starts on its own schedule. When you open, come back and tell us. Until then, Dana can help with whatever is in the way.</p>
+          <div class="intake-nav" style="justify-content:flex-start;gap:28px"><a class="btn btn-primary" href="dashboard.html">Back to home</a><a class="link" href="events.html">See free training</a></div>
+        </section>
+      </form>
+    </div>
+
+    <aside class="why" aria-label="Help with this step">
+      <div data-why="0"><h2>What counts as started?</h2><p class="mt-8">You’ve registered the business and done at least one of these: made a sale, hired someone, or put money in.</p></div>
+      <div data-why="1" hidden><h2>Why the date?</h2><p class="mt-8">The SBA reports new businesses by quarter. The month tells us which one.</p></div>
+      <div data-why="2" hidden><h2>What happens next</h2><p class="mt-8">Dana reviews this before it counts. She may get in touch to check a detail.</p></div>
+      <p class="help">{{icon:message sm}} <strong class="mt-8" style="display:block">Not sure what to enter?</strong><span class="small">Leave your best guess. Dana can fix it with you later.</span></p>
+    </aside>

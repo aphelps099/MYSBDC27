@@ -92,35 +92,55 @@
     const h = $('[data-view=sent] h1'); h.tabIndex = -1; h.focus();
   });
 
-  // Intake: one question group at a time. Native validation, focus moves to the new heading.
-  const intake = $('#intake-form');
-  if (intake) {
-    const panels = $$('.step-panel', intake), marks = $$('.steps li'), count = $('.steps .count'), whys = $$('[data-why]');
-    let at = 0, ready = false;
-    const show = n => {
-      at = Math.max(0, Math.min(panels.length - 1, n));
-      panels.forEach((p, i) => p.classList.toggle('current', i === at));
-      marks.forEach((m, i) => { m.className = i < at ? 'done' : i === at ? 'current' : ''; i === at ? m.setAttribute('aria-current', 'step') : m.removeAttribute('aria-current'); });
-      whys.forEach(w => w.hidden = +w.dataset.why !== at);
-      const last = at >= marks.length;
-      $('.steps').hidden = last; $('.why').hidden = last;
-      if (count && !last) count.textContent = 'Step ' + (at + 1) + ' of ' + marks.length + ' · ' + marks[at].textContent.trim();
-      if (ready) { const h = $('h1', panels[at]); h.tabIndex = -1; h.focus({ preventScroll: true }); scrollTo(0, 0); }
-      ready = true;
-      $$('[data-echo]', intake).forEach(el => { const src = intake.elements[el.dataset.echo]; if (src && src.value) el.textContent = src.value; });
+  // Step forms (Form 641 and the milestone forms): one question group at a time.
+  // Native validation; focus moves to the new heading. A panel with data-when="field=value" is
+  // skipped unless that answer was given; a panel with data-end hides the progress and help.
+  const flow = $('form[data-stepper]') || $('#intake-form');
+  if (flow) {
+    const panels = $$('.step-panel', flow), marks = $$('.steps li'), count = $('.steps .count'), whys = $$('[data-why]');
+    const val = n => { const el = flow.elements[n]; return el ? String(el.value ?? '') : ''; };
+    const open = p => { const c = p.dataset.when; if (!c) return true; const [k, v] = c.split('='); return val(k) === v; };
+    const label = n => {
+      const el = flow.elements[n]; if (!el) return '';
+      const picked = el instanceof RadioNodeList ? [...el].find(i => i.checked) : null;
+      if (picked) { const t = picked.closest('label'); return (t && $('strong', t) ? $('strong', t).textContent : picked.value).trim(); }
+      return String(el.value ?? '').trim();
     };
-    intake.addEventListener('click', e => {
+    let at = 0, ready = false;
+    const show = (n, dir = 1) => {
+      n = Math.max(0, Math.min(panels.length - 1, n));
+      while (!open(panels[n]) && n + dir >= 0 && n + dir < panels.length) n += dir;
+      at = n;
+      const panel = panels[at], mark = +(panel.dataset.mark ?? at), last = panel.hasAttribute('data-end') || mark >= marks.length;
+      panels.forEach((p, i) => p.classList.toggle('current', i === at));
+      marks.forEach((m, i) => { m.className = i < mark ? 'done' : i === mark ? 'current' : ''; i === mark ? m.setAttribute('aria-current', 'step') : m.removeAttribute('aria-current'); });
+      whys.forEach(w => w.hidden = +w.dataset.why !== mark);
+      const steps = $('.steps'), why = $('.why');
+      if (steps) steps.hidden = last; if (why) why.hidden = last;
+      if (count && !last) count.textContent = 'Step ' + (mark + 1) + ' of ' + marks.length + ' · ' + marks[mark].textContent.trim();
+      if (ready) { const h = $('h1', panel); h.tabIndex = -1; h.focus({ preventScroll: true }); scrollTo(0, 0); }
+      ready = true;
+      $$('[data-echo]', flow).forEach(el => { const t = label(el.dataset.echo); if (t) el.textContent = t; });
+      $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });
+    };
+    flow.addEventListener('click', e => {
+      const inc = e.target.closest('[data-inc]');
+      if (inc) { const f = $('input', inc.closest('.stepper')); f.value = Math.max(0, (+f.value || 0) + +inc.dataset.inc); return; }
       const b = e.target.closest('[data-step]'); if (!b) return;
       e.preventDefault();
       if (b.dataset.step === 'next') {
-        const bad = $$('input,select,textarea', panels[at]).find(f => !f.checkValidity());
+        const bad = $$('input,select,textarea', panels[at]).find(f => !f.closest('[hidden]') && !f.checkValidity());
         if (bad) { bad.reportValidity(); return; }
-        show(at + 1);
-      } else if (b.dataset.step === 'back') show(at - 1);
-      else show(+b.dataset.step);
+        if (b.dataset.href) { location.href = b.dataset.href; return; }
+        show(at + 1, 1);
+      } else if (b.dataset.step === 'back') show(at - 1, -1);
+      else show(+b.dataset.step, 1);
     });
-    const gate = () => { const yes = intake.elements.inbusiness.value === 'yes'; $$('[data-if-business]').forEach(el => el.hidden = !yes); $$('[data-if-idea]').forEach(el => el.hidden = yes); };
-    intake.addEventListener('change', e => { if (e.target.name === 'inbusiness') gate(); });
+    const gate = () => {
+      if (flow.elements.inbusiness) { const yes = val('inbusiness') === 'yes'; $$('[data-if-business]').forEach(el => el.hidden = !yes); $$('[data-if-idea]').forEach(el => el.hidden = yes); }
+      $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });
+    };
+    flow.addEventListener('change', gate);
     gate(); show(+(new URLSearchParams(location.search).get('step') || 1) - 1);
   }
 

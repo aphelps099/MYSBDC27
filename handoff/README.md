@@ -19,7 +19,12 @@ python3 -m http.server 8000      # from the repository root
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
 | `events.html` | Training | `/events/` |
-| `milestones.html` | Milestones | `/milestones/` |
+| `milestones.html` | Milestones: choose a type, plus history | `/milestones/` |
+| `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
+| `milestone-sales.html` | Milestone form: sales grew (3 steps) | `/milestones/new/increased-revenue/` |
+| `milestone-funding.html` | Milestone form: got funding (3 steps) | `/milestones/new/received-funding/` |
+| `milestone-started.html` | Milestone form: started a business (3 steps, with a "not yet" exit) | `/milestones/new/started-business/` and `/not-started/` |
+| `milestone-done.html` | Thank-you, with a prompt to add another | `/milestones/new/*/success/` |
 | `resources.html` | Resources | `/resources/` |
 
 - `assets/mysbdc.css` is the whole design: tokens, shell, components. No framework.
@@ -72,6 +77,18 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 6. **Form 641 is five short steps** with a plain-language "why we ask" panel beside each one,
    optional SBA questions clearly marked optional, and a phone alternative.
 7. **Settings is one page**, in sections that save independently.
+
+## Milestone forms
+
+Each milestone type is its own short form, matching the staging routes. Every form is three steps
+(the question, the detail, review and confirm) on one sheet, with a help panel that changes per step.
+- Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
+- `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch).
+- `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
+- `data-echo="field"` prints an answer on the review step. Number fields use `.stepper` with − and + buttons.
+- The review step asks whether the SBDC helped and takes a typed name as confirmation.
+The fields are a starting set drawn from the earlier preview; check them against what Neoserra's
+milestone records require.
 
 ## Surface rule: flat
 
