@@ -1,12 +1,12 @@
 <!-- layout: app | active: dashboard | title: Home | main: home reveal -->
     <div class="home-lead">
       <h1 class="hello">Good morning, Avery.</h1>
-      <p class="hello-sub">One thing to do before you meet Dana on Thursday.</p>
+      <p class="hello-sub">One thing to do before Thursday.</p>
 
       <!-- Your next step: the one soft sheet on the page. One task, one filled button. -->
-      <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-title">
+      <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-label next-step-title">
         <div class="next-head">
-          <p class="kicker">Your next step</p>
+          <p class="kicker" id="next-step-label">Your next step</p>
           <p class="due">{{icon:clock}} Due Thursday</p>
         </div>
         <h2 class="next-title" id="next-step-title">Upload last month’s <em>profit and loss</em> statement.</h2>
@@ -47,19 +47,19 @@
           <a class="link" href="events.html">All training</a>
         </div>
         <div class="rows">
-          <article class="row event">
+          <article class="row">
             <p class="date"><b>12</b><span>Nov</span></p>
             <div>
               <h3>Session with Dana</h3>
-              <p>Thursday, 2:00&nbsp;PM · Video call · 45&nbsp;minutes</p>
+              <p class="meta"><span>Thursday, 2:00&nbsp;PM</span><span>Video call</span><span>45&nbsp;minutes</span></p>
             </div>
             <a class="link" href="#">Details<span class="visually-hidden">: session with Dana</span></a>
           </article>
-          <article class="row event">
+          <article class="row">
             <p class="date"><b>17</b><span>Nov</span></p>
             <div>
               <h3>Loan-ready: build your lender&nbsp;package</h3>
-              <p>Tuesday, 9:00&nbsp;AM · Online · <span class="ok">{{icon:check}} Registered</span></p>
+              <p class="meta"><span>Tuesday, 9:00&nbsp;AM</span><span>Online</span><span class="ok">{{icon:check}} Registered</span></p>
             </div>
             <a class="link" href="events.html">Details<span class="visually-hidden">: Loan-ready training</span></a>
           </article>
@@ -77,7 +77,7 @@
       <section class="mysbdc-client-counselor-overview" aria-labelledby="advisor-name">
         <h2 class="kicker">Your advisor</h2>
         <div class="adv">
-          <img src="assets/img/advisor-dana.jpg" alt="Dana Whitfield, your advisor" width="152" height="152">
+          <img src="assets/img/advisor-dana-face.jpg" alt="Dana Whitfield, your advisor" width="60" height="60">
           <div>
             <strong class="h-name" id="advisor-name">Dana Whitfield</strong>
             <p>Replies within one business&nbsp;day</p>

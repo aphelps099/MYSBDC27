@@ -51,7 +51,7 @@ def app(body, m):
     <button class="util-btn" type="button" aria-label="Language: English. Change language">{icon('globe')}<span class="label">English</span></button>
     <div class="site-user-navigation">
       <details>
-        <summary aria-label="Your account"><span class="avatar">AP</span><span class="name">Avery</span></summary>
+        <summary aria-label="Your account, Avery"><span class="avatar">AP</span><span class="name">Avery</span></summary>
         <div class="dropdown-menu">
           <p class="who"><strong>Avery Phelps</strong>avery@example.com</p>
           <a class="dropdown-item" href="settings.html">{icon('settings')}Settings</a>

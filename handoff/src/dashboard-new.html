@@ -4,9 +4,9 @@
       <p class="hello-sub">You’re signed up. Here is what happens next.</p>
 
       <!-- New client, no advisor yet: say what is happening and that nothing is needed. -->
-      <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-title">
+      <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-label next-step-title">
         <div class="next-head">
-          <p class="kicker">Your next step</p>
+          <p class="kicker" id="next-step-label">Your next step</p>
           <p class="due">{{icon:check}} Nothing to do yet</p>
         </div>
         <h2 class="next-title" id="next-step-title">We’re matching you with <em>your advisor.</em></h2>
@@ -41,19 +41,22 @@
         </div>
         <p class="sec-sub">Free training, picked from your answers.</p>
         <div class="rows">
-          <article class="row event">
+          <article class="row">
             <p class="date"><b>12</b><span>Nov</span></p>
-            <div><h3>Business plan in a day</h3><p>Thursday, 10:00&nbsp;AM · Online · 2&nbsp;hours</p></div>
+            <div><h3>Business plan in a day</h3>
+              <p class="meta"><span>Thursday, 10:00&nbsp;AM</span><span>Online</span><span>2&nbsp;hours</span></p></div>
             <button class="btn btn-sm btn-outline btn-event-register" type="button" data-register aria-pressed="false">Register</button>
           </article>
-          <article class="row event">
+          <article class="row">
             <p class="date"><b>17</b><span>Nov</span></p>
-            <div><h3>Loan-ready: build your lender&nbsp;package</h3><p>Tuesday, 9:00&nbsp;AM · Online · 90&nbsp;minutes</p></div>
+            <div><h3>Loan-ready: build your lender&nbsp;package</h3>
+              <p class="meta"><span>Tuesday, 9:00&nbsp;AM</span><span>Online</span><span>90&nbsp;minutes</span></p></div>
             <button class="btn btn-sm btn-outline btn-event-register" type="button" data-register aria-pressed="false">Register</button>
           </article>
-          <article class="row event">
+          <article class="row">
             <p class="date"><b>19</b><span>Nov</span></p>
-            <div><h3>Cash flow clinic: bring your&nbsp;numbers</h3><p>Thursday, 9:00&nbsp;AM · In person, Eureka · 90&nbsp;minutes</p></div>
+            <div><h3>Cash flow clinic: bring your&nbsp;numbers</h3>
+              <p class="meta"><span>Thursday, 9:00&nbsp;AM</span><span>In person, Eureka</span><span>90&nbsp;minutes</span></p></div>
             <button class="btn btn-sm btn-outline btn-event-register" type="button" data-register aria-pressed="false">Register</button>
           </article>
         </div>

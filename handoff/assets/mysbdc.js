@@ -21,7 +21,7 @@
   const user = $('.site-user-navigation details');
   if (user) {
     document.addEventListener('click', e => { if (!user.contains(e.target)) user.open = false; });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') user.open = false; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && user.open) { const inside = user.contains(document.activeElement); user.open = false; if (inside) user.querySelector('summary').focus(); } });
   }
 
   // Pressed-state buttons: language, filter chips, one-click training registration.
