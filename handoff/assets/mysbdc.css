@@ -514,7 +514,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .steps.inline li.done,.steps.inline li.current{color:var(--ink)}
 .steps.inline li.current{font-weight:700}
 .steps.inline .count{padding:0 0 14px;font-size:1rem}
-.ms-sheet{padding:clamp(22px,3vw,40px);border-radius:6px;background:#FBF8F1;box-shadow:10px 10px 0 var(--mysbdc-brand-pool)}
+.ms-sheet{padding:clamp(22px,3vw,40px);background:#FBF8F1}
 .ms-sheet .step-panel h1{font:400 clamp(1.75rem,2.8vw,2.5rem)/1.08 var(--font-serif);letter-spacing:-.024em;text-wrap:balance}
 .ms-sheet .step-panel .lead{max-width:32em;margin:10px 0 26px;font-size:1.125rem}
 .ms-sheet .step-panel fieldset{margin-bottom:24px}
@@ -548,6 +548,31 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
   .ms-choice{min-height:0;padding:18px}
   .ms-log li{grid-template-columns:minmax(0,1fr)}
   .steps.inline li{font-size:0}
-  .ms-sheet{padding:20px 18px;box-shadow:6px 6px 0 var(--mysbdc-brand-pool)}
+  .ms-sheet{padding:20px 18px}
+  .ms-band{padding:20px 18px 18px}
+  .ms-giant{width:210px;height:210px;right:-46px;top:-30px}
 }
 .ms-sheet .step-panel fieldset.mt-24,.ms-sheet .step-panel fieldset.mt-32{margin-top:30px}
+
+/* Milestone form card: an expressive band per milestone type, with the progress built in and a giant
+   cropped icon as background texture. This band is the one place in the app that uses a soft gradient. */
+.ms-card{--c1:var(--mysbdc-brand-signal);--c2:#3C86C8;border-radius:8px;overflow:hidden}
+.ms-card[data-type=sales]{--c1:#00574E;--c2:#0E8A7B}
+.ms-card[data-type=funding]{--c1:#0F1C2D;--c2:#2A5C8C}
+.ms-card[data-type=started]{--c1:#A32E2E;--c2:#D4574F}
+.ms-band{position:relative;isolation:isolate;overflow:hidden;padding:clamp(22px,3vw,36px) clamp(22px,3vw,40px) clamp(18px,2.2vw,26px);background:radial-gradient(90% 140% at 100% 0%,var(--c2),transparent 62%),linear-gradient(120deg,var(--c1),color-mix(in srgb,var(--c1) 72%,var(--c2)));color:#fff}
+.ms-giant{position:absolute;z-index:-1;right:-56px;top:-64px;width:340px;height:340px;fill:none;stroke:#fff;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;opacity:.17;rotate:-10deg}
+.ms-band .kicker{margin:0;color:#ffffffd9}
+.ms-band-title{margin-top:8px;font:400 clamp(2rem,3.4vw,3rem)/1.05 var(--font-serif);letter-spacing:-.024em}
+.ms-band .steps{margin-top:clamp(22px,2.6vw,32px)}
+.ms-band .steps ol{padding:0;gap:6px}
+.ms-band .steps li{gap:9px;font-size:1rem;font-weight:500;color:#ffffffc7}
+.ms-band .steps li::before{height:5px;background:#ffffff4d}
+.ms-band .steps li.done::before,.ms-band .steps li.current::before{background:#fff}
+.ms-band .steps li.done{color:#ffffffc7}
+.ms-band .steps li.current{color:#fff;font-weight:700}
+.ms-band .steps .count{padding:10px 0 0;font-size:1rem;color:#fff}
+.ms-choice[data-type=hired] .tile{background:var(--mysbdc-brand-signal);color:#fff}
+.ms-choice[data-type=sales] .tile{background:#00675C;color:#fff}
+.ms-choice[data-type=funding] .tile{background:var(--mysbdc-brand-navy);color:var(--mysbdc-brand-pool)}
+.ms-choice[data-type=started] .tile{background:#B33434;color:#fff}

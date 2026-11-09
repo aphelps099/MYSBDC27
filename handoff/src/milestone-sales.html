@@ -1,12 +1,17 @@
 <!-- layout: app | active: milestones | title: Sales grew | main: ms-page ms-flow reveal -->
     <div class="ms-main">
       <a class="link ms-back" href="milestones.html">Back to milestones</a>
-      <p class="kicker">{{icon:chart}} Share a milestone · Sales grew</p>
-      <nav class="steps inline" aria-label="Progress">
-        <ol><li>Your sales</li><li>The source</li><li>Review</li></ol>
-        <p class="count" aria-live="polite"></p>
-      </nav>
-
+      <!-- One card: a coloured band (type, progress, giant cropped icon) over the form sheet. -->
+      <div class="ms-card" data-type="sales">
+        <header class="ms-band">
+          <svg class="ms-giant" aria-hidden="true"><use href="#i-chart"/></svg>
+          <p class="kicker">Share a milestone</p>
+          <p class="ms-band-title">Sales grew</p>
+        <nav class="steps inline" aria-label="Progress">
+          <ol><li>Your sales</li><li>The source</li><li>Review</li></ol>
+          <p class="count" aria-live="polite"></p>
+        </nav>
+        </header>
       <form class="ms-sheet" data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
           <h1 id="h1">What were your sales last year?</h1>
@@ -50,6 +55,7 @@
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=sales">Share milestone</button></div>
         </section>
       </form>
+      </div>
     </div>
 
     <aside class="why" aria-label="Help with this step">
