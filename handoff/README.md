@@ -63,14 +63,22 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
      If the note carries a link, it appears as a text link under the note (`.memo-links`), beside
      "Reply to Dana". With no note yet (new client), the same sheet shows a note from the center.
    - *Your business* is the navy card at the top right; on phones it follows the next step.
-   - *Your advisor* sits in a light rounded container with one action: Send a message. There is no booking.
-   - *Your milestones* is a pool-tinted band with four direct links, one per milestone type.
-   - Coming up and the advisor's picked resources sit directly on the page.
+   - *Your advisor* sits in a light rounded container: name, specialty, Send a message (there is
+     no booking), and the resources the advisor picked for this client.
+   - *Your milestones* is a flat pool band across the full width with four tiles, one per milestone type.
+   - Coming up sits directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
 5. **Sign-in has no password.** Google, Microsoft, or a link by email.
 6. **Form 641 is five short steps** with a plain-language "why we ask" panel beside each one,
    optional SBA questions clearly marked optional, and a phone alternative.
 7. **Settings is one page**, in sections that save independently.
+
+## Surface rule: flat
+
+App surfaces are solid colours with a 6px radius. No gradients, no grain and no soft drop shadows on
+cards, panels, bands or tiles. Separation comes from colour and spacing. The one shadow in the
+vocabulary is the brand's solid offset plate (`box-shadow: 10px 10px 0 <colour>`, the About page's pool
+plate at a smaller scale), used on a single focal surface per page; on Home that is the next step.
 
 ## Accessibility
 
