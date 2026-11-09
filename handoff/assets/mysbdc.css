@@ -370,8 +370,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .hello-sub{text-wrap:pretty;margin-top:10px;font-size:clamp(1.125rem,1.4vw,1.25rem);color:var(--ink-2)}
 
 /* Your next step: the one soft sheet on the page. Tight, labelled, one filled button. */
-.mysbdc-client-next-steps-overview{position:relative;isolation:isolate;margin-top:clamp(18px,2vw,24px);padding:clamp(20px,2vw,28px);border-radius:6px;background:radial-gradient(90% 70% at 0 0,#fffdf8,transparent 70%),linear-gradient(180deg,#fcf9f2,#f6f1e6);box-shadow:0 1px 0 #fffffff2 inset,0 1px 2px #0f1c2d12,0 24px 56px -34px #0f1c2d52}
-.mysbdc-client-next-steps-overview::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--grain-mid);opacity:.45;mix-blend-mode:soft-light;pointer-events:none}
+.mysbdc-client-next-steps-overview{position:relative;isolation:isolate;margin-top:clamp(18px,2vw,24px);padding:clamp(20px,2vw,28px);border-radius:6px;background:#FBF8F1}
 .mysbdc-client-next-steps-overview>.kicker{color:#A83030}
 .memo{max-width:34em;margin-top:12px;font:400 clamp(1.375rem,1.9vw,1.6875rem)/1.32 var(--font-serif);letter-spacing:-.018em;color:var(--ink);text-wrap:pretty}
 .memo-from{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:1rem;color:var(--ink-2)}
@@ -383,8 +382,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .memo-links .link .icon{width:19px;height:19px}
 
 /* Your business: the navy card, top right. Layered light and grain so it reads as depth, not a flat block. */
-.home-biz{position:relative;padding:clamp(24px,2.4vw,30px) clamp(24px,2.4vw,30px) clamp(14px,1.4vw,18px);border-radius:6px;background:radial-gradient(60% 50% at 78% 22%,#8fc5d91f,transparent 70%),var(--navy-depth);color:#fff;overflow:hidden;isolation:isolate;box-shadow:0 26px 50px -30px #0f1c2d8c}
-.home-biz::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--grain);opacity:.5;mix-blend-mode:overlay}
+.home-biz{position:relative;padding:clamp(24px,2.4vw,30px) clamp(24px,2.4vw,30px) clamp(14px,1.4vw,18px);border-radius:6px;background:var(--mysbdc-brand-navy);color:#fff}
 .home-biz .kicker{color:var(--mysbdc-brand-pool)}
 .h-name{display:block;margin-top:12px;font:700 clamp(1.375rem,1.8vw,1.5625rem)/1.15 var(--font-sans);letter-spacing:-.02em;text-wrap:balance}
 .home-biz .where{margin-top:6px;font-size:1rem;color:#C3CEDB}
@@ -420,8 +418,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .milestones h2{margin-top:12px;font:400 clamp(1.75rem,2.9vw,2.625rem)/1.06 var(--font-serif);letter-spacing:-.028em;text-wrap:balance}
 .ms-intro>p{max-width:26em;margin-top:10px;color:var(--ink-2);text-wrap:pretty}
 .ms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.ms-grid a{display:grid;grid-template-columns:44px minmax(0,1fr);gap:2px 14px;align-items:center;min-height:76px;padding:12px 16px;border-radius:5px;background:#ffffffb8;color:var(--ink);text-decoration:none;transition:background .18s}
-.ms-grid a:hover{background:#fff}
+.ms-grid a{display:grid;grid-template-columns:44px minmax(0,1fr);gap:2px 14px;align-items:center;min-height:76px;padding:12px 16px;border-radius:5px;background:var(--mysbdc-brand-white);color:var(--ink);text-decoration:none;transition:background .18s}
+.ms-grid a:hover{background:#F1F7FA}
 .ms-grid .tile{grid-row:span 2;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--mysbdc-brand-navy);color:var(--mysbdc-brand-pool)}
 .ms-grid .tile .icon{width:22px;height:22px}
 .ms-grid strong{align-self:end;font:700 1.0625rem/1.2 var(--font-sans)}
@@ -432,7 +430,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 /* Right column under the card */
 .home-adv{display:grid;gap:clamp(32px,3.6vw,44px);align-content:start;margin-top:clamp(32px,3.6vw,44px)}
 .home-adv p{margin-top:8px;font-size:1rem;color:var(--ink-2);text-wrap:pretty}
-.home-adv .mysbdc-client-counselor-overview{padding:clamp(20px,2vw,24px);border-radius:6px;background:linear-gradient(180deg,#ffffffb8,#ffffff73);box-shadow:0 0 0 1px #0f1c2d0f,0 18px 40px -30px #0f1c2d40}
+.home-adv .mysbdc-client-counselor-overview{padding:clamp(20px,2vw,24px);border-radius:6px;background:#FBF8F1}
 .adv{display:grid;grid-template-columns:60px minmax(0,1fr);gap:0 14px;align-items:center;margin-top:14px}
 .adv img,.adv .ph{width:60px;height:64px;object-fit:cover;filter:saturate(.88) contrast(1.03);border-bottom:4px solid var(--mysbdc-brand-berry)}
 .adv .ph{display:grid;place-items:center;height:60px;border:0;background:var(--mysbdc-brand-pool-pale);color:var(--mysbdc-brand-signal);filter:none}
