@@ -1,0 +1,96 @@
+<!-- layout: app | active: settings | title: Settings -->
+    <header class="page-intro">
+      <h1>Settings</h1>
+      <p class="lead">Your details, your business and how we reach you. Each section saves on its own.</p>
+    </header>
+
+    <div class="settings">
+      <nav class="settings-nav" aria-label="Settings sections">
+        <a href="#you" aria-current="true">{{icon:user}} About you</a>
+        <a href="#business">{{icon:briefcase}} Your business</a>
+        <a href="#notifications">{{icon:bell}} Notifications</a>
+        <a href="#display">{{icon:globe}} Language and display</a>
+        <a href="#signin">{{icon:lock}} Sign-in</a>
+        <a href="#privacy">{{icon:shield}} Privacy</a>
+      </nav>
+
+      <div class="stack" style="gap:32px">
+        <section class="card settings-section" id="you" aria-labelledby="you-h">
+          <h2 id="you-h">About you</h2>
+          <p class="muted">Your advisor uses these details to reach you.</p>
+          <form data-save>
+            <div class="form-grid">
+              <div class="field"><label for="first">First name</label><input id="first" type="text" autocomplete="given-name" value="Avery" required></div>
+              <div class="field"><label for="last">Last name</label><input id="last" type="text" autocomplete="family-name" value="Phelps" required></div>
+              <div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" value="avery@example.com" required></div>
+              <div class="field"><label for="phone">Mobile phone</label><input id="phone" type="tel" autocomplete="tel" value="(707) 555-0148"></div>
+              <div class="field full"><label for="street">Home address</label><input id="street" type="text" autocomplete="street-address" value="418 F Street"></div>
+              <div class="field"><label for="city">City</label><input id="city" type="text" autocomplete="address-level2" value="Eureka"></div>
+              <div class="field"><label for="zip">ZIP code</label><input id="zip" type="text" inputmode="numeric" autocomplete="postal-code" value="95501"></div>
+            </div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Save changes</button><span class="saved" role="status" hidden>{{icon:check sm}} Saved</span></div>
+          </form>
+        </section>
+
+        <section class="card settings-section" id="business" aria-labelledby="business-h">
+          <h2 id="business-h">Your business</h2>
+          <p class="muted">Keep this current and your advisor can spend your time together on what matters.</p>
+          <form data-save>
+            <div class="form-grid">
+              <div class="field full"><label for="bname">Business name</label><input id="bname" type="text" autocomplete="organization" value="Northstar Provisions"></div>
+              <div class="field"><label for="bind">Kind of business</label><select id="bind"><option>Food and beverage</option><option>Retail, storefront</option><option>Professional services</option><option>Something else</option></select></div>
+              <div class="field"><label for="bent">How it is set up</label><select id="bent"><option>LLC</option><option>Sole proprietor</option><option>Partnership</option><option>Corporation</option></select></div>
+              <div class="field"><label for="bft">Full-time employees, including you</label><input id="bft" type="number" min="0" inputmode="numeric" value="3"></div>
+              <div class="field"><label for="bpt">Part-time employees</label><input id="bpt" type="number" min="0" inputmode="numeric" value="2"></div>
+              <div class="field full"><label for="bweb">Website <span class="optional">(optional)</span></label><input id="bweb" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></div>
+            </div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Save changes</button><span class="saved" role="status" hidden>{{icon:check sm}} Saved</span></div>
+          </form>
+          <p class="note mt-32">{{icon:flag}}<span><strong>Hired someone or grew sales?</strong> That is a milestone worth sharing. <a class="link" href="milestones.html" style="min-height:0">Share a milestone</a></span></p>
+        </section>
+
+        <section class="card settings-section" id="notifications" aria-labelledby="notif-h">
+          <h2 id="notif-h">Notifications</h2>
+          <p class="muted">Choose what we send. We never send marketing from anyone else.</p>
+          <form data-save>
+            <div class="switch-row"><span><strong>Messages from your advisor</strong><small>When Dana sends a note or a next step.</small></span><label class="switch"><span class="state"></span><input type="checkbox" role="switch" checked aria-label="Messages from your advisor"></label></div>
+            <div class="switch-row"><span><strong>Session and training reminders</strong><small>The day before, and one hour before.</small></span><label class="switch"><span class="state"></span><input type="checkbox" role="switch" checked aria-label="Session and training reminders"></label></div>
+            <div class="switch-row"><span><strong>Text message reminders</strong><small>Sent to (707) 555-0148. Reply STOP at any time.</small></span><label class="switch"><span class="state"></span><input type="checkbox" role="switch" aria-label="Text message reminders"></label></div>
+            <div class="switch-row"><span><strong>Milestone check-ins</strong><small>An occasional invitation to share your progress.</small></span><label class="switch"><span class="state"></span><input type="checkbox" role="switch" checked aria-label="Milestone check-ins"></label></div>
+            <div class="switch-row"><span><strong>New training near you</strong><small>A short monthly email from North Coast SBDC.</small></span><label class="switch"><span class="state"></span><input type="checkbox" role="switch" aria-label="New training near you"></label></div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Save changes</button><span class="saved" role="status" hidden>{{icon:check sm}} Saved</span></div>
+          </form>
+        </section>
+
+        <section class="card settings-section" id="display" aria-labelledby="display-h">
+          <h2 id="display-h">Language and display</h2>
+          <p class="muted">Make MySBDC comfortable to read.</p>
+          <form data-save>
+            <div class="form-grid">
+              <div class="field"><label for="plang">Language</label><select id="plang"><option>English</option><option>Español</option></select><p class="hint">We also match you with an advisor who speaks it, where we can.</p></div>
+            </div>
+            <div class="switch-row mt-16"><span><strong>Larger text</strong><small>Makes all text on MySBDC bigger.</small></span><label class="switch"><span class="state"></span><input id="pref-large-text" type="checkbox" role="switch" aria-label="Larger text"></label></div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Save changes</button><span class="saved" role="status" hidden>{{icon:check sm}} Saved</span></div>
+          </form>
+        </section>
+
+        <section class="card settings-section" id="signin" aria-labelledby="signin-h">
+          <h2 id="signin-h">Sign-in</h2>
+          <p class="muted">There is no password to remember. Sign in with any of these.</p>
+          <div class="connected"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.36Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.41l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.61 0-4.82-1.76-5.61-4.12H3.04v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.39 13.920a6 6 0 0 1 0-3.840V7.490H3.040a10 10 0 0 0 0 9.020Z"/><path fill="#EA4335" d="M12 5.960c1.470 0 2.790.510 3.820 1.510l2.860-2.870A9.600 9.600 0 0 0 12 2a10 10 0 0 0-8.960 5.490l3.350 2.590C7.180 7.720 9.390 5.960 12 5.960Z"/></svg><span><strong>Google</strong><br><span class="small muted">avery@example.com</span></span><span class="badge green">{{icon:check sm}} Connected</span></div>
+          <div class="connected"><svg viewBox="0 0 21 21" aria-hidden="true"><path fill="#f25022" d="M1 1h9v9H1z"/><path fill="#7fba00" d="M11 1h9v9h-9z"/><path fill="#00a4ef" d="M1 11h9v9H1z"/><path fill="#ffb900" d="M11 11h9v9h-9z"/></svg><span><strong>Microsoft</strong><br><span class="small muted">Not connected</span></span><button class="btn btn-sm btn-secondary" type="button">Connect</button></div>
+          <div class="connected"><span class="tile-icon" style="width:28px;height:28px;background:none">{{icon:mail}}</span><span><strong>Email link</strong><br><span class="small muted">Sent to avery@example.com</span></span><span class="badge green">{{icon:check sm}} On</span></div>
+          <div class="actions"><a class="btn btn-secondary" href="login.html">{{icon:signout}} Sign out</a></div>
+        </section>
+
+        <section class="card settings-section" id="privacy" aria-labelledby="privacy-h">
+          <h2 id="privacy-h">Privacy</h2>
+          <p class="muted">Your information belongs to you.</p>
+          <p class="note">{{icon:lock}}<span>Your numbers and notes are seen only by you and your SBDC team. They are never sold, and never shared with a lender unless you choose to apply.</span></p>
+          <div class="actions">
+            <button class="btn btn-quiet" type="button">{{icon:download}} Download my information</button>
+            <a class="link" href="#help">Ask us to close my account</a>
+          </div>
+        </section>
+      </div>
+    </div>

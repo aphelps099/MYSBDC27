@@ -26,6 +26,7 @@ needs internet access; there is no build step.
 | Marketing site | `MySBDC Homepage.dc.html`, `About`, `Advising`, `Funding`, `Trainings`, `Training Calendar`, `Resources`, `Stories` (+ two `Story - …` pages), `Partners`, `Careers`, `Role - Business Advisor`, `AWS Initiative` |
 | MySBDC app | `MySBDC Sign In`, `MySBDC Intake`, `MySBDC Dashboard` (+ rail version) |
 | Campaign & creative | `Training Deck`, `Training Thumbnails`, `Training Marketing Video`, `Training Series Video`, `Evergreen Ads` |
+| Developer handoff | `handoff/` — static HTML and one stylesheet for the MySBDC client app (sign-in, Form 641 steps, dashboards, settings). See `handoff/README.md` |
 | Working files | `Client Journey`, `Mosaic Explorations`, `MySBDC Dashboard export.html` (static export), `MySBDC Dashboard.html` (bundled build) |
 
 Supporting directories: `_ds/` (design-system tokens + bundle), `assets/`

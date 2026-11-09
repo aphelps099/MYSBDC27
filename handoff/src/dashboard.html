@@ -1,0 +1,121 @@
+<!-- layout: app | active: dashboard | title: Home -->
+    <header class="page-intro">
+      <p class="eyebrow">Monday, November 9</p>
+      <h1>Good morning, Avery.</h1>
+      <p class="lead">You have one thing to do before you meet with Dana on Thursday.</p>
+    </header>
+
+    <!-- Next step: one task, said plainly, with the person who asked for it. -->
+    <section class="mysbdc-client-next-steps-overview on-navy" aria-labelledby="next-step-title">
+      <div class="next-main">
+        <p class="eyebrow pool">{{icon:clock sm}} Your next step · Due Thursday</p>
+        <h2 id="next-step-title">Upload last month’s <em>profit and loss</em> statement.</h2>
+        <div class="advisor-note">
+          <img class="avatar" src="assets/img/advisor-dana.jpg" alt="">
+          <blockquote>
+            <p>“Rough is fine. Send what you have and we’ll clean it up together on Thursday.”</p>
+            <cite>Dana Whitfield, your advisor</cite>
+          </blockquote>
+        </div>
+        <div class="actions">
+          <button class="btn btn-pool" type="button">{{icon:upload}} Upload document</button>
+          <button class="link" type="button">I need more time</button>
+        </div>
+      </div>
+      <div class="next-side">
+        <p class="eyebrow pool">Where this fits</p>
+        <h3>Your lender package</h3>
+        <p class="small" style="color:#C9D3DF">2 of 4 documents ready</p>
+        <div class="meter" role="img" aria-label="2 of 4 documents ready"><span style="width:50%"></span></div>
+        <ul class="checklist">
+          <li class="done"><span class="mark">{{icon:check sm}}</span>Business plan <small>Done</small></li>
+          <li class="done"><span class="mark">{{icon:check sm}}</span>Business tax returns <small>Done</small></li>
+          <li class="now"><span class="mark"></span>Profit and loss statement <small>Due Thu</small></li>
+          <li><span class="mark"></span>Cash flow forecast</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="dash-grid mt-24">
+      <div class="span-7 stack">
+        <section class="card mysbdc-user-upcoming-events" aria-labelledby="coming-up">
+          <div class="card-head">
+            <h2 class="eyebrow" id="coming-up">{{icon:calendar sm}} Coming up</h2>
+            <a class="link" href="events.html">See all training</a>
+          </div>
+          <div class="events">
+            <article class="event is-session">
+              <div class="entry-event-date"><span class="month">Nov</span><span class="day">12</span></div>
+              <div class="entry-contents">
+                <h3 class="entry-title">Session with Dana</h3>
+                <div class="entry-details"><span class="detail">Thursday, 2:00 PM</span><span class="detail">{{icon:video sm}} Video call</span><span class="detail">45 minutes</span></div>
+              </div>
+              <div class="entry-actions"><button class="btn btn-sm btn-secondary" type="button">Details</button></div>
+            </article>
+            <article class="event">
+              <div class="entry-event-date"><span class="month">Nov</span><span class="day">17</span></div>
+              <div class="entry-contents">
+                <h3 class="entry-title"><a href="events.html">Loan-ready: build your lender package</a></h3>
+                <div class="entry-details"><span class="detail">Tuesday, 9:00 AM</span><span class="detail">{{icon:video sm}} Online</span><span class="badge green">{{icon:check sm}} Registered</span></div>
+              </div>
+              <div class="entry-actions"><button class="btn btn-sm btn-secondary" type="button">Details</button></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="recommended">
+          <div class="card-head">
+            <h2 class="eyebrow" id="recommended">{{icon:book sm}} Picked for you by Dana</h2>
+            <a class="link" href="resources.html">All resources</a>
+          </div>
+          <div class="events">
+            <div class="resource-row"><span class="tile-icon">{{icon:doc}}</span><div><h3>Loan package checklist</h3><p class="small muted">Checklist · 5 minutes</p></div><a class="link" href="resources.html">Open</a></div>
+            <div class="resource-row"><span class="tile-icon">{{icon:chart}}</span><div><h3>Cash flow forecast, 13 weeks</h3><p class="small muted">Spreadsheet template</p></div><a class="link" href="resources.html">Open</a></div>
+            <div class="resource-row"><span class="tile-icon">{{icon:doc}}</span><div><h3>Menu costing worksheet</h3><p class="small muted">Spreadsheet template</p></div><a class="link" href="resources.html">Open</a></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="span-5 stack">
+        <section class="card mysbdc-client-counselor-overview" aria-labelledby="advisor-name">
+          <div class="advisor-top">
+            <img class="portrait" src="assets/img/advisor-dana.jpg" alt="Dana Whitfield">
+            <div>
+              <p class="eyebrow">Your advisor</p>
+              <h3 id="advisor-name">Dana Whitfield</h3>
+            </div>
+          </div>
+          <div class="advisor-body">
+            <p>Ran two restaurants for eleven years. Helps with loans, cash flow and menu costing.</p>
+            <p class="small muted mt-8">Usually replies within one business day.</p>
+            <div class="actions">
+              <button class="btn btn-primary btn-block" type="button">{{icon:calendar}} Book a session</button>
+              <button class="btn btn-quiet btn-block" type="button">{{icon:message}} Send a message</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card navy mysbdc-client-overview" aria-labelledby="business-name">
+          <p class="eyebrow pool">Your business</p>
+          <h2 class="mt-16" id="business-name">Northstar Provisions</h2>
+          <p class="small" style="color:#C9D3DF">Food and beverage · Eureka, Humboldt County</p>
+          <dl class="facts">
+            <div><dt>Working on</dt><dd>Access to capital</dd></div>
+            <div><dt>Programs</dt><dd>Finance Center, ProBiz</dd></div>
+            <div><dt>Client since</dt><dd>March 2025</dd></div>
+          </dl>
+          <p class="on-navy mt-16"><a class="link" href="settings.html#business">Update business details</a></p>
+        </section>
+      </div>
+
+      <section class="span-12 mysbdc-client-milestones-overview" aria-labelledby="milestone-title">
+        <div>
+          <p class="eyebrow">{{icon:flag sm}} Your milestones</p>
+          <h2 id="milestone-title">Anything new with your business?</h2>
+          <p>A new hire, better sales, a loan or a launch. It takes about four minutes, and it helps the next business get help.</p>
+        </div>
+        <a class="btn btn-primary" href="milestones.html">Share a milestone</a>
+      </section>
+
+      <p class="span-12 note">{{icon:lock}}<span><strong>Private by default.</strong> Your numbers and notes are seen only by you and your SBDC team. Nothing is shared with a lender unless you choose to apply.</span></p>
+    </div>

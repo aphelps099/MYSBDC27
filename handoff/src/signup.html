@@ -1,0 +1,38 @@
+<!-- layout: bare | title: Create your account -->
+<div class="auth">
+  <aside class="auth-brand">
+    <img src="assets/img/advising-conversation.jpg" alt="" style="object-position:60% 50%">
+    <a class="wordmark" href="login.html"><b>My</b>SBDC<small>NorCal SBDC</small></a>
+    <div>
+      <h2>One sign-up.<br><em>A whole network</em> behind you.</h2>
+      <p class="caption"><span>{{icon:shield}} Confidential</span><span>{{icon:check}} Always at no cost</span></p>
+    </div>
+  </aside>
+  <div class="auth-surface">
+    <div class="auth-bar">
+      <a class="link" href="https://www.norcalsbdc.org/">Back to website</a>
+      <div class="lang" role="group" aria-label="Language" data-toggle-group><button type="button" aria-pressed="true" lang="en">English</button><button type="button" aria-pressed="false" lang="es">Español</button></div>
+    </div>
+    <main class="auth-main" id="main-content">
+      <h1>Let’s get you started.</h1>
+      <p class="lead">Create your account, then answer a few questions so we can match you with the right advisor.</p>
+      <ul class="options mt-32" aria-label="What to expect">
+        <li class="note">{{icon:clock}}<span><strong>About 10 minutes.</strong> You can stop and come back. Your answers are saved.</span></li>
+      </ul>
+      <div class="providers" style="margin-top:24px">
+        <a class="btn btn-provider" href="register.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.36Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.41l-3.24-2.51c-.9.6-2.05.96-3.38.96-2.61 0-4.82-1.76-5.61-4.12H3.04v2.59A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.39 13.92a6 6 0 0 1 0-3.84V7.49H3.04a10 10 0 0 0 0 9.02Z"/><path fill="#EA4335" d="M12 5.96c1.47 0 2.79.51 3.82 1.51l2.86-2.87A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.960 5.49l3.350 2.59C7.18 7.72 9.39 5.96 12 5.96Z"/></svg>Sign up with Google</a>
+        <a class="btn btn-provider" href="register.html"><svg viewBox="0 0 21 21" aria-hidden="true"><path fill="#f25022" d="M1 1h9v9H1z"/><path fill="#7fba00" d="M11 1h9v9h-9z"/><path fill="#00a4ef" d="M1 11h9v9H1z"/><path fill="#ffb900" d="M11 11h9v9h-9z"/></svg>Sign up with Microsoft</a>
+      </div>
+      <p class="divider">Or use your email. No password needed.</p>
+      <form action="register.html">
+        <div class="field">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@yourbusiness.com" required>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Continue with email</button>
+      </form>
+      <p class="auth-alt"><strong>Already have an account?</strong> <a class="link" href="login.html">Sign in</a></p>
+    </main>
+    <footer class="auth-foot"><span>Funded in part through a Cooperative Agreement with the U.S. Small Business Administration.</span><a href="#privacy">Privacy</a></footer>
+  </div>
+</div>
