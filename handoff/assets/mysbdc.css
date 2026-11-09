@@ -456,7 +456,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 @media(max-width:1099px){.home{--side:300px}}
 @media(max-width:1099px){.milestones{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}}
 @media(max-width:939px){
-  .home{display:flex;flex-direction:column}
+  .home{display:flex;flex-direction:column;align-items:stretch}
   .home-main,.home-side{display:contents}
   .home-lead{order:1}.home-biz{order:2}.home-more{order:3}.home-adv{order:4}.milestones{order:5}
   .home-biz{margin-top:20px}
