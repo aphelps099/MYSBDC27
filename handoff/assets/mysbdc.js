@@ -117,10 +117,14 @@
       whys.forEach(w => w.hidden = +w.dataset.why !== mark);
       const steps = $('.steps'), why = $('.why');
       if (steps) steps.hidden = last; if (why) why.hidden = last;
-      if (count && !last) count.textContent = 'Step ' + (mark + 1) + ' of ' + marks.length + (count.hasAttribute('data-short') ? '' : ' · ' + marks[mark].textContent.trim());
+      if (count && !last) {
+        const mins = (count.dataset.mins || '').split(',')[mark];
+        count.textContent = 'Step ' + (mark + 1) + ' of ' + marks.length + (mins ? ' · about ' + mins + (mins === '1' ? ' minute' : ' minutes') + ' left' : count.hasAttribute('data-short') ? '' : ' · ' + marks[mark].textContent.trim());
+      }
       if (ready) { const h = $('h1', panel); h.tabIndex = -1; h.focus({ preventScroll: true }); scrollTo(0, 0); }
       ready = true;
       $$('[data-echo]', flow).forEach(el => { const t = label(el.dataset.echo); if (t) el.textContent = t; });
+      $$('[data-echo-list]', flow).forEach(el => { const picked = $$('input[name="' + el.dataset.echoList + '"]:checked', flow).map(i => i.value.toLowerCase()); if (picked.length) el.textContent = picked.length > 1 ? picked.slice(0, -1).join(', ') + ' and ' + picked.at(-1) : picked[0]; });
       $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });
     };
     flow.addEventListener('click', e => {
@@ -140,7 +144,10 @@
       if (flow.elements.inbusiness) { const yes = val('inbusiness') === 'yes'; $$('[data-if-business]').forEach(el => el.hidden = !yes); $$('[data-if-idea]').forEach(el => el.hidden = yes); }
       $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });
     };
-    flow.addEventListener('change', gate);
+    // "Pick up to three": once three are ticked, the rest are disabled until one is cleared.
+    const limit = () => $$('[data-max]', flow).forEach(g => { const boxes = $$('input[type=checkbox]', g), full = boxes.filter(b => b.checked).length >= +g.dataset.max; boxes.forEach(b => b.disabled = full && !b.checked); });
+    flow.addEventListener('change', () => { gate(); limit(); });
+    limit();
     gate(); show(+(new URLSearchParams(location.search).get('step') || 1) - 1);
   }
 

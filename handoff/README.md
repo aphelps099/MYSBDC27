@@ -78,6 +78,18 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
    optional SBA questions clearly marked optional, and a phone alternative.
 7. **Settings is one page**, in sections that save independently.
 
+## Sign-up (Form 641)
+
+`register.html` uses the same card, controls and step script as the milestone forms, in one colour
+(pool blue) with a different corner icon per step. Fields, options and wording follow the original
+`MySBDC Intake.dc.html`: about you (name, email from the account, phone, ZIP with matched center,
+language); in business today; how long (or how far along, for people not open yet); the business
+(name, kind, set-up, employees, sales range, up to three help topics); review and sign (summary
+sentences, request for counseling with the full text behind a disclosure, required agreement, optional
+SBA survey consent, typed signature). The last panel is an animated tick, with no confetti.
+It does not ask for a home address or the optional SBA demographic questions; add them if the
+current SBA form or Neoserra requires them.
+
 ## Milestone forms
 
 Each milestone type is its own short form, matching the staging routes. The design is minimal:
@@ -121,8 +133,8 @@ plate at a smaller scale), used on a single focal surface per page; on Home that
   *Counselor* and *Meetings*. Routes can stay as they are.
 - **Promises in the copy.** "Usually within two business days", "replies within one business day"
   and "the link works for 15 minutes" are placeholders for real service levels.
-- **Form 641 fields.** The steps cover contact, business, goals, optional demographics and the
-  signed request for counseling. Check the field list and agreement wording against the current SBA form
+- **Form 641 fields.** The steps follow the original Intake design, which has no home address and no
+  demographic questions. Check the field list and agreement wording against the current SBA form
   and what Neoserra requires before build.
 - **Data not yet on staging.** The next-step note (text, author, date and optional link from Neoserra), advisor photo,
   advisor-picked resources and milestone history are designed here but need a source in Neoserra or WordPress.
