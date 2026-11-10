@@ -831,7 +831,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .training-section-head>.lib-meta{padding-bottom:3px}
 .training-timezone{display:inline-block;margin-left:20px}
 .training .lib-filters{align-items:flex-start;gap:20px 28px;margin-top:28px}
-.training-filter-label{margin-bottom:8px;font-size:.9375rem;font-weight:500;color:var(--ink-3)}
 .training .pills-row,.training .seg{gap:4px;padding:0;background:none;border-radius:0}
 .training .pill{min-height:48px;padding:0 16px;border-radius:6px;background:transparent;font-weight:500}
 .training .pill:hover{background:var(--mysbdc-brand-cream-dark)}
@@ -870,18 +869,14 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .course-capital{background:var(--mysbdc-navy-surface);color:var(--mysbdc-on-navy)}
 .course-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .course-top .training-eyebrow{color:inherit;font-size:.8125rem;letter-spacing:.09em}
-.course-top .ms-arrow{scale:.8}
+.course-top .ms-arrow{scale:.8;opacity:0;transition:opacity .18s ease,transform .2s ease}
 .training .course-card h3{margin-top:32px;font:400 clamp(1.5rem,2vw,1.875rem)/1.12 var(--font-serif);letter-spacing:-.02em;text-wrap:pretty}
 .course-meta{margin-top:12px;font-size:.9375rem}
-.course-foot{display:grid;gap:12px;margin-top:auto;padding-top:28px;font-size:.9375rem;font-weight:700}
-.course-foot>span:last-child{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px}
-.course-progress-note{font-weight:400}
-.course-progress{display:flex;gap:5px}
-.course-progress i{height:3px;flex:1;border-radius:2px;background:#9C8A61}
-.course-progress i:nth-child(-n+2){background:var(--mysbdc-navy-surface)}
+.course-foot{margin-top:auto;padding-top:28px;font-size:.9375rem;font-weight:700}
 .course-capital .course-meta,.course-capital .course-top{color:var(--mysbdc-on-navy-muted)}
 .course-card:is(:hover,:focus-visible) h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
-.course-card:is(:hover,:focus-visible) .ms-arrow{transform:translate(2px,-2px)}
+.course-card:focus-visible .ms-arrow{opacity:1;transform:translate(2px,-2px)}
+@media(hover:hover){.course-card:hover .ms-arrow{opacity:1;transform:translate(2px,-2px)}}
 .training .lib-foot{margin-top:28px;font-size:.9375rem}
 @media(max-width:1199px){
   .training-head{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px}
