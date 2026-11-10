@@ -41,6 +41,7 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 | Theme hook | Used for |
 | --- | --- |
 | `--mysbdc-brand-*` custom properties | Same names and values as `main.css`. New: `navy-soft`, `pool-pale`, `signal-dark` |
+| `--mysbdc-navy-*`, `--mysbdc-on-navy*` | Matte dark surfaces, selection states, warm light text and muted accents |
 | `#site-menu`, `.primary-navigation .menu-item.active > a > .icon/.label` | The rail |
 | `#site-menu-toggle`, `.burger-icon .bar`, `body.site-menu-active` | Widening the rail to a labelled sidebar |
 | `#site-branding`, `#site-logo`, `#site-title` | Logo and centre name in the header |
@@ -55,21 +56,24 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 
 ## What changed from staging, and why
 
-1. **The shell stays close to the staging theme.** Navy header across the top with the hamburger
+1. **The shell stays close to the staging theme.** Matte navy header across the top with the hamburger
    (`#site-menu-toggle`), logo and centre name, then help, language and the account menu. Below it,
-   the navy `#site-menu` rail with a pool bar on the active item; the hamburger widens it to a
+   the matching `#site-menu` rail with an inset slate-blue active item and a short pool marker; the hamburger widens it to a
    labelled sidebar (`body.site-menu-active`). Two differences: each icon keeps a word under it,
    because icon-only navigation loses less confident users, and below 1200px the widened sidebar
    overlays the page instead of squeezing it.
-2. **On phones the rail becomes a four-item bottom tab bar.** Settings is in the account menu.
+2. **On phones the rail becomes a four-item bottom tab bar.** The selected tab keeps its inset fill.
+   Settings is in the account menu.
 3. **The page is warm paper, not white.** Soft gradients plus a fine grain (`--grain`, `--grain-mid`,
-   `--navy-depth` tokens). No flat white or flat navy surfaces.
+   `--navy-depth` tokens). The app header, rail, business card and dark milestone tile use solid
+   slate navy, with warm paper text and soft pool accents.
 4. **Home is mostly open page, with a few quiet surfaces.**
    - *Your next step* is the advisor's latest note from Neoserra, shown as written in a serif
      reading size, with who wrote it and when. There is no big button and no progress tracker.
      If the note carries a link, it appears as a text link under the note (`.memo-links`), beside
      "Reply to Dana". With no note yet (new client), the same sheet shows a note from the center.
-   - *Your business* is the navy card at the top right; on phones it follows the next step.
+   - *Your business* is the slate-navy card at the top right, with a serif business name and quieter
+     supporting facts; on phones it follows the next step.
    - *Your advisor* sits in a light rounded container: name, specialty, Send a message (there is
      no booking), and the resources the advisor picked for this client.
    - *Your milestones* is an open editorial section headed "Progress takes many forms." Four
