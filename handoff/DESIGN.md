@@ -49,6 +49,11 @@ should support the content and the next action.
   keyboard focus. Filters keep accessible group names without redundant visible labels.
 - **Write with reassurance and clarity.** Short, human language and one clear priority per section
   help the user understand their next step. Preserve useful secondary links without competing CTAs.
+- **Resources are a small collection.** Start with five clear choices on the open page, with serif
+  titles, short descriptions, quiet file information, and small solid-color document marks. Omit
+  recommendation banners, catalog filters, saved states, and a duplicate video library. Resource
+  details follow the milestone forms: a compact color context panel beside a white reading sheet.
+  Reveal decorative arrows only on hover or keyboard focus.
 
 ## Shared navy tokens
 

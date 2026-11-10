@@ -1,103 +1,49 @@
 <!-- layout: app | active: resources | title: Resources -->
-    <div class="lib">
-      <header class="lib-head">
-        <h1>Take what’s useful. <em>It’s all free.</em></h1>
-        <p>Templates, guides and recorded webinars built by our advisors for the questions they hear most.</p>
+    <div class="resource-library">
+      <header class="resource-library-head">
+        <div><p class="ms-label">Resources</p><h1>Tools for your <br>next step.</h1></div>
+        <p class="resource-library-intro">A few useful templates and guides for the decisions in front of you. All at no cost.</p>
       </header>
-
-      <!-- The one focal card on the page. The three picks come from the advisor in Neoserra. -->
-      <section class="feature pool feature-picks" aria-labelledby="picked">
-        <svg class="ms-giant" aria-hidden="true"><use href="#i-doc"/></svg>
-        <div>
-          <p class="lib-kicker t-operations">Picked for you by Dana</p>
-          <h2 id="picked">Three things for your lender package.</h2>
-          <p class="lib-meta">Bring what you fill in to Thursday’s session. A template is a start. Your advisor finishes it with you.</p>
-        </div>
-        <ul>
-            <li><a class="pick" href="resource.html"><span><strong>Loan package checklist</strong><span class="lib-meta">Checklist · PDF · 2 pages</span></span><span class="open">Open</span></a></li>
-            <li><a class="pick" href="resource.html"><span><strong>Cash flow forecast (13 weeks)</strong><span class="lib-meta">Template · Excel + Google Sheets</span></span><span class="open">Open</span></a></li>
-            <li><a class="pick" href="resource.html"><span><strong>Pricing worksheet</strong><span class="lib-meta">Template · Excel + Google Sheets</span></span><span class="open">Open</span></a></li>
-        </ul>
-      </section>
-
-      <div class="lib-filters">
-        <div class="pills-row" role="group" aria-label="Topic" data-toggle-group data-filter="topic"><button class="pill" type="button" data-value="all" aria-pressed="true">All topics</button><button class="pill" type="button" data-value="Planning" aria-pressed="false">Planning</button><button class="pill" type="button" data-value="Finance" aria-pressed="false">Finance</button><button class="pill" type="button" data-value="Capital" aria-pressed="false">Capital</button><button class="pill" type="button" data-value="Operations" aria-pressed="false">Operations</button><button class="pill" type="button" data-value="Marketing" aria-pressed="false">Marketing</button><button class="pill" type="button" data-value="AI" aria-pressed="false">AI</button></div>
-        <button class="pill pill-line" type="button" data-saved-only aria-pressed="false">Saved (<span data-saved-count>2</span>)</button>
-      </div>
-      <div class="lib-filters tight">
-        <div class="seg" role="group" aria-label="Type" data-toggle-group data-filter="kind"><button class="pill" type="button" data-value="all" aria-pressed="true">All types</button><button class="pill" type="button" data-value="Template" aria-pressed="false">Template</button><button class="pill" type="button" data-value="Guide" aria-pressed="false">Guide</button><button class="pill" type="button" data-value="Checklist" aria-pressed="false">Checklist</button></div>
-        <span class="lib-meta" role="status" data-count data-noun="resource">9 resources</span>
-      </div>
-
-      <div class="res-grid">
-        <article class="res" data-item data-topic="Planning" data-kind="Template">
-          <p class="lib-kicker"><span class="t-planning">Planning</span><span>Template</span></p>
-          <h3><a href="resource.html">One-page business plan</a></h3>
-          <p>The plan that actually gets used: who you serve, what you sell, what it costs, what’s next.</p>
-          <div class="res-foot"><span class="lib-meta">PDF + Google Doc</span><button class="save" type="button" data-save aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Save</span></button></div>
-        </article>
-        <article class="res" data-item data-topic="Finance" data-kind="Template">
-          <p class="lib-kicker"><span class="t-finance">Finance</span><span>Template</span></p>
-          <h3><a href="resource.html">Cash flow forecast (13 weeks)</a></h3>
-          <p>Spot the pinch two months out. Update it in fifteen minutes a week.</p>
-          <div class="res-foot"><span class="lib-meta">Excel + Google Sheets</span><button class="save" type="button" data-save aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Saved</span></button></div>
-        </article>
-        <article class="res" data-item data-topic="Capital" data-kind="Checklist">
-          <p class="lib-kicker"><span class="t-capital">Capital</span><span>Checklist</span></p>
-          <h3><a href="resource.html">Loan package checklist</a></h3>
-          <p>Every document lenders open first, in the order they ask for it.</p>
-          <div class="res-foot"><span class="lib-meta">PDF · 2 pages</span><button class="save" type="button" data-save aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Saved</span></button></div>
-        </article>
-        <article class="res" data-item data-topic="Finance" data-kind="Template">
-          <p class="lib-kicker"><span class="t-finance">Finance</span><span>Template</span></p>
-          <h3><a href="resource.html">Pricing worksheet</a></h3>
-          <p>Cost of goods, margin target, and the honest math on what you should charge.</p>
-          <div class="res-foot"><span class="lib-meta">Excel + Google Sheets</span><button class="save" type="button" data-save aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Save</span></button></div>
-        </article>
-        <article class="res" data-item data-topic="Operations" data-kind="Guide">
-          <p class="lib-kicker"><span class="t-operations">Operations</span><span>Guide</span></p>
-          <h3><a href="resource.html">Hiring your first employee in California</a></h3>
-          <p>Classification, payroll setup, required postings and the day-one paperwork.</p>
-          <div class="res-foot"><span class="lib-meta">PDF · 9 pages</span><button class="save" type="button" data-save aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Save</span></button></div>
-        </article>
-        <article class="res" data-item data-topic="Operations" data-kind="Guide">
-          <p class="lib-kicker"><span class="t-operations">Operations</span><span>Guide</span></p>
-          <h3><a href="resource.html">Permits and licensing by county</a></h3>
-          <p>What you need, who issues it, and roughly how long it takes across our 36 counties.</p>
-          <div class="res-foot"><span class="lib-meta">PDF · Updated 2026</span><button class="save" type="button" data-save aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Save</span></button></div>
-        </article>
-        <article class="res" data-item data-topic="Marketing" data-kind="Template">
-          <p class="lib-kicker"><span class="t-marketing">Marketing</span><span>Template</span></p>
-          <h3><a href="resource.html">Marketing plan on one page</a></h3>
-          <p>Audience, message, channels and how you’ll know it worked.</p>
-          <div class="res-foot"><span class="lib-meta">PDF + Google Doc</span><button class="save" type="button" data-save aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Save</span></button></div>
-        </article>
-        <article class="res" data-item data-topic="AI" data-kind="Guide">
-          <p class="lib-kicker"><span class="t-ai">AI</span><span>Guide</span></p>
-          <h3><a href="resource.html">AI starter kit for small business</a></h3>
-          <p>Five tasks worth automating this month, and three that aren’t worth it yet.</p>
-          <div class="res-foot"><span class="lib-meta">PDF · 6 pages</span><button class="save" type="button" data-save aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Save</span></button></div>
-        </article>
-        <article class="res" data-item data-topic="Operations" data-kind="Template">
-          <p class="lib-kicker"><span class="t-operations">Operations</span><span>Template</span></p>
-          <h3><a href="resource.html">Standard operating procedure starter</a></h3>
-          <p>Turn what only you know how to do into something someone else can follow.</p>
-          <div class="res-foot"><span class="lib-meta">Google Doc</span><button class="save" type="button" data-save aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4h11v16.5L12 16.5l-5.5 4Z"/></svg><span>Save</span></button></div>
-        </article>
-      </div>
-      <p class="panel lib-empty" data-empty hidden>Nothing matches those filters yet. Clear one, or ask Dana. She probably has it.</p>
-
-      <section class="lib-month lib-watch" aria-labelledby="watch">
-        <div>
-          <h2 id="watch">Watch it when the shop is quiet.</h2>
-          <p class="lib-meta">Every live session we can share ends up here.</p>
-        </div>
-        <div class="lib-stack">
-          <a class="watch" href="#watch"><span class="play" aria-hidden="true"></span><span class="watch-text"><strong>Reading your P&amp;L without dread</strong><span class="lib-meta">Recorded January 2026 · Finance</span></span><span class="lib-meta len">52 min</span></a>
-          <a class="watch" href="#watch"><span class="play" aria-hidden="true"></span><span class="watch-text"><strong>Loan readiness: what lenders look for</strong><span class="lib-meta">With an SBA lender panel · Capital</span></span><span class="lib-meta len">78 min</span></a>
-          <a class="watch" href="#watch"><span class="play" aria-hidden="true"></span><span class="watch-text"><strong>Selling online: your first web store</strong><span class="lib-meta">Recorded November 2025 · Marketing</span></span><span class="lib-meta len">64 min</span></a>
-          <a class="watch" href="#watch"><span class="play" aria-hidden="true"></span><span class="watch-text"><strong>AI basics for small business</strong><span class="lib-meta">Recorded February 2026 · AI</span></span><span class="lib-meta len">45 min</span></a>
-        </div>
-      </section>
-      <p class="lib-meta small lib-foot">Can’t find what you need? <a class="link" href="dashboard.html#advisor">Ask Dana</a></p>
+      <ul class="resource-list" aria-label="Business resources">
+        <li>
+          <a class="resource-entry" href="resource-plan.html">
+            <span class="resource-mark resource-tone-pool" aria-hidden="true">{{icon:doc}}</span>
+            <div class="resource-entry-copy"><h2>One-page business plan</h2><p>Clarify what you sell, who you serve, and what comes next.</p></div>
+            <p class="resource-entry-meta"><span>Template</span><span>PDF + Google Doc</span></p>
+            <span class="ms-arrow" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="resource-entry" href="resource-cash-flow.html">
+            <span class="resource-mark resource-tone-sage" aria-hidden="true">{{icon:doc}}</span>
+            <div class="resource-entry-copy"><h2>Cash flow forecast</h2><p>See what’s coming in and going out over the next 13 weeks.</p></div>
+            <p class="resource-entry-meta"><span>Template</span><span>Excel + Google Sheets</span></p>
+            <span class="ms-arrow" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="resource-entry" href="resource.html">
+            <span class="resource-mark resource-tone-sand" aria-hidden="true">{{icon:doc}}</span>
+            <div class="resource-entry-copy"><h2>Loan package checklist</h2><p>Gather the documents you’ll need for a lender conversation.</p></div>
+            <p class="resource-entry-meta"><span>Checklist</span><span>PDF · 2 pages</span></p>
+            <span class="ms-arrow" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="resource-entry" href="resource-pricing.html">
+            <span class="resource-mark resource-tone-sage" aria-hidden="true">{{icon:doc}}</span>
+            <div class="resource-entry-copy"><h2>Pricing worksheet</h2><p>Work through your costs, margins, and the price you charge.</p></div>
+            <p class="resource-entry-meta"><span>Template</span><span>Excel + Google Sheets</span></p>
+            <span class="ms-arrow" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="resource-entry" href="resource-hiring.html">
+            <span class="resource-mark resource-tone-navy" aria-hidden="true">{{icon:doc}}</span>
+            <div class="resource-entry-copy"><h2>Hiring your first employee</h2><p>Prepare for your first hire in California, one decision at a time.</p></div>
+            <p class="resource-entry-meta"><span>Guide</span><span>PDF · 9 pages</span></p>
+            <span class="ms-arrow" aria-hidden="true"></span>
+          </a>
+        </li>
+      </ul>
     </div>

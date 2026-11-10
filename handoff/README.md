@@ -31,8 +31,9 @@ python3 -m http.server 8000      # from the repository root
 | `milestone-funding.html` | Milestone form: got funding (3 steps) | `/milestones/new/received-funding/` |
 | `milestone-started.html` | Milestone form: started a business (3 steps, with a "not yet" exit) | `/milestones/new/started-business/` and `/not-started/` |
 | `milestone-done.html` | Thank-you, with a prompt to add another | `/milestones/new/*/success/` |
-| `resources.html` | Resources: advisor picks, library with topic, type and Saved filters, recorded webinars | `/resources/` |
-| `resource.html` | Resources: one resource | `/resources/{resource}/` |
+| `resources.html` | Resources: a small collection of five templates and guides | `/resources/` |
+| `resource.html` | Resource detail: loan package checklist | `/resources/{resource}/` |
+| `resource-plan.html`, `resource-cash-flow.html`, `resource-pricing.html`, `resource-hiring.html` | Matching detail pages for the other four sample resources | `/resources/{resource}/` |
 
 - `assets/mysbdc.css` is the whole design: tokens, shell, components. No framework.
 - `assets/mysbdc.js` contains plain JavaScript for the menu, forms, filters, and intake drafts. No jQuery.
@@ -110,6 +111,21 @@ comfortably sized on narrow screens. Listing styles are scoped under section 17 
 There are no advisor-curated training recommendations: advisors currently have no supported way to
 share them into the client dashboard. Registration remains a local preview interaction; recording,
 calendar, and cancellation destinations remain placeholders pending integration.
+
+## Resources
+
+`resources.html` starts with five existing sample resources: the one-page business plan, cash flow
+forecast, loan package checklist, pricing worksheet, and first-hire guide. Each is one whole-row
+link with a serif title, brief description, file information, and a small pool, sage, sand, or navy
+document mark. Arrows appear on hover or keyboard focus. Phones move file information below the
+description. No recommendation feature, filter bars, saved states, counts, or webinar section.
+
+Each row opens its own static detail page; `resource.html` retains the loan-checklist route.
+The detail layout mirrors the milestone forms with a compact color context panel and white reading
+sheet. A short overview, contents, and practical usage note lead to the file actions. The five items
+and their descriptions are sample content, not a confirmed launch inventory. Download and document
+links remain handoff placeholders until the actual files are supplied. No saving or tracking is implied.
+Resources styles are scoped in section 22 of the stylesheet; shared Training behavior is unchanged.
 
 ## Sign-in, signup, and Form 641
 
