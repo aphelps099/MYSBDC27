@@ -115,12 +115,14 @@ calendar, and cancellation destinations remain placeholders pending integration.
 ## Resources
 
 `resources.html` starts with five existing sample resources: the one-page business plan, cash flow
-forecast, loan package checklist, pricing worksheet, and first-hire guide. Each is one whole-row
+forecast, loan package checklist, pricing worksheet, and first-hire guide. Each is one whole-card
 link with a serif title, brief description, file information, and a small pool, sage, sand, or navy
-document mark. Arrows appear on hover or keyboard focus. Phones move file information below the
-description. No recommendation feature, filter bars, saved states, counts, or webinar section.
+category pill. The pill is a label, not a separate control. White cards have no border or shadow;
+space separates them, with no hairline rules. Arrows appear on hover or keyboard focus. The grid
+moves from three columns to two, then one on phones. No recommendation feature, filter bars,
+saved states, counts, or webinar section.
 
-Each row opens its own static detail page; `resource.html` retains the loan-checklist route.
+Each card opens its own static detail page; `resource.html` retains the loan-checklist route.
 The detail layout mirrors the milestone forms with a compact color context panel and white reading
 sheet. A short overview, contents, and practical usage note lead to the file actions. The five items
 and their descriptions are sample content, not a confirmed launch inventory. Download and document

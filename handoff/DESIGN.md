@@ -22,7 +22,9 @@ should support the content and the next action.
   Give important words room; keep supporting details quieter but comfortably readable.
 - **Use open layouts and a few meaningful surfaces.** Align content carefully, balance narrow
   supporting columns against the main content, and separate sections with space. Avoid wrapping
-  every item in a card or repeating decorative dividers. Adapt the composition to each page's task.
+  every piece of supporting content in a separate container. Adapt the composition to each page's task.
+- **Never use hairline horizontal dividers.** No thin horizontal rules or one-pixel separators
+  between content items. Use spacing, typography, and solid surfaces to establish separation.
 - **Navy is matte and layered through solid colour.** The header and rail share a deep navy;
   business cards and other focal dark surfaces use a lighter slate navy. Warm cream text and soft
   pool accents make these areas feel welcoming. No gradients, grain, glows, or soft shadows on
@@ -49,8 +51,9 @@ should support the content and the next action.
   keyboard focus. Filters keep accessible group names without redundant visible labels.
 - **Write with reassurance and clarity.** Short, human language and one clear priority per section
   help the user understand their next step. Preserve useful secondary links without competing CTAs.
-- **Resources are a small collection.** Start with five clear choices on the open page, with serif
-  titles, short descriptions, quiet file information, and small solid-color document marks. Omit
+- **Resources are a small card collection.** Start with five simple white cards, each with a small
+  colored category pill, a serif title, a short description, and quiet file information. The category
+  is a label, not a filter control. Separate cards with space, never hairline rules. Omit
   recommendation banners, catalog filters, saved states, and a duplicate video library. Resource
   details follow the milestone forms: a compact color context panel beside a white reading sheet.
   Reveal decorative arrows only on hover or keyboard focus.
