@@ -36,6 +36,8 @@ should support the content and the next action.
   indicators remain appropriate.
 - **Navigation stays quiet and explicit.** Keep icons paired with words. Selected items use an
   inset slate fill and a subtle pool cue. Carry the same treatment into the mobile bottom tabs.
+- **Milestones stay focused on sharing.** Show the four update choices without a history or
+  previous-update records. Tile arrows appear only on hover or keyboard focus, including on Home.
 - **Write with reassurance and clarity.** Short, human language and one clear priority per section
   help the user understand their next step. Preserve useful secondary links without competing CTAs.
 

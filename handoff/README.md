@@ -25,7 +25,7 @@ python3 -m http.server 8000      # from the repository root
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
 | `events.html` | Training: advisor pick, live sessions by month, short courses. Register confirms in place | `/events/` |
 | `event.html` | Training: one event | `/events/{event}/` |
-| `milestones.html` | Milestones: choose a type, plus history | `/milestones/` |
+| `milestones.html` | Milestones: choose an update to share | `/milestones/` |
 | `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
 | `milestone-sales.html` | Milestone form: sales grew (3 steps) | `/milestones/new/increased-revenue/` |
 | `milestone-funding.html` | Milestone form: got funding (3 steps) | `/milestones/new/received-funding/` |
@@ -83,7 +83,7 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
      no booking), and the resources the advisor picked for this client.
    - *Your milestones* is an open editorial section headed "Progress takes many forms." Four
      solid-colour tiles use small, softened geometric marks for people, sales, capital and a new beginning.
-     Each whole tile opens its milestone form; the last update and history link sit below. The grid
+     Each whole tile opens its milestone form; its arrow appears on hover or keyboard focus. The grid
      moves from four columns to two, then compact single-column rows on the narrowest phones.
    - Coming up sits directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
@@ -141,8 +141,9 @@ Account styles are section 20 of the stylesheet; intake refinements are section 
 ## Milestone overview
 
 `milestones.html` uses Home's four solid-color tiles and softened symbols. There are no giant
-corner icons, gradients, or decorative numbers. The history is an open date-and-event list,
-with the existing records preserved. At small widths the tiles become two columns, then compact
+corner icons, gradients, or decorative numbers. Keep this screen focused on sharing an update:
+no milestone history or previous-update records. Arrows stay hidden until hover or keyboard focus,
+on both Home and the overview. At small widths the tiles become two columns, then compact
 single-column rows. Overview styling is scoped to section 19.
 
 ## Milestone forms
@@ -159,8 +160,8 @@ approved Home vocabulary into a focused question-and-answer layout:
 - One serif question per step. Counts use a large serif number with generous − and + controls.
   Choices are soft filled rows with visible radio states. Help stays beside its related question.
 - The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?" and a typed name.
-- `milestone-done.html` uses a quiet checkmark, a line that fits the milestone (`?type=`), a history
-  link, and four compact colour links for sharing another update.
+- `milestone-done.html` uses a quiet checkmark, a line that fits the milestone (`?type=`), a link back to milestones,
+  and four compact colour links for sharing another update.
 - Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
   `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch);
   `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
@@ -200,7 +201,7 @@ See [DESIGN.md](DESIGN.md) for the approved direction as pages are developed or 
   demographic questions. Check the field list and agreement wording against the current SBA form
   and what Neoserra requires before build.
 - **Data not yet on staging.** The next-step note (text, author, date and optional link from Neoserra), advisor photo,
-  advisor-picked resources and milestone history are designed here but need a source in Neoserra or WordPress.
+  advisor-picked resources are designed here but need a source in Neoserra or WordPress.
 - **Placeholder links.** Help, Get help, Privacy, Accessibility and "Talk to someone now" point at `#help`-style anchors until real destinations exist.
 - **Fonts.** The Typekit kit serves Proxima Nova at 300, 400, 500, 700 and 900 only, so the stylesheet uses those weights.
 - **Spanish.** The language control is designed; no Spanish copy is included.
