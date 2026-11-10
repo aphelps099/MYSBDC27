@@ -56,8 +56,10 @@ content, not an agreed service promise.
 ### Emumba review page
 
 `documents-review.html` is a separate, sample-only review surface, linked from the design
-index rather than client navigation. It starts at an illustrated advisor request in MySBDC
-and loads the same document component only after
+index rather than client navigation. The technical brief uses compact sans-serif headings,
+requirements and integration questions before the interactive demo, and section navigation.
+Only the illustrated client UI retains the product's serif typography. The demo starts at an
+advisor request in MySBDC and loads the same document component only after
 the client selects its upload action. It provides generated PDF samples, a failed-send
 walkthrough, reset controls, agreed product behavior, clearly marked recommendations,
 and decisions for Cameron and Emumba. Its parent bridge retains origin and frame checks.

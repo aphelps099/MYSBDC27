@@ -73,8 +73,9 @@ content is synthetic. Reloading resets the demonstration.
 **This is not a production upload service.** See [DOCUMENTS.md](DOCUMENTS.md) for source
 provenance, the mock boundary, verification, and the portal integration work still required.
 
-`documents-review.html` is the draft for Cameron and Emumba. It starts at an advisor request
-in MySBDC; its link opens the document component on demand. The brief allows initiation in
+`documents-review.html` is the technical draft for Cameron and Emumba, with sans-serif
+headings and requirements and integration questions before the demo. The demo starts at an
+advisor request in MySBDC; its link opens the document component on demand. The brief allows initiation in
 Emumba's advisor portal or a Neoserra note, with every client action routed through MySBDC. Sample
 files, walkthrough notes, agreed behavior, recommendations and open technical decisions
 support their discussion. It is linked only from the design index.
