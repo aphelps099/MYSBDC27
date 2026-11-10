@@ -74,8 +74,10 @@ in-memory mock portal. No selected file is sent or saved by the preview.
 The page contains no live endpoint or credential; network connections are blocked.
 Downloadable sample files are intentionally saved to the reviewer's device.
 Start with the advisor's note, then select Upload your statement to open the
-widget. This illustrates the client experience; it does not connect to Neoserra
-or decide when a production request is created. Agreed behavior, recommendations,
+widget. Requests could originate in Emumba's advisor portal or a Neoserra note;
+all client actions route through MySBDC. This illustrates the client experience;
+it connects to neither source and does not decide when a production request is
+created or where a separate request component should sit. Agreed behavior, recommendations,
 and technical decisions are separated on the page for discussion.
 Use Start again or reopen the file to reset. Sample downloads and a failure
 scenario are available in the review notes beside the widget.

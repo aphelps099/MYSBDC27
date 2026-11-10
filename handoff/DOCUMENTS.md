@@ -56,14 +56,18 @@ content, not an agreed service promise.
 ### Emumba review page
 
 `documents-review.html` is a separate, sample-only review surface, linked from the design
-index rather than client navigation. It starts at the advisor's note, illustrating the
-Neoserra Next Steps custom-field flow, and loads the same document component only after
+index rather than client navigation. It starts at an illustrated advisor request in MySBDC
+and loads the same document component only after
 the client selects its upload action. It provides generated PDF samples, a failed-send
 walkthrough, reset controls, agreed product behavior, clearly marked recommendations,
 and decisions for Cameron and Emumba. Its parent bridge retains origin and frame checks.
 Returning to Home keeps the sample note active; this demo does not save completion. Start
 again unloads the frame and resets the demonstration to the note. The API field mapping,
 link format, and request-creation timing are intentionally left open for technical review.
+The brief supports requests initiated in Emumba's advisor client-document library or a
+Neoserra note; all client actions and notification destinations stay in MySBDC. A dedicated
+request component is proposed. Its placement and coexistence with unrelated advisor notes
+need product review; the demo does not establish that either source integration exists.
 
 To create a standalone file and ZIP for sharing without hosting:
 

@@ -8,7 +8,7 @@
 
   <section class="dr-intro" aria-labelledby="review-title">
     <div><p class="eyebrow">A working design preview</p><h1 id="review-title">Document sharing.<br>A clear next step.</h1></div>
-    <p>An advisor’s request in Neoserra becomes the client’s next step. Open the note’s link to try the document upload experience.</p>
+    <p>Requests can start in the advisor’s document portal or a Neoserra note. The client handles them in MySBDC. Open the request below to try the upload experience.</p>
   </section>
 
   <div class="dr-notice"><strong>Sample data only.</strong> Files selected here are not sent to an advisor or saved by this preview. Downloaded samples are saved to your device.</div>
@@ -26,11 +26,11 @@
         <button class="dr-reset dr-back" type="button" id="review-back">Back to your next step</button>
         <iframe id="review-frame" data-preview-src="documents-embed.html?v={{documents-version}}" title="Interactive MySBDC document upload preview" height="920"></iframe>
       </div>
-      <p class="dr-caption" id="review-status" role="status">Illustrated Neoserra note. The upload window opens only when the client selects its link.</p>
+      <p class="dr-caption" id="review-status" role="status">Illustrated advisor request in MySBDC. Its source and placement are for discussion; the client action stays in the dashboard.</p>
     </div>
     <aside class="dr-guide" aria-labelledby="try-title">
       <p class="eyebrow">Review notes</p><h2 id="try-title">Start with the request.</h2>
-      <div class="dr-check"><h3>The advisor initiates it</h3><p>The advisor writes a client-facing note with an upload link in Neoserra’s <strong>Next Steps</strong> custom field. MySBDC presents the note and its action on Home. This sample is not connected to Neoserra.</p></div>
+      <div class="dr-check"><h3>Two possible sources. One client destination.</h3><p>The advisor could use <strong>Ask for documents</strong> in Emumba’s client-document library, or include an action in a Neoserra <strong>Next Steps</strong> note. Both routes should bring the client into MySBDC. Neither source is connected in this demo.</p></div>
       <div class="dr-check"><h3>The client opens the link</h3><p>Select <strong>Upload your statement</strong>. Download the sample below, choose it in the window, and send. Opening the window alone does not complete the step.</p><button type="button" class="dr-file" data-sample="statement">Download sample PDF {{icon:download sm}}</button></div>
       <div class="dr-check"><h3>Try recovery &amp; downloads</h3><p>Send the failure sample to see the error. Remove it and choose the regular sample to retry. <strong>Ready for you</strong> contains generated advisor documents to download.</p><button type="button" class="dr-file" data-sample="notsent">Download failure sample {{icon:download sm}}</button></div>
       <div class="dr-policy"><strong>A note on retention</strong><p>The widget’s 90-day message is sample copy from the supplied preview. The retention policy is still to be agreed.</p></div>
@@ -40,9 +40,9 @@
   <section class="dr-direction" aria-labelledby="direction-title">
     <p class="eyebrow">Product &amp; implementation</p><h2 id="direction-title">A clear brief.<br>Room to solve it together.</h2>
     <div class="dr-direction-grid">
-      <article><p class="dr-tag">Agreed behavior</p><h3>Advisor requested, case by case.</h3><p>The note and link originate in Neoserra’s Next Steps custom field. The client opens the upload from that note. Only a confirmed upload for the matching request can complete the step. Failed or unrelated uploads leave it active.</p></article>
-      <article><p class="dr-tag dr-tag-proposal">Recommended approach</p><h3>Keep the advisor’s action simple.</h3><p>Use a recognized MySBDC link or structured action. MySBDC handles authentication and opening the widget. Associate the request with the client and exact note version; opening the same link twice should reuse the request. These are proposals for technical review.</p></article>
-      <article><p class="dr-tag dr-tag-open">Cameron + Emumba to decide</p><h3>Agree the trigger and contract.</h3><p>Confirm how the custom field reaches MySBDC, its supported link format, who creates and stores the request, and whether creation happens on note save or first client open. Define request IDs, edits, withdrawal, completion signals, and failure handling.</p></article>
+      <article><p class="dr-tag">Agreed behavior</p><h3>Everything routes through MySBDC.</h3><p>Document requests are advisor initiated and case by case. The client sees the request, uploads files, receives confirmation, and accesses returned documents through MySBDC. Client-facing notification links lead back here. Failed or unrelated uploads never clear the request.</p></article>
+      <article><p class="dr-tag dr-tag-proposal">Recommended approach</p><h3>One document-request component.</h3><p>Let Cameron provide a dedicated MySBDC component that receives structured request data. Where supported, Emumba owns document-request IDs and status; a Neoserra action can reference the same request. Reopening it should not create duplicates. This is a proposal, not a confirmed API.</p></article>
+      <article><p class="dr-tag dr-tag-open">Cameron + Emumba to decide</p><h3>Connect the advisor tools.</h3><p>Confirm the portal’s request-creation capability and delivery mechanism, plus Neoserra field/link support. Agree ownership, IDs, creation timing, edits, withdrawal, and completion signals. Bring a placement and priority proposal back for product review when a separate note and request coexist.</p></article>
     </div>
     <p class="dr-ownership"><strong>Suggested ownership:</strong> Aaron confirms the experience and acceptance criteria. Cameron coordinates MySBDC and Neoserra integration with Emumba, who confirms the portal’s supported behavior.</p>
   </section>
@@ -50,7 +50,9 @@
   <section class="dr-handoff" aria-labelledby="integration-title">
     <div><p class="eyebrow">Technical discussion</p><h2 id="integration-title">What we need<br>to connect.</h2><p>This demo demonstrates the client experience, not the production trigger. Cameron and Emumba should propose the implementation together. The supplied vendor JavaScript is unchanged.</p><p>The demo does not complete a real next step. Returning Home keeps the sample note visible; confirmed completion and the Done receipt need the agreed integration.</p></div>
     <dl>
-      <div><dt>Neoserra note → document request</dt><dd>Can the API expose this custom field and a reliable note version or change signal? Propose the link/action format and request mapping. Compare creating the request on note save with creating it on first open; identify the available integration hooks before choosing.</dd></div>
+      <div><dt>Emumba request → MySBDC</dt><dd>Can an advisor create a request from the client-document library? Confirm the supported request ID, client/advisor mapping, request text, status, and API or event delivery to MySBDC. The client should not need a separate portal login or destination.</dd></div>
+      <div><dt>Neoserra note → the same client experience</dt><dd>Can the API expose the custom field and a reliable note version or change signal? Agree the recognized link/action format and whether it references an existing portal request or creates one. Creation on note save versus first open remains open for this route.</dd></div>
+      <div><dt>Dashboard routing &amp; placement</dt><dd>Request and notification links resolve inside MySBDC, returning the client to the intended request after sign-in. Confirm account access before opening it. Propose how a dedicated request component fits with an unrelated next-step note; do not duplicate one request in two cards.</dd></div>
       <div><dt>Signed token</dt><dd>Please confirm the token fields, signing method, expiration, and a server-side example. This is the authentication token in <code>data-token</code>, separate from the advisor’s note.</dd></div>
       <div><dt>Domain &amp; release</dt><dd>Send the staging and production hostname requirements, exact DNS records, approved script URL and integrity hash, and any iframe or cross-origin requirements.</dd></div>
       <div><dt>Sign-out</dt><dd>Send the supported session-close call, whether we should await it, and how failure should be handled when the client signs out of MySBDC.</dd></div>
