@@ -23,7 +23,7 @@ python3 -m http.server 8000      # from the repository root
 | `dashboard-new.html` | Default home: new client, no advisor yet | `/` (pre-client) |
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
-| `events.html` | Training: next registered session, live workshops by month, short courses. Register confirms in place | `/events/` |
+| `events.html` | Training: next registered session, live workshops by month, recorded training. Register confirms in place | `/events/` |
 | `event.html` | Training: one event | `/events/{event}/` |
 | `milestones.html` | Milestones: choose an update to share | `/milestones/` |
 | `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
@@ -97,16 +97,18 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 `events.html` carries the refined Home design into Training: an editorial introduction and a compact,
 full-width next-session panel for an existing registration. Live workshops sit on the open
 page, grouped by month, with times visible before opening the details. Topic and format filters
-update the workshop count and show a clear empty state when no sessions match.
+update the workshop count and show a clear empty state when no sessions match. The filter groups
+retain accessible names without redundant visible “Topic” and “Format” labels.
 The introduction has no extra call to action; the workshop list is already on the page.
 
-Self-paced courses use solid sand, pool, sage, and navy tiles with serif titles and restrained arrows.
-The course already in progress has a small module indicator and a “Continue learning” label.
-The layout adapts from four course columns to two, then one on phones; workshop actions stay
+Recorded training uses solid sand, pool, sage, and navy tiles with serif titles and arrows that appear
+only on hover or keyboard focus. Each tile shows a duration and “Watch training.” No module steps,
+completion counts, or resume state are shown: viewing progress will not be tracked.
+The layout adapts from four training columns to two, then one on phones; workshop actions stay
 comfortably sized on narrow screens. Listing styles are scoped under section 17 of the stylesheet.
 
 There are no advisor-curated training recommendations: advisors currently have no supported way to
-share them into the client dashboard. Registration remains a local preview interaction; course,
+share them into the client dashboard. Registration remains a local preview interaction; recording,
 calendar, and cancellation destinations remain placeholders pending integration.
 
 ## Sign-in, signup, and Form 641

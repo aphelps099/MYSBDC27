@@ -43,8 +43,10 @@ should support the content and the next action.
 - **Milestones stay focused on sharing.** Show the four update choices without a history or
   previous-update records. Tile arrows appear only on hover or keyboard focus, including on Home.
 - **Training reflects supported workflows.** Show registered sessions, browsable workshops, and
-  self-paced courses. Do not imply advisor-curated training recommendations until advisors have a
-  supported way to share them into the client dashboard.
+  recorded training. Do not imply advisor-curated training recommendations until advisors have a
+  supported way to share them into the client dashboard. Recorded training has no progress tracking:
+  omit completion bars, module steps, and resume claims. Its card arrows appear only on hover or
+  keyboard focus. Filters keep accessible group names without redundant visible labels.
 - **Write with reassurance and clarity.** Short, human language and one clear priority per section
   help the user understand their next step. Preserve useful secondary links without competing CTAs.
 
