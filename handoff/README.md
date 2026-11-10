@@ -23,7 +23,7 @@ python3 -m http.server 8000      # from the repository root
 | `dashboard-new.html` | Default home: new client, no advisor yet | `/` (pre-client) |
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
-| `events.html` | Training: advisor pick, live sessions by month, short courses. Register confirms in place | `/events/` |
+| `events.html` | Training: next registered session, live workshops by month, short courses. Register confirms in place | `/events/` |
 | `event.html` | Training: one event | `/events/{event}/` |
 | `milestones.html` | Milestones: choose an update to share | `/milestones/` |
 | `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
@@ -94,8 +94,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 
 ## Training listing
 
-`events.html` carries the refined Home design into Training: an editorial introduction, a matte
-slate-navy advisor recommendation, and a quiet next-session panel. Live workshops sit on the open
+`events.html` carries the refined Home design into Training: an editorial introduction and a compact,
+full-width next-session panel for an existing registration. Live workshops sit on the open
 page, grouped by month, with times visible before opening the details. Topic and format filters
 update the workshop count and show a clear empty state when no sessions match.
 
@@ -104,9 +104,9 @@ The course already in progress has a small module indicator and a “Continue le
 The layout adapts from four course columns to two, then one on phones; workshop actions stay
 comfortably sized on narrow screens. Listing styles are scoped under section 17 of the stylesheet.
 
-The recommendation and its matching schedule row share a `data-registration` key so their demo
-registration states stay in sync. Registration remains a local preview interaction; course, calendar,
-and cancellation destinations remain placeholders pending integration.
+There are no advisor-curated training recommendations: advisors currently have no supported way to
+share them into the client dashboard. Registration remains a local preview interaction; course,
+calendar, and cancellation destinations remain placeholders pending integration.
 
 ## Sign-in, signup, and Form 641
 
