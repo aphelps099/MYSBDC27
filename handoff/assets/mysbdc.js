@@ -48,8 +48,12 @@
     const reg = e.target.closest('[data-register]');
     if (reg) {
       const on = reg.getAttribute('aria-pressed') !== 'true';
-      reg.setAttribute('aria-pressed', String(on));
-      reg.textContent = on ? 'Registered' : 'Register';
+      // A recommended workshop can also appear in the schedule. Keep both controls in step.
+      const peers = reg.dataset.registration ? $$('[data-register]').filter(b => b.dataset.registration === reg.dataset.registration) : [reg];
+      peers.forEach(b => {
+        b.setAttribute('aria-pressed', String(on));
+        b.textContent = on ? 'Registered' : 'Register';
+      });
       announce(on ? 'You are registered. We sent the details to your email.' : 'Registration cancelled.');
     }
     const view = e.target.closest('[data-show]');
