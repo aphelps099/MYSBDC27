@@ -35,8 +35,12 @@ should support the content and the next action.
   offset plate may emphasize one focal surface, as on the next-step note; it is not a general
   card shadow. Prefer colour, spacing, and alignment for separation.
 - **Symbols are supporting elements.** Use small, softened geometric marks with enough breathing
-  room. Preserve the quieter milestone symbols and rounded asterisk. Avoid oversized, sharp,
-  aggressive, or dominant illustrations.
+  room. Use the shared rounded SVG family: an open doorway for welcome, two people for hiring,
+  rising columns for sales, overlapping coins for funding, and a storefront for starting a business.
+  Small utility icons use a 24-unit grid; editorial pictograms use a 64-unit grid with more open
+  detail. Both inherit their surface ink, with restrained tonal fills. Keep visible text labels;
+  avoid oversized, sharp, aggressive, or dominant illustrations. Do not reuse an abstract asterisk
+  for unrelated meanings or add standalone decorative symbols.
 - **No decorative numbering.** Do not restore the milestone labels “01 / 02 / 03 / 04” or introduce
   numbered editorial section labels across the dashboard. Real counts and useful form-step
   indicators remain appropriate.
