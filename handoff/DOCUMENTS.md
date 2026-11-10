@@ -56,10 +56,14 @@ content, not an agreed service promise.
 ### Emumba review page
 
 `documents-review.html` is a separate, sample-only review surface, linked from the design
-index rather than client navigation. It embeds the same document component and provides
-generated PDF samples, a failed-send walkthrough, reset controls, the Home entry context,
-and the open integration questions. Its parent bridge retains origin and frame checks.
-Returning to the dashboard from the widget resets this review instead of leaving it.
+index rather than client navigation. It starts at the advisor's note, illustrating the
+Neoserra Next Steps custom-field flow, and loads the same document component only after
+the client selects its upload action. It provides generated PDF samples, a failed-send
+walkthrough, reset controls, agreed product behavior, clearly marked recommendations,
+and decisions for Cameron and Emumba. Its parent bridge retains origin and frame checks.
+Returning to Home keeps the sample note active; this demo does not save completion. Start
+again unloads the frame and resets the demonstration to the note. The API field mapping,
+link format, and request-creation timing are intentionally left open for technical review.
 
 To create a standalone file and ZIP for sharing without hosting:
 

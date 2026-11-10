@@ -73,8 +73,10 @@ content is synthetic. Reloading resets the demonstration.
 **This is not a production upload service.** See [DOCUMENTS.md](DOCUMENTS.md) for source
 provenance, the mock boundary, verification, and the portal integration work still required.
 
-`documents-review.html` is the dedicated Emumba review, with the working component, sample
-files, walkthrough notes, and integration questions. It is linked only from the design index.
+`documents-review.html` is the draft for Cameron and Emumba. It starts at the advisor's
+Neoserra-sourced next-step note; its link opens the document component on demand. Sample
+files, walkthrough notes, agreed behavior, recommendations and open technical decisions
+support their discussion. It is linked only from the design index.
 `export-documents-review.py` packages an offline HTML preview and ZIP for sharing; see
 [DOCUMENTS.md](DOCUMENTS.md) for the export command and boundaries.
 

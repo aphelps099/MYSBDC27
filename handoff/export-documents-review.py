@@ -58,12 +58,13 @@ page = re.sub(r'<link rel="stylesheet" href="assets/mysbdc.css[^>]+>', lambda _:
 page = re.sub(r'<script defer src="assets/mysbdc.js[^>]+></script>', '', page)
 page = re.sub(r'<link rel="stylesheet" href="assets/documents-review.css[^>]+>', lambda _: '<style>'+read('assets/documents-review.css')+'</style>', page)
 page = re.sub(r'<script defer src="assets/documents-review.js[^>]+></script>', lambda _: script(read('assets/documents-review.js')), page)
-page = re.sub(r'(<iframe id="review-frame") src="[^"]+"', lambda m: m[1]+' srcdoc="'+html.escape(frame, quote=True)+'"', page)
+page, frame_count = re.subn(r'(<iframe id="review-frame") data-preview-src="[^"]+"', lambda m: m[1]+' data-preview-document="'+html.escape(frame, quote=True)+'"', page)
+assert frame_count == 1, 'Expected one deferred document preview frame'
 csp = "default-src 'none'; script-src 'unsafe-inline' data:; style-src 'unsafe-inline'; img-src data: blob:; frame-src 'self' about:; connect-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'"
 page = page.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="'+csp+'">', 1)
 filename = 'MySBDC-document-upload-preview.html'
 (DEST / filename).write_text(page)
-readme = '''MySBDC document upload review — prepared for Emumba
+readme = '''MySBDC document upload review — draft for Cameron and Emumba
 
 Unzip, then open MySBDC-document-upload-preview.html in a desktop web browser.
 No account, installation or web server is needed. Forward this ZIP to share it.
@@ -72,6 +73,10 @@ This is the supplied document widget with MySBDC presentation styles and an
 in-memory mock portal. No selected file is sent or saved by the preview.
 The page contains no live endpoint or credential; network connections are blocked.
 Downloadable sample files are intentionally saved to the reviewer's device.
+Start with the advisor's note, then select Upload your statement to open the
+widget. This illustrates the client experience; it does not connect to Neoserra
+or decide when a production request is created. Agreed behavior, recommendations,
+and technical decisions are separated on the page for discussion.
 Use Start again or reopen the file to reset. Sample downloads and a failure
 scenario are available in the review notes beside the widget.
 

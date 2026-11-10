@@ -3,39 +3,54 @@
 <main id="main-content" class="documents-review">
   <header class="dr-header">
     <p class="dr-wordmark"><b>My</b>SBDC <span>Document portal review</span></p>
-    <p class="dr-audience">Prepared for Emumba · November 10, 2026</p>
+    <p class="dr-audience">Draft for Cameron &amp; Emumba · November 10, 2026</p>
   </header>
 
   <section class="dr-intro" aria-labelledby="review-title">
     <div><p class="eyebrow">A working design preview</p><h1 id="review-title">Document sharing.<br>A clear next step.</h1></div>
-    <p>Your document component, in the MySBDC design language. Try the upload, confirmation, recovery, and download flows below.</p>
+    <p>An advisor’s request in Neoserra becomes the client’s next step. Open the note’s link to try the document upload experience.</p>
   </section>
 
   <div class="dr-notice"><strong>Sample data only.</strong> Files selected here are not sent to an advisor or saved by this preview. Downloaded samples are saved to your device.</div>
 
   <section class="dr-workbench" aria-label="Interactive document preview">
     <div class="dr-preview">
-      <div class="dr-preview-header"><p class="eyebrow">Client view</p><button type="button" class="dr-reset" id="review-reset">Start again</button></div>
-      <iframe id="review-frame" src="documents-embed.html?v={{documents-version}}" title="Interactive MySBDC document upload preview" height="920"></iframe>
-      <p class="dr-caption" id="review-status" role="status">The request and advisor documents are examples. Start again resets this demonstration.</p>
+      <div class="dr-preview-header"><p class="eyebrow" id="review-stage">Home · Client view</p><button type="button" class="dr-reset" id="review-reset">Start again</button></div>
+      <div class="dr-note" id="review-note">
+        <p class="eyebrow">Your next step</p>
+        <p class="dr-note-text">Send me last month’s profit and loss statement. We’ll use it to get ready for our next session.</p>
+        <p class="dr-note-author"><strong>Dana Whitfield</strong>, your advisor</p>
+        <button type="button" id="review-open" aria-controls="review-upload">{{icon:upload sm}} Upload your statement</button>
+      </div>
+      <div id="review-upload" hidden>
+        <button class="dr-reset dr-back" type="button" id="review-back">Back to your next step</button>
+        <iframe id="review-frame" data-preview-src="documents-embed.html?v={{documents-version}}" title="Interactive MySBDC document upload preview" height="920"></iframe>
+      </div>
+      <p class="dr-caption" id="review-status" role="status">Illustrated Neoserra note. The upload window opens only when the client selects its link.</p>
     </div>
     <aside class="dr-guide" aria-labelledby="try-title">
-      <p class="eyebrow">Review notes</p><h2 id="try-title">Try the flow.</h2>
-      <div class="dr-check"><h3>Send a document</h3><p>Download the sample, choose it in the upload window, add an optional note, and send. The receipt is explicitly marked as a preview.</p><button type="button" class="dr-file" data-sample="statement">Download sample PDF {{icon:download sm}}</button></div>
-      <div class="dr-check"><h3>Recover from a failed send</h3><p>Start again and send the failure sample. Remove it after the error, then choose the regular sample to complete the flow.</p><button type="button" class="dr-file" data-sample="notsent">Download failure sample {{icon:download sm}}</button></div>
-      <div class="dr-check"><h3>Receive an advisor’s document</h3><p>Open <strong>Ready for you</strong> to try an individual download or download all. Every file is a generated sample.</p></div>
+      <p class="eyebrow">Review notes</p><h2 id="try-title">Start with the request.</h2>
+      <div class="dr-check"><h3>The advisor initiates it</h3><p>The advisor writes a client-facing note with an upload link in Neoserra’s <strong>Next Steps</strong> custom field. MySBDC presents the note and its action on Home. This sample is not connected to Neoserra.</p></div>
+      <div class="dr-check"><h3>The client opens the link</h3><p>Select <strong>Upload your statement</strong>. Download the sample below, choose it in the window, and send. Opening the window alone does not complete the step.</p><button type="button" class="dr-file" data-sample="statement">Download sample PDF {{icon:download sm}}</button></div>
+      <div class="dr-check"><h3>Try recovery &amp; downloads</h3><p>Send the failure sample to see the error. Remove it and choose the regular sample to retry. <strong>Ready for you</strong> contains generated advisor documents to download.</p><button type="button" class="dr-file" data-sample="notsent">Download failure sample {{icon:download sm}}</button></div>
       <div class="dr-policy"><strong>A note on retention</strong><p>The widget’s 90-day message is sample copy from the supplied preview. The retention policy is still to be agreed.</p></div>
     </aside>
   </section>
 
-  <section class="dr-context" aria-labelledby="context-title">
-    <div><p class="eyebrow">Where this starts</p><h2 id="context-title">From Home,<br>one next step.</h2><p>The client opens this window from their advisor’s request. A confirmed upload should complete only the matching request.</p></div>
-    <div class="dr-note"><p class="eyebrow">Your next step</p><p class="dr-note-text">Send me last month’s profit and loss statement. We’ll use it to get ready for our next session.</p><p class="dr-note-author"><strong>Dana Whitfield</strong>, your advisor</p><button type="button" id="review-open">{{icon:upload sm}} Upload a document</button></div>
+  <section class="dr-direction" aria-labelledby="direction-title">
+    <p class="eyebrow">Product &amp; implementation</p><h2 id="direction-title">A clear brief.<br>Room to solve it together.</h2>
+    <div class="dr-direction-grid">
+      <article><p class="dr-tag">Agreed behavior</p><h3>Advisor requested, case by case.</h3><p>The note and link originate in Neoserra’s Next Steps custom field. The client opens the upload from that note. Only a confirmed upload for the matching request can complete the step. Failed or unrelated uploads leave it active.</p></article>
+      <article><p class="dr-tag dr-tag-proposal">Recommended approach</p><h3>Keep the advisor’s action simple.</h3><p>Use a recognized MySBDC link or structured action. MySBDC handles authentication and opening the widget. Associate the request with the client and exact note version; opening the same link twice should reuse the request. These are proposals for technical review.</p></article>
+      <article><p class="dr-tag dr-tag-open">Cameron + Emumba to decide</p><h3>Agree the trigger and contract.</h3><p>Confirm how the custom field reaches MySBDC, its supported link format, who creates and stores the request, and whether creation happens on note save or first client open. Define request IDs, edits, withdrawal, completion signals, and failure handling.</p></article>
+    </div>
+    <p class="dr-ownership"><strong>Suggested ownership:</strong> Aaron confirms the experience and acceptance criteria. Cameron coordinates MySBDC and Neoserra integration with Emumba, who confirms the portal’s supported behavior.</p>
   </section>
 
   <section class="dr-handoff" aria-labelledby="integration-title">
-    <div><p class="eyebrow">For the integration</p><h2 id="integration-title">What we need<br>to connect.</h2><p>The supplied widget is unchanged. MySBDC adds presentation styles and a browser-only mock service. Live delivery and authentication remain to be integrated.</p></div>
+    <div><p class="eyebrow">Technical discussion</p><h2 id="integration-title">What we need<br>to connect.</h2><p>This demo demonstrates the client experience, not the production trigger. Cameron and Emumba should propose the implementation together. The supplied vendor JavaScript is unchanged.</p><p>The demo does not complete a real next step. Returning Home keeps the sample note visible; confirmed completion and the Done receipt need the agreed integration.</p></div>
     <dl>
+      <div><dt>Neoserra note → document request</dt><dd>Can the API expose this custom field and a reliable note version or change signal? Propose the link/action format and request mapping. Compare creating the request on note save with creating it on first open; identify the available integration hooks before choosing.</dd></div>
       <div><dt>Signed token</dt><dd>Please confirm the token fields, signing method, expiration, and a server-side example. This is the authentication token in <code>data-token</code>, separate from the advisor’s note.</dd></div>
       <div><dt>Domain &amp; release</dt><dd>Send the staging and production hostname requirements, exact DNS records, approved script URL and integrity hash, and any iframe or cross-origin requirements.</dd></div>
       <div><dt>Sign-out</dt><dd>Send the supported session-close call, whether we should await it, and how failure should be handled when the client signs out of MySBDC.</dd></div>

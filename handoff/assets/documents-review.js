@@ -4,19 +4,43 @@
   const frame = document.getElementById('review-frame');
   if (!frame) return;
   const status = document.getElementById('review-status');
-  const source = frame.getAttribute('src');
-  const originalDocument = frame.getAttribute('srcdoc');
-  const goToPreview = () => {
-    document.getElementById('review-reset').focus({preventScroll:true});
-    frame.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',block:'start'});
+  const source = frame.getAttribute('data-preview-src');
+  const originalDocument = frame.getAttribute('data-preview-document');
+  const note = document.getElementById('review-note');
+  const upload = document.getElementById('review-upload');
+  const stage = document.getElementById('review-stage');
+  let loaded = false;
+  const showNote = () => {
+    upload.hidden = true;
+    note.hidden = false;
+    stage.textContent = 'Home · Client view';
+    status.textContent = 'The sample note stays active. This demo does not save next-step completion.';
+    document.getElementById('review-open').focus({preventScroll:true});
+    note.scrollIntoView({behavior:'auto',block:'nearest'});
+  };
+  const openUpload = () => {
+    note.hidden = true;
+    upload.hidden = false;
+    stage.textContent = 'Document upload · Client view';
+    if (!loaded) {
+      if (originalDocument !== null) frame.srcdoc = originalDocument;
+      else frame.src = source;
+      loaded = true;
+    }
+    status.textContent = 'Opened from the advisor’s note. Selecting this link does not complete the request.';
+    document.getElementById('review-back').focus({preventScroll:true});
+    upload.scrollIntoView({behavior:'auto',block:'start'});
   };
   const reset = () => {
-    if (originalDocument !== null) frame.srcdoc = originalDocument;
-    else frame.src = source;
-    status.textContent = 'Preview restarted. The sample request and advisor documents have been reset.';
+    frame.removeAttribute('srcdoc');
+    frame.removeAttribute('src');
+    loaded = false;
+    showNote();
+    status.textContent = 'Preview restarted at the advisor’s note. The sample documents have been reset.';
   };
   document.getElementById('review-reset').addEventListener('click', reset);
-  document.getElementById('review-open').addEventListener('click', () => { reset(); goToPreview(); });
+  document.getElementById('review-open').addEventListener('click', openUpload);
+  document.getElementById('review-back').addEventListener('click', showNote);
   window.addEventListener('message', event => {
     if (event.source !== frame.contentWindow || event.origin !== location.origin) return;
     const message = event.data;
@@ -24,8 +48,7 @@
     if (message.type === 'mysbdc-documents:height' && Number.isFinite(message.height)) {
       frame.style.height = Math.max(320, Math.min(5000, message.height)) + 'px';
     } else if (message.type === 'mysbdc-documents:home') {
-      reset();
-      goToPreview();
+      showNote();
     }
   });
   function samplePdf() {
