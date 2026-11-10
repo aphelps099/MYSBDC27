@@ -77,10 +77,10 @@ Start with the advisor's note, then select Upload your statement to open the
 widget. Requests could originate in Emumba's advisor portal or a Neoserra note;
 all client actions route through MySBDC. This illustrates the client experience;
 it connects to neither source and does not decide when a production request is
-created or where a separate request component should sit. Agreed behavior, recommendations,
-and technical decisions are separated on the page for discussion.
+created or where a separate request component should sit. Three short discussion points
+follow the demo; expand Implementation notes for the technical detail.
 Use Start again or reopen the file to reset. Sample downloads and a failure
-scenario are available in the review notes beside the widget.
+scenario are available beside the widget under Other demo states.
 
 The standalone version uses system font fallbacks so it works without loading
 hosted fonts. The hosted handoff page uses MySBDC's configured brand fonts.
