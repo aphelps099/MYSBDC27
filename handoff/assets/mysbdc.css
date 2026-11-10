@@ -1345,7 +1345,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 }
 
 /* 24 — Public website access and document sharing. */
-.website-header-link{gap:8px;font-size:15px}
+.website-header-link{gap:8px;margin-right:8px;border:1px solid #8DA4B1;border-radius:6px;font-size:15px;transition:border-color .18s,background-color .18s,color .18s}
+.website-header-link:is(:hover,:focus-visible){border-color:var(--mysbdc-on-navy-accent)}
 .website-header-link .ms-arrow{width:16px;height:16px;scale:.7;opacity:0}
 .website-header-link:is(:hover,:focus-visible) .ms-arrow{opacity:1}
 .website-menu-link{display:none}

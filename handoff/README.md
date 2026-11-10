@@ -44,7 +44,7 @@ python3 -m http.server 8000      # from the repository root
 ## Public website and document sharing
 
 The shared app header includes **SBDC website**, linking to `https://www.norcalsbdc.org/` in a
-new tab, beside the language control. There is no header Help widget. Below 900px the website
+new tab, beside the language control, with a thin outline and 6px corners. There is no header Help widget. Below 900px the website
 link moves into the account menu. Keep the dashboard logo linked to Home.
 
 Home's **Upload a document** action opens `documents.html`. A matte navy context panel and
