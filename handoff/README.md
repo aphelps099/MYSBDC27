@@ -44,6 +44,15 @@ python3 -m http.server 8000      # from the repository root
 - `src/` holds the page bodies and `build.py` wraps them in the shared shell. Edit `src/`, then
   run `python3 handoff/build.py`. The built files are committed, so nothing needs building to view.
 
+## Next-step design reference
+
+`next-step-study.html` shows the approved Home sheet in eight examples: an advisor upload request,
+an offline task, a completion receipt, a waiting document, an upcoming session, registered training,
+caught up, and pre-assignment matching. Each example has attached notes for eligibility, authorship,
+and clearing. The page links from the handoff index, not the client navigation. Sample actions are
+illustrated text, not live controls. The behavior specification remains [NEXT-STEP.md](NEXT-STEP.md).
+The reference-only composition lives in `assets/next-step-study.css`; the sheets reuse Home styles.
+
 ## Public website and document sharing
 
 The shared app header includes **SBDC website**, linking to `https://www.norcalsbdc.org/` in a

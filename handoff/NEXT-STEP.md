@@ -4,6 +4,9 @@ Product decision recorded November 10, 2026 from the user's supplied conversatio
 This is the specification for the Home sheet. It is not a claim that the data sources,
 completion storage, or notifications are implemented in the static handoff.
 
+See [the illustrated design reference](next-step-study.html) for each sheet state with attached
+product notes. The examples are static and use no account data.
+
 ## One sheet, one next step
 
 Keep the same sheet, “Your next step” label, serif note, signature and one primary action.
