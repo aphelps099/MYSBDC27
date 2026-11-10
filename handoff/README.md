@@ -73,6 +73,11 @@ content is synthetic. Reloading resets the demonstration.
 **This is not a production upload service.** See [DOCUMENTS.md](DOCUMENTS.md) for source
 provenance, the mock boundary, verification, and the portal integration work still required.
 
+`documents-review.html` is the dedicated Emumba review, with the working component, sample
+files, walkthrough notes, and integration questions. It is linked only from the design index.
+`export-documents-review.py` packages an offline HTML preview and ZIP for sharing; see
+[DOCUMENTS.md](DOCUMENTS.md) for the export command and boundaries.
+
 ## Shared icon family
 
 `src/_icons.svg` is the single source for the hand-drawn SVG family; `build.py` embeds it in each

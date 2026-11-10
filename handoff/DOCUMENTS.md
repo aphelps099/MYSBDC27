@@ -53,6 +53,28 @@ content, not an agreed service promise.
 
 ## Verification
 
+### Emumba review page
+
+`documents-review.html` is a separate, sample-only review surface, linked from the design
+index rather than client navigation. It embeds the same document component and provides
+generated PDF samples, a failed-send walkthrough, reset controls, the Home entry context,
+and the open integration questions. Its parent bridge retains origin and frame checks.
+Returning to the dashboard from the widget resets this review instead of leaving it.
+
+To create a standalone file and ZIP for sharing without hosting:
+
+```sh
+python3 handoff/build.py
+python3 handoff/export-documents-review.py /path/to/output
+```
+
+The ZIP contains one HTML file and instructions. Its iframe embeds the unchanged vendor
+bundle in a data URL, the styles, and the in-memory mock. The export adapts only the mock
+URL handling and presentation bridge for file origins. A content security policy blocks
+network connections; hosted fonts use their system fallbacks. The artifact contains no
+credentials, client files, or live portal connection. Test by opening the exported file
+directly, including samples, upload/recovery, downloads, reset and responsive layout.
+
 ```sh
 python3 handoff/build.py
 node --test handoff/tests/documents-preview.test.cjs

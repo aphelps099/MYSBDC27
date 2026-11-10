@@ -1,0 +1,50 @@
+<!-- layout: bare | title: Document sharing · Emumba review -->
+<link rel="stylesheet" href="assets/documents-review.css?v={{documents-version}}">
+<main id="main-content" class="documents-review">
+  <header class="dr-header">
+    <p class="dr-wordmark"><b>My</b>SBDC <span>Document portal review</span></p>
+    <p class="dr-audience">Prepared for Emumba · November 10, 2026</p>
+  </header>
+
+  <section class="dr-intro" aria-labelledby="review-title">
+    <div><p class="eyebrow">A working design preview</p><h1 id="review-title">Document sharing.<br>A clear next step.</h1></div>
+    <p>Your document component, in the MySBDC design language. Try the upload, confirmation, recovery, and download flows below.</p>
+  </section>
+
+  <div class="dr-notice"><strong>Sample data only.</strong> Files selected here are not sent to an advisor or saved by this preview. Downloaded samples are saved to your device.</div>
+
+  <section class="dr-workbench" aria-label="Interactive document preview">
+    <div class="dr-preview">
+      <div class="dr-preview-header"><p class="eyebrow">Client view</p><button type="button" class="dr-reset" id="review-reset">Start again</button></div>
+      <iframe id="review-frame" src="documents-embed.html?v={{documents-version}}" title="Interactive MySBDC document upload preview" height="920"></iframe>
+      <p class="dr-caption" id="review-status" role="status">The request and advisor documents are examples. Start again resets this demonstration.</p>
+    </div>
+    <aside class="dr-guide" aria-labelledby="try-title">
+      <p class="eyebrow">Review notes</p><h2 id="try-title">Try the flow.</h2>
+      <div class="dr-check"><h3>Send a document</h3><p>Download the sample, choose it in the upload window, add an optional note, and send. The receipt is explicitly marked as a preview.</p><button type="button" class="dr-file" data-sample="statement">Download sample PDF {{icon:download sm}}</button></div>
+      <div class="dr-check"><h3>Recover from a failed send</h3><p>Start again and send the failure sample. Remove it after the error, then choose the regular sample to complete the flow.</p><button type="button" class="dr-file" data-sample="notsent">Download failure sample {{icon:download sm}}</button></div>
+      <div class="dr-check"><h3>Receive an advisor’s document</h3><p>Open <strong>Ready for you</strong> to try an individual download or download all. Every file is a generated sample.</p></div>
+      <div class="dr-policy"><strong>A note on retention</strong><p>The widget’s 90-day message is sample copy from the supplied preview. The retention policy is still to be agreed.</p></div>
+    </aside>
+  </section>
+
+  <section class="dr-context" aria-labelledby="context-title">
+    <div><p class="eyebrow">Where this starts</p><h2 id="context-title">From Home,<br>one next step.</h2><p>The client opens this window from their advisor’s request. A confirmed upload should complete only the matching request.</p></div>
+    <div class="dr-note"><p class="eyebrow">Your next step</p><p class="dr-note-text">Send me last month’s profit and loss statement. We’ll use it to get ready for our next session.</p><p class="dr-note-author"><strong>Dana Whitfield</strong>, your advisor</p><button type="button" id="review-open">{{icon:upload sm}} Upload a document</button></div>
+  </section>
+
+  <section class="dr-handoff" aria-labelledby="integration-title">
+    <div><p class="eyebrow">For the integration</p><h2 id="integration-title">What we need<br>to connect.</h2><p>The supplied widget is unchanged. MySBDC adds presentation styles and a browser-only mock service. Live delivery and authentication remain to be integrated.</p></div>
+    <dl>
+      <div><dt>Signed token</dt><dd>Please confirm the token fields, signing method, expiration, and a server-side example. This is the authentication token in <code>data-token</code>, separate from the advisor’s note.</dd></div>
+      <div><dt>Domain &amp; release</dt><dd>Send the staging and production hostname requirements, exact DNS records, approved script URL and integrity hash, and any iframe or cross-origin requirements.</dd></div>
+      <div><dt>Sign-out</dt><dd>Send the supported session-close call, whether we should await it, and how failure should be handled when the client signs out of MySBDC.</dd></div>
+      <div><dt>Confirmed actions</dt><dd>We need supported upload and download signals with the relevant request, upload or document ID, outcome, and time. An unrelated upload must not clear an advisor’s request.</dd></div>
+      <div><dt>Document &amp; request status</dt><dd>Confirm how to identify returned documents not yet downloaded, and how an upload is matched when several requests exist. The current “Ready for you” count includes downloaded files.</dd></div>
+      <div><dt>Supported styling</dt><dd>Confirm the supported theming hooks. This preview uses the theme properties plus CSS inside the open shadow root; the vendor JavaScript is not edited.</dd></div>
+    </dl>
+  </section>
+  <footer class="dr-footer"><p>MySBDC · Design and interaction review · No live portal connection</p><a href="#review-title">Back to the preview</a></footer>
+  <noscript><p>JavaScript is required for the interactive preview. The integration notes remain available above.</p></noscript>
+</main>
+<script defer src="assets/documents-review.js?v={{documents-version}}"></script>
