@@ -14,7 +14,7 @@ ICONS = (ROOT / 'src' / '_icons.svg').read_text()
 VER = hashlib.md5((ROOT / 'assets' / 'mysbdc.css').read_bytes() + (ROOT / 'assets' / 'mysbdc.js').read_bytes()).hexdigest()[:8]
 
 def icon(name, cls=''):
-    return f'<svg class="icon {cls}" aria-hidden="true"><use href="#i-{name}"/></svg>'
+    return f'<svg class="icon {cls}" aria-hidden="true" focusable="false"><use href="#i-{name}"/></svg>'
 
 HEAD = '''<!doctype html>
 <html lang="en">

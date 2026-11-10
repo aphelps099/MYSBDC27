@@ -40,6 +40,21 @@ python3 -m http.server 8000      # from the repository root
 - `src/` holds the page bodies and `build.py` wraps them in the shared shell. Edit `src/`, then
   run `python3 handoff/build.py`. The built files are committed, so nothing needs building to view.
 
+## Shared icon family
+
+`src/_icons.svg` is the single source for the hand-drawn SVG family; `build.py` embeds it in each
+page. `icon-study.html` is a design reference, linked only from the handoff index.
+
+- Utility symbols use `i-*` IDs, a 24-unit grid, and the existing 1.75-unit rounded stroke. Use
+  `{{icon:name}}` (or `{{icon:name sm}}`) in sources. Keep icons paired with clear text labels.
+- Editorial symbols use `m-*` IDs and a 64-unit grid with a 2.5-unit rounded stroke. Use an SVG
+  with the `pictogram` class and a `<use href="#m-name"/>`. `welcome`, `people`, `growth`, `funding`,
+  and `business` are shared across account access, Home, milestone selection, and milestone forms.
+- `icon-tone` adds a 14% fill of the inherited ink; `icon-solid` is for tiny solid details. Do not
+  add gradients, shadows, extra colors, or a badge behind each icon. Provider logos stay unchanged.
+- Decorative SVGs are hidden from assistive technology and cannot receive focus. Card arrows
+  retain their existing hover and keyboard-focus behavior. Do not make pictograms separate actions.
+
 ## Mapping to the theme
 
 The markup reuses the theme's existing hooks so styles can be moved across without renaming:
@@ -132,7 +147,7 @@ Resources styles are scoped in section 22 of the stylesheet; shared Training beh
 ## Sign-in, signup, and Form 641
 
 `login.html` and `signup.html` share a matte navy introduction and white account-access sheet.
-The serif greeting, quiet asterisk, 6px controls, and warm paper background carry the approved
+The serif greeting, open-door pictogram, 6px controls, and warm paper background carry the approved
 Home language through onboarding. Mobile shortens the introduction and removes supporting
 promotional copy so the account controls are closer to the top. The email confirmation uses an
 h2 under the page's existing h1; returning to the form restores focus to the email field.
