@@ -84,18 +84,62 @@
     </aside>
   </div>
 
-    <!-- Milestones: full-width closing band. Each tile opens that milestone's form. -->
-    <section class="milestones mysbdc-client-milestones-overview" aria-labelledby="milestone-title">
+    <!-- Four graphic studies of progress. Each whole tile opens its existing milestone form. -->
+    <section class="milestones mysbdc-client-milestones-overview" id="home-milestones" aria-labelledby="milestone-title">
+      <p class="kicker ms-eyebrow"><span class="ms-index-mark" aria-hidden="true"></span>Your milestones</p>
       <div class="ms-intro">
-        <p class="kicker">{{icon:flag}} Your milestones</p>
-        <h2 id="milestone-title">Anything new with your business?</h2>
-        <p>Tell us what changed. It takes about four minutes, and your best guess is enough.</p>
-        <p class="ms-last"><span>Last shared: Got funding, June 2026</span><a class="link" href="milestones.html">See all milestones</a></p>
+        <h2 id="milestone-title">Progress takes<br>many forms.</h2>
+        <div class="ms-prompt">
+          <p>A new hire. A stronger month. A fresh start.<br>What’s changed with your business?</p>
+          <p class="ms-reassurance">About four minutes. Your best guess is enough.</p>
+        </div>
       </div>
-      <div class="ms-grid">
-        <a href="milestone-hired.html"><span class="tile">{{icon:users}}</span><strong>Hired someone</strong><small>Full-time or part-time</small></a>
-        <a href="milestone-sales.html"><span class="tile">{{icon:chart}}</span><strong>Sales grew</strong><small>Compared with last year</small></a>
-        <a href="milestone-funding.html"><span class="tile">{{icon:coins}}</span><strong>Got funding</strong><small>A loan, grant or investment</small></a>
-        <a href="milestone-started.html"><span class="tile">{{icon:store}}</span><strong>Started a business</strong><small>Registered and operating</small></a>
+      <ul class="ms-grid" aria-label="Share a business milestone">
+        <li>
+          <a class="ms-action ms-people" href="milestone-hired.html">
+            <span class="ms-action-top" aria-hidden="true"><span>01</span><span class="ms-arrow"></span></span>
+            <svg class="ms-art" viewBox="0 0 160 144" aria-hidden="true" focusable="false">
+              <circle cx="57" cy="38" r="19"/>
+              <path d="M22 122V96a35 35 0 0 1 70 0v26Z"/>
+              <circle class="ms-art-secondary" cx="111" cy="55" r="15"/>
+              <path class="ms-art-secondary" d="M104 81a29 29 0 0 1 36 28v13h-36Z"/>
+            </svg>
+            <span class="ms-action-copy"><strong>Hired someone</strong><span>Full-time or part-time</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ms-action ms-growth" href="milestone-sales.html">
+            <span class="ms-action-top" aria-hidden="true"><span>02</span><span class="ms-arrow"></span></span>
+            <svg class="ms-art" viewBox="0 0 160 144" aria-hidden="true" focusable="false">
+              <path d="M24 122V90h36V58h36V26h36v96Z"/>
+              <path class="ms-art-secondary" d="M24 122V106h36V74h36V42h36v80Z"/>
+            </svg>
+            <span class="ms-action-copy"><strong>Sales grew</strong><span>Compared with last year</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ms-action ms-capital" href="milestone-funding.html">
+            <span class="ms-action-top" aria-hidden="true"><span>03</span><span class="ms-arrow"></span></span>
+            <svg class="ms-art" viewBox="0 0 160 144" aria-hidden="true" focusable="false">
+              <rect x="22" y="94" width="100" height="28" rx="14"/>
+              <rect x="32" y="58" width="100" height="28" rx="14"/>
+              <rect x="42" y="22" width="100" height="28" rx="14"/>
+            </svg>
+            <span class="ms-action-copy"><strong>Got funding</strong><span>A loan, grant or investment</span></span>
+          </a>
+        </li>
+        <li>
+          <a class="ms-action ms-beginning" href="milestone-started.html">
+            <span class="ms-action-top" aria-hidden="true"><span>04</span><span class="ms-arrow"></span></span>
+            <svg class="ms-art" viewBox="0 0 160 144" aria-hidden="true" focusable="false">
+              <path d="m80 8 14 36 32-17-17 32 35 13-35 14 17 31-32-17-14 36-14-36-32 17 17-31-35-14 35-13-17-32 32 17Z"/>
+            </svg>
+            <span class="ms-action-copy"><strong>Started a business</strong><span>Registered and operating</span></span>
+          </a>
+        </li>
+      </ul>
+      <div class="ms-history-note">
+        <p><span class="ms-history-dot" aria-hidden="true"></span><span>Last shared <span class="ms-history-detail">Got funding · June 2026</span></span></p>
+        <a class="link" href="milestones.html">Your milestone history<span class="ms-arrow" aria-hidden="true"></span></a>
       </div>
     </section>
