@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Started a business · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=9418ce45">
-<script defer src="assets/mysbdc.js?v=9418ce45"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=30a23487">
+<script defer src="assets/mysbdc.js?v=30a23487"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -79,15 +79,26 @@
 </div>
 
 <div id="page">
-  <main id="main-content" class="container ms-page ms-flow reveal">
-    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+  <main id="main-content" class="container ms-page ms-flow ms-editorial reveal">
+    <a class="link has-arrow ms-back" href="milestones.html"><span class="ui-arrow ui-arrow-left" aria-hidden="true"></span><span class="link-label">Back to milestones</span></a>
 
-    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
-    <div class="ms-card" data-type="started">
-      <svg class="ms-giant" aria-hidden="true"><use href="#i-store"/></svg>
+    <div class="ms-workspace" data-type="started">
+      <aside class="ms-context" aria-labelledby="milestone-type">
+        <div class="ms-context-copy">
+          <p class="ms-label">Your milestones</p>
+          <p class="ms-context-title" id="milestone-type">Started a business</p>
+          <p class="ms-context-description">An idea becomes a business.</p>
+        </div>
+        <svg class="ms-form-art" viewBox="0 0 160 144" aria-hidden="true" focusable="false">
+              <path d="M80 26v92M34 72h92M47.5 39.5l65 65M47.5 104.5l65-65" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/>
+            </svg>
+        <div class="ms-context-foot"><p>About four minutes</p><span>Your best guess is enough.</span></div>
+      </aside>
+      <div class="ms-form-main">
+      <div class="ms-card" data-type="started">
       <div class="ms-top">
-        <p class="ms-label">Started a business</p>
-        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+        <p class="ms-label">Your update</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Your start</li><li>Details</li><li>Review</li></ol><p class="count" data-short aria-live="polite"></p></nav>
       </div>
       <form data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
@@ -114,8 +125,10 @@
         </section>
         <section class="step-panel" data-when="open=yes" aria-labelledby="h3">
           <h1 id="h3">Does this look right?</h1>
+          <div class="ms-review">
           <p class="ms-sentence mt-24"><b data-echo="bname">Northstar Provisions</b> opened in <b data-echo="swhen">November 2026</b> as <b data-echo="setup">LLC</b>.</p>
           <button class="link" type="button" data-step="1">Change</button>
+          </div>
           <fieldset class="mt-24">
             <legend>Did the SBDC help with this?</legend>
             <div class="pills">
@@ -131,9 +144,12 @@
         <section class="step-panel" data-when="open=no" data-end aria-labelledby="h4">
           <h1 id="h4">That’s all right. There’s no rush.</h1>
           <p class="lead">When you open, come back and tell us. Until then, Dana can help with whatever is in the way.</p>
-          <div class="intake-nav" style="justify-content:flex-start;gap:28px"><a class="btn btn-primary" href="dashboard.html">Back to home</a><a class="link" href="events.html">See free training</a></div>
+          <div class="intake-nav ms-exit-actions"><a class="btn btn-primary" href="dashboard.html">Back to home</a><a class="link" href="events.html">See free training</a></div>
         </section>
       </form>
+    </div>
+      <p class="ms-form-privacy"><svg class="icon " aria-hidden="true"><use href="#i-lock"/></svg><span>Private. Only you and your SBDC team see your information.</span></p>
+      </div>
     </div>
   </main>
 </div>

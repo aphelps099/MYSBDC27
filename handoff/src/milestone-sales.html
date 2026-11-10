@@ -1,12 +1,24 @@
-<!-- layout: app | active: milestones | title: Sales grew | main: ms-page ms-flow reveal -->
-    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+<!-- layout: app | active: milestones | title: Sales grew | main: ms-page ms-flow ms-editorial reveal -->
+    <a class="link has-arrow ms-back" href="milestones.html"><span class="ui-arrow ui-arrow-left" aria-hidden="true"></span><span class="link-label">Back to milestones</span></a>
 
-    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
-    <div class="ms-card" data-type="sales">
-      <svg class="ms-giant" aria-hidden="true"><use href="#i-chart"/></svg>
+    <div class="ms-workspace" data-type="sales">
+      <aside class="ms-context" aria-labelledby="milestone-type">
+        <div class="ms-context-copy">
+          <p class="ms-label">Your milestones</p>
+          <p class="ms-context-title" id="milestone-type">Sales grew</p>
+          <p class="ms-context-description">Small gains. Meaningful progress.</p>
+        </div>
+        <svg class="ms-form-art" viewBox="0 0 160 144" aria-hidden="true" focusable="false">
+              <path d="M24 122V90h36V58h36V26h36v96Z"/>
+              <path class="ms-art-secondary" d="M24 122V106h36V74h36V42h36v80Z"/>
+            </svg>
+        <div class="ms-context-foot"><p>About four minutes</p><span>Your best guess is enough.</span></div>
+      </aside>
+      <div class="ms-form-main">
+      <div class="ms-card" data-type="sales">
       <div class="ms-top">
-        <p class="ms-label">Sales grew</p>
-        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+        <p class="ms-label">Your update</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Sales</li><li>Source</li><li>Review</li></ol><p class="count" data-short aria-live="polite"></p></nav>
       </div>
       <form data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
@@ -33,8 +45,10 @@
         </section>
         <section class="step-panel" aria-labelledby="h3">
           <h1 id="h3">Does this look right?</h1>
+          <div class="ms-review">
           <p class="ms-sentence mt-24">Your sales for <b data-echo="year">2025</b> were <b>$<span data-echo="rev">412,000</span></b>, up from $343,000 the year before.</p>
           <button class="link" type="button" data-step="0">Change</button>
+          </div>
           <fieldset class="mt-24">
             <legend>Did the SBDC help with this?</legend>
             <div class="pills">
@@ -48,4 +62,7 @@
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=sales">Share milestone</button></div>
         </section>
       </form>
+    </div>
+      <p class="ms-form-privacy">{{icon:lock}}<span>Private. Only you and your SBDC team see your information.</span></p>
+      </div>
     </div>

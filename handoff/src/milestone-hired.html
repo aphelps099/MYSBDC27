@@ -1,12 +1,26 @@
-<!-- layout: app | active: milestones | title: Hired someone | main: ms-page ms-flow reveal -->
-    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+<!-- layout: app | active: milestones | title: Hired someone | main: ms-page ms-flow ms-editorial reveal -->
+    <a class="link has-arrow ms-back" href="milestones.html"><span class="ui-arrow ui-arrow-left" aria-hidden="true"></span><span class="link-label">Back to milestones</span></a>
 
-    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
-    <div class="ms-card" data-type="hired">
-      <svg class="ms-giant" aria-hidden="true"><use href="#i-users"/></svg>
+    <div class="ms-workspace" data-type="hired">
+      <aside class="ms-context" aria-labelledby="milestone-type">
+        <div class="ms-context-copy">
+          <p class="ms-label">Your milestones</p>
+          <p class="ms-context-title" id="milestone-type">Hired someone</p>
+          <p class="ms-context-description">A growing team. A new chapter.</p>
+        </div>
+        <svg class="ms-form-art" viewBox="0 0 160 144" aria-hidden="true" focusable="false">
+              <circle cx="57" cy="38" r="19"/>
+              <path d="M22 122V96a35 35 0 0 1 70 0v26Z"/>
+              <circle class="ms-art-secondary" cx="111" cy="55" r="15"/>
+              <path class="ms-art-secondary" d="M104 81a29 29 0 0 1 36 28v13h-36Z"/>
+            </svg>
+        <div class="ms-context-foot"><p>About four minutes</p><span>Your best guess is enough.</span></div>
+      </aside>
+      <div class="ms-form-main">
+      <div class="ms-card" data-type="hired">
       <div class="ms-top">
-        <p class="ms-label">Hired someone</p>
-        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+        <p class="ms-label">Your update</p>
+        <nav class="steps" aria-label="Progress"><ol><li>People</li><li>Timing</li><li>Review</li></ol><p class="count" data-short aria-live="polite"></p></nav>
       </div>
       <form data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
@@ -34,8 +48,10 @@
         </section>
         <section class="step-panel" aria-labelledby="h3">
           <h1 id="h3">Does this look right?</h1>
+          <div class="ms-review">
           <p class="ms-sentence mt-24">You hired <b><span data-echo="ft">1</span> full-time</b> and <b><span data-echo="pt">0</span> part-time</b> in <b data-echo="when">November 2026</b>.</p>
           <button class="link" type="button" data-step="0">Change</button>
+          </div>
           <fieldset class="mt-24">
             <legend>Did the SBDC help with this?</legend>
             <div class="pills">
@@ -49,4 +65,7 @@
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=hired">Share milestone</button></div>
         </section>
       </form>
+    </div>
+      <p class="ms-form-privacy">{{icon:lock}}<span>Private. Only you and your SBDC team see your information.</span></p>
+      </div>
     </div>
