@@ -98,6 +98,7 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 full-width next-session panel for an existing registration. Live workshops sit on the open
 page, grouped by month, with times visible before opening the details. Topic and format filters
 update the workshop count and show a clear empty state when no sessions match.
+The introduction has no extra call to action; the workshop list is already on the page.
 
 Self-paced courses use solid sand, pool, sage, and navy tiles with serif titles and restrained arrows.
 The course already in progress has a small module indicator and a “Continue learning” label.

@@ -13,6 +13,10 @@ should support the content and the next action.
 
 ## The visual language
 
+- **Aim for a minimal UI.** Every visible element should help the client understand or complete
+  their task. Remove redundant prompts, repeated labels, and links that only point to nearby
+  content, such as “Explore live workshops” above the workshop list. Let the page's structure
+  guide people; keep actions where they are useful.
 - **Typography creates hierarchy.** Proxima Sera brings warmth to editorial headlines, advisor
   notes, and business names. Proxima Nova keeps navigation, facts, labels, and controls clear.
   Give important words room; keep supporting details quieter but comfortably readable.
