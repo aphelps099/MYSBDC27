@@ -1343,3 +1343,35 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
   .icon-study-navigation li{flex-direction:column;gap:8px;font-size:15px}
   .icon-study-utilities{grid-template-columns:repeat(3,1fr);gap:28px 12px;padding:24px 12px}
 }
+
+/* 24 — Public website access and document sharing. */
+.website-header-link{gap:8px;font-size:15px}
+.website-header-link .ms-arrow{width:16px;height:16px;scale:.7;opacity:0}
+.website-header-link:is(:hover,:focus-visible) .ms-arrow{opacity:1}
+.website-menu-link{display:none}
+.documents-back{margin-bottom:24px}
+.documents-workspace{display:grid;grid-template-columns:minmax(250px,.7fr) minmax(0,1.8fr);gap:28px;align-items:start}
+.documents-context{display:flex;flex-direction:column;min-height:440px;padding:32px;border-radius:6px;background:var(--mysbdc-navy-surface);color:var(--mysbdc-on-navy)}
+.documents-context .ms-label{color:var(--mysbdc-on-navy-muted);font-size:15px}
+.documents-context h1{margin-top:28px;font-size:clamp(36px,3.5vw,48px);line-height:1.05}
+.documents-intro{margin-top:24px;font-size:17px;line-height:1.5;color:var(--mysbdc-on-navy-muted)}
+.documents-context-mark{margin:32px 0;color:var(--mysbdc-on-navy-accent)}
+.documents-context-mark .icon{width:48px;height:48px;stroke-width:1.5}
+.documents-reassurance{margin-top:auto;font:400 24px/1.25 var(--font-serif);letter-spacing:-.02em}
+.documents-main{min-width:0}
+.documents-preview-note{margin:0 4px 20px;font-size:15px;line-height:1.5;color:var(--ink-3)}
+.documents-preview-note strong{font-weight:700;margin-right:6px;color:var(--mysbdc-brand-navy)}
+.documents-frame{display:block;width:100%;border:0;background:transparent}
+.documents-noscript{padding:24px;background:var(--mysbdc-brand-white);border-radius:6px}
+@media(max-width:1099px){.documents-workspace{grid-template-columns:minmax(220px,.7fr) minmax(0,1.5fr);gap:20px}.documents-context{padding:28px}}
+@media(max-width:899px){
+  .website-header-link{display:none}.website-menu-link{display:flex}
+  .documents-workspace{grid-template-columns:1fr;gap:24px}
+  .documents-context{display:block;min-height:0;padding:24px 28px}
+  .documents-context h1{margin-top:14px;font-size:36px}.documents-context h1 br{display:none}
+  .documents-intro{margin-top:14px;max-width:32em}.documents-context-mark,.documents-reassurance{display:none}
+}
+@media(max-width:599px){
+  .documents-back{margin-bottom:16px}.documents-context{padding:24px 20px}.documents-context h1{font-size:32px}
+  .documents-workspace{gap:20px}.documents-preview-note{margin-bottom:16px}
+}

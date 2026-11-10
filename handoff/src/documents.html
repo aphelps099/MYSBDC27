@@ -1,0 +1,17 @@
+<!-- layout: app | active: dashboard | title: Your documents | main: documents-page reveal -->
+    <a class="link has-arrow documents-back" href="dashboard.html"><span class="ui-arrow ui-arrow-left" aria-hidden="true"></span><span class="link-label">Back to Home</span></a>
+    <div class="documents-workspace">
+      <aside class="documents-context" aria-labelledby="documents-title">
+        <p class="ms-label">Your documents</p>
+        <h1 id="documents-title">Share it <br>with Dana.</h1>
+        <p class="documents-intro">A statement, a plan, or a quick photo. Start with what you have.</p>
+        <span class="documents-context-mark" aria-hidden="true">{{icon:doc}}</span>
+        <p class="documents-reassurance">A little paperwork.<br>A clear next step.</p>
+      </aside>
+      <div class="documents-main">
+        <p class="documents-preview-note"><strong>Design preview</strong> Files stay in this browser. Nothing is sent to your advisor or saved.</p>
+        <iframe class="documents-frame" id="documents-frame" src="documents-embed.html?v={{documents-version}}" title="Upload documents and view documents from your advisor" height="760"></iframe>
+        <noscript><p class="documents-noscript">Turn on JavaScript to use the document tools.</p></noscript>
+      </div>
+    </div>
+    <script defer src="assets/documents-page.js?v={{documents-version}}"></script>

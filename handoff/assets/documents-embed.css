@@ -1,0 +1,14 @@
+/* This stylesheet is loaded only inside the isolated Documents frame. */
+html,body{margin:0;padding:0;height:auto;background:transparent;overflow-x:hidden;scroll-behavior:auto}
+body::before{display:none}
+#documents-embed-content{display:flow-root;min-width:0;padding:4px}
+#document-tools{
+  --norcal-documents-primary:var(--mysbdc-navy-surface);
+  --norcal-documents-text:var(--mysbdc-brand-navy);
+  --norcal-documents-background:var(--mysbdc-brand-white);
+  --norcal-documents-font:var(--font-sans);
+  --norcal-documents-heading-font:var(--font-serif);
+  --norcal-documents-radius:6px;
+}
+#documents-loading,#documents-load-error{padding:32px;border-radius:6px;background:var(--mysbdc-brand-white);font-size:17px}
+[hidden]{display:none!important}

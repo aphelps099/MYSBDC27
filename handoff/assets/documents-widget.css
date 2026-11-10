@@ -1,0 +1,66 @@
+/* Shadow-root overrides for the supplied 2026-10-30 Documents preview.
+   Prefer the component's six theme properties; these scoped rules finish the MySBDC treatment. */
+:host .nc-root{--nc-muted:#515D69;--nc-line:#C6D2D7;--nc-sand:#F0EDE6;--nc-cream:#F5F1E8;--nc-mist:#E8F0F2;--nc-dash:#A9CFDD;--nc-accent:#515D69;--nc-ok:#174B40;--nc-ok-bg:#E3ECE3;font-size:17px;line-height:1.5}
+.nc-root .nc-window{border:0;border-radius:6px;box-shadow:none;overflow:visible}
+.nc-root .nc-window[data-screen=sent]{border:0}
+.nc-root .nc-head{padding:32px 32px 0}
+.nc-root .nc-eyebrow,.nc-root .nc-sent__eyebrow{font-size:15px;letter-spacing:.1em;margin:0 0 18px}
+.nc-root .nc-heading{font-size:clamp(30px,3vw,38px);letter-spacing:-.03em;line-height:1.1}
+.nc-root .nc-tabs{display:flex;gap:8px;margin:28px 32px 0;padding:0;background:none;border-radius:0}
+.nc-root .nc-tab{min-height:48px;padding:10px 16px;border-radius:6px;font-size:17px;font-weight:500;box-shadow:none;line-height:1.25}
+.nc-root .nc-tab[aria-selected=true]{background:var(--nc-primary);color:#F5F1E8;font-weight:700;box-shadow:none}
+.nc-root .nc-tab:not([aria-selected=true]):hover{background:var(--nc-sand)}
+.nc-root .nc-tab__count{min-width:23px;height:23px;padding:0 6px;background:#DDE8EC;color:var(--nc-primary);font-size:15px}
+.nc-root .nc-body{gap:20px;padding:28px 32px;overflow:visible}
+.nc-root .nc-foot{gap:20px;padding:4px 32px 32px;background:transparent;border:0}
+.nc-root .nc-who__text{font-size:15px}
+.nc-root .nc-avatar{width:40px;height:40px;font-size:15px;font-weight:700}
+.nc-root .nc-asked{padding:20px 24px;background:var(--nc-sand);border-radius:6px}
+.nc-root .nc-asked__title{margin-bottom:10px;font-size:15px;letter-spacing:.08em}
+.nc-root .nc-request__note{font-size:17px;font-weight:500}
+.nc-root .nc-request__who{font-size:15px;margin-top:4px}
+.nc-root .nc-drop{gap:6px;padding:32px 24px;border:0;border-radius:6px;background:var(--nc-mist)}
+.nc-root .nc-drop__icon{width:auto;height:auto;margin:0 0 12px;background:none;border-radius:0}
+.nc-root .nc-drop__icon svg{width:32px;height:32px;stroke-width:1.75}
+.nc-root .nc-drop__title{font-family:var(--nc-heading-font);font-size:28px;font-weight:400;letter-spacing:-.02em}
+.nc-root .nc-drop__or{font-size:17px}
+.nc-root .nc-link{display:inline-flex;align-items:center;min-height:48px;text-underline-offset:5px;text-decoration-thickness:2px}
+.nc-root .nc-limits{text-align:left;font-size:15px;line-height:1.5}
+.nc-root .nc-add{min-height:52px;padding:12px 16px;border:0;background:var(--nc-mist);border-radius:6px}
+.nc-root .nc-badge,.nc-root .nc-badge[data-kind]{width:44px;height:44px;border-radius:6px;background:#DDE8EC;color:var(--nc-primary);font-size:15px;font-weight:700;letter-spacing:0}
+.nc-root .nc-file,.nc-root .nc-doc{gap:14px;padding:16px;border:0;border-radius:6px;background:var(--nc-sand)}
+.nc-root .nc-file[data-phase=blocked],.nc-root .nc-file[data-phase=failed]{background:#F9E9E5;border:0}
+.nc-root .nc-file__name,.nc-root .nc-doc__name,.nc-root .nc-receipt__name{white-space:normal;overflow:visible;overflow-wrap:anywhere;line-height:1.35}
+.nc-root .nc-file__status{margin-top:4px;line-height:1.4}
+.nc-root .nc-remove{width:48px;height:48px;border-radius:6px}
+.nc-root .nc-note__input{min-height:84px;border:1.5px solid #7C8494;border-radius:6px;padding:14px 16px;font-size:17px}
+.nc-root .nc-note__input::placeholder{font-size:15px}
+.nc-root .nc-button{min-height:52px;padding:12px 24px;border-radius:6px;font-size:17px;line-height:1.3}
+.nc-root .nc-button--outline{box-shadow:inset 0 0 0 2px var(--nc-primary)}
+.nc-root .nc-textlink{min-height:48px;display:inline-flex;align-items:center;border:0;padding:0;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:2px}
+.nc-root .nc-doc[data-new=true]{box-shadow:none}
+.nc-root .nc-info{padding:20px 24px;background:var(--nc-mist);border-radius:6px;font-size:15px}
+.nc-root .nc-sent{padding-top:40px;gap:18px}
+.nc-root .nc-sent__check{width:56px;height:56px;margin-bottom:8px;border-radius:50%}
+.nc-root .nc-sent__check svg{width:28px;height:28px;stroke-width:1.75}
+.nc-root .nc-sent .nc-heading{font-size:36px}
+.nc-root .nc-sent__eyebrow{margin:0}
+.nc-root .nc-sent__text{max-width:32em;font-size:17px}
+.nc-root .nc-receipt{padding:24px;border-radius:6px;background:var(--nc-sand)}
+.nc-root .nc-receipt__file{gap:12px;grid-template-columns:44px minmax(0,1fr) auto}
+.nc-root .nc-receipt__file .nc-badge{width:44px;height:44px;font-size:15px}
+.nc-root .nc-receipt__at{border:0;margin:20px 0 0;padding:0;font-size:15px}
+.nc-root :is(.nc-tab,.nc-link,.nc-add,.nc-remove,.nc-button,.nc-textlink,.nc-message,.nc-note__input):focus-visible{outline:3px solid #1B5FAF;outline-offset:3px}
+@container nc-window (max-width:600px){
+  .nc-root .nc-head{padding:24px 20px 0}.nc-root .nc-body{padding:24px 20px}.nc-root .nc-foot{padding:0 20px 24px}
+  .nc-root .nc-tabs{margin:24px 20px 0;gap:4px}.nc-root .nc-tab{font-size:15px;padding:10px 12px;white-space:normal;flex:1}
+  .nc-root .nc-heading{font-size:30px}.nc-root .nc-asked{padding:18px}.nc-root .nc-drop{padding:28px 16px}
+  .nc-root .nc-drop__title{font-size:26px}.nc-root .nc-drop__or{display:flex;align-items:center;flex-direction:column;gap:0}
+  .nc-root .nc-file{gap:10px;padding:14px 12px;grid-template-columns:36px minmax(0,1fr) 48px}.nc-root .nc-file .nc-badge{width:36px;height:40px}
+  .nc-root .nc-doc{grid-template-columns:auto minmax(0,1fr)}.nc-root .nc-doc .nc-button{grid-column:1/-1}
+  .nc-root .nc-foot>.nc-button{width:100%;margin-left:0}.nc-root .nc-sent .nc-heading{font-size:30px}
+  .nc-root .nc-receipt{padding:18px}.nc-root .nc-receipt__file{grid-template-columns:36px minmax(0,1fr)}
+  .nc-root .nc-receipt__file .nc-badge{width:36px;height:40px}.nc-root .nc-receipt__size{grid-column:2}
+}
+/* Vendor controls reset all properties; restore border-box for consistent 48–52px targets. */
+.nc-root :is(.nc-tab,.nc-button,.nc-add,.nc-remove,.nc-note__input,.nc-link,.nc-textlink){box-sizing:border-box}
