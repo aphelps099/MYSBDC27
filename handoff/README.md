@@ -3,6 +3,11 @@
 Static, responsive HTML for the signed-in MySBDC experience, written to be lifted into the
 `mysbdc` WordPress theme. Open `index.html` for the list of screens.
 
+**Approved design standard:** the refined Home page sets the visual direction for future dashboard
+pages. Read [DESIGN.md](DESIGN.md) for the user-approved philosophy: calm editorial typography,
+matte navy surfaces, warm paper, softened symbols, and no decorative numbering. `handoff/` is the
+source of truth for this work.
+
 ```sh
 python3 -m http.server 8000      # from the repository root
 # http://localhost:8000/handoff/
@@ -123,6 +128,8 @@ App surfaces are solid colours with a 6px radius. No gradients, no grain and no 
 cards, panels, bands or tiles. Separation comes from colour and spacing. The one shadow in the
 vocabulary is the brand's solid offset plate (`box-shadow: 10px 10px 0 <colour>`, the About page's pool
 plate at a smaller scale), used on a single focal surface per page; on Home that is the next step.
+The form washes described above are existing exceptions, not the default for new dashboard pages.
+See [DESIGN.md](DESIGN.md) for the approved direction as pages are developed or refreshed.
 
 ## Accessibility
 
