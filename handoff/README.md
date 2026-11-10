@@ -35,7 +35,7 @@ python3 -m http.server 8000      # from the repository root
 | `resource.html` | Resources: one resource | `/resources/{resource}/` |
 
 - `assets/mysbdc.css` is the whole design: tokens, shell, components. No framework.
-- `assets/mysbdc.js` is about 120 lines of plain JavaScript (menu, steps, switches). No jQuery.
+- `assets/mysbdc.js` contains plain JavaScript for the menu, forms, filters, and intake drafts. No jQuery.
 - `src/` holds the page bodies and `build.py` wraps them in the shared shell. Edit `src/`, then
   run `python3 handoff/build.py`. The built files are committed, so nothing needs building to view.
 
@@ -88,8 +88,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
    - Coming up sits directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
 5. **Sign-in has no password.** Google, Microsoft, or a link by email.
-6. **Form 641 is five short steps** with a plain-language "why we ask" panel beside each one,
-   optional SBA questions clearly marked optional, and a phone alternative.
+6. **Form 641 is five short steps** with contextual help, a grouped review, and explicit browser-only
+   draft saving. Existing optional questions remain marked optional.
 7. **Settings is one page**, in sections that save independently.
 
 ## Training listing
@@ -108,17 +108,42 @@ The recommendation and its matching schedule row share a `data-registration` key
 registration states stay in sync. Registration remains a local preview interaction; course, calendar,
 and cancellation destinations remain placeholders pending integration.
 
-## Sign-up (Form 641)
+## Sign-in, signup, and Form 641
 
-`register.html` uses its existing card, controls and the shared step script, in one colour
-(pool blue) with a different corner icon per step. Fields, options and wording follow the original
-`MySBDC Intake.dc.html`: about you (name, email from the account, phone, ZIP with matched center,
-language); in business today; how long (or how far along, for people not open yet); the business
-(name, kind, set-up, employees, sales range, up to three help topics); review and sign (summary
-sentences, request for counseling with the full text behind a disclosure, required agreement, optional
-SBA survey consent, typed signature). The last panel is an animated tick, with no confetti.
-It does not ask for a home address or the optional SBA demographic questions; add them if the
-current SBA form or Neoserra requires them.
+`login.html` and `signup.html` share a matte navy introduction and white account-access sheet.
+The serif greeting, quiet asterisk, 6px controls, and warm paper background carry the approved
+Home language through onboarding. Mobile shortens the introduction and removes supporting
+promotional copy so the account controls are closer to the top. The email confirmation uses an
+h2 under the page's existing h1; returning to the form restores focus to the email field.
+
+`register.html` keeps its five-step questionnaire and conditional business/planning paths. The
+navy context panel offers help for each step beside the white form sheet; phones get a compact
+banner. Its controls share the milestone form styles. Review groups contact details, business,
+and priorities, followed by the unchanged counseling agreement and signature fields. Empty
+answers now replace previous summary values. The agreement disclosure remains collapsible.
+
+“Save progress” explicitly stores an intake draft **only in this browser** under
+`mysbdc-intake-draft-v1`. It restores the saved answers, selections, and step on a subsequent
+visit. Edits after a save show “Unsaved changes.” Storage errors show a message instead of a
+false success. Signature, agreement, and survey consent are never stored; completion clears
+the draft. This is a local prototype convenience, not an authenticated account or server record.
+The production integration must replace this with the intended account-scoped draft service.
+
+Authentication providers, email delivery, account email, center matching, language switching,
+signed-form delivery, and final submission remain handoff placeholders. The confirmation copy
+shows the intended production state; it does not mean an email was sent or a client record created.
+
+Fields, options, defaults, branching, and agreement text follow the original intake design.
+Phone now uses `type="tel"`. The field set still does not include home address or optional SBA
+demographics; verify the current SBA and Neoserra requirements before production integration.
+Account styles are section 20 of the stylesheet; intake refinements are section 21.
+
+## Milestone overview
+
+`milestones.html` uses Home's four solid-color tiles and softened symbols. There are no giant
+corner icons, gradients, or decorative numbers. The history is an open date-and-event list,
+with the existing records preserved. At small widths the tiles become two columns, then compact
+single-column rows. Overview styling is scoped to section 19.
 
 ## Milestone forms
 
@@ -139,8 +164,8 @@ approved Home vocabulary into a focused question-and-answer layout:
 - Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
   `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch);
   `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
-Form and confirmation styling is scoped to section 18 of the stylesheet; the milestone index and
-Form 641 retain their existing layouts. These remain static handoff forms pending backend integration.
+Shared form and confirmation styling is in section 18 of the stylesheet. These remain static
+handoff forms pending backend integration.
 The fields are a starting set drawn from the earlier preview; check them against what Neoserra's
 milestone records require.
 

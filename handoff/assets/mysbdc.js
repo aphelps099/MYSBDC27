@@ -60,7 +60,7 @@
     if (view) {
       e.preventDefault();
       $$('[data-view]').forEach(v => v.hidden = v.dataset.view !== view.dataset.show);
-      const h = $('[data-view]:not([hidden]) h1'); if (h) { h.tabIndex = -1; h.focus(); }
+      const target = $('input', $('[data-view]:not([hidden])')) || $('[data-view]:not([hidden]) h2'); if (target) target.focus();
     }
   });
 
@@ -103,7 +103,7 @@
     e.preventDefault();
     $('#sent-to').textContent = signin.email.value;
     $$('[data-view]').forEach(v => v.hidden = v.dataset.view !== 'sent');
-    const h = $('[data-view=sent] h1'); h.tabIndex = -1; h.focus();
+    const h = $('[data-view=sent] h2'); h.focus();
   });
 
   // Step forms (Form 641 and the milestone forms): one question group at a time.
@@ -124,6 +124,7 @@
     const show = (n, dir = 1) => {
       n = Math.max(0, Math.min(panels.length - 1, n));
       while (!open(panels[n]) && n + dir >= 0 && n + dir < panels.length) n += dir;
+      if (ready && n !== at && flow.hasAttribute('data-intake-draft')) draftStatus.textContent = 'Unsaved changes';
       at = n;
       const panel = panels[at], mark = +(panel.dataset.mark ?? at), last = panel.hasAttribute('data-end') || mark >= marks.length;
       panels.forEach((p, i) => p.classList.toggle('current', i === at));
@@ -137,8 +138,8 @@
       }
       if (ready) { const h = $('h1', panel); h.tabIndex = -1; h.focus({ preventScroll: true }); scrollTo(0, 0); }
       ready = true;
-      $$('[data-echo]', flow).forEach(el => { const t = label(el.dataset.echo); if (t) el.textContent = t; });
-      $$('[data-echo-list]', flow).forEach(el => { const picked = $$('input[name="' + el.dataset.echoList + '"]:checked', flow).map(i => i.value.toLowerCase()); if (picked.length) el.textContent = picked.length > 1 ? picked.slice(0, -1).join(', ') + ' and ' + picked.at(-1) : picked[0]; });
+      $$('[data-echo]', flow).forEach(el => { el.textContent = label(el.dataset.echo) || el.dataset.empty || 'Not provided'; });
+      $$('[data-echo-list]', flow).forEach(el => { const picked = $$('input[name="' + el.dataset.echoList + '"]:checked', flow).map(i => i.value.toLowerCase()); el.textContent = picked.length > 1 ? picked.slice(0, -1).join(', ') + ' and ' + picked.at(-1) : picked[0] || el.dataset.empty || 'None selected'; });
       $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });
     };
     flow.addEventListener('click', e => {
@@ -161,8 +162,44 @@
     // "Pick up to three": once three are ticked, the rest are disabled until one is cleared.
     const limit = () => $$('[data-max]', flow).forEach(g => { const boxes = $$('input[type=checkbox]', g), full = boxes.filter(b => b.checked).length >= +g.dataset.max; boxes.forEach(b => b.disabled = full && !b.checked); });
     flow.addEventListener('change', () => { gate(); limit(); });
+    // Intake drafts are explicitly saved on this browser, never silently sent or authenticated.
+    // Signature and consent fields must be completed afresh, even when resuming a draft.
+    const draftKey = 'mysbdc-intake-draft-v1', draftStatus = $('[data-draft-status]');
+    const draftFields = $$('input[name],select[name],textarea[name]', flow).filter(f => !['hidden', 'password'].includes(f.type) && !['signature', 'agree', 'survey'].includes(f.name));
+    let restoredStep = 0;
+    if (flow.hasAttribute('data-intake-draft')) {
+      try {
+        const draft = JSON.parse(localStorage.getItem(draftKey) || 'null');
+        if (draft && draft.version === 1 && Array.isArray(draft.fields)) {
+          draftFields.forEach(f => {
+            const saved = draft.fields.find(d => d.name === f.name && (f.type !== 'radio' && f.type !== 'checkbox' || d.value === f.value));
+            if (!saved) return;
+            if (f.type === 'radio' || f.type === 'checkbox') f.checked = saved.checked === true;
+            else if (typeof saved.value === 'string') f.value = saved.value;
+          });
+          restoredStep = Number.isInteger(draft.step) ? Math.max(0, Math.min(panels.length - 2, draft.step)) : 0;
+          draftStatus.textContent = 'Restored on this browser';
+        }
+      } catch (e) { draftStatus.textContent = 'Browser saving unavailable'; }
+      $('[data-intake-save]').addEventListener('click', () => {
+        try {
+          const fields = draftFields.map(f => ({ name: f.name, value: f.value, checked: f.checked }));
+          localStorage.setItem(draftKey, JSON.stringify({ version: 1, step: at, fields }));
+          draftStatus.textContent = 'Saved in this browser';
+        } catch (e) { draftStatus.textContent = 'Couldn’t save. Keep this page open.'; }
+      });
+      flow.addEventListener('input', () => { draftStatus.textContent = 'Unsaved changes'; });
+      flow.addEventListener('click', e => {
+        if (e.target.closest('[data-inc]')) draftStatus.textContent = 'Unsaved changes';
+        if (panels[at].hasAttribute('data-end')) {
+          try { localStorage.removeItem(draftKey); } catch (e) {}
+        }
+      });
+    }
     limit();
-    gate(); show(+(new URLSearchParams(location.search).get('step') || 1) - 1);
+    gate();
+    const requestedStep = new URLSearchParams(location.search).get('step');
+    show(requestedStep ? +requestedStep - 1 : restoredStep);
   }
 
   // Congratulations page: a line that fits the milestone, and a burst of confetti (skipped for reduced motion).
