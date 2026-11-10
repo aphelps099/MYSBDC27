@@ -29,12 +29,22 @@
     const group = e.target.closest('[data-toggle-group] button');
     if (group) {
       $$('button', group.parentElement).forEach(b => b.setAttribute('aria-pressed', String(b === group)));
-      const list = $(group.parentElement.dataset.filters || '');
+      const sel = group.parentElement.dataset.filters; const list = sel ? $(sel) : null;
       if (list) $$('[data-format]', list).forEach(row => {
         const f = group.dataset.value;
         row.hidden = !(f === 'all' || row.dataset.format === f || (f === 'registered' && $('[data-register][aria-pressed=true]', row)));
       });
     }
+    if (group && group.parentElement.dataset.filter) applyFilters();
+    const save = e.target.closest('[data-save]');
+    if (save) {
+      const on = save.getAttribute('aria-pressed') !== 'true';
+      save.setAttribute('aria-pressed', String(on));
+      save.querySelector('span').textContent = on ? 'Saved' : 'Save';
+      applyFilters();
+    }
+    const only = e.target.closest('[data-saved-only]');
+    if (only) { only.setAttribute('aria-pressed', String(only.getAttribute('aria-pressed') !== 'true')); applyFilters(); }
     const reg = e.target.closest('[data-register]');
     if (reg) {
       const on = reg.getAttribute('aria-pressed') !== 'true';
@@ -169,6 +179,27 @@
   }
 
   // One polite live region for confirmations.
+  // Training and Resources filters. Each [data-filter="topic"] group filters [data-item] by data-topic, and so on.
+  function applyFilters() {
+    const want = {};
+    $$('[data-filter]').forEach(g => { const on = $('[aria-pressed=true]', g); want[g.dataset.filter] = on ? on.dataset.value : 'all'; });
+    const only = $('[data-saved-only]');
+    const savedOnly = only && only.getAttribute('aria-pressed') === 'true';
+    const plural = (n, el) => n + ' ' + el.dataset.noun + (n === 1 ? '' : 's');
+    let shown = 0;
+    $$('[data-item]').forEach(item => {
+      const ok = Object.entries(want).every(([k, v]) => v === 'all' || item.dataset[k] === v) && (!savedOnly || $('[data-save][aria-pressed=true]', item));
+      item.hidden = !ok; if (ok) shown++;
+    });
+    $$('[data-group]').forEach(g => {
+      const n = $$('[data-item]:not([hidden])', g).length;
+      g.hidden = !n; const c = $('[data-group-count]', g); if (c) c.textContent = plural(n, c);
+    });
+    const count = $('[data-count]'); if (count) count.textContent = plural(shown, count);
+    const sc = $('[data-saved-count]'); if (sc) sc.textContent = $$('[data-save][aria-pressed=true]', $('.res-grid') || document).length;
+    const empty = $('[data-empty]'); if (empty) empty.hidden = shown > 0;
+  }
+
   function announce(text) {
     let live = $('#live'); if (!live) { live = document.createElement('div'); live.id = 'live'; live.className = 'visually-hidden'; live.setAttribute('role', 'status'); document.body.append(live); }
     live.textContent = ''; setTimeout(() => live.textContent = text, 50);

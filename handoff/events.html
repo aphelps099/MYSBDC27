@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Training · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=724299f0">
-<script defer src="assets/mysbdc.js?v=724299f0"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=dd30cbf8">
+<script defer src="assets/mysbdc.js?v=dd30cbf8"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -80,82 +80,159 @@
 
 <div id="page">
   <main id="main-content" class="container reveal">
-    <header class="page-intro">
-      <h1>Training</h1>
-      <p class="lead">Practical workshops led by people who have run businesses. Always free. Register with one tap.</p>
-    </header>
+    <div class="lib">
+      <header class="lib-head">
+        <h1>Learn what matters. Then put it to work.</h1>
+        <p>Live workshops and short courses, chosen for where you are. No fee. Register with one tap.</p>
+      </header>
 
-    <section class="mysbdc-upcoming-events" aria-label="Upcoming training">
-      <div class="toolbar">
-        <div class="search"><label class="visually-hidden" for="q">Search training</label><svg class="icon " aria-hidden="true"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Search by topic, like “loans” or “marketing”"></div>
-        <div class="field" style="flex:0 1 260px"><label class="visually-hidden" for="topic">Topic</label><select id="topic"><option>All topics</option><option>Money and loans</option><option>Starting up</option><option>Marketing</option><option>Technology</option><option>Hiring</option><option>Government contracts</option></select></div>
+      <div class="lib-top">
+        <!-- The one focal card on the page: colour wash + solid pool plate. Picked by the advisor in Neoserra. -->
+        <section class="feature" aria-labelledby="picked">
+          <svg class="ms-giant" aria-hidden="true"><use href="#i-coins"/></svg>
+          <p class="lib-kicker t-capital">Picked for you by Dana</p>
+          <h2 id="picked">Loan readiness: what lenders actually look for</h2>
+          <p class="lib-meta">Tuesday, November 17 · 10:00 AM · Online · 90 min</p>
+          <div class="feature-act">
+            <button class="btn btn-navy" type="button" data-register aria-pressed="false">Register</button>
+            <span class="reg-note" role="status">You’re in. We emailed the link.</span>
+            <a class="link" href="event.html">Details</a>
+          </div>
+        </section>
+        <section class="panel" aria-labelledby="next-live">
+          <p class="lib-kicker t-capital" id="next-live">Your next live session</p>
+          <div class="panel-event">
+            <div class="datebox"><b>12</b><span>Nov</span></div>
+            <div><h3>Pricing for profit: know your numbers before you set them</h3><p class="lib-meta">Thursday · 10:00 AM · Online</p></div>
+          </div>
+          <p class="lib-meta small">You’re registered. The link to join is in your email, and appears here 15 minutes before.</p>
+          <p class="panel-links"><a class="link" href="#calendar">Add to calendar</a><a class="link" href="#cancel">Can’t make it?</a></p>
+        </section>
       </div>
-      <div class="chips" role="group" aria-label="Show" data-toggle-group data-filters="#event-list">
-        <button class="chip" type="button" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" type="button" data-value="Online" aria-pressed="false">Online</button>
-        <button class="chip" type="button" data-value="In person" aria-pressed="false">In person</button>
-        <button class="chip" type="button" data-value="registered" aria-pressed="false">My registrations</button>
+
+      <div class="lib-filters">
+        <div class="pills-row" role="group" aria-label="Topic" data-toggle-group data-filter="topic"><button class="pill" type="button" data-value="all" aria-pressed="true">All topics</button><button class="pill" type="button" data-value="Finance" aria-pressed="false">Finance</button><button class="pill" type="button" data-value="Marketing" aria-pressed="false">Marketing</button><button class="pill" type="button" data-value="Operations" aria-pressed="false">Operations</button><button class="pill" type="button" data-value="Capital" aria-pressed="false">Capital</button></div>
+        <div class="seg" role="group" aria-label="Format" data-toggle-group data-filter="format"><button class="pill" type="button" data-value="all" aria-pressed="true">All formats</button><button class="pill" type="button" data-value="Online" aria-pressed="false">Online</button><button class="pill" type="button" data-value="In person" aria-pressed="false">In person</button></div>
       </div>
-      <p class="small muted mt-24" role="status">7 upcoming trainings · All times Pacific</p>
-      <div class="events on-cream mt-16" id="event-list">
-        <article class="event" data-format="Online">
-          <div class="entry-event-date"><span class="month">Nov</span><span class="day">10</span></div>
-          <div class="entry-contents">
-            <h3 class="entry-title"><a href="#">AI U: practical AI for small business</a></h3>
-            <div class="entry-details"><span class="detail">Tuesday, 10:00 AM</span><span class="detail format"><svg class="icon sm" aria-hidden="true"><use href="#i-video"/></svg> Online</span><span class="detail duration">60 minutes</span><span class="detail topic">Technology</span></div>
-          </div>
-          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
-        </article>
-        <article class="event" data-format="Online">
-          <div class="entry-event-date"><span class="month">Nov</span><span class="day">12</span></div>
-          <div class="entry-contents">
-            <h3 class="entry-title"><a href="#">Business plan in a day</a></h3>
-            <div class="entry-details"><span class="detail">Thursday, 10:00 AM</span><span class="detail format"><svg class="icon sm" aria-hidden="true"><use href="#i-video"/></svg> Online</span><span class="detail duration">2 hours</span><span class="detail topic">Starting up</span></div>
-          </div>
-          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
-        </article>
-        <article class="event" data-format="Online">
-          <div class="entry-event-date"><span class="month">Nov</span><span class="day">17</span></div>
-          <div class="entry-contents">
-            <h3 class="entry-title"><a href="#">Loan-ready: build your lender package</a></h3>
-            <div class="entry-details"><span class="detail">Tuesday, 9:00 AM</span><span class="detail format"><svg class="icon sm" aria-hidden="true"><use href="#i-video"/></svg> Online</span><span class="detail duration">90 minutes</span><span class="detail topic">Money and loans</span></div>
-          </div>
-          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="true">Registered</button></div>
-        </article>
-        <article class="event" data-format="Online">
-          <div class="entry-event-date"><span class="month">Nov</span><span class="day">17</span></div>
-          <div class="entry-contents">
-            <h3 class="entry-title"><a href="#">Selling online: your first web store</a></h3>
-            <div class="entry-details"><span class="detail">Tuesday, 12:00 PM</span><span class="detail format"><svg class="icon sm" aria-hidden="true"><use href="#i-video"/></svg> Online</span><span class="detail duration">90 minutes</span><span class="detail topic">Technology</span></div>
-          </div>
-          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
-        </article>
-        <article class="event" data-format="In person">
-          <div class="entry-event-date"><span class="month">Nov</span><span class="day">19</span></div>
-          <div class="entry-contents">
-            <h3 class="entry-title"><a href="#">Cash flow clinic: bring your numbers</a></h3>
-            <div class="entry-details"><span class="detail">Thursday, 9:00 AM</span><span class="detail format"><svg class="icon sm" aria-hidden="true"><use href="#i-pin"/></svg> In person</span><span class="detail duration">90 minutes · Eureka</span><span class="detail topic">Money and loans</span></div>
-          </div>
-          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
-        </article>
-        <article class="event" data-format="Online">
-          <div class="entry-event-date"><span class="month">Nov</span><span class="day">19</span></div>
-          <div class="entry-contents">
-            <h3 class="entry-title"><a href="#">Getting started with government contracts</a></h3>
-            <div class="entry-details"><span class="detail">Thursday, 2:00 PM</span><span class="detail format"><svg class="icon sm" aria-hidden="true"><use href="#i-video"/></svg> Online</span><span class="detail duration">90 minutes</span><span class="detail topic">Government contracts</span></div>
-          </div>
-          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
-        </article>
-        <article class="event" data-format="In person">
-          <div class="entry-event-date"><span class="month">Dec</span><span class="day">1</span></div>
-          <div class="entry-contents">
-            <h3 class="entry-title"><a href="#">Hiring your first employee</a></h3>
-            <div class="entry-details"><span class="detail">Tuesday, 2:00 PM</span><span class="detail format"><svg class="icon sm" aria-hidden="true"><use href="#i-pin"/></svg> In person</span><span class="detail duration">90 minutes · Arcata</span><span class="detail topic">Hiring</span></div>
-          </div>
-          <div class="entry-actions"><button class="btn btn-sm btn-primary btn-event-register" type="button" data-register aria-pressed="false">Register</button></div>
-        </article>
-      </div>
-    </section>
+
+      <section class="lib-month" data-group aria-labelledby="m-november">
+        <div>
+          <h2 id="m-november">November</h2>
+          <p class="lib-meta" data-group-count data-noun="training">4 trainings</p>
+        </div>
+        <div class="lib-stack">
+          <article class="session" data-item data-topic="Finance" data-format="Online">
+            <div class="datebox"><b>12</b><span>Thu</span></div>
+            <div class="session-body">
+              <p class="lib-kicker"><span class="t-finance">Finance</span><span>Online</span></p>
+              <h3><a href="event.html">Pricing for profit: know your numbers before you set them</a></h3>
+              <p class="lib-meta">Taught by NorCal finance advisors · Q&amp;A included</p>
+              <details class="more">
+                <summary><span class="when-closed">More details</span><span class="when-open">Fewer details</span></summary>
+                <p>Cost of goods, margin targets and the difference between busy and profitable. You’ll work through a pricing worksheet on one of your own products or services, so bring real numbers.</p>
+                <p class="lib-meta">10:00 to 11:30 AM · Led by NorCal finance advisors · Any stage</p>
+              </details>
+            </div>
+            <div class="session-act"><button class="btn btn-line" type="button" data-register aria-pressed="true">Registered</button><span class="lib-meta">Free · 90 min</span></div>
+          </article>
+          <article class="session" data-item data-topic="Capital" data-format="Online">
+            <div class="datebox"><b>17</b><span>Tue</span></div>
+            <div class="session-body">
+              <p class="lib-kicker"><span class="t-capital">Capital</span><span>Online</span></p>
+              <h3><a href="event.html">Loan readiness: what lenders actually look for</a></h3>
+              <p class="lib-meta">With guest SBA lender panel</p>
+              <details class="more">
+                <summary><span class="when-closed">More details</span><span class="when-open">Fewer details</span></summary>
+                <p>The five Cs of credit in plain language, the documents lenders open first, and the red flags that stall an application. Ends with open Q&amp;A. Ask the lenders directly.</p>
+                <p class="lib-meta">10:00 to 11:30 AM · Guest SBA lender panel · Preparing to borrow</p>
+              </details>
+            </div>
+            <div class="session-act"><button class="btn btn-line" type="button" data-register aria-pressed="false">Register</button><span class="lib-meta">Free · 90 min</span></div>
+          </article>
+          <article class="session" data-item data-topic="Operations" data-format="In person">
+            <div class="datebox"><b>19</b><span>Thu</span></div>
+            <div class="session-body">
+              <p class="lib-kicker"><span class="t-operations">Operations</span><span>In person</span></p>
+              <h3><a href="event.html">Hiring your first employee in California</a></h3>
+              <p class="lib-meta">Cal Poly Humboldt SBDC · Arcata</p>
+              <details class="more">
+                <summary><span class="when-closed">More details</span><span class="when-open">Fewer details</span></summary>
+                <p>Classification, payroll setup, required postings and the paperwork that matters on day one. Includes a first-hire checklist you take with you.</p>
+                <p class="lib-meta">2:00 to 4:00 PM · With an HR compliance specialist · Hiring in the next 6 months</p>
+              </details>
+            </div>
+            <div class="session-act"><button class="btn btn-line" type="button" data-register aria-pressed="false">Register</button><span class="lib-meta">Free · 2 hrs</span></div>
+          </article>
+          <article class="session" data-item data-topic="Marketing" data-format="Online">
+            <div class="datebox"><b>24</b><span>Tue</span></div>
+            <div class="session-body">
+              <p class="lib-kicker"><span class="t-marketing">Marketing</span><span>Online</span></p>
+              <h3><a href="event.html">Selling online: from farmers market to first web store</a></h3>
+              <p class="lib-meta">Bring your product list. We build as we go</p>
+              <details class="more">
+                <summary><span class="when-closed">More details</span><span class="when-open">Fewer details</span></summary>
+                <p>Platform choice, product photos with a phone, and shipping that doesn’t eat the margin. We set up a working storefront live during the session.</p>
+                <p class="lib-meta">10:00 to 11:30 AM · Led by an ecommerce advisor · Product businesses</p>
+              </details>
+            </div>
+            <div class="session-act"><button class="btn btn-line" type="button" data-register aria-pressed="false">Register</button><span class="lib-meta">Free · 90 min</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="lib-month" data-group aria-labelledby="m-december">
+        <div>
+          <h2 id="m-december">December</h2>
+          <p class="lib-meta" data-group-count data-noun="training">2 trainings</p>
+        </div>
+        <div class="lib-stack">
+          <article class="session" data-item data-topic="Finance" data-format="Online">
+            <div class="datebox"><b>1</b><span>Tue</span></div>
+            <div class="session-body">
+              <p class="lib-kicker"><span class="t-finance">Finance</span><span>Online</span></p>
+              <h3><a href="event.html">Cash flow for the slow season</a></h3>
+              <p class="lib-meta">Plan the quarter before it plans you</p>
+              <details class="more">
+                <summary><span class="when-closed">More details</span><span class="when-open">Fewer details</span></summary>
+                <p>A 13-week cash flow view you can keep updated in under 15 minutes a week. Spot the pinch two months early, and know your options before you need them.</p>
+                <p class="lib-meta">10:00 to 11:30 AM · Led by NorCal finance advisors · Seasonal businesses</p>
+              </details>
+            </div>
+            <div class="session-act"><button class="btn btn-line" type="button" data-register aria-pressed="false">Register</button><span class="lib-meta">Free · 90 min</span></div>
+          </article>
+          <article class="session" data-item data-topic="Capital" data-format="In person">
+            <div class="datebox"><b>9</b><span>Wed</span></div>
+            <div class="session-body">
+              <p class="lib-kicker"><span class="t-capital">Capital</span><span>In person</span></p>
+              <h3><a href="event.html">Meet the lenders: community capital fair</a></h3>
+              <p class="lib-meta">Solano-Napa SBDC · Fairfield</p>
+              <details class="more">
+                <summary><span class="when-closed">More details</span><span class="when-open">Fewer details</span></summary>
+                <p>CDFIs, credit unions and SBA lenders in one room. Short intro sessions, then open tables. Bring your questions and a one-page summary of your business if you have one.</p>
+                <p class="lib-meta">9:00 AM to 1:00 PM · 12+ community lenders attending · Any stage</p>
+              </details>
+            </div>
+            <div class="session-act"><button class="btn btn-line" type="button" data-register aria-pressed="false">Register</button><span class="lib-meta">Free · Half day</span></div>
+          </article>
+        </div>
+      </section>
+
+      <p class="panel lib-empty" data-empty hidden>Nothing matches those filters yet. Clear one to see every training.</p>
+
+      <section class="lib-month lib-courses" aria-labelledby="courses">
+        <div>
+          <h2 id="courses">On your schedule</h2>
+          <p class="lib-meta">Short courses. Start one tonight, finish it when the shop is quiet.</p>
+        </div>
+        <div class="courses">
+          <a class="ms-choice" data-type="funding" href="#course"><svg class="ms-giant" aria-hidden="true"><use href="#i-chart"/></svg><span class="lib-kicker t-finance">Finance</span><strong>Reading your P&amp;L without dread</strong><small>4 modules · 45 min · <strong>2 of 4 done</strong></small></a>
+          <a class="ms-choice" data-type="started" href="#course"><svg class="ms-giant" aria-hidden="true"><use href="#i-store"/></svg><span class="lib-kicker t-marketing">Marketing</span><strong>A marketing plan on one page</strong><small>3 modules · 35 min</small></a>
+          <a class="ms-choice" data-type="hired" href="#course"><svg class="ms-giant" aria-hidden="true"><use href="#i-settings"/></svg><span class="lib-kicker t-operations">Operations</span><strong>Systems that run without you</strong><small>5 modules · 60 min</small></a>
+          <a class="ms-choice" data-type="sales" href="#course"><svg class="ms-giant" aria-hidden="true"><use href="#i-coins"/></svg><span class="lib-kicker t-capital">Capital</span><strong>Your loan package, step by step</strong><small>6 modules · 80 min</small></a>
+        </div>
+      </section>
+      <p class="lib-meta small lib-foot">All times Pacific. Bring what you learn to Dana and turn it into your next move.</p>
+    </div>
   </main>
 </div>
 

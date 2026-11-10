@@ -18,14 +18,16 @@ python3 -m http.server 8000      # from the repository root
 | `dashboard-new.html` | Default home: new client, no advisor yet | `/` (pre-client) |
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
-| `events.html` | Training | `/events/` |
+| `events.html` | Training: advisor pick, live sessions by month, short courses. Register confirms in place | `/events/` |
+| `event.html` | Training: one event | `/events/{event}/` |
 | `milestones.html` | Milestones: choose a type, plus history | `/milestones/` |
 | `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
 | `milestone-sales.html` | Milestone form: sales grew (3 steps) | `/milestones/new/increased-revenue/` |
 | `milestone-funding.html` | Milestone form: got funding (3 steps) | `/milestones/new/received-funding/` |
 | `milestone-started.html` | Milestone form: started a business (3 steps, with a "not yet" exit) | `/milestones/new/started-business/` and `/not-started/` |
 | `milestone-done.html` | Thank-you, with a prompt to add another | `/milestones/new/*/success/` |
-| `resources.html` | Resources | `/resources/` |
+| `resources.html` | Resources: advisor picks, library with topic, type and Saved filters, recorded webinars | `/resources/` |
+| `resource.html` | Resources: one resource | `/resources/{resource}/` |
 
 - `assets/mysbdc.css` is the whole design: tokens, shell, components. No framework.
 - `assets/mysbdc.js` is about 120 lines of plain JavaScript (menu, steps, switches). No jQuery.
