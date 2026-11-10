@@ -50,7 +50,7 @@ def app(body, m):
   <button id="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="burger-icon"><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Menu</span></button>
   <a id="site-branding" href="{home}" aria-label="MySBDC home, North Coast SBDC"><span id="site-logo"><b>My</b>SBDC</span><span id="site-title">North Coast SBDC</span></a>
   <div id="site-utility-navigation">
-    <a class="util-btn website-header-link" href="https://www.norcalsbdc.org/" target="_blank" rel="noopener noreferrer">SBDC website<span class="visually-hidden"> (opens in a new tab)</span><span class="ms-arrow" aria-hidden="true"></span></a>
+    <a class="util-btn website-header-link" href="https://www.norcalsbdc.org/" target="_blank" rel="noopener noreferrer">SBDC website<span class="visually-hidden"> (opens in a new tab)</span></a>
     <button class="util-btn" type="button" aria-label="Language: English. Change language">{icon('globe')}<span class="label">English</span></button>
     <div class="site-user-navigation">
       <details>
