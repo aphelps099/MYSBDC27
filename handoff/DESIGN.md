@@ -48,6 +48,14 @@ should support the content and the next action.
   inset slate fill and a subtle pool cue. Carry the same treatment into the mobile bottom tabs.
 - **Milestones stay focused on sharing.** Show the four update choices without a history or
   previous-update records. Tile arrows appear only on hover or keyboard focus, including on Home.
+- **Home always offers one next step.** Follow [NEXT-STEP.md](NEXT-STEP.md). An active advisor note
+  wins; otherwise show waiting documents, an upcoming session/registered training, or caught up.
+  App-generated copy is signed by the center. There is no milestone nudge. Done acknowledges a
+  confirmed completion for that visit; a new advisor note takes precedence.
+- **Dates share one quiet treatment.** Home and Training use the same unboxed day and muted
+  abbreviated month, set in the UI sans serif. Keep weekday and time in the supporting text.
+  Show each workshop once in the schedule, with registration status on that row and joining
+  information in its details. Do not reintroduce a large “Your next live session” feature.
 - **Training reflects supported workflows.** Show registered sessions, browsable workshops, and
   recorded training. Do not imply advisor-curated training recommendations until advisors have a
   supported way to share them into the client dashboard. Recorded training has no progress tracking:

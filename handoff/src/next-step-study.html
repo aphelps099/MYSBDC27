@@ -1,0 +1,187 @@
+<!-- layout: bare | title: Your next step — design reference -->
+<link rel="stylesheet" href="assets/next-step-study.css">
+<main class="step-study" id="main-content">
+  <header class="step-study-header">
+    <a class="wordmark" href="index.html" aria-label="MySBDC design handoff">MySBDC <span>Design reference</span></a>
+    <nav aria-label="Reference pages"><a href="dashboard.html">View Home</a><a href="NEXT-STEP.md">Written specification</a></nav>
+  </header>
+
+  <section class="step-study-intro" aria-labelledby="study-title">
+    <div><p class="kicker">Home · Your next step</p><h1 id="study-title">One next step.<br>Every state.</h1></div>
+    <div class="step-study-intro-copy"><p>The same sheet, a useful next action, and a clear voice. Only one state appears on the client’s Home at a time.</p><p>These are sample designs with product notes attached. Actions within the sheets are illustrated, not live controls.</p></div>
+  </section>
+
+  <section class="step-study-priority" aria-labelledby="priority-title">
+    <h2 id="priority-title">What appears first</h2>
+    <ol>
+      <li><strong>Advisor’s note</strong><span>Always takes priority</span></li>
+      <li><strong>Documents waiting</strong><span>If there is no active note</span></li>
+      <li><strong>Coming up</strong><span>If no documents are waiting</span></li>
+      <li><strong>Caught up</strong><span>When nothing else applies</span></li>
+    </ol>
+    <p>Done is a temporary receipt. A new advisor note overrides it. There is no milestone nudge.</p>
+  </section>
+
+  <nav class="step-study-jump" aria-label="Jump to a state">
+    <a href="#advisor-note">Advisor note</a><a href="#manual-task">Manual task</a><a href="#done">Done</a><a href="#waiting">Documents</a><a href="#upcoming-session">Coming up</a><a href="#caught-up">Caught up</a><a href="#new-client">New client</a>
+  </nav>
+
+  <div class="step-study-states">
+    <section class="step-study-state" id="advisor-note" aria-labelledby="advisor-title">
+      <header class="step-study-state-header"><p class="step-study-tag">Advisor written</p><h2 id="advisor-title">An advisor’s request.</h2></header>
+      <div class="step-study-board">
+        <div class="step-study-example">
+          <section class="mysbdc-client-next-steps-overview" aria-labelledby="advisor-label">
+            <h3 class="kicker" id="advisor-label">Your next step</h3>
+            <p class="memo">Please upload last month’s profit and loss statement before we meet on Thursday. Rough is fine, and a phone photo works. We’ll clean it up together.</p>
+            <p class="memo-from"><img src="assets/img/advisor-dana-face.jpg" alt="" width="40" height="40"><span><strong>Dana Whitfield</strong>, your advisor</span></p>
+            <p class="memo-links"><span class="step-study-action">{{icon:upload}} Upload a document</span></p>
+          </section>
+        </div>
+        <aside class="step-study-notes" aria-label="Advisor request notes">
+          <h3>Product notes</h3>
+          <dl><div><dt>Show when</dt><dd>The latest advisor note is still unfinished. It wins over every automatic fallback.</dd></div><div><dt>Who is speaking</dt><dd>Dana. Use her exact note, photo and name.</dd></div><div><dt>Clear when</dt><dd>The document service confirms an upload for this specific request. Opening the upload screen or selecting a file is not completion.</dd></div></dl>
+          <p class="step-study-footnote">No “Mark as done” here: the upload can be confirmed.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="step-study-state" id="manual-task" aria-labelledby="manual-title">
+      <header class="step-study-state-header"><p class="step-study-tag">Advisor written · variation</p><h2 id="manual-title">When the task happens elsewhere.</h2></header>
+      <div class="step-study-board">
+        <div class="step-study-example">
+          <section class="mysbdc-client-next-steps-overview" aria-labelledby="manual-label">
+            <h3 class="kicker" id="manual-label">Your next step</h3>
+            <p class="memo">Call your bank and ask which documents they’ll need for a business loan. Bring the list to our next session.</p>
+            <p class="memo-from"><img src="assets/img/advisor-dana-face.jpg" alt="" width="40" height="40"><span><strong>Dana Whitfield</strong>, your advisor</span></p>
+            <p class="memo-links"><span class="step-study-action step-study-manual">Mark as done</span></p>
+          </section>
+        </div>
+        <aside class="step-study-notes" aria-label="Manual task notes">
+          <h3>Product notes</h3>
+          <dl><div><dt>Show when</dt><dd>Dana’s note asks for an action the app cannot observe, such as a phone call.</dd></div><div><dt>Clear when</dt><dd>The client chooses “Mark as done” and MySBDC successfully saves the completion against this note version.</dd></div><div><dt>Receipt wording</dt><dd>“Done. You marked this step complete.” This acknowledges the client’s report; it does not claim a file was sent.</dd></div></dl>
+          <p class="step-study-footnote">This quiet completion action appears only on eligible advisor notes.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="step-study-state" id="done" aria-labelledby="done-title">
+      <header class="step-study-state-header"><p class="step-study-tag step-study-tag-done">Completion receipt</p><h2 id="done-title">A little closure.</h2></header>
+      <div class="step-study-board">
+        <div class="step-study-example">
+          <section class="mysbdc-client-next-steps-overview" aria-labelledby="done-label">
+            <h3 class="kicker" id="done-label">Your next step</h3>
+            <p class="memo step-study-done">{{icon:check}}<span>Done. Your statement is with Dana.</span></p>
+            <p class="step-study-time">Sent <time datetime="2026-11-10T14:10:00-08:00">November 10 at 2:10 PM Pacific</time></p>
+            <p class="memo-from"><span><strong>North Coast SBDC</strong></span></p>
+          </section>
+          <p class="step-study-caption">Confirmed-upload example · the time shown is sample content.</p>
+        </div>
+        <aside class="step-study-notes" aria-label="Completion receipt notes">
+          <h3>Product notes</h3>
+          <dl><div><dt>Show when</dt><dd>The matching action is confirmed and its completion has been saved. The center signs the receipt.</dd></div><div><dt>Keep for</dt><dd>The rest of this visit. Do not immediately replace the success message with another task.</dd></div><div><dt>What happens next</dt><dd>On the next visit, choose the next eligible state. A new or revised advisor note appears immediately, even during this receipt.</dd></div></dl>
+          <p class="step-study-footnote">For a download: “Done. Your document was downloaded.” Use the actual completion time. No new call to action.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="step-study-state" id="waiting" aria-labelledby="waiting-title">
+      <header class="step-study-state-header"><p class="step-study-tag">Center generated</p><h2 id="waiting-title">Something is waiting.</h2></header>
+      <div class="step-study-board">
+        <div class="step-study-example">
+          <section class="mysbdc-client-next-steps-overview" aria-labelledby="waiting-label">
+            <h3 class="kicker" id="waiting-label">Your next step</h3>
+            <p class="memo">Dana sent back your business plan with her notes.</p>
+            <p class="memo-from"><span><strong>North Coast SBDC</strong></span></p>
+            <p class="memo-links"><span class="step-study-action">{{icon:download}} Download it</span></p>
+          </section>
+        </div>
+        <aside class="step-study-notes" aria-label="Waiting document notes">
+          <h3>Product notes</h3>
+          <dl><div><dt>Show when</dt><dd>No advisor note is active and a returned document is available that the client has not downloaded.</dd></div><div><dt>Who is speaking</dt><dd>The center. Mentioning Dana does not make this an advisor-authored note.</dd></div><div><dt>Clear when</dt><dd>The relevant download is confirmed. Keep the document available in the library after this prompt clears.</dd></div></dl>
+          <p class="step-study-footnote">Use document-level status. The widget’s “Ready for you” total can include files already downloaded.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="step-study-state" id="upcoming-session" aria-labelledby="session-title">
+      <header class="step-study-state-header"><p class="step-study-tag">Center generated</p><h2 id="session-title">A session is coming up.</h2></header>
+      <div class="step-study-board">
+        <div class="step-study-example">
+          <section class="mysbdc-client-next-steps-overview" aria-labelledby="session-label">
+            <h3 class="kicker" id="session-label">Your next step</h3>
+            <p class="memo">Your session with Dana is Thursday at 2:00 PM.</p>
+            <p class="memo-from"><span><strong>North Coast SBDC</strong></span></p>
+            <p class="memo-links"><span class="step-study-action">View session</span></p>
+          </section>
+        </div>
+        <aside class="step-study-notes" aria-label="Upcoming session notes">
+          <h3>Product notes</h3>
+          <dl><div><dt>Show when</dt><dd>No active note or waiting document takes priority, and a booked session falls within the agreed reminder window.</dd></div><div><dt>Use real details</dt><dd>The actual appointment, time zone and available session destination. Do not imply a booking that does not exist.</dd></div><div><dt>Clear when</dt><dd>The session ends or is cancelled. Retire the reminder without a Done receipt or an attendance claim.</dd></div></dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="step-study-state" id="upcoming-training" aria-labelledby="training-title">
+      <header class="step-study-state-header"><p class="step-study-tag">Center generated · variation</p><h2 id="training-title">A registered workshop.</h2></header>
+      <div class="step-study-board">
+        <div class="step-study-example">
+          <section class="mysbdc-client-next-steps-overview" aria-labelledby="training-label">
+            <h3 class="kicker" id="training-label">Your next step</h3>
+            <p class="memo">Loan readiness starts Tuesday at 10:00 AM. Your joining link is in your email.</p>
+            <p class="memo-from"><span><strong>North Coast SBDC</strong></span></p>
+            <p class="memo-links"><span class="step-study-action">View training</span></p>
+          </section>
+        </div>
+        <aside class="step-study-notes" aria-label="Upcoming training notes">
+          <h3>Product notes</h3>
+          <dl><div><dt>Same state, different event</dt><dd>Use a workshop the client is already registered for. This is not a recommendation.</dd></div><div><dt>If several events qualify</dt><dd>Show the earliest eligible event, using the agreed reminder window and time zone.</dd></div><div><dt>Clear when</dt><dd>The workshop ends or is cancelled. Passing the start time does not mean the client attended.</dd></div></dl>
+          <p class="step-study-footnote">Only mention an emailed joining link when the registration service confirms that workflow.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="step-study-state" id="caught-up" aria-labelledby="caught-title">
+      <header class="step-study-state-header"><p class="step-study-tag">Center generated</p><h2 id="caught-title">Caught up is good news.</h2></header>
+      <div class="step-study-board">
+        <div class="step-study-example">
+          <section class="mysbdc-client-next-steps-overview" aria-labelledby="caught-label">
+            <h3 class="kicker" id="caught-label">Your next step</h3>
+            <p class="memo">You’re all caught up. When you’re ready for the next thing, tell Dana what’s on your mind.</p>
+            <p class="memo-from"><span><strong>North Coast SBDC</strong></span></p>
+            <p class="memo-links"><span class="step-study-action">{{icon:message}} Send a message</span></p>
+          </section>
+        </div>
+        <aside class="step-study-notes" aria-label="Caught-up notes">
+          <h3>Product notes</h3>
+          <dl><div><dt>Show when</dt><dd>There is no active advisor note, eligible waiting document, or upcoming event to show.</dd></div><div><dt>Keep the sheet</dt><dd>Do not hide it or invent another task. This is the real empty state, written as reassurance.</dd></div><div><dt>Replace when</dt><dd>A new eligible item arrives. Sending a message does not itself create a completion receipt.</dd></div></dl>
+          <p class="step-study-footnote">No milestone nudge, profile-gap prompt, or inferred training suggestion.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="step-study-state" id="new-client" aria-labelledby="new-title">
+      <header class="step-study-state-header"><p class="step-study-tag">Before an advisor is assigned</p><h2 id="new-title">A clear beginning.</h2></header>
+      <div class="step-study-board">
+        <div class="step-study-example">
+          <section class="mysbdc-client-next-steps-overview" aria-labelledby="new-label">
+            <h3 class="kicker" id="new-label">Your next step</h3>
+            <p class="memo">We’re matching you with your advisor. A person here is reading your request, and we’ll email you, usually within two business days. Nothing to do until then.</p>
+            <p class="memo-from"><span><strong>North Coast SBDC</strong></span></p>
+          </section>
+        </div>
+        <aside class="step-study-notes" aria-label="New-client notes">
+          <h3>Product notes</h3>
+          <dl><div><dt>Show when</dt><dd>The client is signed up and still being matched. This precedes the active-client selection order.</dd></div><div><dt>No invented advisor</dt><dd>Use the center’s name. Do not show Dana’s photo or a “Message Dana” action before assignment.</dd></div><div><dt>Replace when</dt><dd>The assignment workflow confirms an advisor and the active-client experience can begin.</dd></div></dl>
+          <p class="step-study-footnote">The matching timeframe follows the existing Home example; confirm it with center operations.</p>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <section class="step-study-handoff" aria-labelledby="handoff-title">
+    <div><p class="kicker">For implementation</p><h2 id="handoff-title">What the system<br>needs to remember.</h2><p>These designs illustrate the agreed behavior. They do not connect to account data or send notifications.</p></div>
+    <dl><div><dt>Complete the exact note</dt><dd>MySBDC stores the client, note ID and version, completion method, and time. Neoserra does not store this completion.</dd></div><div><dt>Confirm first, then acknowledge</dt><dd>Emumba must provide a supported upload/download signal for the matching request or document. Failed saves keep the step active; unrelated uploads do not clear it.</dd></div><div><dt>Notify without duplicates</dt><dd>The backend sends the proposed advisor email through Resend after saving completion. Retries must not send it twice. Notification failure must not undo success.</dd></div><div><dt>Agree the remaining rules</dt><dd>Define a “visit,” the upcoming-event window, download notification rules, and the center contact route before connecting production data.</dd></div></dl>
+  </section>
+  <footer class="step-study-footer"><p>MySBDC · Home behavior reference · November 10, 2026</p><a href="#study-title">Back to the overview</a></footer>
+</main>

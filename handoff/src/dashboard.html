@@ -4,14 +4,13 @@
       <h1 class="hello">Good morning, Avery.</h1>
       <p class="hello-sub">Here is the latest from your advisor.</p>
 
-      <!-- Your next step: the advisor's latest note from Neoserra, shown as written. An action link appears only when the note has one. -->
+      <!-- Active advisor-note example. NEXT-STEP.md defines priority, fallbacks and completion. -->
       <section class="mysbdc-client-next-steps-overview" aria-labelledby="next-step-label">
         <h2 class="kicker" id="next-step-label">Your next step</h2>
         <p class="memo">Please upload last month’s profit and loss statement before we meet on Thursday. Rough is fine, and a phone photo works. We’ll clean it up together.</p>
         <p class="memo-from"><img src="assets/img/advisor-dana-face.jpg" alt="" width="40" height="40"><span><strong>Dana Whitfield</strong>, your advisor</span></p>
         <div class="memo-links">
           <a class="link" href="documents.html">{{icon:upload}} Upload a document</a>
-          <a class="link" href="#">Reply to Dana</a>
         </div>
       </section>
     </div>
@@ -24,7 +23,7 @@
         </div>
         <div class="rows">
           <article class="row">
-            <p class="date"><b>12</b><span>Nov</span></p>
+            <time class="schedule-date" datetime="2026-11-12" aria-label="November 12, 2026"><b>12</b><span>Nov</span></time>
             <div>
               <h3>Session with Dana</h3>
               <p class="meta"><span>Thursday, 2:00&nbsp;PM</span><span>Video call</span><span>45&nbsp;minutes</span></p>
@@ -32,12 +31,12 @@
             <a class="link" href="#">Details<span class="visually-hidden">: session with Dana</span></a>
           </article>
           <article class="row">
-            <p class="date"><b>17</b><span>Nov</span></p>
+            <time class="schedule-date" datetime="2026-11-17" aria-label="November 17, 2026"><b>17</b><span>Nov</span></time>
             <div>
-              <h3>Loan-ready: build your lender&nbsp;package</h3>
-              <p class="meta"><span>Tuesday, 9:00&nbsp;AM</span><span>Online</span><span class="ok">{{icon:check}} Registered</span></p>
+              <h3>Loan readiness: what lenders actually look for</h3>
+              <p class="meta"><span>Tuesday, 10:00&nbsp;AM</span><span>Online</span><span class="ok">{{icon:check}} Registered</span></p>
             </div>
-            <a class="link" href="events.html">Details<span class="visually-hidden">: Loan-ready training</span></a>
+            <a class="link" href="events.html#loan-readiness">Details<span class="visually-hidden">: Loan readiness training</span></a>
           </article>
         </div>
       </section>

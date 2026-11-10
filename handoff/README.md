@@ -18,13 +18,16 @@ python3 -m http.server 8000      # from the repository root
 | File | Screen | Staging route |
 | --- | --- | --- |
 | `login.html` | Sign in: Google, Microsoft, emailed link | `/login/` |
+| `login-password.html` | Optional password sign-in with Show/Hide and recovery | Proposed `/login/password/` |
+| `reset-password.html` | Request a reset link; Check your email state | Proposed `/password/reset/` |
+| `new-password.html` | New password, confirmation and expired-link preview | Provider-issued reset route |
 | `signup.html` | Create your account | `/register/` (before step 1) |
 | `register.html` | Sign-up steps, SBA Form 641 (5 steps + confirmation) | `/register/` |
 | `dashboard-new.html` | Default home: new client, no advisor yet | `/` (pre-client) |
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `documents.html` | Document sharing preview, reached from Home's next step | Proposed `/documents/` |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
-| `events.html` | Training: next registered session, live workshops by month, recorded training. Register confirms in place | `/events/` |
+| `events.html` | Training: live workshops by month with inline registration, plus recorded training | `/events/` |
 | `event.html` | Training: one event | `/events/{event}/` |
 | `milestones.html` | Milestones: choose an update to share | `/milestones/` |
 | `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
@@ -40,6 +43,15 @@ python3 -m http.server 8000      # from the repository root
 - `assets/mysbdc.js` contains plain JavaScript for the menu, forms, filters, and intake drafts. No jQuery.
 - `src/` holds the page bodies and `build.py` wraps them in the shared shell. Edit `src/`, then
   run `python3 handoff/build.py`. The built files are committed, so nothing needs building to view.
+
+## Next-step design reference
+
+`next-step-study.html` shows the approved Home sheet in eight examples: an advisor upload request,
+an offline task, a completion receipt, a waiting document, an upcoming session, registered training,
+caught up, and pre-assignment matching. Each example has attached notes for eligibility, authorship,
+and clearing. The page links from the handoff index, not the client navigation. Sample actions are
+illustrated text, not live controls. The behavior specification remains [NEXT-STEP.md](NEXT-STEP.md).
+The reference-only composition lives in `assets/next-step-study.css`; the sheets reuse Home styles.
 
 ## Public website and document sharing
 
@@ -110,10 +122,11 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
    `--navy-depth` tokens). The app header, rail, business card and dark milestone tile use solid
    slate navy, with warm paper text and soft pool accents.
 4. **Home is mostly open page, with a few quiet surfaces.**
-   - *Your next step* is the advisor's latest note from Neoserra, shown as written in a serif
-     reading size, with who wrote it and when. There is no big button and no progress tracker.
-     If the note carries a link, it appears as a text link under the note (`.memo-links`), beside
-     "Reply to Dana". With no note yet (new client), the same sheet shows a note from the center.
+   - *Your next step* follows [NEXT-STEP.md](NEXT-STEP.md): an active advisor note wins, then
+     waiting documents, upcoming activity, or caught up. One primary action and an honest signature
+     keep the sheet focused. There is no milestone nudge. The current Home is a static advisor-note
+     example; completion storage, fallback data and Resend notifications still need integration.
+     The new-client sheet keeps the center's matching message.
    - *Your business* is the slate-navy card at the top right, with a serif business name and quieter
      supporting facts; on phones it follows the next step.
    - *Your advisor* sits in a light rounded container: name, specialty, Send a message (there is
@@ -124,16 +137,19 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
      moves from four columns to two, then compact single-column rows on the narrowest phones.
    - Coming up sits directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
-5. **Sign-in has no password.** Google, Microsoft, or a link by email.
+5. **Primary sign-in remains passwordless.** Google, Microsoft, or a link by email. The optional
+   password route and reset screens are documented in [PASSWORD-RESET.md](PASSWORD-RESET.md).
 6. **Form 641 is five short steps** with contextual help, a grouped review, and explicit browser-only
    draft saving. Existing optional questions remain marked optional.
 7. **Settings is one page**, in sections that save independently.
 
 ## Training listing
 
-`events.html` carries the refined Home design into Training: an editorial introduction and a compact,
-full-width next-session panel for an existing registration. Live workshops sit on the open
-page, grouped by month, with times visible before opening the details. Topic and format filters
+`events.html` carries the refined Home design into Training: an editorial introduction followed
+by live workshops on the open page, grouped by month. Each workshop appears once. The shared
+`.schedule-date` treatment matches Home: an unboxed sans-serif day and muted abbreviated month,
+with weekday and time in the supporting text. Registration stays on the workshop row, and joining
+information sits in its details; there is no separate next-session feature. Topic and format filters
 update the workshop count and show a clear empty state when no sessions match. The filter groups
 retain accessible names without redundant visible “Topic” and “Format” labels.
 The introduction has no extra call to action; the workshop list is already on the page.
@@ -145,8 +161,8 @@ The layout adapts from four training columns to two, then one on phones; worksho
 comfortably sized on narrow screens. Listing styles are scoped under section 17 of the stylesheet.
 
 There are no advisor-curated training recommendations: advisors currently have no supported way to
-share them into the client dashboard. Registration remains a local preview interaction; recording,
-calendar, and cancellation destinations remain placeholders pending integration.
+share them into the client dashboard. Registration remains a local preview interaction; recording destinations and real registration
+and cancellation handling still need integration.
 
 ## Resources
 
@@ -166,6 +182,9 @@ links remain handoff placeholders until the actual files are supplied. No saving
 Resources styles are scoped in section 22 of the stylesheet; shared Training behavior is unchanged.
 
 ## Sign-in, signup, and Form 641
+
+Password sign-in and reset are separate design previews linked from the main sign-in sheet.
+See [PASSWORD-RESET.md](PASSWORD-RESET.md) for states, validation and authentication boundaries.
 
 `login.html` and `signup.html` share a matte navy introduction and white account-access sheet.
 The serif greeting, open-door pictogram, 6px controls, and warm paper background carry the approved
@@ -248,8 +267,9 @@ See [DESIGN.md](DESIGN.md) for the approved direction as pages are developed or 
 
 ## Decisions for Crown and NorCal SBDC to confirm
 
-- **Authentication.** Staging uses email and password. These designs assume Google and Microsoft
-  sign-in plus an emailed link. That is a build decision, not only a style change.
+- **Authentication.** Staging uses email and password. The primary design offers Google and
+  Microsoft sign-in plus an emailed link, with a separate password/reset route for review.
+  Confirm which methods the live service supports; this is a build decision, not only styling.
 - **Words.** The designs say *Training*, *Advisor* and *Session* where staging says *Events*,
   *Counselor* and *Meetings*. Routes can stay as they are.
 - **Promises in the copy.** "Usually within two business days", "replies within one business day"

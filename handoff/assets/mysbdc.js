@@ -48,13 +48,13 @@
     const reg = e.target.closest('[data-register]');
     if (reg) {
       const on = reg.getAttribute('aria-pressed') !== 'true';
-      // A recommended workshop can also appear in the schedule. Keep both controls in step.
+      // Keep multiple controls for the same workshop in step when present.
       const peers = reg.dataset.registration ? $$('[data-register]').filter(b => b.dataset.registration === reg.dataset.registration) : [reg];
       peers.forEach(b => {
         b.setAttribute('aria-pressed', String(on));
         b.textContent = on ? 'Registered' : 'Register';
       });
-      announce(on ? 'You are registered. We sent the details to your email.' : 'Registration cancelled.');
+      announce(on ? 'Registration preview updated. No registration or email was sent.' : 'Registration preview cleared.');
     }
     const view = e.target.closest('[data-show]');
     if (view) {
@@ -105,6 +105,89 @@
     $$('[data-view]').forEach(v => v.hidden = v.dataset.view !== 'sent');
     const h = $('[data-view=sent] h2'); h.focus();
   });
+
+  // Password-access design preview. No requests, tokens, credentials or email addresses are stored.
+  const passwordPreview = $('[data-password-preview]');
+  if (passwordPreview) {
+    const panels = $$('[data-password-panel]', passwordPreview);
+    const showPasswordPanel = (name, focus = true) => {
+      const panel = panels.find(p => p.dataset.passwordPanel === name);
+      if (!panel) return;
+      panels.forEach(p => { p.hidden = p !== panel; });
+      if (focus) $('h2', panel)?.focus();
+    };
+    const maskPasswords = () => {
+      $$('[data-password-toggle]', passwordPreview).forEach(button => {
+        const input = document.getElementById(button.dataset.passwordToggle);
+        input.type = 'password';
+        button.textContent = 'Show';
+        button.setAttribute('aria-pressed', 'false');
+        button.setAttribute('aria-label', button.dataset.showLabel);
+      });
+    };
+    $$('[data-password-toggle]', passwordPreview).forEach(button => {
+      button.dataset.showLabel = button.getAttribute('aria-label');
+      button.addEventListener('click', () => {
+        const input = document.getElementById(button.dataset.passwordToggle);
+        const visible = input.type === 'password';
+        input.type = visible ? 'text' : 'password';
+        button.textContent = visible ? 'Hide' : 'Show';
+        button.setAttribute('aria-pressed', String(visible));
+        button.setAttribute('aria-label', visible ? button.dataset.showLabel.replace('Show', 'Hide') : button.dataset.showLabel);
+      });
+      button.disabled = false;
+    });
+    $$('[data-password-show]', passwordPreview).forEach(button => button.addEventListener('click', () => {
+      showPasswordPanel(button.dataset.passwordShow, false);
+      $('input', panels.find(p => p.dataset.passwordPanel === button.dataset.passwordShow))?.focus();
+    }));
+    $$('input', passwordPreview).forEach(input => input.addEventListener('input', () => {
+      input.removeAttribute('aria-invalid');
+      const error = document.getElementById(input.id + '-error');
+      if (error) { error.textContent = ''; error.hidden = true; }
+    }));
+    const passwordError = (input, message) => {
+      const error = document.getElementById(input.id + '-error');
+      error.textContent = message; error.hidden = false;
+      input.setAttribute('aria-invalid', 'true'); input.focus();
+    };
+    $$('form[data-password-form]', passwordPreview).forEach(form => {
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        if (form.dataset.passwordForm === 'request') {
+          $('[data-reset-address]', passwordPreview).textContent = $('#reset-email', form).value.trim();
+          showPasswordPanel('sent');
+        } else if (form.dataset.passwordForm === 'new') {
+          const password = $('#new-password', form), confirmation = $('#confirm-password', form);
+          const length = Array.from(password.value).length;
+          if (length < 15 || length > 128) {
+            passwordError(password, 'Use between 15 and 128 characters. Spaces are welcome.'); return;
+          }
+          if (password.value !== confirmation.value) {
+            passwordError(confirmation, 'The passwords don’t match. Please enter the same password in both fields.'); return;
+          }
+          form.reset(); maskPasswords(); showPasswordPanel('done');
+        } else {
+          $('#current-password', form).value = ''; maskPasswords();
+          const message = $('[data-password-message]', form);
+          message.textContent = 'This preview doesn’t sign you in. No account was accessed. Use “Forgot your password?” to try account recovery.';
+          message.hidden = false;
+        }
+      });
+      $('button[type=submit]', form).disabled = false;
+    });
+    // A design-only route, never a substitute for server-side reset-token validation.
+    const initialPasswordPanel = new URLSearchParams(location.search).get('state') === 'expired' && panels.some(p => p.dataset.passwordPanel === 'expired') ? 'expired' : panels[0].dataset.passwordPanel;
+    showPasswordPanel(initialPasswordPanel, false);
+    window.addEventListener('pagehide', () => {
+      $$('form', passwordPreview).forEach(form => form.reset()); maskPasswords();
+      const address = $('[data-reset-address]', passwordPreview); if (address) address.textContent = '';
+      $$('[aria-invalid]', passwordPreview).forEach(input => input.removeAttribute('aria-invalid'));
+      $$('.password-field-error,[data-password-message]', passwordPreview).forEach(message => { message.textContent = ''; message.hidden = true; });
+      showPasswordPanel(initialPasswordPanel, false);
+    });
+  }
 
   // Step forms (Form 641 and the milestone forms): one question group at a time.
   // Native validation; focus moves to the new heading. A panel with data-when="field=value" is
