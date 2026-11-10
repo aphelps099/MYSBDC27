@@ -51,7 +51,6 @@ def app(body, m):
   <a id="site-branding" href="{home}" aria-label="MySBDC home, North Coast SBDC"><span id="site-logo"><b>My</b>SBDC</span><span id="site-title">North Coast SBDC</span></a>
   <div id="site-utility-navigation">
     <a class="util-btn website-header-link" href="https://www.norcalsbdc.org/" target="_blank" rel="noopener noreferrer">SBDC website<span class="visually-hidden"> (opens in a new tab)</span><span class="ms-arrow" aria-hidden="true"></span></a>
-    <a class="util-btn" href="#help" aria-label="Help">{icon('help')}<span class="label">Help</span></a>
     <button class="util-btn" type="button" aria-label="Language: English. Change language">{icon('globe')}<span class="label">English</span></button>
     <div class="site-user-navigation">
       <details>

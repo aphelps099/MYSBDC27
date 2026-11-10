@@ -44,7 +44,8 @@ python3 -m http.server 8000      # from the repository root
 ## Public website and document sharing
 
 The shared app header includes **SBDC website**, linking to `https://www.norcalsbdc.org/` in a
-new tab. Below 900px it moves into the account menu. Keep the dashboard logo linked to Home.
+new tab, beside the language control. There is no header Help widget. Below 900px the website
+link moves into the account menu. Keep the dashboard logo linked to Home.
 
 Home's **Upload a document** action opens `documents.html`. A matte navy context panel and
 white document sheet follow the milestone-form vocabulary: serif headings, 6px corners,
@@ -98,7 +99,7 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 ## What changed from staging, and why
 
 1. **The shell stays close to the staging theme.** Matte navy header across the top with the hamburger
-   (`#site-menu-toggle`), logo and centre name, then help, language and the account menu. Below it,
+   (`#site-menu-toggle`), logo and centre name, then the public website link, language and the account menu. Below it,
    the matching `#site-menu` rail with an inset slate-blue active item and a short pool marker; the hamburger widens it to a
    labelled sidebar (`body.site-menu-active`). Two differences: each icon keeps a word under it,
    because icon-only navigation loses less confident users, and below 1200px the widened sidebar
