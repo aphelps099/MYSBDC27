@@ -72,8 +72,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
    - *Your business* is the navy card at the top right; on phones it follows the next step.
    - *Your advisor* sits in a light rounded container: name, specialty, Send a message (there is
      no booking), and the resources the advisor picked for this client.
-   - *Your milestones* is an open editorial section headed "Progress takes many forms." Four numbered,
-     solid-colour tiles use custom geometric marks for people, sales, capital and a new beginning.
+   - *Your milestones* is an open editorial section headed "Progress takes many forms." Four
+     solid-colour tiles use small, softened geometric marks for people, sales, capital and a new beginning.
      Each whole tile opens its milestone form; the last update and history link sit below. The grid
      moves from four columns to two, then compact single-column rows on the narrowest phones.
    - Coming up sits directly on the page.
