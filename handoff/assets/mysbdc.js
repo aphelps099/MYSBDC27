@@ -48,13 +48,13 @@
     const reg = e.target.closest('[data-register]');
     if (reg) {
       const on = reg.getAttribute('aria-pressed') !== 'true';
-      // A recommended workshop can also appear in the schedule. Keep both controls in step.
+      // Keep multiple controls for the same workshop in step when present.
       const peers = reg.dataset.registration ? $$('[data-register]').filter(b => b.dataset.registration === reg.dataset.registration) : [reg];
       peers.forEach(b => {
         b.setAttribute('aria-pressed', String(on));
         b.textContent = on ? 'Registered' : 'Register';
       });
-      announce(on ? 'You are registered. We sent the details to your email.' : 'Registration cancelled.');
+      announce(on ? 'Registration preview updated. No registration or email was sent.' : 'Registration preview cleared.');
     }
     const view = e.target.closest('[data-show]');
     if (view) {

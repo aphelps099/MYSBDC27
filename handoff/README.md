@@ -27,7 +27,7 @@ python3 -m http.server 8000      # from the repository root
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `documents.html` | Document sharing preview, reached from Home's next step | Proposed `/documents/` |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
-| `events.html` | Training: next registered session, live workshops by month, recorded training. Register confirms in place | `/events/` |
+| `events.html` | Training: live workshops by month with inline registration, plus recorded training | `/events/` |
 | `event.html` | Training: one event | `/events/{event}/` |
 | `milestones.html` | Milestones: choose an update to share | `/milestones/` |
 | `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
@@ -136,9 +136,11 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
 
 ## Training listing
 
-`events.html` carries the refined Home design into Training: an editorial introduction and a compact,
-full-width next-session panel for an existing registration. Live workshops sit on the open
-page, grouped by month, with times visible before opening the details. Topic and format filters
+`events.html` carries the refined Home design into Training: an editorial introduction followed
+by live workshops on the open page, grouped by month. Each workshop appears once. The shared
+`.schedule-date` treatment matches Home: an unboxed sans-serif day and muted abbreviated month,
+with weekday and time in the supporting text. Registration stays on the workshop row, and joining
+information sits in its details; there is no separate next-session feature. Topic and format filters
 update the workshop count and show a clear empty state when no sessions match. The filter groups
 retain accessible names without redundant visible “Topic” and “Format” labels.
 The introduction has no extra call to action; the workshop list is already on the page.
@@ -150,8 +152,8 @@ The layout adapts from four training columns to two, then one on phones; worksho
 comfortably sized on narrow screens. Listing styles are scoped under section 17 of the stylesheet.
 
 There are no advisor-curated training recommendations: advisors currently have no supported way to
-share them into the client dashboard. Registration remains a local preview interaction; recording,
-calendar, and cancellation destinations remain placeholders pending integration.
+share them into the client dashboard. Registration remains a local preview interaction; recording destinations and real registration
+and cancellation handling still need integration.
 
 ## Resources
 

@@ -416,9 +416,10 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .sec-sub{max-width:30em;margin-top:6px;color:var(--ink-2);text-wrap:pretty}
 .rows{display:grid;gap:clamp(18px,2.2vw,26px);margin-top:clamp(16px,2vw,22px)}
 .row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:4px 16px;align-items:center}
-.row .date{display:grid;line-height:1;font-variant-numeric:lining-nums tabular-nums}
-.row .date b{font:700 2rem/1 var(--font-sans);letter-spacing:-.03em}
-.row .date span{margin-top:6px;font:700 .875rem/1 var(--font-sans);letter-spacing:.1em;text-transform:uppercase;color:#A32E2E}
+/* One unboxed date style for Home and the Training schedule. */
+.schedule-date{display:grid;align-content:start;justify-items:start;flex:none;width:52px;line-height:1;color:var(--mysbdc-brand-navy);font-variant-numeric:lining-nums tabular-nums}
+.schedule-date b{font:700 2.25rem/1 var(--font-sans);letter-spacing:-.03em}
+.schedule-date span{margin-top:6px;font:700 .75rem/1.25 var(--font-sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 .row h3{font:700 1.1875rem/1.25 var(--font-sans);letter-spacing:-.012em;text-wrap:balance}
 .row .meta{display:flex;flex-wrap:wrap;gap:0 16px;margin-top:3px;font-size:1rem;color:var(--ink-2)}
 .row .ok{display:inline-flex;align-items:center;gap:5px;font-weight:700;color:var(--mysbdc-brand-evergreen);white-space:nowrap}
@@ -815,15 +816,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .training .link{gap:14px;color:var(--ink);text-decoration-thickness:1px;text-underline-offset:5px}
 .training .link:hover{color:var(--mysbdc-brand-signal)}
 .training .btn{border-radius:6px}
-.training-next{display:grid;grid-template-columns:76px minmax(0,1.4fr) minmax(0,1fr);align-items:center;gap:28px 32px;min-width:0;margin-top:40px;padding:32px;border-radius:6px;background:var(--mysbdc-brand-white)}
-.training-next .datebox{justify-content:center;width:76px;min-height:84px;border-radius:4px;background:var(--mysbdc-brand-pool-pale)}
-.training-next .datebox b{font-size:2.75rem}
-.training-registered{display:flex;align-items:center;gap:6px;color:#245448;font-size:.9375rem;font-weight:700}
-.training-registered .icon{width:18px;height:18px}
-.training-next h3{margin-top:12px;font:400 clamp(1.5rem,2.2vw,1.875rem)/1.15 var(--font-serif);letter-spacing:-.02em}
-.training-next-format{margin-top:10px}
-.training-next-note{margin-top:10px;font-size:.9375rem;line-height:1.5}
-.training-next .panel-links{gap:0 20px;padding-top:16px;font-size:.9375rem}
 .training-live,.training-self-paced{margin-top:clamp(56px,6vw,80px)}
 .training-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px 40px}
 .training-section-head h2{margin-top:12px;font:400 clamp(2rem,3.2vw,2.875rem)/1.08 var(--font-serif);letter-spacing:-.03em;scroll-margin-top:calc(var(--bar) + 24px)}
@@ -839,14 +831,9 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .training .lib-month>div>h3{font:400 1.875rem/1.1 var(--font-serif);letter-spacing:-.02em}
 .training .lib-month>div>h3+p{margin-top:8px;font-size:.9375rem}
 .training .lib-stack{gap:12px}
-.training .session{gap:24px;padding:22px 0;border-radius:0;background:transparent}
-.training .session .datebox{justify-content:center;width:64px;min-height:76px;border-radius:4px;background:var(--mysbdc-brand-white)}
-.training .session .datebox b{font-size:2.5rem}
-.training .session .datebox span{font-size:.8125rem}
+.training .session{scroll-margin-top:calc(var(--bar) + 24px);gap:24px;padding:22px 0;border-radius:0;background:transparent}
 .training .session-body{gap:8px}
 .training .session h4{font:700 1.3125rem/1.2 var(--font-sans);letter-spacing:-.02em}
-.training .session h4 a{display:inline-block;margin:-8px 0;padding:8px 0;text-decoration:none}
-.training .session h4 a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 .training .session .lib-kicker{gap:4px 12px;font-size:.8125rem;letter-spacing:.08em}
 .training .session .lib-kicker>span{color:var(--ink-3)}
 .training .session .lib-kicker>span:first-child{color:var(--ink)}
@@ -857,6 +844,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .training .session-act .lib-meta{font-size:.9375rem}
 .training .more summary{min-height:48px;color:var(--ink-3);font-weight:500;text-decoration-thickness:1px}
 .training .more p{font-size:1rem}
+.training .session:not(:has([data-register][aria-pressed=true])) .session-joining{display:none}
 .training .btn[data-register][aria-pressed=true]{border-color:transparent;background:var(--training-sage);color:#174B40}
 .training .lib-empty{border-radius:6px}
 .training-course-intro{max-width:27em}
@@ -879,8 +867,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .training .lib-foot{margin-top:28px;font-size:.9375rem}
 @media(max-width:1199px){
   .training-head{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px}
-  .training-next{grid-template-columns:76px minmax(0,1fr);gap:20px 28px}
-  .training-next-details{grid-column:2}
   .training .lib-month{grid-template-columns:136px minmax(0,1fr);gap:24px}
   .training .session{gap:20px}
   .training-courses{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -898,20 +884,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 @media(max-width:599px){
   .training-head h1{font-size:clamp(2.125rem,8.5vw,3.125rem);margin-top:20px}
   .training-intro{font-size:1.0625rem}
-  .training-next{grid-template-columns:52px minmax(0,1fr);align-items:start;gap:20px 16px;margin-top:28px;padding:24px}
-  .training-next .datebox{width:52px;min-height:68px}
-  .training-next .datebox b{font-size:2.25rem}
-  .training-next .training-eyebrow{font-size:.75rem;letter-spacing:.08em}
-  .training-next-format{font-size:.9375rem}
-  .training-next-details{grid-column:1/-1}
   .training-live,.training-self-paced{margin-top:56px}
   .training .lib-filters{gap:18px;margin-top:24px}
   .training .pill{padding-inline:12px}
   .training .pills-row{gap:4px 2px}
   .training .lib-month{margin-top:36px}
   .training .session{display:grid;grid-template-columns:52px minmax(0,1fr);gap:8px 16px;padding-block:18px}
-  .training .session .datebox{width:52px;min-height:68px}
-  .training .session .datebox b{font-size:2.25rem}
   .training .session h4{font-size:1.1875rem}
   .training .session .lib-meta{font-size:.9375rem}
   .training .session-act{grid-column:2;flex-direction:row;align-items:center;justify-content:flex-start;gap:16px;min-width:0}
@@ -922,9 +900,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
   .training .course-card h3{max-width:14em}
 }
 @media(max-width:359px){
-  .training-next{padding:20px;column-gap:12px}
   .training .session-act{grid-column:1/-1;justify-content:space-between;margin-top:4px}
-  .training-registered{font-size:.875rem}
 }
 
 /* 18 — Milestone forms: a quiet identity panel beside one clear question.
