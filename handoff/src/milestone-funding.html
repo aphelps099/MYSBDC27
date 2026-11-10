@@ -1,12 +1,25 @@
-<!-- layout: app | active: milestones | title: Got funding | main: ms-page ms-flow reveal -->
-    <a class="link ms-back" href="milestones.html">Back to milestones</a>
+<!-- layout: app | active: milestones | title: Got funding | main: ms-page ms-flow ms-editorial reveal -->
+    <a class="link has-arrow ms-back" href="milestones.html"><span class="ui-arrow ui-arrow-left" aria-hidden="true"></span><span class="link-label">Back to milestones</span></a>
 
-    <!-- One white card. The milestone colour is a single wash from the top-right corner with a bold cropped icon. -->
-    <div class="ms-card" data-type="funding">
-      <svg class="ms-giant" aria-hidden="true"><use href="#i-coins"/></svg>
+    <div class="ms-workspace" data-type="funding">
+      <aside class="ms-context" aria-labelledby="milestone-type">
+        <div class="ms-context-copy">
+          <p class="ms-label">Your milestones</p>
+          <p class="ms-context-title" id="milestone-type">Got funding</p>
+          <p class="ms-context-description">New capital. New possibilities.</p>
+        </div>
+        <svg class="ms-form-art" viewBox="0 0 160 144" aria-hidden="true" focusable="false">
+              <rect x="22" y="94" width="100" height="28" rx="14"/>
+              <rect x="32" y="58" width="100" height="28" rx="14"/>
+              <rect x="42" y="22" width="100" height="28" rx="14"/>
+            </svg>
+        <div class="ms-context-foot"><p>About four minutes</p><span>Your best guess is enough.</span></div>
+      </aside>
+      <div class="ms-form-main">
+      <div class="ms-card" data-type="funding">
       <div class="ms-top">
-        <p class="ms-label">Got funding</p>
-        <nav class="steps" aria-label="Progress"><ol><li>Step 1</li><li>Step 2</li><li>Step 3</li></ol><p class="count" data-short aria-live="polite"></p></nav>
+        <p class="ms-label">Your update</p>
+        <nav class="steps" aria-label="Progress"><ol><li>Funding</li><li>Details</li><li>Review</li></ol><p class="count" data-short aria-live="polite"></p></nav>
       </div>
       <form data-stepper novalidate>
         <section class="step-panel" aria-labelledby="h1">
@@ -43,8 +56,10 @@
         </section>
         <section class="step-panel" aria-labelledby="h3">
           <h1 id="h3">Does this look right?</h1>
+          <div class="ms-review">
           <p class="ms-sentence mt-24">You got <b>$<span data-echo="amt">45,000</span></b> in <b data-echo="fwhen">November 2026</b>. <b data-echo="kind">A loan or line of credit</b>.</p>
           <button class="link" type="button" data-step="0">Change</button>
+          </div>
           <fieldset class="mt-24">
             <legend>Did the SBDC help with this?</legend>
             <div class="pills">
@@ -58,4 +73,7 @@
           <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=funding">Share milestone</button></div>
         </section>
       </form>
+    </div>
+      <p class="ms-form-privacy">{{icon:lock}}<span>Private. Only you and your SBDC team see your information.</span></p>
+      </div>
     </div>

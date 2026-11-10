@@ -105,7 +105,7 @@ and cancellation destinations remain placeholders pending integration.
 
 ## Sign-up (Form 641)
 
-`register.html` uses the same card, controls and step script as the milestone forms, in one colour
+`register.html` uses its existing card, controls and the shared step script, in one colour
 (pool blue) with a different corner icon per step. Fields, options and wording follow the original
 `MySBDC Intake.dc.html`: about you (name, email from the account, phone, ZIP with matched center,
 language); in business today; how long (or how far along, for people not open yet); the business
@@ -117,19 +117,25 @@ current SBA form or Neoserra requires them.
 
 ## Milestone forms
 
-Each milestone type is its own short form, matching the staging routes. The design is minimal:
-- One white card per screen (`.ms-card[data-type]`). The milestone's colour is a single straight wash
-  from the top-right corner fading to white, with a bold white icon (`.ms-giant`) cropped off that corner.
-  Colours: blue hired, green sales, gold funding, coral started. Buttons are navy on every form.
-- Progress is one row: the milestone name, three short dashes and "Step 1 of 3".
-- One serif question per step. Counts are a large serif number between round − and + buttons.
-  Choices are soft filled rows. Help is one quiet line (`.ms-tip`), not a sidebar.
+Each milestone type is its own short form, matching the staging routes. The four forms carry the
+approved Home vocabulary into a focused question-and-answer layout:
+- A solid colour identity panel sits beside a white question sheet, with the same small, softened
+  symbol as its Home tile. Colours are pool for hired, sage for sales, sand for funding, and matte
+  slate navy for started. There are no colour washes, cropped icons, or decorative numbers.
+- On phones the identity panel becomes a compact banner. Cards and controls use 6px corners;
+  primary actions remain navy, with clear focus and selected states.
+- Progress uses three short dashes, meaningful step names for assistive technology, and
+  "Step 1 of 3". These numbers communicate actual progress.
+- One serif question per step. Counts use a large serif number with generous − and + controls.
+  Choices are soft filled rows with visible radio states. Help stays beside its related question.
 - The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?" and a typed name.
-- `milestone-done.html` is a congratulations page with confetti (skipped for reduced motion) and a
-  line that fits the milestone (`?type=`).
+- `milestone-done.html` uses a quiet checkmark, a line that fits the milestone (`?type=`), a history
+  link, and four compact colour links for sharing another update.
 - Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
   `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch);
   `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
+Form and confirmation styling is scoped to section 18 of the stylesheet; the milestone index and
+Form 641 retain their existing layouts. These remain static handoff forms pending backend integration.
 The fields are a starting set drawn from the earlier preview; check them against what Neoserra's
 milestone records require.
 
