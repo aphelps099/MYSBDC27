@@ -1374,3 +1374,40 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
   .documents-back{margin-bottom:16px}.documents-context{padding:24px 20px}.documents-context h1{font-size:32px}
   .documents-workspace{gap:20px}.documents-preview-note{margin-bottom:16px}
 }
+
+/* 25 — Password access: the same quiet account sheet, with explicit preview states. */
+.password-access .gate-card{align-items:flex-start}
+.password-access .gate-card h2{margin:0;font-size:clamp(2rem,3.4vw,2.5rem);text-wrap:pretty}
+.password-preview-note{margin-bottom:28px;color:var(--ink-3);font-size:15px;line-height:1.5}
+.password-preview-note strong{color:var(--mysbdc-brand-navy);font-weight:700}
+.password-intro{margin-top:18px;color:var(--ink-3);font-size:17px;line-height:1.5}
+.password-access form{display:grid;gap:24px;margin-top:28px}
+.password-access .gate-card input{min-height:56px;border:1px solid #77848C;border-radius:6px;font-size:17px}
+.password-input{position:relative}
+.password-input input{width:100%;padding-right:78px}
+.password-input button{position:absolute;right:4px;top:4px;display:grid;place-items:center;min-width:64px;min-height:48px;padding:0 10px;border:0;border-radius:4px;background:none;color:var(--mysbdc-brand-navy);font:700 15px var(--font-sans);cursor:pointer}
+.password-input button:hover{background:var(--mysbdc-brand-cream)}
+.password-input button:focus-visible{outline:3px solid var(--mysbdc-brand-signal);outline-offset:1px}
+.password-access .password-forgot{justify-self:start;margin-top:-14px;min-height:48px}
+.password-access .password-form-message,.password-field-error{color:#982E2E;font-size:15px;line-height:1.5}
+.password-field-error{margin-top:10px}
+.password-access input[aria-invalid=true]{border:2px solid #982E2E}
+.password-provider-note{margin-top:12px;color:var(--ink-3);font-size:15px}
+.password-access .password-provider-note .link{font-size:15px}
+.password-mail-mark{background:#DDE8EC;color:var(--mysbdc-navy-surface)}
+.password-access .gate-sent-mark{margin-bottom:24px}
+.password-access .receipt{margin-top:20px}
+.password-actions{display:flex;flex-wrap:wrap;gap:4px 24px;margin-top:20px}
+.password-access [data-password-panel=done]>.btn,.password-access [data-password-panel=expired]>.btn{margin-top:28px}
+.password-demo-link{margin-top:20px;font-size:15px}
+.password-access .password-demo-link .link{font-size:15px;color:var(--ink-3)}
+.password-access noscript{display:block;margin-top:24px}
+@media(max-width:759px){
+  .password-access .gate-main{align-content:start}
+  .password-access .gate-say{padding:22px 24px}
+  .password-access .gate-say .lead{margin-top:12px}
+  .password-access .gate-card{padding:28px 24px}
+  .password-preview-note{margin-bottom:24px}
+  .password-access .gate-card h2{font-size:2rem}
+}
+@media(max-width:359px){.password-access .gate-card,.password-access .gate-say{padding-inline:20px}}

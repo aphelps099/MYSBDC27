@@ -18,6 +18,9 @@ python3 -m http.server 8000      # from the repository root
 | File | Screen | Staging route |
 | --- | --- | --- |
 | `login.html` | Sign in: Google, Microsoft, emailed link | `/login/` |
+| `login-password.html` | Optional password sign-in with Show/Hide and recovery | Proposed `/login/password/` |
+| `reset-password.html` | Request a reset link; Check your email state | Proposed `/password/reset/` |
+| `new-password.html` | New password, confirmation and expired-link preview | Provider-issued reset route |
 | `signup.html` | Create your account | `/register/` (before step 1) |
 | `register.html` | Sign-up steps, SBA Form 641 (5 steps + confirmation) | `/register/` |
 | `dashboard-new.html` | Default home: new client, no advisor yet | `/` (pre-client) |
@@ -110,10 +113,11 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
    `--navy-depth` tokens). The app header, rail, business card and dark milestone tile use solid
    slate navy, with warm paper text and soft pool accents.
 4. **Home is mostly open page, with a few quiet surfaces.**
-   - *Your next step* is the advisor's latest note from Neoserra, shown as written in a serif
-     reading size, with who wrote it and when. There is no big button and no progress tracker.
-     If the note carries a link, it appears as a text link under the note (`.memo-links`), beside
-     "Reply to Dana". With no note yet (new client), the same sheet shows a note from the center.
+   - *Your next step* follows [NEXT-STEP.md](NEXT-STEP.md): an active advisor note wins, then
+     waiting documents, upcoming activity, or caught up. One primary action and an honest signature
+     keep the sheet focused. There is no milestone nudge. The current Home is a static advisor-note
+     example; completion storage, fallback data and Resend notifications still need integration.
+     The new-client sheet keeps the center's matching message.
    - *Your business* is the slate-navy card at the top right, with a serif business name and quieter
      supporting facts; on phones it follows the next step.
    - *Your advisor* sits in a light rounded container: name, specialty, Send a message (there is
@@ -124,7 +128,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
      moves from four columns to two, then compact single-column rows on the narrowest phones.
    - Coming up sits directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
-5. **Sign-in has no password.** Google, Microsoft, or a link by email.
+5. **Primary sign-in remains passwordless.** Google, Microsoft, or a link by email. The optional
+   password route and reset screens are documented in [PASSWORD-RESET.md](PASSWORD-RESET.md).
 6. **Form 641 is five short steps** with contextual help, a grouped review, and explicit browser-only
    draft saving. Existing optional questions remain marked optional.
 7. **Settings is one page**, in sections that save independently.
@@ -166,6 +171,9 @@ links remain handoff placeholders until the actual files are supplied. No saving
 Resources styles are scoped in section 22 of the stylesheet; shared Training behavior is unchanged.
 
 ## Sign-in, signup, and Form 641
+
+Password sign-in and reset are separate design previews linked from the main sign-in sheet.
+See [PASSWORD-RESET.md](PASSWORD-RESET.md) for states, validation and authentication boundaries.
 
 `login.html` and `signup.html` share a matte navy introduction and white account-access sheet.
 The serif greeting, open-door pictogram, 6px controls, and warm paper background carry the approved
@@ -248,8 +256,9 @@ See [DESIGN.md](DESIGN.md) for the approved direction as pages are developed or 
 
 ## Decisions for Crown and NorCal SBDC to confirm
 
-- **Authentication.** Staging uses email and password. These designs assume Google and Microsoft
-  sign-in plus an emailed link. That is a build decision, not only a style change.
+- **Authentication.** Staging uses email and password. The primary design offers Google and
+  Microsoft sign-in plus an emailed link, with a separate password/reset route for review.
+  Confirm which methods the live service supports; this is a build decision, not only styling.
 - **Words.** The designs say *Training*, *Advisor* and *Session* where staging says *Events*,
   *Counselor* and *Meetings*. Routes can stay as they are.
 - **Promises in the copy.** "Usually within two business days", "replies within one business day"

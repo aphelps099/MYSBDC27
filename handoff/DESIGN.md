@@ -48,6 +48,10 @@ should support the content and the next action.
   inset slate fill and a subtle pool cue. Carry the same treatment into the mobile bottom tabs.
 - **Milestones stay focused on sharing.** Show the four update choices without a history or
   previous-update records. Tile arrows appear only on hover or keyboard focus, including on Home.
+- **Home always offers one next step.** Follow [NEXT-STEP.md](NEXT-STEP.md). An active advisor note
+  wins; otherwise show waiting documents, an upcoming session/registered training, or caught up.
+  App-generated copy is signed by the center. There is no milestone nudge. Done acknowledges a
+  confirmed completion for that visit; a new advisor note takes precedence.
 - **Training reflects supported workflows.** Show registered sessions, browsable workshops, and
   recorded training. Do not imply advisor-curated training recommendations until advisors have a
   supported way to share them into the client dashboard. Recorded training has no progress tracking:
