@@ -1,6 +1,10 @@
 # MYSBDC website — layout logic
 
-All pages follow the FAV NorCal SBDC design system plus these page-composition rules established on the homepage (`MySBDC Homepage.dc.html`):
+The signed-in MySBDC dashboard in `handoff/` follows the user-approved
+[dashboard design philosophy](handoff/DESIGN.md), established November 10, 2026. That guidance
+takes precedence for app work, including its restrained symbols and removal of decorative numbering.
+
+Public marketing pages follow the FAV NorCal SBDC design system plus these page-composition rules established on the homepage (`MySBDC Homepage.dc.html`):
 
 1. **Numbered editorial spine** — every major section gets a caps micro-label with a running number ("01 — How we help"). Numbers restart per page and follow scan order.
 2. **Band alternation** — sections alternate paper/cream and full-bleed navy; never two same-color bands adjacent. Use neutral navy/slate labels on light bands, pool or white on navy. Keep hero headlines single-color; reserve red/berry for sparse thin accent rules, never split red/blue headlines.
@@ -18,4 +22,4 @@ All pages follow the FAV NorCal SBDC design system plus these page-composition r
 
 14. **Line restraint** — the refined homepage and impact page use spacing, typography, alignment, and broad color fields for hierarchy. Keep repeated decorative section rules, metric dividers, and accordion separators removed. Preserve the approved homepage exceptions: 4px berry underlines beneath story photos, matching 2px berry underlines on “Read story” links with navy text, and 2px navy rules above the three service columns. Impact-page photos remain unframed. Other red rules are optional and rare. Preserve meaningful control boundaries, keyboard focus, link cues, and accessible form states.
 
-15. **MySBDC app surfaces are flat** (`handoff/`, the signed-in client app) — cards, panels, bands and tiles are solid colours with a 6px radius: no gradients, no grain, no soft drop shadows. Separate with colour and spacing. The only shadow is the solid offset plate from rule 10 at a smaller scale (`box-shadow:10px 10px 0` in pool), on one focal surface per page; never on form sheets. One exception to flat: milestone cards and tiles use a single straight colour wash from the top-right corner fading to white (`linear-gradient(205deg, wash, #FDFDFD 400px)`, a fixed length so tall cards do not turn blue) with a bold white icon cropped off that corner; never a radial blob or a thin-stroke icon. Keep the advisor panel pattern as the reference: caps label, small photo with berry rule, name, specialty, one text-link action, then related links inside the same panel.
+15. **MySBDC app standard** (`handoff/`, the signed-in client app) — follow [DESIGN.md](handoff/DESIGN.md). Use calm editorial typography, open layouts, matte navy and slate surfaces, warm cream text, restrained pool accents, solid 6px-radius tiles, and small softened symbols. No decorative section numbering. Existing form washes and cropped icons are legacy patterns to revisit when those forms are in scope, not a template for new dashboard pages.
