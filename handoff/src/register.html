@@ -1,31 +1,41 @@
 <!-- layout: bare | title: Get started -->
-<div class="signup ms-page">
+<div class="signup ms-page ms-editorial intake-editorial">
   <header class="signup-bar">
-    <a class="wordmark" href="signup.html"><b>My</b>SBDC</a>
-    <span class="saved-note" role="status">Saved just now</span>
-    <button class="link" type="button">Save and finish later</button>
-    <div class="lang" role="group" aria-label="Language" data-toggle-group><button type="button" aria-pressed="true" lang="en">EN</button><button type="button" aria-pressed="false" lang="es">ES</button></div>
+    <a class="wordmark" href="signup.html"><b>My</b>SBDC<small>NorCal SBDC</small></a>
+    <div class="intake-save"><span class="saved-note" role="status" data-draft-status>Not saved yet</span><button class="link" type="button" data-intake-save>Save progress</button></div>
+    <div class="lang" role="group" aria-label="Language" data-toggle-group><button type="button" aria-pressed="true" lang="en" aria-label="English">EN</button><button type="button" aria-pressed="false" lang="es" aria-label="Español">ES</button></div>
   </header>
 
   <main class="signup-main" id="main-content">
-    <!-- SBA Form 641 in five short steps. Same card, controls and step script as the milestone forms.
-         Fields follow the original MySBDC Intake design. -->
-    <div class="ms-card">
+    <div class="ms-workspace intake-workspace" data-type="hired">
+      <aside class="ms-context intake-context" aria-label="Getting started">
+        <div class="ms-context-copy"><p class="ms-label">Your first step</p><p class="ms-context-title">Good advice <br>starts here.</p><p class="ms-context-description">Tell us a little about yourself. We’ll help you find your next step.</p></div>
+        <svg class="welcome-mark" viewBox="0 0 160 144" aria-hidden="true" focusable="false"><path d="M80 26v92M34 72h92M47.5 39.5l65 65M47.5 104.5l65-65" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/></svg>
+        <div class="intake-context-help">
+          <div data-why="0"><strong>Why we ask</strong><p>A few details help us connect you with your local SBDC and the right advisor.</p></div>
+          <div data-why="1" hidden><strong>Where you are today</strong><p>Already trading or still exploring, there’s a place for you here.</p></div>
+          <div data-why="2" hidden><strong>Every stage counts</strong><p>Your answer helps your advisor understand where to begin.</p></div>
+          <div data-why="3" hidden><strong>A useful starting point</strong><p>Best guesses are welcome. You can work through the details with your advisor.</p></div>
+          <div data-why="4" hidden><strong>One last look</strong><p>Check your details, read the agreement, and sign when you’re ready.</p></div>
+        </div>
+        <div class="ms-context-foot"><p>About 10 minutes</p><span>No fee. Confidential support.</span></div>
+      </aside>
+      <div class="ms-form-main">
+      <div class="ms-card">
       <div class="ms-top">
         <p class="ms-label">SBA Form 641</p>
-        <nav class="steps" aria-label="Progress"><ol><li>About you</li><li>In business</li><li>How long</li><li>The business</li><li>Review and sign</li></ol><p class="count" data-mins="4,3,3,2,1" aria-live="polite"></p></nav>
+        <nav class="steps" aria-label="Progress"><ol><li>About you</li><li>In business</li><li>How long</li><li>The business</li><li>Review and sign</li></ol><p class="count" data-short aria-live="polite"></p></nav>
       </div>
-      <form id="intake-form" data-stepper novalidate>
+      <form id="intake-form" data-stepper data-intake-draft novalidate>
 
         <section class="step-panel" aria-labelledby="s1">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-user"/></svg>
           <h1 id="s1">Let’s start with you.</h1>
           <p class="lead">This opens your client record. No fee, and everything is confidential.</p>
           <div class="form-grid">
             <div class="field"><label for="first">First name</label><input id="first" name="first" type="text" autocomplete="given-name" required></div>
             <div class="field"><label for="last">Last name</label><input id="last" name="last" type="text" autocomplete="family-name" required></div>
             <div class="field full"><span class="field-label">Email</span><p class="from-account"><span>avery@example.com</span><small>From your account</small></p><input type="hidden" name="email" value="avery@example.com"></div>
-            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="text" autocomplete="tel" inputmode="tel" required><p class="hint">Your advisor uses this to set up your first meeting.</p></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><p class="hint">Your advisor uses this to set up your first meeting.</p></div>
             <div class="field"><label for="zip">ZIP code</label><input id="zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required><p class="hint">North Coast SBDC · <a class="link" href="#" style="font-size:inherit">Not right?</a></p></div>
             <div class="field full"><label for="lang">Preferred language</label><select id="lang" name="language"><option>English</option><option>Español</option><option>Tiếng Việt</option><option>中文</option><option>Tagalog</option><option>한국어</option><option>Other</option></select><p class="hint">We match you with an advisor who speaks it where we can.</p></div>
           </div>
@@ -34,7 +44,6 @@
         </section>
 
         <section class="step-panel" aria-labelledby="s2">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-store"/></svg>
           <h1 id="s2">Are you in business today?</h1>
           <p class="lead">Either answer is a good answer. It only changes what we ask next.</p>
           <fieldset><legend class="visually-hidden">Are you in business today?</legend>
@@ -48,7 +57,6 @@
         </section>
 
         <section class="step-panel" data-when="inbusiness=yes" data-mark="2" aria-labelledby="s3a">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-clock"/></svg>
           <h1 id="s3a">How long have you been at it?</h1>
           <p class="lead">Counted from your first sale.</p>
           <fieldset><legend class="visually-hidden">How long in business</legend>
@@ -63,7 +71,6 @@
         </section>
 
         <section class="step-panel" data-when="inbusiness=no" data-mark="2" aria-labelledby="s3b">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-clock"/></svg>
           <h1 id="s3b">How far along are you?</h1>
           <p class="lead">There’s no wrong stage. This helps us pick your advisor.</p>
           <fieldset><legend class="visually-hidden">Stage of your plan</legend>
@@ -77,7 +84,6 @@
         </section>
 
         <section class="step-panel" data-mark="3" aria-labelledby="s4">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-briefcase"/></svg>
           <h1 id="s4"><span data-show-if="inbusiness=yes">Tell us about the business.</span><span data-show-if="inbusiness=no" hidden>Tell us about the plan.</span></h1>
           <p class="lead">Rough numbers are fine. Nothing here is audited.</p>
           <div class="form-grid">
@@ -88,8 +94,8 @@
           <fieldset class="mt-24" data-show-if="inbusiness=yes">
             <legend>Employees, including you</legend>
             <div class="count-grid">
-              <div class="field"><div class="stepper"><button type="button" data-inc="-1" aria-label="One fewer full-time">−</button><input id="ft" name="ft" type="number" min="0" inputmode="numeric" value="1" aria-label="Full-time employees"><button type="button" data-inc="1" aria-label="One more full-time">+</button><span class="hint">Full time</span></div></div>
-              <div class="field"><div class="stepper"><button type="button" data-inc="-1" aria-label="One fewer part-time">−</button><input id="pt" name="pt" type="number" min="0" inputmode="numeric" value="0" aria-label="Part-time employees"><button type="button" data-inc="1" aria-label="One more part-time">+</button><span class="hint">Part time</span></div></div>
+              <div class="field"><label for="ft">Full-time</label><div class="stepper"><button type="button" data-inc="-1" aria-label="One fewer full-time">−</button><input id="ft" name="ft" type="number" min="0" inputmode="numeric" value="1" aria-label="Full-time employees"><button type="button" data-inc="1" aria-label="One more full-time">+</button></div></div>
+              <div class="field"><label for="pt">Part-time</label><div class="stepper"><button type="button" data-inc="-1" aria-label="One fewer part-time">−</button><input id="pt" name="pt" type="number" min="0" inputmode="numeric" value="0" aria-label="Part-time employees"><button type="button" data-inc="1" aria-label="One more part-time">+</button></div></div>
             </div>
           </fieldset>
           <div class="field mt-24" data-show-if="inbusiness=yes"><label for="sales">Sales over the last 12 months</label><select id="sales" name="sales"><option>Under $25,000</option><option>$25,000 to $100,000</option><option>$100,000 to $250,000</option><option>$250,000 to $1M</option><option>Over $1M</option><option>Prefer a rough guess later</option></select><p class="hint">A range is enough. Never an exact figure.</p></div>
@@ -104,11 +110,13 @@
         </section>
 
         <section class="step-panel" data-mark="4" aria-labelledby="s5">
-          <svg class="ms-giant" aria-hidden="true"><use href="#i-shield"/></svg>
           <h1 id="s5">Does this look right?</h1>
-          <p class="ms-sentence mt-24">You’re <b><span data-echo="first">Avery</span> <span data-echo="last">Phelps</span></b>, at <span data-echo="email">avery@example.com</span> and <span data-echo="phone">(707) 555-0148</span>, with <b>North Coast SBDC</b>.<button class="link" type="button" data-step="0">Edit</button></p>
-          <p class="ms-sentence"><b data-echo="business">Your business</b>: <span data-echo="entity">LLC</span>, <span data-echo="industry">Food and beverage, retail</span><span data-show-if="inbusiness=yes">, in business since <span data-echo="started">March 2025</span>, with <span data-echo="ft">1</span> full-time and <span data-echo="pt">0</span> part-time</span><span data-show-if="inbusiness=no" hidden>, not open yet</span>.<button class="link" type="button" data-step="4">Edit</button></p>
-          <p class="ms-sentence">You want help with <b data-echo-list="topics">money and loans</b>.<button class="link" type="button" data-step="4">Edit</button></p>
+          <p class="lead">Take a moment to check your details before you sign.</p>
+          <div class="intake-summary">
+            <section><div class="intake-summary-head"><h2>About you</h2><button class="link" type="button" data-step="0" aria-label="Edit your contact details">Edit</button></div><p class="intake-summary-name"><span data-echo="first" data-empty="First name"></span> <span data-echo="last" data-empty="Last name"></span></p><p><span data-echo="email">avery@example.com</span> <br><span data-echo="phone"></span></p><p class="intake-summary-detail">ZIP <span data-echo="zip"></span> · <span data-echo="language">English</span> <br>North Coast SBDC</p></section>
+            <section><div class="intake-summary-head"><h2>Your business</h2><button class="link" type="button" data-step="4" aria-label="Edit your business details">Edit</button></div><p class="intake-summary-name" data-echo="business" data-empty="Business name not provided">Business name not provided</p><p><span data-echo="entity">Sole proprietor</span> · <span data-echo="industry">Food and beverage, retail</span></p><p class="intake-summary-detail" data-show-if="inbusiness=yes">In business since <span data-echo="started"></span> <br><span data-echo="ft">1</span> full-time · <span data-echo="pt">0</span> part-time <br>Annual sales: <span data-echo="sales">Under $25,000</span></p><p class="intake-summary-detail" data-show-if="inbusiness=no" hidden>Not open yet</p></section>
+            <section><div class="intake-summary-head"><h2>Your priorities</h2><button class="link" type="button" data-step="4" aria-label="Edit your help topics">Edit</button></div><p data-echo-list="topics" data-empty="No topics selected">Money and loans</p></section>
+          </div>
 
           <div class="agree-box">
             <h2>Request for counseling</h2>
@@ -126,14 +134,18 @@
         </section>
 
         <section class="step-panel signup-done" data-end aria-labelledby="s6">
-          <svg class="done-mark" role="img" aria-label="Complete" width="124" height="124" viewBox="0 0 124 124" fill="none"><circle cx="62" cy="62" r="54" fill="#E3F1EE"/><circle class="done-ring" cx="62" cy="62" r="54" stroke="#00675C" stroke-width="5" stroke-linecap="round" transform="rotate(-90 62 62)"/><path class="done-tick" d="M40 64 L56 79 L86 47" stroke="#00675C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="ms-shared-mark">{{icon:check}}</span>
           <p class="ms-label">Sign-up complete</p>
           <h1 id="s6">You’re in, <span data-echo="first">Avery</span>.</h1>
-          <p class="lead">Your request is on its way to North Coast SBDC. You never fill out this form again.</p>
+          <p class="lead">Your request is on its way to North Coast SBDC. Your team will be in touch about what comes next.</p>
           <p class="mt-32"><a class="btn btn-primary" href="dashboard-new.html">Go to MySBDC</a></p>
           <p class="hint mt-16" style="font-size:.9375rem;color:#4F5767">A copy of your signed form is in your email and on your dashboard.</p>
         </section>
       </form>
+      </div>
+      <p class="intake-draft-note">Save progress to return on this browser. Your signature and consent choices aren’t saved.</p>
+      </div>
     </div>
   </main>
+  <footer class="gate-foot"><span>Funded in part through a Cooperative Agreement with the U.S. Small Business Administration.</span><a href="#privacy">Privacy</a></footer>
 </div>

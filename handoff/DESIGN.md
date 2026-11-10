@@ -13,6 +13,10 @@ should support the content and the next action.
 
 ## The visual language
 
+- **Aim for a minimal UI.** Every visible element should help the client understand or complete
+  their task. Remove redundant prompts, repeated labels, and links that only point to nearby
+  content, such as “Explore live workshops” above the workshop list. Let the page's structure
+  guide people; keep actions where they are useful.
 - **Typography creates hierarchy.** Proxima Sera brings warmth to editorial headlines, advisor
   notes, and business names. Proxima Nova keeps navigation, facts, labels, and controls clear.
   Give important words room; keep supporting details quieter but comfortably readable.
@@ -36,6 +40,11 @@ should support the content and the next action.
   indicators remain appropriate.
 - **Navigation stays quiet and explicit.** Keep icons paired with words. Selected items use an
   inset slate fill and a subtle pool cue. Carry the same treatment into the mobile bottom tabs.
+- **Milestones stay focused on sharing.** Show the four update choices without a history or
+  previous-update records. Tile arrows appear only on hover or keyboard focus, including on Home.
+- **Training reflects supported workflows.** Show registered sessions, browsable workshops, and
+  self-paced courses. Do not imply advisor-curated training recommendations until advisors have a
+  supported way to share them into the client dashboard.
 - **Write with reassurance and clarity.** Short, human language and one clear priority per section
   help the user understand their next step. Preserve useful secondary links without competing CTAs.
 

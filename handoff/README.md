@@ -23,9 +23,9 @@ python3 -m http.server 8000      # from the repository root
 | `dashboard-new.html` | Default home: new client, no advisor yet | `/` (pre-client) |
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
-| `events.html` | Training: advisor pick, live sessions by month, short courses. Register confirms in place | `/events/` |
+| `events.html` | Training: next registered session, live workshops by month, short courses. Register confirms in place | `/events/` |
 | `event.html` | Training: one event | `/events/{event}/` |
-| `milestones.html` | Milestones: choose a type, plus history | `/milestones/` |
+| `milestones.html` | Milestones: choose an update to share | `/milestones/` |
 | `milestone-hired.html` | Milestone form: hired someone (3 steps) | `/milestones/new/hired-employees/` |
 | `milestone-sales.html` | Milestone form: sales grew (3 steps) | `/milestones/new/increased-revenue/` |
 | `milestone-funding.html` | Milestone form: got funding (3 steps) | `/milestones/new/received-funding/` |
@@ -35,7 +35,7 @@ python3 -m http.server 8000      # from the repository root
 | `resource.html` | Resources: one resource | `/resources/{resource}/` |
 
 - `assets/mysbdc.css` is the whole design: tokens, shell, components. No framework.
-- `assets/mysbdc.js` is about 120 lines of plain JavaScript (menu, steps, switches). No jQuery.
+- `assets/mysbdc.js` contains plain JavaScript for the menu, forms, filters, and intake drafts. No jQuery.
 - `src/` holds the page bodies and `build.py` wraps them in the shared shell. Edit `src/`, then
   run `python3 handoff/build.py`. The built files are committed, so nothing needs building to view.
 
@@ -83,42 +83,69 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
      no booking), and the resources the advisor picked for this client.
    - *Your milestones* is an open editorial section headed "Progress takes many forms." Four
      solid-colour tiles use small, softened geometric marks for people, sales, capital and a new beginning.
-     Each whole tile opens its milestone form; the last update and history link sit below. The grid
+     Each whole tile opens its milestone form; its arrow appears on hover or keyboard focus. The grid
      moves from four columns to two, then compact single-column rows on the narrowest phones.
    - Coming up sits directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
 5. **Sign-in has no password.** Google, Microsoft, or a link by email.
-6. **Form 641 is five short steps** with a plain-language "why we ask" panel beside each one,
-   optional SBA questions clearly marked optional, and a phone alternative.
+6. **Form 641 is five short steps** with contextual help, a grouped review, and explicit browser-only
+   draft saving. Existing optional questions remain marked optional.
 7. **Settings is one page**, in sections that save independently.
 
 ## Training listing
 
-`events.html` carries the refined Home design into Training: an editorial introduction, a matte
-slate-navy advisor recommendation, and a quiet next-session panel. Live workshops sit on the open
+`events.html` carries the refined Home design into Training: an editorial introduction and a compact,
+full-width next-session panel for an existing registration. Live workshops sit on the open
 page, grouped by month, with times visible before opening the details. Topic and format filters
 update the workshop count and show a clear empty state when no sessions match.
+The introduction has no extra call to action; the workshop list is already on the page.
 
 Self-paced courses use solid sand, pool, sage, and navy tiles with serif titles and restrained arrows.
 The course already in progress has a small module indicator and a “Continue learning” label.
 The layout adapts from four course columns to two, then one on phones; workshop actions stay
 comfortably sized on narrow screens. Listing styles are scoped under section 17 of the stylesheet.
 
-The recommendation and its matching schedule row share a `data-registration` key so their demo
-registration states stay in sync. Registration remains a local preview interaction; course, calendar,
-and cancellation destinations remain placeholders pending integration.
+There are no advisor-curated training recommendations: advisors currently have no supported way to
+share them into the client dashboard. Registration remains a local preview interaction; course,
+calendar, and cancellation destinations remain placeholders pending integration.
 
-## Sign-up (Form 641)
+## Sign-in, signup, and Form 641
 
-`register.html` uses its existing card, controls and the shared step script, in one colour
-(pool blue) with a different corner icon per step. Fields, options and wording follow the original
-`MySBDC Intake.dc.html`: about you (name, email from the account, phone, ZIP with matched center,
-language); in business today; how long (or how far along, for people not open yet); the business
-(name, kind, set-up, employees, sales range, up to three help topics); review and sign (summary
-sentences, request for counseling with the full text behind a disclosure, required agreement, optional
-SBA survey consent, typed signature). The last panel is an animated tick, with no confetti.
-It does not ask for a home address or the optional SBA demographic questions; add them if the
-current SBA form or Neoserra requires them.
+`login.html` and `signup.html` share a matte navy introduction and white account-access sheet.
+The serif greeting, quiet asterisk, 6px controls, and warm paper background carry the approved
+Home language through onboarding. Mobile shortens the introduction and removes supporting
+promotional copy so the account controls are closer to the top. The email confirmation uses an
+h2 under the page's existing h1; returning to the form restores focus to the email field.
+
+`register.html` keeps its five-step questionnaire and conditional business/planning paths. The
+navy context panel offers help for each step beside the white form sheet; phones get a compact
+banner. Its controls share the milestone form styles. Review groups contact details, business,
+and priorities, followed by the unchanged counseling agreement and signature fields. Empty
+answers now replace previous summary values. The agreement disclosure remains collapsible.
+
+“Save progress” explicitly stores an intake draft **only in this browser** under
+`mysbdc-intake-draft-v1`. It restores the saved answers, selections, and step on a subsequent
+visit. Edits after a save show “Unsaved changes.” Storage errors show a message instead of a
+false success. Signature, agreement, and survey consent are never stored; completion clears
+the draft. This is a local prototype convenience, not an authenticated account or server record.
+The production integration must replace this with the intended account-scoped draft service.
+
+Authentication providers, email delivery, account email, center matching, language switching,
+signed-form delivery, and final submission remain handoff placeholders. The confirmation copy
+shows the intended production state; it does not mean an email was sent or a client record created.
+
+Fields, options, defaults, branching, and agreement text follow the original intake design.
+Phone now uses `type="tel"`. The field set still does not include home address or optional SBA
+demographics; verify the current SBA and Neoserra requirements before production integration.
+Account styles are section 20 of the stylesheet; intake refinements are section 21.
+
+## Milestone overview
+
+`milestones.html` uses Home's four solid-color tiles and softened symbols. There are no giant
+corner icons, gradients, or decorative numbers. Keep this screen focused on sharing an update:
+no milestone history or previous-update records. Arrows stay hidden until hover or keyboard focus,
+on both Home and the overview. At small widths the tiles become two columns, then compact
+single-column rows. Overview styling is scoped to section 19.
 
 ## Milestone forms
 
@@ -134,13 +161,13 @@ approved Home vocabulary into a focused question-and-answer layout:
 - One serif question per step. Counts use a large serif number with generous − and + controls.
   Choices are soft filled rows with visible radio states. Help stays beside its related question.
 - The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?" and a typed name.
-- `milestone-done.html` uses a quiet checkmark, a line that fits the milestone (`?type=`), a history
-  link, and four compact colour links for sharing another update.
+- `milestone-done.html` uses a quiet checkmark, a line that fits the milestone (`?type=`), a link back to milestones,
+  and four compact colour links for sharing another update.
 - Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
   `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch);
   `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
-Form and confirmation styling is scoped to section 18 of the stylesheet; the milestone index and
-Form 641 retain their existing layouts. These remain static handoff forms pending backend integration.
+Shared form and confirmation styling is in section 18 of the stylesheet. These remain static
+handoff forms pending backend integration.
 The fields are a starting set drawn from the earlier preview; check them against what Neoserra's
 milestone records require.
 
@@ -175,7 +202,7 @@ See [DESIGN.md](DESIGN.md) for the approved direction as pages are developed or 
   demographic questions. Check the field list and agreement wording against the current SBA form
   and what Neoserra requires before build.
 - **Data not yet on staging.** The next-step note (text, author, date and optional link from Neoserra), advisor photo,
-  advisor-picked resources and milestone history are designed here but need a source in Neoserra or WordPress.
+  advisor-picked resources are designed here but need a source in Neoserra or WordPress.
 - **Placeholder links.** Help, Get help, Privacy, Accessibility and "Talk to someone now" point at `#help`-style anchors until real destinations exist.
 - **Fonts.** The Typekit kit serves Proxima Nova at 300, 400, 500, 700 and 900 only, so the stylesheet uses those weights.
 - **Spanish.** The language control is designed; no Spanish copy is included.
