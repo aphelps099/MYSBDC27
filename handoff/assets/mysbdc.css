@@ -223,8 +223,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .switch input:checked::after{left:30px}
 .switch .state{min-width:26px;color:var(--mysbdc-brand-slate-light)}
 
-/* 8 — Sign in / create account. Navy bar, a serif greeting on the page, and one white card
-   carrying the solid pool plate. No photo: the card is the only thing to do here. */
+/* 8 — Sign in / create account. Navy bar, a serif greeting on the page, and one white card.
+   No photo: the card is the only thing to do here. */
 .gate{min-height:100vh;display:flex;flex-direction:column}
 .gate-bar{display:flex;align-items:center;gap:12px 24px;min-height:var(--bar);padding:10px clamp(16px,3vw,40px);background:var(--mysbdc-brand-navy);color:#fff}
 .wordmark{font:700 26px/1 var(--font-sans);letter-spacing:-.03em;color:#fff;text-decoration:none}
@@ -240,7 +240,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .gate-say .lead{max-width:22em;margin-top:22px;font-size:clamp(1.125rem,1.6vw,1.25rem)}
 .gate-say .lib-kicker{margin-top:28px}
 .gate-steps{display:grid;gap:10px;max-width:26em;margin-top:28px;font-size:1.125rem}
-.gate-card{margin-right:12px;padding:clamp(24px,3.6vw,44px);border-radius:14px;background:var(--mysbdc-brand-white);box-shadow:12px 12px 0 var(--mysbdc-brand-pool)}
+.gate-card{padding:clamp(24px,3.6vw,44px);border-radius:14px;background:var(--mysbdc-brand-white)}
 .gate-card h1{margin-top:24px;font:400 2.25rem/1.08 var(--font-serif);letter-spacing:-.02em}
 .gate-card .lead{margin-top:14px}
 .providers{display:grid;gap:12px}
@@ -256,7 +256,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .gate-foot{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;width:100%;max-width:1120px;margin-inline:auto;padding:0 clamp(16px,4vw,48px) 24px;font-size:14px;color:#4F5767}
 @media(max-width:899px){
   .gate-main{grid-template-columns:1fr;align-items:start;gap:24px}
-  .gate-card{margin-right:8px;box-shadow:8px 8px 0 var(--mysbdc-brand-pool)}
   .gate-back{display:none}
   .gate-bar .lang{margin-left:auto}
   .gate-say .lib-kicker,.gate-steps{margin-top:20px}
@@ -624,8 +623,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 @media(max-width:759px){.signup{font-size:1.0625rem}.signup-bar .saved-note{display:none}}
 
 /* 16 — Training and Resources. Same language as the milestone cards: white tiles on the cream page,
-   navy pill buttons, serif headlines. One focal card per page (.feature) carries the colour wash and the
-   solid pool plate; nothing else has a shadow. */
+   navy pill buttons, serif headlines. One focal card per page (.feature) carries the colour wash. No shadows. */
 .lib{--ink:var(--mysbdc-brand-navy);--ink-3:#4F5767;font-size:1.0625rem;line-height:1.5}
 .lib-head h1,.lib-detail h1{font:400 clamp(2.125rem,3.8vw,3.25rem)/1.05 var(--font-serif);letter-spacing:-.025em;text-wrap:balance}
 .lib-head h1{max-width:14em}
@@ -651,8 +649,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .btn[aria-pressed=true]~.reg-hint{display:none}
 .reg-hint{font-size:1rem;color:var(--ink-3)}
 
-.lib-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:28px;margin-top:clamp(28px,3vw,40px)}
-.feature{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:300px;padding:clamp(24px,3vw,36px);border-radius:14px;background:linear-gradient(205deg,var(--wash,#B4E3D4) 0,#FDFDFD 400px);box-shadow:12px 12px 0 var(--mysbdc-brand-pool)}
+.lib-top{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px;margin-top:clamp(28px,3vw,40px)}
+.feature{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:300px;padding:clamp(24px,3vw,36px);border-radius:14px;background:linear-gradient(205deg,var(--wash,#B4E3D4) 0,#FDFDFD 400px)}
 .feature.pool{--wash:#BFDDEA}
 .feature>*:not(.ms-giant){position:relative}
 .feature .ms-giant{right:-56px;top:-64px;width:290px;height:290px}
@@ -696,7 +694,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .lib-foot{margin-top:40px}
 .lib-foot .link{min-height:44px}
 
-.feature-picks{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 40px;min-height:0;margin:clamp(28px,3vw,40px) 12px 0 0}
+.feature-picks{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 40px;min-height:0;margin:clamp(28px,3vw,40px) 0 0}
 .feature-picks ul{display:grid;gap:8px;align-content:start}
 .pick{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:12px 20px;border-radius:12px;background:var(--mysbdc-brand-white);text-decoration:none}
 .pick strong{display:block;font-size:1.125rem;line-height:1.25}
@@ -721,7 +719,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .watch .len{font-size:.9375rem;font-weight:700}
 
 /* One event / one resource: a single centred card. */
-.lib-detail{max-width:912px;margin-inline:auto;padding-right:12px}
+.lib-detail{max-width:900px;margin-inline:auto}
 .lib-detail>.link{font-size:1rem}
 .lib-detail .feature{min-height:0;margin-top:8px;padding:clamp(28px,4.4vw,52px) clamp(22px,5vw,60px) clamp(26px,4vw,44px)}
 .lib-detail .feature .ms-giant{right:-64px;top:-72px;width:340px;height:340px}
@@ -743,10 +741,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 @media(max-width:1099px){.res-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lib-top,.feature-picks{grid-template-columns:1fr}}
 @media(max-width:899px){.lib-month{grid-template-columns:1fr;gap:16px}}
 @media(max-width:759px){
-  .feature{box-shadow:8px 8px 0 var(--mysbdc-brand-pool)}
-  .lib-top{gap:22px;padding-right:8px}
-  .feature-picks{margin-right:8px}
-  .lib-detail{padding-right:8px}
   .feature-act .btn{flex:1 1 100%}
   .session{flex-wrap:wrap;gap:16px;padding:18px}
   .session-act{flex:1 1 100%;flex-direction:row;align-items:center;justify-content:space-between}
