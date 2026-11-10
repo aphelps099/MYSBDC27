@@ -22,6 +22,7 @@ python3 -m http.server 8000      # from the repository root
 | `register.html` | Sign-up steps, SBA Form 641 (5 steps + confirmation) | `/register/` |
 | `dashboard-new.html` | Default home: new client, no advisor yet | `/` (pre-client) |
 | `dashboard.html` | Home: active client | `/` (active client) |
+| `documents.html` | Document sharing preview, reached from Home's next step | Proposed `/documents/` |
 | `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
 | `events.html` | Training: next registered session, live workshops by month, recorded training. Register confirms in place | `/events/` |
 | `event.html` | Training: one event | `/events/{event}/` |
@@ -39,6 +40,25 @@ python3 -m http.server 8000      # from the repository root
 - `assets/mysbdc.js` contains plain JavaScript for the menu, forms, filters, and intake drafts. No jQuery.
 - `src/` holds the page bodies and `build.py` wraps them in the shared shell. Edit `src/`, then
   run `python3 handoff/build.py`. The built files are committed, so nothing needs building to view.
+
+## Public website and document sharing
+
+The shared app header includes **SBDC website**, linking to `https://www.norcalsbdc.org/` in a
+new tab. Below 900px it moves into the account menu. Keep the dashboard logo linked to Home.
+
+Home's **Upload a document** action opens `documents.html`. A matte navy context panel and
+white document sheet follow the milestone-form vocabulary: serif headings, 6px corners,
+quiet color fields, generous spacing, and no hairline dividers. On phones the context panel
+becomes a compact banner.
+
+The supplied document component runs inside `documents-embed.html`, isolating its browser-only
+portal adapter from the dashboard. It supports file selection, validation, removal, an optional
+note, send/error/confirmation states, and sample advisor downloads. The persistent preview
+notice and confirmation explicitly say nothing is sent or saved. All advisor/request/document
+content is synthetic. Reloading resets the demonstration.
+
+**This is not a production upload service.** See [DOCUMENTS.md](DOCUMENTS.md) for source
+provenance, the mock boundary, verification, and the portal integration work still required.
 
 ## Shared icon family
 

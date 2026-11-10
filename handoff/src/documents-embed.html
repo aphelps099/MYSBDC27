@@ -1,0 +1,12 @@
+<!-- layout: bare | title: Document tools -->
+<link rel="stylesheet" href="assets/documents-embed.css?v={{documents-version}}">
+<main id="main-content"><div id="documents-embed-content">
+    <p id="documents-loading" role="status">Loading document tools…</p>
+    <div id="document-tools" data-norcal-documents="window" hidden></div>
+    <p id="documents-load-error" role="alert" hidden>The document tools couldn’t load. <a href="documents-embed.html">Try again</a>.</p>
+    <noscript>Turn on JavaScript to use the document tools.</noscript>
+  </div></main>
+  <!-- Preview adapter is isolated in this frame. Production must supply a signed token and portal script. -->
+  <script src="assets/documents-preview.js?v={{documents-version}}"></script>
+  <script src="assets/vendor/norcal-documents.js?v={{documents-version}}"></script>
+  <script src="assets/documents-embed.js?v={{documents-version}}"></script>

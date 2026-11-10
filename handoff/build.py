@@ -13,6 +13,9 @@ ROOT = pathlib.Path(__file__).parent
 ICONS = (ROOT / 'src' / '_icons.svg').read_text()
 VER = hashlib.md5((ROOT / 'assets' / 'mysbdc.css').read_bytes() + (ROOT / 'assets' / 'mysbdc.js').read_bytes()).hexdigest()[:8]
 
+DOC_ASSETS = sorted((ROOT / 'assets').glob('documents-*')) + [ROOT / 'assets' / 'vendor' / 'norcal-documents.js']
+DOC_VER = hashlib.md5(b''.join(p.read_bytes() for p in DOC_ASSETS)).hexdigest()[:8]
+
 def icon(name, cls=''):
     return f'<svg class="icon {cls}" aria-hidden="true" focusable="false"><use href="#i-{name}"/></svg>'
 
@@ -47,6 +50,7 @@ def app(body, m):
   <button id="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="burger-icon"><span class="bar"></span><span class="bar"></span></span><span class="visually-hidden">Menu</span></button>
   <a id="site-branding" href="{home}" aria-label="MySBDC home, North Coast SBDC"><span id="site-logo"><b>My</b>SBDC</span><span id="site-title">North Coast SBDC</span></a>
   <div id="site-utility-navigation">
+    <a class="util-btn website-header-link" href="https://www.norcalsbdc.org/" target="_blank" rel="noopener noreferrer">SBDC website<span class="visually-hidden"> (opens in a new tab)</span><span class="ms-arrow" aria-hidden="true"></span></a>
     <a class="util-btn" href="#help" aria-label="Help">{icon('help')}<span class="label">Help</span></a>
     <button class="util-btn" type="button" aria-label="Language: English. Change language">{icon('globe')}<span class="label">English</span></button>
     <div class="site-user-navigation">
@@ -56,6 +60,7 @@ def app(body, m):
           <p class="who"><strong>Avery Phelps</strong>avery@example.com</p>
           <a class="dropdown-item" href="settings.html">{icon('settings')}Settings</a>
           <a class="dropdown-item" href="settings.html#business">{icon('briefcase')}Your business</a>
+          <a class="dropdown-item website-menu-link" href="https://www.norcalsbdc.org/" target="_blank" rel="noopener noreferrer">{icon('globe')}SBDC website<span class="visually-hidden"> (opens in a new tab)</span></a>
           <a class="dropdown-item" href="login.html">{icon('signout')}Sign out</a>
         </div>
       </details>
@@ -100,6 +105,7 @@ for src in sorted((ROOT / 'src').glob('[!_]*.html')):
     text = src.read_text()
     first, body = text.split('\n', 1)
     meta = dict(kv.strip().split(': ', 1) for kv in first.strip('<!- >\n').split('|'))
+    body = body.replace('{{documents-version}}', DOC_VER)
     body = re.sub(r'\{\{icon:([\w-]+)(?: ([\w -]+))?\}\}', lambda x: icon(x[1], x[2] or ''), body)
     (ROOT / src.name).write_text(LAYOUTS[meta['layout']](body.rstrip(), meta))
     print('built', src.name)
