@@ -48,6 +48,8 @@ should support the content and the next action.
   inset slate fill and a subtle pool cue. Carry the same treatment into the mobile bottom tabs.
 - **Milestones stay focused on sharing.** Show the four update choices without a history or
   previous-update records. Tile arrows appear only on hover or keyboard focus, including on Home.
+  When the tiles wrap, use slim horizontal cards with a smaller icon beside the text: two columns
+  on tablet and small laptop widths, one column on phones. Avoid large empty icon areas.
 - **Home always offers one next step.** Follow [NEXT-STEP.md](NEXT-STEP.md). An active advisor note
   wins; otherwise show waiting documents, an upcoming session/registered training, or caught up.
   App-generated copy is signed by the center. There is no milestone nudge. Done acknowledges a

@@ -134,7 +134,8 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
    - *Your milestones* is an open editorial section headed "Progress takes many forms." Four
      solid-colour tiles use small, softened geometric marks for people, sales, capital and a new beginning.
      Each whole tile opens its milestone form; its arrow appears on hover or keyboard focus. The grid
-     moves from four columns to two, then compact single-column rows on the narrowest phones.
+     moves from four columns to compact two-column rows below 1100px, then single-column rows
+     below 600px. In wrapped layouts, smaller icons sit beside the text instead of above it.
    - Coming up sits directly on the page.
    Home styles are section 13 of the stylesheet and sized in rem.
 5. **Primary sign-in remains passwordless.** Google, Microsoft, or a link by email. The optional
