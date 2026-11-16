@@ -170,7 +170,12 @@ These are design rules, not presentation details. Keep them when the data become
 
 1. **A mark says what and where.** Kind of milestone, town, county, month. Never a person, a
    business name or an amount.
-2. **Numbers live in totals.** Jobs and dollars appear only summed for the region or a county.
+2. **Numbers live in totals, with one exception.** Jobs and dollars appear summed for the region
+   or a county. The exception is the live notice for a milestone its owner chose to share: for a few
+   seconds it shows that milestone's own figure beside the town ("2 new jobs", "$45,000 in new
+   capital"), with no name and no business. The sharing question on the form says so. In a small
+   town a figure and a moment can point to a business, so this is a decision to confirm before
+   launch; to withhold figures, have `toast()` in `atlas.js` show the kind and town only.
 3. **The business owner chooses.** The review step of every milestone form in the dashboard asks
    "Add this to the Success Atlas?" with "Yes, without my name" or "Keep it off the map". A separate
    optional field invites a few words, credited by county only.
@@ -186,10 +191,12 @@ page reads it. Both previews must be open in the same browser.
 2. Choose **Share a milestone**. It opens the MySBDC dashboard preview.
 3. Complete a form. The review step has the Success Atlas choice. Choose **Share milestone**.
 4. On the thank-you page choose **See the Success Atlas**. The whole region stays in view. A mark
-   labelled "New" ripples at Eureka, the sample client's town, and the matching total ticks up on
-   its tile: Jobs created 3,723 to 3,725, or Capital accessed $549.00M to $549.05M. A pill on the
-   tile shows what was added ("+2", "+$45,000") and Latest names the milestone. An Atlas already
-   open in another tab or window does the same without a reload; if that tab is in the background
+   labelled "New" ripples at Eureka, the sample client's town, and a small **live notice** drops in at
+   the top of the screen: "$45,000 in new capital · A business in Eureka, Humboldt County". It names the
+   milestone and the place, never the person or the business, and leaves after about fifteen
+   seconds. Latest names the milestone too. The four totals include it without fanfare: Jobs
+   created moves from 3,723 to 3,724; a total in the millions looks the same. An Atlas already open
+   in another tab or window does all of this without a reload; if that tab is in the background
    the arrival waits until it is looked at.
 5. A white **Design preview** strip explains what happened and that the live site waits for the
    advisor. Reloading with `?new=1` replays the newest arrival.
@@ -205,7 +212,8 @@ page reads it. Both previews must be open in the same browser.
 | Success stories | Existing client stories from the website draft | Published stories, with the owner's agreement |
 | Testimonies | **Sample quotes** | Quotes shared on the milestone forms, credited by county |
 | A shared milestone | Kept in this browser (`localStorage`, key `mysbdc-atlas-v1`). Nothing is sent | Posted by the dashboard; published after confirmation |
-| The "Design preview" strip and the "+" pills on the tiles | Show that a dashboard milestone was counted here, at once | Removed; a milestone counts after its advisor confirms it |
+| The "Design preview" strip | Says a dashboard milestone was counted here, at once | Removed; a milestone counts after its advisor confirms it |
+| Live notices | One per milestone shared from the dashboard in this browser | One per confirmed milestone, pushed from the server |
 | Live arrival | Same browser only (`storage` event) | Server push or polling |
 
 The page states its sample status under "About this map".

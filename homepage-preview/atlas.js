@@ -24,14 +24,12 @@
   const PLACES = ['Eureka', 'Redding', 'Sacramento', 'San Francisco', 'San Jose']; // the few names kept on the map
   const num = n => Math.round(n).toLocaleString('en-US');
   const plural = (n, one) => num(n) + ' ' + one + (n === 1 ? '' : 's');
-  // `fine` adds two decimals, so one business's milestone visibly moves a total in the millions.
-  function money(n, fine) {
-    if (n >= 1e6) return '$' + (fine ? (Math.round(n / 1e4) / 100).toFixed(2) : (n / 1e6).toFixed(n >= 1e8 ? 0 : 1).replace(/\.0$/, '')) + 'M';
+  function money(n) {
+    if (n >= 1e6) return '$' + (n / 1e6).toFixed(n >= 1e8 ? 0 : 1).replace(/\.0$/, '') + 'M';
     if (n >= 1e4) return '$' + Math.round(n / 1e3).toLocaleString('en-US') + 'K';
     return '$' + num(n);
   }
-  const fine = {}; // per total: true while it includes a milestone shared from the dashboard
-  const fmt = (type, n) => META[type].money ? money(n, fine[type]) : num(n);
+  const fmt = (type, n) => META[type].money ? money(n) : num(n);
 
   // ── Data ──
   const today = new Date(); today.setHours(12, 0, 0, 0);
@@ -61,7 +59,7 @@
   let mine = readMine();
   const mineSpot = item => D.home.slots[mine.indexOf(item) % D.home.slots.length];
   // In this preview a shared milestone counts at once (production waits for the advisor). `held` keeps a
-  // new one out of the totals until its arrival plays, so the audience sees the number move.
+  // new one off the page until its arrival plays, so the audience sees it land.
   const SEEN = 'mysbdc-atlas-seen', held = new Set();
   const readSeen = () => { try { return new Set(JSON.parse(localStorage.getItem(SEEN) || '[]')); } catch (e) { return new Set(); } };
   const writeSeen = ids => { try { localStorage.setItem(SEEN, JSON.stringify([...ids].filter(id => mine.some(i => i.id === id)))); } catch (e) {} };
@@ -158,12 +156,12 @@
 
   const shown = {}; // last rendered number per total, for the count-up
   const setTotal = (type, value, animate) => {
-    const node = $(`[data-atlas-total="${type}"]`), from = shown[type] ?? 0, dur = typeof animate === 'number' ? animate : 700;
-    cancelAnimationFrame(node._raf); node.classList.toggle('fine', !!fine[type] && META[type].money);
+    const node = $(`[data-atlas-total="${type}"]`), from = shown[type] ?? 0;
+    cancelAnimationFrame(node._raf);
     if (!animate || still || from === value) { node.textContent = fmt(type, value); shown[type] = value; return; }
     const t0 = performance.now();
     const tick = now => {
-      const p = Math.min(1, (now - t0) / dur), v = from + (value - from) * (1 - Math.pow(1 - p, 3));
+      const p = Math.min(1, (now - t0) / 700), v = from + (value - from) * (1 - Math.pow(1 - p, 3));
       node.textContent = fmt(type, v); shown[type] = v;
       if (p < 1) node._raf = requestAnimationFrame(tick); else shown[type] = value;
     };
@@ -209,15 +207,7 @@
       if (dim !== p.dim) { p.dim = dim; p.el.classList.toggle('dim', dim); }
     });
     // Totals: the tiles are also the legend and the filter
-    const live = state.cut === 0 && (county == null || county === D.home.county) ? counted() : [];
-    TYPES.forEach(type => {
-      const own = live.filter(i => i.type === type), plus = $(`[data-atlas-plus="${type}"]`);
-      fine[type] = own.length > 0;
-      setTotal(type, type === 'started' ? t[type].n : t[type].sum, animate);
-      // What this browser's milestones added, shown on the tile they belong to.
-      const sum = own.reduce((a, i) => a + (type === 'started' ? 1 : +i.amount || 0), 0);
-      plus.hidden = !own.length; plus.textContent = own.length ? '+' + (META[type].money ? '$' + num(sum) : num(sum)) : '';
-    });
+    TYPES.forEach(type => setTotal(type, type === 'started' ? t[type].n : t[type].sum, animate));
     $('.atlas-tiles').classList.toggle('solo', state.type !== 'all');
     $$('[data-atlas-type]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.atlasType === state.type)));
     // Scope
@@ -458,7 +448,27 @@
     const g = $$('g', gMine).find(n => n.dataset.id === item.id), r = g && $('.ripple', g);
     if (r && !still && r.animate) r.animate([{ strokeWidth: '12px', strokeOpacity: .45 }, { strokeWidth: '150px', strokeOpacity: 0 }], { duration: 1600, iterations: 4, easing: 'cubic-bezier(.2,.7,.2,1)' });
   };
-  // Arrival: the whole region stays in view, the mark lands on the map, and its total ticks up on the tile.
+  // A live notice: what just happened and where, with no name and no business. It leaves on its own.
+  const toasts = $('[data-atlas-toasts]');
+  const SAID = {
+    hired: n => num(n) + (n === 1 ? ' new job' : ' new jobs'),
+    funding: n => '$' + num(n) + ' in new capital',
+    sales: n => '$' + num(n) + ' in sales growth',
+    started: () => 'A new business opened',
+  };
+  const toast = item => {
+    const where = D.home.town + ', ' + D.counties[D.home.county].n + ' County', n = +item.amount || 0;
+    const card = el('div', 'atlas-toast'); card.style.setProperty('--c', `var(--atlas-${item.type})`);
+    const text = el('p', 'atlas-toast-text');
+    text.append(el('strong', '', item.type !== 'started' && !n ? META[item.type].feed : SAID[item.type](n)), el('span', '', (item.type === 'started' ? '' : 'A business in ') + where));
+    card.append(el('p', 'atlas-toast-live', 'Live · just now'), text);
+    const leave = () => { if (!card.isConnected) return; card.classList.add('leaving'); setTimeout(() => card.remove(), still ? 0 : 400); };
+    card.addEventListener('click', leave);
+    toasts.append(card); while (toasts.children.length > 2) toasts.firstElementChild.remove();
+    setTimeout(leave, 14000);
+  };
+  // Arrival: the whole region stays in view, the mark lands on the map, and a live notice says what it was.
+  // The four totals include it, quietly: a whole number moves by one, a total in the millions looks the same.
   let arrivedAt = 0; // the presenting tour stands back for a while after an arrival, so nothing covers the new mark
   const arrive = id => {
     const item = mine.find(i => i.id === id); if (!item) return;
@@ -466,14 +476,10 @@
     endIntro(); stop(); closeStory();
     if (state.county != null || state.type !== 'all' || state.cut) { state.cut = 0; state.type = 'all'; state.county = null; zoomTo(frame(REGION)); render(false); }
     held.delete(id); const seen = readSeen(); seen.add(id); writeSeen(seen);
-    renderMine(); render(still ? false : 1700);
-    const tile = $(`[data-atlas-type="${item.type}"]`);
-    tile.classList.remove('is-arriving'); void tile.offsetWidth; tile.classList.add('is-arriving');
-    setTimeout(() => tile.classList.remove('is-arriving'), 2800);
+    renderMine(); render(!still);
     if (!document.body.classList.contains('atlas-present')) $('.atlas-hero').scrollIntoView({ block: 'start', behavior: still ? 'auto' : 'smooth' });
     setTimeout(() => ripple(item), still ? 0 : 250);
-    const total = tally(null)[item.type];
-    announce(`A new milestone was just shared from ${D.home.town}. ${$('span', tile).textContent} is now ${fmt(item.type, item.type === 'started' ? total.n : total.sum)}.`);
+    toast(item);
   };
   const arriveAll = items => items.forEach((item, n) => setTimeout(() => arrive(item.id), n * 3000));
   // A background tab does not animate, so an arrival waits until this page is the one being looked at.
@@ -482,7 +488,7 @@
     const go = () => { if (document.hidden) return; document.removeEventListener('visibilitychange', go); setTimeout(fn, 600); };
     document.addEventListener('visibilitychange', go);
   };
-  $('[data-atlas-clear]').addEventListener('click', () => { mine = []; held.clear(); writeMine(mine); writeSeen([]); renderMine(); render(); announce('Preview milestones cleared.'); });
+  $('[data-atlas-clear]').addEventListener('click', () => { mine = []; held.clear(); writeMine(mine); writeSeen([]); toasts.textContent = ''; renderMine(); render(); announce('Preview milestones cleared.'); });
 
   // Live: a milestone shared in another tab or window of this browser lands here without a reload.
   addEventListener('storage', e => {

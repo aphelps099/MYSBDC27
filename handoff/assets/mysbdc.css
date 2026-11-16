@@ -1391,4 +1391,37 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 @media(max-width:359px){.password-access .gate-card,.password-access .gate-say{padding-inline:20px}}
 
 /* Success Atlas: the review-step consent on milestone forms. The Atlas itself is a public website page. */
+/* Milestone attestation and the final "Confirm impact entries" review */
+.ms-attest{margin-top:32px;padding:22px 24px;border-radius:6px;background:var(--mysbdc-brand-cream)}
+.ms-attest-text{max-width:38em;font-size:1rem;line-height:1.55;color:var(--ink);text-wrap:pretty}
+.ms-attest-agree{margin-top:16px;align-items:center}
+.ms-attest-voided{margin-top:14px;font-size:.9375rem;font-weight:600;color:#9C2A2A}
+.ms-attest-voided[hidden]{display:none}
+.ms-editorial .ms-card .ms-attest+.signature{margin-top:24px}
+.signature .hint{max-width:36em;font-size:.9375rem;line-height:1.45;color:var(--ink-3)}
+dialog.ms-confirm{width:min(680px,calc(100vw - 32px));max-height:calc(100dvh - 32px);margin:auto;padding:0;border:0;border-radius:6px;background:var(--mysbdc-brand-white);color:var(--ink);font-size:1.0625rem;line-height:1.5;overflow:hidden}
+dialog.ms-confirm[open]{display:flex;flex-direction:column}
+dialog.ms-confirm::backdrop{background:#0f1c2dbf}
+.ms-confirm-body{flex:1 1 auto;min-height:0;overflow-y:auto;padding:clamp(24px,4vw,40px) clamp(22px,4vw,40px) 8px}
+.ms-confirm h2{margin-top:10px;font:400 clamp(1.75rem,3.4vw,2.25rem)/1.1 var(--font-serif);letter-spacing:-.025em;color:var(--ink);outline:0}
+.ms-confirm-lead{margin-top:10px;color:var(--ink-2)}
+.ms-confirm-rows{display:grid;gap:0;margin:24px 0 0}
+.ms-confirm-rows>div{display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr);gap:4px 24px;padding:9px 0}
+.ms-confirm-rows>div[hidden]{display:none}
+.ms-confirm-rows dt{font-size:.9375rem;color:var(--ink-3)}
+.ms-confirm-rows dd{margin:0;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.ms-confirm-rows .ms-confirm-sign{font:italic 400 1.375rem/1.2 var(--font-serif)}
+.ms-confirm-attest{margin-top:20px;padding:18px 20px;border-radius:6px;background:var(--mysbdc-brand-cream)}
+.ms-confirm-attest-title{font-size:.9375rem;font-weight:700;color:var(--ink)}
+.ms-confirm-attest p+p{margin-top:6px;font-size:1rem;line-height:1.55;color:var(--ink)}
+.ms-confirm-note{margin:18px 0 16px;font-size:.9375rem;color:var(--ink-3)}
+.ms-confirm-actions{flex:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px clamp(22px,4vw,40px) clamp(20px,3vw,28px);background:var(--mysbdc-brand-white)}
+.ms-confirm-actions .btn-primary{background:var(--mysbdc-brand-navy)}
+.ms-confirm-actions .btn-primary:hover{background:#243B50}
+.ms-confirm-actions .btn[disabled]{opacity:.55;cursor:default}
+@media (max-width:560px){
+  .ms-confirm-rows>div{grid-template-columns:1fr;gap:2px;padding:8px 0}
+  .ms-confirm-actions{flex-direction:column-reverse;align-items:stretch}
+  .ms-attest{padding:18px}
+}
 .ms-atlas-hint{max-width:34em;margin:0 0 14px;font-size:1rem;color:var(--ink-3);text-wrap:pretty}
