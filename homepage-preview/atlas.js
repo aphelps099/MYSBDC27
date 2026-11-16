@@ -309,7 +309,7 @@
     introRaf = requestAnimationFrame(tick);
   };
 
-  // ── Ringed marks: three success stories and three testimonies. Hover or focus shows one; a click keeps it open. ──
+  // ── Ringed marks: two success stories and three testimonies. Hover or focus shows one; a click keeps it open. ──
   const cards = $('[data-atlas-cards]');
   const county = s => D.counties[s.county].n + ' County';
   const by = s => s.kind === 'story' ? s.name + ' · ' + s.meta : (/^[AEIOU]/.test(D.counties[s.county].n) ? 'An ' : 'A ') + county(s) + ' business owner';
@@ -333,14 +333,15 @@
     });
     gStories.append(g); s.el = g;
     if (s.kind !== 'story') return;
-    // The story card below the map: a photograph, the place, the result. The whole card is the link.
-    const li = el('li'), a = el('a', 'atlas-card'), photo = el('span', 'atlas-card-photo'), img = document.createElement('img');
+    // The story below the map: a photograph paired with a colour block that carries one figure. The pair is the link.
+    const li = el('li'), a = el('a', 'atlas-card is-' + (s.tone || 'funding')), photo = el('span', 'atlas-card-photo'), img = document.createElement('img');
     a.href = s.href; a.target = '_blank'; a.rel = 'noopener';
     img.src = s.img; img.alt = s.alt; img.loading = 'lazy'; img.style.objectPosition = img.style.transformOrigin = s.pos || '50% 50%'; img.style.setProperty('--zoom', s.zoom || 1);
     photo.append(img);
-    const placeLine = el('span', 'atlas-card-place'); placeLine.append(el('i', 'atlas-ring'), s.place || s.town);
+    const block = el('span', 'atlas-card-block'), placeLine = el('span', 'atlas-card-place'); placeLine.append(el('i', 'atlas-ring'), s.place || s.town);
     const name = el('span', 'atlas-card-name', s.name); name.append(el('span', 'atlas-arrow'));
-    a.append(photo, placeLine, el('strong', 'atlas-card-title', s.title), name);
+    block.append(placeLine, el('strong', 'atlas-card-figure', s.figure || ''), el('span', 'atlas-card-title', s.line || s.title), name);
+    a.append(photo, block);
     li.append(a); cards.append(li);
     const lit = on => s.el.classList.toggle('lit', on);
     a.addEventListener('pointerenter', () => lit(true)); a.addEventListener('pointerleave', () => lit(false));
