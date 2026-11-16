@@ -1,157 +1,168 @@
 /* Success Atlas — the public map of shared milestones. Page-scoped; loaded only by atlas.html.
-   Second version: light, in the MySBDC dashboard's visual language (handoff/DESIGN.md). Warm paper
-   ground, white surfaces with 6px corners, Proxima Sera for the headline and the numbers, one slate-navy
-   focal card, berry kept for the few story marks. No rules, shadows or gradients. Logic: ATLAS.md. */
+   Third version. A white page; the four totals are the MySBDC dashboard's milestone tiles
+   (handoff/DESIGN.md); the map is cream counties on white; berry is kept for the story marks and the
+   rule under each story photograph. No shadows or gradients on surfaces. Logic: ATLAS.md. */
 
 .atlas-page{
-  /* Mark colours: deeper relatives of the dashboard's milestone tiles (pool, navy, sand, sage).
-     Validated together on white for colour-blind separation and 3:1 contrast; change them as a set. */
-  --atlas-hired:#3292B3; --atlas-started:#243B50; --atlas-funding:#B98A2B; --atlas-sales:#397247;
-  --atlas-story:#a82f38;
-  --atlas-land:#fdfdfd; --atlas-land-hover:#e6f0f4; --atlas-land-far:#ece7db;
+  /* Mark colours: deeper relatives of the tiles beside the map (sand, sage, navy, pool).
+     Validated together on the cream county colour for colour-blind separation and 3:1 contrast;
+     change them as a set. */
+  --atlas-funding:#A97C1F; --atlas-sales:#397247; --atlas-started:#243B50; --atlas-hired:#2E8CAD;
+  --atlas-story:var(--berry);
+  --atlas-land:#f2ede2; --atlas-land-hover:#e8e0cf; --atlas-land-far:#f8f5ee;
   --ink:#0f1c2d; --ink-2:#384252; --ink-3:#596270;
   --navy-surface:#243B50; --on-navy:#F5F1E8; --on-navy-muted:#BECCD5; --on-navy-accent:#AFD2DF;
-  --radius:6px; --atlas-pin:3.4px;
-  background:var(--cream);
+  --radius:6px; --atlas-pin:3.3px;
+  background:var(--paper);
 }
+.atlas-page .site-header{background:var(--paper)}
 .atlas-page .header-inner{border:0}
 .atlas-page .primary-nav [aria-current=page]{text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:2px}
 .atlas-page main{color:var(--ink)}
 .visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.atlas-sprite{position:absolute}
 .atlas-label{font-size:.8125rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.4;color:var(--ink-3)}
 .atlas-link{display:inline-flex;align-items:center;min-height:44px;padding:0;border:0;background:none;color:var(--ink);font-size:1rem;font-weight:700;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px;cursor:pointer}
 .atlas-link:hover{text-decoration-thickness:2px}
-.atlas-pill{display:inline-block;padding:5px 12px;border-radius:99px;background:#DDECF2;font-size:.8125rem;font-weight:700;line-height:1.3;color:var(--ink)}
-.is-voice>.atlas-pill,.is-voice .atlas-card-body>.atlas-pill{background:#EFE3C4}
 
-/* One composition: words and totals on the left, the map on the right. */
-.atlas-hero{padding:56px 0 72px}
-.atlas-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1fr);gap:48px clamp(48px,7vw,120px);align-items:start}
-.atlas-lede{padding-top:8px}
-.atlas-lede h1{margin-top:22px;max-width:9.5em;font:400 clamp(2.6rem,4.5vw,4.4rem)/1.03 var(--sera);letter-spacing:-.035em;text-wrap:balance}
-.atlas-intro{max-width:25em;margin-top:22px;font-size:1.125rem;color:var(--ink-2);text-wrap:pretty}
+/* One composition: words and the four tiles on the left, the map on the right. */
+.atlas-hero{padding:36px 0 84px}
+.atlas-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px clamp(48px,6.5vw,112px);align-items:start}
+.atlas-lede{max-width:760px;padding-top:6px}
+.atlas-lede h1{margin-top:20px;font:400 clamp(2.5rem,4.3vw,4.1rem)/1.04 var(--sera);letter-spacing:-.035em;text-wrap:balance}
+.atlas-intro{max-width:27em;margin-top:18px;font-size:1.125rem;color:var(--ink-2);text-wrap:pretty}
 
-/* The four totals: an index. Each row is also a legend entry and a filter. */
-.atlas-totals{display:grid;gap:2px;margin:44px -18px 0;padding:0;list-style:none}
-.atlas-totals button{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:14px;width:100%;min-height:72px;padding:10px 18px;border:0;border-radius:var(--radius);background:none;color:var(--ink);text-align:left;transition:background .18s,opacity .18s}
-.atlas-totals button:hover,.atlas-totals button[aria-pressed=true]{background:#fdfdfd}
-.atlas-totals.solo button[aria-pressed=false]{opacity:.42}
-.atlas-totals.solo button[aria-pressed=false]:hover{opacity:1}
-.atlas-totals span{font-size:1.0625rem;color:var(--ink-2)}
-.atlas-totals strong{font:400 clamp(2.1rem,3.1vw,3rem)/1 var(--sera);letter-spacing:-.03em}
-.atlas-swatch{width:10px;height:10px;flex:none;border-radius:50%;background:var(--c);translate:0 -1px}
+/* The four totals: the dashboard's milestone tiles. Each is also a legend entry and a filter. */
+.atlas-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:36px 0 0;padding:0;list-style:none}
+.atlas-tile{--field:#A9CFDD;--tile-ink:var(--ink);--tile-soft:var(--ink-2);display:flex;flex-direction:column;align-items:flex-start;width:100%;min-height:clamp(150px,19vh,188px);padding:20px 24px 22px;border:0;border-radius:var(--radius);background:var(--field);color:var(--tile-ink);text-align:left;transition:opacity .2s}
+.atlas-tile.is-funding{--field:#E8D5A5;--tile-ink:#493A20;--tile-soft:#5d4b2b}
+.atlas-tile.is-sales{--field:#CDDCD0;--tile-ink:#174B40;--tile-soft:#245548}
+.atlas-tile.is-started{--field:var(--navy-surface);--tile-ink:var(--on-navy);--tile-soft:var(--on-navy-muted)}
+.atlas-tile.is-started .pictogram{color:var(--on-navy-accent)}
+.atlas-tile .pictogram{width:42px;height:42px;flex:none;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.atlas-tile:is(:hover,:focus-visible) .pictogram{transform:translateY(-3px)}
+.atlas-tile strong{margin-top:auto;padding-top:14px;font:400 clamp(2.4rem,3.7vw,3.6rem)/1 var(--sera);letter-spacing:-.035em}
+.atlas-tile span{margin-top:8px;font-size:1.0625rem;font-weight:500;color:var(--tile-soft)}
+.atlas-tile[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--tile-ink)}
+.atlas-tile.is-started[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--on-navy-accent)}
+.atlas-tiles.solo .atlas-tile[aria-pressed=false]{opacity:.38}
+.atlas-tiles.solo .atlas-tile[aria-pressed=false]:hover{opacity:.8}
+.atlas-tile:focus-visible{outline-offset:3px}
+.pictogram{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.pictogram .icon-tone,.atlas-sprite .icon-tone{fill:currentColor;fill-opacity:.14;stroke:none}
 
-.atlas-latest{margin-top:40px}
-.atlas-feed{display:grid;gap:8px;margin:14px 0 0;padding:0;list-style:none}
-.atlas-feed li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:12px;font-size:1rem;color:var(--ink-3)}
-.atlas-feed .what{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.atlas-feed strong{font-weight:600;color:var(--ink)}
-.atlas-feed .when{font-size:.9375rem;white-space:nowrap}
-.atlas-feed li.fresh{animation:atlas-rise .6s cubic-bezier(.2,.7,.3,1) both}
-@keyframes atlas-rise{from{transform:translateY(12px)}to{transform:none}}
-.atlas-empty{margin-top:12px;color:var(--ink-3)}
+.atlas-latest{display:flex;align-items:baseline;gap:16px;margin-top:26px}
+.atlas-latest-line{display:block;min-width:0;font-size:1rem;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.atlas-latest-line strong{font-weight:600;color:var(--ink)}
+.atlas-swatch{display:inline-block;width:9px;height:9px;margin-right:10px;border-radius:50%;background:var(--c);translate:0 -1px}
 
-/* The map. White counties on warm paper; the gaps between them are the paper. */
-.atlas-map{display:grid;gap:6px}
+/* The map. Cream counties on white; the gaps between them are the page. Sized to fit one screen. */
+.atlas-map{display:grid;gap:8px;width:max-content;max-width:100%}
 .atlas-map-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
-.atlas-scope select{max-width:100%;min-height:44px;padding:0 32px 0 0;border:0;border-radius:2px;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%230f1c2d' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m1 1.5 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 4px center;color:var(--ink);font:400 clamp(1.375rem,1.9vw,1.75rem)/1.2 var(--sera);letter-spacing:-.02em;appearance:none;cursor:pointer}
+.atlas-scope select{max-width:100%;min-height:44px;padding:0 30px 0 0;border:0;border-radius:2px;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%230f1c2d' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m1 1.5 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 2px center;color:var(--ink);font:400 clamp(1.25rem,1.7vw,1.5rem)/1.2 var(--sera);letter-spacing:-.02em;appearance:none;cursor:pointer}
 .atlas-scope select:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
 .atlas-scope option{font:400 1rem var(--nova)}
 .atlas-scope-sub{font-size:.9375rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .atlas-present-off{display:none}
 .atlas-map-top .atlas-link{flex:none;font-size:.9375rem;font-weight:500;color:var(--ink-2)}
 
-.atlas-stage{position:relative;aspect-ratio:808/1091;max-height:min(900px,88vh);width:100%}
+.atlas-stage{position:relative;height:clamp(500px,calc(100vh - 318px),800px);aspect-ratio:808/1091;max-width:100%}
 .atlas-svg{display:block;width:100%;height:100%;overflow:hidden;touch-action:manipulation}
-.atlas-county{fill:var(--atlas-land);stroke:var(--cream);stroke-width:2px;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s}
+.atlas-county{fill:var(--atlas-land);stroke:var(--paper);stroke-width:2px;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s}
 .atlas-county:hover{fill:var(--atlas-land-hover)}
 .atlas-scoped .atlas-county:not(.on){fill:var(--atlas-land-far)}
-.atlas-scoped .atlas-county:not(.on):hover{fill:#e2dccd}
+.atlas-scoped .atlas-county:not(.on):hover{fill:#f0ebdf}
 .atlas-places text{font:500 calc(12px * var(--u,1))/1 var(--nova);fill:var(--ink-2);paint-order:stroke;stroke:var(--atlas-land);stroke-width:3.5px;vector-effect:non-scaling-stroke;stroke-linejoin:round;pointer-events:none}
 .atlas-scoped .atlas-places,.atlas-has-mine .atlas-places .home{display:none}
 
 /* A mark is a zero-length rounded stroke, so it keeps its size on screen at any zoom. */
-.atlas-pin{fill:none;stroke-linecap:round;stroke-width:var(--atlas-pin);vector-effect:non-scaling-stroke;stroke-opacity:.82;pointer-events:none}
+.atlas-pin{fill:none;stroke-linecap:round;stroke-width:var(--atlas-pin);vector-effect:non-scaling-stroke;stroke-opacity:.85;pointer-events:none}
 .atlas-pin.t0{stroke:var(--atlas-hired)}.atlas-pin.t1{stroke:var(--atlas-started)}.atlas-pin.t2{stroke:var(--atlas-funding)}.atlas-pin.t3{stroke:var(--atlas-sales)}
 .atlas-pin.off{display:none}
-.atlas-pin.dim{stroke-opacity:.12}
-.atlas-scoped{--atlas-pin:7px}
+.atlas-pin.dim{stroke-opacity:.1}
+.atlas-scoped{--atlas-pin:7.5px}
 
-/* Story marks: the page's few berry accents. A ring, larger than a milestone. */
+/* Ringed marks: the page's berry accent. A bullseye is a success story; a plain ring is a testimony. */
 .atlas-story{cursor:pointer;outline:none}
 .atlas-story path{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke;transition:stroke-width .18s,stroke-opacity .18s}
 .atlas-story .hit{stroke:#000;stroke-opacity:0;stroke-width:34px}
-.atlas-story .glow{stroke:var(--atlas-story);stroke-opacity:0;stroke-width:34px}
-.atlas-story .ring{stroke:var(--atlas-story);stroke-width:15px}
-.atlas-story .gap{stroke:#fdfdfd;stroke-width:10px}
+.atlas-story .glow{stroke:var(--atlas-story);stroke-opacity:0;stroke-width:36px}
+.atlas-story .ring{stroke:var(--atlas-story);stroke-width:16px}
+.atlas-story .gap{stroke:var(--paper);stroke-width:10.5px}
 .atlas-story .core{stroke:var(--atlas-story);stroke-width:4.5px}
-.atlas-story:hover .ring,.atlas-story.lit .ring,.atlas-story.open .ring{stroke-width:18px}
-.atlas-story:hover .gap,.atlas-story.lit .gap,.atlas-story.open .gap{stroke-width:12px}
-.atlas-story.lit .glow,.atlas-story.open .glow{stroke-opacity:.16}
-.atlas-story:focus-visible .glow{stroke:var(--cobalt);stroke-opacity:.9;stroke-width:26px}
-.atlas-story.far{opacity:.35}
+.atlas-story.is-voice .ring{stroke-width:13px}
+.atlas-story.is-voice .gap{stroke-width:8.5px}
+.atlas-story:is(:hover,.lit,.open) .ring{stroke-width:19px}
+.atlas-story:is(:hover,.lit,.open) .gap{stroke-width:12.5px}
+.atlas-story.is-voice:is(:hover,.lit,.open) .ring{stroke-width:16px}
+.atlas-story.is-voice:is(:hover,.lit,.open) .gap{stroke-width:10.5px}
+.atlas-story:is(.lit,.open) .glow{stroke-opacity:.15}
+.atlas-story:focus-visible .glow{stroke:var(--cobalt);stroke-opacity:.9;stroke-width:27px}
+.atlas-story.far{opacity:.3}
 
 .atlas-mine path{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke;pointer-events:none}
 .atlas-mine .halo{stroke:var(--c);stroke-width:34px;stroke-opacity:.14}
 .atlas-mine .ring{stroke:var(--c);stroke-width:15px}
 .atlas-mine .core{stroke:var(--c);stroke-width:9px}
-.atlas-mine .pending .core{stroke:#fdfdfd}
+.atlas-mine .pending .core{stroke:var(--paper)}
 .atlas-mine .pending .halo{animation:atlas-wait 2.2s ease-in-out infinite}
 .atlas-mine .ripple{stroke:var(--c);stroke-width:12px;stroke-opacity:0}
-.atlas-mine text{font:700 calc(13px * var(--u,1))/1 var(--nova);fill:var(--ink);paint-order:stroke;stroke:#fdfdfd;stroke-width:4px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.atlas-mine text{font:700 calc(13px * var(--u,1))/1 var(--nova);fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:4px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
 @keyframes atlas-wait{0%,100%{stroke-opacity:.06}50%{stroke-opacity:.24}}
 
 .atlas-tip{position:absolute;z-index:3;left:0;top:0;max-width:260px;padding:9px 13px;border-radius:var(--radius);background:var(--navy-surface);color:var(--on-navy);font-size:.9375rem;line-height:1.35;pointer-events:none;translate:-50% calc(-100% - 16px)}
 .atlas-tip strong{display:block;font-weight:700}
 
-/* One story at a time, on a solid pool plate (the dashboard's one emphasis device). */
-.atlas-pop{position:absolute;z-index:2;left:0;top:0;width:min(320px,calc(100% - 24px));padding:20px 22px 12px;border-radius:var(--radius);background:#fdfdfd;box-shadow:8px 8px 0 var(--pool)}
-.atlas-pop-photo{position:relative;aspect-ratio:16/9;margin:-20px -22px 18px;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;background:#e9e4d8}
-.atlas-pop-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.atlas-pop-title{margin-top:14px;font:400 1.375rem/1.22 var(--sera);letter-spacing:-.018em;text-wrap:pretty;outline:none}
+/* One story or testimony at a time, on a solid pool plate (the dashboard's one emphasis device). */
+.atlas-pop{position:absolute;z-index:2;left:0;top:0;width:288px;max-width:calc(100% - 16px);padding:18px 20px 16px;border-radius:var(--radius);background:var(--paper);box-shadow:8px 8px 0 var(--pool)}
+.atlas-pop-photo{position:relative;aspect-ratio:16/9;margin:-18px -20px 16px;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;border-bottom:4px solid var(--berry);background:var(--atlas-land)}
+.atlas-pop-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--zoom,1))}
+.atlas-pop-title{font:400 1.25rem/1.24 var(--sera);letter-spacing:-.015em;text-wrap:pretty}
+.atlas-pop.is-voice .atlas-pop-title{font-size:1.3125rem}
 .atlas-pop-by{margin-top:10px;font-size:.9375rem;color:var(--ink-3)}
-.atlas-pop-actions{display:flex;flex-wrap:wrap;gap:0 24px;margin-top:6px}
-.atlas-pop-actions .atlas-link{font-size:.9375rem}
-.atlas-pop-actions button{font-weight:500;color:var(--ink-2)}
+.atlas-pop .atlas-link{margin-top:4px;margin-bottom:-8px;font-size:.9375rem}
 
-/* Time: one quiet line under the map. */
-.atlas-time{display:flex;align-items:center;gap:20px;margin-top:4px}
-.atlas-play{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px 0 16px;flex:none;border:0;border-radius:22px;background:#fdfdfd;color:var(--ink);font-size:.9375rem;font-weight:700;white-space:nowrap;transition:background .18s}
-.atlas-play:hover{background:var(--atlas-land-hover)}
-.atlas-play-mark{width:0;height:0;border-style:solid;border-width:6px 0 6px 9px;border-color:transparent transparent transparent var(--ink)}
-.atlas-play[aria-pressed=true] .atlas-play-mark{width:9px;height:12px;border-width:0 3px;border-color:var(--ink)}
-.atlas-months{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:3px;flex:1;min-width:0;height:34px;margin:0;padding:0;list-style:none}
+/* Time: a thin strip of months, then one line. */
+.atlas-time{display:grid;gap:4px;margin-top:6px}
+.atlas-months{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:3px;height:24px;margin:0;padding:0;list-style:none}
 .atlas-months li{display:grid;height:100%}
 .atlas-months button{position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:none}
-.atlas-months button i{position:absolute;inset:auto 0 0 0;height:var(--h,30%);border-radius:2px;background:var(--navy-surface);opacity:.72;transition:opacity .18s,height .3s}
-.atlas-months button.later i{opacity:.16}
-.atlas-months button:hover i{opacity:1}
-.atlas-through{flex:none;min-width:9.5em;text-align:right;font-size:.9375rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.atlas-months button i{position:absolute;inset:auto 0 0 0;height:var(--h,30%);border-radius:2px;background:var(--navy-surface);opacity:.42;transition:opacity .18s,height .3s}
+.atlas-months button.later i{opacity:.12}
+.atlas-months button:hover i{opacity:.8}
+.atlas-time-row{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.atlas-play{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0;border:0;background:none;color:var(--ink);font-size:.9375rem;font-weight:700;white-space:nowrap}
+.atlas-play:hover span:last-child{text-decoration:underline;text-underline-offset:5px}
+.atlas-play-mark{width:0;height:0;border-style:solid;border-width:6px 0 6px 9px;border-color:transparent transparent transparent var(--ink)}
+.atlas-play[aria-pressed=true] .atlas-play-mark{width:9px;height:12px;border-width:0 3px;border-color:var(--ink)}
+.atlas-through{font-size:.9375rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
 
 /* Design-preview strip. Present only when a milestone was shared from the dashboard preview in this browser. */
-.atlas-preview{display:flex;justify-content:space-between;align-items:center;gap:4px 32px;flex-wrap:wrap;margin-bottom:40px;padding:12px 22px;border-radius:var(--radius);background:#fdfdfd;font-size:1rem}
+.atlas-preview{display:flex;justify-content:space-between;align-items:center;gap:4px 32px;flex-wrap:wrap;margin-bottom:32px;padding:12px 22px;border-radius:var(--radius);background:var(--cream);font-size:1rem}
 .atlas-preview p{max-width:52em}
 .atlas-preview-actions{display:flex;gap:0 28px;flex:none}
 
-/* Stories: a small card collection, as on the dashboard's Resources page. */
-.atlas-stories{padding:0 0 84px}
-.atlas-stories-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:end;gap:24px 64px}
-.atlas-stories-head h2{margin-top:18px;font:400 clamp(2rem,3.3vw,3.1rem)/1.05 var(--sera);letter-spacing:-.03em}
-.atlas-stories-head>p{max-width:26em;padding-bottom:4px;font-size:1.0625rem;color:var(--ink-2)}
-.atlas-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:40px 0 0;padding:0;list-style:none}
-.atlas-card{display:flex;flex-direction:column;overflow:hidden;border-radius:var(--radius);background:#fdfdfd}
-.atlas-card-photo{position:relative;flex:none;aspect-ratio:16/10;overflow:hidden;background:#e9e4d8}
-.atlas-card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.atlas-card-body{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:24px 26px 14px}
-.atlas-card h3,.atlas-card blockquote{margin:16px 0 0;font:400 1.5rem/1.2 var(--sera);letter-spacing:-.02em;text-wrap:pretty}
-.atlas-card.is-voice .atlas-card-body{padding-top:28px}
-.atlas-card.is-voice blockquote{font-size:clamp(1.5rem,1.9vw,1.75rem)}
-.atlas-card-by{margin-top:12px;font-size:1rem;color:var(--ink-3)}
-.atlas-card-actions{display:flex;flex-wrap:wrap;gap:0 24px;margin-top:auto;padding-top:14px}
-.atlas-card-actions .atlas-link{font-size:.9375rem}
-.atlas-card-actions button{font-weight:500;color:var(--ink-2)}
-.atlas-card.current{box-shadow:8px 8px 0 var(--pool)}
-.atlas-stories-more{margin-top:28px}
+/* Stories: scale does the work. A statement, then three photographs, each led by its place. */
+.atlas-stories{padding:0 0 96px}
+.atlas-stories-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,21em);align-items:end;gap:20px 64px}
+.atlas-stories-head h2{font:400 clamp(3.4rem,10vw,9rem)/.92 var(--sera);letter-spacing:-.05em;font-variant-numeric:lining-nums}
+.atlas-stories-head>p{padding-bottom:clamp(6px,1.2vw,18px);font-size:1.1875rem;line-height:1.45;color:var(--ink-2);text-wrap:pretty}
+.atlas-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.6vw,40px);margin:clamp(36px,5vw,64px) 0 0;padding:0;list-style:none}
+.atlas-card{display:flex;flex-direction:column;align-items:flex-start;height:100%;color:var(--ink);text-decoration:none}
+.atlas-card:hover{text-decoration:none}
+.atlas-card-photo{position:relative;display:block;width:100%;aspect-ratio:4/5;overflow:hidden;border-bottom:4px solid var(--berry);background:var(--atlas-land)}
+.atlas-card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--zoom,1));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.atlas-card:is(:hover,:focus-visible) .atlas-card-photo img{transform:scale(calc(var(--zoom,1) * 1.03))}
+.atlas-card-place{display:flex;align-items:center;gap:.32em;margin-top:24px;font:400 clamp(1.9rem,3.3vw,3.1rem)/1 var(--sera);letter-spacing:-.035em}
+.atlas-ring{width:.4em;height:.4em;flex:none;border:.085em solid var(--berry);border-radius:50%;background:radial-gradient(circle,var(--berry) 0 30%,transparent 34%)}
+.atlas-card-title{max-width:20em;margin-top:14px;font-size:1.1875rem;font-weight:500;line-height:1.38;color:var(--ink-2);text-wrap:pretty}
+.atlas-card-name{display:inline-flex;align-items:center;gap:10px;margin-top:auto;padding-top:16px;font-size:1rem;font-weight:700}
+.atlas-card:is(:hover,:focus-visible) .atlas-card-name{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.atlas-arrow{position:relative;display:inline-block;flex:none;width:20px;height:20px;transition:translate .2s}
+.atlas-arrow::before{content:"";position:absolute;left:1px;top:9px;width:16px;height:1.5px;background:currentColor}
+.atlas-arrow::after{content:"";position:absolute;right:3px;top:5.75px;width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;rotate:45deg}
+.atlas-card:is(:hover,:focus-visible) .atlas-arrow{translate:4px 0}
+.atlas-stories-more{margin-top:48px}
 
 /* Next step: the page's one slate-navy surface. */
 .atlas-next{padding-bottom:56px}
@@ -163,69 +174,74 @@
 .atlas-next-card :focus-visible{outline-color:var(--pool)}
 
 /* Notes: the county table and the reporting note. */
-.atlas-notes{padding-block:0 38px;font-size:.875rem;color:var(--ink-2)}
-.atlas-notes summary{min-height:52px;display:list-item;padding:15px 4px;font-weight:600}
-.atlas-notes details>div{max-width:70em;padding:0 4px 22px}
+.atlas-notes{padding-block:0 44px;font-size:.9375rem;color:var(--ink-2)}
+.atlas-notes summary{display:flex;align-items:center;gap:12px;min-height:52px;padding:14px 0;font-weight:600;color:var(--ink);list-style:none}
+.atlas-notes summary::-webkit-details-marker{display:none}
+.atlas-notes summary::before{content:"";width:7px;height:7px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;rotate:-45deg;transition:rotate .2s}
+.atlas-notes details[open] summary::before{rotate:45deg}
+.atlas-notes details>div{max-width:66em;padding:0 0 22px 19px}
 .atlas-notes p+p{margin-top:12px}
 .atlas-notes a{text-decoration:underline;text-underline-offset:3px}
-.atlas-notes .atlas-table-scroll{max-width:none;overflow-x:auto;margin-bottom:22px;padding:0;border-radius:var(--radius);background:#fdfdfd}
+.atlas-notes .atlas-table-scroll{max-width:none;overflow-x:auto;margin-bottom:22px;padding:0;border-radius:var(--radius)}
 .atlas-table table{width:100%;min-width:760px;border-collapse:collapse;font-size:1rem;color:var(--ink);font-variant-numeric:tabular-nums}
 .atlas-table th,.atlas-table td{padding:12px 16px;text-align:left;white-space:nowrap}
 .atlas-table thead th{font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
 .atlas-table tbody th{font-weight:600}
-.atlas-table tbody tr:nth-child(even){background:var(--cream)}
+.atlas-table tbody tr:nth-child(odd){background:var(--cream)}
 .atlas-table .num{text-align:right}
 
 /* Presenting: the site steps away and the composition fills the screen. */
 body.atlas-present .announcement,body.atlas-present .site-header,body.atlas-present .site-footer,body.atlas-present .skip-link,
 body.atlas-present .atlas-stories,body.atlas-present .atlas-next,body.atlas-present .atlas-notes,body.atlas-present .atlas-present-on,body.atlas-present .atlas-intro{display:none}
 body.atlas-present .atlas-present-off{display:inline-flex}
-body.atlas-present .atlas-hero{display:grid;align-items:center;min-height:100vh;padding:clamp(20px,3.5vh,44px) 0}
+body.atlas-present .atlas-hero{display:grid;align-items:center;min-height:100vh;padding:clamp(18px,3vh,40px) 0}
 body.atlas-present .atlas-hero>.shell{width:min(1560px,calc(100% - 112px))}
 body.atlas-present .atlas-grid{align-items:center}
-body.atlas-present .atlas-preview{margin-bottom:20px}
-body.atlas-present .atlas-stage{max-height:calc(100vh - 176px)}
-body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-stage{max-height:calc(100vh - 276px)}
-body.atlas-present .atlas-lede h1{font-size:clamp(2.2rem,3.8vw,4.2rem)}
-body.atlas-present .atlas-totals{margin-top:clamp(20px,4vh,48px)}
-body.atlas-present .atlas-totals strong{font-size:clamp(2.3rem,3.6vw,3.9rem)}
-body.atlas-present .atlas-totals button{min-height:clamp(68px,9vh,96px)}
-body.atlas-present .atlas-latest{margin-top:clamp(16px,3.5vh,44px)}
+body.atlas-present .atlas-lede{max-width:860px}
+body.atlas-present .atlas-preview{margin-bottom:18px}
+body.atlas-present .atlas-stage{height:calc(100vh - 190px)}
+body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-stage{height:calc(100vh - 284px)}
+body.atlas-present .atlas-tile{min-height:clamp(150px,24vh,250px)}
+body.atlas-present .atlas-tile strong{font-size:clamp(2.6rem,4.6vw,4.8rem)}
+body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clamp(42px,5vh,60px)}
 
 @media(max-width:1100px){
   .atlas-grid{grid-template-columns:1fr;gap:44px}
-  .atlas-lede h1{max-width:12em}
-  .atlas-stage,body.atlas-present .atlas-stage,body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-stage{max-height:none}
-  .atlas-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .atlas-map{width:100%}
+  .atlas-stage,body.atlas-present .atlas-stage,body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-stage{width:100%;height:auto}
   .atlas-next-card{gap:32px 48px}
 }
 @media(max-width:700px){
-  .atlas-page{--atlas-pin:2.3px}
-  .atlas-hero{padding:30px 0 52px}
-  .atlas-lede h1{margin-top:16px;font-size:clamp(2.4rem,10vw,3.25rem)}
-  .atlas-intro{margin-top:16px;font-size:1.0625rem}
-  .atlas-totals{margin:28px -12px 0}
-  .atlas-totals button{min-height:62px;padding:8px 12px;gap:12px}
-  .atlas-totals span{font-size:1rem}
-  .atlas-totals strong{font-size:2rem}
-  .atlas-latest{margin-top:30px}
+  .atlas-page{--atlas-pin:2.4px}
+  .atlas-hero{padding:22px 0 56px}
+  .atlas-lede h1{margin-top:14px;font-size:clamp(2.3rem,9.6vw,3.1rem)}
+  .atlas-intro{margin-top:14px;font-size:1.0625rem}
+  .atlas-tiles{gap:8px;margin-top:26px}
+  .atlas-tile{min-height:134px;padding:14px 16px 16px}
+  .atlas-tile .pictogram{width:34px;height:34px}
+  .atlas-tile strong{font-size:clamp(1.9rem,8.6vw,2.5rem)}
+  .atlas-tile span{margin-top:6px;font-size:.9375rem}
+  .atlas-latest{display:grid;gap:4px;margin-top:22px}
+  .atlas-latest-line{white-space:normal}
   .atlas-present-on{display:none}
-  .atlas-time{flex-wrap:wrap;gap:12px 16px}
-  .atlas-months{order:3;flex-basis:100%}
-  .atlas-through{min-width:0;margin-left:auto}
-  .atlas-preview{margin-bottom:28px;padding:14px 16px}
-  .atlas-stories{padding-bottom:52px}
+  .atlas-preview{margin-bottom:24px;padding:14px 16px}
+  .atlas-stories{padding-bottom:60px}
   .atlas-stories-head{grid-template-columns:1fr}
-  .atlas-cards{grid-template-columns:1fr;gap:12px;margin-top:28px}
+  .atlas-stories-head h2{font-size:clamp(3.2rem,17vw,5rem)}
+  .atlas-stories-head>p{font-size:1.0625rem}
+  .atlas-cards{grid-template-columns:1fr;gap:44px;margin-top:32px}
+  .atlas-card-photo{aspect-ratio:5/4}
+  .atlas-card-place{margin-top:18px;font-size:2.1rem}
+  .atlas-stories-more{margin-top:36px}
   .atlas-next{padding-bottom:36px}
   .atlas-next-card{grid-template-columns:1fr;padding:30px 24px}
   .atlas-next-card p{margin-bottom:28px}
 }
 @media(prefers-reduced-motion:reduce){
   .atlas-mine .pending .halo{animation:none;stroke-opacity:.18}
-  .atlas-feed li.fresh{animation:none}
-  .atlas-county,.atlas-months button i,.atlas-story path{transition:none}
+  .atlas-county,.atlas-months button i,.atlas-story path,.atlas-tile,.atlas-tile .pictogram,.atlas-card-photo img,.atlas-arrow{transition:none}
+  .atlas-card:is(:hover,:focus-visible) .atlas-card-photo img{transform:scale(var(--zoom,1))}
 }
 @media print{
-  .atlas-page .site-header,.atlas-page .site-footer,.atlas-next,.atlas-time,.atlas-preview,.atlas-pop,[data-atlas-present],.atlas-card-actions{display:none}
+  .atlas-page .site-header,.atlas-page .site-footer,.atlas-next,.atlas-time,.atlas-preview,.atlas-pop,[data-atlas-present]{display:none}
 }

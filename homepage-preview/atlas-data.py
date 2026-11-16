@@ -157,7 +157,7 @@ pins.sort(key=lambda p: -p[3])                           # oldest first, so the 
 town_list = [None] * len(used)
 for town_index, slot in used.items():
     t = towns[town_index]
-    town_list[slot] = [t['label'], COUNTY_INDEX[t['county']], round(t['x'], 1), round(t['y'], 1)]
+    town_list[slot] = [t['label'], COUNTY_INDEX[t['county']], round(t['x'], 1), round(t['y'], 1), int(MAJOR.get(t['key'], 0) >= 2)]
 
 # ── Sample quotes, credited by county only (the consent the forms ask for) ──
 QUOTES = [
@@ -188,21 +188,21 @@ for kind, text in QUOTES:
 # homepage). The three "voice" quotes are sample content, credited by county only.
 CLIENTS = 'https://www.norcalsbdc.org/about/clients/'
 FEATURED = [
-    dict(kind='story', at='petaluma', name='Jump Aero', meta='Advanced aviation · Petaluma',
+    dict(kind='story', at='petaluma', place='Petaluma', name='Jump Aero', meta='Advanced aviation · Petaluma',
          title='$12M raised. A faster path to first flight.',
          img='https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg',
          alt='Jump Aero first-response aircraft in flight', pos='50% 50%',
          href='https://www.norcalsbdc.org/client-stories/jump-aero-raises-12m-to-build-the-worlds-fastest-first-response-aircraft/'),
     dict(kind='voice', at='redding',
          title='We went from just me to a team of four this year. My advisor helped me work out when I could afford each hire.'),
-    dict(kind='story', at='san rafael', name='Yarrow Goods', meta='Ecommerce · Marin County',
+    dict(kind='story', at='san rafael', place='Marin County', name='Yarrow Goods', meta='Ecommerce · Marin County',
          title='$138K raised. Sales up 20%.',
          img='https://www.norcalsbdc.org/wp-content/uploads/sites/9/2024/07/2024-Client-Success-Story-Yarrow-Goods-Owners.jpeg',
-         alt='The owners of Yarrow Goods with one of their products', pos='50% 35%',
+         alt='The owners of Yarrow Goods with one of their products', pos='50% 100%', zoom=1.5,
          href='https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/'),
     dict(kind='voice', at='sacramento',
          title='I came in with an idea and a lot of questions. Nine months later I had a licence, a lease and my first customers.'),
-    dict(kind='story', at='fort bragg', name='Liquid Fusion Kayaking', meta='Outdoor recreation · Fort Bragg',
+    dict(kind='story', at='fort bragg', place='Fort Bragg', name='Liquid Fusion Kayaking', meta='Outdoor recreation · Fort Bragg',
          title='A coastline turned into a livelihood.',
          img='https://www.californiasbdc.org/wp-content/uploads/sites/34/2021/05/Liquid-Fusion-Cate-Hawthorn-5-1200x800.jpg',
          alt='Cate Hawthorn kayaking on the Mendocino coast', pos='50% 45%', href=CLIENTS),

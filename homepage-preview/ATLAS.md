@@ -16,79 +16,88 @@ One sentence: **show how much is happening, without showing who.** A visitor see
 activity and four totals that add up. A few ringed marks open into the people behind them. A client
 who just shared a milestone can see where it joins everyone else's.
 
-## The approach (second version)
+## The approach (third version)
 
 The first version put the map on a full-bleed navy band with bright lights. It worked, and it was
-busy. This version asks what a studio like Pentagram would do with the same features, using the
-MySBDC dashboard's design logic (`../handoff/DESIGN.md`):
+busy. The second made the page light and typographic. This third version keeps that restraint and
+asks what a studio like Pentagram would do with the same features, using the MySBDC dashboard's
+design logic (`../handoff/DESIGN.md`):
 
-- **Subtract until one idea is left.** The page is one composition: words and four numbers on the
-  left, the map on the right. Section labels, sub-lines under each number, a hint line and a second
-  heading were removed. Nothing was added to replace them.
-- **Typography carries the hierarchy.** Proxima Sera sets the headline and the four numbers;
-  Proxima Nova sets everything functional. Size and position do the work that boxes and colour
-  bands did before.
-- **Warm paper, white surfaces, one navy card.** The page is the dashboard's warm paper. Counties
-  are white tiles; the paper showing between them is the border. The only dark surface is the
-  slate-navy next-step card.
-- **Colour is quiet and earns its place.** Marks use deeper relatives of the dashboard's milestone
-  tile colours. Berry appears in exactly one role: the story marks.
-- **One control does several jobs.** The four totals are the legend and the filter. The county menu
-  is also the map's title. The timeline is one line.
+- **The totals are the dashboard's tiles.** The public sees the same four coloured tiles and
+  pictograms a client taps to share a milestone. One object, two places: where the result is
+  reported and where it is shown.
+- **One composition, one screen.** Headline and tiles on the left, the map on the right, sized to
+  the window so the whole idea is visible without scrolling.
+- **A white page.** The site is white, as on the homepage and impact page. The map is the only
+  cream: cream counties, with the white page showing between them as the border.
+- **Scale does the work in the stories.** One very large line of type, then three photographs,
+  each led by its place name. No card chrome.
+- **Colour has jobs.** Tile colours name the four kinds of milestone. Berry does one thing: it
+  marks people (the ringed marks, and the rule under each story photograph).
+- **It arrives.** On load the year fills in once and the totals count up.
 
-The first version is kept for comparison as `atlas-v1.html`.
+Earlier versions: `atlas-v1.html` (navy band) is kept for comparison; the second version is in the
+repository history.
 
 ## Page composition
 
-1. **The composition (warm paper).** Left: label, serif headline, one sentence, the four totals as
-   an index, and the three latest milestones. Right: the map, with its county menu above and the
-   timeline below.
-2. **Stories.** "Behind the marks, people." A small card collection, as on the dashboard's
-   Resources page: three success stories, then three testimonies.
+1. **The composition (white).** Left: label, serif headline, one sentence, the four tiles, and a
+   single "Latest" line. Right: the county menu, the map, and the timeline.
+2. **Stories.** "Three of 4,222." (the number is the live count), then three success stories.
 3. **Next step.** One slate-navy card: "Add your milestone to the map", which opens MySBDC.
 4. **Notes.** "Totals by county" and "About this map" as disclosures.
 
+## The tiles
+
+- **Order:** capital accessed, sales growth, businesses started, jobs created.
+- **Same tiles as the dashboard.** Sand with the coins for capital, sage with the rising columns
+  for sales, slate navy with the storefront for starts, pool with the two people for jobs. The
+  pictograms are copied from `handoff/src/_icons.svg` and stay small; the number is the subject.
+- **Each tile is a legend entry and a filter.** A tile's colour is the family of its marks on the
+  map. Choosing a tile shows only that kind of mark, rings the tile, and fades the others; choosing
+  it again shows all four. The numbers never change with the filter.
+- **They follow the view.** Choosing a county re-totals all four for that county.
+
 ## The map
 
-- **White counties on warm paper.** No drawn borders: the gap between counties is the page
-  showing through. There are no tiles from a map service, no gradients and no shadows, so the page
-  has no outside dependency.
+- **Cream counties on white.** No drawn borders: the gap between counties is the page showing
+  through. There are no tiles from a map service, no gradients and no shadows, so the page has no
+  outside dependency.
+- **Sized to the window.** The map's height follows the viewport, so the map and the tiles end
+  above the fold on a laptop.
 - **Every milestone is one small mark.** About 4,200 of them read as a texture of activity before
   anyone reads a number. Marks keep the same size on screen at every zoom.
-- **Colour means the kind of milestone, and nothing else.** The mapping follows the dashboard's
-  milestone tiles (pool for hired, sage for sales, sand for funding, navy for started), deepened so
-  small marks hold on white.
+- **Colour means the kind of milestone, and nothing else.** Each mark is a deeper relative of its
+  tile, so small marks hold on cream.
 
-  | Milestone | Mark | Token |
-  | --- | --- | --- |
-  | Capital accessed (new funding) | ochre | `--atlas-funding` `#B98A2B` |
-  | Businesses started | navy | `--atlas-started` `#243B50` |
-  | Jobs created (new hires) | pool blue | `--atlas-hired` `#3292B3` |
-  | Sales growth | sage green | `--atlas-sales` `#397247` |
+  | Milestone | Tile | Mark | Token |
+  | --- | --- | --- | --- |
+  | Capital accessed | sand | ochre | `--atlas-funding` `#A97C1F` |
+  | Sales growth | sage | green | `--atlas-sales` `#397247` |
+  | Businesses started | slate navy | navy | `--atlas-started` `#243B50` |
+  | Jobs created | pool | blue | `--atlas-hired` `#2E8CAD` |
 
-  The four were checked together on white for colour-blind separation and 3:1 contrast. Change
-  them as a set, not one at a time.
-- **Colour is never the only cue.** Each total names its colour, the pointer names any mark, and
+  The four were checked together on the cream county colour for colour-blind separation and 3:1
+  contrast. Change them as a set, not one at a time.
+- **Colour is never the only cue.** Each tile names its kind, the pointer names any mark, and
   "Totals by county" gives the same numbers as a table.
 - **Two altitudes.** The whole region shows density. Choosing a county (click it, or use the menu
-  above the map) zooms in, lets the other counties recede into the paper, enlarges the marks, and
-  re-scopes the totals and the latest list. Escape or a click outside returns to the region.
-- **A few place names for orientation.** Nine towns are labelled on the regional view and removed
-  when zoomed, where the menu already names the county.
+  above the map) zooms in, lets the other counties recede, enlarges the marks, and re-scopes the
+  tiles and the latest line. Escape or a click outside returns to the region.
+- **Five place names for orientation,** removed when zoomed, where the menu names the county.
 
-## Story marks
+## Ringed marks: stories and testimonies
 
 A few marks are ringed in berry. Each is a person, not a count.
 
-- **Two kinds.** A **success story** is a published client story: photo, one-line result, business
-  name and a link to read it. A **testimony** ("In their words") is a short quote credited by
-  county only.
-- **On the map** a story mark is a ring, larger than a milestone, so it differs by shape and size
-  as well as colour. It is a real button: pointer, touch and keyboard all open it.
-- **Opening one** shows a single card beside the mark, on a solid pool plate, the dashboard's one
-  emphasis device. Escape or Close dismisses it and returns focus to the mark.
-- **Below the map** the same six appear as cards. "Show on the map" on a card opens its mark;
-  resting on a card lights its mark.
+- **A bullseye is a success story:** a published client story. Hover or focus shows a small card
+  with its photograph, result, name and a "Read story" link.
+- **A plain ring is a testimony:** a short quote credited by county only. It lives on the map and
+  nowhere else on the page. Hover or focus shows the quote.
+- **Behaviour.** Hover or keyboard focus shows a card; moving away closes it. A click or Enter
+  keeps it open, and for a story moves focus to "Read story". Escape closes it. On touch, a tap
+  opens it.
+- **The card** sits beside its mark on a solid pool plate, the dashboard's one emphasis device.
 - **Keep them few.** Six is about the limit before the map reads as two competing layers. Rotate
   them rather than adding more.
 - **Sources.** The three success stories are existing client stories from the website draft
@@ -96,26 +105,31 @@ A few marks are ringed in berry. Each is a person, not a count.
   three testimonies are sample quotes. In production, testimonies come from the optional quote on
   the milestone forms, and a named story needs the owner's agreement.
 
-## The totals
+## The story row
 
-- **The four totals are the legend and the filter.** Choosing a total shows only that kind of
-  mark; choosing it again shows all four. The totals never change with the filter.
-- **They match the impact page.** Capital accessed, businesses started, jobs created, sales growth,
-  in that order and with those words.
-- **Latest** is three quiet lines: kind, town, county, and when.
+- **One line at poster scale:** "Three of 4,222." The count is live, so it grows as milestones do.
+- **Three photographs,** tall, in natural colour, with the homepage's 4px berry rule beneath.
+- **Place first.** Each story is headed by where it happened, with the same bullseye as its mark
+  on the map. Then the result in one line, then the business name. The whole card is the link.
+- **Resting on a card lights its mark** on the map.
+
+## Latest
+
+One quiet line under the tiles that takes turns through the most recent milestones in view.
+Across the region it favours towns a visitor will recognise.
 
 ## Time
 
-One line under the map: a Play control, twelve month bars, and the period in words. Choosing a
-month shows the map "through" that month. **Play the year** fills the map from twelve months ago to
-today while the totals count up. With reduced motion it steps month by month.
+A thin strip of twelve month bars under the map, then one line with Play and the period in words.
+Choosing a month shows the map "through" that month. **Play the year** fills the map from twelve
+months ago to today while the tiles count up. With reduced motion it steps month by month, and the
+arrival animation on load is skipped.
 
 ## Presenting
 
-"Present full screen" (or `atlas.html?present`) removes the site header, footer and the sections
-below, so the composition fills the screen. While presenting, the story marks take turns opening
-every few seconds; any click or key press stops the tour. It suits a lobby display or a partner
-meeting.
+"Present" (or `atlas.html?present`) removes the site header, footer and the sections below, so the
+composition fills the screen. While presenting, the ringed marks take turns opening every few
+seconds; any click or key press stops the tour. It suits a lobby display or a partner meeting.
 
 ## Privacy rules
 
