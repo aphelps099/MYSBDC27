@@ -22,7 +22,16 @@
 }
 .atlas-page .site-header{background:var(--atlas-ground)}
 .atlas-page .header-inner{border:0}
-.atlas-page .primary-nav [aria-current=page]{text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:2px}
+/* A quieter header for this page: a smaller logo, one compact row, lighter links, a smaller button. */
+.atlas-page .header-inner{min-height:76px;gap:24px}
+.atlas-page .brand img{width:144px;height:auto}
+.atlas-page .primary-nav{gap:30px}
+.atlas-page .primary-nav a:not(.button),.atlas-page .header-actions .login{font-size:.9375rem;font-weight:500;color:var(--ink-2)}
+.atlas-page .primary-nav a:not(.button):hover,.atlas-page .header-actions .login:hover{color:var(--ink);text-decoration:none}
+.atlas-page .primary-nav [aria-current=page]{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:1.5px}
+.atlas-page .header-actions{gap:22px}
+.atlas-page .header-actions .button-small{min-height:40px;padding:8px 18px;font-size:.9375rem}
+.atlas-page .menu-toggle{font-size:.9375rem;font-weight:600}
 .atlas-page main{color:var(--ink)}
 .visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .atlas-sprite{position:absolute}
@@ -249,6 +258,10 @@ body.atlas-present .atlas-tile strong{font-size:clamp(2.6rem,4.6vw,4.8rem)}
 body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clamp(42px,5vh,60px)}
 
 @media(max-width:1100px){
+  .atlas-page .header-inner{min-height:68px}
+  .atlas-page .brand img{width:118px}
+  .atlas-page .primary-nav{gap:2px}
+  .atlas-page .primary-nav a:not(.button){font-size:1.0625rem}
   .atlas-grid{grid-template-columns:1fr;gap:0}
   .atlas-lede{padding:28px 0 44px}
   .atlas-map,body.atlas-present .atlas-map,body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-map{width:auto;margin-inline:calc(var(--edge) * -1);padding:28px var(--edge) 32px;border-radius:0;justify-items:center}
