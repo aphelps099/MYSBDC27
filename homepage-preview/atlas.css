@@ -83,11 +83,21 @@
 .atlas-shore{fill:none;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .atlas-shore.outer{stroke:var(--atlas-shallows);stroke-width:30px}
 .atlas-shore.inner{stroke:var(--atlas-shore);stroke-width:12px}
+.atlas-shore.line{stroke:#b3cfdb;stroke-width:2.5px}
 .atlas-context-land{fill:var(--atlas-context);stroke:var(--atlas-context);stroke-width:.75px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .atlas-context-lines{fill:none;stroke:var(--atlas-context-line);stroke-width:1px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .atlas-geo{pointer-events:none}
 .atlas-geo.sea{font:italic 400 calc(15px * var(--u,1))/1 var(--sera);letter-spacing:.2em;fill:#86aebd}
 .atlas-geo.land{font:600 calc(10.5px * var(--u,1))/1 var(--nova);letter-spacing:.22em;text-transform:uppercase;fill:#a19c8f}
+.atlas-geo.water{font:italic 400 calc(11.5px * var(--u,1))/1 var(--sera);letter-spacing:.03em;fill:#6f9aab}
+.atlas-scoped .atlas-geo.water{display:none}
+/* Map furniture: a north mark and a scale bar, in the sea at the lower left of the frame. */
+.atlas-furniture{position:absolute;left:0;bottom:8px;display:flex;align-items:flex-end;gap:16px;color:#5d8697;font-size:.6875rem;font-weight:700;letter-spacing:.08em;line-height:1}
+.atlas-north{display:grid;justify-items:center;gap:4px}
+.atlas-north::before{content:"";border:4.5px solid transparent;border-top:0;border-bottom:9px solid currentColor}
+.atlas-scale{display:grid;gap:5px}
+.atlas-scale i{display:block;height:5px;border:1.5px solid currentColor;border-top:0}
+.atlas-scale span{font-weight:600;letter-spacing:.04em}
 .atlas-county{fill:var(--atlas-land);stroke:var(--atlas-land-line);stroke-width:1.25px;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s}
 .atlas-county:hover{fill:var(--atlas-land-hover)}
 .atlas-scoped .atlas-county:not(.on){fill:var(--atlas-context);stroke:var(--atlas-context-line)}

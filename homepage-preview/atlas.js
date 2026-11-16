@@ -73,9 +73,9 @@
   // the state lines and a few atlas labels. Context only: nothing here is interactive.
   if (D.context) {
     const land = D.context.land + D.counties.map(c => c.d).join('');
-    gContext.append(svgEl('path', { d: land, class: 'atlas-shore outer' }), svgEl('path', { d: land, class: 'atlas-shore inner' }),
+    gContext.append(svgEl('path', { d: land, class: 'atlas-shore outer' }), svgEl('path', { d: land, class: 'atlas-shore inner' }), svgEl('path', { d: land, class: 'atlas-shore line' }),
       svgEl('path', { d: D.context.land, class: 'atlas-context-land' }), svgEl('path', { d: D.context.lines, class: 'atlas-context-lines' }));
-    D.context.labels.forEach(([text, x, y, kind]) => { const t = svgEl('text', { x, y, class: 'atlas-geo ' + kind, 'text-anchor': kind === 'sea' ? 'middle' : 'start' }); t.textContent = text; gContext.append(t); });
+    D.context.labels.forEach(([text, x, y, kind, anchor]) => { const t = svgEl('text', { x, y, class: 'atlas-geo ' + kind, 'text-anchor': anchor || 'start' }); t.textContent = text; gContext.append(t); });
   }
   D.counties.forEach((c, i) => {
     const path = svgEl('path', { d: c.d, class: 'atlas-county' });
@@ -104,6 +104,10 @@
     svg.setAttribute('viewBox', view.map(v => v.toFixed(2)).join(' '));
     const u = scaleNow();
     svg.style.setProperty('--u', u.toFixed(4));
+    // Scale bar: the longest round distance that fits in about 110 pixels at this zoom.
+    const perMile = 1 / (u * (D.miles || .3417)), miles = [250, 100, 50, 25, 10, 5, 2, 1].find(m => m * perMile <= 112) || 1;
+    $('[data-atlas-scale-bar]').style.width = (miles * perMile).toFixed(1) + 'px';
+    $('[data-atlas-scale-label]').textContent = miles + ' mi';
     $$('text', gMine).forEach(t => { t.setAttribute('x', +t.dataset.x + 14 * u); t.setAttribute('y', +t.dataset.y + 4.5 * u); });
     placePop();
   };
@@ -379,7 +383,7 @@
     $('[data-atlas-pop-title]').textContent = s.kind === 'story' ? s.title : '“' + s.title + '”';
     $('[data-atlas-pop-by]').textContent = by(s);
     link.hidden = photo.hidden = s.kind !== 'story';
-    if (s.kind === 'story') { link.href = s.href; link.setAttribute('aria-label', 'Read the ' + s.name + ' story'); img.src = s.img; img.alt = s.alt; img.style.objectPosition = img.style.transformOrigin = s.pos || '50% 50%'; img.style.setProperty('--zoom', s.zoom || 1); }
+    if (s.kind === 'story') { link.href = s.href; link.setAttribute('aria-label', 'Read the ' + s.name + ' story'); img.src = s.img; img.alt = s.alt; img.style.objectPosition = s.popPos || s.pos || '50% 50%'; img.style.transformOrigin = s.popOrigin || s.popPos || s.pos || '50% 50%'; img.style.setProperty('--zoom', s.popZoom || (s.popPos ? 1 : s.zoom) || 1); }
     pop.className = 'atlas-pop is-' + s.kind; pop.hidden = false; placePop();
   }
   function closeStory(focusBack) {

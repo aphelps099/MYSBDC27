@@ -71,8 +71,13 @@ repository history.
   the milestone marks stay the loudest thing on the map.
 - **Shallows, not a gradient.** Two pale bands follow every shore, as a printed atlas would draw
   them. They give the coast depth with flat colour.
-- **Atlas labels.** "Pacific Ocean" in spaced italic serif; "Oregon" and "Nevada" in small
-  muted capitals. Nothing else in the surroundings is labelled, and none of it is interactive.
+- **Atlas labels.** "Pacific Ocean" in spaced italic serif; "Oregon", "Nevada" and
+  "California" in small muted capitals; "Point Arena" and "Monterey Bay" in small italic.
+  None of the surroundings are interactive.
+- **A crisp shoreline.** A fine line in deeper pool traces the coast inside the two bands of
+  shallows.
+- **Map furniture.** A north mark and a scale bar sit in the sea at the lower left. The scale
+  bar is real: it re-measures when a county is opened.
 - **Borders that agree.** Counties and states come from one topology, so county, state and
   coast lines meet exactly. County borders are a quiet warm line.
 - **About half the page.** The map panel takes up to half the page width, and its height is
