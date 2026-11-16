@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
 """Generate homepage-preview/atlas-data.js for the public Success Atlas page.
 
-    python3 homepage-preview/atlas-data.py COUNTIES_GEOJSON PLACES_JSON
+    python3 homepage-preview/atlas-data.py US_ATLAS_COUNTIES_10M PLACES_JSON
 
-Sources (both public domain, derived from US Census Bureau files) live in the mysbdc-tools repo:
-    public/data/network-map/counties.v1.geojson   36-county NorCal SBDC service area
-    public/data/advisor-map/places.v1.json        Census Gazetteer places with county
+Sources, both public domain and derived from US Census Bureau files:
+    US_ATLAS_COUNTIES_10M   counties-10m.json from the us-atlas package (TopoJSON of the Census cartographic
+                            boundary files): https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/counties-10m.json
+    PLACES_JSON             mysbdc-tools public/data/advisor-map/places.v1.json (Census Gazetteer places)
 
-The output holds three things:
-    1. County outlines, projected to a flat SVG coordinate space.
-    2. Town positions in the same space.
-    3. A seeded SAMPLE set of milestones for design review. No real client data is used or implied.
+The output holds four things:
+    1. The 36 service-area county outlines, projected to a flat SVG coordinate space.
+    2. The surroundings, for context only: the rest of California and the neighbouring states.
+    3. Town positions in the same space.
+    4. A seeded SAMPLE set of milestones for design review. No real client data is used or implied.
        The four totals are scaled to the FY2025 draft figures already shown on impact.html
        ($549M capital, 712 businesses started, 3,723 jobs, $201M sales growth) so the two pages agree.
-       Where each light sits is invented. Production replaces `pins` and `quotes` with verified
-       milestones from Neoserra.
+       Where each mark sits is invented. Production replaces `pins` with verified milestones from Neoserra.
 """
 import json, math, pathlib, random, sys
 
@@ -22,19 +23,9 @@ if len(sys.argv) != 3:
     sys.exit(__doc__)
 
 ROOT = pathlib.Path(__file__).parent
-counties_src = json.load(open(sys.argv[1]))
+topo = json.load(open(sys.argv[1]))
 places_src = json.load(open(sys.argv[2]))['places']
 rng = random.Random(2027)
-
-# ── Projection: equirectangular, corrected for latitude at the middle of the service area ──
-W = 760.0
-min_lng, min_lat, max_lng, max_lat = counties_src['metadata']['bbox']
-cos0 = math.cos(math.radians((min_lat + max_lat) / 2))
-K = W / ((max_lng - min_lng) * cos0)
-H = (max_lat - min_lat) * K
-
-def project(lng, lat):
-    return ((lng - min_lng) * cos0 * K, (max_lat - lat) * K)
 
 # ── Which SBDC center serves each county (center names as published by NorCal SBDC) ──
 CENTERS = {
@@ -57,24 +48,127 @@ CENTERS = {
 }
 CENTER_OF = {county: center for center, names in CENTERS.items() for county in names}
 
-# ── Counties ──
-def rings(geometry):
-    polys = [geometry['coordinates']] if geometry['type'] == 'Polygon' else geometry['coordinates']
-    return [[[project(*pt) for pt in ring] for ring in poly] for poly in polys]
+# ── Read the topology. Counties and states share the same arcs, so their borders always agree. ──
+sx, sy = topo['transform']['scale']
+tx, ty = topo['transform']['translate']
 
-counties, polygons = [], {}
-for feature in sorted(counties_src['features'], key=lambda f: f['properties']['name']):
-    name = feature['properties']['name']
-    polys = rings(feature['geometry'])
-    polygons[name] = polys
-    path, xs, ys = '', [], []
+def decode(arc):
+    x = y = 0
+    out = []
+    for dx, dy in arc:
+        x += dx; y += dy
+        out.append((x * sx + tx, y * sy + ty))
+    return out
+
+arcs_ll = [decode(a) for a in topo['arcs']]
+
+def geometry_polys(geometry):
+    """A geometry as a list of polygons, each a list of rings, each a list of arc references."""
+    if geometry['type'] == 'Polygon':
+        return [geometry['arcs']]
+    if geometry['type'] == 'MultiPolygon':
+        return geometry['arcs']
+    return []
+
+def ring_points(ring, arcs):
+    pts = []
+    for ref in ring:
+        arc = arcs[ref] if ref >= 0 else arcs[~ref][::-1]
+        pts += arc if not pts else arc[1:]
+    return pts
+
+def area(pts):
+    return abs(sum(pts[i][0] * pts[i + 1][1] - pts[i + 1][0] * pts[i][1] for i in range(len(pts) - 1))) / 2
+
+def mainland(geometry):
+    """Drop small offshore islands (the Farallones, for one) so they do not stretch the map or float in the sea."""
+    polys = geometry_polys(geometry)
+    sized = [(area(ring_points(poly[0], arcs_ll)), poly) for poly in polys]
+    biggest = max(a for a, _ in sized)
+    return [poly for a, poly in sized if a == biggest or a >= 0.002]   # 0.002 square degrees is about 19 km²
+
+CA = [g for g in topo['objects']['counties']['geometries'] if g['id'].startswith('06')]
+service_geoms = sorted((g for g in CA if g['properties']['name'] in CENTER_OF), key=lambda g: g['properties']['name'])
+assert len(service_geoms) == 36, len(service_geoms)
+other_ca = [g for g in CA if g['properties']['name'] not in CENTER_OF]
+NEIGHBOURS = {'41': 'Oregon', '32': 'Nevada', '16': 'Idaho', '49': 'Utah', '04': 'Arizona'}
+states = [g for g in topo['objects']['states']['geometries'] if g['id'] in NEIGHBOURS]
+
+# ── Projection: equirectangular, corrected for latitude at the middle of the service area ──
+lls = [pt for g in service_geoms for poly in mainland(g) for pt in ring_points(poly[0], arcs_ll)]
+min_lng, max_lng = min(p[0] for p in lls), max(p[0] for p in lls)
+min_lat, max_lat = min(p[1] for p in lls), max(p[1] for p in lls)
+W = 760.0
+cos0 = math.cos(math.radians((min_lat + max_lat) / 2))
+K = W / ((max_lng - min_lng) * cos0)
+H = (max_lat - min_lat) * K
+
+def project(lng, lat):
+    return ((lng - min_lng) * cos0 * K, (max_lat - lat) * K)
+
+# ── Simplify every arc once (Douglas–Peucker), so shared borders stay shared. ──
+def simplify(pts, tol):
+    if len(pts) < 3:
+        return pts
+    keep = [False] * len(pts)
+    keep[0] = keep[-1] = True
+    stack = [(0, len(pts) - 1)]
+    while stack:
+        a, b = stack.pop()
+        ax, ay = pts[a]; bx, by = pts[b]
+        dx, dy = bx - ax, by - ay
+        norm = math.hypot(dx, dy) or 1e-12
+        far, at = 0.0, -1
+        for i in range(a + 1, b):
+            d = abs((pts[i][0] - ax) * dy - (pts[i][1] - ay) * dx) / norm if norm > 1e-9 else math.hypot(pts[i][0] - ax, pts[i][1] - ay)
+            if d > far:
+                far, at = d, i
+        if far > tol:
+            keep[at] = True
+            stack += [(a, at), (at, b)]
+    return [p for p, k in zip(pts, keep) if k]
+
+def closed_ok(pts, raw):
+    """A ring made of a single arc must keep enough points to stay a shape."""
+    return pts if len(pts) >= 4 or raw[0] != raw[-1] else raw[:: max(1, len(raw) // 6)] + [raw[-1]]
+
+TOLERANCE = 0.75                                         # SVG units: about one screen pixel on a laptop
+arcs_xy = []
+for raw in arcs_ll:
+    # Only arcs anywhere near the map are worth the work; the rest are never referenced.
+    if not any(-128 < lng < -108 and 30 < lat < 50 for lng, lat in raw[:: max(1, len(raw) // 8)] + [raw[-1]]):
+        arcs_xy.append(None); continue
+    xy = [project(*p) for p in raw]
+    arcs_xy.append(closed_ok(simplify(xy, TOLERANCE), xy))
+
+def path_of(polys):
+    d, xs, ys, rings = '', [], [], []
     for poly in polys:
+        out = []
         for ring in poly:
-            path += 'M' + 'L'.join(f'{x:.1f} {y:.1f}' for x, y in ring[:-1]) + 'Z'
-            xs += [x for x, _ in ring]; ys += [y for _, y in ring]
-    counties.append({'n': name, 'c': CENTER_OF[name], 'd': path,
+            pts = ring_points(ring, arcs_xy)
+            d += 'M' + 'L'.join(f'{x:.1f} {y:.1f}' for x, y in pts[:-1]) + 'Z'
+            xs += [x for x, _ in pts]; ys += [y for _, y in pts]
+            out.append(pts)
+        rings.append(out)
+    return d, xs, ys, rings
+
+# ── The service area: 36 counties ──
+counties, polygons = [], {}
+for g in service_geoms:
+    name = g['properties']['name']
+    d, xs, ys, rings = path_of(mainland(g))
+    polygons[name] = rings
+    counties.append({'n': name, 'c': CENTER_OF[name], 'd': d,
                      'b': [round(min(xs), 1), round(min(ys), 1), round(max(xs), 1), round(max(ys), 1)]})
 COUNTY_INDEX = {c['n']: i for i, c in enumerate(counties)}
+
+# ── The surroundings, for context only: the rest of California and the neighbouring states ──
+context_land = ''.join(path_of(mainland(g))[0] for g in other_ca) + ''.join(path_of(mainland(g))[0] for g in states)
+state_lines = ''.join(path_of(mainland(g))[0] for g in states)
+GEO_LABELS = [('Pacific', -124.22, 38.16, 'sea'), ('Ocean', -124.22, 37.98, 'sea'),
+              ('Oregon', -121.05, 42.15, 'land'), ('Nevada', -119.84, 40.75, 'land')]
+geo_labels = [[text, round(project(lng, lat)[0], 1), round(project(lng, lat)[1], 1), kind] for text, lng, lat, kind in GEO_LABELS]
 
 def inside(x, y, polys):
     hit = False
@@ -240,6 +334,7 @@ data = {
     'view': [round(W), round(H)],
     'types': TYPES,
     'counties': counties,
+    'context': {'land': context_land, 'lines': state_lines, 'labels': geo_labels},
     'towns': town_list,
     'pins': [v for p in pins for v in p],
     'quotes': quotes,
@@ -248,8 +343,8 @@ data = {
     'home': {'town': 'Eureka', 'county': COUNTY_INDEX['Humboldt'], 'slots': slots},
 }
 out = ROOT / 'atlas-data.js'
-out.write_text('/* Generated by homepage-preview/atlas-data.py. County outlines and town positions derive from US Census Bureau\n'
-               '   files (public domain). Every milestone and quote here is SAMPLE content for design review. */\n'
+out.write_text('/* Generated by homepage-preview/atlas-data.py. County and state outlines and town positions derive from\n'
+               '   US Census Bureau files (public domain). Every milestone and quote here is SAMPLE content for design review. */\n'
                'window.MYSBDC_ATLAS_DATA=' + json.dumps(data, separators=(',', ':'), ensure_ascii=False) + ';\n')
 by_type = {t: sum(1 for p in pins if p[2] == i) for i, t in enumerate(TYPES)}
 print('wrote', out.name, out.stat().st_size, 'bytes ·', len(pins), 'milestones', by_type, '·', len(town_list), 'towns ·', len(quotes), 'quotes')

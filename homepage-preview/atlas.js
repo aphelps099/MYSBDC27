@@ -62,13 +62,21 @@
 
   // ── State ──
   const state = { county: null, type: 'all', cut: 0, playing: false, story: null, pinned: false };
-  const [VW, VH] = D.view, PAD = 24, FULL = [-PAD, -PAD, VW + PAD * 2, VH + PAD * 2];
-  let view = FULL.slice(), viewAnim = 0;
+  const [VW, VH] = D.view, PAD = 24, REGION = [-PAD, -PAD, VW + PAD * 2, VH + PAD * 2];
+  let view = REGION.slice(), viewAnim = 0;
 
   // ── Build the map ──
   const svg = $('[data-atlas-svg]'), stage = $('[data-atlas-stage]'), tip = $('[data-atlas-tip]'), pop = $('[data-atlas-pop]');
-  const gCounties = $('[data-atlas-counties]'), gPins = $('[data-atlas-pins]'), gPlaces = $('[data-atlas-places]'), gMine = $('[data-atlas-mine]'), gStories = $('[data-atlas-story-pins]');
+  const gContext = $('[data-atlas-context]'), gCounties = $('[data-atlas-counties]'), gPins = $('[data-atlas-pins]'), gPlaces = $('[data-atlas-places]'), gMine = $('[data-atlas-mine]'), gStories = $('[data-atlas-story-pins]');
   const dot = (x, y, cls) => svgEl('path', { d: `M${x} ${y}h.01`, class: cls });
+  // The surroundings: sea is the field itself; then two pale bands along every shore, the neighbouring land,
+  // the state lines and a few atlas labels. Context only: nothing here is interactive.
+  if (D.context) {
+    const land = D.context.land + D.counties.map(c => c.d).join('');
+    gContext.append(svgEl('path', { d: land, class: 'atlas-shore outer' }), svgEl('path', { d: land, class: 'atlas-shore inner' }),
+      svgEl('path', { d: D.context.land, class: 'atlas-context-land' }), svgEl('path', { d: D.context.lines, class: 'atlas-context-lines' }));
+    D.context.labels.forEach(([text, x, y, kind]) => { const t = svgEl('text', { x, y, class: 'atlas-geo ' + kind, 'text-anchor': kind === 'sea' ? 'middle' : 'start' }); t.textContent = text; gContext.append(t); });
+  }
   D.counties.forEach((c, i) => {
     const path = svgEl('path', { d: c.d, class: 'atlas-county' });
     path.dataset.county = i;
@@ -83,7 +91,14 @@
   D.counties.forEach((c, i) => { const o = document.createElement('option'); o.value = i; o.textContent = c.n + ' County'; select.append(o); });
 
   // ── Geometry helpers ──
-  const scaleNow = () => { const r = stage.getBoundingClientRect(); return Math.max(view[2] / r.width, view[3] / r.height); }; // SVG units per screen pixel
+  const scaleNow = () => view[2] / (svg.getBoundingClientRect().width || 1); // SVG units per screen pixel
+  // The SVG fills the whole field. `frame` returns the view that fits a box of map units inside the stage
+  // (the clear area between the controls) and lets the surroundings run out to the field's edges.
+  const frame = box => {
+    const st = stage.getBoundingClientRect(), sv = svg.getBoundingClientRect(); if (!st.width || !sv.width) return box.slice();
+    const k = Math.max(box[2] / st.width, box[3] / st.height), cx = box[0] + box[2] / 2, cy = box[1] + box[3] / 2;
+    return [cx - k * (st.left + st.width / 2 - sv.left), cy - k * (st.top + st.height / 2 - sv.top), k * sv.width, k * sv.height];
+  };
   const toStage = (x, y) => { const m = svg.getScreenCTM(), r = stage.getBoundingClientRect(); if (!m) return [0, 0]; const p = new DOMPoint(x, y).matrixTransform(m); return [p.x - r.left, p.y - r.top]; };
   const applyView = () => {
     svg.setAttribute('viewBox', view.map(v => v.toFixed(2)).join(' '));
@@ -105,10 +120,8 @@
     viewAnim = requestAnimationFrame(tick);
   };
   const countyBox = i => {
-    const [x0, y0, x1, y1] = D.counties[i].b, r = stage.getBoundingClientRect(), aspect = r.width / r.height;
-    let w = Math.max(150, (x1 - x0) * 1.3), h = Math.max(150, (y1 - y0) * 1.3);
-    if (w / h > aspect) h = w / aspect; else w = h * aspect;
-    return [(x0 + x1) / 2 - w / 2, (y0 + y1) / 2 - h / 2, w, h];
+    const [x0, y0, x1, y1] = D.counties[i].b, w = Math.max(150, (x1 - x0) * 1.3), h = Math.max(150, (y1 - y0) * 1.3);
+    return frame([(x0 + x1) / 2 - w / 2, (y0 + y1) / 2 - h / 2, w, h]);
   };
 
   // ── Totals for whatever is in view (county + period). The type filter never changes the totals. ──
@@ -214,7 +227,7 @@
   // ── Scope: one county, or everything ──
   const setCounty = i => {
     endIntro(); state.county = i;
-    zoomTo(i == null ? FULL : countyBox(i));
+    zoomTo(i == null ? frame(REGION) : countyBox(i));
     hideTip(); render();
   };
   select.addEventListener('change', () => { closeStory(); setCounty(select.value === '' ? null : +select.value); });
@@ -354,8 +367,8 @@
   function placePop() {
     if (state.story == null) return;
     const s = stories[state.story], [px, py] = toStage(s.x, s.y), r = stage.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight;
-    const left = px + 20 + w <= r.width + 40 ? px + 20 : px - 20 - w;
-    pop.style.left = Math.max(-40, Math.min(r.width - w + 40, left)) + 'px';
+    const left = px + 20 + w <= r.width + 12 ? px + 20 : px - 20 - w;
+    pop.style.left = Math.max(-12, Math.min(r.width - w + 12, left)) + 'px';
     pop.style.top = Math.max(0, Math.min(r.height - h - 8, py - h / 2)) + 'px';
   }
   function openStory(i) {
@@ -449,12 +462,12 @@
       const end = () => { clearInterval(tour); removeEventListener('pointerdown', end); removeEventListener('keydown', end); };
       addEventListener('pointerdown', end); addEventListener('keydown', end);
     }
-    requestAnimationFrame(() => { view = state.county == null ? FULL.slice() : countyBox(state.county); applyView(); });
+    requestAnimationFrame(() => { view = state.county == null ? frame(REGION) : countyBox(state.county); applyView(); });
   };
   presentBtn.addEventListener('click', () => present(true));
   $('[data-atlas-present-exit]').addEventListener('click', () => { present(false); presentBtn.focus(); });
   document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && document.body.classList.contains('atlas-present')) present(false); });
-  addEventListener('resize', () => { if (state.county != null) view = countyBox(state.county); applyView(); });
+  addEventListener('resize', () => { view = state.county == null ? frame(REGION) : countyBox(state.county); applyView(); });
 
   function announce(text) {
     let live = $('#live'); if (!live) { live = el('div', 'visually-hidden'); live.id = 'live'; live.setAttribute('role', 'status'); document.body.append(live); }
@@ -462,8 +475,8 @@
   }
 
   // ── Go ──
-  if (params.get('field') === 'pool') document.body.classList.add('atlas-field-pool'); // preview switch
   if (params.has('reset')) { mine = []; writeMine(mine); }
+  view = frame(REGION);
   renderMine(); render(false); applyView();
   if (params.has('present')) present(true);
   const newest = mine.filter(i => i.share !== 'private').pop();

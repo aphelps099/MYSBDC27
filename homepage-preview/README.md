@@ -76,8 +76,8 @@ privacy rules, data contract and demo walkthrough are in [ATLAS.md](ATLAS.md).
 
 The four network totals match the FY2025 draft figures on the impact page ($549M, 712, 3,723, $201M).
 Where each mark sits, the county breakdowns, the dates and the three testimonies are sample content, stated
-in the page's "About this map" disclosure. The three success stories are existing stories from the site draft. The map is drawn locally from simplified public-domain Census outlines;
-there is no map service or third-party script.
+in the page's "About this map" disclosure. The three success stories are existing stories from the site draft. The map, including the sea and the neighbouring states around the service area, is drawn locally from
+simplified public-domain Census outlines; there is no map service or third-party script.
 
 The MySBDC dashboard preview (`../handoff/`) is where a client shares a milestone. For design review, a
 milestone shared there in the same browser appears on this page inside a labelled "Design preview" strip.
