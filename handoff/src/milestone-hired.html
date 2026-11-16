@@ -67,27 +67,35 @@
         </section>
         <!-- The final review. Nothing is recorded, and nothing reaches the Success Atlas preview, until "Confirm and submit". -->
         <dialog class="ms-confirm" data-confirm aria-labelledby="confirm-title">
+          <header class="ms-confirm-head">
+            <div>
+              <p class="ms-label">Before you submit</p>
+              <h2 id="confirm-title" tabindex="-1">Confirm impact entries</h2>
+              <p class="ms-confirm-for"><span data-business>Northstar Provisions</span> · Hired someone</p>
+            </div>
+            <svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-people"/></svg>
+          </header>
           <div class="ms-confirm-body">
-            <p class="ms-label">Before you submit</p>
-            <h2 id="confirm-title" tabindex="-1">Confirm impact entries</h2>
-            <p class="ms-confirm-lead">Nothing has been submitted yet. Check each entry, then confirm.</p>
+            <p class="ms-confirm-sentence" data-confirm-sentence></p>
             <dl class="ms-confirm-rows" data-confirm-rows>
-              <div><dt>Business</dt><dd data-business>Northstar Provisions</dd></div>
-              <div data-detail><dt>Milestone</dt><dd>Hired someone</dd></div>
               <div data-detail><dt>Full-time hires</dt><dd data-echo="ft"></dd></div>
               <div data-detail><dt>Part-time hires</dt><dd data-echo="pt"></dd></div>
               <div data-detail><dt>Start month</dt><dd data-echo="when"></dd></div>
               <div data-detail><dt>Full-time jobs kept</dt><dd data-echo="rft"></dd></div>
               <div data-detail><dt>Part-time jobs kept</dt><dd data-echo="rpt"></dd></div>
               <div><dt>Did the SBDC help with this?</dt><dd data-echo="support"></dd></div>
-              <div data-hide-empty="quote"><dt>Your words about the SBDC</dt><dd data-echo="quote"></dd></div>
-              <div><dt>Signature</dt><dd class="ms-confirm-sign" data-echo="signature"></dd></div>
-              <div><dt>Agreed</dt><dd data-accepted-at></dd></div>
+              <div class="wide" data-hide-empty="quote"><dt>Your words about the SBDC</dt><dd class="ms-confirm-quote" data-echo="quote"></dd></div>
             </dl>
-            <div class="ms-confirm-attest"><p class="ms-confirm-attest-title">You agreed to this statement</p><p data-attest-copy></p></div>
-            <p class="ms-confirm-note">Design preview. Nothing is sent. This milestone is kept in this browser only.</p>
+            <section class="ms-confirm-attest" aria-label="Your agreement">
+              <p class="ms-confirm-attest-title">{{icon:check}}<span>You agreed on <span data-accepted-at></span></span></p>
+              <p class="ms-confirm-attest-text" data-attest-copy></p>
+              <p class="ms-confirm-signed"><span>Signed</span><b class="ms-confirm-sign" data-echo="signature"></b></p>
+            </section>
           </div>
-          <div class="ms-confirm-actions"><button class="btn btn-secondary" type="button" data-review-edit>Edit information</button><button class="btn btn-primary" type="button" data-review-submit data-href="milestone-done.html?type=hired">Confirm and submit</button></div>
+          <div class="ms-confirm-foot">
+            <p class="ms-confirm-note">Nothing is submitted until you confirm. Design preview: kept in this browser only.</p>
+            <div class="ms-confirm-actions"><button class="btn btn-secondary" type="button" data-review-edit>Edit information</button><button class="btn btn-primary" type="button" data-review-submit data-href="milestone-done.html?type=hired">Confirm and submit</button></div>
+          </div>
         </dialog>
       </form>
     </div>

@@ -246,7 +246,10 @@ approved Home vocabulary into a focused question-and-answer layout:
   provide your full name (First, Middle, Last) indicating your acceptance to the terms shown above."
   The statement carries a version (`data-attest-version`). Agreeing acknowledges the SBDC's
   contribution; it is not permission to publish the client's name, business or words.
-- **Confirm impact entries.** "Review and confirm" opens a dialog (`dialog[data-confirm]`) listing the
+- **Confirm impact entries.** "Review and confirm" opens a dialog (`dialog[data-confirm]`). Its header
+  carries the milestone's colour and symbol with the business name; the body repeats the summary
+  sentence, sets the entries as labelled cells two to a row, and closes with one cream panel for the
+  agreement. In full it lists the
   business, every labelled milestone entry, the SBDC-support answer, the optional quote, the
   signature, when the client agreed, and the full statement. "Edit information" closes it
   with every value kept. "Confirm and submit" is the only action that records anything.
