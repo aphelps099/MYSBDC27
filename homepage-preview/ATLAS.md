@@ -33,8 +33,8 @@ design logic (`../handoff/DESIGN.md`):
   so the page splits into two unequal blocks. The counties are the page's cream, so the region
   looks cut from the page. Matte, no gradient. (`atlas.html?field=pool` previews the field in
   pale pool for comparison.)
-- **Type leads the stories.** One confident line of type, then three photographs, each led by
-  its place name. No card chrome.
+- **The stories continue the tiles.** Two stories, each a photograph beside a colour block with
+  one figure at display size.
 - **Colour has jobs.** Tile colours name the four kinds of milestone. Berry does one thing: it
   marks people (the ringed marks, and the rule under each story photograph).
 - **It arrives.** On load the year fills in once and the totals count up.
@@ -46,7 +46,8 @@ repository history.
 
 1. **The composition (white).** Left: label, serif headline, one sentence, the four tiles, and a
    single "Latest" line. Right: the county menu, the map, and the timeline.
-2. **Stories.** "Three of 4,222." (the number is the live count), then three success stories.
+2. **Stories.** "Two of 4,222." (the number is the live count), then two success stories as a row
+   of four tiles.
 3. **Next step.** One slate-navy card: "Add your milestone to the map", which opens MySBDC.
 4. **Notes.** "Totals by county" and "About this map" as disclosures.
 
@@ -102,20 +103,25 @@ A few marks are ringed in berry. Each is a person, not a count.
   keeps it open, and for a story moves focus to "Read story". Escape closes it. On touch, a tap
   opens it.
 - **The card** sits beside its mark on a solid pool plate, the dashboard's one emphasis device.
-- **Keep them few.** Six is about the limit before the map reads as two competing layers. Rotate
+- **Keep them few.** Five or six is about the limit before the map reads as two competing layers. Rotate
   them rather than adding more.
-- **Sources.** The three success stories are existing client stories from the website draft
-  (Jump Aero in Petaluma, Yarrow Goods in Marin County, Liquid Fusion Kayaking in Fort Bragg). The
-  three testimonies are sample quotes. In production, testimonies come from the optional quote on
+- **Sources.** The two success stories are existing client stories from the website draft
+  (Jump Aero in Petaluma, Yarrow Goods in Marin County). The three testimonies are sample quotes. In production, testimonies come from the optional quote on
   the milestone forms, and a named story needs the owner's agreement.
 
 ## The story row
 
-- **One confident line:** "Three of 4,222." The count is live, so it grows as milestones do.
-- **Three photographs,** in natural colour, with the homepage's 4px berry rule beneath.
-- **Place first.** Each story is headed by where it happened, with the same bullseye as its mark
-  on the map. Then the result in one line, then the business name. The whole card is the link.
-- **Resting on a card lights its mark** on the map.
+Two stories, set as four tiles in one row: photograph, colour block, photograph, colour block.
+
+- **One line above:** "Two of 4,222." The count is live, so it grows as milestones do.
+- **Each story is a pair.** A photograph in natural colour, and beside it a solid block in the
+  tile colour of the story's headline figure: sand for capital, sage for sales. The row reads as a
+  continuation of the four totals above, in the same tile language (6px corners, 12px gaps).
+- **One figure per story, at display size.** "$12M" and "+20%", then one line that finishes the
+  sentence, then the business name. The place sits at the top of the block with the same bullseye
+  as the story's mark on the map.
+- **The pair is the link.** Resting on it lights its mark on the map.
+- **Keep it to two.** Three made the row read as a card grid.
 
 ## Latest
 
