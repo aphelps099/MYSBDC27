@@ -24,12 +24,14 @@
   const PLACES = ['Eureka', 'Redding', 'Sacramento', 'San Francisco', 'San Jose']; // the few names kept on the map
   const num = n => Math.round(n).toLocaleString('en-US');
   const plural = (n, one) => num(n) + ' ' + one + (n === 1 ? '' : 's');
-  function money(n) {
-    if (n >= 1e6) return '$' + (n / 1e6).toFixed(n >= 1e8 ? 0 : 1).replace(/\.0$/, '') + 'M';
+  // `fine` adds two decimals, so one business's milestone visibly moves a total in the millions.
+  function money(n, fine) {
+    if (n >= 1e6) return '$' + (fine ? (Math.round(n / 1e4) / 100).toFixed(2) : (n / 1e6).toFixed(n >= 1e8 ? 0 : 1).replace(/\.0$/, '')) + 'M';
     if (n >= 1e4) return '$' + Math.round(n / 1e3).toLocaleString('en-US') + 'K';
     return '$' + num(n);
   }
-  const fmt = (type, n) => META[type].money ? money(n) : num(n);
+  const fine = {}; // per total: true while it includes a milestone shared from the dashboard
+  const fmt = (type, n) => META[type].money ? money(n, fine[type]) : num(n);
 
   // ── Data ──
   const today = new Date(); today.setHours(12, 0, 0, 0);
@@ -58,7 +60,12 @@
   const writeMine = items => { try { localStorage.setItem(KEY, JSON.stringify({ version: 1, items })); } catch (e) {} };
   let mine = readMine();
   const mineSpot = item => D.home.slots[mine.indexOf(item) % D.home.slots.length];
-  const counted = () => mine.filter(i => i.share !== 'private' && i.status === 'confirmed');
+  // In this preview a shared milestone counts at once (production waits for the advisor). `held` keeps a
+  // new one out of the totals until its arrival plays, so the audience sees the number move.
+  const SEEN = 'mysbdc-atlas-seen', held = new Set();
+  const readSeen = () => { try { return new Set(JSON.parse(localStorage.getItem(SEEN) || '[]')); } catch (e) { return new Set(); } };
+  const writeSeen = ids => { try { localStorage.setItem(SEEN, JSON.stringify([...ids].filter(id => mine.some(i => i.id === id)))); } catch (e) {} };
+  const counted = () => mine.filter(i => i.share !== 'private' && !held.has(i.id));
 
   // ── State ──
   const state = { county: null, type: 'all', cut: 0, playing: false, story: null, pinned: false };
@@ -151,12 +158,12 @@
 
   const shown = {}; // last rendered number per total, for the count-up
   const setTotal = (type, value, animate) => {
-    const node = $(`[data-atlas-total="${type}"]`), from = shown[type] ?? 0;
-    cancelAnimationFrame(node._raf);
+    const node = $(`[data-atlas-total="${type}"]`), from = shown[type] ?? 0, dur = typeof animate === 'number' ? animate : 700;
+    cancelAnimationFrame(node._raf); node.classList.toggle('fine', !!fine[type] && META[type].money);
     if (!animate || still || from === value) { node.textContent = fmt(type, value); shown[type] = value; return; }
     const t0 = performance.now();
     const tick = now => {
-      const p = Math.min(1, (now - t0) / 700), v = from + (value - from) * (1 - Math.pow(1 - p, 3));
+      const p = Math.min(1, (now - t0) / dur), v = from + (value - from) * (1 - Math.pow(1 - p, 3));
       node.textContent = fmt(type, v); shown[type] = v;
       if (p < 1) node._raf = requestAnimationFrame(tick); else shown[type] = value;
     };
@@ -202,7 +209,15 @@
       if (dim !== p.dim) { p.dim = dim; p.el.classList.toggle('dim', dim); }
     });
     // Totals: the tiles are also the legend and the filter
-    TYPES.forEach(type => setTotal(type, type === 'started' ? t[type].n : t[type].sum, animate));
+    const live = state.cut === 0 && (county == null || county === D.home.county) ? counted() : [];
+    TYPES.forEach(type => {
+      const own = live.filter(i => i.type === type), plus = $(`[data-atlas-plus="${type}"]`);
+      fine[type] = own.length > 0;
+      setTotal(type, type === 'started' ? t[type].n : t[type].sum, animate);
+      // What this browser's milestones added, shown on the tile they belong to.
+      const sum = own.reduce((a, i) => a + (type === 'started' ? 1 : +i.amount || 0), 0);
+      plus.hidden = !own.length; plus.textContent = own.length ? '+' + (META[type].money ? '$' + num(sum) : num(sum)) : '';
+    });
     $('.atlas-tiles').classList.toggle('solo', state.type !== 'all');
     $$('[data-atlas-type]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.atlasType === state.type)));
     // Scope
@@ -417,12 +432,12 @@
   });
 
   // ── Preview milestones: a mark on the map, and one clearly labelled strip that stands in for the advisor ──
-  const strip = $('[data-atlas-preview]'), stripText = $('[data-atlas-preview-text]'), confirmBtn = $('[data-atlas-confirm]');
+  const strip = $('[data-atlas-preview]'), stripText = $('[data-atlas-preview-text]');
   const renderMine = () => {
     gMine.textContent = '';
-    const visible = mine.filter(i => i.share !== 'private'), waiting = visible.filter(i => i.status !== 'confirmed');
+    const arrived = mine.filter(i => !held.has(i.id)), visible = arrived.filter(i => i.share !== 'private');
     visible.forEach(item => {
-      const [x, y] = mineSpot(item), g = svgEl('g', { class: item.status === 'confirmed' ? 'confirmed' : 'pending' });
+      const [x, y] = mineSpot(item), g = svgEl('g');
       g.dataset.id = item.id; g.style.setProperty('--c', `var(--atlas-${item.type})`);
       g.append(dot(x, y, 'halo'), dot(x, y, 'ripple'), dot(x, y, 'ring'), dot(x, y, 'core'));
       gMine.append(g);
@@ -432,40 +447,54 @@
       gMine.append(t);
     }
     svg.classList.toggle('atlas-has-mine', visible.length > 0);
-    strip.hidden = !mine.length;
-    confirmBtn.hidden = !waiting.length;
+    strip.hidden = !arrived.length;
     const kinds = list => list.map(i => META[i.type].feed.toLowerCase()).join(', '), town = D.home.town;
-    stripText.textContent = waiting.length
-      ? `${waiting.length === 1 ? 'A milestone was' : waiting.length + ' milestones were'} just shared from the MySBDC dashboard in this browser: ${kinds(waiting)}, ${town}. On the live site a milestone appears here once its advisor confirms it.`
-      : visible.length ? `${plural(visible.length, 'confirmed milestone')} from the MySBDC dashboard in this browser ${visible.length === 1 ? 'is' : 'are'} on the map: ${kinds(visible)}, ${town}.`
+    stripText.textContent = visible.length
+      ? `${visible.length === 1 ? 'A milestone' : visible.length + ' milestones'} shared from the MySBDC dashboard in this browser ${visible.length === 1 ? 'is' : 'are'} counted here: ${kinds(visible)}, ${town}. On the live site a milestone is added once its advisor confirms it.`
       : 'The milestone shared from the MySBDC dashboard in this browser was kept off the map, as its owner chose.';
     applyView();
   };
   const ripple = item => {
     const g = $$('g', gMine).find(n => n.dataset.id === item.id), r = g && $('.ripple', g);
-    if (r && !still && r.animate) r.animate([{ strokeWidth: '12px', strokeOpacity: .4 }, { strokeWidth: '120px', strokeOpacity: 0 }], { duration: 1500, iterations: 3, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    if (r && !still && r.animate) r.animate([{ strokeWidth: '12px', strokeOpacity: .45 }, { strokeWidth: '150px', strokeOpacity: 0 }], { duration: 1600, iterations: 4, easing: 'cubic-bezier(.2,.7,.2,1)' });
   };
-  const locate = item => {
-    endIntro(); stop(); closeStory(); state.cut = 0; state.type = 'all'; state.county = D.home.county;
-    zoomTo(countyBox(D.home.county)); render();
-    if (!document.body.classList.contains('atlas-present')) stage.scrollIntoView({ block: 'center', behavior: still ? 'auto' : 'smooth' });
-    setTimeout(() => ripple(item), still ? 0 : 500);
+  // Arrival: the whole region stays in view, the mark lands on the map, and its total ticks up on the tile.
+  let arrivedAt = 0; // the presenting tour stands back for a while after an arrival, so nothing covers the new mark
+  const arrive = id => {
+    const item = mine.find(i => i.id === id); if (!item) return;
+    arrivedAt = Date.now();
+    endIntro(); stop(); closeStory();
+    if (state.county != null || state.type !== 'all' || state.cut) { state.cut = 0; state.type = 'all'; state.county = null; zoomTo(frame(REGION)); render(false); }
+    held.delete(id); const seen = readSeen(); seen.add(id); writeSeen(seen);
+    renderMine(); render(still ? false : 1700);
+    const tile = $(`[data-atlas-type="${item.type}"]`);
+    tile.classList.remove('is-arriving'); void tile.offsetWidth; tile.classList.add('is-arriving');
+    setTimeout(() => tile.classList.remove('is-arriving'), 2800);
+    if (!document.body.classList.contains('atlas-present')) $('.atlas-hero').scrollIntoView({ block: 'start', behavior: still ? 'auto' : 'smooth' });
+    setTimeout(() => ripple(item), still ? 0 : 250);
+    const total = tally(null)[item.type];
+    announce(`A new milestone was just shared from ${D.home.town}. ${$('span', tile).textContent} is now ${fmt(item.type, item.type === 'started' ? total.n : total.sum)}.`);
   };
-  confirmBtn.addEventListener('click', () => {
-    const waiting = mine.filter(i => i.share !== 'private' && i.status !== 'confirmed'); if (!waiting.length) return;
-    waiting.forEach(i => i.status = 'confirmed'); writeMine(mine);
-    renderMine(); render(true); waiting.forEach(ripple);
-    announce('Confirmed. The milestone now counts in the totals.');
-  });
-  $('[data-atlas-clear]').addEventListener('click', () => { mine = []; writeMine(mine); renderMine(); render(); announce('Preview milestones cleared.'); });
+  const arriveAll = items => items.forEach((item, n) => setTimeout(() => arrive(item.id), n * 3000));
+  // A background tab does not animate, so an arrival waits until this page is the one being looked at.
+  const whenVisible = fn => {
+    if (!document.hidden) return fn();
+    const go = () => { if (document.hidden) return; document.removeEventListener('visibilitychange', go); setTimeout(fn, 600); };
+    document.addEventListener('visibilitychange', go);
+  };
+  $('[data-atlas-clear]').addEventListener('click', () => { mine = []; held.clear(); writeMine(mine); writeSeen([]); renderMine(); render(); announce('Preview milestones cleared.'); });
 
   // Live: a milestone shared in another tab or window of this browser lands here without a reload.
   addEventListener('storage', e => {
     if (e.key !== KEY) return;
     const before = new Set(mine.map(i => i.id)); mine = readMine();
-    const added = mine.filter(i => !before.has(i.id) && i.share !== 'private');
-    renderMine(); render(true);
-    if (added.length) { announce('A new milestone was just shared from ' + D.home.town + '.'); locate(added[added.length - 1]); }
+    const added = mine.filter(i => !before.has(i.id));
+    added.forEach(i => held.add(i.id));
+    renderMine(); render(false);
+    const shared = added.filter(i => i.share !== 'private');
+    added.filter(i => i.share === 'private').forEach(i => held.delete(i.id));
+    if (added.length > shared.length) renderMine();
+    if (shared.length) whenVisible(() => arriveAll(shared));
   });
 
   // ── Presenting: the site steps away; the ringed marks take turns on the map ──
@@ -479,7 +508,7 @@
     clearInterval(tour); closeStory();
     if (on && !still && stories.length) { // A slow tour of the ringed marks. Any pointer or key press ends it.
       let n = -1;
-      tour = setInterval(() => { if (state.playing || state.county != null || state.pinned) return; n = (n + 1) % stories.length; openStory(n); }, 7000);
+      tour = setInterval(() => { if (state.playing || state.county != null || state.pinned || Date.now() - arrivedAt < 20000) return; n = (n + 1) % stories.length; openStory(n); }, 7000);
       const end = () => { clearInterval(tour); removeEventListener('pointerdown', end); removeEventListener('keydown', end); };
       addEventListener('pointerdown', end); addEventListener('keydown', end);
     }
@@ -496,11 +525,14 @@
   }
 
   // ── Go ──
-  if (params.has('reset')) { mine = []; writeMine(mine); }
+  if (params.has('reset')) { mine = []; writeMine(mine); writeSeen([]); }
+  // A shared milestone this page has not shown yet arrives once the page is in view. `?new` replays the newest.
+  const seen = readSeen(), shared = mine.filter(i => i.share !== 'private'), fresh = shared.filter(i => !seen.has(i.id));
+  if (params.has('new') && shared.length && !fresh.includes(shared[shared.length - 1])) fresh.push(shared[shared.length - 1]);
+  fresh.forEach(i => held.add(i.id));
   view = frame(REGION);
   renderMine(); render(false); applyView();
   if (params.has('present')) present(true);
-  const newest = mine.filter(i => i.share !== 'private').pop();
-  if (newest && params.has('new')) setTimeout(() => locate(newest), 700);
+  if (fresh.length) whenVisible(() => setTimeout(() => arriveAll(fresh), still ? 0 : 1100));
   else if (!still && !params.has('still')) intro();
 })();

@@ -175,6 +175,7 @@ These are design rules, not presentation details. Keep them when the data become
    "Add this to the Success Atlas?" with "Yes, without my name" or "Keep it off the map". A separate
    optional field invites a few words, credited by county only.
 4. **A milestone appears once an advisor confirms it.** Nothing unverified reaches the public page.
+   (The demo skips this step so the result is visible at once; the preview strip says so.)
 
 ## Demo walkthrough
 
@@ -184,11 +185,14 @@ page reads it. Both previews must be open in the same browser.
 1. Open `atlas.html` (optionally in a second tab or window with `?present`).
 2. Choose **Share a milestone**. It opens the MySBDC dashboard preview.
 3. Complete a form. The review step has the Success Atlas choice. Choose **Share milestone**.
-4. On the thank-you page choose **See the Success Atlas**. The map moves to Humboldt County and a
-   ring labelled "New" pulses at Eureka, the sample client's town. An Atlas already open in
-   another tab does the same without a reload.
-5. A white **Design preview** strip explains what happened. **Confirm as the advisor** turns the
-   ring into a solid mark, counts the totals up, and adds the milestone to Latest.
+4. On the thank-you page choose **See the Success Atlas**. The whole region stays in view. A mark
+   labelled "New" ripples at Eureka, the sample client's town, and the matching total ticks up on
+   its tile: Jobs created 3,723 to 3,725, or Capital accessed $549.00M to $549.05M. A pill on the
+   tile shows what was added ("+2", "+$45,000") and Latest names the milestone. An Atlas already
+   open in another tab or window does the same without a reload; if that tab is in the background
+   the arrival waits until it is looked at.
+5. A white **Design preview** strip explains what happened and that the live site waits for the
+   advisor. Reloading with `?new=1` replays the newest arrival.
 6. **Clear** (or `atlas.html?reset`) removes the preview milestones to start again.
 
 ## What is real and what is a preview
@@ -201,7 +205,7 @@ page reads it. Both previews must be open in the same browser.
 | Success stories | Existing client stories from the website draft | Published stories, with the owner's agreement |
 | Testimonies | **Sample quotes** | Quotes shared on the milestone forms, credited by county |
 | A shared milestone | Kept in this browser (`localStorage`, key `mysbdc-atlas-v1`). Nothing is sent | Posted by the dashboard; published after confirmation |
-| The "Design preview" strip and its buttons | Stand in for the advisor's confirmation | Removed |
+| The "Design preview" strip and the "+" pills on the tiles | Show that a dashboard milestone was counted here, at once | Removed; a milestone counts after its advisor confirms it |
 | Live arrival | Same browser only (`storage` event) | Server push or polling |
 
 The page states its sample status under "About this map".
