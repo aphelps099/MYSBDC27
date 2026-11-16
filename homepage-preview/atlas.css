@@ -51,7 +51,7 @@
 
 /* The four totals: the dashboard's milestone tiles. Each is also a legend entry and a filter. */
 .atlas-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:36px 0 0;padding:0;list-style:none}
-.atlas-tile{--field:#A9CFDD;--tile-ink:var(--ink);--tile-soft:var(--ink-2);display:flex;flex-direction:column;align-items:flex-start;width:100%;min-height:clamp(150px,20vh,200px);padding:20px 24px 22px;border:0;border-radius:var(--radius);background:var(--field);color:var(--tile-ink);text-align:left;transition:opacity .2s}
+.atlas-tile{--field:#A9CFDD;--tile-ink:var(--ink);--tile-soft:var(--ink-2);display:flex;flex-direction:column;align-items:flex-start;width:100%;position:relative;min-height:clamp(150px,20vh,200px);padding:20px 24px 22px;border:0;border-radius:var(--radius);background:var(--field);color:var(--tile-ink);text-align:left;transition:opacity .2s}
 .atlas-tile.is-funding{--field:#E8D5A5;--tile-ink:#493A20;--tile-soft:#5d4b2b}
 .atlas-tile.is-sales{--field:#CDDCD0;--tile-ink:#174B40;--tile-soft:#245548}
 .atlas-tile.is-started{--field:var(--navy-surface);--tile-ink:var(--on-navy);--tile-soft:var(--on-navy-muted)}
@@ -60,6 +60,16 @@
 .atlas-tile:is(:hover,:focus-visible) .pictogram{transform:translateY(-3px)}
 .atlas-tile strong{margin-top:auto;padding-top:14px;font:400 clamp(2.4rem,3.7vw,3.6rem)/1 var(--sera);letter-spacing:-.035em}
 .atlas-tile span{margin-top:8px;font-size:1.0625rem;font-weight:500;color:var(--tile-soft)}
+/* A milestone shared from the dashboard: what it added, on the tile it belongs to, and a pulse as it lands. */
+.atlas-tile strong{white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.atlas-plus{position:absolute;top:18px;right:18px;display:inline-flex;align-items:center;gap:8px;padding:7px 13px 7px 11px;border-radius:999px;background:var(--tile-ink);color:var(--field);font:700 .9375rem/1.2 var(--nova);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.atlas-plus[hidden]{display:none}
+.atlas-plus::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;animation:atlas-live 1.8s ease-in-out infinite}
+@keyframes atlas-live{50%{opacity:.25}}
+.atlas-tile.is-arriving{z-index:1;animation:atlas-arrive 2.6s cubic-bezier(.2,.7,.2,1)}
+.atlas-tile.is-arriving .atlas-plus{animation:atlas-plus-in .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes atlas-arrive{0%{outline:3px solid var(--ink);outline-offset:0}22%{transform:scale(1.035)}100%{outline:3px solid transparent;outline-offset:16px;transform:none}}
+@keyframes atlas-plus-in{from{opacity:0;transform:translateY(12px) scale(.86)}}
 .atlas-tile[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--tile-ink)}
 .atlas-tile.is-started[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--on-navy-accent)}
 .atlas-tiles.solo .atlas-tile[aria-pressed=false]{opacity:.38}
@@ -149,11 +159,8 @@
 .atlas-mine .halo{stroke:var(--c);stroke-width:34px;stroke-opacity:.14}
 .atlas-mine .ring{stroke:var(--c);stroke-width:15px}
 .atlas-mine .core{stroke:var(--c);stroke-width:9px}
-.atlas-mine .pending .core{stroke:var(--paper)}
-.atlas-mine .pending .halo{animation:atlas-wait 2.2s ease-in-out infinite}
 .atlas-mine .ripple{stroke:var(--c);stroke-width:12px;stroke-opacity:0}
 .atlas-mine text{font:700 calc(13px * var(--u,1))/1 var(--nova);fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:4px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
-@keyframes atlas-wait{0%,100%{stroke-opacity:.06}50%{stroke-opacity:.24}}
 
 .atlas-tip{position:absolute;z-index:3;left:0;top:0;max-width:260px;padding:9px 13px;border-radius:var(--radius);background:var(--navy-surface);color:var(--on-navy);font-size:.9375rem;line-height:1.35;pointer-events:none;translate:-50% calc(-100% - 16px)}
 .atlas-tip strong{display:block;font-weight:700}
@@ -294,6 +301,9 @@ body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clam
   .atlas-tile{min-height:134px;padding:14px 16px 16px}
   .atlas-tile .pictogram{width:34px;height:34px}
   .atlas-tile strong{font-size:clamp(1.9rem,8.6vw,2.5rem)}
+  .atlas-tile strong.fine{font-size:clamp(1.55rem,7vw,2.1rem)}
+  .atlas-plus{top:12px;right:12px;padding:5px 10px;font-size:.8125rem}
+  .atlas-plus::before{display:none}
   .atlas-tile span{margin-top:6px;font-size:.9375rem}
   .atlas-latest{display:grid;gap:4px;margin-top:22px}
   .atlas-latest-line{white-space:normal}
@@ -317,7 +327,7 @@ body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clam
   .atlas-next-actions{margin-top:10px}
 }
 @media(prefers-reduced-motion:reduce){
-  .atlas-mine .pending .halo{animation:none;stroke-opacity:.18}
+  .atlas-plus::before,.atlas-tile.is-arriving,.atlas-tile.is-arriving .atlas-plus{animation:none}
   .atlas-county,.atlas-months button i,.atlas-story path,.atlas-tile,.atlas-tile .pictogram,.atlas-card-photo img,.atlas-arrow{transition:none}
   .atlas-card:is(:hover,:focus-visible) .atlas-card-photo img{transform:scale(var(--zoom,1))}
 }

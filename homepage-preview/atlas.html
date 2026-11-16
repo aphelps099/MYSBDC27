@@ -21,7 +21,7 @@
     <!-- Design preview only. A milestone shared from the MySBDC dashboard preview in this browser. Not part of the public page. -->
     <aside class="atlas-preview" data-atlas-preview hidden aria-label="Design preview">
       <p><strong>Design preview.</strong> <span data-atlas-preview-text></span></p>
-      <div class="atlas-preview-actions"><button class="atlas-link" type="button" data-atlas-confirm>Confirm as the advisor</button><button class="atlas-link" type="button" data-atlas-clear>Clear</button></div>
+      <div class="atlas-preview-actions"><button class="atlas-link" type="button" data-atlas-clear>Clear</button></div>
     </aside>
 
     <div class="atlas-grid">
@@ -32,10 +32,10 @@
 
         <!-- The four totals, as the dashboard's milestone tiles. Each is also the map's legend and its filter. -->
         <ul class="atlas-tiles" aria-label="Totals. Choose one to show only those milestones on the map.">
-          <li><button class="atlas-tile is-funding" type="button" data-atlas-type="funding" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-funding"/></svg><strong data-atlas-total="funding">$0</strong><span>Capital accessed</span></button></li>
-          <li><button class="atlas-tile is-sales" type="button" data-atlas-type="sales" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-growth"/></svg><strong data-atlas-total="sales">$0</strong><span>Sales growth</span></button></li>
-          <li><button class="atlas-tile is-started" type="button" data-atlas-type="started" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-business"/></svg><strong data-atlas-total="started">0</strong><span>Businesses started</span></button></li>
-          <li><button class="atlas-tile is-hired" type="button" data-atlas-type="hired" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-people"/></svg><strong data-atlas-total="hired">0</strong><span>Jobs created</span></button></li>
+          <li><button class="atlas-tile is-funding" type="button" data-atlas-type="funding" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-funding"/></svg><b class="atlas-plus" data-atlas-plus="funding" hidden></b><strong data-atlas-total="funding">$0</strong><span>Capital accessed</span></button></li>
+          <li><button class="atlas-tile is-sales" type="button" data-atlas-type="sales" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-growth"/></svg><b class="atlas-plus" data-atlas-plus="sales" hidden></b><strong data-atlas-total="sales">$0</strong><span>Sales growth</span></button></li>
+          <li><button class="atlas-tile is-started" type="button" data-atlas-type="started" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-business"/></svg><b class="atlas-plus" data-atlas-plus="started" hidden></b><strong data-atlas-total="started">0</strong><span>Businesses started</span></button></li>
+          <li><button class="atlas-tile is-hired" type="button" data-atlas-type="hired" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-people"/></svg><b class="atlas-plus" data-atlas-plus="hired" hidden></b><strong data-atlas-total="hired">0</strong><span>Jobs created</span></button></li>
         </ul>
 
         <p class="atlas-latest"><span class="atlas-label">Latest</span><span class="atlas-latest-line" data-atlas-latest aria-live="off"></span></p>
