@@ -1,8 +1,7 @@
 /* Success Atlas — the public map of shared milestones. Page-scoped; loaded only by atlas.html.
    Third version. A white page; the four totals are the MySBDC dashboard's milestone tiles
-   (handoff/DESIGN.md); the map is white counties on one soft gradient field with a fine grain, as the
-   dashboard's page ground is; berry is kept for the story marks and the rule under each story
-   photograph. Logic: ATLAS.md. */
+   (handoff/DESIGN.md); the map is white counties on one solid cream panel; berry is kept for the story
+   marks and the rule under each story photograph. No gradients or shadows on surfaces. Logic: ATLAS.md. */
 
 .atlas-page{
   /* Mark colours: deeper relatives of the tiles beside the map (sand, sage, navy, pool).
@@ -10,7 +9,7 @@
      change them as a set. */
   --atlas-funding:#A97C1F; --atlas-sales:#397247; --atlas-started:#243B50; --atlas-hired:#2E8CAD;
   --atlas-story:var(--berry);
-  --atlas-land:#fdfdfd; --atlas-land-hover:#e9f2f5; --atlas-land-line:#e6dfd0;
+  --atlas-land:#fdfdfd; --atlas-land-hover:#e9f2f5;
   --ink:#0f1c2d; --ink-2:#384252; --ink-3:#596270;
   --navy-surface:#243B50; --on-navy:#F5F1E8; --on-navy-muted:#BECCD5; --on-navy-accent:#AFD2DF;
   --radius:6px; --atlas-pin:3.5px;
@@ -61,11 +60,9 @@
 .atlas-latest-line strong{font-weight:600;color:var(--ink)}
 .atlas-swatch{display:inline-block;width:9px;height:9px;margin-right:10px;border-radius:50%;background:var(--c);translate:0 -1px}
 
-/* The map sits on one soft field: the tile colours (pool, sand, sage) drifting over warm paper, with the
-   dashboard's fine grain. White counties. About half the shell wide, and never taller than the window. */
-.atlas-map{--map-ratio:.7406;--map-pad:28px;position:relative;display:grid;gap:8px;width:max(380px,min(calc((100vw - 112px) * .5),720px,calc((100vh - 170px) * var(--map-ratio) + var(--map-pad) * 2)));max-width:100%;padding:22px var(--map-pad) 18px;border-radius:var(--radius);overflow:hidden;background:radial-gradient(75% 55% at 92% 4%,#a9cfddc7,transparent 70%),radial-gradient(70% 50% at 4% 98%,#e8d5a5b8,transparent 72%),radial-gradient(55% 42% at 22% 18%,#cddcd0a6,transparent 74%),linear-gradient(165deg,#f8f4ea,#efe8d9)}
-.atlas-map::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.55;mix-blend-mode:soft-light;pointer-events:none}
-.atlas-map>*{position:relative}
+/* The map sits on one solid cream panel: a matte surface, no gradient. White counties; the gaps between
+   them are the panel. About half the shell wide, and never taller than the window. */
+.atlas-map{--map-ratio:.7406;--map-pad:28px;display:grid;gap:8px;width:max(380px,min(calc((100vw - 112px) * .5),720px,calc((100vh - 170px) * var(--map-ratio) + var(--map-pad) * 2)));max-width:100%;padding:22px var(--map-pad) 18px;border-radius:var(--radius);background:var(--cream)}
 .atlas-map-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
 .atlas-scope select{max-width:100%;min-height:44px;padding:0 30px 0 0;border:0;border-radius:2px;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%230f1c2d' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m1 1.5 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 2px center;color:var(--ink);font:400 clamp(1.25rem,1.7vw,1.5rem)/1.2 var(--sera);letter-spacing:-.02em;appearance:none;cursor:pointer}
 .atlas-scope select:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
@@ -76,7 +73,7 @@
 
 .atlas-stage{position:relative;width:100%;aspect-ratio:808/1091}
 .atlas-svg{display:block;width:100%;height:100%;overflow:hidden;touch-action:manipulation}
-.atlas-county{fill:var(--atlas-land);stroke:var(--atlas-land-line);stroke-width:1.25px;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s,fill-opacity .18s}
+.atlas-county{fill:var(--atlas-land);stroke:var(--cream);stroke-width:2px;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s,fill-opacity .18s}
 .atlas-county:hover{fill:var(--atlas-land-hover)}
 .atlas-scoped .atlas-county:not(.on){fill-opacity:.42}
 .atlas-scoped .atlas-county:not(.on):hover{fill-opacity:.7}
