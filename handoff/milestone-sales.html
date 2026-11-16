@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Sales grew · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=9b611707">
-<script defer src="assets/mysbdc.js?v=9b611707"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=db9b079b">
+<script defer src="assets/mysbdc.js?v=db9b079b"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -188,26 +188,34 @@
         </section>
         <!-- The final review. Nothing is recorded, and nothing reaches the Success Atlas preview, until "Confirm and submit". -->
         <dialog class="ms-confirm" data-confirm aria-labelledby="confirm-title">
+          <header class="ms-confirm-head">
+            <div>
+              <p class="ms-label">Before you submit</p>
+              <h2 id="confirm-title" tabindex="-1">Confirm impact entries</h2>
+              <p class="ms-confirm-for"><span data-business>Northstar Provisions</span> · Sales grew</p>
+            </div>
+            <svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-growth"/></svg>
+          </header>
           <div class="ms-confirm-body">
-            <p class="ms-label">Before you submit</p>
-            <h2 id="confirm-title" tabindex="-1">Confirm impact entries</h2>
-            <p class="ms-confirm-lead">Nothing has been submitted yet. Check each entry, then confirm.</p>
+            <p class="ms-confirm-sentence" data-confirm-sentence></p>
             <dl class="ms-confirm-rows" data-confirm-rows>
-              <div><dt>Business</dt><dd data-business>Northstar Provisions</dd></div>
-              <div data-detail><dt>Milestone</dt><dd>Sales grew</dd></div>
               <div data-detail><dt>Year</dt><dd data-echo="year"></dd></div>
               <div data-detail><dt>Total sales</dt><dd>$<span data-echo="rev"></span></dd></div>
               <div data-detail><dt>The year before, on file</dt><dd>$343,000</dd></div>
               <div data-detail><dt>Where the number comes from</dt><dd data-echo="basis"></dd></div>
               <div><dt>Did the SBDC help with this?</dt><dd data-echo="support"></dd></div>
-              <div data-hide-empty="quote"><dt>Your words about the SBDC</dt><dd data-echo="quote"></dd></div>
-              <div><dt>Signature</dt><dd class="ms-confirm-sign" data-echo="signature"></dd></div>
-              <div><dt>Agreed</dt><dd data-accepted-at></dd></div>
+              <div class="wide" data-hide-empty="quote"><dt>Your words about the SBDC</dt><dd class="ms-confirm-quote" data-echo="quote"></dd></div>
             </dl>
-            <div class="ms-confirm-attest"><p class="ms-confirm-attest-title">You agreed to this statement</p><p data-attest-copy></p></div>
-            <p class="ms-confirm-note">Design preview. Nothing is sent. This milestone is kept in this browser only.</p>
+            <section class="ms-confirm-attest" aria-label="Your agreement">
+              <p class="ms-confirm-attest-title"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>You agreed on <span data-accepted-at></span></span></p>
+              <p class="ms-confirm-attest-text" data-attest-copy></p>
+              <p class="ms-confirm-signed"><span>Signed</span><b class="ms-confirm-sign" data-echo="signature"></b></p>
+            </section>
           </div>
-          <div class="ms-confirm-actions"><button class="btn btn-secondary" type="button" data-review-edit>Edit information</button><button class="btn btn-primary" type="button" data-review-submit data-href="milestone-done.html?type=sales">Confirm and submit</button></div>
+          <div class="ms-confirm-foot">
+            <p class="ms-confirm-note">Nothing is submitted until you confirm. Design preview: kept in this browser only.</p>
+            <div class="ms-confirm-actions"><button class="btn btn-secondary" type="button" data-review-edit>Edit information</button><button class="btn btn-primary" type="button" data-review-submit data-href="milestone-done.html?type=sales">Confirm and submit</button></div>
+          </div>
         </dialog>
       </form>
     </div>

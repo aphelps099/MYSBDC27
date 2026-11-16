@@ -275,6 +275,7 @@
       if (bad) { const n = panels.indexOf(bad.closest('.step-panel')); if (n !== at) show(n, -1); bad.reportValidity(); return; }
       echo();
       $('[data-attest-copy]', review).textContent = $('[data-attest-text]', flow).textContent.trim();
+      const said = $('.ms-review .ms-sentence', flow); $('[data-confirm-sentence]', review).textContent = said ? said.textContent.replace(/\s+/g, ' ').trim() : '';
       $('[data-accepted-at]', review).textContent = new Date(accepted.at).toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' });
       review.showModal(); $('.ms-confirm-body', review).scrollTop = 0; $('h2', review).focus();
     }
