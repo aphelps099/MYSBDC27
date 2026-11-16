@@ -34,8 +34,7 @@ python3 -m http.server 8000      # from the repository root
 | `milestone-sales.html` | Milestone form: sales grew (3 steps) | `/milestones/new/increased-revenue/` |
 | `milestone-funding.html` | Milestone form: got funding (3 steps) | `/milestones/new/received-funding/` |
 | `milestone-started.html` | Milestone form: started a business (3 steps, with a "not yet" exit) | `/milestones/new/started-business/` and `/not-started/` |
-| `milestone-done.html` | Thank-you, with a link to the Atlas and a prompt to add another | `/milestones/new/*/success/` |
-| `atlas.html` | The Atlas: a map of shared milestones across Northern California. See [ATLAS.md](ATLAS.md) | Proposed `/atlas/` |
+| `milestone-done.html` | Thank-you, with a link out to the public Success Atlas and a prompt to add another | `/milestones/new/*/success/` |
 | `resources.html` | Resources: a small collection of five templates and guides | `/resources/` |
 | `resource.html` | Resource detail: loan package checklist | `/resources/{resource}/` |
 | `resource-plan.html`, `resource-cash-flow.html`, `resource-pricing.html`, `resource-hiring.html` | Matching detail pages for the other four sample resources | `/resources/{resource}/` |
@@ -117,7 +116,7 @@ The markup reuses the theme's existing hooks so styles can be moved across witho
    labelled sidebar (`body.site-menu-active`). Two differences: each icon keeps a word under it,
    because icon-only navigation loses less confident users, and below 1200px the widened sidebar
    overlays the page instead of squeezing it.
-2. **On phones the rail becomes a five-item bottom tab bar** (Home, Training, Milestones, Atlas, Resources). The selected tab keeps its inset fill.
+2. **On phones the rail becomes a four-item bottom tab bar.** The selected tab keeps its inset fill.
    Settings is in the account menu.
 3. **The page is warm paper, not white.** Soft gradients plus a fine grain (`--grain`, `--grain-mid`,
    `--navy-depth` tokens). The app header, rail, business card and dark milestone tile use solid
@@ -237,12 +236,12 @@ approved Home vocabulary into a focused question-and-answer layout:
   "Step 1 of 3". These numbers communicate actual progress.
 - One serif question per step. Counts use a large serif number with generous − and + controls.
   Choices are soft filled rows with visible radio states. Help stays beside its related question.
-- The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?", the Atlas
-  choice ("Yes, without my name" or "Keep it off the map") with an optional quote, and a typed name.
-- `milestone-done.html` uses a quiet checkmark, a line that fits the milestone (`?type=`), a primary link to
-  the Atlas, and four compact colour links for sharing another update.
-- Sharing keeps the milestone in this browser (`localStorage`, key `mysbdc-atlas-v1`) so the Atlas preview can
-  show it. Nothing is sent. Production posts the milestone instead.
+- The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?", the
+  Success Atlas choice ("Yes, without my name" or "Keep it off the map") with an optional quote, and a typed name.
+- `milestone-done.html` uses a quiet checkmark, a line that fits the milestone (`?type=`), a link out to the
+  public Success Atlas, and four compact colour links for sharing another update.
+- Sharing keeps the milestone in this browser (`localStorage`, key `mysbdc-atlas-v1`) so the public Atlas
+  preview can show it arriving. Nothing is sent. Production posts the milestone instead.
 - Steps are `<section class="step-panel">` inside `form[data-stepper]`; the same script runs Form 641.
   `data-when="field=value"` skips a panel unless that answer was given (the "not yet" branch);
   `data-show-if="field=value"` shows a field only for that answer (loan type appears only for loans).
@@ -252,17 +251,15 @@ The fields are a starting set drawn from the earlier preview; check them against
 milestone records require. [ATLAS.md](ATLAS.md) lists how they differ from the Milestone Collection
 wizard in `mysbdc-tools`.
 
-## The Atlas
+## The Success Atlas is not in the dashboard
 
-`atlas.html` maps every shared milestone across the 36-county service area: one small light per
-milestone, coloured by kind, on a single matte navy surface. The four totals are also the legend
-and the filter; a county can be opened for a closer view; twelve month bars and "Play the year"
-show the year filling in; "Present full screen" removes the app frame for a shared screen.
-A client's own milestone appears as a ring until their advisor confirms it. The design logic,
-privacy rules, data contract and what is still a preview are in [ATLAS.md](ATLAS.md).
+The dashboard is where clients share milestones. The Success Atlas, the map that shows the
+network's milestones to the public, is a page on the website (`/atlas`), mocked up in
+[`../homepage-preview/atlas.html`](../homepage-preview/atlas.html) with its design logic in
+[`../homepage-preview/ATLAS.md`](../homepage-preview/ATLAS.md). There is no Atlas item in the rail.
 
-It uses `assets/atlas.css`, `assets/atlas.js` and `assets/atlas-data.js` (generated by
-`atlas-data.py`), with no map service and no other dependency. All milestones on it are sample data.
+The dashboard's part is small: the consent question on each form's review step, and the link on
+the thank-you page that opens the public page in a new tab.
 
 ## Surface rule: flat
 

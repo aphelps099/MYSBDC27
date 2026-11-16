@@ -238,7 +238,7 @@
       } else if (b.dataset.step === 'back') show(at - 1, -1);
       else show(+b.dataset.step, 1);
     });
-    // Milestones → Atlas. A shared milestone is kept in this browser so the Atlas preview can show it.
+    // Milestones → the public Success Atlas. A shared milestone is kept in this browser so the Atlas preview can show it.
     // Design preview only: nothing is sent. Production posts the milestone and reads it back from the server.
     const shareMilestone = () => {
       const type = (flow.closest('[data-type]') || {}).dataset?.type; if (!type) return;
@@ -307,13 +307,13 @@
     const lines = { hired: 'New hires are a big step.', sales: 'Growing sales is hard-won.', funding: 'New funding opens doors.', started: 'Opening your doors is a big day.' };
     const t = new URLSearchParams(location.search).get('type'); if (lines[t]) cheer.textContent = lines[t];
   }
-  // The thank-you page points at the Atlas. If the last milestone was kept off the map, it says so.
+  // The thank-you page points at the public Success Atlas. If the last milestone was kept off the map, the link is plain.
   const atlasLink = $('[data-atlas-link]');
   if (atlasLink) {
     try {
       const last = (JSON.parse(localStorage.getItem('mysbdc-atlas-v1') || 'null')?.items || []).at(-1);
-      if (!last || last.share === 'private') { atlasLink.textContent = 'See the Atlas'; atlasLink.href = 'atlas.html'; }
-    } catch (e) { atlasLink.textContent = 'See the Atlas'; atlasLink.href = 'atlas.html'; }
+      if (last && last.share !== 'private') atlasLink.href += '?new=1';
+    } catch (e) {}
   }
   const field = $('[data-confetti]');
   if (field) {
