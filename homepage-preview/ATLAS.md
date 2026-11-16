@@ -3,7 +3,8 @@
 `atlas.html` is the public Success Atlas: the website page (`/atlas`) that shows partners, funders
 and other business owners how much is happening across the NorCal SBDC network. It carries the idea
 of the Atlas tools in `mysbdc-tools` (the `/atlas` totals dashboard and the `success-atlas.html`
-map) onto the public website, in the refined homepage and impact page's design language.
+map) onto the public website. Its visual language is the MySBDC dashboard's: calm, editorial, warm
+paper and serif numbers.
 
 **Two surfaces, two jobs.** Clients share milestones in the MySBDC dashboard (`../handoff/`), which
 is private. The Success Atlas shows the network's milestones in aggregate, which is public. The map
@@ -12,71 +13,115 @@ does not appear in the dashboard.
 ## What the page is for
 
 One sentence: **show how much is happening, without showing who.** A visitor sees a region full of
-activity and four totals that add up. A client who just shared a milestone can see where it joins
-everyone else's.
+activity and four totals that add up. A few ringed marks open into the people behind them. A client
+who just shared a milestone can see where it joins everyone else's.
+
+## The approach (second version)
+
+The first version put the map on a full-bleed navy band with bright lights. It worked, and it was
+busy. This version asks what a studio like Pentagram would do with the same features, using the
+MySBDC dashboard's design logic (`../handoff/DESIGN.md`):
+
+- **Subtract until one idea is left.** The page is one composition: words and four numbers on the
+  left, the map on the right. Section labels, sub-lines under each number, a hint line and a second
+  heading were removed. Nothing was added to replace them.
+- **Typography carries the hierarchy.** Proxima Sera sets the headline and the four numbers;
+  Proxima Nova sets everything functional. Size and position do the work that boxes and colour
+  bands did before.
+- **Warm paper, white surfaces, one navy card.** The page is the dashboard's warm paper. Counties
+  are white tiles; the paper showing between them is the border. The only dark surface is the
+  slate-navy next-step card.
+- **Colour is quiet and earns its place.** Marks use deeper relatives of the dashboard's milestone
+  tile colours. Berry appears in exactly one role: the story marks.
+- **One control does several jobs.** The four totals are the legend and the filter. The county menu
+  is also the map's title. The timeline is one line.
+
+The first version is kept for comparison as `atlas-v1.html`.
 
 ## Page composition
 
-Follows the impact page: open rhythm, no decorative rules, one action per section.
-
-1. **Paper intro.** "Success Atlas" label, a single-colour Proxima Nova headline, one sentence, and
-   one action (Present full screen).
-2. **One full-bleed navy band.** The map on the left; the four totals and the latest milestones on
-   the right. This is the page.
-3. **A voice (paper).** One client quote that fits what the map is showing, credited by county.
-4. **Next step (cream).** "Add your milestone to the map", which opens MySBDC.
-5. **Notes.** "Totals by county" and "About this map" as disclosures, as on the impact page.
+1. **The composition (warm paper).** Left: label, serif headline, one sentence, the four totals as
+   an index, and the three latest milestones. Right: the map, with its county menu above and the
+   timeline below.
+2. **Stories.** "Behind the marks, people." A small card collection, as on the dashboard's
+   Resources page: three success stories, then three testimonies.
+3. **Next step.** One slate-navy card: "Add your milestone to the map", which opens MySBDC.
+4. **Notes.** "Totals by county" and "About this map" as disclosures.
 
 ## The map
 
-- **Drawn on the navy band itself.** Counties are one lighter navy, separated by a gap in the band
-  colour instead of drawn lines. There are no tiles from a map service, no gradients and no
-  shadows, so the page has no outside dependency.
-- **Every milestone is one small light.** Density is the message: about 4,200 lights read as a busy
-  region before anyone reads a number. Lights keep the same size on screen at every zoom.
-- **Colour means the kind of milestone, and nothing else.**
+- **White counties on warm paper.** No drawn borders: the gap between counties is the page
+  showing through. There are no tiles from a map service, no gradients and no shadows, so the page
+  has no outside dependency.
+- **Every milestone is one small mark.** About 4,200 of them read as a texture of activity before
+  anyone reads a number. Marks keep the same size on screen at every zoom.
+- **Colour means the kind of milestone, and nothing else.** The mapping follows the dashboard's
+  milestone tiles (pool for hired, sage for sales, sand for funding, navy for started), deepened so
+  small marks hold on white.
 
-  | Milestone | Light | Token |
+  | Milestone | Mark | Token |
   | --- | --- | --- |
-  | New hires (jobs created) | blue | `--atlas-hired` `#5DA4E5` |
-  | New business | green | `--atlas-started` `#68D7A1` |
-  | New funding (capital accessed) | gold | `--atlas-funding` `#E4B750` |
-  | Sales growth | rose | `--atlas-sales` `#DB6EA5` |
+  | Capital accessed (new funding) | ochre | `--atlas-funding` `#B98A2B` |
+  | Businesses started | navy | `--atlas-started` `#243B50` |
+  | Jobs created (new hires) | pool blue | `--atlas-hired` `#3292B3` |
+  | Sales growth | sage green | `--atlas-sales` `#397247` |
 
-  The four were checked together on navy for colour-blind separation and contrast. Change them as
-  a set, not one at a time.
-- **Colour is never the only cue.** Each total names its colour, the pointer names any light, and
+  The four were checked together on white for colour-blind separation and 3:1 contrast. Change
+  them as a set, not one at a time.
+- **Colour is never the only cue.** Each total names its colour, the pointer names any mark, and
   "Totals by county" gives the same numbers as a table.
-- **Two altitudes.** The whole region shows density. Choosing a county (click it, or use the county
-  menu) zooms in, dims everything outside it, enlarges the lights, and re-scopes the totals, the
-  latest list and the quote. Escape or a click outside returns to the region.
+- **Two altitudes.** The whole region shows density. Choosing a county (click it, or use the menu
+  above the map) zooms in, lets the other counties recede into the paper, enlarges the marks, and
+  re-scopes the totals and the latest list. Escape or a click outside returns to the region.
 - **A few place names for orientation.** Nine towns are labelled on the regional view and removed
-  when zoomed, where the heading already names the county.
+  when zoomed, where the menu already names the county.
+
+## Story marks
+
+A few marks are ringed in berry. Each is a person, not a count.
+
+- **Two kinds.** A **success story** is a published client story: photo, one-line result, business
+  name and a link to read it. A **testimony** ("In their words") is a short quote credited by
+  county only.
+- **On the map** a story mark is a ring, larger than a milestone, so it differs by shape and size
+  as well as colour. It is a real button: pointer, touch and keyboard all open it.
+- **Opening one** shows a single card beside the mark, on a solid pool plate, the dashboard's one
+  emphasis device. Escape or Close dismisses it and returns focus to the mark.
+- **Below the map** the same six appear as cards. "Show on the map" on a card opens its mark;
+  resting on a card lights its mark.
+- **Keep them few.** Six is about the limit before the map reads as two competing layers. Rotate
+  them rather than adding more.
+- **Sources.** The three success stories are existing client stories from the website draft
+  (Jump Aero in Petaluma, Yarrow Goods in Marin County, Liquid Fusion Kayaking in Fort Bragg). The
+  three testimonies are sample quotes. In production, testimonies come from the optional quote on
+  the milestone forms, and a named story needs the owner's agreement.
 
 ## The totals
 
 - **The four totals are the legend and the filter.** Choosing a total shows only that kind of
-  light; choosing it again shows all four. The totals never change with the filter.
+  mark; choosing it again shows all four. The totals never change with the filter.
 - **They match the impact page.** Capital accessed, businesses started, jobs created, sales growth,
   in that order and with those words.
-- **Latest** lists the most recent milestones in view: kind, town, county, and when.
+- **Latest** is three quiet lines: kind, town, county, and when.
 
 ## Time
 
-Twelve month bars show when milestones were shared. Choosing a month shows the map "through" that
-month. **Play the year** fills the map from twelve months ago to today while the totals count up.
-With reduced motion it steps month by month.
+One line under the map: a Play control, twelve month bars, and the period in words. Choosing a
+month shows the map "through" that month. **Play the year** fills the map from twelve months ago to
+today while the totals count up. With reduced motion it steps month by month.
 
 ## Presenting
 
-"Present full screen" (or `atlas.html?present`) removes the site header, footer and other sections
-so the navy band fills the screen with larger totals. It suits a lobby display or a partner meeting.
+"Present full screen" (or `atlas.html?present`) removes the site header, footer and the sections
+below, so the composition fills the screen. While presenting, the story marks take turns opening
+every few seconds; any click or key press stops the tour. It suits a lobby display or a partner
+meeting.
 
 ## Privacy rules
 
 These are design rules, not presentation details. Keep them when the data becomes real.
 
-1. **A light says what and where.** Kind of milestone, town, county, month. Never a person, a
+1. **A mark says what and where.** Kind of milestone, town, county, month. Never a person, a
    business name or an amount.
 2. **Numbers live in totals.** Jobs and dollars appear only summed for the region or a county.
 3. **The business owner chooses.** The review step of every milestone form in the dashboard asks
@@ -95,8 +140,8 @@ page reads it. Both previews must be open in the same browser.
 4. On the thank-you page choose **See the Success Atlas**. The map moves to Humboldt County and a
    ring labelled "New" pulses at Eureka, the sample client's town. An Atlas already open in
    another tab does the same without a reload.
-5. A cream **Design preview** strip explains what happened. **Confirm as the advisor** turns the
-   ring into a solid light, counts the totals up, and adds the milestone to Latest.
+5. A white **Design preview** strip explains what happened. **Confirm as the advisor** turns the
+   ring into a solid mark, counts the totals up, and adds the milestone to Latest.
 6. **Clear** (or `atlas.html?reset`) removes the preview milestones to start again.
 
 ## What is real and what is a preview
@@ -105,7 +150,9 @@ page reads it. Both previews must be open in the same browser.
 | --- | --- | --- |
 | County outlines, town positions | Real. US Census Bureau files (public domain), simplified | Same |
 | The four network totals | The FY2025 draft figures already on the impact page | Confirmed reporting figures |
-| Where each light sits, county breakdowns, dates, quotes | **Sample content**, generated by `atlas-data.py` | Verified milestones from Neoserra |
+| Where each mark sits, county breakdowns, dates | **Sample content**, generated by `atlas-data.py` | Verified milestones from Neoserra |
+| Success stories | Existing client stories from the website draft | Published stories, with the owner's agreement |
+| Testimonies | **Sample quotes** | Quotes shared on the milestone forms, credited by county |
 | A shared milestone | Kept in this browser (`localStorage`, key `mysbdc-atlas-v1`). Nothing is sent | Posted by the dashboard; published after confirmation |
 | The "Design preview" strip and its buttons | Stand in for the advisor's confirmation | Removed |
 | Live arrival | Same browser only (`storage` event) | Server push or polling |
@@ -123,12 +170,13 @@ The page states its sample status under "About this map".
 | `counties[]` | `n` name, `c` SBDC center, `d` SVG path, `b` bounding box |
 | `towns[]` | `[label, countyIndex, x, y]` |
 | `pins` | Flat list, six numbers per milestone: `x, y, typeId, daysAgo, townIndex, value`. Oldest first. `value` is jobs, dollars, or 1 for a start |
-| `quotes[]` | `[pinIndex, text]`. Only where the owner allowed a quote |
+| `stories[]` | Featured marks: `kind` (`story` or `voice`), `x`, `y`, `town`, `county`, `title`, and for a story `name`, `meta`, `img`, `alt`, `pos`, `href` |
+| `quotes[]` | Used only by the first version (`atlas-v1.html`) |
 | `labels[]` | Orientation place names |
-| `home` | Preview only: the sample client's town and spots near it for preview lights |
+| `home` | Preview only: the sample client's town and spots near it for preview marks |
 
 For production, send confirmed milestones only, place each one at its town rather than its address
-(the sample scatters lights around the town centre), and decide whether a town with a single light
+(the sample scatters marks around the town centre), and decide whether a town with a single mark
 should be merged into its county. The page does not state a number of SBDC centers; the county to
 center names come from `atlas-data.py` and should be checked against the current network list.
 
