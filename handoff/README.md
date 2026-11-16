@@ -34,7 +34,7 @@ python3 -m http.server 8000      # from the repository root
 | `milestone-sales.html` | Milestone form: sales grew (3 steps) | `/milestones/new/increased-revenue/` |
 | `milestone-funding.html` | Milestone form: got funding (3 steps) | `/milestones/new/received-funding/` |
 | `milestone-started.html` | Milestone form: started a business (3 steps, with a "not yet" exit) | `/milestones/new/started-business/` and `/not-started/` |
-| `milestone-done.html` | Thank-you, with a link out to the public Success Atlas and a prompt to add another | `/milestones/new/*/success/` |
+| `milestone-done.html` | Thank-you, with a short burst of confetti, a link out to the public Success Atlas and a prompt to add another | `/milestones/new/*/success/` |
 | `resources.html` | Resources: a small collection of five templates and guides | `/resources/` |
 | `resource.html` | Resource detail: loan package checklist | `/resources/{resource}/` |
 | `resource-plan.html`, `resource-cash-flow.html`, `resource-pricing.html`, `resource-hiring.html` | Matching detail pages for the other four sample resources | `/resources/{resource}/` |

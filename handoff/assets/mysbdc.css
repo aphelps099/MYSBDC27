@@ -599,9 +599,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 /* Congratulations */
 .ms-done{display:grid;justify-items:center}
 .ms-done .ms-card{padding-top:0;background:#FDFDFD;text-align:center}
-.confetti-field{position:relative;height:210px}
-.confetti-field i{position:absolute;display:block;animation:confetti-fall 1.3s cubic-bezier(.2,.7,.3,1) both}
-@keyframes confetti-fall{0%{translate:0 -150px;rotate:0deg;opacity:0}12%{opacity:1}100%{translate:0 0;opacity:1}}
+.confetti-burst{position:fixed;inset:0;z-index:90;overflow:hidden;pointer-events:none}
+.confetti-burst i{position:absolute;top:0;display:block;will-change:transform,opacity}
 .ms-done .ms-label{color:#00675C}
 .ms-done h1{margin-top:16px;font:400 clamp(2.25rem,5vw,4rem)/1.02 var(--font-serif);letter-spacing:-.03em;text-wrap:balance}
 .ms-done .lead{margin:18px auto 0;max-width:26em;color:var(--ink-3)}
@@ -616,7 +615,6 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
   .ms-choice{min-height:128px}
   .ms-card .pills{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ms-card .ms-giant{width:230px;height:230px;right:-56px;top:-52px}
-  .confetti-field{height:160px}
 }
 
 /* 15 — Sign-up (SBA Form 641), in the milestone card style. One colour for the whole form;

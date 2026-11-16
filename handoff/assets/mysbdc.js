@@ -375,10 +375,23 @@
   if (field) {
     const colors = ['#1B5FAF', '#8FC5D9', '#C23C3C', '#00675C', '#F0C75E', '#0F1C2D'], still = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const frac = x => x - Math.floor(x);
-    for (let i = 0; i < 64; i++) {
-      const a = frac(Math.sin(i * 12.9898) * 43758.5453), b = frac(Math.sin(i * 78.233) * 12543.123), c = frac(Math.sin(i * 39.425) * 9871.77), k = i % 3, el = document.createElement('i');
-      el.style.cssText = `left:${Math.round(a * 100)}%;top:${Math.round(b * b * 170)}px;width:${[10, 7, 16][k]}px;height:${[10, 18, 6][k]}px;border-radius:${k ? '2px' : '50%'};background:${colors[i % 6]};transform:rotate(${Math.round(c * 300 - 150)}deg);animation-delay:${(c * .5).toFixed(2)}s` + (still ? ';animation:none' : '');
-      field.append(el);
+    if (still || !field.animate) field.remove();
+    else {
+      document.body.append(field); // out of the animated card, so the burst spans the whole window
+      let last = 0;
+      for (let i = 0; i < 110; i++) {
+        const a = frac(Math.sin(i * 12.9898) * 43758.5453), b = frac(Math.sin(i * 78.233) * 12543.123), c = frac(Math.sin(i * 39.425) * 9871.77), k = i % 3, el = document.createElement('i');
+        el.style.cssText = `left:${(a * 100).toFixed(1)}%;width:${[10, 7, 16][k]}px;height:${[10, 18, 6][k]}px;border-radius:${k ? '2px' : '50%'};background:${colors[i % 6]}`;
+        field.append(el);
+        const drift = Math.round(c * 240 - 120), spin = Math.round(b * 1080 - 540), dur = 2400 + Math.round(b * 1800), delay = Math.round(c * 700);
+        el.animate([
+          { transform: 'translate3d(0,-8vh,0) rotate(0deg)', opacity: 1 },
+          { transform: `translate3d(${Math.round(drift * .8)}px,82vh,0) rotate(${Math.round(spin * .8)}deg)`, opacity: 1, offset: .8 },
+          { transform: `translate3d(${drift}px,108vh,0) rotate(${spin}deg)`, opacity: 0 },
+        ], { duration: dur, delay, easing: 'cubic-bezier(.3,.2,.6,1)', fill: 'both' });
+        last = Math.max(last, dur + delay);
+      }
+      setTimeout(() => field.remove(), last + 200);
     }
   }
 
