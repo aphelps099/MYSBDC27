@@ -11,3 +11,5 @@ user-approved design philosophy and is the visual standard for future dashboard 
 - For Home's next-step sheet, follow [NEXT-STEP.md](NEXT-STEP.md): one step, advisor note first,
   then waiting documents, upcoming activity, and caught up. No milestone nudge. Completion is
   per client and note version; do not fabricate portal completion or advisor notifications.
+- For the Atlas, follow [ATLAS.md](ATLAS.md): a light shows a kind of milestone and a town, never a
+  name, a business or an amount; numbers appear only in totals; pin colours change as a validated set.

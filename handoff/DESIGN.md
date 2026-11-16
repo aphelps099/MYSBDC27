@@ -50,6 +50,10 @@ should support the content and the next action.
   previous-update records. Tile arrows appear only on hover or keyboard focus, including on Home.
   When the tiles wrap, use slim horizontal cards with a smaller icon beside the text: two columns
   on tablet and small laptop widths, one column on phones. Avoid large empty icon areas.
+- **The Atlas shows how much, never who.** Follow [ATLAS.md](ATLAS.md). One matte navy map, one
+  small light per milestone coloured by kind, totals that double as the legend and filter. A light
+  names a town and a kind of milestone only; numbers appear in totals; a client's own milestone is
+  a ring until an advisor confirms it.
 - **Home always offers one next step.** Follow [NEXT-STEP.md](NEXT-STEP.md). An active advisor note
   wins; otherwise show waiting documents, an upcoming session/registered training, or caught up.
   App-generated copy is signed by the center. There is no milestone nudge. Done acknowledges a

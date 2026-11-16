@@ -7,6 +7,7 @@ Each file in src/ is one page body. The first line names its layout:
     <!-- layout: app | active: dashboard | title: Dashboard -->
 The layouts below are the shared template parts (header.php, the rail, footer.php in theme terms).
 Output is plain static HTML in handoff/ with no build tooling needed to view it.
+The Atlas map data (assets/atlas-data.js) is generated separately by handoff/atlas-data.py.
 """
 import pathlib, re, hashlib
 ROOT = pathlib.Path(__file__).parent
@@ -15,6 +16,7 @@ VER = hashlib.md5((ROOT / 'assets' / 'mysbdc.css').read_bytes() + (ROOT / 'asset
 
 DOC_ASSETS = sorted((ROOT / 'assets').glob('documents-*')) + [ROOT / 'assets' / 'vendor' / 'norcal-documents.js']
 DOC_VER = hashlib.md5(b''.join(p.read_bytes() for p in DOC_ASSETS)).hexdigest()[:8]
+ATLAS_VER = hashlib.md5(b''.join(p.read_bytes() for p in sorted((ROOT / 'assets').glob('atlas*')))).hexdigest()[:8]
 
 def icon(name, cls=''):
     return f'<svg class="icon {cls}" aria-hidden="true" focusable="false"><use href="#i-{name}"/></svg>'
@@ -32,7 +34,8 @@ HEAD = '''<!doctype html>
 '''
 
 NAV = [('dashboard', 'dashboard.html', 'home', 'Home'), ('events', 'events.html', 'calendar', 'Training'),
-       ('milestones', 'milestones.html', 'flag', 'Milestones'), ('resources', 'resources.html', 'book', 'Resources')]
+       ('milestones', 'milestones.html', 'flag', 'Milestones'), ('atlas', 'atlas.html', 'map', 'Atlas'),
+       ('resources', 'resources.html', 'book', 'Resources')]
 
 def app(body, m):
     home = 'dashboard-new.html' if m.get('state') == 'new' else 'dashboard.html'
@@ -67,7 +70,7 @@ def app(body, m):
   </div>
 </header>
 
-<!-- Menu rail (Crown's #site-menu). Icon + word; the toggle widens it to a labelled sidebar. On phones it is a four-item bottom tab bar. -->
+<!-- Menu rail (Crown's #site-menu). Icon + word; the toggle widens it to a labelled sidebar. On phones it is a five-item bottom tab bar. -->
 <div id="site-menu">
   <nav class="primary-navigation" aria-label="Main">
     <ul class="menu">
@@ -104,7 +107,7 @@ for src in sorted((ROOT / 'src').glob('[!_]*.html')):
     text = src.read_text()
     first, body = text.split('\n', 1)
     meta = dict(kv.strip().split(': ', 1) for kv in first.strip('<!- >\n').split('|'))
-    body = body.replace('{{documents-version}}', DOC_VER)
+    body = body.replace('{{documents-version}}', DOC_VER).replace('{{atlas-version}}', ATLAS_VER)
     body = re.sub(r'\{\{icon:([\w-]+)(?: ([\w -]+))?\}\}', lambda x: icon(x[1], x[2] or ''), body)
     (ROOT / src.name).write_text(LAYOUTS[meta['layout']](body.rstrip(), meta))
     print('built', src.name)
