@@ -1,7 +1,7 @@
-/* MySBDC Atlas — the map of shared milestones. No framework, no dependencies, no network requests.
-   Reads window.MYSBDC_ATLAS_DATA (assets/atlas-data.js) and the signed-in client's own shared
-   milestones, which the milestone forms keep in this browser under `mysbdc-atlas-v1`.
-   Design logic and the production data contract are in handoff/ATLAS.md. */
+/* Success Atlas — the public map of shared milestones. No framework, no dependencies, no network requests.
+   Reads window.MYSBDC_ATLAS_DATA (atlas-data.js). For design review it also reads milestones shared
+   from the MySBDC dashboard preview (../handoff) in this browser, kept under `mysbdc-atlas-v1`, so a
+   milestone can be seen arriving. Design logic and the production data contract are in ATLAS.md. */
 (function () {
   const D = window.MYSBDC_ATLAS_DATA, root = document.querySelector('[data-atlas]');
   if (!D || !root) return;
@@ -43,9 +43,8 @@
     pins.push({ x: D.pins[i], y: D.pins[i + 1], t: D.pins[i + 2], age: D.pins[i + 3], town: town[0], county: town[1], v: D.pins[i + 5], month: monthOf(dateOf(D.pins[i + 3])), on: true, dim: false });
   }
   D.quotes.forEach(([i, text]) => { if (pins[i]) pins[i].quote = text; });
-  const centers = [...new Set(D.counties.map(c => c.c))];
 
-  // ── The signed-in client's own milestones (design preview: kept in this browser only) ──
+  // ── Design preview: milestones shared from the dashboard preview in this browser ──
   const readMine = () => {
     try {
       const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
@@ -145,14 +144,13 @@
       setTotal(type, type === 'started' ? t[type].n : t[type].sum, animate);
       $(`[data-atlas-sub="${type}"]`).textContent = META[type].sub(t[type].n);
     });
-    $('[data-atlas-count]').textContent = num(tally(null).n);
     $('.atlas-totals').classList.toggle('solo', state.type !== 'all');
     $$('[data-atlas-type]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.atlasType === state.type)));
     // Scope
     const c = county == null ? null : D.counties[county];
-    $('[data-atlas-kicker]').textContent = c ? c.c : 'NorCal SBDC network';
+    $('[data-atlas-kicker]').textContent = c ? 'Served by ' + c.c : D.counties.length + ' counties';
     $('[data-atlas-scope]').textContent = c ? c.n + ' County' : 'All of Northern California';
-    $('[data-atlas-scope-sub]').textContent = c ? plural(t.n, 'milestone') : centers.length + ' centers · ' + D.counties.length + ' counties';
+    $('[data-atlas-scope-sub]').textContent = plural(t.n, 'milestone') + (state.cut === 0 ? ' in the last 12 months' : '');
     $('[data-atlas-totals-title]').textContent = c ? 'In ' + c.n + ' County' : 'Across the network';
     $('[data-atlas-svg-title]').textContent = `Map of ${num(t.n)} milestones shared ${c ? 'in ' + c.n + ' County' : 'across Northern California'}. The same numbers are in the totals and the county table.`;
     svg.classList.toggle('atlas-scoped', !!c);
@@ -201,11 +199,11 @@
     body.textContent = '';
     D.counties.map((c, i) => [c, tally(i)]).sort((a, b) => b[1].n - a[1].n).forEach(([c, t]) => {
       const tr = document.createElement('tr'), th = document.createElement('th'); th.scope = 'row'; th.textContent = c.n; tr.append(th);
-      [c.c, num(t.n), num(t.hired.sum), num(t.started.n), money(t.funding.sum), money(t.sales.sum)].forEach((v, i) => { const td = document.createElement('td'); if (i) td.className = 'num'; td.textContent = v; tr.append(td); });
+      [c.c, num(t.n), money(t.funding.sum), num(t.started.n), num(t.hired.sum), money(t.sales.sum)].forEach((v, i) => { const td = document.createElement('td'); if (i) td.className = 'num'; td.textContent = v; tr.append(td); });
       body.append(tr);
     });
   }
-  $('.atlas-table').addEventListener('toggle', renderTable);
+  $('details.atlas-table').addEventListener('toggle', renderTable);
 
   // ── Scope: one county, or everything ──
   const setCounty = (i, focus) => {
@@ -216,7 +214,7 @@
     announce(i == null ? 'Showing all of Northern California.' : `Showing ${D.counties[i].n} County.`);
   };
   select.addEventListener('change', () => setCounty(select.value === '' ? null : +select.value));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.county != null && !document.body.classList.contains('atlas-present')) setCounty(null); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.county != null && !document.fullscreenElement) setCounty(null); });
 
   // ── Pointer: counties select; inside a county, the nearest pin explains itself ──
   const toMap = e => { const m = svg.getScreenCTM(); if (!m) return null; const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(m.inverse()); return [p.x, p.y]; };
@@ -288,12 +286,12 @@
   };
   playBtn.addEventListener('click', () => state.playing ? (stop(), render(false)) : play());
 
-  // ── Your milestones: the receipt, and the pin on the map ──
-  const yours = $('[data-atlas-yours]'), list = $('[data-atlas-yours-list]');
+  // ── Preview milestones: a light on the map, and one clearly labelled strip that stands in for the advisor ──
+  const strip = $('[data-atlas-preview]'), stripText = $('[data-atlas-preview-text]'), confirmBtn = $('[data-atlas-confirm]');
   const dot = (x, y, cls) => svgEl('path', { d: `M${x} ${y}h.01`, class: cls });
   const renderMine = () => {
     gMine.textContent = '';
-    const visible = mine.filter(i => i.share !== 'private');
+    const visible = mine.filter(i => i.share !== 'private'), waiting = visible.filter(i => i.status !== 'confirmed');
     visible.forEach(item => {
       const [x, y] = mineSpot(item), g = svgEl('g', { class: item.status === 'confirmed' ? 'confirmed' : 'pending' });
       g.dataset.id = item.id;
@@ -302,36 +300,19 @@
       g.append(dot(x, y, 'halo'), dot(x, y, 'ripple'), ring, core);
       gMine.append(g);
     });
-    if (visible.length) { // One "You" label, beside the newest pin.
-      const [x, y] = mineSpot(visible[visible.length - 1]), t = svgEl('text'); t.dataset.x = x; t.dataset.y = y; t.textContent = 'You';
+    if (visible.length) { // One "New" label, beside the newest light.
+      const [x, y] = mineSpot(visible[visible.length - 1]), t = svgEl('text'); t.dataset.x = x; t.dataset.y = y; t.textContent = 'New';
       gMine.append(t);
     }
     svg.classList.toggle('atlas-has-mine', visible.length > 0);
-    list.textContent = '';
-    yours.hidden = !mine.length;
-    const waiting = visible.filter(i => i.status !== 'confirmed').length;
-    $('[data-atlas-yours-title]').textContent = !visible.length ? 'Your milestone is private.' : mine.length > 1 ? 'Your milestones are on the map.' : 'Your milestone is on the map.';
-    mine.slice().reverse().forEach(item => {
-      const li = document.createElement('li'), p = document.createElement('p'), st = document.createElement('p'), actions = document.createElement('div');
-      p.textContent = item.summary || META[item.type].feed;
-      st.className = 'atlas-yours-state'; actions.className = 'atlas-yours-actions';
-      const strong = document.createElement('strong');
-      if (item.share === 'private') { strong.textContent = 'Kept off the map.'; st.append(strong, ' Only you and your SBDC team see it.'); }
-      else if (item.status === 'confirmed') { strong.textContent = 'Confirmed by Dana.'; st.append(strong, ' It now counts in the totals, shown as ' + D.home.town + ' with no name.'); }
-      else { strong.textContent = 'Waiting for Dana to confirm.'; st.append(strong, ' Shown as ' + D.home.town + ', with no name or numbers. It joins the totals once confirmed.'); }
-      if (item.share !== 'private') {
-        const find = document.createElement('button'); find.type = 'button'; find.className = 'link'; find.textContent = 'Show me on the map';
-        find.addEventListener('click', () => locate(item)); actions.append(find);
-        if (item.status !== 'confirmed') {
-          // Preview control. In production the advisor confirms in Neoserra; the client never sees this button.
-          const ok = document.createElement('button'); ok.type = 'button'; ok.className = 'link'; ok.textContent = 'Preview: confirm as Dana';
-          ok.addEventListener('click', () => confirmItem(item)); actions.append(ok);
-        }
-      }
-      li.append(swatch(item.type, item.share !== 'private' && item.status !== 'confirmed'), p, st, actions); list.append(li);
-    });
+    strip.hidden = !mine.length;
+    confirmBtn.hidden = !waiting.length;
+    const kinds = list => list.map(i => META[i.type].feed.toLowerCase()).join(', '), town = D.home.town;
+    stripText.textContent = waiting.length
+      ? `${waiting.length === 1 ? 'A milestone was' : waiting.length + ' milestones were'} just shared from the MySBDC dashboard in this browser: ${kinds(waiting)}, ${town}. On the live site a milestone appears here once its advisor confirms it.`
+      : visible.length ? `${plural(visible.length, 'confirmed milestone')} from the MySBDC dashboard in this browser ${visible.length === 1 ? 'is' : 'are'} on the map: ${kinds(visible)}, ${town}.`
+      : 'The milestone shared from the MySBDC dashboard in this browser was kept off the map, as its owner chose.';
     applyView();
-    return waiting;
   };
   const ripple = item => {
     const g = $$('g', gMine).find(n => n.dataset.id === item.id), r = g && $('.ripple', g);
@@ -340,14 +321,15 @@
   const locate = item => {
     stop(); state.cut = 0; state.type = 'all'; state.county = D.home.county;
     zoomTo(countyBox(D.home.county)); render();
-    stage.scrollIntoView({ block: 'center', behavior: still ? 'auto' : 'smooth' });
+    if (!document.body.classList.contains('atlas-present')) stage.scrollIntoView({ block: 'center', behavior: still ? 'auto' : 'smooth' });
     setTimeout(() => ripple(item), still ? 0 : 500);
   };
-  const confirmItem = item => {
-    item.status = 'confirmed'; writeMine(mine);
-    renderMine(); render(true); ripple(item);
-    announce('Confirmed. Your milestone now counts in the totals.');
-  };
+  confirmBtn.addEventListener('click', () => {
+    const waiting = mine.filter(i => i.share !== 'private' && i.status !== 'confirmed'); if (!waiting.length) return;
+    waiting.forEach(i => i.status = 'confirmed'); writeMine(mine);
+    renderMine(); render(true); waiting.forEach(ripple);
+    announce('Confirmed. The milestone now counts in the totals.');
+  });
   $('[data-atlas-clear]').addEventListener('click', () => { mine = []; writeMine(mine); renderMine(); render(); announce('Preview milestones cleared.'); });
 
   // Live: a milestone shared in another tab or window of this browser lands here without a reload.
@@ -356,19 +338,20 @@
     const before = new Set(mine.map(i => i.id)); mine = readMine();
     const added = mine.filter(i => !before.has(i.id) && i.share !== 'private');
     renderMine(); render(true);
-    if (added.length) { announce('A new milestone was just shared from ' + D.home.town + '.'); if (document.body.classList.contains('atlas-present')) { zoomTo(countyBox(D.home.county)); state.county = D.home.county; render(); } setTimeout(() => ripple(added[added.length - 1]), 400); }
+    if (added.length) { announce('A new milestone was just shared from ' + D.home.town + '.'); locate(added[added.length - 1]); }
   });
 
   // ── Presenting ──
   const presentBtn = $('[data-atlas-present]');
   const present = on => {
     document.body.classList.toggle('atlas-present', on);
-    presentBtn.setAttribute('aria-pressed', String(on)); presentBtn.textContent = on ? 'Exit full screen' : 'Present full screen';
+    presentBtn.setAttribute('aria-pressed', String(on));
     if (on && document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => {});
     if (!on && document.fullscreenElement) document.exitFullscreen().catch(() => {});
     requestAnimationFrame(() => { view = state.county == null ? FULL.slice() : countyBox(state.county); applyView(); });
   };
-  presentBtn.addEventListener('click', () => present(!document.body.classList.contains('atlas-present')));
+  presentBtn.addEventListener('click', () => present(true));
+  $('[data-atlas-present-exit]').addEventListener('click', () => { present(false); presentBtn.focus(); });
   document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && document.body.classList.contains('atlas-present')) present(false); });
   addEventListener('resize', () => { if (state.county != null) view = countyBox(state.county); applyView(); });
 
@@ -380,7 +363,7 @@
   // ── Go ──
   const params = new URLSearchParams(location.search);
   if (params.has('reset')) { mine = []; writeMine(mine); }
-  if (params.has('present')) document.body.classList.add('atlas-present'), presentBtn.setAttribute('aria-pressed', 'true'), presentBtn.textContent = 'Exit full screen';
+  if (params.has('present')) document.body.classList.add('atlas-present'), presentBtn.setAttribute('aria-pressed', 'true');
   renderMine(); render(false); applyView();
   const newest = mine.filter(i => i.share !== 'private').pop();
   if (newest && params.has('new')) setTimeout(() => locate(newest), 700);

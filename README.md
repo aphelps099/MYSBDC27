@@ -8,6 +8,8 @@ FAV NorCal SBDC design system (`_ds/`) at view time.
 
 Open [`homepage-preview/index.html`](homepage-preview/index.html) for the mobile-first “Your business, better.” design, including special-program signup. This is a non-submitting prototype. The original design files remain available below. Integration and accessibility notes are in [`homepage-preview/README.md`](homepage-preview/README.md).
 
+The public **Success Atlas** (`/atlas`), a map of milestones shared across the network, is [`homepage-preview/atlas.html`](homepage-preview/atlas.html). Its design logic is in [`homepage-preview/ATLAS.md`](homepage-preview/ATLAS.md). Clients share milestones in the dashboard (`handoff/`); the Atlas shows them to the public.
+
 ## Preview
 
 **`index.html` is the preview entry point** — it lists every page, screen, and
