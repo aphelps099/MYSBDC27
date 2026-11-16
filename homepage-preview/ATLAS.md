@@ -28,9 +28,11 @@ design logic (`../handoff/DESIGN.md`):
   reported and where it is shown.
 - **Words and map share the page.** Headline and tiles on the left, the map on the right at about
   half the width, and never taller than the window, so the whole region is seen at once.
-- **A cream page with one lighter panel.** The page ground is cream. The map sits on the page's
-  one white panel, and its counties are the page's cream, so the region looks cut from the page.
-  Matte, no gradient.
+- **A cream page with one lighter field.** The page ground is cream. The map sits on a lighter
+  field that runs the full height of the section and bleeds off the right edge of the browser,
+  so the page splits into two unequal blocks. The counties are the page's cream, so the region
+  looks cut from the page. Matte, no gradient. (`atlas.html?field=pool` previews the field in
+  pale pool for comparison.)
 - **Type leads the stories.** One confident line of type, then three photographs, each led by
   its place name. No card chrome.
 - **Colour has jobs.** Tile colours name the four kinds of milestone. Berry does one thing: it
@@ -61,8 +63,8 @@ repository history.
 
 ## The map
 
-- **Cream counties on a white panel.** No drawn borders: the gap between counties is the
-  panel showing through. A gradient behind the map was tried and dropped; it read as decoration.
+- **Cream counties on a lighter field.** No drawn borders: the gap between counties is the
+  field showing through. A gradient behind the map was tried and dropped; it read as decoration.
   There are no tiles from a map service, no gradients and no shadows, so the page has no outside
   dependency.
 - **About half the page.** The map panel takes up to half the page width, and its height is
