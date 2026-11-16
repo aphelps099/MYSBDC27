@@ -14,9 +14,11 @@
   --ink:#0f1c2d; --ink-2:#384252; --ink-3:#596270;
   --navy-surface:#243B50; --on-navy:#F5F1E8; --on-navy-muted:#BECCD5; --on-navy-accent:#AFD2DF;
   --radius:6px; --atlas-pin:3.5px;
-  background:var(--paper);
+  /* The page ground: cream at 30% over white. Warm enough not to feel sterile, lighter than a cream page. */
+  --atlas-ground:#fbf9f7; --atlas-ground:color-mix(in srgb,var(--cream) 30%,var(--paper));
+  background:var(--atlas-ground);
 }
-.atlas-page .site-header{background:var(--paper)}
+.atlas-page .site-header{background:var(--atlas-ground)}
 .atlas-page .header-inner{border:0}
 .atlas-page .primary-nav [aria-current=page]{text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:2px}
 .atlas-page main{color:var(--ink)}

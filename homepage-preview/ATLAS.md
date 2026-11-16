@@ -28,8 +28,8 @@ design logic (`../handoff/DESIGN.md`):
   reported and where it is shown.
 - **Words and map share the page.** Headline and tiles on the left, the map on the right at about
   half the width, and never taller than the window, so the whole region is seen at once.
-- **A white page with one warm field.** The site is white, as on the homepage and impact page.
-  The map sits on a single soft gradient panel so the page does not feel sterile: the tile
+- **A barely warm page with one warm field.** The page ground is cream at 30% over white: lighter
+  than a cream page, warmer than plain white. The map sits on a single soft gradient panel so the page does not feel sterile: the tile
   colours (pool, sand, sage) drifting over warm paper, with the dashboard's fine grain.
 - **Type leads the stories.** One confident line of type, then three photographs, each led by
   its place name. No card chrome.
