@@ -283,7 +283,8 @@ for kind, text in QUOTES:
 # ── Featured marks: a few success stories and testimonies, each tied to a place ──
 # The two success stories are existing client stories from the website draft (Stories.dc.html and the
 # homepage). `tone` is the milestone tile the story's headline figure belongs to. The three "voice"
-# quotes are sample content, credited by county only.
+# quotes are sample content, credited by county, with sample `initials` for the avatar. A voice may
+# carry `photo` (an image URL) instead, which the page shows in the same circle.
 FEATURED = [
     dict(kind='story', at='petaluma', place='Petaluma', name='Jump Aero', meta='Advanced aviation · Petaluma',
          title='$12M raised. A faster path to first flight.',
@@ -291,7 +292,7 @@ FEATURED = [
          img='https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg',
          alt='Jump Aero first-response aircraft in flight', pos='50% 50%',
          href='https://www.norcalsbdc.org/client-stories/jump-aero-raises-12m-to-build-the-worlds-fastest-first-response-aircraft/'),
-    dict(kind='voice', at='redding',
+    dict(kind='voice', at='redding', initials='MR',
          title='We went from just me to a team of four this year. My advisor helped me work out when I could afford each hire.'),
     dict(kind='story', at='san rafael', place='Marin County', name='Yarrow Goods', meta='Ecommerce · Marin County',
          title='$138K raised. Sales up 20%.',
@@ -302,9 +303,9 @@ FEATURED = [
          # wide, so it needs its own crop, centred on their faces.
          popPos='50% 73%', popOrigin='65% 50%', popZoom=1.5,
          href='https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/'),
-    dict(kind='voice', at='sacramento',
+    dict(kind='voice', at='sacramento', initials='JT',
          title='I came in with an idea and a lot of questions. Nine months later I had a licence, a lease and my first customers.'),
-    dict(kind='voice', at='truckee',
+    dict(kind='voice', at='truckee', initials='AL',
          title='The grant covered equipment we had put off for three years. We found it through a training I almost skipped.'),
 ]
 stories = []

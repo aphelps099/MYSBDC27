@@ -113,8 +113,12 @@ A few marks are ringed in berry. Each is a person, not a count.
 
 - **A bullseye is a success story:** a published client story. Hover or focus shows a small card
   with its photograph, result, name and a "Read story" link.
-- **A plain ring is a testimony:** a short quote credited by county only. It lives on the map and
-  nowhere else on the page. Hover or focus shows the quote.
+- **A plain ring is a testimony:** a short quote credited by county. It lives on the map and
+  nowhere else on the page. Hover or focus shows the quote, with a circular avatar beside the
+  credit: initials in the dashboard's pool circle, or a photo when one is supplied. The three
+  sets of initials here are sample content. Initials say more than a county does, so in
+  production show them (or a photo) only when the owner agrees; without them the card shows
+  the county credit alone.
 - **Behaviour.** Hover or keyboard focus shows a card; moving away closes it. A click or Enter
   keeps it open, and for a story moves focus to "Read story". Escape closes it. On touch, a tap
   opens it.
