@@ -22,7 +22,16 @@
 }
 .atlas-page .site-header{background:var(--atlas-ground)}
 .atlas-page .header-inner{border:0}
-.atlas-page .primary-nav [aria-current=page]{text-decoration:underline;text-underline-offset:7px;text-decoration-thickness:2px}
+/* A quieter header for this page: a smaller logo, one compact row, lighter links, a smaller button. */
+.atlas-page .header-inner{min-height:76px;gap:24px}
+.atlas-page .brand img{width:144px;height:auto}
+.atlas-page .primary-nav{gap:30px}
+.atlas-page .primary-nav a:not(.button),.atlas-page .header-actions .login{font-size:.9375rem;font-weight:500;color:var(--ink-2)}
+.atlas-page .primary-nav a:not(.button):hover,.atlas-page .header-actions .login:hover{color:var(--ink);text-decoration:none}
+.atlas-page .primary-nav [aria-current=page]{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:1.5px}
+.atlas-page .header-actions{gap:22px}
+.atlas-page .header-actions .button-small{min-height:40px;padding:8px 18px;font-size:.9375rem}
+.atlas-page .menu-toggle{font-size:.9375rem;font-weight:600}
 .atlas-page main{color:var(--ink)}
 .visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .atlas-sprite{position:absolute}
@@ -36,6 +45,7 @@
    settles near half and half. The words and tiles take whatever the map leaves. */
 .atlas-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px clamp(40px,5vw,80px);align-items:stretch}
 .atlas-lede{padding:42px 0 72px}
+.atlas-lede h1 em{font-style:italic;letter-spacing:-.03em}
 .atlas-lede h1{margin-top:20px;font:400 clamp(2.4rem,3.6vw,3.6rem)/1.05 var(--sera);letter-spacing:-.035em;text-wrap:balance}
 .atlas-intro{max-width:27em;margin-top:18px;font-size:1.125rem;color:var(--ink-2);text-wrap:pretty}
 
@@ -83,11 +93,26 @@
 .atlas-shore{fill:none;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .atlas-shore.outer{stroke:var(--atlas-shallows);stroke-width:30px}
 .atlas-shore.inner{stroke:var(--atlas-shore);stroke-width:12px}
+.atlas-shore.line{stroke:#b3cfdb;stroke-width:2.5px}
 .atlas-context-land{fill:var(--atlas-context);stroke:var(--atlas-context);stroke-width:.75px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .atlas-context-lines{fill:none;stroke:var(--atlas-context-line);stroke-width:1px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+/* The lift: the service area's shape again, offset down and right in flat ink, under the counties.
+   A hard-edged plate, not a blurred shadow. It keeps its size on screen at any zoom. */
+.atlas-lift{fill:#0f1c2d;fill-opacity:.15;pointer-events:none;transform:translate(calc(var(--u,1) * 5px),calc(var(--u,1) * 6px))}
+.atlas-ping{fill:none;stroke-width:1.75px;vector-effect:non-scaling-stroke;pointer-events:none;opacity:0}
+.atlas-ping.t0{stroke:var(--atlas-hired)}.atlas-ping.t1{stroke:var(--atlas-started)}.atlas-ping.t2{stroke:var(--atlas-funding)}.atlas-ping.t3{stroke:var(--atlas-sales)}
 .atlas-geo{pointer-events:none}
 .atlas-geo.sea{font:italic 400 calc(15px * var(--u,1))/1 var(--sera);letter-spacing:.2em;fill:#86aebd}
 .atlas-geo.land{font:600 calc(10.5px * var(--u,1))/1 var(--nova);letter-spacing:.22em;text-transform:uppercase;fill:#a19c8f}
+.atlas-geo.water{font:italic 400 calc(11.5px * var(--u,1))/1 var(--sera);letter-spacing:.03em;fill:#6f9aab}
+.atlas-scoped .atlas-geo.water{display:none}
+/* Map furniture: a north mark and a scale bar, in the sea at the lower left of the frame. */
+.atlas-furniture{position:absolute;left:0;bottom:8px;display:flex;align-items:flex-end;gap:16px;color:#5d8697;font-size:.6875rem;font-weight:700;letter-spacing:.08em;line-height:1}
+.atlas-north{display:grid;justify-items:center;gap:4px}
+.atlas-north::before{content:"";border:4.5px solid transparent;border-top:0;border-bottom:9px solid currentColor}
+.atlas-scale{display:grid;gap:5px}
+.atlas-scale i{display:block;height:5px;border:1.5px solid currentColor;border-top:0}
+.atlas-scale span{font-weight:600;letter-spacing:.04em}
 .atlas-county{fill:var(--atlas-land);stroke:var(--atlas-land-line);stroke-width:1.25px;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s}
 .atlas-county:hover{fill:var(--atlas-land-hover)}
 .atlas-scoped .atlas-county:not(.on){fill:var(--atlas-context);stroke:var(--atlas-context-line)}
@@ -239,6 +264,10 @@ body.atlas-present .atlas-tile strong{font-size:clamp(2.6rem,4.6vw,4.8rem)}
 body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clamp(42px,5vh,60px)}
 
 @media(max-width:1100px){
+  .atlas-page .header-inner{min-height:68px}
+  .atlas-page .brand img{width:118px}
+  .atlas-page .primary-nav{gap:2px}
+  .atlas-page .primary-nav a:not(.button){font-size:1.0625rem}
   .atlas-grid{grid-template-columns:1fr;gap:0}
   .atlas-lede{padding:28px 0 44px}
   .atlas-map,body.atlas-present .atlas-map,body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-map{width:auto;margin-inline:calc(var(--edge) * -1);padding:28px var(--edge) 32px;border-radius:0;justify-items:center}

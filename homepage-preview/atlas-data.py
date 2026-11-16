@@ -166,9 +166,12 @@ COUNTY_INDEX = {c['n']: i for i, c in enumerate(counties)}
 # ── The surroundings, for context only: the rest of California and the neighbouring states ──
 context_land = ''.join(path_of(mainland(g))[0] for g in other_ca) + ''.join(path_of(mainland(g))[0] for g in states)
 state_lines = ''.join(path_of(mainland(g))[0] for g in states)
-GEO_LABELS = [('Pacific', -124.22, 38.16, 'sea'), ('Ocean', -124.22, 37.98, 'sea'),
-              ('Oregon', -121.05, 42.15, 'land'), ('Nevada', -119.84, 40.75, 'land')]
-geo_labels = [[text, round(project(lng, lat)[0], 1), round(project(lng, lat)[1], 1), kind] for text, lng, lat, kind in GEO_LABELS]
+# kind: sea (the ocean), water (a smaller coastal feature), land (a neighbour). Then the text anchor.
+GEO_LABELS = [('Pacific', -124.22, 38.16, 'sea', 'middle'), ('Ocean', -124.22, 37.98, 'sea', 'middle'),
+              ('Oregon', -121.05, 42.15, 'land', 'start'), ('Nevada', -119.84, 40.75, 'land', 'start'),
+              ('California', -120.62, 37.2, 'land', 'start'),
+              ('Point Arena', -123.8, 38.93, 'water', 'end'), ('Monterey Bay', -122.16, 36.71, 'water', 'middle')]
+geo_labels = [[text, round(project(lng, lat)[0], 1), round(project(lng, lat)[1], 1), kind, anchor] for text, lng, lat, kind, anchor in GEO_LABELS]
 
 def inside(x, y, polys):
     hit = False
@@ -295,6 +298,9 @@ FEATURED = [
          tone='sales', figure='+20%', line='in sales, with $138K raised.',
          img='https://www.norcalsbdc.org/wp-content/uploads/sites/9/2024/07/2024-Client-Success-Story-Yarrow-Goods-Owners.jpeg',
          alt='The owners of Yarrow Goods with one of their products', pos='50% 100%', zoom=1.5,
+         # The photograph is square with the two owners in its lower half. The small card on the map is
+         # wide, so it needs its own crop, centred on their faces.
+         popPos='50% 73%', popOrigin='65% 50%', popZoom=1.5,
          href='https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/'),
     dict(kind='voice', at='sacramento',
          title='I came in with an idea and a lot of questions. Nine months later I had a licence, a lease and my first customers.'),
@@ -332,6 +338,7 @@ while len(slots) < 12:
 data = {
     'note': 'Sample data for design review. Replace pins and quotes with verified milestones in production.',
     'view': [round(W), round(H)],
+    'miles': round(69.05 / K, 5),      # miles per map unit, for the scale bar
     'types': TYPES,
     'counties': counties,
     'context': {'land': context_land, 'lines': state_lines, 'labels': geo_labels},
