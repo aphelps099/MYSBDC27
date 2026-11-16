@@ -26,8 +26,8 @@ design logic (`../handoff/DESIGN.md`):
 - **The totals are the dashboard's tiles.** The public sees the same four coloured tiles and
   pictograms a client taps to share a milestone. One object, two places: where the result is
   reported and where it is shown.
-- **One composition, one screen.** Headline and tiles on the left, the map on the right, sized to
-  the window so the whole idea is visible without scrolling.
+- **The map leads.** Headline and tiles on the left, the map on the right with the larger share:
+  up to 60% of the width, and never taller than the window, so the whole region is seen at once.
 - **A white page.** The site is white, as on the homepage and impact page. The map is the only
   cream: cream counties, with the white page showing between them as the border.
 - **Scale does the work in the stories.** One very large line of type, then three photographs,
@@ -63,8 +63,9 @@ repository history.
 - **Cream counties on white.** No drawn borders: the gap between counties is the page showing
   through. There are no tiles from a map service, no gradients and no shadows, so the page has no
   outside dependency.
-- **Sized to the window.** The map's height follows the viewport, so the map and the tiles end
-  above the fold on a laptop.
+- **The larger share.** The map takes up to 60% of the page width. Its height is capped at the
+  window, so on a short laptop screen the split settles near half and half. The tiles stay above
+  the fold; the lower part of the map is a short scroll away.
 - **Every milestone is one small mark.** About 4,200 of them read as a texture of activity before
   anyone reads a number. Marks keep the same size on screen at every zoom.
 - **Colour means the kind of milestone, and nothing else.** Each mark is a deeper relative of its
