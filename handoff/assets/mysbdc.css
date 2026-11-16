@@ -1389,3 +1389,9 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
   .password-access .gate-card h2{font-size:2rem}
 }
 @media(max-width:359px){.password-access .gate-card,.password-access .gate-say{padding-inline:20px}}
+
+/* Atlas: the review-step consent on milestone forms, and a five-item bottom tab bar on phones. */
+.ms-atlas-hint{max-width:34em;margin:0 0 14px;font-size:1rem;color:var(--ink-3);text-wrap:pretty}
+@media(max-width:759px){
+  .menu-item>a,body.site-menu-active .menu-item>a{margin-inline:2px;font-size:.8125rem;letter-spacing:-.01em}
+}

@@ -233,11 +233,27 @@
       if (b.dataset.step === 'next') {
         const bad = $$('input,select,textarea', panels[at]).find(f => !f.closest('[hidden]') && !f.checkValidity());
         if (bad) { bad.reportValidity(); return; }
-        if (b.dataset.href) { location.href = b.dataset.href; return; }
+        if (b.dataset.href) { if (b.hasAttribute('data-share-milestone')) shareMilestone(); location.href = b.dataset.href; return; }
         show(at + 1, 1);
       } else if (b.dataset.step === 'back') show(at - 1, -1);
       else show(+b.dataset.step, 1);
     });
+    // Milestones → Atlas. A shared milestone is kept in this browser so the Atlas preview can show it.
+    // Design preview only: nothing is sent. Production posts the milestone and reads it back from the server.
+    const shareMilestone = () => {
+      const type = (flow.closest('[data-type]') || {}).dataset?.type; if (!type) return;
+      const n = name => +val(name).replace(/[^0-9.]/g, '') || 0;
+      const amount = type === 'hired' ? n('ft') + n('pt') : type === 'funding' ? n('amt') : type === 'sales' ? Math.max(0, n('rev') - (+flow.dataset.onFile || 0)) : 1;
+      const sentence = $('.step-panel.current .ms-sentence', flow);
+      const item = { id: Date.now().toString(36), type, amount, at: new Date().toISOString(), status: 'pending',
+        summary: sentence ? sentence.textContent.replace(/\s+/g, ' ').trim() : '',
+        share: val('atlas') === 'private' ? 'private' : 'atlas', quote: val('atlas') === 'private' ? '' : val('quote').trim().slice(0, 280) };
+      try {
+        const saved = JSON.parse(localStorage.getItem('mysbdc-atlas-v1') || 'null');
+        const items = saved && saved.version === 1 && Array.isArray(saved.items) ? saved.items : [];
+        localStorage.setItem('mysbdc-atlas-v1', JSON.stringify({ version: 1, items: [...items, item].slice(-12) }));
+      } catch (e) {}
+    };
     const gate = () => {
       if (flow.elements.inbusiness) { const yes = val('inbusiness') === 'yes'; $$('[data-if-business]').forEach(el => el.hidden = !yes); $$('[data-if-idea]').forEach(el => el.hidden = yes); }
       $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });
@@ -290,6 +306,14 @@
   if (cheer) {
     const lines = { hired: 'New hires are a big step.', sales: 'Growing sales is hard-won.', funding: 'New funding opens doors.', started: 'Opening your doors is a big day.' };
     const t = new URLSearchParams(location.search).get('type'); if (lines[t]) cheer.textContent = lines[t];
+  }
+  // The thank-you page points at the Atlas. If the last milestone was kept off the map, it says so.
+  const atlasLink = $('[data-atlas-link]');
+  if (atlasLink) {
+    try {
+      const last = (JSON.parse(localStorage.getItem('mysbdc-atlas-v1') || 'null')?.items || []).at(-1);
+      if (!last || last.share === 'private') { atlasLink.textContent = 'See the Atlas'; atlasLink.href = 'atlas.html'; }
+    } catch (e) { atlasLink.textContent = 'See the Atlas'; atlasLink.href = 'atlas.html'; }
   }
   const field = $('[data-confetti]');
   if (field) {
