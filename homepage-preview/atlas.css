@@ -165,7 +165,13 @@
 .atlas-pop-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--zoom,1))}
 .atlas-pop-title{font:400 1.25rem/1.24 var(--sera);letter-spacing:-.015em;text-wrap:pretty}
 .atlas-pop.is-voice .atlas-pop-title{font-size:1.3125rem}
-.atlas-pop-by{margin-top:10px;font-size:.9375rem;color:var(--ink-3)}
+.atlas-pop-who{display:flex;align-items:center;gap:12px;margin-top:14px}
+/* The dashboard's account avatar: a pool circle with navy initials. A photo fills the same circle. */
+.atlas-avatar{display:grid;place-items:center;width:44px;height:44px;flex:none;overflow:hidden;border-radius:50%;background:#A9CFDD;color:var(--ink);font-size:.9375rem;font-weight:700;letter-spacing:.02em}
+.atlas-avatar[hidden]{display:none}
+.atlas-avatar img{width:100%;height:100%;object-fit:cover}
+.atlas-pop-by{font-size:.9375rem;line-height:1.35;color:var(--ink-3)}
+.atlas-pop.is-story .atlas-pop-who{margin-top:10px}
 .atlas-pop .atlas-link{margin-top:4px;margin-bottom:-8px;font-size:.9375rem}
 
 /* Time: a thin strip of months, then one line. */

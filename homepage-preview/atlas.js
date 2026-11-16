@@ -208,7 +208,7 @@
     // Scope
     const c = county == null ? null : D.counties[county];
     $('[data-atlas-scope-sub]').textContent = plural(t.n, 'milestone') + (c ? ' · ' + c.c : ' · ' + D.counties.length + ' counties');
-    $('[data-atlas-svg-title]').textContent = `Map of ${num(t.n)} milestones shared ${c ? 'in ' + c.n + ' County' : 'across Northern California'}. The same numbers are in the totals and the county table.`;
+    svg.setAttribute('aria-label', `Map of ${num(t.n)} milestones shared ${c ? 'in ' + c.n + ' County' : 'across Northern California'}. The same numbers are in the totals and the county table.`);
     $('[data-atlas-count]').textContent = num(pins.length + counted().length);
     svg.classList.toggle('atlas-scoped', !!c);
     const lift = $('[data-atlas-lift]'); if (lift) lift.setAttribute('d', c ? c.d : allCounties); // the open county is the one that lifts
@@ -396,6 +396,9 @@
     state.story = i; state.pinned = false;
     $('[data-atlas-pop-title]').textContent = s.kind === 'story' ? s.title : '“' + s.title + '”';
     $('[data-atlas-pop-by]').textContent = by(s);
+    // A testimony gets a face-sized circle: a photo when one is supplied, otherwise initials.
+    const avatar = $('[data-atlas-pop-avatar]'); avatar.textContent = ''; avatar.hidden = s.kind === 'story' || !(s.photo || s.initials);
+    if (!avatar.hidden) { if (s.photo) { const face = document.createElement('img'); face.src = s.photo; face.alt = ''; avatar.append(face); } else avatar.textContent = s.initials; }
     link.hidden = photo.hidden = s.kind !== 'story';
     if (s.kind === 'story') { link.href = s.href; link.setAttribute('aria-label', 'Read the ' + s.name + ' story'); img.src = s.img; img.alt = s.alt; img.style.objectPosition = s.popPos || s.pos || '50% 50%'; img.style.transformOrigin = s.popOrigin || s.popPos || s.pos || '50% 50%'; img.style.setProperty('--zoom', s.popZoom || (s.popPos ? 1 : s.zoom) || 1); }
     pop.className = 'atlas-pop is-' + s.kind; pop.hidden = false; placePop();
