@@ -46,7 +46,8 @@ repository history.
    single "Latest" line. Right: the county menu, the map, and the timeline.
 2. **Stories.** "Two of 4,222." (the number is the live count), then two success stories as a row
    of four tiles.
-3. **Next step.** One slate-navy card: "Add your milestone to the map", which opens MySBDC.
+3. **Next step.** One slim slate-navy band: "Add your milestone to the map", one sentence and
+   the button on a single line, which opens MySBDC.
 4. **Notes.** "Totals by county" and "About this map" as disclosures.
 
 ## The tiles

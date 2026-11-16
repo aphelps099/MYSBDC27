@@ -196,44 +196,45 @@
 .atlas-preview-actions{display:flex;gap:0 28px;flex:none}
 
 /* Stories: scale does the work. A statement, then three photographs, each led by its place. */
-.atlas-stories{padding:84px 0}
+.atlas-stories{padding:60px 0 64px}
 .atlas-stories-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,21em);align-items:end;gap:20px 64px}
-.atlas-stories-head h2{font:400 clamp(2.5rem,5vw,4.5rem)/1 var(--sera);letter-spacing:-.04em;font-variant-numeric:lining-nums}
-.atlas-stories-head>p{padding-bottom:clamp(2px,.6vw,8px);font-size:1.0625rem;line-height:1.45;color:var(--ink-2);text-wrap:pretty}
+.atlas-stories-head h2{font:400 clamp(2.1rem,3.5vw,3.125rem)/1 var(--sera);letter-spacing:-.035em;font-variant-numeric:lining-nums}
+.atlas-stories-head>p{padding-bottom:clamp(2px,.4vw,5px);font-size:1rem;line-height:1.45;color:var(--ink-2);text-wrap:pretty}
 /* Two stories as four tiles in a row: photograph, colour block, photograph, colour block. Each block takes
    the tile colour of the story's headline figure, so the row reads as a continuation of the totals above. */
-.atlas-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:clamp(28px,3.4vw,44px) 0 0;padding:0;list-style:none}
+.atlas-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:clamp(22px,2.4vw,30px) 0 0;padding:0;list-style:none}
 .atlas-card{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;height:100%;color:var(--ink);text-decoration:none}
 .atlas-card:hover{text-decoration:none}
-.atlas-card-photo{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;border-radius:var(--radius);background:#e9e4d8}
+.atlas-card-photo{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius);background:#e9e4d8}
 .atlas-card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--zoom,1));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .atlas-card:is(:hover,:focus-visible) .atlas-card-photo img{transform:scale(calc(var(--zoom,1) * 1.03))}
 /* A 6% veil gives a photograph with a pale background a visible tile edge on the cream page. */
 .atlas-card-photo::after{content:"";position:absolute;inset:0;background:#0f1c2d0f;pointer-events:none}
-.atlas-card-block{--field:#E8D5A5;--tile-ink:#493A20;--tile-soft:#5d4b2b;display:flex;flex-direction:column;align-items:flex-start;padding:clamp(18px,2vw,28px);border-radius:var(--radius);background:var(--field);color:var(--tile-ink)}
+.atlas-card-block{--field:#E8D5A5;--tile-ink:#493A20;--tile-soft:#5d4b2b;display:flex;flex-direction:column;align-items:flex-start;padding:clamp(16px,1.6vw,22px);border-radius:var(--radius);background:var(--field);color:var(--tile-ink)}
 .atlas-card.is-sales .atlas-card-block{--field:#CDDCD0;--tile-ink:#174B40;--tile-soft:#245548}
 .atlas-card.is-hired .atlas-card-block{--field:#A9CFDD;--tile-ink:var(--ink);--tile-soft:var(--ink-2)}
 .atlas-card.is-started .atlas-card-block{--field:var(--navy-surface);--tile-ink:var(--on-navy);--tile-soft:var(--on-navy-muted)}
-.atlas-card-place{display:flex;align-items:center;gap:10px;font-size:1rem;font-weight:700}
+.atlas-card-place{display:flex;align-items:center;gap:9px;font-size:.9375rem;font-weight:700}
 .atlas-ring{width:.4em;height:.4em;flex:none;border:.085em solid var(--berry);border-radius:50%;background:radial-gradient(circle,var(--berry) 0 30%,transparent 34%)}
 .atlas-card-place .atlas-ring{width:14px;height:14px;border-width:2.5px}
-.atlas-card-figure{margin-top:auto;padding-top:20px;font:400 clamp(3rem,6.2vw,6rem)/.92 var(--sera);letter-spacing:-.05em;font-variant-numeric:lining-nums}
-.atlas-card-title{margin-top:14px;font-size:clamp(1rem,1.3vw,1.1875rem);font-weight:500;line-height:1.35;color:var(--tile-soft);text-wrap:pretty}
-.atlas-card-name{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(14px,1.8vw,26px);font-size:1rem;font-weight:700}
+.atlas-card-figure{margin-top:auto;padding-top:16px;font:400 clamp(2.6rem,4.3vw,4.125rem)/.94 var(--sera);letter-spacing:-.045em;font-variant-numeric:lining-nums}
+.atlas-card-title{margin-top:10px;font-size:clamp(.9375rem,1.1vw,1.0625rem);font-weight:500;line-height:1.35;color:var(--tile-soft);text-wrap:pretty}
+.atlas-card-name{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(12px,1.3vw,18px);font-size:.9375rem;font-weight:700}
 .atlas-card:is(:hover,:focus-visible) .atlas-card-name{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
 .atlas-arrow{position:relative;display:inline-block;flex:none;width:20px;height:20px;transition:translate .2s}
 .atlas-arrow::before{content:"";position:absolute;left:1px;top:9px;width:16px;height:1.5px;background:currentColor}
 .atlas-arrow::after{content:"";position:absolute;right:3px;top:5.75px;width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;rotate:45deg}
 .atlas-card:is(:hover,:focus-visible) .atlas-arrow{translate:4px 0}
-.atlas-stories-more{margin-top:36px}
+.atlas-stories-more{margin-top:26px}
 
-/* Next step: the page's one slate-navy surface. */
-.atlas-next{padding-bottom:56px}
-.atlas-next-card{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:40px 88px;padding:clamp(36px,4.5vw,64px);border-radius:var(--radius);background:var(--navy-surface);color:var(--on-navy)}
+/* Next step: the page's one slate-navy surface, a slim band: claim, one sentence, the action. */
+.atlas-next{padding-bottom:48px}
+.atlas-next-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) auto;align-items:center;gap:24px clamp(32px,4.4vw,64px);padding:clamp(26px,2.8vw,38px) clamp(26px,3.4vw,48px);border-radius:var(--radius);background:var(--navy-surface);color:var(--on-navy)}
 .atlas-next-card .atlas-label{color:var(--on-navy-accent)}
-.atlas-next-card h2{margin-top:18px;font:400 clamp(2rem,3.3vw,3.1rem)/1.05 var(--sera);letter-spacing:-.03em;text-wrap:balance}
-.atlas-next-card p{max-width:27em;margin-bottom:44px;color:var(--on-navy-muted)}
-.atlas-next-card .atlas-link{display:table;margin-top:16px;color:var(--on-navy-accent);font-weight:500}
+.atlas-next-card h2{margin-top:8px;font:400 clamp(1.6rem,2.2vw,2.0625rem)/1.1 var(--sera);letter-spacing:-.025em;text-wrap:balance}
+.atlas-next-say{max-width:27em;font-size:1rem;line-height:1.5;color:var(--on-navy-muted);text-wrap:pretty}
+.atlas-next-actions{display:grid;justify-items:start;gap:14px}
+.atlas-next-card .atlas-link{color:var(--on-navy-accent);font-size:.9375rem;font-weight:500}
 .atlas-next-card :focus-visible{outline-color:var(--pool)}
 
 /* Notes: the county table and the reporting note. */
@@ -278,9 +279,10 @@ body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clam
   .atlas-lede{padding:28px 0 44px}
   .atlas-map,body.atlas-present .atlas-map,body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-map{width:auto;margin-inline:calc(var(--edge) * -1);padding:28px var(--edge) 32px;border-radius:0;justify-items:center}
   .atlas-map>*{width:min(100%,680px)}
-  .atlas-next-card{gap:32px 48px}
+  .atlas-next-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 48px}
+  .atlas-next-card>:first-child{grid-row:span 2}
   .atlas-cards{grid-template-columns:1fr}
-  .atlas-card-photo{aspect-ratio:1/1}
+  .atlas-card-photo{aspect-ratio:6/5}
 }
 @media(max-width:700px){
   .atlas-page{--atlas-pin:2.4px}
@@ -308,10 +310,11 @@ body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clam
   .atlas-card-figure{font-size:clamp(2.3rem,11vw,3rem)}
   .atlas-card-title{font-size:.9375rem}
   .atlas-card-name{font-size:.9375rem}
-  .atlas-stories-more{margin-top:36px}
+  .atlas-stories-more{margin-top:28px}
   .atlas-next{padding-bottom:36px}
-  .atlas-next-card{grid-template-columns:1fr;padding:30px 24px}
-  .atlas-next-card p{margin-bottom:28px}
+  .atlas-next-card{grid-template-columns:1fr;gap:18px;padding:26px 22px}
+  .atlas-next-card>:first-child{grid-row:auto}
+  .atlas-next-actions{margin-top:10px}
 }
 @media(prefers-reduced-motion:reduce){
   .atlas-mine .pending .halo{animation:none;stroke-opacity:.18}
