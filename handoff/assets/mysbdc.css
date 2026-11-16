@@ -825,11 +825,14 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .training .pill:hover{background:var(--mysbdc-brand-cream-dark)}
 .training .pill[aria-pressed=true]{background:var(--mysbdc-navy-surface);color:var(--mysbdc-on-navy);font-weight:700}
 .training .lib-month{grid-template-columns:160px minmax(0,1fr);gap:32px;margin-top:44px}
-.training .lib-month>div:first-child{padding-top:22px}
+.training .lib-month>div:first-child{padding-top:24px}
 .training .lib-month>div>h3{font:400 1.875rem/1.1 var(--font-serif);letter-spacing:-.02em}
 .training .lib-month>div>h3+p{margin-top:8px;font-size:.9375rem}
-.training .lib-stack{gap:12px}
-.training .session{scroll-margin-top:calc(var(--bar) + 24px);gap:24px;padding:22px 0;border-radius:0;background:transparent}
+.training .lib-stack{gap:0}
+/* A quiet schedule: every other workshop carries a soft, half-transparent white so the cream shows through; the rows
+   between stay open. No rules, no gaps. The count skips workshops a filter has hidden, so the rhythm always holds. */
+.training .session{scroll-margin-top:calc(var(--bar) + 24px);gap:24px;padding:24px 28px 12px;border-radius:6px;background:transparent}
+.training .session:nth-child(odd of .session:not([hidden])){background:color-mix(in srgb,var(--mysbdc-brand-white) 50%,transparent)}
 .training .session-body{gap:8px}
 .training .session h4{font:700 1.3125rem/1.2 var(--font-sans);letter-spacing:-.02em}
 .training .session .lib-kicker{gap:4px 12px;font-size:.8125rem;letter-spacing:.08em}
@@ -866,7 +869,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 @media(max-width:1199px){
   .training-head{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px}
   .training .lib-month{grid-template-columns:136px minmax(0,1fr);gap:24px}
-  .training .session{gap:20px}
+  .training .session{gap:20px;padding:22px 24px 12px}
   .training-courses{grid-template-columns:repeat(2,minmax(0,1fr))}
   .course-card{min-height:264px}
   .training .course-card h3{max-width:12em;font-size:1.875rem}
@@ -887,7 +890,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
   .training .pill{padding-inline:12px}
   .training .pills-row{gap:4px 2px}
   .training .lib-month{margin-top:36px}
-  .training .session{display:grid;grid-template-columns:52px minmax(0,1fr);gap:8px 16px;padding-block:18px}
+  .training .session{display:grid;grid-template-columns:52px minmax(0,1fr);gap:8px 16px;padding:18px}
   .training .session h4{font-size:1.1875rem}
   .training .session .lib-meta{font-size:.9375rem}
   .training .session-act{grid-column:2;flex-direction:row;align-items:center;justify-content:flex-start;gap:16px;min-width:0}
