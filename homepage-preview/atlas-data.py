@@ -183,6 +183,38 @@ for kind, text in QUOTES:
         if pins[i][2] == TYPES.index(kind) and county not in taken:
             taken.add(county); quotes.append([i, text]); break
 
+# ── Featured marks: a few success stories and testimonies, each tied to a place ──
+# The three success stories are existing client stories from the website draft (Stories.dc.html and the
+# homepage). The three "voice" quotes are sample content, credited by county only.
+CLIENTS = 'https://www.norcalsbdc.org/about/clients/'
+FEATURED = [
+    dict(kind='story', at='petaluma', name='Jump Aero', meta='Advanced aviation · Petaluma',
+         title='$12M raised. A faster path to first flight.',
+         img='https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg',
+         alt='Jump Aero first-response aircraft in flight', pos='50% 50%',
+         href='https://www.norcalsbdc.org/client-stories/jump-aero-raises-12m-to-build-the-worlds-fastest-first-response-aircraft/'),
+    dict(kind='voice', at='redding',
+         title='We went from just me to a team of four this year. My advisor helped me work out when I could afford each hire.'),
+    dict(kind='story', at='san rafael', name='Yarrow Goods', meta='Ecommerce · Marin County',
+         title='$138K raised. Sales up 20%.',
+         img='https://www.norcalsbdc.org/wp-content/uploads/sites/9/2024/07/2024-Client-Success-Story-Yarrow-Goods-Owners.jpeg',
+         alt='The owners of Yarrow Goods with one of their products', pos='50% 35%',
+         href='https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/'),
+    dict(kind='voice', at='sacramento',
+         title='I came in with an idea and a lot of questions. Nine months later I had a licence, a lease and my first customers.'),
+    dict(kind='story', at='fort bragg', name='Liquid Fusion Kayaking', meta='Outdoor recreation · Fort Bragg',
+         title='A coastline turned into a livelihood.',
+         img='https://www.californiasbdc.org/wp-content/uploads/sites/34/2021/05/Liquid-Fusion-Cate-Hawthorn-5-1200x800.jpg',
+         alt='Cate Hawthorn kayaking on the Mendocino coast', pos='50% 45%', href=CLIENTS),
+    dict(kind='voice', at='truckee',
+         title='The grant covered equipment we had put off for three years. We found it through a training I almost skipped.'),
+]
+stories = []
+for f in FEATURED:
+    at = f.pop('at')
+    t = next(t for t in towns if t['key'] == at)
+    stories.append(dict(f, x=round(t['x'], 1), y=round(t['y'], 1), town=t['label'], county=COUNTY_INDEX[t['county']]))
+
 # ── Orientation labels and the signed-in sample client's town ──
 def town_xy(key):
     t = next(t for t in towns if t['key'] == key)
@@ -213,6 +245,7 @@ data = {
     'towns': town_list,
     'pins': [v for p in pins for v in p],
     'quotes': quotes,
+    'stories': stories,
     'labels': labels,
     'home': {'town': 'Eureka', 'county': COUNTY_INDEX['Humboldt'], 'slots': slots},
 }
