@@ -461,6 +461,7 @@
   }
 
   // ── Go ──
+  if (params.get('field') === 'pool') document.body.classList.add('atlas-field-pool'); // preview switch
   if (params.has('reset')) { mine = []; writeMine(mine); }
   renderMine(); render(false); applyView();
   if (params.has('present')) present(true);
