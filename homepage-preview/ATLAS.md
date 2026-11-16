@@ -28,9 +28,9 @@ design logic (`../handoff/DESIGN.md`):
   reported and where it is shown.
 - **Words and map share the page.** Headline and tiles on the left, the map on the right at about
   half the width, and never taller than the window, so the whole region is seen at once.
-- **A barely warm page with one cream panel.** The page ground is cream at 30% over white: lighter
-  than a cream page, warmer than plain white. The map sits on a single solid cream panel. Matte,
-  no gradient.
+- **A cream page with one lighter panel.** The page ground is cream. The map sits on the page's
+  one white panel, and its counties are the page's cream, so the region looks cut from the page.
+  Matte, no gradient.
 - **Type leads the stories.** One confident line of type, then three photographs, each led by
   its place name. No card chrome.
 - **Colour has jobs.** Tile colours name the four kinds of milestone. Berry does one thing: it
@@ -61,7 +61,7 @@ repository history.
 
 ## The map
 
-- **White counties on a solid cream panel.** No drawn borders: the gap between counties is the
+- **Cream counties on a white panel.** No drawn borders: the gap between counties is the
   panel showing through. A gradient behind the map was tried and dropped; it read as decoration.
   There are no tiles from a map service, no gradients and no shadows, so the page has no outside
   dependency.
@@ -70,7 +70,7 @@ repository history.
 - **Every milestone is one small mark.** About 4,200 of them read as a texture of activity before
   anyone reads a number. Marks keep the same size on screen at every zoom.
 - **Colour means the kind of milestone, and nothing else.** Each mark is a deeper relative of its
-  tile, so small marks hold on the white counties.
+  tile, so small marks hold on the cream counties.
 
   | Milestone | Tile | Mark | Token |
   | --- | --- | --- | --- |
