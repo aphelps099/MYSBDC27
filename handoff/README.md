@@ -230,6 +230,10 @@ approved Home vocabulary into a focused question-and-answer layout:
 - A solid colour identity panel sits beside a white question sheet, with the same small, softened
   symbol as its Home tile. Colours are pool for hired, sage for sales, sand for funding, and matte
   slate navy for started. There are no colour washes, cropped icons, or decorative numbers.
+- **The columns are locked.** The workspace has one fixed measure (`--ms-measure`: 1000px for milestone
+  forms, 1040px for sign-up), so the panel and the form sheet keep the same position and width on
+  every step. The sheet is never shorter than the panel, and the sign-up panel's changing "why we
+  ask" notes share one cell so its height does not change either.
 - On phones the identity panel becomes a compact banner. Cards and controls use 6px corners;
   primary actions remain navy, with clear focus and selected states.
 - Progress uses three short dashes, meaningful step names for assistive technology, and

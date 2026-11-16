@@ -549,6 +549,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .ms-log span{display:block;font-size:1rem;color:var(--ink-3)}
 
 /* The form card */
+html:has(form[data-stepper]){scrollbar-gutter:stable}
 .ms-flow{display:grid;justify-items:center;gap:14px}
 .ms-back{justify-self:start;width:100%;max-width:760px;margin-inline:auto}
 .ms-card{position:relative;overflow:hidden;width:100%;max-width:760px;padding:clamp(28px,4.4vw,52px) clamp(22px,5vw,60px) clamp(26px,4vw,48px);border-radius:14px;background:linear-gradient(205deg,var(--wash) 0,#FDFDFD 400px)}
@@ -907,7 +908,15 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 /* 18 — Milestone forms: a quiet identity panel beside one clear question.
    Shared by the milestone flows and intake; page-specific refinements follow below. */
 .ms-editorial{display:block}
-.ms-editorial .ms-back{width:auto;max-width:none;gap:12px;margin:0 0 24px;color:var(--ink);font-size:1rem;font-weight:500}
+/* One fixed measure for the two-column workspace: the panel and the form hold the same position and width on every
+   step, whatever the step contains. The back link lines up with the workspace's left edge. */
+.ms-editorial{--ms-measure:1000px}
+.ms-editorial .ms-workspace{justify-self:stretch;width:100%;max-width:var(--ms-measure);margin-inline:auto;align-items:stretch}
+.ms-editorial .ms-context{align-self:start}
+/* The form sheet is never shorter than the panel beside it, so a short step does not leave a ragged pair. */
+.ms-editorial .ms-form-main{display:flex;flex-direction:column}
+.ms-editorial .ms-form-main>.ms-card{flex:1 0 auto}
+.ms-editorial .ms-back{width:auto;max-width:none;gap:12px;margin:0 0 24px;margin-left:max(0px,calc((100% - var(--ms-measure)) / 2));color:var(--ink);font-size:1rem;font-weight:500}
 .ms-workspace{display:grid;grid-template-columns:280px minmax(0,1fr);align-items:start;gap:28px}
 .ms-editorial [data-type=hired]{--ms-tone:#A9CFDD;--ms-tone-ink:#17364A;--ms-form-tint:#E9F2F5}
 .ms-editorial [data-type=sales]{--ms-tone:#CDDCD0;--ms-tone-ink:#174B40;--ms-form-tint:#EDF3EE}
@@ -1135,13 +1144,16 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .intake-editorial .signup-bar .saved-note{display:block;margin:0;font-size:.875rem;color:var(--mysbdc-on-navy-muted)}
 .intake-editorial .signup-bar .link{color:var(--mysbdc-on-navy);font-size:.9375rem;font-weight:500;text-decoration-thickness:1px}
 .intake-editorial .signup-main{display:block;width:100%;max-width:1180px;margin-inline:auto;padding:40px 40px 48px}
+.intake-editorial{--ms-measure:1040px}
 .intake-workspace{grid-template-columns:280px minmax(0,1fr);gap:24px}
 .intake-editorial .intake-context{top:24px;min-height:500px;background:var(--mysbdc-navy-surface);color:var(--mysbdc-on-navy)}
 .intake-editorial .intake-context .ms-label{color:var(--mysbdc-on-navy-muted)}
 .intake-editorial .intake-context .ms-context-title{font-size:2.5rem}
 .intake-editorial .intake-context .ms-context-description{color:var(--mysbdc-on-navy-muted);font-size:1rem}
 .intake-context .welcome-mark{margin-block:28px}
-.intake-context-help{font-size:.9375rem;color:var(--mysbdc-on-navy-muted);line-height:1.5}
+.intake-context-help{display:grid;font-size:.9375rem;color:var(--mysbdc-on-navy-muted);line-height:1.5}
+.intake-context-help>div{grid-area:1/1}
+.intake-context-help>div[hidden]{display:block!important;visibility:hidden}
 .intake-context-help strong{display:block;margin-bottom:8px;font-weight:700;color:var(--mysbdc-on-navy)}
 .intake-editorial .intake-context .ms-context-foot{margin-top:32px;color:var(--mysbdc-on-navy-muted)}
 .intake-editorial .ms-card{padding:32px}
