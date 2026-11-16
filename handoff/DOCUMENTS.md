@@ -53,6 +53,39 @@ content, not an agreed service promise.
 
 ## Verification
 
+### Emumba review page
+
+`documents-review.html` is a separate, sample-only review surface, linked from the design
+index rather than client navigation. It leads with the interactive demo and a sample PDF,
+followed by three short points on the experience, request sources, and the decision needed.
+Technical details and optional demo states use collapsed native disclosures. Review headings
+stay sans-serif; only the illustrated client UI retains the product's serif typography. The demo starts at an
+advisor request in MySBDC and loads the same document component only after
+the client selects its upload action. It provides generated PDF samples, a failed-send
+walkthrough, reset controls, agreed product behavior, clearly marked recommendations,
+and decisions for Cameron and Emumba. Its parent bridge retains origin and frame checks.
+Returning to Home keeps the sample note active; this demo does not save completion. Start
+again unloads the frame and resets the demonstration to the note. The API field mapping,
+link format, and request-creation timing are intentionally left open for technical review.
+The brief supports requests initiated in Emumba's advisor client-document library or a
+Neoserra note; all client actions and notification destinations stay in MySBDC. A dedicated
+request component is proposed. Its placement and coexistence with unrelated advisor notes
+need product review; the demo does not establish that either source integration exists.
+
+To create a standalone file and ZIP for sharing without hosting:
+
+```sh
+python3 handoff/build.py
+python3 handoff/export-documents-review.py /path/to/output
+```
+
+The ZIP contains one HTML file and instructions. Its iframe embeds the unchanged vendor
+bundle in a data URL, the styles, and the in-memory mock. The export adapts only the mock
+URL handling and presentation bridge for file origins. A content security policy blocks
+network connections; hosted fonts use their system fallbacks. The artifact contains no
+credentials, client files, or live portal connection. Test by opening the exported file
+directly, including samples, upload/recovery, downloads, reset and responsive layout.
+
 ```sh
 python3 handoff/build.py
 node --test handoff/tests/documents-preview.test.cjs

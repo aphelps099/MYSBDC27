@@ -1,0 +1,65 @@
+<!-- layout: bare | title: Document upload preview -->
+<link rel="stylesheet" href="assets/documents-review.css?v={{documents-version}}">
+<main id="main-content" class="documents-review">
+  <header class="dr-header">
+    <p class="dr-wordmark"><b>My</b>SBDC</p>
+    <p class="dr-audience">Draft for Cameron &amp; Emumba</p>
+  </header>
+
+  <section class="dr-intro" aria-labelledby="review-title">
+    <h1 id="review-title">Document upload preview</h1>
+    <p>An advisor asks for a document. The client opens the request and sends it through their dashboard. Try the client experience below.</p>
+  </section>
+
+  <p class="dr-notice"><strong>Demo only.</strong> Use the sample PDF. Selected files are not sent or saved; downloads are saved to your device.</p>
+
+  <section class="dr-workbench" id="demo-title" aria-label="Interactive client demo">
+    <div class="dr-preview">
+      <div class="dr-preview-header"><p class="eyebrow" id="review-stage">Home · Client view</p><button type="button" class="dr-reset" id="review-reset">Start again</button></div>
+      <div class="dr-note" id="review-note">
+        <p class="eyebrow">Your next step</p>
+        <p class="dr-note-text">Send me last month’s profit and loss statement. We’ll use it to get ready for our next session.</p>
+        <p class="dr-note-author"><strong>Dana Whitfield</strong>, your advisor</p>
+        <button type="button" id="review-open" aria-controls="review-upload">{{icon:upload sm}} Upload your statement</button>
+      </div>
+      <div id="review-upload" hidden>
+        <button class="dr-reset dr-back" type="button" id="review-back">Back to your next step</button>
+        <iframe id="review-frame" data-preview-src="documents-embed.html?v={{documents-version}}" title="Interactive MySBDC document upload preview" height="920"></iframe>
+      </div>
+      <p class="dr-caption" id="review-status" role="status">Example request. Final placement is open for discussion.</p>
+    </div>
+    <aside class="dr-guide" aria-labelledby="try-title">
+      <h2 id="try-title">Try it</h2>
+      <p>Download the sample PDF, select <strong>Upload your statement</strong>, then choose the file and send.</p>
+      <button type="button" class="dr-file" data-sample="statement">Download sample PDF {{icon:download sm}}</button>
+      <details class="dr-more"><summary>Other demo states</summary><p>Open <strong>Ready for you</strong> to try a returned-document download.</p><p>To test an error, send the failure sample below. Remove it and use the regular sample to retry.</p><button type="button" class="dr-file" data-sample="notsent">Download failure sample {{icon:download sm}}</button></details>
+    </aside>
+  </section>
+
+  <section class="dr-direction" aria-labelledby="direction-title">
+    <h2 id="direction-title">For Cameron &amp; Emumba</h2>
+    <div class="dr-direction-grid">
+      <article><h3>Client experience</h3><p>Requests, uploads, confirmations, and returned documents stay in MySBDC. Client notification links lead back to the dashboard.</p></article>
+      <article><h3>Request source</h3><p>An advisor could ask from Emumba’s document library or a Neoserra Next Steps note. Both are options to explore.</p></article>
+      <article><h3>Your recommendation</h3><p>What’s the simplest way to show the request in MySBDC and confirm when it’s complete? Cameron, please coordinate the approach with Emumba.</p></article>
+    </div>
+  </section>
+
+  <details class="dr-handoff">
+    <summary id="integration-title">Implementation notes <span>Optional detail for the technical discussion</span></summary>
+    <div class="dr-handoff-content">
+      <p><strong>Proposal:</strong> a dedicated MySBDC request component, using Emumba’s request IDs and status where supported. Cameron and Emumba confirm the interfaces; Aaron reviews the client experience. Neither request source is connected in this demo.</p>
+      <dl>
+        <div><dt>Request creation</dt><dd>Confirm whether Emumba supports advisor requests and how MySBDC receives the ID, client/advisor mapping, text, and status. For Neoserra, confirm custom-field access, note versions, and the link/action format. Decide whether it references an existing request or creates one on save or first open. Agree edits and withdrawal; reopening must not create duplicates.</dd></div>
+        <div><dt>Routing and placement</dt><dd>Client links return to the intended MySBDC request after sign-in, with access checked. Propose how a request sits alongside an unrelated advisor note without duplicate cards or changing the approved next-step priority.</dd></div>
+        <div><dt>Completion</dt><dd>Confirm upload/download signals with the matching request or document ID, outcome, and time. A click, file selection, failed upload, or unrelated upload must not clear a request. Confirm how to identify returned documents not yet downloaded; the current “Ready for you” count includes downloaded files. The demo does not save next-step completion.</dd></div>
+        <div><dt>Authentication and release</dt><dd>Agree the <code>data-token</code> fields, signing method, expiry, and server-side example; this token is separate from the advisor note. Confirm staging/production domains, DNS, approved script URL and integrity hash, cross-origin requirements, and the supported sign-out call, including timing and failure handling.</dd></div>
+        <div><dt>Styling and retention</dt><dd>The supplied vendor JavaScript is unchanged. Confirm supported theming hooks; the preview uses theme properties and CSS in the open shadow root. The widget’s 90-day retention message is sample copy; the policy remains to be agreed.</dd></div>
+      </dl>
+    </div>
+  </details>
+
+  <footer class="dr-footer"><p>MySBDC · Design preview · No live portal connection</p><a href="#review-title">Back to top</a></footer>
+  <noscript><p>JavaScript is required for the interactive preview. The implementation notes can still be expanded above.</p></noscript>
+</main>
+<script defer src="assets/documents-review.js?v={{documents-version}}"></script>
