@@ -17,6 +17,7 @@
           <div data-why="2" hidden><strong>Every stage counts</strong><p>Your answer helps your advisor understand where to begin.</p></div>
           <div data-why="3" hidden><strong>A useful starting point</strong><p>Best guesses are welcome. You can work through the details with your advisor.</p></div>
           <div data-why="4" hidden><strong>One last look</strong><p>Check your details, read the agreement, and sign when you’re ready.</p></div>
+          <div data-why="6" hidden><strong>What happens next</strong><p>Your center reviews your request and matches you with an advisor.</p></div>
         </div>
         <div class="ms-context-foot"><p>About 10 minutes</p><span>No fee. Confidential support.</span></div>
       </aside>
@@ -134,12 +135,13 @@
         </section>
 
         <section class="step-panel signup-done" data-end aria-labelledby="s6">
-          <span class="ms-shared-mark">{{icon:check}}</span>
+          <!-- The mark draws itself: the disc arrives, a ring runs round it, then the tick. Static for reduced motion. -->
+          <span class="ms-shared-mark done-mark" aria-hidden="true"><svg viewBox="0 0 72 72" focusable="false"><circle class="done-ring" cx="36" cy="36" r="34.75" pathLength="100"/><path class="done-tick" d="M24.5 37.5l8 8L48 28.5" pathLength="100"/></svg></span>
           <p class="ms-label">Sign-up complete</p>
           <h1 id="s6">You’re in, <span data-echo="first">Avery</span>.</h1>
           <p class="lead">Your request is on its way to North Coast SBDC. Your team will be in touch about what comes next.</p>
           <p class="mt-32"><a class="btn btn-primary" href="dashboard-new.html">Go to MySBDC</a></p>
-          <p class="hint mt-16" style="font-size:.9375rem;color:#4F5767">A copy of your signed form is in your email and on your dashboard.</p>
+          <p class="signup-done-note">A copy of your signed form is in your email and on your dashboard.</p>
         </section>
       </form>
       </div>
