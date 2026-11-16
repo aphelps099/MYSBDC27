@@ -315,7 +315,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 
 /* 10 — Settings */
 .settings{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
-.settings-nav{position:sticky;top:calc(var(--bar) + 16px);display:grid;gap:4px}
+/* The section list and a Close button travel together down the page, so the way out is always in view. */
+.settings-side{position:sticky;top:calc(var(--bar) + 16px);display:grid;gap:20px;min-width:0}
+.settings-nav{display:grid;gap:4px}
+.settings-close{min-height:48px;border-width:1px;border-radius:6px;font-size:1rem}
+.settings-end{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:8px}
+.page-back{margin-bottom:20px;gap:12px;color:var(--mysbdc-brand-navy);font-weight:500}
 .settings-nav a{display:flex;align-items:center;gap:12px;min-height:50px;padding:0 16px;border-radius:var(--radius);font-weight:600;text-decoration:none;color:var(--mysbdc-brand-slate)}
 .settings-nav a:hover{background:var(--mysbdc-brand-cream-dark)}
 .settings-nav a[aria-current]{background:var(--mysbdc-brand-white);color:var(--mysbdc-brand-navy);font-weight:700}
@@ -329,7 +334,10 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .saved[hidden]{display:none}
 @media(max-width:899px){
   .settings{grid-template-columns:1fr}
-  .settings-nav{position:static;display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
+  .settings-side{position:static;display:block}
+  .settings-side .settings-close{display:none}
+  .page-back{margin-bottom:12px}
+  .settings-nav{display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
   .settings-nav a{flex:none;background:var(--mysbdc-brand-white);border-radius:99px;min-height:48px}
   .settings-nav a[aria-current]{background:var(--mysbdc-brand-navy);color:#fff}
 }
@@ -661,11 +669,13 @@ html:has(form[data-stepper]){scrollbar-gutter:stable}
 .signup-done .lead{margin:18px auto 0!important}
 .signup-done .ms-label{margin-top:30px;color:var(--mysbdc-brand-evergreen)}
 .done-mark{animation:done-pop .5s cubic-bezier(.2,.8,.3,1) both}
-.done-ring{stroke-dasharray:340;animation:done-ring .7s .15s cubic-bezier(.6,0,.3,1) both}
-.done-tick{stroke-dasharray:70;animation:done-tick .4s .75s cubic-bezier(.6,0,.3,1) both}
+/* The ring and tick are measured as 100 (pathLength), so one dash covers each exactly. With no animation
+   (reduced motion) the offset stays 0 and both are simply drawn. */
+.done-ring{fill:none;stroke:#174B40;stroke-width:1.5;stroke-opacity:.5;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:100;animation:done-ring .75s .25s cubic-bezier(.6,0,.3,1) both}
+.done-tick{fill:none;stroke:#174B40;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;animation:done-tick .45s .8s cubic-bezier(.5,0,.2,1) both}
 @keyframes done-pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.06);opacity:1}100%{transform:scale(1);opacity:1}}
-@keyframes done-ring{from{stroke-dashoffset:340}to{stroke-dashoffset:0}}
-@keyframes done-tick{from{stroke-dashoffset:70}to{stroke-dashoffset:0}}
+@keyframes done-ring{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes done-tick{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
 .signup .ms-card:has(.signup-done.current){background:var(--mysbdc-brand-white)}
 .signup .ms-card:has(.signup-done.current) .ms-top{display:none}
 @media(max-width:759px){.signup{font-size:1.0625rem}.signup-bar .saved-note{display:none}}
@@ -982,7 +992,8 @@ html:has(form[data-stepper]){scrollbar-gutter:stable}
 .ms-editorial .ms-card:has([data-end].current) h1{margin-top:0}
 .ms-editorial .ms-exit-actions{flex-wrap:wrap;justify-content:flex-start}
 .ms-editorial-done .ms-card{max-width:860px;padding:clamp(32px,5vw,64px);border-radius:6px;background:var(--mysbdc-brand-white)}
-.ms-shared-mark{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 24px;border-radius:50%;background:#CDDCD0;color:#174B40}
+.ms-shared-mark{display:grid;place-items:center;width:80px;height:80px;margin:0 auto 24px;border-radius:50%;background:#CDDCD0;color:#174B40}
+.ms-shared-mark>svg:not(.icon){width:100%;height:100%;overflow:visible}
 .ms-shared-mark .icon{width:32px;height:32px;stroke-width:2}
 .ms-editorial-done .ms-label{color:var(--ink-3)}
 .ms-editorial-done h1{margin-top:20px;font-size:clamp(2.25rem,4.5vw,3.5rem)}
@@ -1189,9 +1200,18 @@ html:has(form[data-stepper]){scrollbar-gutter:stable}
 .intake-editorial .ticks label{align-items:flex-start;font-size:.9375rem;font-weight:500;line-height:1.5;min-height:44px;gap:12px}
 .intake-editorial .ticks input{margin:0;accent-color:var(--mysbdc-navy-surface)}
 .intake-draft-note{margin-top:18px;max-width:36em;color:var(--ink-3);font-size:.875rem;line-height:1.5}
-.intake-editorial .signup-done .ms-shared-mark{margin-bottom:8px}
-.intake-editorial .signup-done .ms-label{margin-top:16px}
-.intake-editorial .ms-workspace:has(.signup-done.current) .intake-context-help,.intake-editorial .ms-workspace:has(.signup-done.current) .intake-draft-note,.intake-editorial:has(.signup-done.current) .intake-save{display:none}
+.intake-editorial .signup-done .ms-shared-mark{margin-bottom:6px}
+.intake-editorial .signup-done .ms-label{margin-top:22px;font-size:.8125rem}
+.intake-editorial .ms-card .signup-done h1{margin-top:12px!important;font-size:clamp(2.25rem,4.2vw,3.25rem)!important;letter-spacing:-.03em}
+.signup-done h1 [data-echo]{text-transform:capitalize}
+.intake-editorial .signup-done .lead{max-width:27em;margin-top:16px!important;text-wrap:balance}
+.intake-editorial .signup-done .btn{min-width:200px}
+.signup-done-note{max-width:30em;margin-top:18px;font-size:.9375rem;line-height:1.45;color:var(--ink-3);text-wrap:balance}
+.intake-editorial .ms-card:has(.signup-done.current){display:flex;flex-direction:column;justify-content:center}
+.intake-editorial .ms-workspace:has(.signup-done.current) .ms-context-foot{visibility:hidden}
+/* With Save progress gone on the last screen, the language switch keeps its place at the right of the bar. */
+.intake-editorial:has(.signup-done.current) .signup-bar .lang{margin-left:auto}
+.intake-editorial .ms-workspace:has(.signup-done.current) .intake-draft-note,.intake-editorial:has(.signup-done.current) .intake-save{display:none}
 @media(max-width:1099px){.intake-editorial .signup-main{padding:32px 28px 40px}.intake-workspace{grid-template-columns:240px minmax(0,1fr)}.intake-editorial .ms-card{padding:28px}.intake-editorial .intake-context{padding:28px 24px}}
 @media(max-width:899px){
   .intake-workspace{grid-template-columns:minmax(0,1fr);gap:20px}

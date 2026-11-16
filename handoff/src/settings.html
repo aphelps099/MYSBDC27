@@ -1,10 +1,14 @@
 <!-- layout: app | active: settings | title: Settings -->
+    <!-- Ways out of Settings: this link, the Close button beside the sections, and the one at the end. Each goes back
+         to the dashboard page the client came from (data-back), or Home. -->
+    <a class="link has-arrow page-back" href="dashboard.html" data-back><span class="ui-arrow ui-arrow-left" aria-hidden="true"></span><span class="link-label">Back to <span data-back-label>Home</span></span></a>
     <header class="page-intro">
       <h1>Settings</h1>
       <p class="lead">Your details, your business and how we reach you. Each section saves on its own.</p>
     </header>
 
     <div class="settings">
+      <div class="settings-side">
       <nav class="settings-nav" aria-label="Settings sections">
         <a href="#you" aria-current="true">{{icon:user}} About you</a>
         <a href="#business">{{icon:briefcase}} Your business</a>
@@ -13,6 +17,8 @@
         <a href="#signin">{{icon:lock}} Sign-in</a>
         <a href="#privacy">{{icon:shield}} Privacy</a>
       </nav>
+      <a class="btn btn-secondary settings-close" href="dashboard.html" data-back>Close settings</a>
+      </div>
 
       <div class="stack" style="gap:32px">
         <section class="card settings-section" id="you" aria-labelledby="you-h">
@@ -92,5 +98,6 @@
             <a class="link" href="#help">Ask us to close my account</a>
           </div>
         </section>
+        <p class="settings-end"><a class="btn btn-secondary settings-close" href="dashboard.html" data-back>Close settings</a><span class="muted">Each section saves on its own.</span></p>
       </div>
     </div>
