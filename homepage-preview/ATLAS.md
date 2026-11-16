@@ -26,12 +26,13 @@ design logic (`../handoff/DESIGN.md`):
 - **The totals are the dashboard's tiles.** The public sees the same four coloured tiles and
   pictograms a client taps to share a milestone. One object, two places: where the result is
   reported and where it is shown.
-- **The map leads.** Headline and tiles on the left, the map on the right with the larger share:
-  up to 60% of the width, and never taller than the window, so the whole region is seen at once.
-- **A white page.** The site is white, as on the homepage and impact page. The map is the only
-  cream: cream counties, with the white page showing between them as the border.
-- **Scale does the work in the stories.** One very large line of type, then three photographs,
-  each led by its place name. No card chrome.
+- **Words and map share the page.** Headline and tiles on the left, the map on the right at about
+  half the width, and never taller than the window, so the whole region is seen at once.
+- **A cream page with one lighter panel.** The page ground is cream. The map sits on the page's
+  one white panel, and its counties are the page's cream, so the region looks cut from the page.
+  Matte, no gradient.
+- **Type leads the stories.** One confident line of type, then three photographs, each led by
+  its place name. No card chrome.
 - **Colour has jobs.** Tile colours name the four kinds of milestone. Berry does one thing: it
   marks people (the ringed marks, and the rule under each story photograph).
 - **It arrives.** On load the year fills in once and the totals count up.
@@ -60,16 +61,16 @@ repository history.
 
 ## The map
 
-- **Cream counties on white.** No drawn borders: the gap between counties is the page showing
-  through. There are no tiles from a map service, no gradients and no shadows, so the page has no
-  outside dependency.
-- **The larger share.** The map takes up to 60% of the page width. Its height is capped at the
-  window, so on a short laptop screen the split settles near half and half. The tiles stay above
-  the fold; the lower part of the map is a short scroll away.
+- **Cream counties on a white panel.** No drawn borders: the gap between counties is the
+  panel showing through. A gradient behind the map was tried and dropped; it read as decoration.
+  There are no tiles from a map service, no gradients and no shadows, so the page has no outside
+  dependency.
+- **About half the page.** The map panel takes up to half the page width, and its height is
+  capped so the whole region fits in the window.
 - **Every milestone is one small mark.** About 4,200 of them read as a texture of activity before
   anyone reads a number. Marks keep the same size on screen at every zoom.
 - **Colour means the kind of milestone, and nothing else.** Each mark is a deeper relative of its
-  tile, so small marks hold on cream.
+  tile, so small marks hold on the cream counties.
 
   | Milestone | Tile | Mark | Token |
   | --- | --- | --- | --- |
@@ -78,8 +79,8 @@ repository history.
   | Businesses started | slate navy | navy | `--atlas-started` `#243B50` |
   | Jobs created | pool | blue | `--atlas-hired` `#2E8CAD` |
 
-  The four were checked together on the cream county colour for colour-blind separation and 3:1
-  contrast. Change them as a set, not one at a time.
+  The four were checked together for colour-blind separation and 3:1 contrast on the county
+  colour. Change them as a set, not one at a time.
 - **Colour is never the only cue.** Each tile names its kind, the pointer names any mark, and
   "Totals by county" gives the same numbers as a table.
 - **Two altitudes.** The whole region shows density. Choosing a county (click it, or use the menu
@@ -108,8 +109,8 @@ A few marks are ringed in berry. Each is a person, not a count.
 
 ## The story row
 
-- **One line at poster scale:** "Three of 4,222." The count is live, so it grows as milestones do.
-- **Three photographs,** tall, in natural colour, with the homepage's 4px berry rule beneath.
+- **One confident line:** "Three of 4,222." The count is live, so it grows as milestones do.
+- **Three photographs,** in natural colour, with the homepage's 4px berry rule beneath.
 - **Place first.** Each story is headed by where it happened, with the same bullseye as its mark
   on the map. Then the result in one line, then the business name. The whole card is the link.
 - **Resting on a card lights its mark** on the map.
