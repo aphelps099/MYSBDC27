@@ -45,6 +45,7 @@
    settles near half and half. The words and tiles take whatever the map leaves. */
 .atlas-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px clamp(40px,5vw,80px);align-items:stretch}
 .atlas-lede{padding:42px 0 72px}
+.atlas-lede h1 em{font-style:italic;letter-spacing:-.03em}
 .atlas-lede h1{margin-top:20px;font:400 clamp(2.4rem,3.6vw,3.6rem)/1.05 var(--sera);letter-spacing:-.035em;text-wrap:balance}
 .atlas-intro{max-width:27em;margin-top:18px;font-size:1.125rem;color:var(--ink-2);text-wrap:pretty}
 
@@ -95,6 +96,11 @@
 .atlas-shore.line{stroke:#b3cfdb;stroke-width:2.5px}
 .atlas-context-land{fill:var(--atlas-context);stroke:var(--atlas-context);stroke-width:.75px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .atlas-context-lines{fill:none;stroke:var(--atlas-context-line);stroke-width:1px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+/* The lift: the service area's shape again, offset down and right in flat ink, under the counties.
+   A hard-edged plate, not a blurred shadow. It keeps its size on screen at any zoom. */
+.atlas-lift{fill:#0f1c2d;fill-opacity:.15;pointer-events:none;transform:translate(calc(var(--u,1) * 5px),calc(var(--u,1) * 6px))}
+.atlas-ping{fill:none;stroke-width:1.75px;vector-effect:non-scaling-stroke;pointer-events:none;opacity:0}
+.atlas-ping.t0{stroke:var(--atlas-hired)}.atlas-ping.t1{stroke:var(--atlas-started)}.atlas-ping.t2{stroke:var(--atlas-funding)}.atlas-ping.t3{stroke:var(--atlas-sales)}
 .atlas-geo{pointer-events:none}
 .atlas-geo.sea{font:italic 400 calc(15px * var(--u,1))/1 var(--sera);letter-spacing:.2em;fill:#86aebd}
 .atlas-geo.land{font:600 calc(10.5px * var(--u,1))/1 var(--nova);letter-spacing:.22em;text-transform:uppercase;fill:#a19c8f}

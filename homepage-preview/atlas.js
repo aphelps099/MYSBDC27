@@ -74,7 +74,8 @@
   if (D.context) {
     const land = D.context.land + D.counties.map(c => c.d).join('');
     gContext.append(svgEl('path', { d: land, class: 'atlas-shore outer' }), svgEl('path', { d: land, class: 'atlas-shore inner' }), svgEl('path', { d: land, class: 'atlas-shore line' }),
-      svgEl('path', { d: D.context.land, class: 'atlas-context-land' }), svgEl('path', { d: D.context.lines, class: 'atlas-context-lines' }));
+      svgEl('path', { d: D.context.land, class: 'atlas-context-land' }), svgEl('path', { d: D.context.lines, class: 'atlas-context-lines' }),
+      svgEl('path', { d: D.counties.map(c => c.d).join(''), class: 'atlas-lift', 'data-atlas-lift': '' }));
     D.context.labels.forEach(([text, x, y, kind, anchor]) => { const t = svgEl('text', { x, y, class: 'atlas-geo ' + kind, 'text-anchor': anchor || 'start' }); t.textContent = text; gContext.append(t); });
   }
   D.counties.forEach((c, i) => {
@@ -87,6 +88,17 @@
   pins.forEach(p => { p.el = dot(p.x, p.y, 'atlas-pin t' + p.t); frag.append(p.el); });
   gPins.append(frag);
 
+  const allCounties = D.counties.map(c => c.d).join('');
+  // Pings: a soft ring where a milestone just happened. Drawn above the marks, below the ringed story marks.
+  const gPing = svgEl('g', { class: 'atlas-pings', 'aria-hidden': 'true' }); svg.insertBefore(gPing, gStories);
+  const ping = p => {
+    if (still || document.hidden || !p || !p.on || p.dim) return;
+    const u = view[2] / (svg.getBoundingClientRect().width || 1), ring = svgEl('circle', { cx: p.x, cy: p.y, r: 1, class: 'atlas-ping t' + p.t });
+    ring.style.transformOrigin = p.x + 'px ' + p.y + 'px';
+    gPing.append(ring);
+    if (!ring.animate) { ring.remove(); return; }
+    ring.animate([{ transform: `scale(${4 * u})`, opacity: .9 }, { transform: `scale(${26 * u})`, opacity: 0 }], { duration: 1700, easing: 'cubic-bezier(.2,.7,.2,1)' }).finished.then(() => ring.remove(), () => ring.remove());
+  };
   const select = $('[data-atlas-county]');
   D.counties.forEach((c, i) => { const o = document.createElement('option'); o.value = i; o.textContent = c.n + ' County'; select.append(o); });
 
@@ -163,6 +175,7 @@
     if (!r) { latestLine.textContent = 'Nothing shared here yet in this period.'; return; }
     const sw = el('i', 'atlas-swatch'); sw.style.setProperty('--c', `var(--atlas-${r.type})`);
     latestLine.append(sw, el('strong', '', META[r.type].feed), ' · ' + r.where + ' · ' + r.when);
+    if (animate && r.pin) ping(r.pin); // the milestone being named answers on the map
     if (animate && !still && latestLine.animate) latestLine.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 450, easing: 'cubic-bezier(.2,.7,.3,1)' });
   };
   const setLatest = () => {
@@ -198,6 +211,7 @@
     $('[data-atlas-svg-title]').textContent = `Map of ${num(t.n)} milestones shared ${c ? 'in ' + c.n + ' County' : 'across Northern California'}. The same numbers are in the totals and the county table.`;
     $('[data-atlas-count]').textContent = num(pins.length + counted().length);
     svg.classList.toggle('atlas-scoped', !!c);
+    const lift = $('[data-atlas-lift]'); if (lift) lift.setAttribute('d', c ? c.d : allCounties); // the open county is the one that lifts
     D.counties.forEach((k, i) => k.el.classList.toggle('on', i === county));
     $$('.atlas-story', gStories).forEach((g, i) => g.classList.toggle('far', county != null && stories[i].county !== county));
     select.value = county == null ? '' : county;

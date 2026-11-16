@@ -71,6 +71,9 @@ repository history.
   the milestone marks stay the loudest thing on the map.
 - **Shallows, not a gradient.** Two pale bands follow every shore, as a printed atlas would draw
   them. They give the coast depth with flat colour.
+- **The service area is lifted.** Its own shape sits beneath it, offset down and to the right in
+  flat ink, so the region reads as a sheet of paper raised off the map. A hard-edged plate, not
+  a blurred shadow. When a county is opened, that county is the one that lifts.
 - **Atlas labels.** "Pacific Ocean" in spaced italic serif; "Oregon", "Nevada" and
   "California" in small muted capitals; "Point Arena" and "Monterey Bay" in small italic.
   None of the surroundings are interactive.
@@ -139,6 +142,8 @@ Two stories, set as four tiles in one row: photograph, colour block, photograph,
 ## Latest
 
 One quiet line under the tiles that takes turns through the most recent milestones in view.
+Each time it changes, a soft ring opens on the map where that milestone is, so the words and the
+map move together. The ring is skipped with reduced motion.
 Across the region it favours towns a visitor will recognise.
 
 ## Time
