@@ -12,7 +12,7 @@
   --atlas-land:#f2ede2; --atlas-land-hover:#e8e0cf; --atlas-land-far:#f8f5ee;
   --ink:#0f1c2d; --ink-2:#384252; --ink-3:#596270;
   --navy-surface:#243B50; --on-navy:#F5F1E8; --on-navy-muted:#BECCD5; --on-navy-accent:#AFD2DF;
-  --radius:6px; --atlas-pin:3.3px;
+  --radius:6px; --atlas-pin:3.7px;
   background:var(--paper);
 }
 .atlas-page .site-header{background:var(--paper)}
@@ -27,14 +27,16 @@
 
 /* One composition: words and the four tiles on the left, the map on the right. */
 .atlas-hero{padding:36px 0 84px}
-.atlas-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px clamp(48px,6.5vw,112px);align-items:start}
-.atlas-lede{max-width:760px;padding-top:6px}
-.atlas-lede h1{margin-top:20px;font:400 clamp(2.5rem,4.3vw,4.1rem)/1.04 var(--sera);letter-spacing:-.035em;text-wrap:balance}
+/* The map takes up to 60% of the width. On a short screen its height is the limit, and the split
+   settles near half and half. The words and tiles take whatever the map leaves. */
+.atlas-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px clamp(40px,5vw,80px);align-items:start}
+.atlas-lede{padding-top:6px}
+.atlas-lede h1{margin-top:20px;font:400 clamp(2.4rem,3.6vw,3.6rem)/1.05 var(--sera);letter-spacing:-.035em;text-wrap:balance}
 .atlas-intro{max-width:27em;margin-top:18px;font-size:1.125rem;color:var(--ink-2);text-wrap:pretty}
 
 /* The four totals: the dashboard's milestone tiles. Each is also a legend entry and a filter. */
 .atlas-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:36px 0 0;padding:0;list-style:none}
-.atlas-tile{--field:#A9CFDD;--tile-ink:var(--ink);--tile-soft:var(--ink-2);display:flex;flex-direction:column;align-items:flex-start;width:100%;min-height:clamp(150px,19vh,188px);padding:20px 24px 22px;border:0;border-radius:var(--radius);background:var(--field);color:var(--tile-ink);text-align:left;transition:opacity .2s}
+.atlas-tile{--field:#A9CFDD;--tile-ink:var(--ink);--tile-soft:var(--ink-2);display:flex;flex-direction:column;align-items:flex-start;width:100%;min-height:clamp(150px,20vh,200px);padding:20px 24px 22px;border:0;border-radius:var(--radius);background:var(--field);color:var(--tile-ink);text-align:left;transition:opacity .2s}
 .atlas-tile.is-funding{--field:#E8D5A5;--tile-ink:#493A20;--tile-soft:#5d4b2b}
 .atlas-tile.is-sales{--field:#CDDCD0;--tile-ink:#174B40;--tile-soft:#245548}
 .atlas-tile.is-started{--field:var(--navy-surface);--tile-ink:var(--on-navy);--tile-soft:var(--on-navy-muted)}
@@ -56,8 +58,9 @@
 .atlas-latest-line strong{font-weight:600;color:var(--ink)}
 .atlas-swatch{display:inline-block;width:9px;height:9px;margin-right:10px;border-radius:50%;background:var(--c);translate:0 -1px}
 
-/* The map. Cream counties on white; the gaps between them are the page. Sized to fit one screen. */
-.atlas-map{display:grid;gap:8px;width:max-content;max-width:100%}
+/* The map. Cream counties on white; the gaps between them are the page. As wide as 60% of the shell,
+   and never taller than the window, so the whole region can be seen at once. */
+.atlas-map{--map-ratio:.7406;display:grid;gap:8px;width:max(400px,min(calc((100vw - 112px) * .6),840px,calc((100vh - 56px) * var(--map-ratio))));max-width:100%}
 .atlas-map-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
 .atlas-scope select{max-width:100%;min-height:44px;padding:0 30px 0 0;border:0;border-radius:2px;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%230f1c2d' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m1 1.5 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 2px center;color:var(--ink);font:400 clamp(1.25rem,1.7vw,1.5rem)/1.2 var(--sera);letter-spacing:-.02em;appearance:none;cursor:pointer}
 .atlas-scope select:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
@@ -66,7 +69,7 @@
 .atlas-present-off{display:none}
 .atlas-map-top .atlas-link{flex:none;font-size:.9375rem;font-weight:500;color:var(--ink-2)}
 
-.atlas-stage{position:relative;height:clamp(500px,calc(100vh - 318px),800px);aspect-ratio:808/1091;max-width:100%}
+.atlas-stage{position:relative;width:100%;aspect-ratio:808/1091}
 .atlas-svg{display:block;width:100%;height:100%;overflow:hidden;touch-action:manipulation}
 .atlas-county{fill:var(--atlas-land);stroke:var(--paper);stroke-width:2px;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s}
 .atlas-county:hover{fill:var(--atlas-land-hover)}
@@ -197,18 +200,17 @@ body.atlas-present .atlas-present-off{display:inline-flex}
 body.atlas-present .atlas-hero{display:grid;align-items:center;min-height:100vh;padding:clamp(18px,3vh,40px) 0}
 body.atlas-present .atlas-hero>.shell{width:min(1560px,calc(100% - 112px))}
 body.atlas-present .atlas-grid{align-items:center}
-body.atlas-present .atlas-lede{max-width:860px}
 body.atlas-present .atlas-preview{margin-bottom:18px}
-body.atlas-present .atlas-stage{height:calc(100vh - 190px)}
-body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-stage{height:calc(100vh - 284px)}
+body.atlas-present .atlas-map{width:calc((100vh - 190px) * var(--map-ratio))}
+body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-map{width:calc((100vh - 284px) * var(--map-ratio))}
+body.atlas-present .atlas-lede h1{font-size:clamp(2.4rem,4.2vw,4.4rem)}
 body.atlas-present .atlas-tile{min-height:clamp(150px,24vh,250px)}
 body.atlas-present .atlas-tile strong{font-size:clamp(2.6rem,4.6vw,4.8rem)}
 body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clamp(42px,5vh,60px)}
 
 @media(max-width:1100px){
   .atlas-grid{grid-template-columns:1fr;gap:44px}
-  .atlas-map{width:100%}
-  .atlas-stage,body.atlas-present .atlas-stage,body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-stage{width:100%;height:auto}
+  .atlas-map,body.atlas-present .atlas-map,body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-map{width:min(100%,680px)}
   .atlas-next-card{gap:32px 48px}
 }
 @media(max-width:700px){
