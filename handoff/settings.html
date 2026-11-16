@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Settings · MySBDC</title>
-<link rel="stylesheet" href="assets/mysbdc.css?v=890a3634">
-<script defer src="assets/mysbdc.js?v=890a3634"></script>
+<link rel="stylesheet" href="assets/mysbdc.css?v=ad794c85">
+<script defer src="assets/mysbdc.js?v=ad794c85"></script>
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -121,12 +121,16 @@
 
 <div id="page">
   <main id="main-content" class="container reveal">
+    <!-- Ways out of Settings: this link, the Close button beside the sections, and the one at the end. Each goes back
+         to the dashboard page the client came from (data-back), or Home. -->
+    <a class="link has-arrow page-back" href="dashboard.html" data-back><span class="ui-arrow ui-arrow-left" aria-hidden="true"></span><span class="link-label">Back to <span data-back-label>Home</span></span></a>
     <header class="page-intro">
       <h1>Settings</h1>
       <p class="lead">Your details, your business and how we reach you. Each section saves on its own.</p>
     </header>
 
     <div class="settings">
+      <div class="settings-side">
       <nav class="settings-nav" aria-label="Settings sections">
         <a href="#you" aria-current="true"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-user"/></svg> About you</a>
         <a href="#business"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-briefcase"/></svg> Your business</a>
@@ -135,6 +139,8 @@
         <a href="#signin"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-lock"/></svg> Sign-in</a>
         <a href="#privacy"><svg class="icon " aria-hidden="true" focusable="false"><use href="#i-shield"/></svg> Privacy</a>
       </nav>
+      <a class="btn btn-secondary settings-close" href="dashboard.html" data-back>Close settings</a>
+      </div>
 
       <div class="stack" style="gap:32px">
         <section class="card settings-section" id="you" aria-labelledby="you-h">
@@ -214,6 +220,7 @@
             <a class="link" href="#help">Ask us to close my account</a>
           </div>
         </section>
+        <p class="settings-end"><a class="btn btn-secondary settings-close" href="dashboard.html" data-back>Close settings</a><span class="muted">Each section saves on its own.</span></p>
       </div>
     </div>
   </main>

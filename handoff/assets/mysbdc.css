@@ -315,7 +315,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 
 /* 10 — Settings */
 .settings{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
-.settings-nav{position:sticky;top:calc(var(--bar) + 16px);display:grid;gap:4px}
+/* The section list and a Close button travel together down the page, so the way out is always in view. */
+.settings-side{position:sticky;top:calc(var(--bar) + 16px);display:grid;gap:20px;min-width:0}
+.settings-nav{display:grid;gap:4px}
+.settings-close{min-height:48px;border-width:1px;border-radius:6px;font-size:1rem}
+.settings-end{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:8px}
+.page-back{margin-bottom:20px;gap:12px;color:var(--mysbdc-brand-navy);font-weight:500}
 .settings-nav a{display:flex;align-items:center;gap:12px;min-height:50px;padding:0 16px;border-radius:var(--radius);font-weight:600;text-decoration:none;color:var(--mysbdc-brand-slate)}
 .settings-nav a:hover{background:var(--mysbdc-brand-cream-dark)}
 .settings-nav a[aria-current]{background:var(--mysbdc-brand-white);color:var(--mysbdc-brand-navy);font-weight:700}
@@ -329,7 +334,10 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .saved[hidden]{display:none}
 @media(max-width:899px){
   .settings{grid-template-columns:1fr}
-  .settings-nav{position:static;display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
+  .settings-side{position:static;display:block}
+  .settings-side .settings-close{display:none}
+  .page-back{margin-bottom:12px}
+  .settings-nav{display:flex;gap:8px;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
   .settings-nav a{flex:none;background:var(--mysbdc-brand-white);border-radius:99px;min-height:48px}
   .settings-nav a[aria-current]{background:var(--mysbdc-brand-navy);color:#fff}
 }

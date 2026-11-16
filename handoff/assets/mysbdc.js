@@ -83,6 +83,21 @@
     });
   }
 
+  // Settings: the ways out go back to the dashboard page the client came from. Each main page notes itself for this tab;
+  // Settings reads that note (or the referrer). Anything else, or nothing, is Home.
+  const backs = $$('[data-back]');
+  const mainPages = { 'dashboard.html': 'Home', 'dashboard-new.html': 'Home', 'events.html': 'Training', 'milestones.html': 'Milestones', 'resources.html': 'Resources', 'documents.html': 'Documents' };
+  const thisPage = location.pathname.split('/').pop();
+  if (!backs.length && mainPages[thisPage]) { try { sessionStorage.setItem('mysbdc-last-page', thisPage); } catch (e) {} }
+  if (backs.length) {
+    let page = '';
+    try { page = sessionStorage.getItem('mysbdc-last-page') || ''; } catch (e) {}
+    if (!mainPages[page]) { try { const r = new URL(document.referrer); if (r.origin === location.origin) page = r.pathname.split('/').pop(); } catch (e) {} }
+    if (mainPages[page]) { backs.forEach(a => a.href = page); $$('[data-back-label]').forEach(n => n.textContent = mainPages[page]); }
+    // Escape closes Settings, unless the client is typing in a field or a menu is open.
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !e.defaultPrevented && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) && !$('details[open]')) location.href = backs[0].href; });
+  }
+
   // Settings: each section saves on its own and confirms in words.
   $$('form[data-save]').forEach(f => f.addEventListener('submit', e => {
     e.preventDefault();

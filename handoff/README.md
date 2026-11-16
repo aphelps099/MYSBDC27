@@ -26,7 +26,7 @@ python3 -m http.server 8000      # from the repository root
 | `dashboard-new.html` | Default home: new client, no advisor yet | `/` (pre-client) |
 | `dashboard.html` | Home: active client | `/` (active client) |
 | `documents.html` | Document sharing preview, reached from Home's next step | Proposed `/documents/` |
-| `settings.html` | Settings | `/account/`, `/account/settings/`, `/business/` |
+| `settings.html` | Settings, with three ways out (a back link, a Close button that stays beside the sections, one at the end, plus Escape) that return to the page the client came from | `/account/`, `/account/settings/`, `/business/` |
 | `events.html` | Training: live workshops by month with inline registration, plus recorded training | `/events/` |
 | `event.html` | Training: one event | `/events/{event}/` |
 | `milestones.html` | Milestones: choose an update to share | `/milestones/` |
