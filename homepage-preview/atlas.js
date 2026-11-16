@@ -8,9 +8,10 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const NS = 'http://www.w3.org/2000/svg';
-  const svgEl = (tag, attrs = {}) => { const el = document.createElementNS(NS, tag); for (const k in attrs) el.setAttribute(k, attrs[k]); return el; };
+  const svgEl = (tag, attrs = {}) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
   const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const params = new URLSearchParams(location.search);
 
   const KEY = 'mysbdc-atlas-v1';
   const TYPES = D.types; // ['hired','started','funding','sales'] — the index is the mark class t0…t3
@@ -20,10 +21,11 @@
     funding: { feed: 'New funding',  money: true },
     sales:   { feed: 'Sales growth', money: true },
   };
+  const PLACES = ['Eureka', 'Redding', 'Sacramento', 'San Francisco', 'San Jose']; // the few names kept on the map
   const num = n => Math.round(n).toLocaleString('en-US');
   const plural = (n, one) => num(n) + ' ' + one + (n === 1 ? '' : 's');
   function money(n) {
-    if (n >= 1e6) return '$' + (n / 1e6).toFixed(n >= 1e8 ? 0 : 1) + 'M';
+    if (n >= 1e6) return '$' + (n / 1e6).toFixed(n >= 1e8 ? 0 : 1).replace(/\.0$/, '') + 'M';
     if (n >= 1e4) return '$' + Math.round(n / 1e3).toLocaleString('en-US') + 'K';
     return '$' + num(n);
   }
@@ -41,9 +43,9 @@
   const pins = [];
   for (let i = 0; i < D.pins.length; i += 6) {
     const town = D.towns[D.pins[i + 4]];
-    pins.push({ x: D.pins[i], y: D.pins[i + 1], t: D.pins[i + 2], age: D.pins[i + 3], town: town[0], county: town[1], v: D.pins[i + 5], month: monthOf(dateOf(D.pins[i + 3])), on: true, dim: false });
+    pins.push({ x: D.pins[i], y: D.pins[i + 1], t: D.pins[i + 2], age: D.pins[i + 3], town: town[0], county: town[1], major: !!town[4], v: D.pins[i + 5], month: monthOf(dateOf(D.pins[i + 3])), on: true, dim: false });
   }
-  // Featured marks. Success stories first, then testimonies, so the cards read as two even rows.
+  // Featured marks: success stories first, then testimonies.
   const stories = (D.stories || []).slice().sort((a, b) => (a.kind === 'story' ? 0 : 1) - (b.kind === 'story' ? 0 : 1));
 
   // ── Design preview: milestones shared from the dashboard preview in this browser ──
@@ -59,7 +61,7 @@
   const counted = () => mine.filter(i => i.share !== 'private' && i.status === 'confirmed');
 
   // ── State ──
-  const state = { county: null, type: 'all', cut: 0, playing: false, story: null };
+  const state = { county: null, type: 'all', cut: 0, playing: false, story: null, pinned: false };
   const [VW, VH] = D.view, PAD = 24, FULL = [-PAD, -PAD, VW + PAD * 2, VH + PAD * 2];
   let view = FULL.slice(), viewAnim = 0;
 
@@ -72,7 +74,7 @@
     path.dataset.county = i;
     gCounties.append(path); c.el = path;
   });
-  D.labels.forEach(([label, x, y, anchor]) => { const t = svgEl('text', { x, y, 'text-anchor': anchor }); t.textContent = label; if (label === D.home.town) t.setAttribute('class', 'home'); gPlaces.append(t); });
+  D.labels.filter(l => PLACES.includes(l[0])).forEach(([label, x, y, anchor]) => { const t = svgEl('text', { x, y, 'text-anchor': anchor }); t.textContent = label; if (label === D.home.town) t.setAttribute('class', 'home'); gPlaces.append(t); });
   const frag = document.createDocumentFragment();
   pins.forEach(p => { p.el = dot(p.x, p.y, 'atlas-pin t' + p.t); frag.append(p.el); });
   gPins.append(frag);
@@ -133,8 +135,33 @@
   };
 
   const when = age => age <= 0 ? 'Today' : age === 1 ? 'Yesterday' : age < 14 ? age + ' days ago' : dateOf(age).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-  const swatch = type => { const i = el('i', 'atlas-swatch'); i.style.setProperty('--c', `var(--atlas-${type})`); return i; };
   const place = p => p.town + ', ' + D.counties[p.county].n + ' County';
+
+  // ── Latest: one quiet line that takes turns through the most recent milestones in view ──
+  const latestLine = $('[data-atlas-latest]');
+  let latest = [], latestAt = 0, latestTimer = 0;
+  const showLatest = animate => {
+    latestLine.textContent = '';
+    const r = latest[latestAt % (latest.length || 1)];
+    if (!r) { latestLine.textContent = 'Nothing shared here yet in this period.'; return; }
+    const sw = el('i', 'atlas-swatch'); sw.style.setProperty('--c', `var(--atlas-${r.type})`);
+    latestLine.append(sw, el('strong', '', META[r.type].feed), ' · ' + r.where + ' · ' + r.when);
+    if (animate && !still && latestLine.animate) latestLine.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 450, easing: 'cubic-bezier(.2,.7,.3,1)' });
+  };
+  const setLatest = () => {
+    const county = state.county, rows = [];
+    if (state.cut === 0 && (county == null || county === D.home.county)) counted().filter(i => state.type === 'all' || i.type === state.type).reverse()
+      .forEach(i => rows.push({ type: i.type, where: D.home.town + ', ' + D.counties[D.home.county].n + ' County', when: 'Just now' }));
+    // Across the region, favour towns a visitor will recognise; inside a county, take whatever is newest.
+    for (const majorOnly of county == null ? [true, false] : [false]) {
+      for (let i = pins.length - 1; i >= 0 && rows.length < 5; i--) { const p = pins[i]; if (p.on && !p.dim && (!majorOnly || p.major) && !rows.some(r => r.pin === p)) rows.push({ pin: p, type: TYPES[p.t], where: place(p), when: when(p.age) }); }
+      if (rows.length >= 3) break;
+    }
+    const same = rows.length === latest.length && rows.every((r, i) => r.where === latest[i].where && r.type === latest[i].type && r.when === latest[i].when);
+    if (same) return;
+    latest = rows; latestAt = 0; showLatest(false);
+  };
+  if (!still) latestTimer = setInterval(() => { if (latest.length > 1 && !state.playing && !document.hidden) { latestAt++; showLatest(true); } }, 4200);
 
   const render = (animate = true) => {
     const county = state.county, t = tally(county);
@@ -144,36 +171,26 @@
       if (on !== p.on) { p.on = on; p.el.classList.toggle('off', !on); }
       if (dim !== p.dim) { p.dim = dim; p.el.classList.toggle('dim', dim); }
     });
-    // Totals (also the legend and the filter)
+    // Totals: the tiles are also the legend and the filter
     TYPES.forEach(type => setTotal(type, type === 'started' ? t[type].n : t[type].sum, animate));
-    $('.atlas-totals').classList.toggle('solo', state.type !== 'all');
+    $('.atlas-tiles').classList.toggle('solo', state.type !== 'all');
     $$('[data-atlas-type]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.atlasType === state.type)));
     // Scope
     const c = county == null ? null : D.counties[county];
     $('[data-atlas-scope-sub]').textContent = plural(t.n, 'milestone') + (c ? ' · ' + c.c : ' · ' + D.counties.length + ' counties');
     $('[data-atlas-svg-title]').textContent = `Map of ${num(t.n)} milestones shared ${c ? 'in ' + c.n + ' County' : 'across Northern California'}. The same numbers are in the totals and the county table.`;
+    $('[data-atlas-count]').textContent = num(pins.length + counted().length);
     svg.classList.toggle('atlas-scoped', !!c);
     D.counties.forEach((k, i) => k.el.classList.toggle('on', i === county));
     $$('.atlas-story', gStories).forEach((g, i) => g.classList.toggle('far', county != null && stories[i].county !== county));
     select.value = county == null ? '' : county;
-    // Latest: three quiet lines
-    const feed = $('[data-atlas-feed]'); feed.textContent = '';
-    const rows = [];
-    if (state.cut === 0 && (county == null || county === D.home.county)) counted().filter(i => state.type === 'all' || i.type === state.type).reverse()
-      .forEach(i => rows.push({ type: i.type, where: D.home.town + ', ' + D.counties[D.home.county].n + ' County', when: 'Just now', fresh: true }));
-    for (let i = pins.length - 1; i >= 0 && rows.length < 3; i--) { const p = pins[i]; if (p.on && !p.dim) rows.push({ type: TYPES[p.t], where: place(p), when: when(p.age) }); }
-    rows.slice(0, 3).forEach(r => {
-      const li = el('li', r.fresh ? 'fresh' : ''), what = el('span', 'what');
-      what.append(el('strong', '', META[r.type].feed), ' · ' + r.where);
-      li.append(swatch(r.type), what, el('span', 'when', r.when)); feed.append(li);
-    });
-    $('[data-atlas-empty]').hidden = rows.length > 0;
+    setLatest();
     // Months
     const counts = Array(12).fill(0);
     pins.forEach(p => { if ((county == null || p.county === county) && (state.type === 'all' || TYPES[p.t] === state.type)) counts[p.month]++; });
     const max = Math.max(1, ...counts), through = throughMonth();
     $$('[data-atlas-months] button').forEach((b, m) => {
-      b.firstElementChild.style.setProperty('--h', Math.max(8, Math.round(counts[m] / max * 100)) + '%');
+      b.firstElementChild.style.setProperty('--h', Math.max(10, Math.round(counts[m] / max * 100)) + '%');
       b.classList.toggle('later', m > through);
       b.setAttribute('aria-pressed', String(m === through && state.cut > 0));
       b.setAttribute('aria-label', `Through ${monthName(m)}: ${plural(counts[m], 'milestone')} that month`);
@@ -188,7 +205,7 @@
     body.textContent = '';
     D.counties.map((c, i) => [c, tally(i)]).sort((a, b) => b[1].n - a[1].n).forEach(([c, t]) => {
       const tr = document.createElement('tr'), th = el('th', '', c.n); th.scope = 'row'; tr.append(th);
-      [c.c, num(t.n), money(t.funding.sum), num(t.started.n), num(t.hired.sum), money(t.sales.sum)].forEach((v, i) => tr.append(el('td', i ? 'num' : '', v)));
+      [c.c, num(t.n), money(t.funding.sum), money(t.sales.sum), num(t.started.n), num(t.hired.sum)].forEach((v, i) => tr.append(el('td', i ? 'num' : '', v)));
       body.append(tr);
     });
   }
@@ -196,7 +213,7 @@
 
   // ── Scope: one county, or everything ──
   const setCounty = i => {
-    state.county = i;
+    endIntro(); state.county = i;
     zoomTo(i == null ? FULL : countyBox(i));
     hideTip(); render();
   };
@@ -210,34 +227,33 @@
     return best;
   };
   function hideTip() { tip.hidden = true; }
-  const showTip = (strong, text, e) => {
+  const showTip = (p, e) => {
     const r = stage.getBoundingClientRect();
-    tip.textContent = ''; tip.append(el('strong', '', strong), text);
+    tip.textContent = ''; tip.append(el('strong', '', META[TYPES[p.t]].feed), place(p) + ' · ' + when(p.age));
     tip.style.left = Math.max(120, Math.min(r.width - 120, e.clientX - r.left)) + 'px';
     tip.style.top = Math.max(70, e.clientY - r.top) + 'px';
     tip.hidden = false;
   };
   svg.addEventListener('pointermove', e => {
-    const s = e.target.closest('.atlas-story');
-    if (s) { const st = stories[+s.dataset.story]; showTip(st.kind === 'story' ? st.name : 'In their words', st.kind === 'story' ? st.meta : D.counties[st.county].n + ' County', e); return; }
+    if (e.target.closest('.atlas-story')) { hideTip(); return; }
     const at = toMap(e); if (!at) return;
     const p = nearest(at[0], at[1], 9 * scaleNow());
-    p ? showTip(META[TYPES[p.t]].feed, place(p) + ' · ' + when(p.age), e) : hideTip();
+    p ? showTip(p, e) : hideTip();
   });
   svg.addEventListener('pointerleave', hideTip);
   svg.addEventListener('click', e => {
-    const s = e.target.closest('.atlas-story');
-    if (s) { hideTip(); const i = +s.dataset.story; state.story === i ? closeStory() : openStory(i); return; }
+    if (e.target.closest('.atlas-story')) return; // story marks handle their own clicks
     closeStory();
     const county = e.target.closest('.atlas-county');
     if (!county) { if (state.county != null) setCounty(null); return; }
     const i = +county.dataset.county;
-    if (state.county === i) { const at = toMap(e), p = at && nearest(at[0], at[1], 14 * scaleNow()); if (p) { showTip(META[TYPES[p.t]].feed, place(p) + ' · ' + when(p.age), e); return; } }
+    if (state.county === i) { const at = toMap(e), p = at && nearest(at[0], at[1], 14 * scaleNow()); if (p) { showTip(p, e); return; } }
     setCounty(state.county === i ? null : i);
   });
 
-  // ── Type filter: the four totals. Choose one to isolate it; choose it again for all four. ──
+  // ── Type filter: the four tiles. Choose one to isolate it; choose it again for all four. ──
   $$('[data-atlas-type]').forEach(b => b.addEventListener('click', () => {
+    endIntro();
     state.type = state.type === b.dataset.atlasType ? 'all' : b.dataset.atlasType;
     render(false);
     announce(state.type === 'all' ? 'Showing every kind of milestone.' : `Showing only ${META[state.type].feed.toLowerCase()} on the map.`);
@@ -248,9 +264,9 @@
   for (let m = 0; m < 12; m++) {
     const li = document.createElement('li'), b = document.createElement('button');
     b.type = 'button'; b.title = monthName(m); b.append(document.createElement('i')); li.append(b); months.append(li);
-    b.addEventListener('click', () => { stop(); state.cut = m === throughMonth() && state.cut > 0 ? 0 : monthCut(m); render(); });
+    b.addEventListener('click', () => { endIntro(); stop(); state.cut = m === throughMonth() && state.cut > 0 ? 0 : monthCut(m); render(); });
   }
-  let playRaf = 0, playTimer = 0;
+  let playRaf = 0, playTimer = 0, introRaf = 0;
   function stop() {
     cancelAnimationFrame(playRaf); clearInterval(playTimer);
     if (!state.playing) return;
@@ -258,7 +274,7 @@
   }
   const play = () => {
     const oldest = pins[0].age;
-    closeStory();
+    endIntro(); closeStory();
     if (state.cut === 0) state.cut = oldest;
     state.playing = true; playBtn.setAttribute('aria-pressed', 'true'); playLabel.textContent = 'Pause';
     const through = $('[data-atlas-through]');
@@ -278,69 +294,90 @@
   };
   playBtn.addEventListener('click', () => state.playing ? (stop(), render(false)) : play());
 
-  // ── Featured marks: a few success stories and testimonies. Ringed on the map, cards below it. ──
+  // Arrival: once, on load, the year fills in and the totals count up. Skipped for reduced motion.
+  let introOn = false;
+  function endIntro() { if (!introOn) return; introOn = false; cancelAnimationFrame(introRaf); state.cut = 0; render(false); }
+  const intro = () => {
+    const oldest = pins[0].age, t0 = performance.now(), dur = 1900;
+    introOn = true; state.cut = oldest; render(false);
+    const tick = now => {
+      if (!introOn) return;
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 2.2);
+      state.cut = Math.round(oldest * (1 - e)); render(false);
+      if (p < 1) introRaf = requestAnimationFrame(tick); else introOn = false;
+    };
+    introRaf = requestAnimationFrame(tick);
+  };
+
+  // ── Ringed marks: three success stories and three testimonies. Hover or focus shows one; a click keeps it open. ──
   const cards = $('[data-atlas-cards]');
-  const by = s => s.kind === 'story' ? s.name + ' · ' + s.meta : (/^[AEIOU]/.test(D.counties[s.county].n) ? 'An ' : 'A ') + D.counties[s.county].n + ' County business owner';
-  const kindLabel = s => s.kind === 'story' ? 'Success story' : 'In their words';
+  const county = s => D.counties[s.county].n + ' County';
+  const by = s => s.kind === 'story' ? s.name + ' · ' + s.meta : (/^[AEIOU]/.test(D.counties[s.county].n) ? 'An ' : 'A ') + county(s) + ' business owner';
+  let closeTimer = 0;
+  const later = () => { clearTimeout(closeTimer); closeTimer = setTimeout(() => { if (!state.pinned) closeStory(); }, 220); };
   stories.forEach((s, i) => {
-    // The mark: a ring around a centre, larger than a milestone and reachable by keyboard.
-    const g = svgEl('g', { class: 'atlas-story', tabindex: '0', role: 'button', 'aria-expanded': 'false', 'aria-label': `${kindLabel(s)}: ${s.kind === 'story' ? s.name + ', ' + s.meta : D.counties[s.county].n + ' County'}` });
+    const g = svgEl('g', { class: 'atlas-story is-' + s.kind, tabindex: '0', role: 'button', 'aria-expanded': 'false',
+      'aria-label': s.kind === 'story' ? `Success story: ${s.name}, ${s.meta}. ${s.title}` : `In their words, ${county(s)}: ${s.title}` });
     g.dataset.story = i;
-    g.append(dot(s.x, s.y, 'hit'), dot(s.x, s.y, 'glow'), dot(s.x, s.y, 'ring'), dot(s.x, s.y, 'gap'), dot(s.x, s.y, 'core'));
-    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); state.story === i ? closeStory(true) : openStory(i, true); } });
+    g.append(dot(s.x, s.y, 'hit'), dot(s.x, s.y, 'glow'), dot(s.x, s.y, 'ring'), dot(s.x, s.y, 'gap'));
+    if (s.kind === 'story') g.append(dot(s.x, s.y, 'core'));
+    g.addEventListener('pointerenter', e => { if (e.pointerType !== 'touch' && !state.pinned) { clearTimeout(closeTimer); openStory(i); } });
+    g.addEventListener('pointerleave', e => { if (e.pointerType !== 'touch') later(); });
+    g.addEventListener('focus', () => { if (!state.pinned) openStory(i); });
+    g.addEventListener('blur', later);
+    g.addEventListener('click', () => { const same = state.story === i && state.pinned; closeStory(); if (!same) { openStory(i); state.pinned = true; g.classList.add('pinned'); } });
+    g.addEventListener('keydown', e => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault(); openStory(i); state.pinned = true; g.classList.add('pinned');
+      if (s.kind === 'story') $('[data-atlas-pop-link]').focus({ preventScroll: true });
+    });
     gStories.append(g); s.el = g;
-    // The card.
-    const li = el('li', 'atlas-card is-' + s.kind), body = el('div', 'atlas-card-body');
-    li.dataset.story = i;
-    if (s.kind === 'story') {
-      const img = document.createElement('img');
-      img.src = s.img; img.alt = s.alt; img.loading = 'lazy'; img.style.objectPosition = s.pos || '50% 50%';
-      const fig = el('div', 'atlas-card-photo'); fig.append(img); li.append(fig);
-      body.append(el('p', 'atlas-pill', kindLabel(s)), el('h3', '', s.title), el('p', 'atlas-card-by', by(s)));
-    } else {
-      body.append(el('p', 'atlas-pill', kindLabel(s)), el('blockquote', '', '“' + s.title + '”'), el('p', 'atlas-card-by', by(s)));
-    }
-    const actions = el('div', 'atlas-card-actions'), find = el('button', 'atlas-link', 'Show on the map');
-    find.type = 'button';
-    find.addEventListener('click', () => { stage.scrollIntoView({ block: 'center', behavior: still ? 'auto' : 'smooth' }); openStory(i); s.el.focus({ preventScroll: true }); });
-    if (s.kind === 'story') { const a = el('a', 'atlas-link', 'Read story'); a.href = s.href; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label', 'Read the ' + s.name + ' story'); actions.append(a); }
-    actions.append(find); body.append(actions); li.append(body); cards.append(li);
+    if (s.kind !== 'story') return;
+    // The story card below the map: a photograph, the place, the result. The whole card is the link.
+    const li = el('li'), a = el('a', 'atlas-card'), photo = el('span', 'atlas-card-photo'), img = document.createElement('img');
+    a.href = s.href; a.target = '_blank'; a.rel = 'noopener';
+    img.src = s.img; img.alt = s.alt; img.loading = 'lazy'; img.style.objectPosition = img.style.transformOrigin = s.pos || '50% 50%'; img.style.setProperty('--zoom', s.zoom || 1);
+    photo.append(img);
+    const placeLine = el('span', 'atlas-card-place'); placeLine.append(el('i', 'atlas-ring'), s.place || s.town);
+    const name = el('span', 'atlas-card-name', s.name); name.append(el('span', 'atlas-arrow'));
+    a.append(photo, placeLine, el('strong', 'atlas-card-title', s.title), name);
+    li.append(a); cards.append(li);
     const lit = on => s.el.classList.toggle('lit', on);
-    li.addEventListener('pointerenter', () => lit(true)); li.addEventListener('pointerleave', () => lit(false));
-    li.addEventListener('focusin', () => lit(true)); li.addEventListener('focusout', () => lit(false));
+    a.addEventListener('pointerenter', () => lit(true)); a.addEventListener('pointerleave', () => lit(false));
+    a.addEventListener('focus', () => lit(true)); a.addEventListener('blur', () => lit(false));
   });
+  pop.addEventListener('pointerenter', () => clearTimeout(closeTimer));
+  pop.addEventListener('pointerleave', later);
+  pop.addEventListener('focusout', later);
+  pop.addEventListener('focusin', () => clearTimeout(closeTimer));
   function placePop() {
     if (state.story == null) return;
     const s = stories[state.story], [px, py] = toStage(s.x, s.y), r = stage.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight;
-    const left = px + 22 + w <= r.width - 4 ? px + 22 : px - 22 - w;
-    pop.style.left = Math.max(4, Math.min(r.width - w - 12, left)) + 'px';
-    pop.style.top = Math.max(4, Math.min(r.height - h - 12, py - h / 2)) + 'px';
+    const left = px + 20 + w <= r.width + 40 ? px + 20 : px - 20 - w;
+    pop.style.left = Math.max(-40, Math.min(r.width - w + 40, left)) + 'px';
+    pop.style.top = Math.max(0, Math.min(r.height - h - 8, py - h / 2)) + 'px';
   }
-  function openStory(i, focus) {
-    const s = stories[i], link = $('[data-atlas-pop-link]');
-    stories.forEach((k, n) => { k.el.classList.toggle('open', n === i); k.el.setAttribute('aria-expanded', String(n === i)); });
-    state.story = i;
-    $('[data-atlas-pop-kind]').textContent = kindLabel(s);
+  function openStory(i) {
+    const s = stories[i], link = $('[data-atlas-pop-link]'), photo = $('[data-atlas-pop-photo]'), img = $('[data-atlas-pop-img]');
+    hideTip();
+    stories.forEach((k, n) => { k.el.classList.toggle('open', n === i); k.el.classList.remove('pinned'); k.el.setAttribute('aria-expanded', String(n === i)); });
+    state.story = i; state.pinned = false;
     $('[data-atlas-pop-title]').textContent = s.kind === 'story' ? s.title : '“' + s.title + '”';
     $('[data-atlas-pop-by]').textContent = by(s);
-    link.hidden = s.kind !== 'story'; if (s.kind === 'story') { link.href = s.href; link.setAttribute('aria-label', 'Read the ' + s.name + ' story'); }
-    const photo = $('[data-atlas-pop-photo]'), img = $('[data-atlas-pop-img]');
-    photo.hidden = s.kind !== 'story'; if (s.kind === 'story') { img.src = s.img; img.alt = s.alt; img.style.objectPosition = s.pos || '50% 50%'; }
+    link.hidden = photo.hidden = s.kind !== 'story';
+    if (s.kind === 'story') { link.href = s.href; link.setAttribute('aria-label', 'Read the ' + s.name + ' story'); img.src = s.img; img.alt = s.alt; img.style.objectPosition = img.style.transformOrigin = s.pos || '50% 50%'; img.style.setProperty('--zoom', s.zoom || 1); }
     pop.className = 'atlas-pop is-' + s.kind; pop.hidden = false; placePop();
-    $$('.atlas-card', cards).forEach((c, n) => c.classList.toggle('current', n === i));
-    if (focus) $('[data-atlas-pop-title]').focus({ preventScroll: true });
   }
   function closeStory(focusBack) {
+    clearTimeout(closeTimer);
     if (state.story == null) return;
-    const s = stories[state.story]; s.el.classList.remove('open'); s.el.setAttribute('aria-expanded', 'false');
-    state.story = null; pop.hidden = true;
-    $$('.atlas-card.current', cards).forEach(c => c.classList.remove('current'));
+    const s = stories[state.story]; s.el.classList.remove('open', 'pinned'); s.el.setAttribute('aria-expanded', 'false');
+    state.story = null; state.pinned = false; pop.hidden = true;
     if (focusBack) s.el.focus({ preventScroll: true });
   }
-  $('[data-atlas-pop-close]').addEventListener('click', () => closeStory(true));
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    if (state.story != null) closeStory(pop.contains(document.activeElement) || gStories.contains(document.activeElement));
+    if (state.story != null) closeStory(pop.contains(document.activeElement));
     else if (state.county != null && !document.fullscreenElement) setCounty(null);
   });
 
@@ -374,7 +411,7 @@
     if (r && !still && r.animate) r.animate([{ strokeWidth: '12px', strokeOpacity: .4 }, { strokeWidth: '120px', strokeOpacity: 0 }], { duration: 1500, iterations: 3, easing: 'cubic-bezier(.2,.7,.2,1)' });
   };
   const locate = item => {
-    stop(); closeStory(); state.cut = 0; state.type = 'all'; state.county = D.home.county;
+    endIntro(); stop(); closeStory(); state.cut = 0; state.type = 'all'; state.county = D.home.county;
     zoomTo(countyBox(D.home.county)); render();
     if (!document.body.classList.contains('atlas-present')) stage.scrollIntoView({ block: 'center', behavior: still ? 'auto' : 'smooth' });
     setTimeout(() => ripple(item), still ? 0 : 500);
@@ -396,7 +433,7 @@
     if (added.length) { announce('A new milestone was just shared from ' + D.home.town + '.'); locate(added[added.length - 1]); }
   });
 
-  // ── Presenting: the site steps away; the stories take turns on the map ──
+  // ── Presenting: the site steps away; the ringed marks take turns on the map ──
   const presentBtn = $('[data-atlas-present]');
   let tour = 0;
   const present = on => {
@@ -405,9 +442,9 @@
     if (on && document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => {});
     if (!on && document.fullscreenElement) document.exitFullscreen().catch(() => {});
     clearInterval(tour); closeStory();
-    if (on && !still && stories.length) { // A slow tour of the featured marks. Any pointer or key press ends it.
+    if (on && !still && stories.length) { // A slow tour of the ringed marks. Any pointer or key press ends it.
       let n = -1;
-      tour = setInterval(() => { if (state.playing || state.county != null) return; n = (n + 1) % stories.length; openStory(n); }, 7000);
+      tour = setInterval(() => { if (state.playing || state.county != null || state.pinned) return; n = (n + 1) % stories.length; openStory(n); }, 7000);
       const end = () => { clearInterval(tour); removeEventListener('pointerdown', end); removeEventListener('keydown', end); };
       addEventListener('pointerdown', end); addEventListener('keydown', end);
     }
@@ -424,10 +461,10 @@
   }
 
   // ── Go ──
-  const params = new URLSearchParams(location.search);
   if (params.has('reset')) { mine = []; writeMine(mine); }
   renderMine(); render(false); applyView();
   if (params.has('present')) present(true);
   const newest = mine.filter(i => i.share !== 'private').pop();
   if (newest && params.has('new')) setTimeout(() => locate(newest), 700);
+  else if (!still && !params.has('still')) intro();
 })();

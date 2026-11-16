@@ -8,6 +8,14 @@
 <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html" aria-label="NorCal SBDC home"><img src="https://www.norcalsbdc.org/wp-content/themes/norcal-sbdc/assets/img/logos/americas-sbdc-norcal-400w.png" alt="America’s SBDC, Northern California" width="190" height="60"></a><nav class="primary-nav" id="primary-nav" aria-label="Primary"><a href="index.html#help">Services</a><a href="index.html#programs">Programs</a><a href="impact.html">Impact</a><a href="atlas.html" aria-current="page">Atlas</a><a class="mobile-login" href="https://mysbdc-calm-dashboard.aaron150395.chatgpt.site" aria-label="MySBDC dashboard preview" title="Open the MySBDC dashboard preview">MySBDC</a><a class="button mobile-start" href="signup.html">Get started</a></nav><div class="header-actions"><a class="login" href="https://mysbdc-calm-dashboard.aaron150395.chatgpt.site" aria-label="MySBDC dashboard preview" title="Open the MySBDC dashboard preview">MySBDC</a><a class="button button-small" href="signup.html">Get started</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button></div></div></header>
 
 <main id="main" tabindex="-1" data-atlas>
+<!-- The dashboard's four milestone pictograms (handoff/src/_icons.svg), so the public totals are the same objects a client taps to share. -->
+<svg class="atlas-sprite" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="m-funding" viewBox="0 0 64 64"><path d="M21.4 21.4a18 18 0 1 1 19.9 21.5"/><circle class="icon-tone" cx="25" cy="38" r="17"/><circle cx="25" cy="38" r="17"/><path d="M29.5 31H24a3.5 3.5 0 0 0 0 7h2a3.5 3.5 0 0 1 0 7h-5.5M25 28v20"/></symbol>
+  <symbol id="m-growth" viewBox="0 0 64 64"><rect x="9" y="37" width="11" height="16" rx="3"/><rect x="27" y="26" width="11" height="27" rx="3"/><rect class="icon-tone" x="45" y="11" width="11" height="42" rx="3"/><rect x="45" y="11" width="11" height="42" rx="3"/></symbol>
+  <symbol id="m-business" viewBox="0 0 64 64"><path class="icon-tone" d="m9 24 5-12h36l5 12a7.7 7.7 0 0 1-15.3 0 7.7 7.7 0 0 1-15.4 0A7.7 7.7 0 0 1 9 24Z"/><path d="m9 24 5-12h36l5 12H9Zm0 0a7.7 7.7 0 0 0 15.3 0 7.7 7.7 0 0 0 15.4 0A7.7 7.7 0 0 0 55 24M24.3 24 27 12m12.7 12L37 12M14 36v17h36V36M27 53V39h10v14"/></symbol>
+  <symbol id="m-people" viewBox="0 0 64 64"><circle cx="23" cy="19" r="8"/><circle cx="45" cy="24" r="6"/><path class="icon-tone" d="M9 53v-6a14 14 0 0 1 28 0v6Z"/><path d="M9 53v-6a14 14 0 0 1 28 0v6ZM43 37a12 12 0 0 1 12 12v4H44"/></symbol>
+</svg>
+
 <section class="atlas-hero" aria-labelledby="atlas-title">
   <div class="shell">
     <!-- Design preview only. A milestone shared from the MySBDC dashboard preview in this browser. Not part of the public page. -->
@@ -22,19 +30,15 @@
         <h1 id="atlas-title">Where Northern California is growing.</h1>
         <p class="atlas-intro">Every mark is a milestone a local business shared with its SBDC over the last twelve months.</p>
 
-        <!-- The four totals are also the map's legend and its filter. -->
-        <ul class="atlas-totals" aria-label="Totals. Choose one to show only those milestones on the map.">
-          <li><button type="button" data-atlas-type="funding" aria-pressed="false"><i class="atlas-swatch" style="--c:var(--atlas-funding)"></i><span>Capital accessed</span><strong data-atlas-total="funding">$0</strong></button></li>
-          <li><button type="button" data-atlas-type="started" aria-pressed="false"><i class="atlas-swatch" style="--c:var(--atlas-started)"></i><span>Businesses started</span><strong data-atlas-total="started">0</strong></button></li>
-          <li><button type="button" data-atlas-type="hired" aria-pressed="false"><i class="atlas-swatch" style="--c:var(--atlas-hired)"></i><span>Jobs created</span><strong data-atlas-total="hired">0</strong></button></li>
-          <li><button type="button" data-atlas-type="sales" aria-pressed="false"><i class="atlas-swatch" style="--c:var(--atlas-sales)"></i><span>Sales growth</span><strong data-atlas-total="sales">$0</strong></button></li>
+        <!-- The four totals, as the dashboard's milestone tiles. Each is also the map's legend and its filter. -->
+        <ul class="atlas-tiles" aria-label="Totals. Choose one to show only those milestones on the map.">
+          <li><button class="atlas-tile is-funding" type="button" data-atlas-type="funding" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-funding"/></svg><strong data-atlas-total="funding">$0</strong><span>Capital accessed</span></button></li>
+          <li><button class="atlas-tile is-sales" type="button" data-atlas-type="sales" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-growth"/></svg><strong data-atlas-total="sales">$0</strong><span>Sales growth</span></button></li>
+          <li><button class="atlas-tile is-started" type="button" data-atlas-type="started" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-business"/></svg><strong data-atlas-total="started">0</strong><span>Businesses started</span></button></li>
+          <li><button class="atlas-tile is-hired" type="button" data-atlas-type="hired" aria-pressed="false"><svg class="pictogram" aria-hidden="true" focusable="false"><use href="#m-people"/></svg><strong data-atlas-total="hired">0</strong><span>Jobs created</span></button></li>
         </ul>
 
-        <div class="atlas-latest">
-          <p class="atlas-label" id="atlas-latest-title">Latest</p>
-          <ol class="atlas-feed" data-atlas-feed aria-labelledby="atlas-latest-title"></ol>
-          <p class="atlas-empty" data-atlas-empty hidden>Nothing shared here yet in this period.</p>
-        </div>
+        <p class="atlas-latest"><span class="atlas-label">Latest</span><span class="atlas-latest-line" data-atlas-latest aria-live="off"></span></p>
       </div>
 
       <div class="atlas-map">
@@ -44,8 +48,8 @@
             <select id="atlas-county" data-atlas-county><option value="">All of Northern California</option></select>
             <p class="atlas-scope-sub" data-atlas-scope-sub aria-live="polite"></p>
           </div>
-          <button class="atlas-link atlas-present-on" type="button" data-atlas-present aria-pressed="false">Present full screen</button>
-          <button class="atlas-link atlas-present-off" type="button" data-atlas-present-exit>Exit full screen</button>
+          <button class="atlas-link atlas-present-on" type="button" data-atlas-present aria-pressed="false">Present</button>
+          <button class="atlas-link atlas-present-off" type="button" data-atlas-present-exit>Exit</button>
         </div>
         <div class="atlas-stage" data-atlas-stage>
           <svg class="atlas-svg" data-atlas-svg viewBox="-24 -24 808 1091" preserveAspectRatio="xMidYMid meet" role="group" aria-labelledby="atlas-svg-title">
@@ -57,19 +61,20 @@
             <g class="atlas-story-pins" data-atlas-story-pins></g>
           </svg>
           <p class="atlas-tip" data-atlas-tip hidden></p>
-          <!-- One story at a time, opened from a story pin. -->
-          <div class="atlas-pop" data-atlas-pop hidden role="dialog" aria-labelledby="atlas-pop-title">
+          <!-- One story or testimony at a time, shown from a ringed mark. -->
+          <div class="atlas-pop" data-atlas-pop hidden>
             <div class="atlas-pop-photo" data-atlas-pop-photo hidden><img alt="" data-atlas-pop-img></div>
-            <p class="atlas-pill" data-atlas-pop-kind></p>
-            <p class="atlas-pop-title" id="atlas-pop-title" data-atlas-pop-title tabindex="-1"></p>
+            <p class="atlas-pop-title" data-atlas-pop-title></p>
             <p class="atlas-pop-by" data-atlas-pop-by></p>
-            <div class="atlas-pop-actions"><a class="atlas-link" data-atlas-pop-link target="_blank" rel="noopener">Read story</a><button class="atlas-link" type="button" data-atlas-pop-close>Close</button></div>
+            <a class="atlas-link" data-atlas-pop-link target="_blank" rel="noopener">Read story</a>
           </div>
         </div>
         <div class="atlas-time">
-          <button class="atlas-play" type="button" data-atlas-play aria-pressed="false"><span class="atlas-play-mark" aria-hidden="true"></span><span data-atlas-play-label>Play the year</span></button>
           <ol class="atlas-months" data-atlas-months aria-label="Show milestones through a month"></ol>
-          <p class="atlas-through" data-atlas-through aria-live="polite">The last 12 months</p>
+          <div class="atlas-time-row">
+            <button class="atlas-play" type="button" data-atlas-play aria-pressed="false"><span class="atlas-play-mark" aria-hidden="true"></span><span data-atlas-play-label>Play the year</span></button>
+            <p class="atlas-through" data-atlas-through aria-live="polite">The last 12 months</p>
+          </div>
         </div>
       </div>
     </div>
@@ -79,8 +84,8 @@
 <section class="atlas-stories" aria-labelledby="atlas-stories-title">
   <div class="shell">
     <div class="atlas-stories-head">
-      <div><p class="atlas-label">On the map</p><h2 id="atlas-stories-title">Behind the marks, people.</h2></div>
-      <p>A few of the businesses behind these milestones. Each one is a ringed mark on the map.</p>
+      <h2 id="atlas-stories-title">Three of <span data-atlas-count>4,222</span>.</h2>
+      <p>Every mark on the map is a business moving forward. Here are three of them.</p>
     </div>
     <ul class="atlas-cards" data-atlas-cards></ul>
     <a class="atlas-link atlas-stories-more" href="https://www.norcalsbdc.org/about/clients/">Explore more client stories</a>
@@ -95,8 +100,8 @@
 </section>
 
 <section class="atlas-notes shell" aria-label="About this map">
-  <details class="atlas-table"><summary>Totals by county</summary><div class="atlas-table-scroll"><table><caption class="visually-hidden">Milestones by county for the period shown on the map</caption><thead><tr><th scope="col">County</th><th scope="col">SBDC center</th><th scope="col" class="num">Milestones</th><th scope="col" class="num">Capital accessed</th><th scope="col" class="num">Businesses started</th><th scope="col" class="num">Jobs created</th><th scope="col" class="num">Sales growth</th></tr></thead><tbody data-atlas-rows></tbody></table></div></details>
-  <details><summary>About this map</summary><div><p>This page is a design preview. The four network totals match the FY2025 draft figures on the impact page. Where each mark sits, the county breakdowns and the dates are sample content and need real reporting data before public release.</p><p>The three named success stories are existing client stories from the website draft, placed at their town or county. The three “In their words” quotes are sample content.</p><p>A mark shows a town and a kind of milestone. It never shows a person, a business name or an amount. Jobs and dollars appear only as totals for the region or a county, and a milestone is added once an SBDC advisor confirms it. Business owners choose whether their milestone appears here, and a named story appears only with the owner’s agreement.</p><p>Capital accessed, sales growth, jobs created, and businesses started are different measures and should not be added together.</p><p>Questions about our results? <a href="mailto:info@norcalsbdc.org">Contact NorCal SBDC</a>.</p></div></details>
+  <details class="atlas-table"><summary>Totals by county</summary><div class="atlas-table-scroll"><table><caption class="visually-hidden">Milestones by county for the period shown on the map</caption><thead><tr><th scope="col">County</th><th scope="col">SBDC center</th><th scope="col" class="num">Milestones</th><th scope="col" class="num">Capital accessed</th><th scope="col" class="num">Sales growth</th><th scope="col" class="num">Businesses started</th><th scope="col" class="num">Jobs created</th></tr></thead><tbody data-atlas-rows></tbody></table></div></details>
+  <details><summary>About this map</summary><div><p>This page is a design preview. The four network totals match the FY2025 draft figures on the impact page. Where each mark sits, the county breakdowns and the dates are sample content and need real reporting data before public release.</p><p>The three named success stories are existing client stories from the website draft, placed at their town or county. The three quotes on the map are sample content.</p><p>A mark shows a town and a kind of milestone. It never shows a person, a business name or an amount. Jobs and dollars appear only as totals for the region or a county, and a milestone is added once an SBDC advisor confirms it. Business owners choose whether their milestone appears here, and a named story appears only with the owner’s agreement.</p><p>Capital accessed, sales growth, jobs created, and businesses started are different measures and should not be added together.</p><p>Questions about our results? <a href="mailto:info@norcalsbdc.org">Contact NorCal SBDC</a>.</p></div></details>
 </section>
 </main>  <footer class="site-footer">
     <div class="shell footer-grid">
