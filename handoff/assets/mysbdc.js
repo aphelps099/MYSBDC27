@@ -228,7 +228,8 @@
       $$('[data-echo]', flow).forEach(el => { el.textContent = label(el.dataset.echo) || el.dataset.empty || 'Not provided'; });
       $$('[data-echo-list]', flow).forEach(el => { const picked = $$('input[name="' + el.dataset.echoList + '"]:checked', flow).map(i => i.value.toLowerCase()); el.textContent = picked.length > 1 ? picked.slice(0, -1).join(', ') + ' and ' + picked.at(-1) : picked[0] || el.dataset.empty || 'None selected'; });
       $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });
-      $$('[data-hide-empty]', flow).forEach(el => { if (!val(el.dataset.hideEmpty).trim()) el.hidden = true; });
+      // An optional answer left blank has no row. With data-show-if too, both conditions must hold.
+      $$('[data-hide-empty]', flow).forEach(el => { const empty = !val(el.dataset.hideEmpty).trim(); if (el.dataset.showIf) { if (empty) el.hidden = true; } else el.hidden = empty; });
     };
     flow.addEventListener('click', e => {
       const inc = e.target.closest('[data-inc]');
@@ -249,10 +250,10 @@
     // ── Milestones: attestation, a final "Confirm impact entries" review, then one record ──
     // Design preview only: nothing is sent. The full record (details, signature, attestation) is kept privately in this
     // browser under `mysbdc-milestones-v1`. The public Success Atlas preview reads a separate, minimal entry under
-    // `mysbdc-atlas-v1`: the kind, the figure and the sharing choice, never the business, the signature or the agreement.
-    // Production posts the record to the server instead, and publishes only what the owner chose to share.
+    // `mysbdc-atlas-v1`: the kind and the figure, never the business, the signature, the agreement or the client's words.
+    // Production posts the record to the server instead.
     const review = $('[data-confirm]', flow), agree = flow.elements.agree, sign = flow.elements.signature;
-    const NOT_DETAILS = new Set(['agree', 'signature', 'atlas', 'quote']); // changing these does not undo the acceptance
+    const NOT_DETAILS = new Set(['agree', 'signature', 'quote']); // changing these does not undo the acceptance
     const details = () => JSON.stringify([...new FormData(flow)].filter(([k]) => !NOT_DETAILS.has(k)));
     const submissionId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6); // one per visit to the form: a repeat confirm cannot add a second record
     let accepted = null, sending = false;
@@ -283,10 +284,11 @@
       sending = true; button.disabled = true;
       const n = name => +val(name).replace(/[^0-9.]/g, '') || 0, now = new Date().toISOString();
       const amount = type === 'hired' ? n('ft') + n('pt') : type === 'funding' ? n('amt') : type === 'sales' ? Math.max(0, n('rev') - (+flow.dataset.onFile || 0)) : 1;
-      const share = val('atlas') === 'private' ? 'private' : 'atlas', statement = $('[data-attest-text]', flow);
+      // The forms no longer ask about the map: every confirmed milestone goes to the Atlas preview without a name.
+      const share = 'atlas', statement = $('[data-attest-text]', flow);
       const record = { id: submissionId, type, business: $('[data-business]', review).textContent.trim(),
         details: $$('[data-detail]', review).filter(r => !r.hidden).map(r => ({ label: $('dt', r).textContent.trim(), value: $('dd', r).textContent.trim() })),
-        support: label('support'), atlas: share, testimonial: share === 'atlas' ? val('quote').trim().slice(0, 280) : '',
+        support: label('support'), testimonial: val('quote').trim().slice(0, 280),
         signature: sign.value.trim(), attestation: { version: statement.dataset.attestVersion, text: statement.textContent.trim(), agreed: true, acceptedAt: accepted.at },
         submittedAt: now, preview: true };
       const add = (key, item) => { // one entry per submission id

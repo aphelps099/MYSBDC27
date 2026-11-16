@@ -56,15 +56,7 @@
               <label class="option"><input type="radio" name="support" value="no"><span><strong>No</strong></span></label>
             </div>
           </fieldset>
-          <fieldset class="mt-24">
-            <legend>Add this to the Success Atlas?</legend>
-            <p class="ms-atlas-hint">Our public map of milestones across Northern California. It shows your town and the milestone itself, such as “2 new jobs” or “$45,000 in new capital”. Never your name or your business.</p>
-            <div class="pills" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-              <label class="option"><input type="radio" name="atlas" value="atlas" checked><span><strong>Yes, without my name</strong></span></label>
-              <label class="option"><input type="radio" name="atlas" value="private"><span><strong>Keep it off the map</strong></span></label>
-            </div>
-          </fieldset>
-          <div class="field mt-24" data-show-if="atlas=atlas"><label for="quote">A few words about working with the SBDC <span class="optional">(optional)</span></label><textarea id="quote" name="quote" rows="3" maxlength="280"></textarea><p class="hint">Shared on the Success Atlas as “a Humboldt County business owner”.</p></div>
+          <div class="field mt-24"><label for="quote">A few words about working with the SBDC <span class="optional">(optional)</span></label><textarea id="quote" name="quote" rows="3" maxlength="280"></textarea><p class="hint">For your SBDC team. We will ask before sharing your words.</p></div>
           <div class="ms-attest">
             <p class="ms-attest-text" id="attest-text" data-attest-text data-attest-version="2026-11">Please Note: Responding to this survey means that you have benefited from working with the SBDC, and we have contributed towards your successes listed above.</p>
             <label class="option ms-attest-agree"><input type="checkbox" name="agree" value="yes" required aria-describedby="attest-text"><span><strong>I agree to the statement above.</strong></span></label>
@@ -88,8 +80,7 @@
               <div data-detail><dt>Full-time jobs kept</dt><dd data-echo="rft"></dd></div>
               <div data-detail><dt>Part-time jobs kept</dt><dd data-echo="rpt"></dd></div>
               <div><dt>Did the SBDC help with this?</dt><dd data-echo="support"></dd></div>
-              <div><dt>Success Atlas</dt><dd data-echo="atlas"></dd></div>
-              <div data-show-if="atlas=atlas" data-hide-empty="quote"><dt>Your words for the Success Atlas</dt><dd data-echo="quote"></dd></div>
+              <div data-hide-empty="quote"><dt>Your words about the SBDC</dt><dd data-echo="quote"></dd></div>
               <div><dt>Signature</dt><dd class="ms-confirm-sign" data-echo="signature"></dd></div>
               <div><dt>Agreed</dt><dd data-accepted-at></dd></div>
             </dl>
@@ -100,6 +91,6 @@
         </dialog>
       </form>
     </div>
-      <p class="ms-form-privacy">{{icon:lock}}<span>Only you and your SBDC team see your name, your business, your signature and your agreement. Your milestone appears on the Success Atlas only if you choose that.</span></p>
+      <p class="ms-form-privacy">{{icon:lock}}<span>Only you and your SBDC team see your name, your business, your signature and your agreement. Milestones appear on our public Success Atlas without names.</span></p>
       </div>
     </div>
