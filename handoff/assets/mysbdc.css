@@ -828,9 +828,11 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .training .lib-month>div:first-child{padding-top:24px}
 .training .lib-month>div>h3{font:400 1.875rem/1.1 var(--font-serif);letter-spacing:-.02em}
 .training .lib-month>div>h3+p{margin-top:8px;font-size:.9375rem}
-.training .lib-stack{gap:10px}
-/* Each workshop is a solid white tile: the list reads as a schedule against the cream page, with no rules between rows. */
-.training .session{scroll-margin-top:calc(var(--bar) + 24px);gap:24px;padding:24px 28px 12px;border-radius:6px;background:var(--mysbdc-brand-white)}
+.training .lib-stack{gap:0}
+/* A quiet schedule: every other workshop carries a soft, half-transparent white so the cream shows through; the rows
+   between stay open. No rules, no gaps. The count skips workshops a filter has hidden, so the rhythm always holds. */
+.training .session{scroll-margin-top:calc(var(--bar) + 24px);gap:24px;padding:24px 28px 12px;border-radius:6px;background:transparent}
+.training .session:nth-child(odd of .session:not([hidden])){background:color-mix(in srgb,var(--mysbdc-brand-white) 50%,transparent)}
 .training .session-body{gap:8px}
 .training .session h4{font:700 1.3125rem/1.2 var(--font-sans);letter-spacing:-.02em}
 .training .session .lib-kicker{gap:4px 12px;font-size:.8125rem;letter-spacing:.08em}
@@ -839,7 +841,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{border-color:var
 .training .session .lib-kicker>span+span::before{content:"·";margin-right:12px}
 .training .session-act{min-width:132px;gap:10px}
 .training .session-act .btn{width:100%;padding:0 18px;min-height:48px;border:1px solid #77848C;background:transparent;font-size:1rem}
-.training .session-act .btn:hover{background:var(--mysbdc-brand-cream)}
+.training .session-act .btn:hover{background:var(--mysbdc-brand-white)}
 .training .session-act .lib-meta{font-size:.9375rem}
 .training .more summary{min-height:48px;color:var(--ink-3);font-weight:500;text-decoration-thickness:1px}
 .training .more p{font-size:1rem}
