@@ -58,18 +58,48 @@
           </fieldset>
           <fieldset class="mt-24">
             <legend>Add this to the Success Atlas?</legend>
-            <p class="ms-atlas-hint">Our public map of milestones across Northern California. It shows your town and the kind of milestone. Never your name, your business or your numbers.</p>
+            <p class="ms-atlas-hint">Our public map of milestones across Northern California. It shows your town and the milestone itself, such as “2 new jobs” or “$45,000 in new capital”. Never your name or your business.</p>
             <div class="pills" style="grid-template-columns:repeat(2,minmax(0,1fr))">
               <label class="option"><input type="radio" name="atlas" value="atlas" checked><span><strong>Yes, without my name</strong></span></label>
               <label class="option"><input type="radio" name="atlas" value="private"><span><strong>Keep it off the map</strong></span></label>
             </div>
           </fieldset>
           <div class="field mt-24" data-show-if="atlas=atlas"><label for="quote">A few words about working with the SBDC <span class="optional">(optional)</span></label><textarea id="quote" name="quote" rows="3" maxlength="280"></textarea><p class="hint">Shared on the Success Atlas as “a Humboldt County business owner”.</p></div>
-          <div class="field signature"><label for="sign">Type your name to confirm</label><input id="sign" name="signature" type="text" autocomplete="name" required></div>
-          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-step="next" data-href="milestone-done.html?type=hired" data-share-milestone>Share milestone</button></div>
+          <div class="ms-attest">
+            <p class="ms-attest-text" id="attest-text" data-attest-text data-attest-version="2026-11">Please Note: Responding to this survey means that you have benefited from working with the SBDC, and we have contributed towards your successes listed above.</p>
+            <label class="option ms-attest-agree"><input type="checkbox" name="agree" value="yes" required aria-describedby="attest-text"><span><strong>I agree to the statement above.</strong></span></label>
+            <p class="ms-attest-voided" data-attest-voided role="status" hidden>You changed your entries, so please agree and sign again.</p>
+          </div>
+          <div class="field signature"><label for="sign">Your signature</label><p class="hint" id="sign-hint">Please provide your full name (First, Middle, Last) indicating your acceptance to the terms shown above.</p><input id="sign" name="signature" type="text" autocomplete="name" required aria-describedby="sign-hint"></div>
+          <div class="intake-nav"><button class="link" type="button" data-step="back">Back</button><button class="btn btn-primary" type="button" data-review>Review and confirm</button></div>
         </section>
+        <!-- The final review. Nothing is recorded, and nothing reaches the Success Atlas preview, until "Confirm and submit". -->
+        <dialog class="ms-confirm" data-confirm aria-labelledby="confirm-title">
+          <div class="ms-confirm-body">
+            <p class="ms-label">Before you submit</p>
+            <h2 id="confirm-title" tabindex="-1">Confirm impact entries</h2>
+            <p class="ms-confirm-lead">Nothing has been submitted yet. Check each entry, then confirm.</p>
+            <dl class="ms-confirm-rows" data-confirm-rows>
+              <div><dt>Business</dt><dd data-business>Northstar Provisions</dd></div>
+              <div data-detail><dt>Milestone</dt><dd>Hired someone</dd></div>
+              <div data-detail><dt>Full-time hires</dt><dd data-echo="ft"></dd></div>
+              <div data-detail><dt>Part-time hires</dt><dd data-echo="pt"></dd></div>
+              <div data-detail><dt>Start month</dt><dd data-echo="when"></dd></div>
+              <div data-detail><dt>Full-time jobs kept</dt><dd data-echo="rft"></dd></div>
+              <div data-detail><dt>Part-time jobs kept</dt><dd data-echo="rpt"></dd></div>
+              <div><dt>Did the SBDC help with this?</dt><dd data-echo="support"></dd></div>
+              <div><dt>Success Atlas</dt><dd data-echo="atlas"></dd></div>
+              <div data-show-if="atlas=atlas" data-hide-empty="quote"><dt>Your words for the Success Atlas</dt><dd data-echo="quote"></dd></div>
+              <div><dt>Signature</dt><dd class="ms-confirm-sign" data-echo="signature"></dd></div>
+              <div><dt>Agreed</dt><dd data-accepted-at></dd></div>
+            </dl>
+            <div class="ms-confirm-attest"><p class="ms-confirm-attest-title">You agreed to this statement</p><p data-attest-copy></p></div>
+            <p class="ms-confirm-note">Design preview. Nothing is sent. This milestone is kept in this browser only.</p>
+          </div>
+          <div class="ms-confirm-actions"><button class="btn btn-secondary" type="button" data-review-edit>Edit information</button><button class="btn btn-primary" type="button" data-review-submit data-href="milestone-done.html?type=hired">Confirm and submit</button></div>
+        </dialog>
       </form>
     </div>
-      <p class="ms-form-privacy">{{icon:lock}}<span>Private. Only you and your SBDC team see your name, your business and your numbers.</span></p>
+      <p class="ms-form-privacy">{{icon:lock}}<span>Only you and your SBDC team see your name, your business, your signature and your agreement. Your milestone appears on the Success Atlas only if you choose that.</span></p>
       </div>
     </div>

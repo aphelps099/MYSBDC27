@@ -221,39 +221,92 @@
       }
       if (ready) { const h = $('h1', panel); h.tabIndex = -1; h.focus({ preventScroll: true }); scrollTo(0, 0); }
       ready = true;
+      echo();
+    };
+    // Answers repeated back: in the review sentence, and in the final milestone review.
+    const echo = () => {
       $$('[data-echo]', flow).forEach(el => { el.textContent = label(el.dataset.echo) || el.dataset.empty || 'Not provided'; });
       $$('[data-echo-list]', flow).forEach(el => { const picked = $$('input[name="' + el.dataset.echoList + '"]:checked', flow).map(i => i.value.toLowerCase()); el.textContent = picked.length > 1 ? picked.slice(0, -1).join(', ') + ' and ' + picked.at(-1) : picked[0] || el.dataset.empty || 'None selected'; });
       $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });
+      $$('[data-hide-empty]', flow).forEach(el => { if (!val(el.dataset.hideEmpty).trim()) el.hidden = true; });
     };
     flow.addEventListener('click', e => {
       const inc = e.target.closest('[data-inc]');
-      if (inc) { const f = $('input', inc.closest('.stepper')); f.value = Math.max(0, (+f.value || 0) + +inc.dataset.inc); return; }
+      if (inc) { const f = $('input', inc.closest('.stepper')); f.value = Math.max(0, (+f.value || 0) + +inc.dataset.inc); guard(); return; }
+      if (e.target.closest('[data-review]')) { e.preventDefault(); openReview(); return; }
+      if (e.target.closest('[data-review-edit]')) { review.close(); return; }
+      if (e.target.closest('[data-review-submit]')) { submitMilestone(e.target.closest('[data-review-submit]')); return; }
       const b = e.target.closest('[data-step]'); if (!b) return;
       e.preventDefault();
       if (b.dataset.step === 'next') {
         const bad = $$('input,select,textarea', panels[at]).find(f => !f.closest('[hidden]') && !f.checkValidity());
         if (bad) { bad.reportValidity(); return; }
-        if (b.dataset.href) { if (b.hasAttribute('data-share-milestone')) shareMilestone(); location.href = b.dataset.href; return; }
+        if (b.dataset.href) { location.href = b.dataset.href; return; }
         show(at + 1, 1);
       } else if (b.dataset.step === 'back') show(at - 1, -1);
       else show(+b.dataset.step, 1);
     });
-    // Milestones → the public Success Atlas. A shared milestone is kept in this browser so the Atlas preview can show it.
-    // Design preview only: nothing is sent. Production posts the milestone and reads it back from the server.
-    const shareMilestone = () => {
-      const type = (flow.closest('[data-type]') || {}).dataset?.type; if (!type) return;
-      const n = name => +val(name).replace(/[^0-9.]/g, '') || 0;
-      const amount = type === 'hired' ? n('ft') + n('pt') : type === 'funding' ? n('amt') : type === 'sales' ? Math.max(0, n('rev') - (+flow.dataset.onFile || 0)) : 1;
-      const sentence = $('.step-panel.current .ms-sentence', flow);
-      const item = { id: Date.now().toString(36), type, amount, at: new Date().toISOString(), status: 'pending',
-        summary: sentence ? sentence.textContent.replace(/\s+/g, ' ').trim() : '',
-        share: val('atlas') === 'private' ? 'private' : 'atlas', quote: val('atlas') === 'private' ? '' : val('quote').trim().slice(0, 280) };
-      try {
-        const saved = JSON.parse(localStorage.getItem('mysbdc-atlas-v1') || 'null');
-        const items = saved && saved.version === 1 && Array.isArray(saved.items) ? saved.items : [];
-        localStorage.setItem('mysbdc-atlas-v1', JSON.stringify({ version: 1, items: [...items, item].slice(-12) }));
-      } catch (e) {}
+    // ── Milestones: attestation, a final "Confirm impact entries" review, then one record ──
+    // Design preview only: nothing is sent. The full record (details, signature, attestation) is kept privately in this
+    // browser under `mysbdc-milestones-v1`. The public Success Atlas preview reads a separate, minimal entry under
+    // `mysbdc-atlas-v1`: the kind, the figure and the sharing choice, never the business, the signature or the agreement.
+    // Production posts the record to the server instead, and publishes only what the owner chose to share.
+    const review = $('[data-confirm]', flow), agree = flow.elements.agree, sign = flow.elements.signature;
+    const NOT_DETAILS = new Set(['agree', 'signature', 'atlas', 'quote']); // changing these does not undo the acceptance
+    const details = () => JSON.stringify([...new FormData(flow)].filter(([k]) => !NOT_DETAILS.has(k)));
+    const submissionId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6); // one per visit to the form: a repeat confirm cannot add a second record
+    let accepted = null, sending = false;
+    // If a milestone detail changes after the client agreed, the agreement no longer covers it: agree and sign again.
+    function guard() {
+      if (!review || !accepted || accepted.details === details()) return;
+      accepted = null; agree.checked = false; sign.value = '';
+      const note = $('[data-attest-voided]', flow); if (note) note.hidden = false;
+    }
+    const accept = () => {
+      accepted = agree.checked ? { at: new Date().toISOString(), details: details() } : null;
+      const note = $('[data-attest-voided]', flow); if (note && agree.checked) note.hidden = true;
     };
+    function openReview() {
+      guard();
+      if (agree.checked && !accepted) accept(); // a box the browser restored still needs its own timestamp
+      sign.setCustomValidity(sign.value.trim() ? '' : 'Please type your full name.');
+      const bad = $$('input,select,textarea', flow).find(f => !f.closest('[hidden]') && !f.closest('dialog') && f.closest('.step-panel') && open(f.closest('.step-panel')) && !f.closest('[data-end]') && !f.checkValidity());
+      if (bad) { const n = panels.indexOf(bad.closest('.step-panel')); if (n !== at) show(n, -1); bad.reportValidity(); return; }
+      echo();
+      $('[data-attest-copy]', review).textContent = $('[data-attest-text]', flow).textContent.trim();
+      $('[data-accepted-at]', review).textContent = new Date(accepted.at).toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' });
+      review.showModal(); $('.ms-confirm-body', review).scrollTop = 0; $('h2', review).focus();
+    }
+    function submitMilestone(button) {
+      if (sending) return; // a second click or key press while leaving the page
+      const type = (flow.closest('[data-type]') || {}).dataset?.type; if (!type || !accepted || !agree.checked || !sign.value.trim()) return;
+      sending = true; button.disabled = true;
+      const n = name => +val(name).replace(/[^0-9.]/g, '') || 0, now = new Date().toISOString();
+      const amount = type === 'hired' ? n('ft') + n('pt') : type === 'funding' ? n('amt') : type === 'sales' ? Math.max(0, n('rev') - (+flow.dataset.onFile || 0)) : 1;
+      const share = val('atlas') === 'private' ? 'private' : 'atlas', statement = $('[data-attest-text]', flow);
+      const record = { id: submissionId, type, business: $('[data-business]', review).textContent.trim(),
+        details: $$('[data-detail]', review).filter(r => !r.hidden).map(r => ({ label: $('dt', r).textContent.trim(), value: $('dd', r).textContent.trim() })),
+        support: label('support'), atlas: share, testimonial: share === 'atlas' ? val('quote').trim().slice(0, 280) : '',
+        signature: sign.value.trim(), attestation: { version: statement.dataset.attestVersion, text: statement.textContent.trim(), agreed: true, acceptedAt: accepted.at },
+        submittedAt: now, preview: true };
+      const add = (key, item) => { // one entry per submission id
+        try {
+          const saved = JSON.parse(localStorage.getItem(key) || 'null');
+          const items = saved && saved.version === 1 && Array.isArray(saved.items) ? saved.items : [];
+          if (!items.some(i => i.id === item.id)) localStorage.setItem(key, JSON.stringify({ version: 1, items: [...items, item].slice(-12) }));
+        } catch (e) {}
+      };
+      add('mysbdc-milestones-v1', record);
+      add('mysbdc-atlas-v1', { id: submissionId, type, amount: share === 'atlas' ? amount : 0, at: now, share });
+      location.href = button.dataset.href;
+    }
+    if (review) {
+      agree.addEventListener('change', accept);
+      sign.addEventListener('input', () => sign.setCustomValidity(''));
+      flow.addEventListener('input', guard); flow.addEventListener('change', guard);
+      // Coming back with the browser's Back button: the form is usable again, and the same submission id still applies.
+      addEventListener('pageshow', e => { if (e.persisted) { sending = false; if (review.open) review.close(); $$('[data-review-submit]', review).forEach(b => b.disabled = false); } });
+    }
     const gate = () => {
       if (flow.elements.inbusiness) { const yes = val('inbusiness') === 'yes'; $$('[data-if-business]').forEach(el => el.hidden = !yes); $$('[data-if-idea]').forEach(el => el.hidden = yes); }
       $$('[data-show-if]', flow).forEach(el => { const [k, v] = el.dataset.showIf.split('='); el.hidden = val(k) !== v; });

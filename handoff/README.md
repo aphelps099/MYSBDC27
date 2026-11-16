@@ -236,8 +236,28 @@ approved Home vocabulary into a focused question-and-answer layout:
   "Step 1 of 3". These numbers communicate actual progress.
 - One serif question per step. Counts use a large serif number with generous − and + controls.
   Choices are soft filled rows with visible radio states. Help stays beside its related question.
-- The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?", the
-  Success Atlas choice ("Yes, without my name" or "Keep it off the map") with an optional quote, and a typed name.
+- The review step is a sentence built from the answers (`data-echo`), then "Did the SBDC help?" and the
+  Success Atlas choice ("Yes, without my name" or "Keep it off the map") with an optional quote.
+- **Attestation and signature.** Immediately above the signature every form shows the statement, word
+  for word: "Please Note: Responding to this survey means that you have benefited from working with
+  the SBDC, and we have contributed towards your successes listed above." It needs an unchecked
+  checkbox, "I agree to the statement above.", and a typed full name with the instruction "Please
+  provide your full name (First, Middle, Last) indicating your acceptance to the terms shown above."
+  The statement carries a version (`data-attest-version`). Agreeing is separate from the Success
+  Atlas choice: it never authorises publication.
+- **Confirm impact entries.** "Review and confirm" opens a dialog (`dialog[data-confirm]`) listing the
+  business, every labelled milestone entry, the SBDC-support answer, the Atlas choice and optional
+  quote, the signature, when the client agreed, and the full statement. "Edit information" closes it
+  with every value kept. "Confirm and submit" is the only action that records anything.
+- If a milestone entry changes after the client agreed, the checkbox and signature clear and the
+  client agrees and signs again. A missing agreement or a blank signature blocks the review.
+- **The record.** On confirm the preview keeps one record per visit in `localStorage`
+  (`mysbdc-milestones-v1`): type, business, labelled details, support answer, Atlas choice,
+  testimonial, signature, the statement's version and exact text, `acceptedAt` and `submittedAt`.
+  It is private. The public Success Atlas preview reads a separate minimal entry
+  (`mysbdc-atlas-v1`: kind, figure, sharing choice) and nothing else. A repeat click, or the Back
+  button followed by another confirm, cannot add a second record. Nothing is sent anywhere; in
+  production this record is posted to the server.
 - `milestone-done.html` uses a quiet checkmark, a line that fits the milestone (`?type=`), a link out to the
   public Success Atlas, and four compact colour links for sharing another update.
 - Sharing keeps the milestone in this browser (`localStorage`, key `mysbdc-atlas-v1`) so the public Atlas
