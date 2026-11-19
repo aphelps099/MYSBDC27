@@ -1,0 +1,21 @@
+.editor-styles-wrapper .wp-block[data-type^="mysbdc/"]{max-width:1100px;margin:30px auto}
+.mysbdc-editor-section{font-family:"proxima-nova",Arial,sans-serif;background:#fff;color:#1d2c3d;padding:28px;border:1px solid #d8dfe4;border-radius:4px;box-sizing:border-box}
+.mysbdc-editor-section-name{font-size:14px;font-weight:700;color:#23628d;margin-bottom:24px}
+.mysbdc-editor-content{display:grid;grid-template-columns:1fr;gap:18px}
+.mysbdc-editor-field{min-width:0}
+.mysbdc-editor-label{display:block;font:500 11px/1.4 Arial,sans-serif;color:#596576;margin-bottom:6px;letter-spacing:.02em}
+.mysbdc-editor-section .mysbdc-editor-text{font-family:"proxima-nova",Arial,sans-serif;font-size:18px;line-height:1.45;font-weight:400;color:#1d2c3d;margin:0;padding:3px 0;letter-spacing:normal;min-height:28px}
+.mysbdc-editor-section h2.mysbdc-editor-text{font-size:36px;font-weight:500;line-height:1.1;letter-spacing:-.025em}
+.mysbdc-editor-section h3.mysbdc-editor-text{font-size:25px;font-weight:500;line-height:1.15;letter-spacing:-.02em}
+.mysbdc-editor-section .mysbdc-editor-text em{font-style:normal;color:#23628d}
+.mysbdc-editor-section .mysbdc-editor-text:focus{box-shadow:0 2px 0 #23628d;outline:0}
+.mysbdc-editor-cards{display:grid;gap:18px;margin-top:24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.mysbdc-editor-cards-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mysbdc-editor-card{padding:18px;background:#f6f1e6;display:flex;flex-direction:column;gap:16px;min-width:0}
+.mysbdc-editor-group-name{font:600 12px/1.4 Arial,sans-serif;color:#596576}
+.mysbdc-editor-media{max-width:480px}
+.mysbdc-editor-media img{display:block;width:100%;max-height:240px;object-fit:cover;margin-bottom:10px}
+.mysbdc-editor-section .components-button{font:500 13px/1.4 Arial,sans-serif}
+.mysbdc-editor-hint{font:400 13px/1.5 Arial,sans-serif;color:#596576;margin:0}
+.mysbdc-editor-section .components-notice{margin:20px 0 0}
+@media(max-width:700px){.mysbdc-editor-cards,.mysbdc-editor-cards-3{grid-template-columns:1fr}.mysbdc-editor-section{padding:20px}.mysbdc-editor-section h2.mysbdc-editor-text{font-size:30px}}

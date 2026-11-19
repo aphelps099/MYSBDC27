@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/impact-statement",
+  "title": "Network impact statement",
+  "category": "mysbdc",
+  "icon": "awards",
+  "description": "Editable NorCal SBDC homepage section. Change content here; the published layout retains its approved styling.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "When small businesses move forward, Northern California moves with them."
+    },
+    "description": {
+      "type": "string",
+      "default": "Expert advice. Capital expertise. Local connections. We bring the right people together to help business owners turn their ambitions into lasting progress."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Explore our impact"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "https://demo.norcalsbdc.org/impact/"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor"
+}

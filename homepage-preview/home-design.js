@@ -5,8 +5,9 @@ function updateHeader(){const compact=header.classList.contains('is-scrolled');h
 window.addEventListener('scroll',()=>{if(!headerTick){headerTick=true;requestAnimationFrame(updateHeader);}},{passive:true});
 updateHeader();
 
-document.querySelector('#intel-signup button[type=submit]').disabled=false;
-document.querySelector('#intel-signup').addEventListener('submit',event=>{event.preventDefault();const status=document.querySelector('#intel-status');status.textContent='That’s the inline signup experience. This preview hasn’t subscribed you or saved your email.';status.hidden=false;});
+const signupButton=document.querySelector('#intel-signup button[type=submit]');
+if(signupButton) signupButton.disabled=false;
+document.querySelector('#intel-signup')?.addEventListener('submit',event=>{event.preventDefault();const status=document.querySelector('#intel-status');status.textContent='That’s the inline signup experience. This preview hasn’t subscribed you or saved your email.';status.hidden=false;});
 const d=document.querySelector('#film-dialog');const filmPreview=document.querySelector('#film-preview');if(d && filmPreview){filmPreview.onclick=()=>d.showModal();d.querySelector('button').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});}
 })();
 
