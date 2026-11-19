@@ -34,6 +34,16 @@
       "key": "linkUrl",
       "label": "linkUrl",
       "type": "url"
+    },
+    {
+      "key": "quoteText",
+      "label": "Client quote (replaces story summary when filled)",
+      "type": "plain"
+    },
+    {
+      "key": "quoteAttribution",
+      "label": "Quote attribution",
+      "type": "plain"
     }
   ],
   "groups": [

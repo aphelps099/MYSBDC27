@@ -165,6 +165,10 @@
 .about-possibility-end p { max-width:none; }
 .about-possibility-end .about-possibility-description { font-size:24px; line-height:1.4; margin-bottom:16px; }
 .about-possibility-end .about-link { flex-shrink:0; margin:0; }
+.about-client-quote { margin:0; max-width:680px; }
+.about-client-quote blockquote { margin:0; padding:0; border:0; }
+.about-client-quote blockquote p { font:400 clamp(24px,2.7vw,32px)/1.35 var(--nova); letter-spacing:-.02em; }
+.about-client-quote figcaption { margin-top:20px; font:600 16px/1.5 var(--nova); letter-spacing:0; }
 .about-people { background:var(--about-cream); color:var(--about-navy); padding:88px 0; }
 .about-people>.shell { display:grid; grid-template-columns:.9fr 1.1fr; column-gap:80px; align-items:start; }
 .about-people h2.about-people-title { grid-column:1; grid-row:1; font:500 clamp(36px,3.7vw,48px)/1.08 var(--nova); letter-spacing:-.035em; max-width:12ch; margin:0 0 26px; }

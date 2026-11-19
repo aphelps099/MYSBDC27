@@ -82,6 +82,14 @@
     "contextText": {
       "type": "string",
       "default": ""
+    },
+    "quoteText": {
+      "type": "string",
+      "default": ""
+    },
+    "quoteAttribution": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {

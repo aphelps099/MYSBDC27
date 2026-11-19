@@ -13,5 +13,8 @@ $a = mysbdc_about_attributes( 'possibility', $args['attributes'] ?? array() );
     <figure><img src="<?php echo esc_url( $a[ 'photo' . $i . 'Image' ] ); ?>" alt="<?php echo esc_attr( $a[ 'photo' . $i . 'Alt' ] ); ?>" width="900" height="900" loading="lazy" decoding="async"><figcaption><span><?php echo esc_html( $a[ 'photo' . $i . 'Caption' ] ); ?></span><small><?php echo esc_html( $a[ 'photo' . $i . 'Name' ] ); ?></small></figcaption></figure>
   <?php endfor; ?>
   </div>
-  <div class="about-possibility-end"><div><p class="about-possibility-description" data-line-reveal><?php echo esc_html( $a['description'] ); ?></p><p data-line-reveal><?php echo esc_html( $a['supportText'] ); ?></p></div><a class="about-link" href="<?php echo esc_url( $a['linkUrl'] ); ?>"><span><?php echo esc_html( $a['linkText'] ); ?></span></a></div>
+  <div class="about-possibility-end">
+    <?php if ( '' !== trim( $a['quoteText'] ) ) : ?>
+    <figure class="about-client-quote"><blockquote cite="<?php echo esc_url( $a['linkUrl'] ); ?>"><p data-line-reveal>“<?php echo esc_html( $a['quoteText'] ); ?>”</p></blockquote><figcaption><?php echo esc_html( $a['quoteAttribution'] ); ?></figcaption></figure>
+    <?php else : ?><div><p class="about-possibility-description" data-line-reveal><?php echo esc_html( $a['description'] ); ?></p><p data-line-reveal><?php echo esc_html( $a['supportText'] ); ?></p></div><?php endif; ?><a class="about-link" href="<?php echo esc_url( $a['linkUrl'] ); ?>"><span><?php echo esc_html( $a['linkText'] ); ?></span></a></div>
 </div></section>

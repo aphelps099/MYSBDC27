@@ -33,6 +33,8 @@ function mysbdc_about_study_copy( $section ) {
 			'contextText' => 'Our advising is confidential and offered at no fee, thanks to support from the SBA, CalOSBA and local partners. The network is hosted by Cal Poly Humboldt’s Sponsored Programs Foundation.',
 			'description' => 'When the pandemic interrupted their plans for an Oakland eatery, Hella Nuts founders Mieko and Kamari Scott shifted to online and wholesale sales.',
 			'supportText' => 'Their work with SBDC advisors on pricing, a business plan and a cash cushion helped them adapt.',
+			'quoteText' => 'Louise introduced us to critical connections, people who went out of their way to help us with every level of our business.',
+			'quoteAttribution' => 'Mieko Scott · Owner, Hella Nuts · Oakland',
 			'linkText' => 'Read the Hella Nuts story',
 			'linkUrl' => 'https://www.buttecollegesbdc.com/shared/client-stories/hella-nuts/',
 			'photo1Image' => 'https://www.norcalsbdc.org/wp-content/uploads/2021/02/Hella-Nuts1.jpeg',
