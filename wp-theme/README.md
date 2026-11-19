@@ -273,3 +273,14 @@ https://www.humboldt.edu/international-students/admitted-students/im-admitted-no
 Four new purpose attributes expose the image, alt text, caption, and source URL.
 Footer partner logos remain intact. Previous local content is backed up in
 `mysbdc_about_before_bold_study`; deployment still never modifies saved content.
+
+### Three-section About study — latest November 19 direction
+
+The current pattern is **intro → possibility → advisors**, followed by the shared
+footer. This supersedes the longer study sequences above. The user requested the
+simplicity of startuphumboldt.org/about while retaining the bold typography and
+photography of the first three sections. The regional paragraph now lives in the
+advisor section. Standalone campus/history and “Rooted here” sections are omitted.
+Host/funder recognition remains in the shared footer. Existing block registrations,
+templates, and defaults remain available for previously saved content; theme updates
+do not remove sections from existing pages. Only the isolated local study was edited.
