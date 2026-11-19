@@ -1,20 +1,14 @@
 <?php
-/** Personal advisor introduction. @package MySBDC */
+/** Real people, woven into an editorial conversation. @package MySBDC */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 $a = mysbdc_about_attributes( 'advisors', $args['attributes'] ?? array() );
 ?>
-<section class="about-section about-advisors about-people" id="about-people">
-<div class="shell">
-  <div class="about-people-heading"><h2 data-line-reveal><?php echo esc_html( $a['heading'] ); ?></h2>
-    <div class="about-faces" aria-label="Meet a few of our advisors">
+<section class="about-section about-advisors about-people" id="about-people"><div class="shell">
+  <h2 class="about-people-title"><?php echo esc_html( $a['heading'] ); ?></h2>
+  <div class="about-conversation">
     <?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-      <a href="<?php echo esc_url( $a[ 'person' . $i . 'Url' ] ); ?>"><img src="<?php echo esc_url( $a[ 'person' . $i . 'Image' ] ); ?>" alt="<?php echo esc_attr( $a[ 'person' . $i . 'Alt' ] ); ?>" width="144" height="144" loading="lazy"></a>
+    <p class="about-conversation-line"><span data-line-reveal><?php echo esc_html( $a[ 'line' . $i ] ); ?></span><a class="about-person" href="<?php echo esc_url( $a[ 'person' . $i . 'Url' ] ); ?>"><img src="<?php echo esc_url( $a[ 'person' . $i . 'Image' ] ); ?>" alt="<?php echo esc_attr( $a[ 'person' . $i . 'Alt' ] ); ?>" width="144" height="144" loading="lazy" decoding="async"></a></p>
     <?php endfor; ?>
-    </div>
   </div>
-  <div class="about-people-story"><p class="about-personal-statement" data-line-reveal><?php echo esc_html( $a['storyText'] ); ?></p>
-    <div class="about-people-invitation"><p data-line-reveal><?php echo esc_html( $a['supportText'] ); ?></p><a class="about-button" href="<?php echo esc_url( $a['linkUrl'] ); ?>"><?php echo esc_html( $a['linkText'] ); ?></a></div>
-  </div>
-  <p class="about-portrait-caption"><?php echo esc_html( $a['portraitCaption'] ); ?></p>
-</div>
-</section>
+  <div class="about-people-end"><div><p class="about-personal-statement" data-line-reveal><?php echo esc_html( $a['storyText'] ); ?></p><p class="about-people-assurance"><?php echo esc_html( $a['supportText'] ); ?></p></div><div class="about-people-action"><a class="about-button" href="<?php echo esc_url( $a['linkUrl'] ); ?>"><?php echo esc_html( $a['linkText'] ); ?></a><p class="about-portrait-caption"><?php echo esc_html( $a['portraitCaption'] ); ?></p></div></div>
+</div></section>

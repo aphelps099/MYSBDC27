@@ -6,6 +6,21 @@
       "type": "plain"
     },
     {
+      "key": "line1",
+      "label": "Conversation line 1",
+      "type": "plain"
+    },
+    {
+      "key": "line2",
+      "label": "Conversation line 2",
+      "type": "plain"
+    },
+    {
+      "key": "line3",
+      "label": "Conversation line 3",
+      "type": "plain"
+    },
+    {
       "key": "storyText",
       "label": "Personal introduction",
       "type": "plain"

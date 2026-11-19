@@ -230,3 +230,24 @@ animates each entering line once (75% to full opacity, 6px rise, 800ms). Origina
 remains a single screen-reader passage; duplicate visual lines are aria-hidden. Width
 changes remeasure; reduced motion restores static text and cancels animations. No-JS
 and print remain readable. Synced to theme with the other preview assets.
+
+### Documentary About study — November 19, 2026
+
+Latest local study uses **intro → possibility → advisors → purpose → region**.
+The original opening and shared reveal footer remain. `about-possibility` adds an
+editable, staggered photographic composition using CrossFit Firefly and Solectrac
+images from the supplied California SBDC Legacy page, plus the existing Jump Aero
+client image. Captions identify the businesses without introducing new outcome claims.
+The light-blue advisor composition integrates the three verified advisor portraits
+with editable typographic phrases. The blue-on-cream history passage is shortened.
+
+`mysbdc_about_study_copy()` supplies explicit copy for newly inserted patterns only;
+existing schema defaults were not changed. Local study content was updated explicitly
+and backed up in `mysbdc_about_before_documentary_study`. No demo content was changed.
+Legacy advisor attributes and purpose link attributes remain registered. Purpose's
+program link now lives in the new possibility section; unused purpose link controls
+are omitted from the editor. Existing saved paragraphs remain editable.
+
+Visual references: https://www.californiasbdc.org/legacy/ and
+https://www.californiasbdc.org/about-sbdc/ . Their statewide statistics were not reused.
+The generated illustrated-neighborhood concept was rejected and is not a site asset.

@@ -1,0 +1,106 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "heading",
+      "type": "plain"
+    },
+    {
+      "key": "description",
+      "label": "description",
+      "type": "plain"
+    },
+    {
+      "key": "supportText",
+      "label": "supportText",
+      "type": "plain"
+    },
+    {
+      "key": "linkText",
+      "label": "linkText",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "linkUrl",
+      "type": "url"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Business photograph 1",
+      "fields": [
+        {
+          "key": "photo1Image",
+          "label": "Image",
+          "type": "image"
+        },
+        {
+          "key": "photo1Alt",
+          "label": "Alt",
+          "type": "plain"
+        },
+        {
+          "key": "photo1Caption",
+          "label": "Caption",
+          "type": "plain"
+        },
+        {
+          "key": "photo1Name",
+          "label": "Name",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Business photograph 2",
+      "fields": [
+        {
+          "key": "photo2Image",
+          "label": "Image",
+          "type": "image"
+        },
+        {
+          "key": "photo2Alt",
+          "label": "Alt",
+          "type": "plain"
+        },
+        {
+          "key": "photo2Caption",
+          "label": "Caption",
+          "type": "plain"
+        },
+        {
+          "key": "photo2Name",
+          "label": "Name",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Business photograph 3",
+      "fields": [
+        {
+          "key": "photo3Image",
+          "label": "Image",
+          "type": "image"
+        },
+        {
+          "key": "photo3Alt",
+          "label": "Alt",
+          "type": "plain"
+        },
+        {
+          "key": "photo3Caption",
+          "label": "Caption",
+          "type": "plain"
+        },
+        {
+          "key": "photo3Name",
+          "label": "Name",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}

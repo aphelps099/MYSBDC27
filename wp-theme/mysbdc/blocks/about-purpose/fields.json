@@ -44,16 +44,6 @@
       "key": "historyUrl",
       "label": "historyUrl",
       "type": "url"
-    },
-    {
-      "key": "linkText",
-      "label": "linkText",
-      "type": "plain"
-    },
-    {
-      "key": "linkUrl",
-      "label": "linkUrl",
-      "type": "url"
     }
   ],
   "groups": []

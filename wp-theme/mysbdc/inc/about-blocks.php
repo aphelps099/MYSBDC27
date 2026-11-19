@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 function mysbdc_about_sections() {
-	return array( 'intro', 'advisors', 'network', 'region', 'story', 'next', 'purpose' );
+	return array( 'intro', 'advisors', 'network', 'region', 'story', 'next', 'purpose', 'possibility' );
 }
 function mysbdc_about_metadata( $section ) {
 	if ( ! in_array( $section, mysbdc_about_sections(), true ) ) { return array(); }
@@ -19,10 +19,31 @@ function mysbdc_about_attributes( $section, $supplied = array() ) {
 function mysbdc_about_media( $url ) {
 	return str_starts_with( $url, '@theme/' ) ? mysbdc_asset( 'img/' . basename( $url ) ) : $url;
 }
+
+/** Initial pattern copy only; existing saved block defaults stay intact. */
+function mysbdc_about_study_copy( $section ) {
+	$copy = array(
+		'advisors' => array(
+			'storyText' => 'Someone to think it through with. Someone who’s done it before. Together, we’ll work out what comes next.',
+			'supportText' => 'Confidential conversations. Practical advice. No fee.',
+			'portraitCaption' => 'Meet Melanie, Paul & Amandeep · North Coast SBDC',
+		),
+		'purpose' => array(
+			'eyebrow' => 'A national idea. A local commitment.',
+			'heading' => "A public investment.\nA personal difference.",
+			'historyText' => 'In 1980, the national SBDC network was established in law to bring government, universities, and business expertise together for small businesses.',
+			'fundingText' => 'Today, support from the SBA, CalOSBA, and local partners makes our no-fee advising possible.',
+			'missionText' => 'The idea is simple: give people building a business someone to turn to.',
+			'hostLabel' => 'At home at Cal Poly Humboldt.',
+			'hostText' => 'Our network is hosted by Cal Poly Humboldt’s Sponsored Programs Foundation. A public university, helping local ambition take root.',
+		),
+	);
+	return $copy[ $section ] ?? array();
+}
 function mysbdc_about_block_content() {
 	$blocks = array();
-	foreach ( array( 'intro', 'advisors', 'purpose', 'region' ) as $section ) {
-		$attrs = mysbdc_about_attributes( $section );
+	foreach ( array( 'intro', 'possibility', 'advisors', 'purpose', 'region' ) as $section ) {
+		$attrs = array_merge( mysbdc_about_attributes( $section ), mysbdc_about_study_copy( $section ) );
 		foreach ( $attrs as $key => $value ) {
 			if ( str_starts_with( $value, '@theme/' ) ) { $attrs[ $key ] = mysbdc_about_media( $value ); }
 		}
@@ -49,7 +70,7 @@ function mysbdc_register_about_blocks() {
 		) );
 	}
 	wp_add_inline_script( 'mysbdc-home-blocks-editor', 'window.mysbdcHomeBlocks = (window.mysbdcHomeBlocks || []).concat(' . wp_json_encode( $editor, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ) . ');', 'before' );
-	register_block_pattern( 'mysbdc/about', array( 'title' => 'NorCal SBDC About page', 'categories' => array( 'mysbdc' ), 'description' => 'Four editable sections. Use with the About page template.', 'content' => mysbdc_about_block_content() ) );
+	register_block_pattern( 'mysbdc/about', array( 'title' => 'NorCal SBDC About page', 'categories' => array( 'mysbdc' ), 'description' => 'Five editable sections. Use with the About page template.', 'content' => mysbdc_about_block_content() ) );
 }
 add_action( 'init', 'mysbdc_register_about_blocks', 11 );
 
@@ -64,7 +85,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	} );
 	WP_CLI::add_command( 'mysbdc about check', static function () {
 		$blocks = array_values( array_filter( parse_blocks( mysbdc_about_block_content() ), static function ( $b ) { return null !== $b['blockName']; } ) );
-		if ( 4 !== count( $blocks ) ) { WP_CLI::error( 'Expected four sections.' ); }
+		if ( 5 !== count( $blocks ) ) { WP_CLI::error( 'Expected five sections.' ); }
 		foreach ( $blocks as $block ) {
 			if ( ! WP_Block_Type_Registry::get_instance()->is_registered( $block['blockName'] ) || false === strpos( render_block( $block ), '<section' ) ) { WP_CLI::error( 'Registration or rendering failed: ' . $block['blockName'] ); }
 			foreach ( $block['attrs'] as $key => $value ) {
@@ -74,8 +95,8 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				if ( $roundtrip['attrs'][ $key ] !== $edited['attrs'][ $key ] || str_contains( render_block( $roundtrip ), '<script>' ) ) { WP_CLI::error( 'Persistence or escaping failed: ' . $key ); }
 			}
 		}
-		$blocks[1]['attrs']['linkUrl'] = 'javascript:alert(1)';
-		if ( str_contains( render_block( $blocks[1] ), 'javascript:' ) ) { WP_CLI::error( 'Unsafe URL escaped incorrectly.' ); }
-		WP_CLI::success( 'Four About blocks registered and rendered; all fields survive serialization; unsafe markup and URLs escaped.' );
+		$blocks[2]['attrs']['linkUrl'] = 'javascript:alert(1)';
+		if ( str_contains( render_block( $blocks[2] ), 'javascript:' ) ) { WP_CLI::error( 'Unsafe URL escaped incorrectly.' ); }
+		WP_CLI::success( 'Five About blocks registered and rendered; all fields survive serialization; unsafe markup and URLs escaped.' );
 	} );
 }
