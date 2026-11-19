@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $mysbdc_minimal = ! empty( $args['minimal'] );
 
-// The homepage header sits on navy and takes the white logo. Every other page is light.
-$mysbdc_dark_header = 'home' === mysbdc_view();
+// Full navigation uses the approved navy header and white logo.
+$mysbdc_dark_header = ! $mysbdc_minimal;
 $mysbdc_logo        = $mysbdc_dark_header
 	? array( 'img/logo-white.png', 262, 180 )
 	: array( 'img/logo-color.png', 400, 275 );
@@ -43,15 +43,6 @@ if ( ! $mysbdc_minimal ) {
 <?php if ( $mysbdc_minimal ) : ?>
   <a class="text-link" href="<?php echo esc_url( mysbdc_home_anchor( 'programs' ) ); ?>"><?php esc_html_e( 'Back to homepage', 'mysbdc' ); ?></a>
 <?php else : ?>
-  <nav class="primary-nav" id="primary-nav" aria-label="<?php esc_attr_e( 'Primary', 'mysbdc' ); ?>">
-    <?php mysbdc_menu_links( 'primary' ); ?>
-    <a class="mobile-login" href="<?php echo esc_url( mysbdc_dashboard_url() ); ?>" aria-label="<?php echo esc_attr( $mysbdc_dashboard_label ); ?>" title="<?php echo esc_attr( $mysbdc_dashboard_title ); ?>">MySBDC</a>
-    <a class="button mobile-start" href="<?php echo esc_url( mysbdc_signup_url() ); ?>"><?php esc_html_e( 'Get started', 'mysbdc' ); ?></a>
-  </nav>
-  <div class="header-actions">
-    <a class="login" href="<?php echo esc_url( mysbdc_dashboard_url() ); ?>" aria-label="<?php echo esc_attr( $mysbdc_dashboard_label ); ?>" title="<?php echo esc_attr( $mysbdc_dashboard_title ); ?>">MySBDC</a>
-    <a class="button button-small" href="<?php echo esc_url( mysbdc_signup_url() ); ?>"><?php esc_html_e( 'Get started', 'mysbdc' ); ?></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><?php esc_html_e( 'Menu', 'mysbdc' ); ?></button>
-  </div>
+  <nav class="primary-nav" id="primary-nav" aria-label="Primary"><?php if ( has_nav_menu( 'primary' ) ) { mysbdc_menu_links( 'primary' ); } else { ?><details class="header-dropdown"><summary>Services</summary><div class="header-dropdown-links"><a href="https://www.norcalsbdc.org/events/">Training</a><a href="<?php echo esc_url( home_url( '/' ) ); ?>#advising">Advising</a><a href="<?php echo esc_url( home_url( '/' ) ); ?>#funding">Capital</a></div></details><details class="header-dropdown"><summary>Programs</summary><div class="header-dropdown-links"><a href="<?php echo esc_url( mysbdc_signup_url( 'tfg' ) ); ?>">Tech</a><span aria-disabled="true">Health <small>Coming soon</small></span><a href="<?php echo esc_url( mysbdc_signup_url( 'probiz' ) ); ?>">Contracting</a><a href="<?php echo esc_url( mysbdc_signup_url( 'ai' ) ); ?>">AI</a></div></details><a href="<?php echo esc_url( mysbdc_page_url( 'impact' ) ); ?>">Impact</a><a href="https://www.norcalsbdc.org/about/">About</a><?php } ?></nav><div class="header-actions"><details class="header-dropdown"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg>MySBDC</summary><div class="header-dropdown-links"><a href="<?php echo esc_url( mysbdc_dashboard_url() ); ?>">Sign in</a><a href="<?php echo esc_url( mysbdc_signup_url() ); ?>">Create an account</a></div></details><details class="header-dropdown"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>English</summary><div class="header-dropdown-links"><span aria-current="true">English</span><span aria-disabled="true">More languages coming soon</span></div></details><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button></div>
 <?php endif; ?>
 </div></header>
