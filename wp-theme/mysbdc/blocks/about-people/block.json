@@ -1,0 +1,111 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-people",
+  "title": "About · Your business people",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable section of the approved About page. Reorder sections while preserving their layout.",
+  "attributes": {
+    "headingLine1": {
+      "type": "string",
+      "default": "We’re your"
+    },
+    "headingLine2": {
+      "type": "string",
+      "default": "business"
+    },
+    "headingAccent": {
+      "type": "string",
+      "default": "people"
+    },
+    "portraitCaption": {
+      "type": "string",
+      "default": "A few of our North Coast SBDC advisors"
+    },
+    "person1Url": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/team-members/melanie-barnett/"
+    },
+    "person1Label": {
+      "type": "string",
+      "default": "Meet Melanie Barnett, food business advisor"
+    },
+    "person1Image": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/wp-content/uploads/sites/12/2021/05/melanie-barnett-768x768.jpg"
+    },
+    "person2Url": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/team-members/paul-bozzo/"
+    },
+    "person2Label": {
+      "type": "string",
+      "default": "Meet Paul Bozzo, business planning and funding advisor"
+    },
+    "person2Image": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/wp-content/uploads/sites/12/2023/11/Paul-Bozzo-Headshot-768x1152.jpg"
+    },
+    "person3Url": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/team-members/amandeep-singh/"
+    },
+    "person3Label": {
+      "type": "string",
+      "default": "Meet Amandeep Singh, ecommerce advisor"
+    },
+    "person3Image": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/wp-content/uploads/sites/12/2025/04/amandeep-singh-1-768x768.jpg"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/services/"
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Meet your advisor"
+    },
+    "point1Heading": {
+      "type": "string",
+      "default": "Experience you can lean on."
+    },
+    "point1Text": {
+      "type": "string",
+      "default": "Work through your business plan, financial projections, funding pitch or next move online with someone who knows the territory."
+    },
+    "point2Heading": {
+      "type": "string",
+      "default": "A specialist for your next step."
+    },
+    "point2Text": {
+      "type": "string",
+      "default": "Finance, marketing, food and hospitality, technology and government contracting. Your local center connects you with the right expertise."
+    },
+    "point3Heading": {
+      "type": "string",
+      "default": "In your language."
+    },
+    "point3Text": {
+      "type": "string",
+      "default": "Support in multiple languages, with local advisors who understand your community."
+    },
+    "point4Heading": {
+      "type": "string",
+      "default": "Confidential, always."
+    },
+    "point4Text": {
+      "type": "string",
+      "default": "Private conversations, no fee, and nothing to sell you."
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about-brand"
+}

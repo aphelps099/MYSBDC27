@@ -61,7 +61,7 @@ function mysbdc_body_classes( $classes ) {
 	$by_view = array(
 		'home'   => array( 'homepage-header-preview', 'video-hero-preview' ),
 		'impact' => array( 'impact-page' ),
-		'about' => array( 'about-page' ),
+		'about' => array( 'about-page', 'about-brand-study' ),
 		'atlas'  => array( 'atlas-page' ),
 		'signup' => array( 'signup-page' ),
 		'inner'  => array( 'inner-page' ),

@@ -274,7 +274,7 @@ Four new purpose attributes expose the image, alt text, caption, and source URL.
 Footer partner logos remain intact. Previous local content is backed up in
 `mysbdc_about_before_bold_study`; deployment still never modifies saved content.
 
-### Three-section About study — latest November 19 direction
+### Earlier three-section About study — superseded
 
 The current pattern is **intro → possibility → advisors**, followed by the shared
 footer. This supersedes the longer study sequences above. The user requested the
@@ -284,3 +284,29 @@ advisor section. Standalone campus/history and “Rooted here” sections are om
 Host/funder recognition remains in the shared footer. Existing block registrations,
 templates, and defaults remain available for previously saved content; theme updates
 do not remove sections from existing pages. Only the isolated local study was edited.
+
+
+### Approved About page — publication, November 19, 2026
+
+The approved pattern is **opening → people → connections**: cream introduction
+and four client photos; navy advising section with tinted advisor portraits; cream
+network context and a three-story testimonial carousel. This supersedes all study
+sequences above. `homepage-preview/about-brand-study.html` is the aligned static
+preview. `about-brand-study.css` and `about-brand-carousel.js` are now synchronized
+assets. Edit these source files, then run `wp-theme/sync-assets.sh`.
+
+The three new blocks expose 68 text, image, attribution and link fields through the
+existing Gutenberg editor. The eight earlier About block contracts remain available
+for saved drafts; no existing defaults were changed. The carousel has three editable
+stories, manual dot navigation, keyboard arrows/Home/End, touch swipe, stable height,
+reduced-motion styling and a readable no-JavaScript fallback. It never auto-advances.
+
+Quotes link to their original stories: Laila O’Boyle / The Early Rise on NorCal SBDC,
+Mieko Scott / Hella Nuts on Butte College SBDC, and Jonathan LaRiviere / Scoot Science
+on NorCal SBDC. No draft financial figures or invented testimonials are published.
+
+Deployment changes theme files only. To create a missing About draft on the demo,
+use `wp --path=/sites/norcalsbdc --url=https://demo.norcalsbdc.org mysbdc about create`,
+or insert the NorCal SBDC About page pattern into a new page and choose the About
+template. Existing pages are preserved by the creation command. Publishing is a
+separate, intentional action. `mysbdc about check` validates the initial pattern.

@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 function mysbdc_about_sections() {
-	return array( 'intro', 'advisors', 'network', 'region', 'story', 'next', 'purpose', 'possibility' );
+	return array( 'intro', 'advisors', 'network', 'region', 'story', 'next', 'purpose', 'possibility', 'opening', 'people', 'connections' );
 }
 function mysbdc_about_metadata( $section ) {
 	if ( ! in_array( $section, mysbdc_about_sections(), true ) ) { return array(); }
@@ -84,7 +84,7 @@ function mysbdc_about_study_copy( $section ) {
 }
 function mysbdc_about_block_content() {
 	$blocks = array();
-	foreach ( array( 'intro', 'possibility', 'advisors' ) as $section ) {
+	foreach ( array( 'opening', 'people', 'connections' ) as $section ) {
 		$attrs = array_merge( mysbdc_about_attributes( $section ), mysbdc_about_study_copy( $section ) );
 		foreach ( $attrs as $key => $value ) {
 			if ( str_starts_with( $value, '@theme/' ) ) { $attrs[ $key ] = mysbdc_about_media( $value ); }
@@ -95,6 +95,7 @@ function mysbdc_about_block_content() {
 }
 function mysbdc_register_about_blocks() {
 	wp_register_style( 'mysbdc-about', mysbdc_asset( 'css/about.css' ), array( 'mysbdc-refined' ), mysbdc_file_version( 'assets/css/about.css' ) );
+	wp_register_style( 'mysbdc-about-brand', mysbdc_asset( 'css/about-brand-study.css' ), array( 'mysbdc-about' ), mysbdc_file_version( 'assets/css/about-brand-study.css' ) );
 	$editor = array();
 	foreach ( mysbdc_about_sections() as $section ) {
 		$metadata = mysbdc_about_metadata( $section );
@@ -123,7 +124,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 		if ( $existing ) { WP_CLI::success( 'About already exists (' . $existing->ID . '); content and status preserved.' ); return; }
 		$id = wp_insert_post( wp_slash( array( 'post_type' => 'page', 'post_status' => 'draft', 'post_title' => 'About', 'post_name' => 'about', 'post_content' => mysbdc_about_block_content(), 'meta_input' => array( '_wp_page_template' => 'page-templates/about.php' ), 'comment_status' => 'closed', 'ping_status' => 'closed' ) ), true );
 		if ( is_wp_error( $id ) ) { WP_CLI::error( $id->get_error_message() ); }
-		WP_CLI::success( 'Created editable About draft ' . $id . '. Review figures and publish when ready.' );
+		WP_CLI::success( 'Created editable About draft ' . $id . '. Review and publish when ready.' );
 	} );
 	WP_CLI::add_command( 'mysbdc about check', static function () {
 		$blocks = array_values( array_filter( parse_blocks( mysbdc_about_block_content() ), static function ( $b ) { return null !== $b['blockName']; } ) );

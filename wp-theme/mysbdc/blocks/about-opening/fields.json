@@ -1,0 +1,101 @@
+{
+  "fields": [
+    {
+      "key": "eyebrow",
+      "label": "Eyebrow",
+      "type": "plain"
+    },
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "plain"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "plain"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Photo 1",
+      "fields": [
+        {
+          "key": "photo1Image",
+          "label": "Photo1 image",
+          "type": "image"
+        },
+        {
+          "key": "photo1Alt",
+          "label": "Photo1 alt",
+          "type": "plain"
+        },
+        {
+          "key": "photo1Caption",
+          "label": "Photo1 caption",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Photo 2",
+      "fields": [
+        {
+          "key": "photo2Image",
+          "label": "Photo2 image",
+          "type": "image"
+        },
+        {
+          "key": "photo2Alt",
+          "label": "Photo2 alt",
+          "type": "plain"
+        },
+        {
+          "key": "photo2Caption",
+          "label": "Photo2 caption",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Photo 3",
+      "fields": [
+        {
+          "key": "photo3Image",
+          "label": "Photo3 image",
+          "type": "image"
+        },
+        {
+          "key": "photo3Alt",
+          "label": "Photo3 alt",
+          "type": "plain"
+        },
+        {
+          "key": "photo3Caption",
+          "label": "Photo3 caption",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Photo 4",
+      "fields": [
+        {
+          "key": "photo4Image",
+          "label": "Photo4 image",
+          "type": "image"
+        },
+        {
+          "key": "photo4Alt",
+          "label": "Photo4 alt",
+          "type": "plain"
+        },
+        {
+          "key": "photo4Caption",
+          "label": "Photo4 caption",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}

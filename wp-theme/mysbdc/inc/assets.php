@@ -70,6 +70,10 @@ function mysbdc_enqueue_assets() {
 	if ( 'about' === $view ) {
 		mysbdc_enqueue_style( 'mysbdc-home-design', 'home-design.css', array( 'mysbdc-theme' ) );
 		wp_enqueue_style( 'mysbdc-about' );
+		if ( has_block( 'mysbdc/about-opening' ) || has_block( 'mysbdc/about-people' ) || has_block( 'mysbdc/about-connections' ) ) {
+			wp_enqueue_style( 'mysbdc-about-brand' );
+			mysbdc_enqueue_script( 'mysbdc-about-carousel', 'about-brand-carousel.js' );
+		}
 		mysbdc_enqueue_script( 'mysbdc-about-motion', 'about-motion.js' );
 	}
 

@@ -1,0 +1,156 @@
+{
+  "fields": [
+    {
+      "key": "headingLine1",
+      "label": "Heading line1",
+      "type": "plain"
+    },
+    {
+      "key": "headingLine2",
+      "label": "Heading line2",
+      "type": "plain"
+    },
+    {
+      "key": "headingAccent",
+      "label": "Heading accent",
+      "type": "plain"
+    },
+    {
+      "key": "portraitCaption",
+      "label": "Portrait caption",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "Link url",
+      "type": "url"
+    },
+    {
+      "key": "linkText",
+      "label": "Link text",
+      "type": "plain"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Advisor 1",
+      "fields": [
+        {
+          "key": "person1Url",
+          "label": "Person1 url",
+          "type": "url"
+        },
+        {
+          "key": "person1Label",
+          "label": "Person1 label",
+          "type": "plain"
+        },
+        {
+          "key": "person1Image",
+          "label": "Person1 image",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "title": "Advisor 2",
+      "fields": [
+        {
+          "key": "person2Url",
+          "label": "Person2 url",
+          "type": "url"
+        },
+        {
+          "key": "person2Label",
+          "label": "Person2 label",
+          "type": "plain"
+        },
+        {
+          "key": "person2Image",
+          "label": "Person2 image",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "title": "Advisor 3",
+      "fields": [
+        {
+          "key": "person3Url",
+          "label": "Person3 url",
+          "type": "url"
+        },
+        {
+          "key": "person3Label",
+          "label": "Person3 label",
+          "type": "plain"
+        },
+        {
+          "key": "person3Image",
+          "label": "Person3 image",
+          "type": "image"
+        }
+      ]
+    },
+    {
+      "title": "Point 1",
+      "fields": [
+        {
+          "key": "point1Heading",
+          "label": "Point1 heading",
+          "type": "plain"
+        },
+        {
+          "key": "point1Text",
+          "label": "Point1 text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Point 2",
+      "fields": [
+        {
+          "key": "point2Heading",
+          "label": "Point2 heading",
+          "type": "plain"
+        },
+        {
+          "key": "point2Text",
+          "label": "Point2 text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Point 3",
+      "fields": [
+        {
+          "key": "point3Heading",
+          "label": "Point3 heading",
+          "type": "plain"
+        },
+        {
+          "key": "point3Text",
+          "label": "Point3 text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Point 4",
+      "fields": [
+        {
+          "key": "point4Heading",
+          "label": "Point4 heading",
+          "type": "plain"
+        },
+        {
+          "key": "point4Text",
+          "label": "Point4 text",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}
