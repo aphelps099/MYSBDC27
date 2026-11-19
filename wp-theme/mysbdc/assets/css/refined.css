@@ -245,3 +245,27 @@
   .color-overlay .hero-photo > img { opacity: .25; }
   .color-overlay .hero-copy { background: Canvas; color: CanvasText; }
 }
+
+/* Approved consulting-style navigation, shared by all full headers. */
+.site-header:not(.signup-header){background:#1d2c3d;color:#f6f4ed;font-family:var(--nova,"proxima-nova",sans-serif)}
+.site-header:not(.signup-header) .header-inner{min-height:103px;border:0;justify-content:flex-start;gap:30px}
+.site-header:not(.signup-header) .brand img{width:80px;height:auto}
+.site-header:not(.signup-header) .primary-nav{margin-left:0;gap:28px}
+.site-header:not(.signup-header) .primary-nav>a,.header-dropdown summary{font-size:1rem;font-weight:500;white-space:nowrap}
+.site-header:not(.signup-header) .header-actions{margin-left:auto;gap:22px}
+.header-dropdown{position:relative}
+.header-dropdown summary{display:flex;align-items:center;gap:9px;min-height:48px;cursor:pointer;list-style:none}
+.header-dropdown summary::-webkit-details-marker{display:none}
+.header-dropdown summary:after{content:"";width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin-left:3px;margin-top:-4px}
+.header-dropdown[open] summary:after{transform:rotate(225deg);margin-top:3px}
+.header-dropdown svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6}
+.header-dropdown-links{position:absolute;top:100%;left:-18px;min-width:210px;max-width:calc(100vw - 40px);padding:8px 0;background:#1d2c3d;color:#f6f4ed;border-top:2px solid #b6d1dd;box-shadow:0 12px 24px #0003;z-index:20}
+.header-actions .header-dropdown-links{left:auto;right:0}
+.header-actions>.header-dropdown+ .header-dropdown{border-left:1px solid #ffffff40;padding-left:22px}
+.site-header .header-dropdown-links a,.site-header .header-dropdown-links>span{display:block;min-height:44px;padding:11px 20px;font-size:1rem;font-weight:400;white-space:nowrap}
+.site-header .header-dropdown-links a:hover{background:#304b60;color:#b6d1dd}
+.header-dropdown-links [aria-disabled]{color:#bbc7d1;white-space:normal!important}
+.header-dropdown-links small{display:block;font-size:.75rem}
+.site-header:not(.signup-header) :focus-visible{outline:2px solid #b6d1dd;outline-offset:4px}
+@media(max-width:1100px){.site-header:not(.signup-header) .primary-nav{background:#1d2c3d;color:#f6f4ed;gap:0}.primary-nav .header-dropdown-links{position:static;box-shadow:none;border:0;padding-left:15px}.primary-nav .header-dropdown summary{min-height:48px}.site-header:not(.signup-header) .header-inner{gap:16px}.site-header:not(.signup-header) .header-actions{gap:16px}}
+@media(max-width:500px){.site-header:not(.signup-header) .header-inner{min-height:94px;gap:10px}.site-header:not(.signup-header) .brand img{width:66px}.site-header:not(.signup-header) .header-actions{gap:10px}.header-actions>.header-dropdown+ .header-dropdown{padding-left:10px}.header-actions .header-dropdown summary{gap:5px;font-size:.875rem}.header-actions .header-dropdown svg{display:none}.site-header .menu-toggle{min-width:42px;font-size:.875rem;padding-left:0}}

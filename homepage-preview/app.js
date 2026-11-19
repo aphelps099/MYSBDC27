@@ -47,3 +47,15 @@
     status.hidden = false; document.querySelector('#newsletter-live-link').hidden = false;
   });
 })();
+
+// Native disclosures work without JavaScript; enhance dismissal and focus.
+(() => {
+ const menus = [...document.querySelectorAll('.header-dropdown')];
+ menus.forEach(menu => {
+  menu.addEventListener('toggle', () => { if (menu.open) menus.forEach(other => { if (other !== menu) other.open = false; }); });
+  menu.addEventListener('click', event => { if (event.target.closest('a')) menu.open = false; });
+  menu.addEventListener('focusout', () => setTimeout(() => { if (!menu.contains(document.activeElement)) menu.open = false; }, 0));
+ });
+ document.addEventListener('click', event => menus.forEach(menu => { if (!menu.contains(event.target)) menu.open = false; }));
+ document.addEventListener('keydown', event => { if (event.key === 'Escape') menus.forEach(menu => { if (menu.open) { menu.open = false; menu.querySelector('summary').focus(); } }); });
+})();
