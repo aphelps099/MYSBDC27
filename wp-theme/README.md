@@ -251,3 +251,9 @@ are omitted from the editor. Existing saved paragraphs remain editable.
 Visual references: https://www.californiasbdc.org/legacy/ and
 https://www.californiasbdc.org/about-sbdc/ . Their statewide statistics were not reused.
 The generated illustrated-neighborhood concept was rejected and is not a site asset.
+
+User follow-up: the documentary composition is preferred, but the About-specific
+serifs were rejected. Current study uses Proxima Nova for its photographic captions,
+advisor phrases, and purpose headline. Advisor photos use CSS grayscale with a muted
+blue overlay; original photographs remain intact. The approved shared footer's Sera
+heading is unchanged.
