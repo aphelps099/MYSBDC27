@@ -1,0 +1,45 @@
+{
+  "fields": [
+    {
+      "key": "eyebrow",
+      "label": "Eyebrow",
+      "type": "plain"
+    },
+    {
+      "key": "quote",
+      "label": "Quote",
+      "type": "plain"
+    },
+    {
+      "key": "clientName",
+      "label": "Client name",
+      "type": "plain"
+    },
+    {
+      "key": "attribution",
+      "label": "Attribution",
+      "type": "plain"
+    },
+    {
+      "key": "linkText",
+      "label": "Link text",
+      "type": "plain"
+    },
+    {
+      "key": "storyUrl",
+      "label": "Story url",
+      "type": "url"
+    },
+    {
+      "key": "imageUrl",
+      "label": "Image url",
+      "type": "image"
+    },
+    {
+      "key": "imageAlt",
+      "label": "Image alt",
+      "type": "plain"
+    }
+  ],
+  "groups": []
+}

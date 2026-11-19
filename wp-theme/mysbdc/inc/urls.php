@@ -28,6 +28,7 @@ function mysbdc_asset( $path ) {
  */
 function mysbdc_linked_pages() {
 	return array(
+		'about' => array( 'template' => 'page-templates/about.php', 'slug' => 'about' ),
 		'impact' => array(
 			'template' => 'page-templates/impact.php',
 			'slug'     => 'impact',
@@ -73,7 +74,7 @@ function mysbdc_page_url( $key ) {
 			)
 		);
 
-		$found[ $key ] = $ids ? get_permalink( $ids[0] ) : home_url( '/' . $pages[ $key ]['slug'] . '/' );
+		$found[ $key ] = $ids ? get_permalink( $ids[0] ) : ( 'about' === $key ? 'https://www.norcalsbdc.org/about/' : home_url( '/' . $pages[ $key ]['slug'] . '/' ) );
 	}
 
 	return $found[ $key ];

@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-possibility",
+  "title": "About · Business support",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable About page section. Reorder sections and edit content while preserving the layout.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Good ideas come\nfrom everywhere."
+    },
+    "description": {
+      "type": "string",
+      "default": "A neighborhood gathering place. A new way to work the land. An idea that takes flight. Northern California is full of people building something of their own."
+    },
+    "supportText": {
+      "type": "string",
+      "default": "We help them take the next step — with business advising, training, and connections to capital."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Explore our advising programs"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/services/"
+    },
+    "photo1Image": {
+      "type": "string",
+      "default": "https://www.californiasbdc.org/wp-content/uploads/sites/34/2021/05/Crossfit-Firefly-Tracy-Thieriot-20-1024x682.jpg"
+    },
+    "photo1Alt": {
+      "type": "string",
+      "default": "Tracy Thieriot at CrossFit Firefly"
+    },
+    "photo1Caption": {
+      "type": "string",
+      "default": "In the neighborhood."
+    },
+    "photo1Name": {
+      "type": "string",
+      "default": "CrossFit Firefly"
+    },
+    "photo2Image": {
+      "type": "string",
+      "default": "https://www.californiasbdc.org/wp-content/uploads/sites/34/2022/12/Steve-Hecheroth-WBDC-SBDC-8-edited-1.jpg"
+    },
+    "photo2Alt": {
+      "type": "string",
+      "default": "Steve Heckeroth with a Solectrac electric tractor"
+    },
+    "photo2Caption": {
+      "type": "string",
+      "default": "Out in the field."
+    },
+    "photo2Name": {
+      "type": "string",
+      "default": "Solectrac"
+    },
+    "photo3Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg"
+    },
+    "photo3Alt": {
+      "type": "string",
+      "default": "Jump Aero first-response aircraft in flight"
+    },
+    "photo3Caption": {
+      "type": "string",
+      "default": "Up in the air."
+    },
+    "photo3Name": {
+      "type": "string",
+      "default": "Jump Aero"
+    },
+    "introText": {
+      "type": "string",
+      "default": ""
+    },
+    "contextText": {
+      "type": "string",
+      "default": ""
+    },
+    "quoteText": {
+      "type": "string",
+      "default": ""
+    },
+    "quoteAttribution": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about"
+}

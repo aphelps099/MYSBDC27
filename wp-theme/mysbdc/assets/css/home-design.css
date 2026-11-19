@@ -351,3 +351,10 @@ html{scroll-padding-top:80px}
 @media(prefers-reduced-motion:reduce){.nf-socials a{transition:none}.nf-socials a:hover{transform:none}}
 
 .nf-google-mark{font-family:Arial,sans-serif;font-size:23px;font-weight:700;line-height:1}
+
+/* Funding panel stays in document order, revealed beneath the navy surface. */
+.network-footer { position:relative; isolation:isolate; }
+.nf-surface { position:relative; z-index:1; background:#1d2c3d; }
+.network-footer.has-credit-reveal .nf-credit { position:sticky; bottom:0; z-index:0; }
+@media(prefers-reduced-motion:reduce) { .network-footer.has-credit-reveal .nf-credit { position:static; } }
+@media print { .network-footer.has-credit-reveal .nf-credit { position:static; } }

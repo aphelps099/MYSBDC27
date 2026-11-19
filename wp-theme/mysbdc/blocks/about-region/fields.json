@@ -1,0 +1,42 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "plain",
+      "tag": "h2"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "plain"
+    },
+    {
+      "key": "linkText",
+      "label": "Link text",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "Link url",
+      "type": "url"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Redwood coast",
+      "fields": [
+        {
+          "key": "photo2Image",
+          "label": "Photo2 image",
+          "type": "image"
+        },
+        {
+          "key": "photo2Alt",
+          "label": "Photo2 alt",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}

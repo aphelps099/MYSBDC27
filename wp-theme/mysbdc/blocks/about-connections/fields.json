@@ -1,0 +1,171 @@
+{
+  "fields": [
+    {
+      "key": "headingLine1",
+      "label": "Heading line1",
+      "type": "plain"
+    },
+    {
+      "key": "headingLine2",
+      "label": "Heading line2",
+      "type": "plain"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "plain"
+    },
+    {
+      "key": "reachNumber",
+      "label": "Reach number",
+      "type": "plain"
+    },
+    {
+      "key": "reachLabel",
+      "label": "Reach label",
+      "type": "plain"
+    },
+    {
+      "key": "reachContext",
+      "label": "Reach context",
+      "type": "plain"
+    },
+    {
+      "key": "fundingText",
+      "label": "Funding text",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "Link url",
+      "type": "url"
+    },
+    {
+      "key": "linkText",
+      "label": "Link text",
+      "type": "plain"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Client story 1",
+      "fields": [
+        {
+          "key": "story1Image",
+          "label": "Story1 image",
+          "type": "image"
+        },
+        {
+          "key": "story1Alt",
+          "label": "Story1 alt",
+          "type": "plain"
+        },
+        {
+          "key": "story1Url",
+          "label": "Story1 url",
+          "type": "url"
+        },
+        {
+          "key": "story1Quote",
+          "label": "Story1 quote",
+          "type": "plain"
+        },
+        {
+          "key": "story1Name",
+          "label": "Story1 name",
+          "type": "plain"
+        },
+        {
+          "key": "story1Business",
+          "label": "Story1 business",
+          "type": "plain"
+        },
+        {
+          "key": "story1LinkText",
+          "label": "Story1 link text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Client story 2",
+      "fields": [
+        {
+          "key": "story2Image",
+          "label": "Story2 image",
+          "type": "image"
+        },
+        {
+          "key": "story2Alt",
+          "label": "Story2 alt",
+          "type": "plain"
+        },
+        {
+          "key": "story2Url",
+          "label": "Story2 url",
+          "type": "url"
+        },
+        {
+          "key": "story2Quote",
+          "label": "Story2 quote",
+          "type": "plain"
+        },
+        {
+          "key": "story2Name",
+          "label": "Story2 name",
+          "type": "plain"
+        },
+        {
+          "key": "story2Business",
+          "label": "Story2 business",
+          "type": "plain"
+        },
+        {
+          "key": "story2LinkText",
+          "label": "Story2 link text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Client story 3",
+      "fields": [
+        {
+          "key": "story3Image",
+          "label": "Story3 image",
+          "type": "image"
+        },
+        {
+          "key": "story3Alt",
+          "label": "Story3 alt",
+          "type": "plain"
+        },
+        {
+          "key": "story3Url",
+          "label": "Story3 url",
+          "type": "url"
+        },
+        {
+          "key": "story3Quote",
+          "label": "Story3 quote",
+          "type": "plain"
+        },
+        {
+          "key": "story3Name",
+          "label": "Story3 name",
+          "type": "plain"
+        },
+        {
+          "key": "story3Business",
+          "label": "Story3 business",
+          "type": "plain"
+        },
+        {
+          "key": "story3LinkText",
+          "label": "Story3 link text",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}

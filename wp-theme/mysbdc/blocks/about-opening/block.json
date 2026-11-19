@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-opening",
+  "title": "About · Opening and client photos",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable section of the approved About page. Reorder sections while preserving their layout.",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "About NorCal SBDC"
+    },
+    "heading": {
+      "type": "string",
+      "default": "We’re here to help"
+    },
+    "description": {
+      "type": "string",
+      "default": "Advising, training and capital expertise for the business you’re building and the community you call home."
+    },
+    "photo1Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/potpantry.jpg"
+    },
+    "photo1Alt": {
+      "type": "string",
+      "default": "Donna Suh of Pot Pantry holding a stack of dishes in her shop"
+    },
+    "photo1Caption": {
+      "type": "string",
+      "default": "Pot Pantry"
+    },
+    "photo2Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/freeline.jpg"
+    },
+    "photo2Alt": {
+      "type": "string",
+      "default": "A surfboard maker at Freeline Surfshop in Santa Cruz"
+    },
+    "photo2Caption": {
+      "type": "string",
+      "default": "Freeline Surfshop"
+    },
+    "photo3Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/humble-sea.jpg"
+    },
+    "photo3Alt": {
+      "type": "string",
+      "default": "The team outside Humble Sea Brewing"
+    },
+    "photo3Caption": {
+      "type": "string",
+      "default": "Humble Sea Brewing"
+    },
+    "photo4Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/churn-2.jpg"
+    },
+    "photo4Alt": {
+      "type": "string",
+      "default": "The Churn team celebrating outside the ice cream shop"
+    },
+    "photo4Caption": {
+      "type": "string",
+      "default": "Churn"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about-brand"
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-intro",
+  "title": "About · Introduction",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable About page section. Reorder sections and edit content while preserving the layout.",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "About NorCal SBDC"
+    },
+    "heading": {
+      "type": "string",
+      "default": "We’re here to help."
+    },
+    "description": {
+      "type": "string",
+      "default": "NorCal SBDC empowers entrepreneurs on their journey — advising, training and capital that lead to prosperous local communities."
+    },
+    "photo1Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/potpantry.jpg"
+    },
+    "photo1Alt": {
+      "type": "string",
+      "default": "Donna Suh of Pot Pantry"
+    },
+    "photo2Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/freeline.jpg"
+    },
+    "photo2Alt": {
+      "type": "string",
+      "default": "Freeline Surfshop, Santa Cruz"
+    },
+    "photo3Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/humble-sea.jpg"
+    },
+    "photo3Alt": {
+      "type": "string",
+      "default": "Humble Sea Brewing"
+    },
+    "photo4Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/churn-2.jpg"
+    },
+    "photo4Alt": {
+      "type": "string",
+      "default": "Churn ice cream shop"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about"
+}

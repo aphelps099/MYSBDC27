@@ -1,0 +1,126 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "plain"
+    },
+    {
+      "key": "line1",
+      "label": "Conversation line 1",
+      "type": "plain"
+    },
+    {
+      "key": "line2",
+      "label": "Conversation line 2",
+      "type": "plain"
+    },
+    {
+      "key": "line3",
+      "label": "Conversation line 3",
+      "type": "plain"
+    },
+    {
+      "key": "storyText",
+      "label": "Personal introduction",
+      "type": "plain"
+    },
+    {
+      "key": "supportText",
+      "label": "Supporting text",
+      "type": "plain"
+    },
+    {
+      "key": "linkText",
+      "label": "Button label",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "Button destination",
+      "type": "url"
+    },
+    {
+      "key": "portraitCaption",
+      "label": "Portrait caption",
+      "type": "plain"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Melanie Barnett",
+      "fields": [
+        {
+          "key": "person1Image",
+          "label": "Portrait",
+          "type": "image"
+        },
+        {
+          "key": "person1Alt",
+          "label": "Portrait name and description",
+          "type": "plain"
+        },
+        {
+          "key": "person1Url",
+          "label": "Advisor biography",
+          "type": "url"
+        },
+        {
+          "key": "person1Caption",
+          "label": "Name and expertise",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Paul Bozzo",
+      "fields": [
+        {
+          "key": "person2Image",
+          "label": "Portrait",
+          "type": "image"
+        },
+        {
+          "key": "person2Alt",
+          "label": "Portrait name and description",
+          "type": "plain"
+        },
+        {
+          "key": "person2Url",
+          "label": "Advisor biography",
+          "type": "url"
+        },
+        {
+          "key": "person2Caption",
+          "label": "Name and expertise",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Amandeep Singh",
+      "fields": [
+        {
+          "key": "person3Image",
+          "label": "Portrait",
+          "type": "image"
+        },
+        {
+          "key": "person3Alt",
+          "label": "Portrait name and description",
+          "type": "plain"
+        },
+        {
+          "key": "person3Url",
+          "label": "Advisor biography",
+          "type": "url"
+        },
+        {
+          "key": "person3Caption",
+          "label": "Name and expertise",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}

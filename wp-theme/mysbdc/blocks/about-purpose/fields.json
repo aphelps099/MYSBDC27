@@ -1,0 +1,76 @@
+{
+  "fields": [
+    {
+      "key": "eyebrow",
+      "label": "eyebrow",
+      "type": "plain"
+    },
+    {
+      "key": "heading",
+      "label": "heading",
+      "type": "plain"
+    },
+    {
+      "key": "historyText",
+      "label": "historyText",
+      "type": "plain"
+    },
+    {
+      "key": "missionText",
+      "label": "missionText",
+      "type": "plain"
+    },
+    {
+      "key": "fundingText",
+      "label": "fundingText",
+      "type": "plain"
+    },
+    {
+      "key": "hostLabel",
+      "label": "hostLabel",
+      "type": "plain"
+    },
+    {
+      "key": "hostText",
+      "label": "hostText",
+      "type": "plain"
+    },
+    {
+      "key": "hostUrl",
+      "label": "hostUrl",
+      "type": "url"
+    },
+    {
+      "key": "historyUrl",
+      "label": "historyUrl",
+      "type": "url"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Humboldt campus photograph",
+      "fields": [
+        {
+          "key": "hostImage",
+          "label": "Campus photograph",
+          "type": "image"
+        },
+        {
+          "key": "hostImageAlt",
+          "label": "Photo description",
+          "type": "plain"
+        },
+        {
+          "key": "hostImageCaption",
+          "label": "Photo caption",
+          "type": "plain"
+        },
+        {
+          "key": "hostPhotoSource",
+          "label": "Photo source",
+          "type": "url"
+        }
+      ]
+    }
+  ]
+}

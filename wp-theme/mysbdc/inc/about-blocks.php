@@ -1,0 +1,145 @@
+<?php
+/** Editable About page. No page content is changed by theme activation or deployment. @package MySBDC */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+function mysbdc_about_sections() {
+	return array( 'intro', 'advisors', 'network', 'region', 'story', 'next', 'purpose', 'possibility', 'opening', 'people', 'connections' );
+}
+function mysbdc_about_metadata( $section ) {
+	if ( ! in_array( $section, mysbdc_about_sections(), true ) ) { return array(); }
+	return json_decode( file_get_contents( get_theme_file_path( 'blocks/about-' . $section . '/block.json' ) ), true );
+}
+function mysbdc_about_attributes( $section, $supplied = array() ) {
+	$values = array();
+	foreach ( mysbdc_about_metadata( $section )['attributes'] as $name => $schema ) {
+		$values[ $name ] = isset( $supplied[ $name ] ) && is_string( $supplied[ $name ] ) ? $supplied[ $name ] : $schema['default'];
+	}
+	return $values;
+}
+function mysbdc_about_media( $url ) {
+	return str_starts_with( $url, '@theme/' ) ? mysbdc_asset( 'img/' . basename( $url ) ) : $url;
+}
+
+/** Initial pattern copy only; existing saved block defaults stay intact. */
+function mysbdc_about_study_copy( $section ) {
+	$copy = array(
+		'intro' => array(
+			'heading' => 'We’re here to help',
+			'description' => 'We’re Northern California’s Small Business Development Center network. Local advisors and specialists help you start, run and grow your business.',
+		),
+		'possibility' => array(
+			'heading' => '',
+			'introText' => 'Whether you’re opening your first shop or growing an established company, we help you work through the decisions ahead: planning, pricing, financing and reaching new customers.',
+			'contextText' => 'Our advising is confidential and offered at no fee, thanks to support from the SBA, CalOSBA and local partners. The network is hosted by Cal Poly Humboldt’s Sponsored Programs Foundation.',
+			'description' => 'When the pandemic interrupted their plans for an Oakland eatery, Hella Nuts founders Mieko and Kamari Scott shifted to online and wholesale sales.',
+			'supportText' => 'Their work with SBDC advisors on pricing, a business plan and a cash cushion helped them adapt.',
+			'quoteText' => 'Louise introduced us to critical connections, people who went out of their way to help us with every level of our business.',
+			'quoteAttribution' => 'Mieko Scott · Owner, Hella Nuts · Oakland',
+			'linkText' => 'Read the Hella Nuts story',
+			'linkUrl' => 'https://www.buttecollegesbdc.com/shared/client-stories/hella-nuts/',
+			'photo1Image' => 'https://www.norcalsbdc.org/wp-content/uploads/2021/02/Hella-Nuts1.jpeg',
+			'photo1Alt' => 'Mieko and Kamari Scott, founders of Hella Nuts',
+			'photo1Name' => 'Hella Nuts · Oakland',
+			'photo2Image' => 'https://www.norcalsbdc.org/wp-content/uploads/2021/02/chocolate-friends.jpg',
+			'photo2Alt' => 'Dick Taylor Craft Chocolate makers with their chocolate and a newspaper feature',
+			'photo2Name' => 'Dick Taylor Craft Chocolate · Eureka',
+			'photo3Name' => 'Jump Aero · First-response aviation',
+			'photo1Caption' => 'Mother, daughter, founders',
+			'photo2Caption' => 'Chocolate with character',
+			'photo3Caption' => 'A new way to reach people',
+		),
+		'advisors' => array(
+			'heading' => 'We’re your business people',
+			'line1' => 'Make a plan',
+			'line2' => 'Find your funding',
+			'line3' => 'Grow online',
+			'person1Caption' => 'Melanie Barnett · Food businesses, financial projections',
+			'person2Caption' => 'Paul Bozzo · Business plans, funding pitches',
+			'person3Caption' => 'Amandeep Singh · Ecommerce, web development',
+			'storyText' => 'From Crescent City to Santa Cruz, our local centers connect you with advisors who know your community. Support is available in multiple languages across 36 counties.',
+			'linkText' => 'Explore our advising programs',
+			'linkUrl' => 'https://www.norcalsbdc.org/services/',
+			'supportText' => 'Confidential advice at no fee',
+			'portraitCaption' => 'A few of our North Coast SBDC advisors',
+		),
+		'purpose' => array(
+			'hostImage' => 'https://live.staticflickr.com/65535/55506344631_ba89df0f9b_h.jpg',
+			'hostImageAlt' => 'Cal Poly Humboldt campus buildings and trees across College Creek Field',
+			'hostImageCaption' => 'College Creek Field · Cal Poly Humboldt',
+			'hostPhotoSource' => 'https://www.flickr.com/photos/calpolyhumboldtgalleries/55506344631/',
+			'eyebrow' => 'Local roots since 2006',
+			'heading' => "A national idea\nAt home in Humboldt",
+			'historyText' => 'The national SBDC network was established in law in 1980. Our NorCal story began in 2006, when Humboldt State University became host to a network serving 13 counties.',
+			'fundingText' => 'SBA, CalOSBA and local partner funding makes expert advising available at no fee to you.',
+			'missionText' => '',
+			'hostLabel' => 'Still at home in Humboldt',
+			'hostText' => 'Today, Cal Poly Humboldt’s Sponsored Programs Foundation hosts our network across 36 Northern California counties.',
+		),
+		'region' => array(
+			'heading' => 'Rooted here',
+			'description' => 'From Crescent City to Santa Cruz, our local centers connect you with advisors who know your community. Support is available in multiple languages across 36 counties.',
+		),
+	);
+	return $copy[ $section ] ?? array();
+}
+function mysbdc_about_block_content() {
+	$blocks = array();
+	foreach ( array( 'opening', 'people', 'connections' ) as $section ) {
+		$attrs = array_merge( mysbdc_about_attributes( $section ), mysbdc_about_study_copy( $section ) );
+		foreach ( $attrs as $key => $value ) {
+			if ( str_starts_with( $value, '@theme/' ) ) { $attrs[ $key ] = mysbdc_about_media( $value ); }
+		}
+		$blocks[] = array( 'blockName' => 'mysbdc/about-' . $section, 'attrs' => $attrs, 'innerBlocks' => array(), 'innerHTML' => '', 'innerContent' => array() );
+	}
+	return serialize_blocks( $blocks );
+}
+function mysbdc_register_about_blocks() {
+	wp_register_style( 'mysbdc-about', mysbdc_asset( 'css/about.css' ), array( 'mysbdc-refined' ), mysbdc_file_version( 'assets/css/about.css' ) );
+	wp_register_style( 'mysbdc-about-brand', mysbdc_asset( 'css/about-brand-study.css' ), array( 'mysbdc-about' ), mysbdc_file_version( 'assets/css/about-brand-study.css' ) );
+	$editor = array();
+	foreach ( mysbdc_about_sections() as $section ) {
+		$metadata = mysbdc_about_metadata( $section );
+		// Resolve bundled media for the editor; saved content always retains its own URL.
+		foreach ( $metadata['attributes'] as &$schema ) { $schema['default'] = mysbdc_about_media( $schema['default'] ); }
+		unset( $schema );
+		$editor[] = array( 'metadata' => $metadata, 'fields' => json_decode( file_get_contents( get_theme_file_path( 'blocks/about-' . $section . '/fields.json' ) ), true ) );
+		register_block_type( get_theme_file_path( 'blocks/about-' . $section ), array(
+			'attributes' => $metadata['attributes'],
+			'render_callback' => static function ( $attributes ) use ( $section ) {
+				ob_start();
+				get_template_part( 'template-parts/about/' . $section, null, array( 'attributes' => $attributes ) );
+				return ob_get_clean();
+			},
+		) );
+	}
+	wp_add_inline_script( 'mysbdc-home-blocks-editor', 'window.mysbdcHomeBlocks = (window.mysbdcHomeBlocks || []).concat(' . wp_json_encode( $editor, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ) . ');', 'before' );
+	register_block_pattern( 'mysbdc/about', array( 'title' => 'NorCal SBDC About page', 'categories' => array( 'mysbdc' ), 'description' => 'Three editable sections. Use with the About page template.', 'content' => mysbdc_about_block_content() ) );
+}
+add_action( 'init', 'mysbdc_register_about_blocks', 11 );
+
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	WP_CLI::add_command( 'mysbdc about create', static function () {
+		if ( 'demo.norcalsbdc.org' !== wp_parse_url( home_url(), PHP_URL_HOST ) ) { WP_CLI::error( 'This creation command is scoped to demo.norcalsbdc.org. Supply the explicit --url.' ); }
+		$existing = get_page_by_path( 'about' );
+		if ( $existing ) { WP_CLI::success( 'About already exists (' . $existing->ID . '); content and status preserved.' ); return; }
+		$id = wp_insert_post( wp_slash( array( 'post_type' => 'page', 'post_status' => 'draft', 'post_title' => 'About', 'post_name' => 'about', 'post_content' => mysbdc_about_block_content(), 'meta_input' => array( '_wp_page_template' => 'page-templates/about.php' ), 'comment_status' => 'closed', 'ping_status' => 'closed' ) ), true );
+		if ( is_wp_error( $id ) ) { WP_CLI::error( $id->get_error_message() ); }
+		WP_CLI::success( 'Created editable About draft ' . $id . '. Review and publish when ready.' );
+	} );
+	WP_CLI::add_command( 'mysbdc about check', static function () {
+		$blocks = array_values( array_filter( parse_blocks( mysbdc_about_block_content() ), static function ( $b ) { return null !== $b['blockName']; } ) );
+		if ( 3 !== count( $blocks ) ) { WP_CLI::error( 'Expected three sections.' ); }
+		foreach ( $blocks as $block ) {
+			if ( ! WP_Block_Type_Registry::get_instance()->is_registered( $block['blockName'] ) || false === strpos( render_block( $block ), '<section' ) ) { WP_CLI::error( 'Registration or rendering failed: ' . $block['blockName'] ); }
+			foreach ( $block['attrs'] as $key => $value ) {
+				$edited = $block;
+				$edited['attrs'][ $key ] = 'Edited value <script>alert(1)</script>';
+				$roundtrip = parse_blocks( serialize_block( $edited ) )[0];
+				if ( $roundtrip['attrs'][ $key ] !== $edited['attrs'][ $key ] || str_contains( render_block( $roundtrip ), '<script>' ) ) { WP_CLI::error( 'Persistence or escaping failed: ' . $key ); }
+			}
+		}
+		$blocks[2]['attrs']['linkUrl'] = 'javascript:alert(1)';
+		if ( str_contains( render_block( $blocks[2] ), 'javascript:' ) ) { WP_CLI::error( 'Unsafe URL escaped incorrectly.' ); }
+		WP_CLI::success( 'Three About blocks registered and rendered; all fields survive serialization; unsafe markup and URLs escaped.' );
+	} );
+}
