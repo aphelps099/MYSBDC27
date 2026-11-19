@@ -2,7 +2,17 @@
   "fields": [
     {
       "key": "heading",
-      "label": "heading",
+      "label": "Optional heading",
+      "type": "plain"
+    },
+    {
+      "key": "introText",
+      "label": "Introduction paragraph",
+      "type": "plain"
+    },
+    {
+      "key": "contextText",
+      "label": "Program background paragraph",
       "type": "plain"
     },
     {

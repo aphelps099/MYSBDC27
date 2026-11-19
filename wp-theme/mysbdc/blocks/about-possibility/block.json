@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "mysbdc/about-possibility",
-  "title": "About · Good ideas come from everywhere",
+  "title": "About · Business support",
   "category": "mysbdc",
   "icon": "admin-site-alt3",
   "description": "Editable About page section. Reorder sections and edit content while preserving the layout.",
@@ -74,6 +74,14 @@
     "photo3Name": {
       "type": "string",
       "default": "Jump Aero"
+    },
+    "introText": {
+      "type": "string",
+      "default": ""
+    },
+    "contextText": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {

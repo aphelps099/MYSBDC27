@@ -28,7 +28,9 @@ function mysbdc_about_study_copy( $section ) {
 			'description' => 'We’re Northern California’s Small Business Development Center network. Local advisors and specialists help you start, run and grow your business.',
 		),
 		'possibility' => array(
-			'heading' => "Good ideas\ncome from\neverywhere",
+			'heading' => '',
+			'introText' => 'Whether you’re opening your first shop or growing an established company, we help you work through the decisions ahead: planning, pricing, financing and reaching new customers.',
+			'contextText' => 'Our advising is confidential and offered at no fee, thanks to support from the SBA, CalOSBA and local partners. The network is hosted by Cal Poly Humboldt’s Sponsored Programs Foundation.',
 			'description' => 'When the pandemic interrupted their plans for an Oakland eatery, Hella Nuts founders Mieko and Kamari Scott shifted to online and wholesale sales.',
 			'supportText' => 'Their work with SBDC advisors on pricing, a business plan and a cash cushion helped them adapt.',
 			'linkText' => 'Read the Hella Nuts story',

@@ -145,10 +145,10 @@
 
 /* Documentary study: businesses, people, and the public purpose behind them. */
 .about-possibility { background:#fff; padding:100px 0 88px; }
-.about-possibility-heading h2 { display:grid; grid-template-columns:.34fr 1fr; gap:0 24px; max-width:none; font-size:clamp(70px,10.7vw,152px); font-weight:600; line-height:.94; letter-spacing:-.055em; text-wrap:nowrap; }
-.about-possibility-heading .about-heading-line:first-child { grid-column:1 / -1; }
-.about-possibility-heading .about-heading-line:nth-child(2) { align-self:center; justify-self:end; font-size:.32em; font-weight:400; letter-spacing:-.025em; padding-top:8px; }
-.about-possibility-heading .about-heading-line:nth-child(3) { padding-block:6px 14px; color:#174f91; }
+.about-possibility-heading h2 { max-width:28ch; margin:0 auto 28px; text-align:center; font-size:32px; font-weight:500; line-height:1.2; letter-spacing:-.025em; }
+.about-possibility-intro { max-width:720px; margin-inline:auto; text-align:center; }
+.about-possibility-intro p { font-size:24px; line-height:1.5; text-wrap:pretty; }
+.about-possibility-intro p+p { margin-top:24px; }
 .about-business-mosaic { display:grid; grid-template-columns:1.4fr 1fr .75fr; gap:28px; margin-top:52px; align-items:start; }
 .about-business-mosaic figure { margin:0; }
 .about-business-mosaic figure:nth-child(2) { margin-top:78px; }
@@ -217,11 +217,9 @@
 @media(max-width:700px) {
  .about-possibility,.about-people,.about-purpose { padding:60px 0; }
  .about-campus-layout { grid-template-columns:1fr; gap:32px; }
- .about-possibility-heading h2 { font-size:clamp(48px,15vw,92px); grid-template-columns:1fr; gap:6px; }
- .about-possibility-heading .about-heading-line:nth-child(2) { font-size:.33em; padding-top:0; justify-self:start; margin-left:12%; }
- .about-possibility-heading .about-heading-line:nth-child(3) { padding:0; justify-self:end; }
  .about-campus-photo img { height:390px; object-position:center 40%; }
  .about-campus-story { padding-top:0; }
+ .about-possibility-intro p { font-size:20px; line-height:1.5; }
  .about-business-mosaic { grid-template-columns:1fr 1fr; gap:28px 16px; margin-top:34px; }
  .about-business-mosaic figure:first-child { margin-top:0; grid-column:1 / -1; }
  .about-business-mosaic figure:nth-child(2) { margin-top:0; }
