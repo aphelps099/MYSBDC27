@@ -1,0 +1,30 @@
+{
+  "fields": [
+    {
+      "key": "eyebrow",
+      "label": "Section label",
+      "type": "plain"
+    },
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "rich"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "rich"
+    },
+    {
+      "key": "linkText",
+      "label": "Link text",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "Link destination",
+      "type": "url"
+    }
+  ],
+  "groups": []
+}

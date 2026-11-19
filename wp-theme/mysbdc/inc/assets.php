@@ -57,7 +57,7 @@ function mysbdc_enqueue_assets() {
 	}
 
 	mysbdc_enqueue_script( 'mysbdc-app', 'app.js' );
-	if ( in_array( $view, array( 'home', 'about' ), true ) ) {
+	if ( in_array( $view, array( 'home', 'about', 'impact' ), true ) ) {
 		mysbdc_enqueue_script( 'mysbdc-footer-reveal', 'footer-reveal.js' );
 	}
 
@@ -78,7 +78,14 @@ function mysbdc_enqueue_assets() {
 	}
 
 	if ( 'impact' === $view ) {
-		mysbdc_enqueue_style( 'mysbdc-impact', 'impact.css', array( 'mysbdc-refined' ) );
+		if ( mysbdc_has_impact_blocks() ) {
+			mysbdc_enqueue_style( 'mysbdc-home-design', 'home-design.css', array( 'mysbdc-theme' ) );
+			wp_enqueue_style( 'mysbdc-impact-study' );
+			mysbdc_enqueue_script( 'mysbdc-impact-stories', 'impact-study.js' );
+			mysbdc_enqueue_script( 'mysbdc-about-motion', 'about-motion.js' );
+		} else {
+			mysbdc_enqueue_style( 'mysbdc-impact', 'impact.css', array( 'mysbdc-refined' ) );
+		}
 	}
 
 	if ( 'atlas' === $view ) {

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/impact-feature",
+  "title": "Impact · Featured story",
+  "category": "mysbdc",
+  "icon": "chart-bar",
+  "description": "Editable section of the approved Impact page. Reorder whole sections while preserving their layout.",
+  "attributes": {
+    "storyUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/client-stories/jump-aero-raises-12m-to-build-the-worlds-fastest-first-response-aircraft/"
+    },
+    "photoLinkLabel": {
+      "type": "string",
+      "default": "Read the Jump Aero story"
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg"
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": "Jump Aero first-response aircraft pictured in flight above the clouds"
+    },
+    "category": {
+      "type": "string",
+      "default": "Technology"
+    },
+    "business": {
+      "type": "string",
+      "default": "Jump Aero"
+    },
+    "heading": {
+      "type": "string",
+      "default": "$12M raised<br/>A faster path<br/>to first flight"
+    },
+    "description": {
+      "type": "string",
+      "default": "For Jump Aero, the next step was a new direction: first-response aviation. Tech Futures Group helped the team refine its strategy and connect with investors."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Read the Jump Aero story"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-impact-study"
+}

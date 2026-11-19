@@ -1,0 +1,316 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "rich"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "rich"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Story 1",
+      "fields": [
+        {
+          "key": "story1Url",
+          "label": "Story destination",
+          "type": "url"
+        },
+        {
+          "key": "story1PhotoLabel",
+          "label": "Photo link accessible name",
+          "type": "plain"
+        },
+        {
+          "key": "story1Image",
+          "label": "Photo",
+          "type": "image"
+        },
+        {
+          "key": "story1Alt",
+          "label": "Photo description",
+          "type": "plain"
+        },
+        {
+          "key": "story1Category",
+          "label": "Category",
+          "type": "plain"
+        },
+        {
+          "key": "story1Name",
+          "label": "Business name",
+          "type": "plain"
+        },
+        {
+          "key": "story1Heading",
+          "label": "Headline",
+          "type": "rich"
+        },
+        {
+          "key": "story1Description",
+          "label": "Description",
+          "type": "plain"
+        },
+        {
+          "key": "story1LinkText",
+          "label": "Link text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Story 2",
+      "fields": [
+        {
+          "key": "story2Url",
+          "label": "Story destination",
+          "type": "url"
+        },
+        {
+          "key": "story2PhotoLabel",
+          "label": "Photo link accessible name",
+          "type": "plain"
+        },
+        {
+          "key": "story2Image",
+          "label": "Photo",
+          "type": "image"
+        },
+        {
+          "key": "story2Alt",
+          "label": "Photo description",
+          "type": "plain"
+        },
+        {
+          "key": "story2Category",
+          "label": "Category",
+          "type": "plain"
+        },
+        {
+          "key": "story2Name",
+          "label": "Business name",
+          "type": "plain"
+        },
+        {
+          "key": "story2Heading",
+          "label": "Headline",
+          "type": "rich"
+        },
+        {
+          "key": "story2Description",
+          "label": "Description",
+          "type": "plain"
+        },
+        {
+          "key": "story2LinkText",
+          "label": "Link text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Story 3",
+      "fields": [
+        {
+          "key": "story3Url",
+          "label": "Story destination",
+          "type": "url"
+        },
+        {
+          "key": "story3PhotoLabel",
+          "label": "Photo link accessible name",
+          "type": "plain"
+        },
+        {
+          "key": "story3Image",
+          "label": "Photo",
+          "type": "image"
+        },
+        {
+          "key": "story3Alt",
+          "label": "Photo description",
+          "type": "plain"
+        },
+        {
+          "key": "story3Category",
+          "label": "Category",
+          "type": "plain"
+        },
+        {
+          "key": "story3Name",
+          "label": "Business name",
+          "type": "plain"
+        },
+        {
+          "key": "story3Heading",
+          "label": "Headline",
+          "type": "rich"
+        },
+        {
+          "key": "story3Description",
+          "label": "Description",
+          "type": "plain"
+        },
+        {
+          "key": "story3LinkText",
+          "label": "Link text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Story 4",
+      "fields": [
+        {
+          "key": "story4Url",
+          "label": "Story destination",
+          "type": "url"
+        },
+        {
+          "key": "story4PhotoLabel",
+          "label": "Photo link accessible name",
+          "type": "plain"
+        },
+        {
+          "key": "story4Image",
+          "label": "Photo",
+          "type": "image"
+        },
+        {
+          "key": "story4Alt",
+          "label": "Photo description",
+          "type": "plain"
+        },
+        {
+          "key": "story4Category",
+          "label": "Category",
+          "type": "plain"
+        },
+        {
+          "key": "story4Name",
+          "label": "Business name",
+          "type": "plain"
+        },
+        {
+          "key": "story4Heading",
+          "label": "Headline",
+          "type": "rich"
+        },
+        {
+          "key": "story4Description",
+          "label": "Description",
+          "type": "plain"
+        },
+        {
+          "key": "story4LinkText",
+          "label": "Link text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Story 5",
+      "fields": [
+        {
+          "key": "story5Url",
+          "label": "Story destination",
+          "type": "url"
+        },
+        {
+          "key": "story5PhotoLabel",
+          "label": "Photo link accessible name",
+          "type": "plain"
+        },
+        {
+          "key": "story5Image",
+          "label": "Photo",
+          "type": "image"
+        },
+        {
+          "key": "story5Alt",
+          "label": "Photo description",
+          "type": "plain"
+        },
+        {
+          "key": "story5Category",
+          "label": "Category",
+          "type": "plain"
+        },
+        {
+          "key": "story5Name",
+          "label": "Business name",
+          "type": "plain"
+        },
+        {
+          "key": "story5Heading",
+          "label": "Headline",
+          "type": "rich"
+        },
+        {
+          "key": "story5Description",
+          "label": "Description",
+          "type": "plain"
+        },
+        {
+          "key": "story5LinkText",
+          "label": "Link text",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Story 6",
+      "fields": [
+        {
+          "key": "story6Url",
+          "label": "Story destination",
+          "type": "url"
+        },
+        {
+          "key": "story6PhotoLabel",
+          "label": "Photo link accessible name",
+          "type": "plain"
+        },
+        {
+          "key": "story6Image",
+          "label": "Photo",
+          "type": "image"
+        },
+        {
+          "key": "story6Alt",
+          "label": "Photo description",
+          "type": "plain"
+        },
+        {
+          "key": "story6Category",
+          "label": "Category",
+          "type": "plain"
+        },
+        {
+          "key": "story6Name",
+          "label": "Business name",
+          "type": "plain"
+        },
+        {
+          "key": "story6Heading",
+          "label": "Headline",
+          "type": "rich"
+        },
+        {
+          "key": "story6Description",
+          "label": "Description",
+          "type": "plain"
+        },
+        {
+          "key": "story6LinkText",
+          "label": "Link text",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}

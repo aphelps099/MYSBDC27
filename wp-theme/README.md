@@ -310,3 +310,15 @@ use `wp --path=/sites/norcalsbdc --url=https://demo.norcalsbdc.org mysbdc about 
 or insert the NorCal SBDC About page pattern into a new page and choose the About
 template. Existing pages are preserved by the creation command. Publishing is a
 separate, intentional action. `mysbdc about check` validates the initial pattern.
+
+## Impact page
+
+The approved Impact composition uses four native dynamic blocks: `mysbdc/impact-intro`,
+`mysbdc/impact-feature`, `mysbdc/impact-stories`, and `mysbdc/impact-results`. Insert the
+NorCal SBDC Impact page pattern into a page using the Impact template. Copy, photos,
+links, categories, and result values are editable; section layouts remain structured.
+The six-story collection initially shows four, with accessible disclosure for two more.
+The source assets are `homepage-preview/impact-study.css` and `impact-study.js`; run
+`wp-theme/sync-assets.sh` after edits. The aligned static study is `impact-study.html`.
+The template renders saved content, with the old layout retained only for empty legacy
+pages. Deployment never creates pages or replaces editorial content.
