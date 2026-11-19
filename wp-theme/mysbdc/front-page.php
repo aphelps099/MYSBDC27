@@ -13,8 +13,16 @@ get_header();
 ?>
 <main id="main" tabindex="-1">
 <?php
-foreach ( array( 'hero', 'help', 'testimonial', 'impact-statement', 'results', 'stories', 'newsletter' ) as $mysbdc_section ) {
-	get_template_part( 'template-parts/home/' . $mysbdc_section );
+if ( is_page() ) {
+	while ( have_posts() ) {
+		the_post();
+		the_content();
+	}
+} else {
+	// Preserve the approved page until the explicit Gutenberg migration is run.
+	foreach ( mysbdc_home_sections() as $mysbdc_section ) {
+		get_template_part( 'template-parts/home/' . $mysbdc_section );
+	}
 }
 ?>
 </main>

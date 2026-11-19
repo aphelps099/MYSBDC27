@@ -1,0 +1,98 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/help",
+  "title": "Next move · three cards",
+  "category": "mysbdc",
+  "icon": "screenoptions",
+  "description": "Editable NorCal SBDC homepage section. Change content here; the published layout retains its approved styling.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "What’s your next move?"
+    },
+    "intro": {
+      "type": "string",
+      "default": "Practical support for the decisions<br/>in front of you."
+    },
+    "card1Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/potpantry.jpg"
+    },
+    "card1Alt": {
+      "type": "string",
+      "default": "Small business owner at Pot + Pantry"
+    },
+    "card1Title": {
+      "type": "string",
+      "default": "Start your business."
+    },
+    "card1Description": {
+      "type": "string",
+      "default": "Turn your idea into a plan. Work through the numbers, the decisions, and what comes next."
+    },
+    "card1LinkText": {
+      "type": "string",
+      "default": "Build your plan"
+    },
+    "card1Url": {
+      "type": "string",
+      "default": "https://demo.norcalsbdc.org/get-started/"
+    },
+    "card2Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg"
+    },
+    "card2Alt": {
+      "type": "string",
+      "default": "Jump Aero aircraft in flight"
+    },
+    "card2Title": {
+      "type": "string",
+      "default": "Fund your next move."
+    },
+    "card2Description": {
+      "type": "string",
+      "default": "Understand your options, strengthen your financial story, and prepare to meet lenders or investors."
+    },
+    "card2LinkText": {
+      "type": "string",
+      "default": "Explore capital support"
+    },
+    "card2Url": {
+      "type": "string",
+      "default": "https://demo.norcalsbdc.org/get-started/?program=capital"
+    },
+    "card3Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/humble-sea.jpg"
+    },
+    "card3Alt": {
+      "type": "string",
+      "default": "Humble Sea business team"
+    },
+    "card3Title": {
+      "type": "string",
+      "default": "Grow with confidence."
+    },
+    "card3Description": {
+      "type": "string",
+      "default": "Find fresh perspective on sales, operations, and the opportunities ahead—with people who know your business."
+    },
+    "card3LinkText": {
+      "type": "string",
+      "default": "Find your next step"
+    },
+    "card3Url": {
+      "type": "string",
+      "default": "https://demo.norcalsbdc.org/get-started/"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor"
+}

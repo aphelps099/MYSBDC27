@@ -1,0 +1,142 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "rich",
+      "tag": "h2"
+    },
+    {
+      "key": "allLabel",
+      "label": "All stories link label",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "allUrl",
+      "label": "All stories destination",
+      "type": "url",
+      "tag": "p"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Story 1",
+      "fields": [
+        {
+          "key": "story1Image",
+          "label": "Image",
+          "type": "image",
+          "tag": "p"
+        },
+        {
+          "key": "story1Alt",
+          "label": "Image description",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story1Category",
+          "label": "Category tag",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story1Name",
+          "label": "Business name",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story1Value",
+          "label": "Result",
+          "type": "plain",
+          "tag": "h3"
+        },
+        {
+          "key": "story1Unit",
+          "label": "Result description",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story1Headline",
+          "label": "Story headline",
+          "type": "rich",
+          "tag": "h3"
+        },
+        {
+          "key": "story1LinkText",
+          "label": "Link label",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story1Url",
+          "label": "Story destination",
+          "type": "url",
+          "tag": "p"
+        }
+      ]
+    },
+    {
+      "title": "Story 2",
+      "fields": [
+        {
+          "key": "story2Image",
+          "label": "Image",
+          "type": "image",
+          "tag": "p"
+        },
+        {
+          "key": "story2Alt",
+          "label": "Image description",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story2Category",
+          "label": "Category tag",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story2Name",
+          "label": "Business name",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story2Value",
+          "label": "Result",
+          "type": "plain",
+          "tag": "h3"
+        },
+        {
+          "key": "story2Unit",
+          "label": "Result description",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story2Headline",
+          "label": "Story headline",
+          "type": "rich",
+          "tag": "h3"
+        },
+        {
+          "key": "story2LinkText",
+          "label": "Link label",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "story2Url",
+          "label": "Story destination",
+          "type": "url",
+          "tag": "p"
+        }
+      ]
+    }
+  ]
+}

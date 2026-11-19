@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "rich",
+      "tag": "h2"
+    },
+    {
+      "key": "description",
+      "label": "Introduction",
+      "type": "rich",
+      "tag": "p"
+    },
+    {
+      "key": "buttonText",
+      "label": "Button label",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "buttonUrl",
+      "label": "Button destination",
+      "type": "url",
+      "tag": "p"
+    }
+  ],
+  "groups": []
+}

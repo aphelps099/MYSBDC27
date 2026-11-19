@@ -1,0 +1,47 @@
+{
+  "fields": [
+    {
+      "key": "quote",
+      "label": "Client quote",
+      "type": "rich",
+      "tag": "h2"
+    },
+    {
+      "key": "clientName",
+      "label": "Client name",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "attribution",
+      "label": "Business and location",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "linkText",
+      "label": "Story link label",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "storyUrl",
+      "label": "Story destination",
+      "type": "url",
+      "tag": "p"
+    },
+    {
+      "key": "imageUrl",
+      "label": "Client portrait",
+      "type": "image",
+      "tag": "p"
+    },
+    {
+      "key": "imageAlt",
+      "label": "Portrait description",
+      "type": "plain",
+      "tag": "p"
+    }
+  ],
+  "groups": []
+}

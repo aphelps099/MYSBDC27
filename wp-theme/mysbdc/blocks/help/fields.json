@@ -1,0 +1,141 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "rich",
+      "tag": "h2"
+    },
+    {
+      "key": "intro",
+      "label": "Introduction",
+      "type": "rich",
+      "tag": "p"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Card 1",
+      "fields": [
+        {
+          "key": "card1Image",
+          "label": "Image",
+          "type": "image",
+          "tag": "p"
+        },
+        {
+          "key": "card1Alt",
+          "label": "Image description",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "card1Title",
+          "label": "Title",
+          "type": "rich",
+          "tag": "h3"
+        },
+        {
+          "key": "card1Description",
+          "label": "Description",
+          "type": "rich",
+          "tag": "p"
+        },
+        {
+          "key": "card1LinkText",
+          "label": "Link label",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "card1Url",
+          "label": "Link destination",
+          "type": "url",
+          "tag": "p"
+        }
+      ]
+    },
+    {
+      "title": "Card 2",
+      "fields": [
+        {
+          "key": "card2Image",
+          "label": "Image",
+          "type": "image",
+          "tag": "p"
+        },
+        {
+          "key": "card2Alt",
+          "label": "Image description",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "card2Title",
+          "label": "Title",
+          "type": "rich",
+          "tag": "h3"
+        },
+        {
+          "key": "card2Description",
+          "label": "Description",
+          "type": "rich",
+          "tag": "p"
+        },
+        {
+          "key": "card2LinkText",
+          "label": "Link label",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "card2Url",
+          "label": "Link destination",
+          "type": "url",
+          "tag": "p"
+        }
+      ]
+    },
+    {
+      "title": "Card 3",
+      "fields": [
+        {
+          "key": "card3Image",
+          "label": "Image",
+          "type": "image",
+          "tag": "p"
+        },
+        {
+          "key": "card3Alt",
+          "label": "Image description",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "card3Title",
+          "label": "Title",
+          "type": "rich",
+          "tag": "h3"
+        },
+        {
+          "key": "card3Description",
+          "label": "Description",
+          "type": "rich",
+          "tag": "p"
+        },
+        {
+          "key": "card3LinkText",
+          "label": "Link label",
+          "type": "plain",
+          "tag": "p"
+        },
+        {
+          "key": "card3Url",
+          "label": "Link destination",
+          "type": "url",
+          "tag": "p"
+        }
+      ]
+    }
+  ]
+}

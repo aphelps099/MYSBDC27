@@ -344,12 +344,10 @@ html{scroll-padding-top:80px}
 @media(max-width:600px){.video-hero-preview .network-footer h2{font-size:44px}.video-hero-preview .nf-signature{font-size:13.8vw}}
 
 /* Social links: small brand marks with generous keyboard and touch targets. */
-.nf-socials{display:flex;align-items:center;gap:8px;margin-top:7px;margin-left:-10px}
-.nf-socials a{display:grid;place-items:center;width:44px;height:44px;color:#f6f1e6;transition:color 220ms ease,transform 220ms ease}
+.nf-socials{display:flex;align-items:center;gap:0;margin-top:5px;margin-left:-9px}
+.nf-socials a{display:grid;place-items:center;width:40px;height:44px;color:#f6f1e6;transition:color 220ms ease,transform 220ms ease}
 .nf-socials svg{display:block;width:21px;height:21px}
 .nf-socials a:hover{color:#a8cedc;transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){.nf-socials a{transition:none}.nf-socials a:hover{transform:none}}
 
-.nf-socials .nf-review{display:inline-flex;gap:7px;width:auto;padding:0 12px;margin-left:4px;background:rgba(168,206,220,.1);border-radius:3px;font-size:13px;font-weight:600;white-space:nowrap}
-.nf-socials .nf-review svg{width:17px;height:17px}
-.nf-socials .nf-review:hover{background:rgba(168,206,220,.18);transform:none}
+.nf-google-mark{font-family:Arial,sans-serif;font-size:23px;font-weight:700;line-height:1}

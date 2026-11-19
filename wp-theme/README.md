@@ -118,3 +118,38 @@ other plugins, and browsers other than Chromium.
 
 After adding or renaming a pattern file, raise `Version` in `style.css`; WordPress caches the
 pattern list per theme version.
+
+## Editable homepage
+
+The approved homepage is now available as seven native Gutenberg section blocks in
+**NorCal SBDC sections**: Video hero, Next move, Client testimonial, Network impact,
+Impact results, Success stories, and SBDC Intel. These are custom blocks supplied by
+this theme; no separate page-builder plugin is required.
+
+- Open **Pages → Home → Edit**. Click the text to edit it directly.
+- Use **List View** to select and reorder whole sections.
+- Select a section and use **Block → Links and media** for URLs, alt text, video,
+  and poster settings. Images also have a **Change image** control.
+- Preview, then **Save/Update**. WordPress stores the block content and revisions.
+- The three service cards, two stories, and four results have fixed internal layouts.
+  You can change their content without changing spacing, colors, or animation code.
+- Header and footer remain shared theme elements, outside the Home page's blocks.
+- The newsletter remains a non-submitting demo; editing its text does not connect a
+  mailing list. Its disclosure stays visible.
+
+The full layout is also available as the **NorCal SBDC homepage** block pattern.
+Its intended destination is the site's front page, whose template loads the homepage
+styles and scripts. Blocks depend on the MySBDC theme remaining active.
+
+Deployment does not automatically write page content. Run these explicit WP-CLI
+commands once after deploying the block definitions:
+
+```sh
+wp mysbdc homepage check
+wp mysbdc homepage migrate
+```
+
+Migration creates a published Home page, snapshots all approved content into its block
+attributes, and selects it under Settings → Reading. It saves the prior reading settings
+in `mysbdc_home_migration_backup`. Re-running it preserves existing edits. The page ID
+is stored in `mysbdc_editable_home_id`. Future deployments must not reseed page content.

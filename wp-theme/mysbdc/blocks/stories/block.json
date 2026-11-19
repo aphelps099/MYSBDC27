@@ -1,0 +1,102 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/stories",
+  "title": "Success stories",
+  "category": "mysbdc",
+  "icon": "format-gallery",
+  "description": "Editable NorCal SBDC homepage section. Change content here; the published layout retains its approved styling.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Real businesses.<br/>Lasting progress."
+    },
+    "allLabel": {
+      "type": "string",
+      "default": "Meet our clients"
+    },
+    "allUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/about/clients/"
+    },
+    "story1Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg"
+    },
+    "story1Alt": {
+      "type": "string",
+      "default": "Jump Aero first-response aircraft in flight"
+    },
+    "story1Category": {
+      "type": "string",
+      "default": "Technology"
+    },
+    "story1Name": {
+      "type": "string",
+      "default": "Jump Aero"
+    },
+    "story1Value": {
+      "type": "string",
+      "default": "$12M"
+    },
+    "story1Unit": {
+      "type": "string",
+      "default": "raised"
+    },
+    "story1Headline": {
+      "type": "string",
+      "default": "A faster path to first flight."
+    },
+    "story1LinkText": {
+      "type": "string",
+      "default": "Read story"
+    },
+    "story1Url": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/client-stories/jump-aero-raises-12m-to-build-the-worlds-fastest-first-response-aircraft/"
+    },
+    "story2Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/sites/9/2024/07/2024-Client-Success-Story-Yarrow-Goods-Owners.jpeg"
+    },
+    "story2Alt": {
+      "type": "string",
+      "default": "The owners of Yarrow Goods with one of their products"
+    },
+    "story2Category": {
+      "type": "string",
+      "default": "Ecommerce"
+    },
+    "story2Name": {
+      "type": "string",
+      "default": "Yarrow Goods"
+    },
+    "story2Value": {
+      "type": "string",
+      "default": "$138K"
+    },
+    "story2Unit": {
+      "type": "string",
+      "default": "raised"
+    },
+    "story2Headline": {
+      "type": "string",
+      "default": "Sales up 20%."
+    },
+    "story2LinkText": {
+      "type": "string",
+      "default": "Read story"
+    },
+    "story2Url": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor"
+}

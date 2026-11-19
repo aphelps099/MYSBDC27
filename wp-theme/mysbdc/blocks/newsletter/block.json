@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/newsletter",
+  "title": "SBDC Intel newsletter",
+  "category": "mysbdc",
+  "icon": "email-alt",
+  "description": "Editable NorCal SBDC homepage section. Change content here; the published layout retains its approved styling.",
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "SBDC Intel"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Stay a step<br/>ahead."
+    },
+    "promise": {
+      "type": "string",
+      "default": "Fresh perspective for your business."
+    },
+    "description": {
+      "type": "string",
+      "default": "Discover useful workshops, funding opportunities, and practical ideas to help you move forward."
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Your email address"
+    },
+    "placeholder": {
+      "type": "string",
+      "default": "you@yourbusiness.com"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Sign me up"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor"
+}

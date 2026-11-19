@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/results",
+  "title": "Impact results",
+  "category": "mysbdc",
+  "icon": "chart-bar",
+  "description": "Editable NorCal SBDC homepage section. Change content here; the published layout retains its approved styling.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Progress for a business.<br/>Possibility for a community."
+    },
+    "intro": {
+      "type": "string",
+      "default": "When a business owner gets the right support, the possibilities reach beyond their business: a new job, a stronger local economy, a next chapter close to home."
+    },
+    "context": {
+      "type": "string",
+      "default": "These results reflect the work of Northern California entrepreneurs, with SBDC alongside them."
+    },
+    "period": {
+      "type": "string",
+      "default": "FY2025"
+    },
+    "label": {
+      "type": "string",
+      "default": "NORTHERN CALIFORNIA CLIENT RESULTS"
+    },
+    "stat1Value": {
+      "type": "string",
+      "default": "$549M"
+    },
+    "stat1Label": {
+      "type": "string",
+      "default": "Capital accessed"
+    },
+    "stat2Value": {
+      "type": "string",
+      "default": "712"
+    },
+    "stat2Label": {
+      "type": "string",
+      "default": "Businesses started"
+    },
+    "stat3Value": {
+      "type": "string",
+      "default": "3,723"
+    },
+    "stat3Label": {
+      "type": "string",
+      "default": "Jobs created"
+    },
+    "stat4Value": {
+      "type": "string",
+      "default": "$201M"
+    },
+    "stat4Label": {
+      "type": "string",
+      "default": "Sales growth"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor"
+}

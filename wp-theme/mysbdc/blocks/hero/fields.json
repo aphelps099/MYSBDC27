@@ -1,0 +1,47 @@
+{
+  "fields": [
+    {
+      "key": "headline",
+      "label": "Headline",
+      "type": "rich",
+      "tag": "h2"
+    },
+    {
+      "key": "description",
+      "label": "Introduction",
+      "type": "rich",
+      "tag": "p"
+    },
+    {
+      "key": "buttonText",
+      "label": "Button label",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "buttonUrl",
+      "label": "Button destination",
+      "type": "url",
+      "tag": "p"
+    },
+    {
+      "key": "note",
+      "label": "Supporting note",
+      "type": "rich",
+      "tag": "p"
+    },
+    {
+      "key": "videoUrl",
+      "label": "Background video",
+      "type": "video",
+      "tag": "p"
+    },
+    {
+      "key": "posterUrl",
+      "label": "Video poster image",
+      "type": "image",
+      "tag": "p"
+    }
+  ],
+  "groups": []
+}

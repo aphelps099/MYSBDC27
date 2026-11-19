@@ -1,0 +1,104 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "rich",
+      "tag": "h2"
+    },
+    {
+      "key": "intro",
+      "label": "Introduction",
+      "type": "rich",
+      "tag": "p"
+    },
+    {
+      "key": "context",
+      "label": "Supporting copy",
+      "type": "rich",
+      "tag": "p"
+    },
+    {
+      "key": "period",
+      "label": "Reporting period",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "label",
+      "label": "Results label",
+      "type": "plain",
+      "tag": "p"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Result 1",
+      "fields": [
+        {
+          "key": "stat1Value",
+          "label": "Value",
+          "type": "plain",
+          "tag": "h3"
+        },
+        {
+          "key": "stat1Label",
+          "label": "Label",
+          "type": "plain",
+          "tag": "p"
+        }
+      ]
+    },
+    {
+      "title": "Result 2",
+      "fields": [
+        {
+          "key": "stat2Value",
+          "label": "Value",
+          "type": "plain",
+          "tag": "h3"
+        },
+        {
+          "key": "stat2Label",
+          "label": "Label",
+          "type": "plain",
+          "tag": "p"
+        }
+      ]
+    },
+    {
+      "title": "Result 3",
+      "fields": [
+        {
+          "key": "stat3Value",
+          "label": "Value",
+          "type": "plain",
+          "tag": "h3"
+        },
+        {
+          "key": "stat3Label",
+          "label": "Label",
+          "type": "plain",
+          "tag": "p"
+        }
+      ]
+    },
+    {
+      "title": "Result 4",
+      "fields": [
+        {
+          "key": "stat4Value",
+          "label": "Value",
+          "type": "plain",
+          "tag": "h3"
+        },
+        {
+          "key": "stat4Label",
+          "label": "Label",
+          "type": "plain",
+          "tag": "p"
+        }
+      ]
+    }
+  ]
+}

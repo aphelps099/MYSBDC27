@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/hero",
+  "title": "Video hero",
+  "category": "mysbdc",
+  "icon": "cover-image",
+  "description": "Editable NorCal SBDC homepage section. Change content here; the published layout retains its approved styling.",
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "default": "Helping NorCal<br/><em>businesses grow.</em>"
+    },
+    "description": {
+      "type": "string",
+      "default": "No-fee advising, capital expertise, and local connections for the business you’re building."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Find your advisor"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "https://demo.norcalsbdc.org/get-started/"
+    },
+    "note": {
+      "type": "string",
+      "default": "No-fee advising. Confidential. Built around you."
+    },
+    "videoUrl": {
+      "type": "string",
+      "default": "https://www.californiasbdc.org/wp-content/uploads/sites/34/2022/11/CAsbdc.mp4"
+    },
+    "posterUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/sites/13/2026/02/Laila-Pic-1200x1181.png"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor"
+}

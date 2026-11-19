@@ -1,0 +1,47 @@
+{
+  "fields": [
+    {
+      "key": "name",
+      "label": "Newsletter name",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "rich",
+      "tag": "h2"
+    },
+    {
+      "key": "promise",
+      "label": "Lead sentence",
+      "type": "rich",
+      "tag": "p"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "rich",
+      "tag": "p"
+    },
+    {
+      "key": "emailLabel",
+      "label": "Email field label",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "placeholder",
+      "label": "Email placeholder",
+      "type": "plain",
+      "tag": "p"
+    },
+    {
+      "key": "buttonText",
+      "label": "Button label",
+      "type": "plain",
+      "tag": "p"
+    }
+  ],
+  "groups": []
+}
