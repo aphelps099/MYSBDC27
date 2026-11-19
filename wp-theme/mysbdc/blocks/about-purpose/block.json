@@ -50,6 +50,22 @@
     "linkUrl": {
       "type": "string",
       "default": "https://www.norcalsbdc.org/services/"
+    },
+    "hostImage": {
+      "type": "string",
+      "default": "https://www.humboldt.edu/sites/default/files/international-programs/2024-11/hsuaerial.jpg"
+    },
+    "hostImageAlt": {
+      "type": "string",
+      "default": "Cal Poly Humboldt campus with Arcata and Humboldt Bay beyond"
+    },
+    "hostImageCaption": {
+      "type": "string",
+      "default": "Cal Poly Humboldt · Arcata, California"
+    },
+    "hostPhotoSource": {
+      "type": "string",
+      "default": "https://www.humboldt.edu/international-students/admitted-students/im-admitted-now-what"
     }
   },
   "supports": {

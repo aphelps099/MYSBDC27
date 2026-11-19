@@ -23,19 +23,38 @@ function mysbdc_about_media( $url ) {
 /** Initial pattern copy only; existing saved block defaults stay intact. */
 function mysbdc_about_study_copy( $section ) {
 	$copy = array(
+		'intro' => array(
+			'heading' => 'We’re here to help',
+			'description' => 'NorCal SBDC empowers entrepreneurs on their journey with advising, training and capital that lead to prosperous local communities.',
+		),
+		'possibility' => array(
+			'heading' => "Good ideas\ncome from\neverywhere",
+			'description' => 'From the neighborhood gym to the next way we fly, ambition takes all kinds of shapes in Northern California.',
+			'supportText' => 'Business advising, training and connections to capital help turn that ambition into a next step.',
+			'photo1Caption' => 'In the neighborhood',
+			'photo2Caption' => 'Out in the field',
+			'photo3Caption' => 'Up in the air',
+		),
 		'advisors' => array(
-			'storyText' => 'Someone to think it through with. Someone who’s done it before. Together, we’ll work out what comes next.',
-			'supportText' => 'Confidential conversations. Practical advice. No fee.',
+			'heading' => 'We’re your business people',
+			'line1' => 'Big questions',
+			'line2' => 'Fresh perspectives',
+			'line3' => 'Your next chapter',
+			'storyText' => 'Bring your big idea, your next challenge or the question that keeps you up at night. We’ll work through it together.',
+			'supportText' => 'Confidential advice at no fee',
 			'portraitCaption' => 'Meet Melanie, Paul & Amandeep · North Coast SBDC',
 		),
 		'purpose' => array(
-			'eyebrow' => 'A national idea. A local commitment.',
-			'heading' => "A public investment.\nA personal difference.",
-			'historyText' => 'In 1980, the national SBDC network was established in law to bring government, universities, and business expertise together for small businesses.',
-			'fundingText' => 'Today, support from the SBA, CalOSBA, and local partners makes our no-fee advising possible.',
-			'missionText' => 'The idea is simple: give people building a business someone to turn to.',
-			'hostLabel' => 'At home at Cal Poly Humboldt.',
-			'hostText' => 'Our network is hosted by Cal Poly Humboldt’s Sponsored Programs Foundation. A public university, helping local ambition take root.',
+			'eyebrow' => 'Public support, personal possibility',
+			'heading' => "A national idea\nAt home in Humboldt",
+			'historyText' => 'In 1980, the national SBDC network was established in law to connect small businesses with the expertise of government, universities and business.',
+			'fundingText' => 'Support from the SBA, CalOSBA and local partners makes our no-fee advising possible today.',
+			'missionText' => '',
+			'hostLabel' => 'Our home base',
+			'hostText' => 'Cal Poly Humboldt’s Sponsored Programs Foundation hosts the Northern California SBDC network, connecting a public university with the people building our local economy.',
+		),
+		'region' => array(
+			'heading' => 'Rooted here',
 		),
 	);
 	return $copy[ $section ] ?? array();

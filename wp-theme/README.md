@@ -257,3 +257,19 @@ serifs were rejected. Current study uses Proxima Nova for its photographic capti
 advisor phrases, and purpose headline. Advisor photos use CSS grayscale with a muted
 blue overlay; original photographs remain intact. The approved shared footer's Sera
 heading is unchanged.
+
+### Bolder rhythm and campus feature
+
+The next local iteration changes the possibility heading to a three-part typographic
+sequence and varies image scale more strongly. Advisor portraits now use grayscale
+with blue/coral duotone treatments. Decorative terminal periods are removed from
+About headings/captions; body sentences retain normal punctuation. About copy uses no
+em dashes. Shared footer copy is unchanged.
+
+The purpose section now pairs its history and funding story with an editable campus
+photograph, replacing the in-section Humboldt logo. Photo and source attribution:
+https://www.humboldt.edu/international-students/admitted-students/im-admitted-now-what
+(original aerial photo: `/sites/default/files/international-programs/2024-11/hsuaerial.jpg`).
+Four new purpose attributes expose the image, alt text, caption, and source URL.
+Footer partner logos remain intact. Previous local content is backed up in
+`mysbdc_about_before_bold_study`; deployment still never modifies saved content.
