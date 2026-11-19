@@ -9,7 +9,7 @@
   "attributes": {
     "heading": {
       "type": "string",
-      "default": "A well-connected, high-impact network."
+      "default": "Local expertise. Regional reach."
     },
     "description": {
       "type": "string",
