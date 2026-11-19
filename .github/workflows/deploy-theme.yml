@@ -45,10 +45,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      # A pasted value can carry a stray space or line break, which breaks the connection.
+      - name: Read the environment name
+        id: env
+        env:
+          RAW: ${{ vars.WPE_ENV }}
+        run: echo "name=$(printf '%s' "$RAW" | tr -d '[:space:]')" >> "$GITHUB_OUTPUT"
       - uses: wpengine/github-action-wpe-site-deploy@v4
         with:
           WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
-          WPE_ENV: ${{ vars.WPE_ENV }}
+          WPE_ENV: ${{ steps.env.outputs.name }}
           # Only the theme folder is touched. --delete removes theme files that
           # were removed from the repository; nothing outside this folder changes.
           SRC_PATH: "wp-theme/mysbdc/"
