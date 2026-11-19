@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-network",
+  "title": "About · Network impact",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable About page section. Reorder sections and edit content while preserving the layout.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "A well-connected, high-impact network."
+    },
+    "description": {
+      "type": "string",
+      "default": "Local expertise. A wider circle of support. Capital that helps businesses move forward."
+    },
+    "note": {
+      "type": "string",
+      "default": "No fee to you, thanks to our partners — SBA, CalOSBA and a dedicated network of hosts."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Meet our partners"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/partnerships/"
+    },
+    "reportingNote": {
+      "type": "string",
+      "default": "Draft figures supplied for design review. Reporting periods and sources to be confirmed before launch."
+    },
+    "stat1Value": {
+      "type": "string",
+      "default": "$1.56B"
+    },
+    "stat1Label": {
+      "type": "string",
+      "default": "Capital unlocked"
+    },
+    "stat1Copy": {
+      "type": "string",
+      "default": "Loans and equity for SBDC clients across Northern California."
+    },
+    "stat2Value": {
+      "type": "string",
+      "default": "111K"
+    },
+    "stat2Label": {
+      "type": "string",
+      "default": "Local jobs supported"
+    },
+    "stat2Copy": {
+      "type": "string",
+      "default": "Businesses creating opportunity in their communities."
+    },
+    "stat3Value": {
+      "type": "string",
+      "default": "99%"
+    },
+    "stat3Label": {
+      "type": "string",
+      "default": "Client satisfaction"
+    },
+    "stat3Copy": {
+      "type": "string",
+      "default": "We measure our success by yours."
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about"
+}

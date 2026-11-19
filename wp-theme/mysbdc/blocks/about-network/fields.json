@@ -1,0 +1,97 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "plain",
+      "tag": "h2"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "plain"
+    },
+    {
+      "key": "note",
+      "label": "Note",
+      "type": "plain"
+    },
+    {
+      "key": "linkText",
+      "label": "Link text",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "Link url",
+      "type": "url"
+    },
+    {
+      "key": "reportingNote",
+      "label": "Reporting note",
+      "type": "plain"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Capital unlocked",
+      "fields": [
+        {
+          "key": "stat1Value",
+          "label": "Stat1 value",
+          "type": "plain"
+        },
+        {
+          "key": "stat1Label",
+          "label": "Stat1 label",
+          "type": "plain"
+        },
+        {
+          "key": "stat1Copy",
+          "label": "Stat1 copy",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Local jobs supported",
+      "fields": [
+        {
+          "key": "stat2Value",
+          "label": "Stat2 value",
+          "type": "plain"
+        },
+        {
+          "key": "stat2Label",
+          "label": "Stat2 label",
+          "type": "plain"
+        },
+        {
+          "key": "stat2Copy",
+          "label": "Stat2 copy",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Client satisfaction",
+      "fields": [
+        {
+          "key": "stat3Value",
+          "label": "Stat3 value",
+          "type": "plain"
+        },
+        {
+          "key": "stat3Label",
+          "label": "Stat3 label",
+          "type": "plain"
+        },
+        {
+          "key": "stat3Copy",
+          "label": "Stat3 copy",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}

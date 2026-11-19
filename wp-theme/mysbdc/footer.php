@@ -21,7 +21,7 @@ if ( ! empty( $args['minimal'] ) ) :
 	return;
 endif;
 
-if ( is_front_page() ) {
+if ( is_front_page() || 'about' === mysbdc_view() ) {
 	get_template_part( 'template-parts/home/footer' );
 	wp_footer();
 	echo '</body></html>';

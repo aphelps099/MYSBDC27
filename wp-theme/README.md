@@ -153,3 +153,40 @@ Migration creates a published Home page, snapshots all approved content into its
 attributes, and selects it under Settings → Reading. It saves the prior reading settings
 in `mysbdc_home_migration_backup`. Re-running it preserves existing edits. The page ID
 is stored in `mysbdc_editable_home_id`. Future deployments must not reseed page content.
+
+## Editable About page (November 2026)
+
+The **About** page template renders saved Gutenberg content using six new sections:
+`mysbdc/about-intro`, `about-advisors`, `about-network`, `about-region`, `about-story`,
+and `about-next`. Insert the **NorCal SBDC About page** pattern, then select the
+**About** template. The existing homepage block names and defaults are unchanged.
+
+Text, images, alt text, links, and figures are editable with the existing section
+editor. Whole sections can be reordered. The shared approved footer and navy inner-page
+header remain outside the content. Default navigation links use the local About page
+once published; until then they retain the existing public About destination.
+
+- Source styles: `homepage-preview/about.css`; run `wp-theme/sync-assets.sh` after editing.
+- Matching static review: `homepage-preview/about.html`.
+- Block metadata and fields: `mysbdc/blocks/about-*/`.
+- Rendering: `mysbdc/template-parts/about/`; registration: `mysbdc/inc/about-blocks.php`.
+- Two landscape images are bundled from the supplied draft; client photography retains
+  its supplied public URLs and natural color.
+
+The supplied draft's impact and regional figures are retained for editorial review,
+not independently verified. The network section includes an editable reporting note.
+Confirm sources and reporting periods before public launch, then edit the note as
+appropriate. Laila's testimonial uses the approved homepage quote instead of the
+sample draft's different quotation. The final CTA uses the public enrollment URL.
+
+Theme deployment never creates or overwrites a page. After normal PR deployment:
+
+```sh
+wp --path=/sites/norcalsbdc --url=https://demo.norcalsbdc.org mysbdc about check
+wp --path=/sites/norcalsbdc --url=https://demo.norcalsbdc.org mysbdc about create
+```
+
+`create` is explicitly restricted to the demo host, creates a **draft**, and preserves
+any existing page at the About slug. It does not change reading settings or Home content.
+Review the draft in WordPress before publishing. `check` verifies registration, rendering,
+attribute serialization, and output escaping without changing saved pages.

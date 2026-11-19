@@ -90,7 +90,7 @@ function mysbdc_default_menu( $location ) {
 		'footer-network' => array(
 			array( 'label' => __( 'Stories', 'mysbdc' ), 'url' => mysbdc_home_anchor( 'stories' ) ),
 			array( 'label' => __( 'Success Atlas', 'mysbdc' ), 'url' => mysbdc_page_url( 'atlas' ) ),
-			array( 'label' => __( 'About', 'mysbdc' ), 'url' => 'https://www.norcalsbdc.org/about/', 'external' => true ),
+			array( 'label' => __( 'About', 'mysbdc' ), 'url' => mysbdc_page_url( 'about' ) ),
 			array( 'label' => __( 'Become a partner', 'mysbdc' ), 'url' => 'https://www.norcalsbdc.org/partnerships/', 'external' => true ),
 		),
 	);

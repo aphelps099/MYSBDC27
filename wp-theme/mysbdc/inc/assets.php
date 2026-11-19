@@ -64,6 +64,11 @@ function mysbdc_enqueue_assets() {
 		return;
 	}
 
+	if ( 'about' === $view ) {
+		mysbdc_enqueue_style( 'mysbdc-home-design', 'home-design.css', array( 'mysbdc-theme' ) );
+		wp_enqueue_style( 'mysbdc-about' );
+	}
+
 	if ( 'impact' === $view ) {
 		mysbdc_enqueue_style( 'mysbdc-impact', 'impact.css', array( 'mysbdc-refined' ) );
 	}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-next",
+  "title": "About · Your next step",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable About page section. Reorder sections and edit content while preserving the layout.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "A dream with a plan is a business."
+    },
+    "description": {
+      "type": "string",
+      "default": "Bring your idea, your questions, or your next challenge. Let’s work on what comes next."
+    },
+    "note": {
+      "type": "string",
+      "default": "Confidential advising. No fee."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Dream with us"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/join/"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about"
+}

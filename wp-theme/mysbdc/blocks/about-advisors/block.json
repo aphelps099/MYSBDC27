@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-advisors",
+  "title": "About · Your business people",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable About page section. Reorder sections and edit content while preserving the layout.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "We’re your business people."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Meet your advisor"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/find-your-sbdc/"
+    },
+    "point1Title": {
+      "type": "string",
+      "default": "Experience you can lean on."
+    },
+    "point1Copy": {
+      "type": "string",
+      "default": "Advisors who have run restaurants, raised rounds, won contracts and managed payroll through hard seasons."
+    },
+    "point2Title": {
+      "type": "string",
+      "default": "A specialist for every turn."
+    },
+    "point2Copy": {
+      "type": "string",
+      "default": "Finance, marketing, food and hospitality, tech commercialization, government contracting and veteran programs."
+    },
+    "point3Title": {
+      "type": "string",
+      "default": "In your language."
+    },
+    "point3Copy": {
+      "type": "string",
+      "default": "Business support in multiple languages, with local advisors who understand your community."
+    },
+    "point4Title": {
+      "type": "string",
+      "default": "Confidential, always."
+    },
+    "point4Copy": {
+      "type": "string",
+      "default": "Private conversations, no fee, and nothing to sell you."
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about"
+}

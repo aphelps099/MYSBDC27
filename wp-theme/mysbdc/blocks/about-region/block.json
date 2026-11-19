@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-region",
+  "title": "About · Northern California",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable About page section. Reorder sections and edit content while preserving the layout.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Local to a place like no other."
+    },
+    "description": {
+      "type": "string",
+      "default": "From the Shasta Cascades to the Pacific, the High Sierra to the Golden Gate — this is where we live, work and help businesses grow."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Find your local SBDC"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/find-your-sbdc/"
+    },
+    "stat1Value": {
+      "type": "string",
+      "default": "36"
+    },
+    "stat1Label": {
+      "type": "string",
+      "default": "Counties we serve"
+    },
+    "stat1Copy": {
+      "type": "string",
+      "default": "Local knowledge, connected across Northern California."
+    },
+    "stat2Value": {
+      "type": "string",
+      "default": "15M"
+    },
+    "stat2Label": {
+      "type": "string",
+      "default": "People who live here"
+    },
+    "stat2Copy": {
+      "type": "string",
+      "default": "Small businesses are part of everyday life in this extraordinary region."
+    },
+    "stat3Value": {
+      "type": "string",
+      "default": "21"
+    },
+    "stat3Label": {
+      "type": "string",
+      "default": "Languages we advise in"
+    },
+    "stat3Copy": {
+      "type": "string",
+      "default": "English, Spanish, Vietnamese, Korean, Cantonese, Mandarin, Farsi, Tagalog and more."
+    },
+    "photo1Image": {
+      "type": "string",
+      "default": "@theme/about-golden-gate.webp"
+    },
+    "photo1Alt": {
+      "type": "string",
+      "default": "The Golden Gate Bridge in fog"
+    },
+    "photo2Image": {
+      "type": "string",
+      "default": "@theme/about-redwoods-coast.webp"
+    },
+    "photo2Alt": {
+      "type": "string",
+      "default": "Redwoods along the Northern California coast"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about"
+}

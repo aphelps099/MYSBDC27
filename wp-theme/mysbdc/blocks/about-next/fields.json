@@ -1,0 +1,31 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "plain",
+      "tag": "h2"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "plain"
+    },
+    {
+      "key": "note",
+      "label": "Note",
+      "type": "plain"
+    },
+    {
+      "key": "linkText",
+      "label": "Link text",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "Link url",
+      "type": "url"
+    }
+  ],
+  "groups": []
+}

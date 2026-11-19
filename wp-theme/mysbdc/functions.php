@@ -19,3 +19,5 @@ require get_theme_file_path( 'inc/nav.php' );
 require get_theme_file_path( 'inc/customizer.php' );
 
 require get_theme_file_path( 'inc/home-blocks.php' );
+
+require get_theme_file_path( 'inc/about-blocks.php' );
