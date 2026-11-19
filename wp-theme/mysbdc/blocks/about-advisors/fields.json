@@ -3,82 +3,92 @@
     {
       "key": "heading",
       "label": "Heading",
-      "type": "plain",
-      "tag": "h2"
+      "type": "plain"
+    },
+    {
+      "key": "storyText",
+      "label": "Personal introduction",
+      "type": "plain"
+    },
+    {
+      "key": "supportText",
+      "label": "Supporting text",
+      "type": "plain"
     },
     {
       "key": "linkText",
-      "label": "Link text",
+      "label": "Button label",
       "type": "plain"
     },
     {
       "key": "linkUrl",
-      "label": "Link url",
+      "label": "Button destination",
       "type": "url"
+    },
+    {
+      "key": "portraitCaption",
+      "label": "Portrait caption",
+      "type": "plain"
     }
   ],
   "groups": [
     {
-      "title": "Experience you can lean on.",
+      "title": "Melanie Barnett",
       "fields": [
         {
-          "key": "point1Title",
-          "label": "Point1 title",
-          "type": "plain",
-          "tag": "h3"
+          "key": "person1Image",
+          "label": "Portrait",
+          "type": "image"
         },
         {
-          "key": "point1Copy",
-          "label": "Point1 copy",
+          "key": "person1Alt",
+          "label": "Portrait name and description",
           "type": "plain"
+        },
+        {
+          "key": "person1Url",
+          "label": "Advisor biography",
+          "type": "url"
         }
       ]
     },
     {
-      "title": "A specialist for every turn.",
+      "title": "Paul Bozzo",
       "fields": [
         {
-          "key": "point2Title",
-          "label": "Point2 title",
-          "type": "plain",
-          "tag": "h3"
+          "key": "person2Image",
+          "label": "Portrait",
+          "type": "image"
         },
         {
-          "key": "point2Copy",
-          "label": "Point2 copy",
+          "key": "person2Alt",
+          "label": "Portrait name and description",
           "type": "plain"
+        },
+        {
+          "key": "person2Url",
+          "label": "Advisor biography",
+          "type": "url"
         }
       ]
     },
     {
-      "title": "In your language.",
+      "title": "Amandeep Singh",
       "fields": [
         {
-          "key": "point3Title",
-          "label": "Point3 title",
-          "type": "plain",
-          "tag": "h3"
+          "key": "person3Image",
+          "label": "Portrait",
+          "type": "image"
         },
         {
-          "key": "point3Copy",
-          "label": "Point3 copy",
+          "key": "person3Alt",
+          "label": "Portrait name and description",
           "type": "plain"
-        }
-      ]
-    },
-    {
-      "title": "Confidential, always.",
-      "fields": [
-        {
-          "key": "point4Title",
-          "label": "Point4 title",
-          "type": "plain",
-          "tag": "h3"
         },
         {
-          "key": "point4Copy",
-          "label": "Point4 copy",
-          "type": "plain"
+          "key": "person3Url",
+          "label": "Advisor biography",
+          "type": "url"
         }
       ]
     }

@@ -50,6 +50,54 @@
     "point4Copy": {
       "type": "string",
       "default": "Private conversations, no fee, and nothing to sell you."
+    },
+    "storyText": {
+      "type": "string",
+      "default": "A sounding board for the big decisions. A fresh pair of eyes when you’re too close to it. Someone who knows your business is personal."
+    },
+    "supportText": {
+      "type": "string",
+      "default": "Bring your questions. We’ll help you work through what comes next — with practical experience, honest conversations, and no fee."
+    },
+    "portraitCaption": {
+      "type": "string",
+      "default": "A few of your business people · North Coast SBDC"
+    },
+    "person1Image": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/wp-content/uploads/sites/12/2021/05/melanie-barnett-768x768.jpg"
+    },
+    "person1Alt": {
+      "type": "string",
+      "default": "Melanie Barnett, Business Advisor at North Coast SBDC"
+    },
+    "person1Url": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/team-members/melanie-barnett/"
+    },
+    "person2Image": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/wp-content/uploads/sites/12/2023/11/Paul-Bozzo-Headshot-768x1152.jpg"
+    },
+    "person2Alt": {
+      "type": "string",
+      "default": "Paul Bozzo, Business Advisor at North Coast SBDC"
+    },
+    "person2Url": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/team-members/paul-bozzo/"
+    },
+    "person3Image": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/wp-content/uploads/sites/12/2025/04/amandeep-singh-1-768x768.jpg"
+    },
+    "person3Alt": {
+      "type": "string",
+      "default": "Amandeep Singh, Business Advisor at North Coast SBDC"
+    },
+    "person3Url": {
+      "type": "string",
+      "default": "https://www.northcoastsbdc.org/team-members/amandeep-singh/"
     }
   },
   "supports": {

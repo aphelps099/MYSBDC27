@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/about-purpose",
+  "title": "About · A shared purpose",
+  "category": "mysbdc",
+  "icon": "admin-site-alt3",
+  "description": "Editable About page section. Reorder sections and edit content while preserving the layout.",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "An idea worth investing in."
+    },
+    "heading": {
+      "type": "string",
+      "default": "Small business.\nShared possibility."
+    },
+    "historyText": {
+      "type": "string",
+      "default": "In 1980, the national SBDC network was established in law around a simple idea: bring the resources of government, universities, and business together to help small businesses succeed."
+    },
+    "missionText": {
+      "type": "string",
+      "default": "Here in Northern California, that idea serves a region shaped by innovation — from neighborhood shops and food businesses to manufacturers and technology founders. Our specialized advising programs help entrepreneurs find the expertise their next step calls for."
+    },
+    "fundingText": {
+      "type": "string",
+      "default": "Support from the U.S. Small Business Administration, CalOSBA, and local partners makes our no-fee advising possible. It’s a public investment in the people building our communities."
+    },
+    "hostLabel": {
+      "type": "string",
+      "default": "Proudly hosted by Cal Poly Humboldt"
+    },
+    "hostText": {
+      "type": "string",
+      "default": "Through its Sponsored Programs Foundation, Cal Poly Humboldt is home to the Northern California SBDC network — connecting the resources of a public university with the ambitions of local businesses."
+    },
+    "hostUrl": {
+      "type": "string",
+      "default": "https://www.humboldt.edu/"
+    },
+    "historyUrl": {
+      "type": "string",
+      "default": "https://americassbdc.org/about-us/history/"
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Explore our advising programs"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/services/"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-about"
+}

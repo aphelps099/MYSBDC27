@@ -207,3 +207,26 @@ fixed-height spacer, scroll interception, or hiding legal content. `footer-revea
 enables it only when the panel fits comfortably in the viewport and reduced motion
 is off. Without JavaScript, in print, with reduced motion, or on short screens, the
 funding panel scrolls normally. Its actual height is observed as images/fonts load.
+
+### Personal storytelling study (latest)
+
+The About pattern now includes **intro → advisors → purpose → region**. The advisor
+section uses upright Proxima Sera, a personal introduction and three linked real
+North Coast SBDC portraits. `about-purpose` is a new editable block for the national
+program history, funding partnership, breadth of advising and Humboldt host tribute.
+Existing advisor attribute keys remain registered; the editor exposes its new narrative
+and portrait fields instead of the former 2×2 points.
+
+Source checks, November 19, 2026:
+- https://americassbdc.org/about-us/history/ — national network enacted in law in 1980;
+  earlier pilot began in 1976. Copy does not claim NorCal was founded in 1980.
+- https://www.norcalsbdc.org/about/ — SBA/CalOSBA funding and Cal Poly Humboldt Sponsored
+  Programs Foundation hosting; regional advising services.
+- https://www.northcoastsbdc.org/team/ — Melanie Barnett, Paul Bozzo, Amandeep Singh;
+  portraits link to their individual biographies and identify them in image alt text.
+
+`homepage-preview/about-motion.js` measures natural text lines after fonts load and
+animates each entering line once (75% to full opacity, 6px rise, 800ms). Original text
+remains a single screen-reader passage; duplicate visual lines are aria-hidden. Width
+changes remeasure; reduced motion restores static text and cancels animations. No-JS
+and print remain readable. Synced to theme with the other preview assets.

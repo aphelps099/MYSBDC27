@@ -1,0 +1,60 @@
+{
+  "fields": [
+    {
+      "key": "eyebrow",
+      "label": "eyebrow",
+      "type": "plain"
+    },
+    {
+      "key": "heading",
+      "label": "heading",
+      "type": "plain"
+    },
+    {
+      "key": "historyText",
+      "label": "historyText",
+      "type": "plain"
+    },
+    {
+      "key": "missionText",
+      "label": "missionText",
+      "type": "plain"
+    },
+    {
+      "key": "fundingText",
+      "label": "fundingText",
+      "type": "plain"
+    },
+    {
+      "key": "hostLabel",
+      "label": "hostLabel",
+      "type": "plain"
+    },
+    {
+      "key": "hostText",
+      "label": "hostText",
+      "type": "plain"
+    },
+    {
+      "key": "hostUrl",
+      "label": "hostUrl",
+      "type": "url"
+    },
+    {
+      "key": "historyUrl",
+      "label": "historyUrl",
+      "type": "url"
+    },
+    {
+      "key": "linkText",
+      "label": "linkText",
+      "type": "plain"
+    },
+    {
+      "key": "linkUrl",
+      "label": "linkUrl",
+      "type": "url"
+    }
+  ],
+  "groups": []
+}

@@ -70,6 +70,7 @@ function mysbdc_enqueue_assets() {
 	if ( 'about' === $view ) {
 		mysbdc_enqueue_style( 'mysbdc-home-design', 'home-design.css', array( 'mysbdc-theme' ) );
 		wp_enqueue_style( 'mysbdc-about' );
+		mysbdc_enqueue_script( 'mysbdc-about-motion', 'about-motion.js' );
 	}
 
 	if ( 'impact' === $view ) {
