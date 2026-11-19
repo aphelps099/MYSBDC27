@@ -1,0 +1,338 @@
+/* Success Atlas — the public map of shared milestones. Page-scoped; loaded only by atlas.html.
+   Third version. A white page; the four totals are the MySBDC dashboard's milestone tiles
+   (handoff/DESIGN.md); the page is cream and the map is a window onto sea, neighbouring land and the
+   white service area; berry is kept for the story
+   marks and the rule under each story photograph. No gradients or shadows on surfaces. Logic: ATLAS.md. */
+
+.atlas-page{
+  /* Mark colours: deeper relatives of the tiles beside the map (sand, sage, navy, pool).
+     Validated together for colour-blind separation and 3:1 contrast on the county colour;
+     change them as a set. */
+  --atlas-funding:#A97C1F; --atlas-sales:#397247; --atlas-started:#243B50; --atlas-hired:#2E8CAD;
+  --atlas-story:var(--berry);
+  --atlas-land:#fdfdfd; --atlas-land-hover:#e6f0f4; --atlas-land-line:#e2ddd1;
+  /* The surroundings: sea, two pale bands of shallows along the shore, and neighbouring land. */
+  --atlas-sea:#d6e7ee; --atlas-shallows:#dfedf2; --atlas-shore:#e9f3f6; --atlas-context:#ebe7dd; --atlas-context-line:#dcd7ca;
+  --ink:#0f1c2d; --ink-2:#384252; --ink-3:#596270;
+  --navy-surface:#243B50; --on-navy:#F5F1E8; --on-navy-muted:#BECCD5; --on-navy-accent:#AFD2DF;
+  --radius:6px; --atlas-pin:3.5px;
+  /* The page ground is cream; the map sits on the one lighter panel. */
+  --atlas-ground:var(--cream); --atlas-panel:var(--atlas-sea);
+  background:var(--atlas-ground);
+}
+.atlas-page .site-header{background:var(--atlas-ground)}
+.atlas-page .header-inner{border:0}
+/* A quieter header for this page: a smaller logo, one compact row, lighter links, a smaller button. */
+.atlas-page .header-inner{min-height:76px;gap:24px}
+.atlas-page .brand img{width:144px;height:auto}
+.atlas-page .primary-nav{gap:30px}
+.atlas-page .primary-nav a:not(.button),.atlas-page .header-actions .login{font-size:.9375rem;font-weight:500;color:var(--ink-2)}
+.atlas-page .primary-nav a:not(.button):hover,.atlas-page .header-actions .login:hover{color:var(--ink);text-decoration:none}
+.atlas-page .primary-nav [aria-current=page]{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:1.5px}
+.atlas-page .header-actions{gap:22px}
+.atlas-page .header-actions .button-small{min-height:40px;padding:8px 18px;font-size:.9375rem}
+.atlas-page .menu-toggle{font-size:.9375rem;font-weight:600}
+.atlas-page main{color:var(--ink)}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.atlas-sprite{position:absolute}
+.atlas-label{font-size:.8125rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.4;color:var(--ink-3)}
+.atlas-link{display:inline-flex;align-items:center;min-height:44px;padding:0;border:0;background:none;color:var(--ink);font-size:1rem;font-weight:700;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px;cursor:pointer}
+.atlas-link:hover{text-decoration-thickness:2px}
+
+/* One composition: words and the four tiles on the left, the map on the right. */
+.atlas-hero{padding:0;overflow-x:clip}
+/* The map takes up to 60% of the width. On a short screen its height is the limit, and the split
+   settles near half and half. The words and tiles take whatever the map leaves. */
+.atlas-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px clamp(40px,5vw,80px);align-items:stretch}
+.atlas-lede{padding:42px 0 72px}
+.atlas-lede h1 em{font-style:italic;letter-spacing:-.03em}
+.atlas-lede h1{margin-top:20px;font:400 clamp(2.4rem,3.6vw,3.6rem)/1.05 var(--sera);letter-spacing:-.035em;text-wrap:balance}
+.atlas-intro{max-width:27em;margin-top:18px;font-size:1.125rem;color:var(--ink-2);text-wrap:pretty}
+
+/* The four totals: the dashboard's milestone tiles. Each is also a legend entry and a filter. */
+.atlas-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:36px 0 0;padding:0;list-style:none}
+.atlas-tile{--field:#A9CFDD;--tile-ink:var(--ink);--tile-soft:var(--ink-2);display:flex;flex-direction:column;align-items:flex-start;width:100%;position:relative;min-height:clamp(150px,20vh,200px);padding:20px 24px 22px;border:0;border-radius:var(--radius);background:var(--field);color:var(--tile-ink);text-align:left;transition:opacity .2s}
+.atlas-tile.is-funding{--field:#E8D5A5;--tile-ink:#493A20;--tile-soft:#5d4b2b}
+.atlas-tile.is-sales{--field:#CDDCD0;--tile-ink:#174B40;--tile-soft:#245548}
+.atlas-tile.is-started{--field:var(--navy-surface);--tile-ink:var(--on-navy);--tile-soft:var(--on-navy-muted)}
+.atlas-tile.is-started .pictogram{color:var(--on-navy-accent)}
+.atlas-tile .pictogram{width:42px;height:42px;flex:none;transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.atlas-tile:is(:hover,:focus-visible) .pictogram{transform:translateY(-3px)}
+.atlas-tile strong{margin-top:auto;padding-top:14px;font:400 clamp(2.4rem,3.7vw,3.6rem)/1 var(--sera);letter-spacing:-.035em}
+.atlas-tile span{margin-top:8px;font-size:1.0625rem;font-weight:500;color:var(--tile-soft)}
+.atlas-tile[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--tile-ink)}
+.atlas-tile.is-started[aria-pressed=true]{box-shadow:inset 0 0 0 3px var(--on-navy-accent)}
+.atlas-tiles.solo .atlas-tile[aria-pressed=false]{opacity:.38}
+.atlas-tiles.solo .atlas-tile[aria-pressed=false]:hover{opacity:.8}
+.atlas-tile:focus-visible{outline-offset:3px}
+.pictogram{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.pictogram .icon-tone,.atlas-sprite .icon-tone{fill:currentColor;fill-opacity:.14;stroke:none}
+
+.atlas-latest{display:flex;align-items:baseline;gap:16px;margin-top:26px}
+.atlas-latest-line{display:block;min-width:0;font-size:1rem;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.atlas-latest-line strong{font-weight:600;color:var(--ink)}
+.atlas-swatch{display:inline-block;width:9px;height:9px;margin-right:10px;border-radius:50%;background:var(--c);translate:0 -1px}
+
+/* The map's field runs the full height of the section and bleeds off the right edge of the browser. It is
+   a window onto a real map: the field is the sea, the neighbouring land sits on it, and the 36 counties
+   are the white service area. Flat tones only. About half the shell wide, and never taller than the window. */
+.atlas-map{--map-ratio:.7406;--map-pad:28px;position:relative;display:grid;align-content:start;gap:8px;overflow:hidden;width:calc(max(380px,min(calc((100vw - 112px) * .5),720px,calc((100vh - 170px) * var(--map-ratio) + var(--map-pad) * 2))) + var(--edge));max-width:none;margin-right:calc(var(--edge) * -1);padding:36px calc(var(--map-pad) + var(--edge) / 2) 44px;background:var(--atlas-panel)}
+.atlas-map>:not(.atlas-svg){position:relative;z-index:1}
+.atlas-map-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;pointer-events:none}
+.atlas-map-top>*{pointer-events:auto}
+.atlas-scope select{max-width:100%;min-height:44px;padding:0 30px 0 0;border:0;border-radius:2px;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%230f1c2d' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m1 1.5 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 2px center;color:var(--ink);font:400 clamp(1.25rem,1.7vw,1.5rem)/1.2 var(--sera);letter-spacing:-.02em;appearance:none;cursor:pointer}
+.atlas-scope select:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.atlas-scope option{font:400 1rem var(--nova)}
+.atlas-scope-sub{font-size:.9375rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.atlas-present-off{display:none}
+.atlas-map-top .atlas-link{flex:none;font-size:.9375rem;font-weight:500;color:var(--ink-2)}
+
+.atlas-stage{position:relative;width:100%;aspect-ratio:808/1091;pointer-events:none}
+/* The SVG fills the whole field, behind the controls. The stage above is only the frame the region is fitted to. */
+.atlas-svg{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:hidden;touch-action:manipulation}
+.atlas-shore{fill:none;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.atlas-shore.outer{stroke:var(--atlas-shallows);stroke-width:30px}
+.atlas-shore.inner{stroke:var(--atlas-shore);stroke-width:12px}
+.atlas-shore.line{stroke:#b3cfdb;stroke-width:2.5px}
+.atlas-context-land{fill:var(--atlas-context);stroke:var(--atlas-context);stroke-width:.75px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.atlas-context-lines{fill:none;stroke:var(--atlas-context-line);stroke-width:1px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+/* The lift: the service area's shape again, offset down and right in flat ink, under the counties.
+   A hard-edged plate, not a blurred shadow. It keeps its size on screen at any zoom. */
+.atlas-lift{fill:#0f1c2d;fill-opacity:.15;pointer-events:none;transform:translate(calc(var(--u,1) * 5px),calc(var(--u,1) * 6px))}
+.atlas-ping{fill:none;stroke-width:1.75px;vector-effect:non-scaling-stroke;pointer-events:none;opacity:0}
+.atlas-ping.t0{stroke:var(--atlas-hired)}.atlas-ping.t1{stroke:var(--atlas-started)}.atlas-ping.t2{stroke:var(--atlas-funding)}.atlas-ping.t3{stroke:var(--atlas-sales)}
+.atlas-geo{pointer-events:none}
+.atlas-geo.sea{font:italic 400 calc(15px * var(--u,1))/1 var(--sera);letter-spacing:.2em;fill:#86aebd}
+.atlas-geo.land{font:600 calc(10.5px * var(--u,1))/1 var(--nova);letter-spacing:.22em;text-transform:uppercase;fill:#a19c8f}
+.atlas-geo.water{font:italic 400 calc(11.5px * var(--u,1))/1 var(--sera);letter-spacing:.03em;fill:#6f9aab}
+.atlas-scoped .atlas-geo.water{display:none}
+/* Map furniture: a north mark and a scale bar, in the sea at the lower left of the frame. */
+.atlas-furniture{position:absolute;left:0;bottom:8px;display:flex;align-items:flex-end;gap:16px;color:#5d8697;font-size:.6875rem;font-weight:700;letter-spacing:.08em;line-height:1}
+.atlas-north{display:grid;justify-items:center;gap:4px}
+.atlas-north::before{content:"";border:4.5px solid transparent;border-top:0;border-bottom:9px solid currentColor}
+.atlas-scale{display:grid;gap:5px}
+.atlas-scale i{display:block;height:5px;border:1.5px solid currentColor;border-top:0}
+.atlas-scale span{font-weight:600;letter-spacing:.04em}
+.atlas-county{fill:var(--atlas-land);stroke:var(--atlas-land-line);stroke-width:1.25px;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s}
+.atlas-county:hover{fill:var(--atlas-land-hover)}
+.atlas-scoped .atlas-county:not(.on){fill:var(--atlas-context);stroke:var(--atlas-context-line)}
+.atlas-scoped .atlas-county:not(.on):hover{fill:#f3f0e8}
+.atlas-places text{font:500 calc(12px * var(--u,1))/1 var(--nova);fill:var(--ink-2);paint-order:stroke;stroke:var(--atlas-land);stroke-width:3.5px;vector-effect:non-scaling-stroke;stroke-linejoin:round;pointer-events:none}
+.atlas-scoped .atlas-places,.atlas-has-mine .atlas-places .home{display:none}
+
+/* A mark is a zero-length rounded stroke, so it keeps its size on screen at any zoom. */
+.atlas-pin{fill:none;stroke-linecap:round;stroke-width:var(--atlas-pin);vector-effect:non-scaling-stroke;stroke-opacity:.85;pointer-events:none}
+.atlas-pin.t0{stroke:var(--atlas-hired)}.atlas-pin.t1{stroke:var(--atlas-started)}.atlas-pin.t2{stroke:var(--atlas-funding)}.atlas-pin.t3{stroke:var(--atlas-sales)}
+.atlas-pin.off{display:none}
+.atlas-pin.dim{stroke-opacity:.1}
+.atlas-scoped{--atlas-pin:7.5px}
+
+/* Ringed marks: the page's berry accent. A bullseye is a success story; a plain ring is a testimony. */
+.atlas-story{cursor:pointer;outline:none}
+.atlas-story path{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke;transition:stroke-width .18s,stroke-opacity .18s}
+.atlas-story .hit{stroke:#000;stroke-opacity:0;stroke-width:34px}
+.atlas-story .glow{stroke:var(--atlas-story);stroke-opacity:0;stroke-width:36px}
+.atlas-story .ring{stroke:var(--atlas-story);stroke-width:16px}
+.atlas-story .gap{stroke:var(--paper);stroke-width:10.5px}
+.atlas-story .core{stroke:var(--atlas-story);stroke-width:4.5px}
+.atlas-story.is-voice .ring{stroke-width:13px}
+.atlas-story.is-voice .gap{stroke-width:8.5px}
+.atlas-story:is(:hover,.lit,.open) .ring{stroke-width:19px}
+.atlas-story:is(:hover,.lit,.open) .gap{stroke-width:12.5px}
+.atlas-story.is-voice:is(:hover,.lit,.open) .ring{stroke-width:16px}
+.atlas-story.is-voice:is(:hover,.lit,.open) .gap{stroke-width:10.5px}
+.atlas-story:is(.lit,.open) .glow{stroke-opacity:.15}
+.atlas-story:focus-visible .glow{stroke:var(--cobalt);stroke-opacity:.9;stroke-width:27px}
+.atlas-story.far{opacity:.3}
+
+.atlas-mine path{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke;pointer-events:none}
+.atlas-mine .halo{stroke:var(--c);stroke-width:34px;stroke-opacity:.14}
+.atlas-mine .ring{stroke:var(--c);stroke-width:15px}
+.atlas-mine .core{stroke:var(--c);stroke-width:9px}
+.atlas-mine .ripple{stroke:var(--c);stroke-width:12px;stroke-opacity:0}
+.atlas-mine text{font:700 calc(13px * var(--u,1))/1 var(--nova);fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:4px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+
+.atlas-tip{position:absolute;z-index:3;left:0;top:0;max-width:260px;padding:9px 13px;border-radius:var(--radius);background:var(--navy-surface);color:var(--on-navy);font-size:.9375rem;line-height:1.35;pointer-events:none;translate:-50% calc(-100% - 16px)}
+.atlas-tip strong{display:block;font-weight:700}
+
+/* One story or testimony at a time, on a solid pool plate (the dashboard's one emphasis device). */
+.atlas-tip,.atlas-pop{pointer-events:auto}
+.atlas-pop{position:absolute;z-index:2;left:0;top:0;width:288px;max-width:calc(100% - 16px);padding:18px 20px 16px;border-radius:var(--radius);background:var(--paper);box-shadow:8px 8px 0 var(--pool)}
+.atlas-pop-photo{position:relative;aspect-ratio:16/9;margin:-18px -20px 16px;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;border-bottom:4px solid var(--berry);background:#f2ede2}
+.atlas-pop-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--zoom,1))}
+.atlas-pop-title{font:400 1.25rem/1.24 var(--sera);letter-spacing:-.015em;text-wrap:pretty}
+.atlas-pop.is-voice .atlas-pop-title{font-size:1.3125rem}
+.atlas-pop-who{display:flex;align-items:center;gap:12px;margin-top:14px}
+/* The dashboard's account avatar: a pool circle with navy initials. A photo fills the same circle. */
+.atlas-avatar{display:grid;place-items:center;width:44px;height:44px;flex:none;overflow:hidden;border-radius:50%;background:#A9CFDD;color:var(--ink);font-size:.9375rem;font-weight:700;letter-spacing:.02em}
+.atlas-avatar[hidden]{display:none}
+.atlas-avatar img{width:100%;height:100%;object-fit:cover}
+.atlas-pop-by{font-size:.9375rem;line-height:1.35;color:var(--ink-3)}
+.atlas-pop.is-story .atlas-pop-who{margin-top:10px}
+.atlas-pop .atlas-link{margin-top:4px;margin-bottom:-8px;font-size:.9375rem}
+
+/* Time: a thin strip of months, then one line. */
+.atlas-time{display:grid;gap:4px;margin-top:6px;pointer-events:none}
+.atlas-time button,.atlas-time ol{pointer-events:auto}
+.atlas-months{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:3px;height:24px;margin:0;padding:0;list-style:none}
+.atlas-months li{display:grid;height:100%}
+.atlas-months button{position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:none}
+.atlas-months button i{position:absolute;inset:auto 0 0 0;height:var(--h,30%);border-radius:2px;background:var(--navy-surface);opacity:.42;transition:opacity .18s,height .3s}
+.atlas-months button.later i{opacity:.12}
+.atlas-months button:hover i{opacity:.8}
+.atlas-time-row{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.atlas-play{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0;border:0;background:none;color:var(--ink);font-size:.9375rem;font-weight:700;white-space:nowrap}
+.atlas-play:hover span:last-child{text-decoration:underline;text-underline-offset:5px}
+.atlas-play-mark{width:0;height:0;border-style:solid;border-width:6px 0 6px 9px;border-color:transparent transparent transparent var(--ink)}
+.atlas-play[aria-pressed=true] .atlas-play-mark{width:9px;height:12px;border-width:0 3px;border-color:var(--ink)}
+.atlas-through{font-size:.9375rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* Design-preview strip. Present only when a milestone was shared from the dashboard preview in this browser. */
+/* Live notices: one small banner per arriving milestone, top centre, clear of the totals and the map. Bordered, not shadowed. */
+.atlas-toasts{position:fixed;top:16px;left:50%;translate:-50% 0;z-index:60;display:grid;gap:10px;width:min(460px,calc(100vw - 32px));pointer-events:none}
+.atlas-toast{display:grid;gap:8px;padding:16px 20px 18px;border:2px solid var(--ink);border-radius:var(--radius);background:var(--paper);color:var(--ink);cursor:pointer;pointer-events:auto;animation:atlas-toast-in .55s cubic-bezier(.2,.7,.2,1) both}
+.atlas-toast.leaving{opacity:0;transform:translateY(-8px);transition:opacity .35s,transform .35s}
+.atlas-toast-live{display:flex;align-items:center;gap:9px;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.3;color:var(--ink-3)}
+.atlas-toast-live::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c,var(--ink));animation:atlas-live 1.8s ease-in-out infinite}
+.atlas-toast-text{display:grid;gap:3px}
+.atlas-toast-text strong{font:400 1.5rem/1.15 var(--sera);letter-spacing:-.02em;font-variant-numeric:lining-nums}
+.atlas-toast-text span{font-size:1rem;line-height:1.4;color:var(--ink-2)}
+@keyframes atlas-toast-in{from{opacity:0;transform:translateY(-18px)}}
+@keyframes atlas-live{50%{opacity:.25}}
+body.atlas-present .atlas-toasts{top:20px;width:min(540px,calc(100vw - 48px))}
+body.atlas-present .atlas-toast-text strong{font-size:1.875rem}
+body.atlas-present .atlas-toast-text span{font-size:1.125rem}
+.atlas-preview{display:flex;justify-content:space-between;align-items:center;gap:4px 32px;flex-wrap:wrap;margin:24px 0 0;padding:12px 22px;border-radius:var(--radius);background:var(--paper);font-size:1rem}
+.atlas-preview p{max-width:52em}
+.atlas-preview-actions{display:flex;gap:0 28px;flex:none}
+
+/* Stories: scale does the work. A statement, then three photographs, each led by its place. */
+.atlas-stories{padding:60px 0 64px}
+.atlas-stories-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,21em);align-items:end;gap:20px 64px}
+.atlas-stories-head h2{font:400 clamp(2.1rem,3.5vw,3.125rem)/1 var(--sera);letter-spacing:-.035em;font-variant-numeric:lining-nums}
+.atlas-stories-head>p{padding-bottom:clamp(2px,.4vw,5px);font-size:1rem;line-height:1.45;color:var(--ink-2);text-wrap:pretty}
+/* Two stories as four tiles in a row: photograph, colour block, photograph, colour block. Each block takes
+   the tile colour of the story's headline figure, so the row reads as a continuation of the totals above. */
+.atlas-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:clamp(22px,2.4vw,30px) 0 0;padding:0;list-style:none}
+.atlas-card{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;height:100%;color:var(--ink);text-decoration:none}
+.atlas-card:hover{text-decoration:none}
+.atlas-card-photo{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius);background:#e9e4d8}
+.atlas-card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(var(--zoom,1));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.atlas-card:is(:hover,:focus-visible) .atlas-card-photo img{transform:scale(calc(var(--zoom,1) * 1.03))}
+/* A 6% veil gives a photograph with a pale background a visible tile edge on the cream page. */
+.atlas-card-photo::after{content:"";position:absolute;inset:0;background:#0f1c2d0f;pointer-events:none}
+.atlas-card-block{--field:#E8D5A5;--tile-ink:#493A20;--tile-soft:#5d4b2b;display:flex;flex-direction:column;align-items:flex-start;padding:clamp(16px,1.6vw,22px);border-radius:var(--radius);background:var(--field);color:var(--tile-ink)}
+.atlas-card.is-sales .atlas-card-block{--field:#CDDCD0;--tile-ink:#174B40;--tile-soft:#245548}
+.atlas-card.is-hired .atlas-card-block{--field:#A9CFDD;--tile-ink:var(--ink);--tile-soft:var(--ink-2)}
+.atlas-card.is-started .atlas-card-block{--field:var(--navy-surface);--tile-ink:var(--on-navy);--tile-soft:var(--on-navy-muted)}
+.atlas-card-place{display:flex;align-items:center;gap:9px;font-size:.9375rem;font-weight:700}
+.atlas-ring{width:.4em;height:.4em;flex:none;border:.085em solid var(--berry);border-radius:50%;background:radial-gradient(circle,var(--berry) 0 30%,transparent 34%)}
+.atlas-card-place .atlas-ring{width:14px;height:14px;border-width:2.5px}
+.atlas-card-figure{margin-top:auto;padding-top:16px;font:400 clamp(2.6rem,4.3vw,4.125rem)/.94 var(--sera);letter-spacing:-.045em;font-variant-numeric:lining-nums}
+.atlas-card-title{margin-top:10px;font-size:clamp(.9375rem,1.1vw,1.0625rem);font-weight:500;line-height:1.35;color:var(--tile-soft);text-wrap:pretty}
+.atlas-card-name{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(12px,1.3vw,18px);font-size:.9375rem;font-weight:700}
+.atlas-card:is(:hover,:focus-visible) .atlas-card-name{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.atlas-arrow{position:relative;display:inline-block;flex:none;width:20px;height:20px;transition:translate .2s}
+.atlas-arrow::before{content:"";position:absolute;left:1px;top:9px;width:16px;height:1.5px;background:currentColor}
+.atlas-arrow::after{content:"";position:absolute;right:3px;top:5.75px;width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;rotate:45deg}
+.atlas-card:is(:hover,:focus-visible) .atlas-arrow{translate:4px 0}
+.atlas-stories-more{margin-top:26px}
+
+/* Next step: the page's one slate-navy surface, a slim band: claim, one sentence, the action. */
+.atlas-next{padding-bottom:48px}
+.atlas-next-card{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) auto;align-items:center;gap:24px clamp(32px,4.4vw,64px);padding:clamp(26px,2.8vw,38px) clamp(26px,3.4vw,48px);border-radius:var(--radius);background:var(--navy-surface);color:var(--on-navy)}
+.atlas-next-card .atlas-label{color:var(--on-navy-accent)}
+.atlas-next-card h2{margin-top:8px;font:400 clamp(1.6rem,2.2vw,2.0625rem)/1.1 var(--sera);letter-spacing:-.025em;text-wrap:balance}
+.atlas-next-say{max-width:27em;font-size:1rem;line-height:1.5;color:var(--on-navy-muted);text-wrap:pretty}
+.atlas-next-actions{display:grid;justify-items:start;gap:14px}
+.atlas-next-card .atlas-link{color:var(--on-navy-accent);font-size:.9375rem;font-weight:500}
+.atlas-next-card :focus-visible{outline-color:var(--pool)}
+
+/* Notes: the county table and the reporting note. */
+.atlas-notes{padding-block:0 44px;font-size:.9375rem;color:var(--ink-2)}
+.atlas-notes summary{display:flex;align-items:center;gap:12px;min-height:52px;padding:14px 0;font-weight:600;color:var(--ink);list-style:none}
+.atlas-notes summary::-webkit-details-marker{display:none}
+.atlas-notes summary::before{content:"";width:7px;height:7px;flex:none;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;rotate:-45deg;transition:rotate .2s}
+.atlas-notes details[open] summary::before{rotate:45deg}
+.atlas-notes details>div{max-width:66em;padding:0 0 22px 19px}
+.atlas-notes p+p{margin-top:12px}
+.atlas-notes a{text-decoration:underline;text-underline-offset:3px}
+.atlas-notes .atlas-table-scroll{max-width:none;overflow-x:auto;margin-bottom:22px;padding:0;border-radius:var(--radius)}
+.atlas-table table{width:100%;min-width:760px;border-collapse:collapse;font-size:1rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.atlas-table th,.atlas-table td{padding:12px 16px;text-align:left;white-space:nowrap}
+.atlas-table thead th{font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.atlas-table tbody th{font-weight:600}
+.atlas-table tbody tr:nth-child(odd){background:var(--paper)}
+.atlas-table .num{text-align:right}
+
+/* Presenting: the site steps away and the composition fills the screen. */
+body.atlas-present .announcement,body.atlas-present .site-header,body.atlas-present .site-footer,body.atlas-present .skip-link,
+body.atlas-present .atlas-stories,body.atlas-present .atlas-next,body.atlas-present .atlas-notes,body.atlas-present .atlas-present-on,body.atlas-present .atlas-intro{display:none}
+body.atlas-present .atlas-present-off{display:inline-flex}
+body.atlas-present .atlas-hero{display:grid;align-items:center;min-height:100vh;padding:clamp(18px,3vh,40px) 0}
+body.atlas-present .atlas-hero>.shell{width:min(1560px,calc(100% - 112px))}
+body.atlas-present .atlas-grid{align-items:center}
+body.atlas-present .atlas-preview{margin-bottom:18px}
+body.atlas-present .atlas-lede{padding:0}
+body.atlas-present .atlas-map{width:calc((100vh - 236px) * var(--map-ratio) + var(--map-pad) * 2);margin-right:0;padding:22px var(--map-pad) 18px;border-radius:var(--radius);align-self:center}
+body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-map{width:calc((100vh - 330px) * var(--map-ratio) + var(--map-pad) * 2)}
+body.atlas-present .atlas-lede h1{font-size:clamp(2.4rem,4.2vw,4.4rem)}
+body.atlas-present .atlas-tile{min-height:clamp(150px,24vh,250px)}
+body.atlas-present .atlas-tile strong{font-size:clamp(2.6rem,4.6vw,4.8rem)}
+body.atlas-present .atlas-tile .pictogram{width:clamp(42px,5vh,60px);height:clamp(42px,5vh,60px)}
+
+@media(max-width:1100px){
+  .atlas-page .header-inner{min-height:68px}
+  .atlas-page .brand img{width:118px}
+  .atlas-page .primary-nav{gap:2px}
+  .atlas-page .primary-nav a:not(.button){font-size:1.0625rem}
+  .atlas-grid{grid-template-columns:1fr;gap:0}
+  .atlas-lede{padding:28px 0 44px}
+  .atlas-map,body.atlas-present .atlas-map,body.atlas-present .atlas-preview:not([hidden])~.atlas-grid .atlas-map{width:auto;margin-inline:calc(var(--edge) * -1);padding:28px var(--edge) 32px;border-radius:0;justify-items:center}
+  .atlas-map>*{width:min(100%,680px)}
+  .atlas-next-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px 48px}
+  .atlas-next-card>:first-child{grid-row:span 2}
+  .atlas-cards{grid-template-columns:1fr}
+  .atlas-card-photo{aspect-ratio:6/5}
+}
+@media(max-width:700px){
+  .atlas-page{--atlas-pin:2.4px}
+  .atlas-lede{padding:22px 0 34px}
+  .atlas-map{padding-block:20px 22px}
+  .atlas-lede h1{margin-top:14px;font-size:clamp(2.3rem,9.6vw,3.1rem)}
+  .atlas-intro{margin-top:14px;font-size:1.0625rem}
+  .atlas-tiles{gap:8px;margin-top:26px}
+  .atlas-tile{min-height:134px;padding:14px 16px 16px}
+  .atlas-tile .pictogram{width:34px;height:34px}
+  .atlas-tile strong{font-size:clamp(1.9rem,8.6vw,2.5rem)}
+  .atlas-tile span{margin-top:6px;font-size:.9375rem}
+  .atlas-latest{display:grid;gap:4px;margin-top:22px}
+  .atlas-latest-line{white-space:normal}
+  .atlas-present-on{display:none}
+  .atlas-preview{margin-bottom:24px;padding:14px 16px}
+  .atlas-stories{padding:52px 0 60px}
+  .atlas-stories-head{grid-template-columns:1fr}
+  .atlas-stories-head h2{font-size:clamp(2.4rem,11vw,3.2rem)}
+  .atlas-stories-head>p{font-size:1.0625rem}
+  .atlas-cards{gap:8px;margin-top:28px}
+  .atlas-card{gap:8px}
+  .atlas-card-photo{aspect-ratio:4/5}
+  .atlas-card-block{padding:14px}
+  .atlas-card-figure{font-size:clamp(2.3rem,11vw,3rem)}
+  .atlas-card-title{font-size:.9375rem}
+  .atlas-card-name{font-size:.9375rem}
+  .atlas-stories-more{margin-top:28px}
+  .atlas-next{padding-bottom:36px}
+  .atlas-next-card{grid-template-columns:1fr;gap:18px;padding:26px 22px}
+  .atlas-next-card>:first-child{grid-row:auto}
+  .atlas-next-actions{margin-top:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .atlas-toast,.atlas-toast-live::before{animation:none}
+  .atlas-toast.leaving{transition:none}
+  .atlas-county,.atlas-months button i,.atlas-story path,.atlas-tile,.atlas-tile .pictogram,.atlas-card-photo img,.atlas-arrow{transition:none}
+  .atlas-card:is(:hover,:focus-visible) .atlas-card-photo img{transform:scale(var(--zoom,1))}
+}
+@media print{
+  .atlas-page .site-header,.atlas-page .site-footer,.atlas-next,.atlas-time,.atlas-preview,.atlas-pop,[data-atlas-present]{display:none}
+}
