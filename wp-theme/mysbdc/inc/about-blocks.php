@@ -45,6 +45,10 @@ function mysbdc_about_study_copy( $section ) {
 			'portraitCaption' => 'Meet Melanie, Paul & Amandeep · North Coast SBDC',
 		),
 		'purpose' => array(
+			'hostImage' => 'https://live.staticflickr.com/65535/55506344631_ba89df0f9b_h.jpg',
+			'hostImageAlt' => 'Cal Poly Humboldt campus buildings and trees across College Creek Field',
+			'hostImageCaption' => 'College Creek Field · Cal Poly Humboldt',
+			'hostPhotoSource' => 'https://www.flickr.com/photos/calpolyhumboldtgalleries/55506344631/',
 			'eyebrow' => 'Public support, personal possibility',
 			'heading' => "A national idea\nAt home in Humboldt",
 			'historyText' => 'In 1980, the national SBDC network was established in law to connect small businesses with the expertise of government, universities and business.',
