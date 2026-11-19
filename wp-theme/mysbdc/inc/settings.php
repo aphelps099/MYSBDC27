@@ -35,7 +35,7 @@ function mysbdc_setting_defaults() {
 		'contact_phone_number'    => '18332757232',
 		'contact_hours'           => 'Mon – Fri, 9 AM – 5 PM',
 		'social_linkedin'         => 'https://www.linkedin.com/company/norcalsbdc',
-		'social_instagram'        => '',
+		'social_instagram'        => 'https://www.instagram.com/norcalsbdc/',
 		'social_facebook'         => '',
 	);
 }
