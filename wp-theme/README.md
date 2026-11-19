@@ -33,6 +33,29 @@ overwrites them.
    their template, so the page titles and addresses are yours to choose.
 4. The homepage design shows at the site's front page, whatever Settings > Reading says.
 
+## Publishing from GitHub
+
+`.github/workflows/deploy-theme.yml` checks the theme on every pull request. When a change reaches
+`main`, it copies `wp-theme/mysbdc/` to `wp-content/themes/mysbdc/` on WP Engine and clears the
+site's cache. It touches nothing outside that theme folder. Until the two values below exist, the
+copy step is skipped and only the checks run.
+
+One-time setup:
+
+1. On your computer, make a key pair with no passphrase:
+   `ssh-keygen -t ed25519 -f wpengine_deploy -N ""`
+   This writes two files: `wpengine_deploy` (private) and `wpengine_deploy.pub` (public).
+2. In the WP Engine User Portal, open your profile (top right) > **SSH Keys** > **New SSH Key**
+   and paste the contents of `wpengine_deploy.pub`.
+3. In the GitHub repository, open Settings > Secrets and variables > Actions.
+   - Under **Secrets**, add `WPE_SSHG_KEY_PRIVATE` with the contents of `wpengine_deploy`.
+   - Under **Variables**, add `WPE_ENV` with the WP Engine environment name (the short name shown
+     in the portal, not the web address).
+4. Delete the two key files from your computer.
+
+To publish without a new change, open the Actions tab > WordPress theme > Run workflow.
+The workflow has not yet run against WP Engine; expect to confirm the first deploy by eye.
+
 ## What you can edit in WordPress
 
 - **Menus** (Appearance > Menus): the header menu and the first two footer columns. Each footer

@@ -1,0 +1,57 @@
+# Checks the WordPress theme, then copies it to WP Engine.
+#
+# Checks run on every pull request and on main. The copy to WP Engine runs only
+# on main (or when started by hand from the Actions tab), and only once the
+# repository has:
+#   - a variable  WPE_ENV               the WP Engine environment name
+#   - a secret    WPE_SSHG_KEY_PRIVATE  the private half of an SSH key whose
+#                                       public half is saved in the WP Engine portal
+# Setup steps are in wp-theme/README.md.
+name: WordPress theme
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wp-theme/**'
+      - 'homepage-preview/**'
+      - '.github/workflows/deploy-theme.yml'
+  pull_request:
+    paths:
+      - 'wp-theme/**'
+      - 'homepage-preview/**'
+      - '.github/workflows/deploy-theme.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: wordpress-theme-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check the theme
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Theme styles and scripts match homepage-preview
+        run: wp-theme/sync-assets.sh --check
+      - name: PHP files have no syntax errors
+        run: find wp-theme/mysbdc -name '*.php' -print0 | xargs -0 -n1 php -l
+
+  deploy:
+    name: Copy the theme to WP Engine
+    needs: check
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && vars.WPE_ENV != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: wpengine/github-action-wpe-site-deploy@v4
+        with:
+          WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+          WPE_ENV: ${{ vars.WPE_ENV }}
+          # Only the theme folder is touched. --delete removes theme files that
+          # were removed from the repository; nothing outside this folder changes.
+          SRC_PATH: "wp-theme/mysbdc/"
+          REMOTE_PATH: "wp-content/themes/mysbdc/"
+          FLAGS: -azvr --inplace --delete --exclude=.*
+          CACHE_CLEAR: TRUE
