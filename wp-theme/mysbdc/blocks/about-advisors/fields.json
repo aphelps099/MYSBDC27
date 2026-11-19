@@ -64,6 +64,11 @@
           "key": "person1Url",
           "label": "Advisor biography",
           "type": "url"
+        },
+        {
+          "key": "person1Caption",
+          "label": "Name and expertise",
+          "type": "plain"
         }
       ]
     },
@@ -84,6 +89,11 @@
           "key": "person2Url",
           "label": "Advisor biography",
           "type": "url"
+        },
+        {
+          "key": "person2Caption",
+          "label": "Name and expertise",
+          "type": "plain"
         }
       ]
     },
@@ -104,6 +114,11 @@
           "key": "person3Url",
           "label": "Advisor biography",
           "type": "url"
+        },
+        {
+          "key": "person3Caption",
+          "label": "Name and expertise",
+          "type": "plain"
         }
       ]
     }

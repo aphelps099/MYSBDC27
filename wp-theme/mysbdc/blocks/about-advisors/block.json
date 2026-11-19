@@ -110,6 +110,18 @@
     "line3": {
       "type": "string",
       "default": "Your next chapter."
+    },
+    "person1Caption": {
+      "type": "string",
+      "default": ""
+    },
+    "person2Caption": {
+      "type": "string",
+      "default": ""
+    },
+    "person3Caption": {
+      "type": "string",
+      "default": ""
     }
   },
   "supports": {
