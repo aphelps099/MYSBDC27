@@ -8,6 +8,8 @@ here="$(cd "$(dirname "$0")" && pwd)"
 src="$here/../homepage-preview"
 dst="$here/mysbdc/assets"
 files=(
+  "home-design.css:css/home-design.css"
+  "home-design.js:js/home-design.js"
   "refined.css:css/refined.css"
   "impact.css:css/impact.css"
   "atlas.css:css/atlas.css"

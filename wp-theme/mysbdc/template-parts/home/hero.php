@@ -1,12 +1,5 @@
 <?php
-/**
- * Homepage: hero section.
- *
- * @package MySBDC
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+/** Homepage: hero. @package MySBDC */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?>
-<section class="hero" aria-labelledby="hero-title"><div class="shell hero-grid"><div class="hero-copy"><p class="eyebrow">Northern California SBDC</p><h1 id="hero-title">Your business,<br><span class="hero-accent">better.</span></h1><p class="hero-description">Expert advice for the business you’re building. A real person to help you move it forward.</p><div class="hero-action"><a class="button" href="<?php echo esc_url( mysbdc_signup_url() ); ?>">Find your advisor</a><a class="text-link" href="https://www.norcalsbdc.org/events/">Explore training</a></div><p class="hero-note">No-fee advising. Confidential. Built around you.</p></div><figure class="hero-photo"><img src="https://www.norcalsbdc.org/wp-content/uploads/sites/13/2026/02/Laila-Pic-1200x1181.png" alt="Laila O’Boyle smiling behind freshly baked sourdough loaves" width="1200" height="1181" fetchpriority="high"><figcaption><strong>Laila O’Boyle</strong><span>The Early Rise · San Francisco</span></figcaption></figure></div><div class="shell hero-strip"><p><strong>36 counties.</strong><strong>One network.</strong></p><a href="https://www.norcalsbdc.org/find-your-sbdc/">Find your local SBDC</a></div></section>
+<section class="hero-statement video-hero" id="top" aria-labelledby="hero-statement-title"><video class="hero-footage" muted loop playsinline preload="none" poster="https://www.norcalsbdc.org/wp-content/uploads/sites/13/2026/02/Laila-Pic-1200x1181.png" data-src="https://www.californiasbdc.org/wp-content/uploads/sites/34/2022/11/CAsbdc.mp4" aria-hidden="true" tabindex="-1"></video><div class="hero-video-shade" aria-hidden="true"></div><div class="shell statement-grid"><div class="statement-copy"><h1 id="hero-statement-title">Helping NorCal<br><em>businesses grow.</em></h1><p class="statement-description">No-fee advising, capital expertise, and local connections for the business you’re building.</p><a class="statement-cta" href="<?php echo esc_url( mysbdc_signup_url() ); ?>">Find your advisor <svg class="cta-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><p class="statement-note">No-fee advising. Confidential. Built around you.</p></div></div><button class="hero-video-toggle" type="button" aria-label="Play background video"><span class="video-toggle-icon" aria-hidden="true">▶</span><span class="video-toggle-label">Play video</span></button></section>

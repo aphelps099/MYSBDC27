@@ -1,12 +1,9 @@
 <?php
-/**
- * Homepage: help section.
- *
- * @package MySBDC
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+/** Homepage: help. @package MySBDC */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?>
-<section class="help-section" id="help" aria-labelledby="help-title"><div class="shell"><div class="section-heading"><div><p class="eyebrow">How we help</p><h2 id="help-title">Your next move.<br>A little clearer.</h2></div><p>People, practical skills, and funding support. Start with what your business needs today.</p></div><div class="services"><article class="service" id="advising"><h3>Business advising.</h3><p>Work one-on-one with an advisor on your business plan, cash flow, marketing, and the decisions ahead.</p><a class="text-link" href="<?php echo esc_url( mysbdc_signup_url() ); ?>">Find your advisor</a></article><article class="service" id="training"><h3>Practical training.</h3><p>Practical workshops and on-demand learning. Bring a question. Leave with something you can use.</p><a class="text-link" href="https://www.norcalsbdc.org/events/">Explore training</a></article><article class="service" id="funding"><h3>Funding support.</h3><p>Understand your financing options, prepare your business, and connect with sources of capital.</p><a class="text-link" href="<?php echo esc_url( mysbdc_signup_url( 'capital' ) ); ?>">Get funding support</a></article></div></div></section>
+<section class="pathways" id="help"><div class="shell"><div class="concept-heading"><div><h2>What’s your next move?</h2></div><p>Practical support for the decisions<br>in front of you.</p></div><div class="path-grid">
+<article class="path-card" id="advising"><a class="path-image" href="<?php echo esc_url( mysbdc_signup_url() ); ?>" aria-label="Start your business."><img src="https://www.norcalsbdc.org/wp-content/uploads/2022/09/potpantry.jpg" alt="Small business owner at Pot + Pantry" loading="lazy"></a><div><h3>Start your business.</h3><p>Turn your idea into a plan. Work through the numbers, the decisions, and what comes next.</p><a href="<?php echo esc_url( mysbdc_signup_url() ); ?>"><span class="link-label">Build your plan</span></a></div></article>
+<article class="path-card" id="funding"><a class="path-image" href="<?php echo esc_url( mysbdc_signup_url( 'capital' ) ); ?>" aria-label="Fund your next move."><img src="https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg" alt="Jump Aero aircraft in flight" loading="lazy"></a><div><h3>Fund your next move.</h3><p>Understand your options, strengthen your financial story, and prepare to meet lenders or investors.</p><a href="<?php echo esc_url( mysbdc_signup_url( 'capital' ) ); ?>"><span class="link-label">Explore capital support</span></a></div></article>
+<article class="path-card" id="programs"><a class="path-image" href="<?php echo esc_url( mysbdc_signup_url() ); ?>" aria-label="Grow with confidence."><img src="https://www.norcalsbdc.org/wp-content/uploads/2022/09/humble-sea.jpg" alt="Humble Sea business team" loading="lazy"></a><div><h3>Grow with confidence.</h3><p>Find fresh perspective on sales, operations, and the opportunities ahead—with people who know your business.</p><a href="<?php echo esc_url( mysbdc_signup_url() ); ?>"><span class="link-label">Find your next step</span></a></div></article>
+</div></div></section>

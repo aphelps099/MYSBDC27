@@ -34,12 +34,12 @@ $mysbdc_dashboard_title = mysbdc_dashboard_is_preview() ? __( 'Open the MySBDC d
 <?php wp_body_open(); ?>
 <a class="skip-link" href="#main"><?php echo esc_html( $mysbdc_minimal ? __( 'Skip to signup', 'mysbdc' ) : __( 'Skip to content', 'mysbdc' ) ); ?></a>
 <?php
-if ( ! $mysbdc_minimal ) {
+if ( ! $mysbdc_minimal && ! is_front_page() ) {
 	get_template_part( 'template-parts/announcement' );
 }
 ?>
 <header class="site-header<?php echo $mysbdc_minimal ? ' signup-header' : ''; ?>"><div class="shell header-inner">
-  <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'NorCal SBDC home', 'mysbdc' ); ?>"><img src="<?php echo esc_url( mysbdc_asset( $mysbdc_logo[0] ) ); ?>" alt="<?php esc_attr_e( 'America’s SBDC, Northern California', 'mysbdc' ); ?>" width="<?php echo (int) $mysbdc_logo[1]; ?>" height="<?php echo (int) $mysbdc_logo[2]; ?>"></a>
+  <a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'NorCal SBDC home', 'mysbdc' ); ?>"><img src="<?php echo esc_url( mysbdc_asset( $mysbdc_logo[0] ) ); ?>" alt="<?php esc_attr_e( 'America’s SBDC, Northern California', 'mysbdc' ); ?>" width="<?php echo (int) $mysbdc_logo[1]; ?>" height="<?php echo (int) $mysbdc_logo[2]; ?>"><?php if ( is_front_page() ) : ?><span class="scroll-brand" aria-hidden="true">Norcal SBDC</span><?php endif; ?></a>
 <?php if ( $mysbdc_minimal ) : ?>
   <a class="text-link" href="<?php echo esc_url( mysbdc_home_anchor( 'programs' ) ); ?>"><?php esc_html_e( 'Back to homepage', 'mysbdc' ); ?></a>
 <?php else : ?>
