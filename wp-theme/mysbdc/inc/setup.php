@@ -59,7 +59,7 @@ function mysbdc_view() {
  */
 function mysbdc_body_classes( $classes ) {
 	$by_view = array(
-		'home'   => array( 'homepage', 'color-overlay' ),
+		'home'   => array( 'homepage-header-preview', 'video-hero-preview' ),
 		'impact' => array( 'impact-page' ),
 		'atlas'  => array( 'atlas-page' ),
 		'signup' => array( 'signup-page' ),

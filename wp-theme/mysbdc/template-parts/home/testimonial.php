@@ -1,0 +1,5 @@
+<?php
+/** Homepage: testimonial. @package MySBDC */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+?>
+<section class="client-testimonial" id="laila-story" aria-label="Laila O’Boyle’s story"><div class="shell testimonial-layout"><div class="testimonial-copy"><span class="testimonial-quote-mark" aria-hidden="true">“</span><blockquote cite="https://www.norcalsbdc.org/shared/client-stories/from-oven-to-online-local-baker-scales-to-global-reach/"><p>The SBDC helped me early on to get into the dream fund and receive a grant!</p></blockquote><p class="testimonial-attribution"><strong>Laila O’Boyle</strong><span>Founder, The Early Rise · San Francisco</span></p><a class="testimonial-link" href="https://www.norcalsbdc.org/shared/client-stories/from-oven-to-online-local-baker-scales-to-global-reach/" target="_blank" rel="noopener"><span class="link-label">Read Laila’s story</span></a></div><figure class="testimonial-portrait"><img src="https://www.norcalsbdc.org/wp-content/uploads/sites/13/2026/02/Laila-Pic-1200x1181.png" alt="Laila O’Boyle smiling behind freshly baked bread at The Early Rise" width="1200" height="1181" loading="lazy"></figure></div></section>

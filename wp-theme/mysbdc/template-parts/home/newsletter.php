@@ -1,12 +1,5 @@
 <?php
-/**
- * Homepage: newsletter section.
- *
- * @package MySBDC
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+/** Homepage: newsletter. @package MySBDC */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?>
-<section class="newsletter-section" aria-labelledby="newsletter-title"><div class="shell newsletter-grid"><div class="newsletter-copy"><p class="eyebrow">SBDC Intel</p><h2 id="newsletter-title">Good advice.<span>In your inbox.</span></h2><p>Workshops, funding opportunities, and practical ideas for your business.</p></div><form id="newsletter-form" class="newsletter-form"><div class="email-row"><div class="email-field"><label for="newsletter-email">Email address</label><input id="newsletter-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@business.com" aria-describedby="newsletter-note" required></div><button type="submit" class="button" disabled>Subscribe</button></div><p id="newsletter-note" class="form-note">Preview only. No email will be sent or saved.</p><p id="newsletter-status" class="form-status" role="status" hidden></p><a class="text-link" id="newsletter-live-link" href="https://www.norcalsbdc.org/about/newsletter/" hidden>Subscribe on NorCal SBDC</a><noscript><p class="form-note">Please <a href="https://www.norcalsbdc.org/about/newsletter/">use the live newsletter page</a> to subscribe.</p></noscript></form></div></section>
+<section class="newsletter-cta intel-section" aria-labelledby="intel-title" id="newsletter"><div class="shell intel-layout"><div class="intel-copy"><p class="intel-name">SBDC Intel</p><h2 id="intel-title">Stay a step<br>ahead.</h2></div><div class="intel-invitation"><p class="intel-promise">Fresh perspective for your business.</p><p class="intel-description">Discover useful workshops, funding opportunities, and practical ideas to help you move forward.</p><form class="intel-signup" id="intel-signup"><label for="intel-email">Your email address</label><div class="intel-input-wrap"><input id="intel-email" name="email" type="email" autocomplete="email" placeholder="you@yourbusiness.com" required aria-describedby="intel-note"><button type="submit" disabled>Sign me up <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19 19 5M6 5h13v13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><p id="intel-note">Preview only — your email isn’t sent or saved.</p><p id="intel-status" role="status" hidden></p><noscript><p><a href="https://www.norcalsbdc.org/about/newsletter/">Subscribe on NorCal SBDC</a></p></noscript></form></div></div></section>

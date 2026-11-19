@@ -1,14 +1,10 @@
 <?php
-/**
- * Homepage: stories section.
- *
- * @package MySBDC
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+/** Homepage: stories. @package MySBDC */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?>
-<section class="stories-section" id="stories" aria-labelledby="stories-title"><div class="shell"><div class="section-heading"><div><p class="eyebrow">The people behind the progress</p><h2 id="stories-title">Better looks different<br>for every business.</h2></div><a class="text-link" href="https://www.norcalsbdc.org/about/clients/">Meet our clients</a></div>
-<?php get_template_part( 'template-parts/stories-grid' ); ?>
+<section class="stories-section" id="stories" aria-labelledby="stories-title"><div class="shell"><div class="section-heading"><div><h2 id="stories-title">Real businesses.<br>Lasting progress.</h2></div><a class="text-link" href="https://www.norcalsbdc.org/about/clients/"><span class="link-label">Meet our clients</span></a></div>
+        <div class="stories-grid">
+          <article class="story story-featured"><a class="story-image" href="https://www.norcalsbdc.org/client-stories/jump-aero-raises-12m-to-build-the-worlds-fastest-first-response-aircraft/" target="_blank" rel="noopener" aria-label="Explore Jump Aero’s success story"><img src="https://www.norcalsbdc.org/wp-content/uploads/2026/05/jump-aero-1198x1200.jpeg" alt="Jump Aero first-response aircraft in flight" width="1198" height="1200" loading="lazy"><span class="story-meta">Technology</span></a><p class="story-name">Jump Aero</p><h3><span class="story-outcome"><span class="story-number">$12M</span><span class="story-unit">raised</span></span><span class="story-description">A faster path to first flight.</span></h3><div class="story-footer"><a class="text-link" href="https://www.norcalsbdc.org/client-stories/jump-aero-raises-12m-to-build-the-worlds-fastest-first-response-aircraft/" target="_blank" rel="noopener" aria-label="Read the Jump Aero story"><span class="link-label">Read story</span></a></div></article>
+          <article class="story story-secondary"><a class="story-image" href="https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/" target="_blank" rel="noopener" aria-label="Explore Yarrow Goods’ success story"><img src="https://www.norcalsbdc.org/wp-content/uploads/sites/9/2024/07/2024-Client-Success-Story-Yarrow-Goods-Owners.jpeg" alt="The owners of Yarrow Goods with one of their products" width="1200" height="825" loading="lazy"><span class="story-meta">Ecommerce</span></a><p class="story-name">Yarrow Goods</p><h3><span class="story-outcome"><span class="story-number">$138K</span><span class="story-unit">raised</span></span><span class="story-description">Sales up 20%.</span></h3><div class="story-footer"><a class="text-link" href="https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/" target="_blank" rel="noopener" aria-label="Read the Yarrow Goods story"><span class="link-label">Read story</span></a></div></article>
+        </div>
 </div></section>

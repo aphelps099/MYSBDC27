@@ -58,6 +58,12 @@ function mysbdc_enqueue_assets() {
 
 	mysbdc_enqueue_script( 'mysbdc-app', 'app.js' );
 
+	if ( 'home' === $view ) {
+		mysbdc_enqueue_style( 'mysbdc-home-design', 'home-design.css', array( 'mysbdc-theme' ) );
+		mysbdc_enqueue_script( 'mysbdc-home-design', 'home-design.js', array( 'mysbdc-app' ) );
+		return;
+	}
+
 	if ( 'impact' === $view ) {
 		mysbdc_enqueue_style( 'mysbdc-impact', 'impact.css', array( 'mysbdc-refined' ) );
 	}
