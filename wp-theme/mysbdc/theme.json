@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"layout": {
+			"contentSize": "760px",
+			"wideSize": "1400px"
+		},
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"custom": false,
+			"customGradient": false,
+			"customDuotone": false,
+			"gradients": [],
+			"duotone": [],
+			"palette": [
+				{ "slug": "navy", "name": "Navy", "color": "#0f1c2d" },
+				{ "slug": "slate-navy", "name": "Slate navy", "color": "#243b50" },
+				{ "slug": "slate", "name": "Slate", "color": "#384252" },
+				{ "slug": "cream", "name": "Cream", "color": "#f5f1e8" },
+				{ "slug": "paper", "name": "Paper", "color": "#fdfdfd" },
+				{ "slug": "pool", "name": "Pool", "color": "#8fc5d9" },
+				{ "slug": "pool-soft", "name": "Soft pool", "color": "#a9cfdd" },
+				{ "slug": "sand", "name": "Sand", "color": "#e8d5a5" },
+				{ "slug": "sage", "name": "Sage", "color": "#cddcd0" },
+				{ "slug": "berry", "name": "Berry", "color": "#a82f38" },
+				{ "slug": "cobalt", "name": "Cobalt", "color": "#174f91" }
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fluid": false,
+			"dropCap": false,
+			"fontFamilies": [
+				{ "slug": "nova", "name": "Proxima Nova", "fontFamily": "\"proxima-nova\", Arial, Helvetica, sans-serif" },
+				{ "slug": "sera", "name": "Proxima Sera", "fontFamily": "\"proxima-sera\", Georgia, \"Times New Roman\", serif" }
+			],
+			"fontSizes": [
+				{ "slug": "small", "name": "Small", "size": "0.9375rem" },
+				{ "slug": "body", "name": "Body", "size": "1.125rem" },
+				{ "slug": "lead", "name": "Lead", "size": "1.375rem" },
+				{ "slug": "heading", "name": "Heading", "size": "clamp(2.25rem, 3.5vw, 3.5rem)" },
+				{ "slug": "display", "name": "Display", "size": "clamp(2.75rem, 5.4vw, 5rem)" }
+			]
+		},
+		"spacing": {
+			"units": [ "px", "rem", "em", "%", "vw" ]
+		}
+	}
+}

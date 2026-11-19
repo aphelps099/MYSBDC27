@@ -33,6 +33,7 @@ needs internet access; there is no build step.
 | MySBDC app | `MySBDC Sign In`, `MySBDC Intake`, `MySBDC Dashboard` (+ rail version) |
 | Campaign & creative | `Training Deck`, `Training Thumbnails`, `Training Marketing Video`, `Training Series Video`, `Evergreen Ads` |
 | Developer handoff | `handoff/` — static HTML and one stylesheet for the MySBDC client app (sign-in, Form 641 steps, dashboards, settings). See `handoff/README.md` |
+| WordPress theme | `wp-theme/mysbdc/` — the public site (homepage, Impact, Success Atlas, Get started, editor pages) as a classic theme that reuses the `homepage-preview/` CSS and JS. See `wp-theme/README.md` |
 | Working files | `Client Journey`, `Mosaic Explorations`, `MySBDC Dashboard export.html` (static export), `MySBDC Dashboard.html` (bundled build) |
 
 Supporting directories: `_ds/` (design-system tokens + bundle), `assets/`

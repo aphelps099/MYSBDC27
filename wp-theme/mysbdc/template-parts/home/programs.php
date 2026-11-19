@@ -1,0 +1,12 @@
+<?php
+/**
+ * Homepage: programs section.
+ *
+ * @package MySBDC
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
+<section class="programs-section dark" id="programs" aria-labelledby="programs-title"><div class="shell programs-grid"><div class="programs-intro"><p class="eyebrow">Specialized help</p><h2 id="programs-title">Specific questions.<br>Specialist answers.</h2><p>Work with someone who knows your industry, your opportunities, and the decisions ahead.</p><a class="text-link" href="<?php echo esc_url( mysbdc_signup_url() ); ?>">Not sure? Start with an advisor.</a></div><div><div class="program-list"><details><summary><span>Technology & startups<small>Tech Futures Group</small></span></summary><div class="program-detail"><p>Work through fundraising, intellectual property, and the decisions involved in growing a technology company.</p><a class="button button-pool" href="<?php echo esc_url( mysbdc_signup_url( 'tfg' ) ); ?>">Get started with Tech Futures Group</a></div></details><details><summary><span>Government contracting<small>ProBiz</small></span></summary><div class="program-detail"><p>Get ready to compete for contracts, understand certifications, and prepare stronger bids.</p><a class="button button-pool" href="<?php echo esc_url( mysbdc_signup_url( 'probiz' ) ); ?>">Get started with ProBiz</a></div></details><details><summary><span>Food & hospitality<small>EATS</small></span></summary><div class="program-detail"><p>Work with advisors who understand food businesses, from costs and menus to opening your doors.</p><a class="button button-pool" href="<?php echo esc_url( mysbdc_signup_url( 'eats' ) ); ?>">Get started with EATS</a></div></details><details><summary><span>Manufacturing<small>Manufacturing Program</small></span></summary><div class="program-detail"><p>Find support for your operations, production plans, and the business of making things.</p><a class="button button-pool" href="<?php echo esc_url( mysbdc_signup_url( 'manufacturing' ) ); ?>">Get started with Manufacturing Program</a></div></details><details><summary><span>AI & technology adoption<small>AI Advising</small></span></summary><div class="program-detail"><p>Explore practical uses of AI and technology in your day-to-day work.</p><a class="button button-pool" href="<?php echo esc_url( mysbdc_signup_url( 'ai' ) ); ?>">Get started with AI Advising</a></div></details></div><p class="programs-extra">Looking for the AWS initiative? <a href="<?php echo esc_url( mysbdc_signup_url( 'aws' ) ); ?>">Explore cloud & AI support</a></p></div></div></section>
