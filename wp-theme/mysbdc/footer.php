@@ -21,7 +21,7 @@ if ( ! empty( $args['minimal'] ) ) :
 	return;
 endif;
 
-if ( is_front_page() || 'about' === mysbdc_view() ) {
+if ( is_front_page() || 'about' === mysbdc_view() || ( 'impact' === mysbdc_view() && mysbdc_has_impact_blocks() ) ) {
 	get_template_part( 'template-parts/home/footer' );
 	wp_footer();
 	echo '</body></html>';

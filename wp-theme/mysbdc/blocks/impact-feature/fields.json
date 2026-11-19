@@ -1,0 +1,50 @@
+{
+  "fields": [
+    {
+      "key": "storyUrl",
+      "label": "Story destination",
+      "type": "url"
+    },
+    {
+      "key": "photoLinkLabel",
+      "label": "Photo link accessible name",
+      "type": "plain"
+    },
+    {
+      "key": "imageUrl",
+      "label": "Featured photo",
+      "type": "image"
+    },
+    {
+      "key": "imageAlt",
+      "label": "Photo description",
+      "type": "plain"
+    },
+    {
+      "key": "category",
+      "label": "Category",
+      "type": "plain"
+    },
+    {
+      "key": "business",
+      "label": "Business name",
+      "type": "plain"
+    },
+    {
+      "key": "heading",
+      "label": "Headline",
+      "type": "rich"
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "plain"
+    },
+    {
+      "key": "linkText",
+      "label": "Story link text",
+      "type": "plain"
+    }
+  ],
+  "groups": []
+}

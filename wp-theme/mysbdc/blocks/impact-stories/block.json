@@ -1,0 +1,243 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/impact-stories",
+  "title": "Impact · Client stories",
+  "category": "mysbdc",
+  "icon": "chart-bar",
+  "description": "Editable section of the approved Impact page. Reorder whole sections while preserving their layout.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Different businesses<br/>Shared ambition"
+    },
+    "description": {
+      "type": "string",
+      "default": "Meet the owners putting ideas to work<br/>across Northern California."
+    },
+    "story1Url": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/"
+    },
+    "story1PhotoLabel": {
+      "type": "string",
+      "default": "Read about Yarrow Goods"
+    },
+    "story1Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/sites/9/2024/07/2024-Client-Success-Story-Yarrow-Goods-Owners.jpeg"
+    },
+    "story1Alt": {
+      "type": "string",
+      "default": "Grace and Oliver Estrada, the owners of Yarrow Goods, wrapped in one of their blankets"
+    },
+    "story1Category": {
+      "type": "string",
+      "default": "Ecommerce"
+    },
+    "story1Name": {
+      "type": "string",
+      "default": "Yarrow Goods"
+    },
+    "story1Heading": {
+      "type": "string",
+      "default": "$138K in funding<br/>Room to grow"
+    },
+    "story1Description": {
+      "type": "string",
+      "default": "Grace and Oliver turned their apparel business into an online brand, with funding to keep up with demand."
+    },
+    "story1LinkText": {
+      "type": "string",
+      "default": "Read the story"
+    },
+    "story2Url": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/shared/client-stories/from-oven-to-online-local-baker-scales-to-global-reach/"
+    },
+    "story2PhotoLabel": {
+      "type": "string",
+      "default": "Read about The Early Rise"
+    },
+    "story2Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/sites/13/2026/02/Laila-Pic-1200x1181.png"
+    },
+    "story2Alt": {
+      "type": "string",
+      "default": "Laila O’Boyle with freshly baked sourdough at The Early Rise"
+    },
+    "story2Category": {
+      "type": "string",
+      "default": "Food & hospitality"
+    },
+    "story2Name": {
+      "type": "string",
+      "default": "The Early Rise"
+    },
+    "story2Heading": {
+      "type": "string",
+      "default": "From a home oven<br/>to a global classroom"
+    },
+    "story2Description": {
+      "type": "string",
+      "default": "Laila O’Boyle found a new way to grow: teaching the craft of sourdough to bakers around the world."
+    },
+    "story2LinkText": {
+      "type": "string",
+      "default": "Read the story"
+    },
+    "story3Url": {
+      "type": "string",
+      "default": "https://www.buttecollegesbdc.com/shared/client-stories/hella-nuts/"
+    },
+    "story3PhotoLabel": {
+      "type": "string",
+      "default": "Read about Hella Nuts"
+    },
+    "story3Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2021/02/Hella-Nuts1.jpeg"
+    },
+    "story3Alt": {
+      "type": "string",
+      "default": "Mieko and Kamari Scott, the mother-and-daughter founders of Hella Nuts"
+    },
+    "story3Category": {
+      "type": "string",
+      "default": "Food & hospitality"
+    },
+    "story3Name": {
+      "type": "string",
+      "default": "Hella Nuts"
+    },
+    "story3Heading": {
+      "type": "string",
+      "default": "A new direction<br/>for a family business"
+    },
+    "story3Description": {
+      "type": "string",
+      "default": "Mieko and Kamari Scott adapted their Oakland food business with help on pricing, planning and connections."
+    },
+    "story3LinkText": {
+      "type": "string",
+      "default": "Read the story"
+    },
+    "story4Url": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/client-stories/scoot-science/"
+    },
+    "story4PhotoLabel": {
+      "type": "string",
+      "default": "Read about Scoot Science"
+    },
+    "story4Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2021/01/scoot-1200x900.jpg"
+    },
+    "story4Alt": {
+      "type": "string",
+      "default": "Ocean aquaculture pens featured in the Scoot Science client story"
+    },
+    "story4Category": {
+      "type": "string",
+      "default": "Technology"
+    },
+    "story4Name": {
+      "type": "string",
+      "default": "Scoot Science"
+    },
+    "story4Heading": {
+      "type": "string",
+      "default": "Ocean expertise<br/>meets business expertise"
+    },
+    "story4Description": {
+      "type": "string",
+      "default": "Jonathan LaRiviere worked with Tech Futures Group as he built a business around understanding the ocean."
+    },
+    "story4LinkText": {
+      "type": "string",
+      "default": "Read the story"
+    },
+    "story5Url": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/about/testimonies/"
+    },
+    "story5PhotoLabel": {
+      "type": "string",
+      "default": "Read about Freeline Surf Shop"
+    },
+    "story5Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2022/09/freeline.jpg"
+    },
+    "story5Alt": {
+      "type": "string",
+      "default": "A surfboard maker at Freeline Surfshop in Santa Cruz"
+    },
+    "story5Category": {
+      "type": "string",
+      "default": "Retail"
+    },
+    "story5Name": {
+      "type": "string",
+      "default": "Freeline Surf Shop"
+    },
+    "story5Heading": {
+      "type": "string",
+      "default": "Local support for<br/>the unexpected"
+    },
+    "story5Description": {
+      "type": "string",
+      "default": "Tara Mel describes the guidance and responsive support her Santa Cruz surf shop received from SBDC."
+    },
+    "story5LinkText": {
+      "type": "string",
+      "default": "Read client testimonials"
+    },
+    "story6Url": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/about/testimonies/"
+    },
+    "story6PhotoLabel": {
+      "type": "string",
+      "default": "Read about Dick Taylor Craft Chocolate"
+    },
+    "story6Image": {
+      "type": "string",
+      "default": "https://www.norcalsbdc.org/wp-content/uploads/2021/02/chocolate-friends.jpg"
+    },
+    "story6Alt": {
+      "type": "string",
+      "default": "Dick Taylor Craft Chocolate makers with their chocolate and a newspaper feature"
+    },
+    "story6Category": {
+      "type": "string",
+      "default": "Food & hospitality"
+    },
+    "story6Name": {
+      "type": "string",
+      "default": "Dick Taylor Craft Chocolate"
+    },
+    "story6Heading": {
+      "type": "string",
+      "default": "Finding funding<br/>when it mattered"
+    },
+    "story6Description": {
+      "type": "string",
+      "default": "Dustin Taylor credits North Coast SBDC’s loan resources with helping the Eureka chocolate maker access early PPP funding."
+    },
+    "story6LinkText": {
+      "type": "string",
+      "default": "Read client testimonials"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-impact-study"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/impact-intro",
+  "title": "Impact · Opening",
+  "category": "mysbdc",
+  "icon": "chart-bar",
+  "description": "Editable section of the approved Impact page. Reorder whole sections while preserving their layout.",
+  "attributes": {
+    "eyebrow": {
+      "type": "string",
+      "default": "OUR IMPACT"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Who is building<br/>something better?"
+    },
+    "description": {
+      "type": "string",
+      "default": "Real businesses. Real people.<br/>Progress that starts with a conversation."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Meet the business owners"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "#client-stories"
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-impact-study"
+}

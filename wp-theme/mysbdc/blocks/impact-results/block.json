@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mysbdc/impact-results",
+  "title": "Impact · Results",
+  "category": "mysbdc",
+  "icon": "chart-bar",
+  "description": "Editable section of the approved Impact page. Reorder whole sections while preserving their layout.",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Northern California client results"
+    },
+    "period": {
+      "type": "string",
+      "default": "FY2025"
+    },
+    "result1Value": {
+      "type": "string",
+      "default": "$549M"
+    },
+    "result1Label": {
+      "type": "string",
+      "default": "Capital accessed"
+    },
+    "result2Value": {
+      "type": "string",
+      "default": "712"
+    },
+    "result2Label": {
+      "type": "string",
+      "default": "Businesses started"
+    },
+    "result3Value": {
+      "type": "string",
+      "default": "3,723"
+    },
+    "result3Label": {
+      "type": "string",
+      "default": "Jobs created"
+    },
+    "description": {
+      "type": "string",
+      "default": "Business owners taking their next step, with SBDC alongside them."
+    }
+  },
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false
+  },
+  "editorScript": "mysbdc-home-blocks-editor",
+  "editorStyle": "mysbdc-home-blocks-editor",
+  "style": "mysbdc-impact-study"
+}

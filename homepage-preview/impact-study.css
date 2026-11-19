@@ -1,4 +1,4 @@
-/* Local Impact study based on Stories.dc.html. Not synchronized to WordPress. */
+/* Approved Impact page. Source synchronized to the WordPress theme. */
 .impact-study{--is-navy:#1d2c3d;--is-cream:#f6f1e6;--is-pool:#b6d1dd;--is-red:#bb343b;background:var(--is-cream);color:var(--is-navy)}
 .is-shell{width:min(1376px,calc(100% - 96px));margin-inline:auto}
 .impact-study main h1,.impact-study main h2,.impact-study main h3{font-family:var(--nova);font-style:normal;font-weight:500;letter-spacing:-.04em}
@@ -15,6 +15,7 @@
 .is-feature-photo{position:relative;display:block;isolation:isolate;margin:0 22px 22px 0}
 .is-feature-photo:before{content:"";position:absolute;inset:22px -22px -22px 22px;background:var(--is-pool);z-index:-1}
 .is-feature-photo img{width:100%;aspect-ratio:1;object-fit:cover}
+.is-feature-photo .is-category{bottom:0}
 .is-category{position:absolute;left:0;bottom:5px;right:0;padding:48px 20px 17px;color:#fff;background:linear-gradient(transparent,#102032b3);text-transform:uppercase;font-size:.8125rem;letter-spacing:.09em;font-weight:700;pointer-events:none}
 .is-business{font-size:1.0625rem;font-weight:600;margin-bottom:16px}
 .is-feature .is-business{color:var(--is-pool)}

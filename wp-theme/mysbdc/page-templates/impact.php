@@ -2,7 +2,7 @@
 /**
  * Template Name: Impact
  *
- * The results page: capital, businesses started, jobs and sales, with client stories.
+ * Editable Impact page; empty legacy pages retain their original layout.
  *
  * @package MySBDC
  */
@@ -14,7 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 <main id="main" tabindex="-1">
-<?php get_template_part( 'template-parts/page-impact' ); ?>
+<?php
+while ( have_posts() ) : the_post();
+	if ( '' !== trim( get_the_content() ) ) { the_content(); }
+	else { get_template_part( 'template-parts/page-impact' ); }
+endwhile;
+?>
 </main>
 <?php
 get_footer();

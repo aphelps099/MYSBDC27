@@ -60,7 +60,7 @@ function mysbdc_view() {
 function mysbdc_body_classes( $classes ) {
 	$by_view = array(
 		'home'   => array( 'homepage-header-preview', 'video-hero-preview' ),
-		'impact' => array( 'impact-page' ),
+		'impact' => mysbdc_has_impact_blocks() ? array( 'impact-study' ) : array( 'impact-page' ),
 		'about' => array( 'about-page', 'about-brand-study' ),
 		'atlas'  => array( 'atlas-page' ),
 		'signup' => array( 'signup-page' ),

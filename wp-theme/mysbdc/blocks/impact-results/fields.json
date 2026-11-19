@@ -1,0 +1,66 @@
+{
+  "fields": [
+    {
+      "key": "heading",
+      "label": "Heading",
+      "type": "plain"
+    },
+    {
+      "key": "period",
+      "label": "Reporting period",
+      "type": "plain"
+    },
+    {
+      "key": "description",
+      "label": "Supporting line",
+      "type": "plain"
+    }
+  ],
+  "groups": [
+    {
+      "title": "Result 1",
+      "fields": [
+        {
+          "key": "result1Value",
+          "label": "Value",
+          "type": "plain"
+        },
+        {
+          "key": "result1Label",
+          "label": "Label",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Result 2",
+      "fields": [
+        {
+          "key": "result2Value",
+          "label": "Value",
+          "type": "plain"
+        },
+        {
+          "key": "result2Label",
+          "label": "Label",
+          "type": "plain"
+        }
+      ]
+    },
+    {
+      "title": "Result 3",
+      "fields": [
+        {
+          "key": "result3Value",
+          "label": "Value",
+          "type": "plain"
+        },
+        {
+          "key": "result3Label",
+          "label": "Label",
+          "type": "plain"
+        }
+      ]
+    }
+  ]
+}
