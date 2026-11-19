@@ -57,6 +57,9 @@ function mysbdc_enqueue_assets() {
 	}
 
 	mysbdc_enqueue_script( 'mysbdc-app', 'app.js' );
+	if ( in_array( $view, array( 'home', 'about' ), true ) ) {
+		mysbdc_enqueue_script( 'mysbdc-footer-reveal', 'footer-reveal.js' );
+	}
 
 	if ( 'home' === $view ) {
 		mysbdc_enqueue_style( 'mysbdc-home-design', 'home-design.css', array( 'mysbdc-theme' ) );

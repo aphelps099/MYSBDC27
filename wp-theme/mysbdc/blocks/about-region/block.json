@@ -9,11 +9,11 @@
   "attributes": {
     "heading": {
       "type": "string",
-      "default": "Local to a place like no other."
+      "default": "Rooted here."
     },
     "description": {
       "type": "string",
-      "default": "From the Shasta Cascades to the Pacific, the High Sierra to the Golden Gate — this is where we live, work and help businesses grow."
+      "default": "Across 36 Northern California counties, our advisors bring local knowledge and a network of support to the places you live and work."
     },
     "linkText": {
       "type": "string",

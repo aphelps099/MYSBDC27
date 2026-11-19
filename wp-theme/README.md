@@ -190,3 +190,20 @@ wp --path=/sites/norcalsbdc --url=https://demo.norcalsbdc.org mysbdc about creat
 any existing page at the About slug. It does not change reading settings or Home content.
 Review the draft in WordPress before publishing. `check` verifies registration, rendering,
 attribute serialization, and output escaping without changing saved pages.
+
+### About study: shorter edition and footer reveal
+
+The current About pattern now contains **three sections**: introduction, advisors,
+and a full-width regional photograph with “Rooted here.” and a local-center link.
+The network statistics, repeated client quote, and separate closing CTA are omitted.
+Their block registrations remain available so previously saved drafts still render;
+no existing database content is automatically removed. The region block retains old
+attribute keys for compatibility, while its editor shows only the fields now rendered.
+
+The shared Home/About footer wraps its navy content in `.nf-surface`. The funding
+panel remains in document order and uses native `position: sticky; bottom: 0` beneath
+that surface. This produces the stationary reveal without a negative page z-index,
+fixed-height spacer, scroll interception, or hiding legal content. `footer-reveal.js`
+enables it only when the panel fits comfortably in the viewport and reduced motion
+is off. Without JavaScript, in print, with reduced motion, or on short screens, the
+funding panel scrolls normally. Its actual height is observed as images/fonts load.

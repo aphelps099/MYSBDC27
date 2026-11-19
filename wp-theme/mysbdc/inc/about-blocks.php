@@ -21,7 +21,7 @@ function mysbdc_about_media( $url ) {
 }
 function mysbdc_about_block_content() {
 	$blocks = array();
-	foreach ( mysbdc_about_sections() as $section ) {
+	foreach ( array( 'intro', 'advisors', 'region' ) as $section ) {
 		$attrs = mysbdc_about_attributes( $section );
 		foreach ( $attrs as $key => $value ) {
 			if ( str_starts_with( $value, '@theme/' ) ) { $attrs[ $key ] = mysbdc_about_media( $value ); }
@@ -49,7 +49,7 @@ function mysbdc_register_about_blocks() {
 		) );
 	}
 	wp_add_inline_script( 'mysbdc-home-blocks-editor', 'window.mysbdcHomeBlocks = (window.mysbdcHomeBlocks || []).concat(' . wp_json_encode( $editor, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ) . ');', 'before' );
-	register_block_pattern( 'mysbdc/about', array( 'title' => 'NorCal SBDC About page', 'categories' => array( 'mysbdc' ), 'description' => 'Six editable sections. Use with the About page template.', 'content' => mysbdc_about_block_content() ) );
+	register_block_pattern( 'mysbdc/about', array( 'title' => 'NorCal SBDC About page', 'categories' => array( 'mysbdc' ), 'description' => 'Three editable sections. Use with the About page template.', 'content' => mysbdc_about_block_content() ) );
 }
 add_action( 'init', 'mysbdc_register_about_blocks', 11 );
 
@@ -64,7 +64,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	} );
 	WP_CLI::add_command( 'mysbdc about check', static function () {
 		$blocks = array_values( array_filter( parse_blocks( mysbdc_about_block_content() ), static function ( $b ) { return null !== $b['blockName']; } ) );
-		if ( 6 !== count( $blocks ) ) { WP_CLI::error( 'Expected six sections.' ); }
+		if ( 3 !== count( $blocks ) ) { WP_CLI::error( 'Expected three sections.' ); }
 		foreach ( $blocks as $block ) {
 			if ( ! WP_Block_Type_Registry::get_instance()->is_registered( $block['blockName'] ) || false === strpos( render_block( $block ), '<section' ) ) { WP_CLI::error( 'Registration or rendering failed: ' . $block['blockName'] ); }
 			foreach ( $block['attrs'] as $key => $value ) {
@@ -76,6 +76,6 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 		}
 		$blocks[1]['attrs']['linkUrl'] = 'javascript:alert(1)';
 		if ( str_contains( render_block( $blocks[1] ), 'javascript:' ) ) { WP_CLI::error( 'Unsafe URL escaped incorrectly.' ); }
-		WP_CLI::success( 'Six About blocks registered and rendered; all fields survive serialization; unsafe markup and URLs escaped.' );
+		WP_CLI::success( 'Three About blocks registered and rendered; all fields survive serialization; unsafe markup and URLs escaped.' );
 	} );
 }

@@ -8,6 +8,7 @@ here="$(cd "$(dirname "$0")" && pwd)"
 src="$here/../homepage-preview"
 dst="$here/mysbdc/assets"
 files=(
+  "footer-reveal.js:js/footer-reveal.js"
   "about.css:css/about.css"
   "assets/about-golden-gate.webp:img/about-golden-gate.webp"
   "assets/about-redwoods-coast.webp:img/about-redwoods-coast.webp"

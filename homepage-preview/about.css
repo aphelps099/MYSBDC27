@@ -121,3 +121,20 @@
 }
 
 .about-next h2>span { display:block; }
+
+/* A single regional image closes the About story. */
+.about-region-feature { position:relative; isolation:isolate; min-height:720px; padding:80px 0; display:flex; align-items:flex-end; background:#1d2c3d; color:#fff; overflow:hidden; }
+.about-region-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 55%; z-index:-2; }
+.about-region-feature::before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg,rgba(12,29,38,.94),rgba(12,29,38,.45) 45%,rgba(12,29,38,.08) 80%); }
+.about-region-content { display:grid; grid-template-columns:1.2fr 1fr; align-items:end; gap:64px; }
+.about-region-feature h2 { font-size:clamp(72px,10vw,144px); line-height:.94; letter-spacing:-.055em; max-width:6ch; }
+.about-region-caption { max-width:34ch; }
+.about-region-feature .about-link { color:#fff; margin-top:22px; }
+.about-region-feature .about-link span::after { background:#b6d1dd; }
+.about-region-feature :focus-visible { outline-color:#fff; }
+@media(max-width:700px) {
+ .about-region-feature { min-height:700px; padding:56px 0; }
+ .about-region-content { grid-template-columns:1fr; gap:30px; }
+ .about-region-feature h2 { font-size:80px; max-width:none; }
+ .about-region-caption { max-width:32ch; }
+}
