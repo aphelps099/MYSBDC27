@@ -57,13 +57,20 @@ function mysbdc_enqueue_assets() {
 	}
 
 	mysbdc_enqueue_script( 'mysbdc-app', 'app.js' );
-	if ( in_array( $view, array( 'home', 'about', 'impact' ), true ) ) {
+	if ( in_array( $view, array( 'home', 'about', 'impact', 'services' ), true ) ) {
 		mysbdc_enqueue_script( 'mysbdc-footer-reveal', 'footer-reveal.js' );
 	}
 
 	if ( 'home' === $view ) {
 		mysbdc_enqueue_style( 'mysbdc-home-design', 'home-design.css', array( 'mysbdc-theme' ) );
 		mysbdc_enqueue_script( 'mysbdc-home-design', 'home-design.js', array( 'mysbdc-app' ) );
+		return;
+	}
+
+	if ( 'services' === $view ) {
+		mysbdc_enqueue_style( 'mysbdc-home-design', 'home-design.css', array( 'mysbdc-theme' ) );
+		mysbdc_enqueue_style( 'mysbdc-services', 'services.css', array( 'mysbdc-home-design' ) );
+		mysbdc_enqueue_script( 'mysbdc-services', 'services.js' );
 		return;
 	}
 

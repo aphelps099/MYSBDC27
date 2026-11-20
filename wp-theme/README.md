@@ -322,3 +322,18 @@ The source assets are `homepage-preview/impact-study.css` and `impact-study.js`;
 `wp-theme/sync-assets.sh` after edits. The aligned static study is `impact-study.html`.
 The template renders saved content, with the old layout retained only for empty legacy
 pages. Deployment never creates pages or replaces editorial content.
+
+## Services draft (November 20, 2026)
+
+The **Services** template renders saved page content between the actual shared site
+header and approved reveal footer. Its styles are isolated to `.services-page-content`.
+Source assets: `homepage-preview/services.css` and `services.js`; run `sync-assets.sh`.
+The matching preview is `homepage-preview/services.html`.
+
+`services-draft1.blocks.html` contains the approved G study as a native Custom HTML
+block for the initial `services_draft1` draft. Insert via the page code editor and
+select Services under Template. Copy/links/media can be edited in that HTML block;
+this draft does not yet have the bespoke visual field controls used by About.
+Deployment does not insert, publish or overwrite WordPress content or change navigation.
+The California currency artwork and generic training photograph are retained for this
+draft; confirm or replace those two assets before production publication.
