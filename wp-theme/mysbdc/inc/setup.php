@@ -42,6 +42,10 @@ function mysbdc_view() {
 		return 'home';
 	}
 
+	if ( is_page_template( 'page-templates/services.php' ) ) {
+		return 'services';
+	}
+
 	foreach ( mysbdc_linked_pages() as $key => $page ) {
 		if ( is_page_template( $page['template'] ) ) {
 			return $key;
@@ -61,6 +65,7 @@ function mysbdc_body_classes( $classes ) {
 	$by_view = array(
 		'home'   => array( 'homepage-header-preview', 'video-hero-preview' ),
 		'impact' => mysbdc_has_impact_blocks() ? array( 'impact-study' ) : array( 'impact-page' ),
+		'services' => array( 'services-page' ),
 		'about' => array( 'about-page', 'about-brand-study' ),
 		'atlas'  => array( 'atlas-page' ),
 		'signup' => array( 'signup-page' ),
