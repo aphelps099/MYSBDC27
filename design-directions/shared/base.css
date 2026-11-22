@@ -1,0 +1,96 @@
+/* Shared base for the round-2 directions: tokens, reset, accessibility, labels, footer plate.
+   Everything visible beyond this lives in each direction's own stylesheet. */
+:root{
+  --navy:#0f1c2d;--slate-navy:#243b50;--slate:#384252;--cream:#f5f1e8;--paper:#fdfdfd;
+  --pool:#8fc5d9;--pool-soft:#a9cfdd;--sand:#e8d5a5;--sage:#cddcd0;--berry:#a82f38;--cobalt:#174f91;
+  --nova:"proxima-nova",Arial,Helvetica,sans-serif;
+  --wide:"proxima-nova-wide","proxima-nova",Arial,sans-serif;
+  --sera:"proxima-sera",Georgia,serif;
+  --pad:clamp(20px,3.4vw,48px);
+  /* paper grain: one 220px SVG noise tile, reused everywhere */
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0 0 0 -.18'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--navy);font:500 1.125rem/1.45 var(--nova);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{max-width:100%;display:block}
+img{height:auto}
+h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.dk :focus-visible,.dk:focus-visible{outline-color:var(--pool)}
+.skip{position:absolute;left:12px;top:-80px;z-index:50;background:var(--navy);color:var(--paper);padding:14px 18px}
+.skip:focus{top:12px}
+
+/* colour fields */
+.c-cream{background:var(--cream)}.c-sand{background:var(--sand)}.c-sage{background:var(--sage)}.c-pool{background:var(--pool)}
+.c-soft{background:var(--pool-soft)}.c-paper{background:var(--paper)}
+.c-slate{background:var(--slate-navy);color:var(--cream)}.c-navy{background:var(--navy);color:var(--paper)}
+
+/* micro label: Proxima Nova Wide, caps, tracked. The only small type on the site. */
+.label{font:700 .75rem/1.4 var(--wide);letter-spacing:.14em;text-transform:uppercase}
+
+/* texture helpers. Textures sit on fields, behind content, never between a reader and a paragraph. */
+.tx{position:relative;isolation:isolate}
+.tx > *{position:relative;z-index:1}
+.tx > .star,.tx > .tex{position:absolute;z-index:0}
+.grain::after{content:"";position:absolute;inset:0;z-index:0;background:var(--grain);opacity:.3;mix-blend-mode:multiply;pointer-events:none}
+.grain.dk::after{filter:invert(1);mix-blend-mode:screen;opacity:.14}
+
+/* arrow, drawn in CSS */
+.arr{display:inline-block;width:.62em;height:.62em;border:solid currentColor;border-width:.14em .14em 0 0;transform:rotate(45deg);flex:none}
+
+/* header parts shared by all three */
+.brand{display:flex;align-items:center;min-height:44px;flex:none}
+.brand img{height:46px;width:auto}
+.nav ul{display:flex;gap:4px}
+.nav a,.hd__t{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;font-weight:600;text-decoration:none}
+.nav a:hover,.hd__t:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.35em}
+.nav a[aria-current]{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:.35em}
+.menu{display:none}
+.menu summary{list-style:none;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:2px solid currentColor;font-weight:700;cursor:pointer}
+.menu summary::-webkit-details-marker{display:none}
+.menu__panel{position:absolute;left:0;right:0;top:100%;z-index:40;background:var(--navy);color:var(--paper);padding:12px var(--pad) 28px}
+.menu__panel a{display:flex;align-items:center;min-height:56px;text-decoration:none;font:700 2rem/1 var(--nova);letter-spacing:-.03em}
+.menu__panel .menu__u a{font:600 1.0625rem/1 var(--nova);letter-spacing:0;min-height:44px}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:12px 40px;align-items:center}
+.filters fieldset{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters legend{float:left;margin-right:14px;line-height:44px}
+.chip{min-height:44px;padding:8px 16px;border:2px solid var(--navy);background:transparent;font-weight:600;cursor:pointer}
+.chip:hover{background:var(--cream)}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--paper)}
+.chip[aria-pressed="true"]::before{content:"✓ "}
+.count{margin-left:auto}
+
+/* footer: one link band, then the partner plate on paper */
+.ft{background:var(--navy);color:var(--paper);padding:56px var(--pad)}
+.ft__in{display:grid;grid-template-columns:5fr 2fr 2fr 3fr;gap:32px;max-width:1400px;margin-inline:auto}
+.ft__line{font:700 clamp(1.75rem,3vw,2.75rem)/1 var(--nova);letter-spacing:-.035em}
+.ft h2{color:var(--pool);margin-bottom:10px}
+.ft li a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
+.ft li a:hover{text-decoration:underline;text-underline-offset:.3em}
+.ident{background:var(--paper);padding:32px var(--pad)}
+.ident__in{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:center;max-width:1400px;margin-inline:auto}
+.plate{display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px}
+.plate img{width:auto;height:48px}.plate li:nth-child(1) img{height:56px}.plate li:nth-child(4) img{height:16px}
+.ident p{font:400 .8125rem/1.5 var(--nova);color:var(--slate)}
+
+@media (max-width:980px){
+  .nav,.hd__t,.hd .btn{display:none}
+  .menu{display:block}
+}
+@media (max-width:760px){
+  .filters{gap:12px}
+  .filters legend{float:none;line-height:1.4;margin-bottom:6px}
+  .count{margin-left:0;width:100%}
+  .ft__in{grid-template-columns:1fr 1fr}
+  .ft__line{grid-column:1/-1}
+  .ft__in > :last-child{grid-column:1/-1}
+  .ident__in{grid-template-columns:1fr;gap:24px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}

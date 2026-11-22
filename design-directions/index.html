@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MySBDC 2.0 design directions</title>
+<link rel="stylesheet" href="https://use.typekit.net/pkl5rjs.css">
+<link rel="stylesheet" href="shared/base.css">
+<style>
+main{padding:var(--pad);max-width:1400px;margin-inline:auto}
+h1{font:700 clamp(2.5rem,7vw,6rem)/.88 var(--nova);letter-spacing:-.05em;margin:24px 0 16px}
+.intro{max-width:36em;margin-bottom:48px}
+.dirs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.d{padding:var(--pad);display:flex;flex-direction:column;gap:20px;min-height:340px}
+.d h2{font:700 clamp(2.5rem,5vw,4.5rem)/.9 var(--nova);letter-spacing:-.05em;margin-top:auto}
+.d a{display:inline-flex;align-items:center;min-height:44px;margin-right:18px;font-weight:700;text-underline-offset:.3em;text-decoration-thickness:2px}
+.more{margin-top:40px}
+.more a{display:inline-flex;align-items:center;min-height:44px;margin-right:24px;font-weight:700;text-underline-offset:.3em}
+@media (max-width:760px){.dirs{grid-template-columns:1fr}.d{min-height:240px}}
+</style>
+</head>
+<body>
+<main>
+<p class="label">MySBDC 2.0 · Public website · Round 2</p>
+<h1>Three directions.</h1>
+<p class="intro">All Proxima Nova. One texture and one layout idea each. Every page is shown as Home, Services and Trainings; resize the window for the phone layout.</p>
+<div class="dirs">
+<section class="d tx grain c-sand"><p class="label">1 · Paper grain · Block wall</p><h2>Block</h2><p><a href="block/home.html">Home</a><a href="block/services.html">Services</a><a href="block/trainings.html">Trainings</a></p></section>
+<section class="d c-pool"><p class="label">2 · Halftone · One column</p><h2>Dot</h2><p><a href="dot/home.html">Home</a><a href="dot/services.html">Services</a><a href="dot/trainings.html">Trainings</a></p></section>
+<section class="d c-navy dk"><p class="label">3 · Linework · Sticky panel</p><h2>Line</h2><p><a href="line/home.html">Home</a><a href="line/services.html">Services</a><a href="line/trainings.html">Trainings</a></p></section>
+</div>
+<p class="more"><a href="README.md">Directions, block sheets and comparison</a><a href="RESEARCH.md">Research brief</a><a href="front-counter/home.html">Round 1 reference: Front Counter</a></p>
+</main>
+</body>
+</html>
