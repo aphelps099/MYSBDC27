@@ -4,7 +4,6 @@
   --navy:#0f1c2d;--slate-navy:#243b50;--slate:#384252;--cream:#f5f1e8;--paper:#fdfdfd;
   --pool:#8fc5d9;--pool-soft:#a9cfdd;--sand:#e8d5a5;--sage:#cddcd0;--berry:#a82f38;--cobalt:#174f91;
   --nova:"proxima-nova",Arial,Helvetica,sans-serif;
-  --wide:"proxima-nova-wide","proxima-nova",Arial,sans-serif;
   --sera:"proxima-sera",Georgia,serif;
   --pad:clamp(20px,3.4vw,48px);
   /* paper grain: one 220px SVG noise tile, reused everywhere */
@@ -30,8 +29,10 @@ button{font:inherit;color:inherit}
 .c-soft{background:var(--pool-soft)}.c-paper{background:var(--paper)}
 .c-slate{background:var(--slate-navy);color:var(--cream)}.c-navy{background:var(--navy);color:var(--paper)}
 
-/* micro label: Proxima Nova Wide, caps, tracked. The only small type on the site. */
-.label{font:700 .75rem/1.4 var(--wide);letter-spacing:.14em;text-transform:uppercase}
+/* label: plain Proxima Nova, sentence case. Quiet, never caps or tracked. */
+.label{font:600 .9375rem/1.35 var(--nova);letter-spacing:0}
+/* serif, from time to time: one italic Sera word inside a Nova headline */
+.mega em,.h2 em,.endcap em{font-family:var(--sera);font-style:italic;font-weight:300;letter-spacing:-.03em}
 
 /* texture helpers. Textures sit on fields, behind content, never between a reader and a paragraph. */
 .tx{position:relative;isolation:isolate}

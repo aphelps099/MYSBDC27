@@ -14,7 +14,6 @@
 /* the block */
 .b{display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:var(--pad);text-decoration:none;min-width:0}
 .mega{font:700 clamp(3.25rem,9.6vw,10rem)/.86 var(--nova);letter-spacing:-.05em;text-wrap:balance}
-.mega em{font:italic 300 1em/.86 var(--sera);letter-spacing:-.035em}
 .word{font:700 clamp(2.75rem,5.6vw,6rem)/.9 var(--nova);letter-spacing:-.05em}
 .h2{font:700 clamp(2rem,4.2vw,4rem)/.95 var(--nova);letter-spacing:-.045em;text-wrap:balance}
 .num{font:900 clamp(3rem,6.4vw,6.5rem)/.85 var(--nova);letter-spacing:-.055em}

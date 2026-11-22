@@ -212,9 +212,8 @@ site was then studied, and it changes the brief more than any external reference
 - **Layout.** Square colour blocks set edge to edge with no gaps and no radius, content pinned to
   the floor of the block, generous empty field above it.
 - **Colour in use.** Mostly cream and navy, with blue, pool and berry as signals.
-- **Labels.** The brand uses GT America Mono for labels. It is not in Typekit kit `pkl5rjs`, so the
-  mockups use Proxima Nova Wide (which is in the kit) in caps. GT America Mono is the optional
-  third face if the licence extends to the web.
+- **Labels.** The brand uses a mono face for labels. Per your direction the website does not:
+  labels are plain Proxima Nova in sentence case.
 - **Photography.** "People, not programs." Tight crops, natural light, real rooms. The Dick Taylor
   portrait used in the mockups is the brand's own lead image.
 - **Two palette values differ from `theme.json`**: the brand's Signal `#1B5FAF` and Berry `#C23C3C`

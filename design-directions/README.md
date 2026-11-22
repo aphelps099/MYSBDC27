@@ -10,8 +10,8 @@ rejected: predictable, not enough good type, too much going on. Front Counter's 
 that worked, so it is kept in `front-counter/` for reference. Round 2 starts from four instructions
 and from the Brand House at brand.norcalsbdc.org:
 
-1. **Proxima Nova does the work.** Sans throughout. Sera survives as one italic word in one
-   direction, which is the brand's own recipe.
+1. **Proxima Nova does the work.** Sans throughout, with no mono or wide-tracked caps. Sera appears
+   from time to time: one italic word in a page headline or a closing line.
 2. **Far simpler.** Each home page is five moves: say it, route it, prove it, next workshops, start.
 3. **Texture and layout carry as much as type.** Each direction is one texture and one layout idea.
 4. **Colour from Front Counter**: sand, sage, pool and the two navies as solid fields on paper.
@@ -24,8 +24,8 @@ All three share one type system, so the choice is about surface and structure.
 | Section head | Proxima Nova 700, 28 to 80px, tracking -0.04em |
 | Numerals | Proxima Nova 900, 40 to 208px, tracking -0.055em |
 | Body | Proxima Nova 500, 18px on 1.45 |
-| Label | Proxima Nova Wide 700, 12px caps, tracking 0.14em. The only small type |
-| Emphasis | Proxima Sera 300 italic, one word, Block hero only |
+| Label | Proxima Nova 600, 15px, sentence case, no tracking |
+| Emphasis | Proxima Sera 300 italic, one word per page headline, and in the home closing line |
 
 ## 1. Block
 
@@ -158,7 +158,7 @@ column is narrow, so tables and wide photography have less room than in the othe
 - Rendered at 1440px, 720px and 390px: no horizontal overflow on any of the nine pages, including
   with button, link and headline text lengthened by 40% to stand in for Spanish.
 - Every link, button, summary and select measures at least 44px tall.
-- Proxima Nova and Proxima Nova Wide load from kit `pkl5rjs` on every page.
+- Proxima Nova and Proxima Sera load from kit `pkl5rjs`; no other family is used.
 - Filters work by keyboard, state is in `aria-pressed` and a tick, and the count is announced.
 - Motion is transform, background-size or nothing, and is off under `prefers-reduced-motion`.
 - Contrast was measured against the rendered pixels behind every text element, texture included,
@@ -208,7 +208,6 @@ the dashboard, and it is the best at keeping one action in view.
 ## Open items
 
 - Which blue and berry are correct: `theme.json` or the Brand House (see RESEARCH.md)?
-- Is GT America Mono licensed for web? If so it replaces Proxima Nova Wide for labels.
 - "Español" is shown as a live link and should ship only with a real Spanish path.
 - Workshop rows are the repo's sample events, moved to December 2026 and January 2027.
 
