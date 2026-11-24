@@ -1,0 +1,43 @@
+/* About V4: local implementation of the reviewed layout study. */
+.about-v4{--red:#b3343c}
+.about-v4 main h2{font-family:var(--nova);font-weight:400;font-style:normal;font-size:clamp(42px,4.6vw,70px);letter-spacing:-.04em;line-height:1.04;margin:0}
+.about-v4 main p{font-size:22px;line-height:1.45;margin:0}
+.about-v4 main figure{margin:0;min-width:0}
+.about-v4 main img{display:block;max-width:100%;width:100%;object-fit:cover}
+.about-v4 main figcaption{font-size:16px;line-height:1.35;margin-top:17px}
+.about-v4 main figcaption span{display:block;margin-top:3px}
+.about-v4 .page-title-band{padding-bottom:104px}
+.about-opening{display:grid;grid-template-columns:.78fr 1.35fr;column-gap:7%;padding:0 4% 96px;align-items:start}
+.about-intro{padding-top:54px}
+.about-v4 main .about-intro h2{max-width:none;font-size:clamp(42px,4vw,64px)}
+.about-v4 main .about-intro p{max-width:29ch;margin-top:30px}
+.about-v4 main .about-hero{margin-top:-78px}
+.about-hero img{aspect-ratio:1.27;height:auto;object-position:59% center;border:0;box-shadow:none}
+.about-people{display:grid;grid-template-columns:1.25fr 1fr;column-gap:8%;padding:24px 4% 100px}
+.people-photographs{display:grid;grid-template-columns:1.4fr .82fr;align-items:start;gap:24px;margin-top:38px}
+.client-portrait img{aspect-ratio:.82;object-position:50% 22%;border-bottom:4px solid var(--red)}
+.people-photographs .advisor-portrait{padding-top:94px}
+.advisor-portrait img{aspect-ratio:.86;object-position:center;border-bottom:4px solid var(--red)}
+.people-copy{padding-top:10px;align-self:start}
+.people-copy>p{max-width:34ch}
+.about-v4 main .client-voice{margin-top:62px}
+.client-voice blockquote{margin:0;border:0;padding:0;font-style:normal}
+.about-v4 main .client-voice blockquote p{font-family:var(--nova);font-size:clamp(29px,2.8vw,43px);line-height:1.17;letter-spacing:-.022em;font-weight:400;font-style:normal}
+.about-v4 main .client-voice figcaption{margin-top:26px;font-size:18px}
+.client-voice figcaption strong{font-weight:600}
+.client-voice .concept-link{margin-top:13px;font-size:18px}
+.advising-link{margin-top:48px}
+.about-region{background:var(--pool);padding:76px 6% 78px;display:grid;grid-template-columns:1.15fr 1fr;gap:12%}
+.about-v4 main .region-heading p{max-width:34ch;margin-top:28px}
+.region-heading .concept-button{margin-top:30px}
+.network-facts{align-self:center}
+.about-v4 main .county-count{display:flex;align-items:center;gap:27px;margin-bottom:33px}
+.county-count strong{font-size:clamp(112px,12vw,180px);font-weight:600;letter-spacing:-.065em;line-height:.85}
+.county-count span{font-size:26px;line-height:1.18}
+.network-support>p{max-width:29ch}
+.network-links{display:flex;flex-wrap:wrap;gap:14px 32px;margin-top:18px}
+.about-region .concept-link{text-decoration-color:#1d2c3d55}
+.about-region .concept-link:hover{text-decoration-color:var(--red)}
+@media(min-width:1600px){.about-opening,.about-people{padding-inline:max(4%,calc((100vw - 1500px)/2))}.about-region{padding-inline:max(6%,calc((100vw - 1400px)/2))}.about-intro{padding-top:74px}.people-copy{padding-top:18px}}
+@media(min-width:701px) and (max-width:1000px){.about-v4 .page-title-band{padding-bottom:86px}.about-opening{padding-inline:3%;column-gap:5%;grid-template-columns:.85fr 1.2fr;padding-bottom:72px}.about-v4 main .about-hero{margin-top:-60px}.about-intro{padding-top:28px}.about-v4 main h2{font-size:43px}.about-v4 main p{font-size:20px}.about-v4 main .about-intro p{margin-top:24px}.about-hero img{aspect-ratio:1.03;object-position:58%}.about-people{padding:20px 3% 75px;gap:5%;grid-template-columns:1.15fr 1fr}.people-photographs{gap:16px;grid-template-columns:1.15fr .85fr}.people-photographs .advisor-portrait{padding-top:75px}.about-v4 main .client-voice{margin-top:40px}.about-v4 main .client-voice blockquote p{font-size:30px}.advising-link{margin-top:28px}.about-region{padding:60px 4%;gap:8%}.county-count span{font-size:23px}.about-v4 main .county-count{gap:20px}}
+@media(max-width:700px){.about-v4 main h2{font-size:clamp(39px,10vw,55px)}.about-v4 main p{font-size:20px}.about-v4 .page-title-band{padding-bottom:87px}.about-opening{grid-template-columns:1fr;padding:0 5% 58px;gap:30px}.about-v4 main .about-hero{grid-row:1;margin-top:-57px}.about-hero img{aspect-ratio:1.2;object-position:58% center}.about-v4 main figcaption{font-size:15px;margin-top:13px}.about-intro{padding-top:0}.about-intro h2{max-width:none}.about-intro h2 br{display:none}.about-v4 main .about-intro p{max-width:none;margin-top:23px}.about-people{grid-template-columns:1fr;gap:34px;padding:14px 5% 60px}.people-photographs{margin-top:28px;gap:17px;grid-template-columns:1.25fr .85fr}.people-photographs .advisor-portrait{padding-top:66px}.client-portrait img{aspect-ratio:.78}.advisor-portrait img{aspect-ratio:.82}.people-copy{padding-top:0}.people-copy>p{max-width:none}.about-v4 main .client-voice{margin-top:32px}.about-v4 main .client-voice blockquote p{font-size:30px;line-height:1.2}.about-v4 main .client-voice figcaption{font-size:18px;margin-top:22px}.advising-link{margin-top:24px}.about-region{grid-template-columns:1fr;gap:44px;padding:52px 5% 56px}.about-v4 main .region-heading p{margin-top:24px;max-width:none}.region-heading .concept-button{margin-top:25px}.about-v4 main .county-count{margin-bottom:27px;gap:26px}.county-count strong{font-size:112px}.county-count span{font-size:25px}.network-support>p{max-width:none}.network-links{margin-top:15px;gap:10px 32px}}
