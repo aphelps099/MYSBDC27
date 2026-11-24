@@ -21,3 +21,7 @@ Observed desktop1280 full flow and mobile390 opening/body/results/quote; respons
 ## All stories link — November 24
 
 Added an All stories link near the opening text, with the existing light-blue underline. Yarrow detail returns to the local Stories concept; Stories introduction links to the existing live full archive. Desktop/mobile placement and no overflow checked; detail-to-Stories navigation exercised. Current proof: all-stories-link-preview.jpg. No publishing.
+
+## Title navigation correction — November 24
+
+Removed the redundant Read their story anchor and moved All stories beside Stories in the navy title band. Title is now plain text with a separate explicit archive link. Opening copy has no links. Desktop1280/mobile390 visually checked, no mobile overflow, destination retained. Current proof: title-navigation-preview.jpg. Earlier opening-link screenshots are historical. Stories listing untouched in this correction.
