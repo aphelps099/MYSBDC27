@@ -4,7 +4,19 @@ User prefers V4's minimalist image overlap into the navy title band, but the ori
 
 Preview: http://127.0.0.1:8784/homepage-preview/about-concept-v5/
 
-## Current regional carousel update
+## Latest: five images, no captions, edge treatment
+
+User requested five images without captions, then suggested images bleeding to the page edge. Gallery now contains Golden Gate, North Coast, Lake Tahoe, Sacramento and Mount Shasta. Five centered dot buttons; no visible captions. Accessible image descriptions, named controls and live slide announcements retained. Manual advance/keyboard/swipe behavior preserved. The regional image reaches the right viewport edge above700px, both edges on mobile; text remains inset. Hero and other content unchanged.
+
+Three added photographs saved locally from Unsplash, with image size metadata checked. Sources/credits (not visible captions):
+- Lake Tahoe / Richard Hedrick: https://unsplash.com/photos/a-large-body-of-water-surrounded-by-trees-iLRuvUlZxIc — images.unsplash.com/photo-1687707985204-9bfdabce482f
+- Sacramento / Leo_Visions: https://unsplash.com/photos/golden-tower-bridge-over-calm-water-at-dusk-0wE3AAOTvWE — images.unsplash.com/photo-1763924988461-cae38ca2446f
+- Mount Shasta / Clay Elliot: https://unsplash.com/photos/white-and-black-mountain-under-blue-sky-during-daytime-Alowh7ERf34 — images.unsplash.com/photo-1601502200081-b85beca6e0c1
+- License checked: https://unsplash.com/license . Golden Gate/North Coast remain the existing concept assets with previously noted provenance limits.
+
+Observed all five dot selections update image, selected state and accessible announcement. All5 images loaded, zero gallery figcaptions, one selected dot, stable desktop gallery height536px. Last-to-first keyboard wrapping passed. Desktop1280, tablet768 and mobile390/320 showed no horizontal overflow; image right equals viewport right, and mobile left equals0. Current screenshots: region-edge-preview.jpg and region-edge-mobile-preview.jpg. Five-images screenshots show the intermediate inset version; earlier carousel screenshots show two slides. JS syntax, IDs/targets/local files and whitespace pass. No deployment.
+
+## Earlier two-image regional carousel update
 
 User requested a light-blue image underline and multiple regional views with dots. Replaced the red regional image rule with pool blue. Golden Gate and North Coast imagery now form a two-slide manual carousel with changing captions, native44px dot buttons, selected state, screen-reader announcements, arrow/Home/End keyboard navigation and horizontal touch/pen swipes. No autoplay. Both slides occupy one stable grid footprint; opacity transition respects reduced motion.
 

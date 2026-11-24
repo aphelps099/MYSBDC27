@@ -28,7 +28,7 @@ if (regionCarousel) {
       slide.setAttribute('aria-hidden', String(!active));
       dots[i].setAttribute('aria-pressed', String(active));
     });
-    status.textContent = `${currentSlide + 1} of ${slides.length}: ${slides[currentSlide].querySelector('figcaption').textContent}`;
+    status.textContent = slides[currentSlide].getAttribute('aria-label');
     if (focusDot) dots[currentSlide].focus();
   }
   dots.forEach((dot, index) => {

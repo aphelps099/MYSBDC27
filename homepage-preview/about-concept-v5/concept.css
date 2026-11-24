@@ -54,13 +54,23 @@
 .region-carousel .region-slide{grid-area:1/1;min-width:0;margin:0;opacity:0;visibility:hidden;transition:opacity .32s ease,visibility .32s ease}
 .region-carousel .region-slide.is-active{opacity:1;visibility:visible}
 .region-carousel .region-slide img{border-bottom-color:var(--pool);user-select:none;-webkit-user-drag:none}
-.region-carousel .region-slide figcaption{padding-right:100px;min-height:44px}
-.region-carousel-controls{position:absolute;right:-8px;bottom:0;display:flex;align-items:center;gap:0;height:44px}
+.region-carousel-controls{display:flex;justify-content:center;align-items:center;gap:0;height:44px;margin-top:12px}
 .region-dot{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;padding:0;background:transparent;cursor:pointer;color:var(--navy)}
 .region-dot span{width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;background:transparent;transition:background .2s,transform .2s}
 .region-dot[aria-pressed="true"] span{background:var(--navy);transform:scale(1.2)}
 .region-dot:hover span{background:var(--pool)}
 .region-dot:focus-visible{outline:3px solid #b3343c;outline-offset:-4px;border-radius:4px}
 .about-v5 main .region-carousel-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-@media(max-width:700px){.region-carousel .region-slide figcaption{padding-right:92px;min-height:44px}}
 @media(prefers-reduced-motion:reduce){.region-carousel .region-slide,.region-dot span{transition:none}}
+
+#region-slide-3 img{object-position:50% 58%}
+#region-slide-4 img{object-position:50% 55%}
+#region-slide-5 img{object-position:50% 53%}
+
+/* Let the regional gallery reach the page edge while the copy stays inset. */
+@media(min-width:701px){
+.about-v5 .about-region{padding-right:0;grid-template-columns:.9fr 1.3fr;column-gap:7%}
+}
+@media(max-width:700px){
+.about-v5 .region-carousel{margin-inline:-5vw}
+}
