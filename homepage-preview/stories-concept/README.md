@@ -18,3 +18,9 @@ Remote business images remain on NorCal SBDC. Existing partner logos and require
 ## Checks
 
 Desktop 1440 and default 994 inspected; mobile 390 opening, Circosphere and closing inspected. No horizontal overflow at 1440/768/390/320. All ten images loaded. Language keyboard Enter/Escape and focus return checked; business anchor checked. JS syntax, HTML unique IDs/single H1/anchors/local references and whitespace passed. Reduced-motion fallback inherited from shared CSS; not browser-emulated. Screenshots: desktop-preview.jpg, mobile-preview.jpg, businesses-preview.jpg, full-page-preview.jpg.
+
+## Image-treatment refinement — November 24
+
+User likes the hero story, finds lower stories dull, and clarified that treatments must be distinct: blue offset backing on the hero; red bottom rules on lower story images. Never combine both on one image. Implemented in isolated Stories CSS, including the Circosphere photo; tighter Yarrow portrait crop. Hero content/composition and all links unchanged. Earlier clean-edge screenshots above are historical; current screenshots are hero-treatment-preview.jpg and cards-treatment-preview.jpg.
+
+Checked desktop 994/1440 and mobile 390; no overflow. Computed styles verified hero shadow with zero border, all three lower images red rule with no shadow. Viewport reset. No publishing.
