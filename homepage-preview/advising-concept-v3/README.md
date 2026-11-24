@@ -14,3 +14,15 @@ Observed: HTTP200, JS syntax, SVG XML and Git whitespace checks. Desktop1440/994
 ## Header polish — November24,2026
 
 User rejected red photo edges and blue offset backing on these pages. Added a clear Advising H1 within the navy band; former hero message is now H2. Both current studies load `../concept-page-headers.css` for consistent clean photo treatment, cream opening, aligned columns, restrained headlines and mobile spacing. Lower-page markup verified unchanged. Desktop/mobile390 inspected; no overflow; computed photo border0 and backing pseudo-element none. New header-polish-preview.jpg records the current opening; earlier screenshots are historical. No theme or WordPress changes.
+
+## Meet your business person — November 24, 2026
+
+Added a short advisor introduction between the opening and expertise sections. Three large black-and-white portraits, slightly staggered on desktop, stack cleanly on mobile. Pale pool/cream background uses existing tokens. New isolated `advisors.css` does not affect Training. All other markup verified unchanged.
+
+These are temporary existing North Coast SBDC photographs, with real names and concise specialties verified against official profiles, not invented advisors. Final photography and selection remain open:
+
+- [Melanie Barnett](https://www.northcoastsbdc.org/team-members/melanie-barnett/): food businesses and financial projections.
+- [Paul Bozzo](https://www.northcoastsbdc.org/team-members/paul-bozzo/): business planning and funding.
+- [Amandeep Singh](https://www.northcoastsbdc.org/team-members/amandeep-singh/): e-commerce and web development.
+
+Image URLs were already present in the About study. Visible concept note discloses temporary selection. CTA uses existing local-center finder. No availability or matching guarantees. Desktop 994/1440 and mobile 390 visually checked, portraits loaded, no horizontal overflow. `advisors-preview.jpg` captures the current section. No theme/WordPress changes or publishing.
