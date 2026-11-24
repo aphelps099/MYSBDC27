@@ -1,0 +1,33 @@
+/* New photo-led About v3. No styles shared back to previous studies. */
+.about-v3 main h1,.about-v3 main h2{font-family:var(--nova);font-style:normal;font-weight:400;letter-spacing:-.045em;line-height:1.02;margin:0}
+.about-v3 main h2{font-size:clamp(46px,5.2vw,76px)}
+.about-v3 main p{font-size:21px;line-height:1.45;margin:0}
+.about-v3 main figure{margin:0;min-width:0}.about-v3 main img{display:block;width:100%;height:auto;object-fit:cover;border-bottom:4px solid #b3343c;box-shadow:none}
+.about-v3 main figcaption{font-size:15px;line-height:1.4;margin-top:12px}
+.a3-opening{background:linear-gradient(var(--navy) 0 315px,var(--cream) 315px)}
+.a3-title{padding:22px 4% 34px;color:var(--cream)}.a3-title h1{font-size:clamp(60px,6.5vw,92px)}
+.a3-photo-wall{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:22px;align-items:start;padding:0 4%}
+.a3-maker img{aspect-ratio:1.15;object-position:52% 45%}.a3-baker{padding-top:74px}.a3-baker img{aspect-ratio:.75;object-position:50% 40%}.a3-shop{padding-top:155px}.a3-shop img{aspect-ratio:.92;object-position:48% 50%}
+.a3-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:12%;align-items:center;padding:52px 6% 65px}.a3-intro>p{max-width:34ch}
+.a3-people{display:grid;grid-template-columns:.9fr 1.25fr;gap:7%;align-items:center;padding:65px 5%;background:var(--pool)}
+.a3-people-copy p{max-width:30ch;margin-top:25px!important}.a3-people-copy .concept-button{margin-top:28px}
+.a3-advisors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:18px;align-items:start}
+.a3-advisors img{aspect-ratio:.77;object-position:50% 25%}.a3-advisor-two{padding-top:62px}.a3-advisor-three{padding-top:22px}
+.about-v3 main .a3-advisor-note{grid-column:1/-1;font-size:15px;margin-top:22px}
+.a3-client{display:grid;grid-template-columns:.85fr 1.15fr;align-items:stretch;background:var(--navy);color:var(--cream)}
+.a3-client-photo{position:relative;min-height:540px;overflow:hidden}.about-v3 main .a3-client-photo img{position:absolute;inset:0;height:100%;object-position:50% 27%}.a3-client-photo figcaption{position:absolute;bottom:4px;left:0;right:0;margin:0!important;padding:38px 24px 18px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff}
+.a3-client-copy{padding:70px 9%;align-self:center}.a3-client blockquote{margin:0;padding:0;border:0;font-style:normal}.about-v3 main .a3-client blockquote p{font-size:clamp(30px,3.1vw,46px);font-weight:400;font-style:normal;line-height:1.16;letter-spacing:-.025em}
+.about-v3 main .a3-attribution{font-size:18px;font-weight:600;margin-top:28px}.a3-attribution span{display:block;font-weight:400;margin-top:3px}.a3-client .concept-link{margin-top:20px;text-decoration-color:#8fc5d980}.a3-client .concept-link:hover{text-decoration-color:#b3343c}
+.a3-network{padding:40px 6%;display:flex;align-items:center;justify-content:space-between;gap:28px}.a3-network>p{display:flex;align-items:center;gap:25px}.a3-network strong{font-size:100px;line-height:1;font-weight:400;letter-spacing:-.06em}.a3-network span{font-size:25px;line-height:1.2}
+@media(min-width:1600px){.a3-photo-wall{padding-inline:max(4%,calc((100vw - 1500px)/2))}.a3-intro,.a3-people,.a3-network{padding-inline:max(6%,calc((100vw - 1400px)/2))}.a3-client-photo{min-height:640px}}
+@media(max-width:1000px) and (min-width:701px){.a3-opening{background:linear-gradient(var(--navy) 0 260px,var(--cream) 260px)}.a3-photo-wall{gap:16px;grid-template-columns:1.5fr 1fr 1fr}.a3-baker{padding-top:48px}.a3-shop{padding-top:105px}.a3-intro{gap:8%;padding-block:42px 52px}.a3-people{grid-template-columns:.9fr 1.2fr;gap:5%;padding:52px 4%}.about-v3 main h2{font-size:46px}.a3-advisors{column-gap:12px}.a3-advisor-two{padding-top:50px}.a3-client-photo{min-height:480px}.a3-client-copy{padding:48px 8%}}
+@media(max-width:700px){
+.about-v3 main p{font-size:20px}.about-v3 main h2{font-size:43px}.about-v3 main figcaption{font-size:14px;margin-top:10px}
+.a3-opening{background:linear-gradient(var(--navy) 0 245px,var(--cream) 245px)}.a3-title{padding:22px 5% 28px}.a3-title h1{font-size:56px}
+.a3-photo-wall{grid-template-columns:1fr 1fr;gap:25px 16px;padding-inline:5%;align-items:start}.a3-maker{grid-column:1/-1}.a3-maker img{aspect-ratio:1.55;object-position:50% 50%}.a3-baker{padding-top:0}.a3-baker img{aspect-ratio:.96}.a3-shop{padding-top:35px}.a3-shop img{aspect-ratio:.96}
+.a3-intro{grid-template-columns:1fr;gap:22px;padding:40px 5% 45px}.a3-intro>p{max-width:none}
+.a3-people{grid-template-columns:1fr;gap:35px;padding:43px 5%}.a3-people-copy p{max-width:none;margin-top:22px!important}.a3-people-copy .concept-button{margin-top:24px}.a3-advisors{column-gap:12px}.a3-advisor-two{padding-top:40px}.a3-advisor-three{padding-top:13px}.a3-advisors img{aspect-ratio:.72}.about-v3 main .a3-advisor-note{font-size:14px;margin-top:20px}
+.a3-client{grid-template-columns:1fr}.a3-client-photo{min-height:0;height:360px}.a3-client-photo img{object-position:50% 23%}.a3-client-copy{padding:38px 6% 42px}.about-v3 main .a3-client blockquote p{font-size:31px}.about-v3 main .a3-attribution{font-size:18px;margin-top:24px}.a3-client .concept-link{margin-top:16px}
+.a3-network{display:block;padding:34px 5%}.a3-network>p{gap:21px}.a3-network strong{font-size:88px}.a3-network span{font-size:22px}.a3-network .concept-link{margin-top:16px}
+}
+@media(prefers-reduced-motion:reduce){.about-v3 *{scroll-behavior:auto!important}}
