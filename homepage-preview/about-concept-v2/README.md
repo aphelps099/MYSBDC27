@@ -26,3 +26,13 @@ HTTP200, JS syntax; oneH1, uniqueIDs, local references and anchor targets; foote
 
 Current screenshots: desktop-preview.jpg, people-preview.jpg, mobile-preview.jpg.
 Local only: no push, PR, deployment or WordPress changes. User visual acceptance pending.
+
+## Photography and client voices refinement — November 24
+
+User likes v2 direction and requested more business imagery, red image rules, a quieter advisor caption and client/partner quotes. Opening now has four real business photos: added Humble Sea Brewing and Churn from existing About brand-study media. Added Hella Nuts founders photo alongside second client quote. All eight main photos use a4px red bottom rule only; no blue shadow. Melanie's caption is now plain name plus center/role, without an underlined link. Existing Explore advising remains in the accompanying copy. Original About remains unchanged; initial v2 is preserved at66f0931.
+
+Two exact short excerpts verified directly against official published stories on November24:
+- Laila O’Boyle: first16-word sentence, https://www.norcalsbdc.org/shared/client-stories/from-oven-to-online-local-baker-scales-to-global-reach/ . Presented with her attribution and separate source-story link beside the added opening photos.
+- Mieko Scott:22-word statement, https://www.buttecollegesbdc.com/shared/client-stories/hella-nuts/ . Presented with Hella Nuts founders photograph, attribution and source-story link between people and region. Source's mid-sentence capitalized “Introduced” normalized to lowercase; wording otherwise unchanged.
+
+New images reuse existing approved study URLs; no invented partner endorsement or synthetic photos. Historical impact copy/figures, nav and footer unchanged. Verified desktop1280/994 and mobile390 image crops, loaded main photos,4px red/no shadow, zero advisor-caption links. No overflow320/390/768/1280. Improved mobile Hella Nuts crop to retain both heads. Anchor/IDs/cited quotes/footer parity/whitespace checks passed. Current screenshots: expanded-opening-preview.jpg, client-voice-preview.jpg, mobile-client-voice-preview.jpg; prior screenshots show earlier v2. Local only; no publish/WordPress changes. Review pending.

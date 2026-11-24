@@ -50,3 +50,20 @@
 .about-v2 main h2{font-size:44px}.about-v2 main h3{font-size:38px}.about-v2 main p{font-size:20px}.about-v2 main figcaption{font-size:15px;margin-top:12px}.v2-opening{padding-top:36px}.v2-intro{display:block}.about-v2 .v2-intro h2{font-size:clamp(46px,12vw,64px)}.v2-intro>div{padding-top:26px;max-width:none}.opening-images{grid-template-columns:1fr;gap:35px;margin-top:38px}.opening-portrait{padding:0 0 0 13%;width:83%}.opening-portrait img{aspect-ratio:1}.opening-workshop{width:100%}.opening-workshop img{aspect-ratio:1.15}.v2-people{padding-top:70px}.people-statement{margin-left:0}.people-statement>p{margin-top:24px}.people-row-advisor{grid-template-columns:1fr;gap:28px;margin-top:42px;padding:0}.people-row-advisor figure{width:76%;max-width:350px}.people-row-advisor img{aspect-ratio:1}.people-row-business{grid-template-columns:1fr;gap:30px;padding:0;margin-top:56px}.people-row-business .narrative-copy{padding:0}.people-row-business figure{width:88%;margin-left:auto}.people-row-business img{aspect-ratio:1}.narrative-copy{max-width:none}.v2-region{padding-block:70px}.region-heading{grid-template-columns:1fr;gap:26px}.region-landscape{grid-template-columns:1fr;gap:32px;margin-top:32px}.region-number strong{font-size:110px}.region-number span{font-size:26px}.region-landscape img{aspect-ratio:1.25}.about-impact{padding:58px 5%}.impact-intro{grid-template-columns:1fr;gap:24px}.about-results{grid-template-columns:1fr;gap:35px;margin-top:38px}.about-results dd:not(.result-note){font-size:80px;margin-bottom:12px}.impact-source{display:block;margin-top:32px}.about-v2 .impact-source .concept-link{margin-top:12px}.about-partners{grid-template-columns:1fr;gap:26px;padding-block:65px 38px}.about-invitation{display:block;padding-block:25px 65px}.about-invitation .concept-button{margin-top:28px}
 }
 @media(prefers-reduced-motion:reduce){.about-v2{scroll-behavior:auto}.about-v2 *{scroll-behavior:auto!important}}
+
+/* November 24: richer business imagery, red image rules and sourced voices. */
+.about-v2 main img{border-bottom:4px solid #b3343c;box-shadow:none}
+.about-v2 main .caption-detail{display:block;font-weight:400;margin-top:4px}
+.opening-more{display:grid;grid-template-columns:4fr 7fr;gap:8%;align-items:center;margin-top:64px}
+.opening-community{display:grid;grid-template-columns:1fr 1fr;gap:9%;align-items:start}
+.community-brewery img,.community-churn img{aspect-ratio:.88;object-position:center}
+.community-churn{padding-top:90px}
+.about-v2 main .client-words blockquote{margin:0;padding:0;border:0;font-style:normal}
+.about-v2 main .client-words blockquote p{font-size:clamp(30px,3vw,44px);font-weight:400;line-height:1.15;letter-spacing:-.025em;font-style:normal}
+.about-v2 main .client-words figcaption{font-size:18px;font-weight:600;line-height:1.4;margin-top:28px}
+.about-v2 main .client-words .concept-link{font-size:17px;margin-top:16px}
+.opening-words{padding-left:8%}
+.client-voice{display:grid;grid-template-columns:4fr 6fr;gap:12%;align-items:center;padding:110px 5% 0}
+.voice-photo img{aspect-ratio:.85;object-position:50% 36%}
+@media(max-width:1000px) and (min-width:701px){.opening-more{gap:6%}.opening-words{padding-left:0}.opening-community{gap:7%}.community-churn{padding-top:65px}.client-voice{gap:9%;padding-inline:2%}}
+@media(max-width:700px){.opening-more{grid-template-columns:1fr;gap:38px;margin-top:40px}.opening-words{padding:0 5%}.opening-community{gap:6%;align-items:start}.community-churn{padding-top:52px}.community-brewery img,.community-churn img{aspect-ratio:.78}.about-v2 main .client-words blockquote p{font-size:31px;line-height:1.2}.about-v2 main .client-words figcaption{font-size:17px;margin-top:22px}.client-voice{grid-template-columns:1fr;gap:30px;padding:65px 0 0}.voice-photo{width:77%}.voice-photo img{aspect-ratio:1;object-position:50% 25%}.client-voice .client-words{padding-left:5%}}
