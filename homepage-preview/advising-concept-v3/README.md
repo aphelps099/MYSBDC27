@@ -38,3 +38,11 @@ Checked desktop 994/1440 and mobile 390: both images loaded, crops visually insp
 ## Section placement — November 24, 2026
 
 Moved the unchanged Meet your business person split section to the end of main, replacing Keep learning, after How it works and immediately before the footer. Removed trailing section margin for a clean transition. Other markup verified unchanged. Current context screenshot: advisors-closing-preview.jpg. No publication or WordPress changes.
+
+## Full-page flow polish — November 24, 2026
+
+User requested fewer advising prompts near the bottom and tighter organization of specialist support. Replaced oversized specialist cards plus trailing program list with four compact groups: financing, technology/AI, government contracting, industry/owner support. All eight original destinations preserved exactly, with shorter descriptions and meaningful group headings. No new outcome claims.
+
+Removed both How it works action links and the repeated footer signup invitation on this local concept only. Closing portrait feature now has the sole primary lower-page action, “Get no-fee advising”, linking to existing join intake. Hero/nav actions retained; footer brand, navigation, contacts, logos and disclaimer retained. Topic, specialist and process headings/spacing now have a consistent smaller scale, preserving readable 20–21px body copy and approved vector art. `flow.css` is isolated from Training, which imports `concept.css`.
+
+Checked desktop994/1440 and mobile390 visually; mobile320 overflow checked. All images loaded after scrolling to lazy-loaded section. Topic disclosure toggles with Enter. Verified eight specialist destinations unchanged and one primary closing action. Training/shared source unchanged, whitespace clean. Screenshots: expertise-flow-preview.jpg and full-page-flow-preview.jpg. Earlier screenshots are historical. Viewport restored; full page open at top. No publication/WordPress/theme changes.
