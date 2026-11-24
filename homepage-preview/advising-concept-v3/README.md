@@ -26,3 +26,11 @@ These are temporary existing North Coast SBDC photographs, with real names and c
 - [Amandeep Singh](https://www.northcoastsbdc.org/team-members/amandeep-singh/): e-commerce and web development.
 
 Image URLs were already present in the About study. Visible concept note discloses temporary selection. CTA uses existing local-center finder. No availability or matching guarantees. Desktop 994/1440 and mobile 390 visually checked, portraits loaded, no horizontal overflow. `advisors-preview.jpg` captures the current section. No theme/WordPress changes or publishing.
+
+## Split photography composition — November 24, 2026
+
+User supplied a reference with centered text and a small portrait on the left and a tall full-height photograph on the right. Replaced the three-person gallery with that composition, retaining Proxima Nova, cream/navy, clean image edges and existing center-finder action. Earlier gallery is preserved at `f354b4c` and in `advisors-preview.jpg`. Current screenshot: `advisors-split-preview.jpg`.
+
+Two new images generated using built-in image_gen: `assets/advisor-portrait-concept.png` and `assets/advising-conversation-concept.png`. Both depict fictional models, explicitly disclosed in visible copy and alt text; no real identities or biographies are attached. Full prompts and provenance: `assets/image-prompts.md`. Originals copied into project, no external generated-image dependency.
+
+Checked desktop 994/1440 and mobile 390: both images loaded, crops visually inspected, no horizontal overflow. Section becomes a single column on mobile. Rest of page markup compared unchanged; Training and shared styles untouched. No WordPress changes or publication. New composition awaits user review.
