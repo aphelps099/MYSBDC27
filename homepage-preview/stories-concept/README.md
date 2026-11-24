@@ -24,3 +24,9 @@ Desktop 1440 and default 994 inspected; mobile 390 opening, Circosphere and clos
 User likes the hero story, finds lower stories dull, and clarified that treatments must be distinct: blue offset backing on the hero; red bottom rules on lower story images. Never combine both on one image. Implemented in isolated Stories CSS, including the Circosphere photo; tighter Yarrow portrait crop. Hero content/composition and all links unchanged. Earlier clean-edge screenshots above are historical; current screenshots are hero-treatment-preview.jpg and cards-treatment-preview.jpg.
 
 Checked desktop 994/1440 and mobile 390; no overflow. Computed styles verified hero shadow with zero border, all three lower images red rule with no shadow. Viewport reset. No publishing.
+
+## Deeper navy / minimal stories — November 24
+
+User requested navy extending farther beneath the hero image and a more minimalist story card. Navy now reaches 150–245px into the hero region (180px mobile), with the short hero copy placed entirely on cream. Jump Aero is reduced to name, one-sentence summary, existing verified funding figure and story link. Lower cards use linked business titles and one-sentence captions; redundant category/action labels and introductory paragraph removed. Circosphere copy shortened. Blue hero backing and red lower-image rules remain separate. All destinations, image assets, footer and previous studies unchanged.
+
+Observed at1440/768/390: readable hero contrast, loaded imagery, no overflow; linked title destinations verified. Whitespace check passed. Latest screenshots: minimal-hero-preview.jpg and minimal-stories-preview.jpg. Earlier previews are historical. No publish or WordPress changes.

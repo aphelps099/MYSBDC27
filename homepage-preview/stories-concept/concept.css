@@ -22,3 +22,17 @@
   .lead-photo figcaption{margin-top:26px}
   .story-pair .story-photo-link,.circosphere-story figure{border-bottom-width:4px}
 }
+
+/* Navy carries behind the hero photo; stories use concise linked captions. */
+.story-lead{--navy-depth:clamp(150px,17vw,245px);background:linear-gradient(var(--navy) 0 var(--navy-depth),var(--cream) var(--navy-depth));align-items:start}
+.lead-copy{margin-top:calc(var(--navy-depth) - 12px);padding-bottom:0}
+.lead-copy>p{margin-top:24px;max-width:30ch}
+.businesses-intro{display:block;margin-bottom:38px}
+.businesses-intro h2{font-size:clamp(36px,3.5vw,50px)!important}
+.business-story h3{margin:26px 0 14px}
+.story-title-link{display:inline-block;text-decoration:underline;text-decoration-color:#7299c166;text-decoration-thickness:2px;text-underline-offset:9px;transition:text-underline-offset .2s,text-decoration-color .2s}
+.story-title-link:hover{text-underline-offset:5px;text-decoration-color:#b3343c}
+.circosphere-copy{align-self:center}
+.circosphere-copy>p{margin-top:26px}
+@media(min-width:701px) and (max-width:1050px){.lead-copy{margin-top:calc(var(--navy-depth) - 6px)}}
+@media(max-width:700px){.story-lead{--navy-depth:180px}.lead-copy{margin-top:0}.businesses-intro{margin-bottom:30px}.businesses-intro h2{font-size:36px!important}.business-story h3{margin-top:24px}.circosphere-copy>p{margin-top:22px}}
