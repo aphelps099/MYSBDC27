@@ -1,0 +1,28 @@
+# About v2 — Hydrous-inspired photographic study
+
+November 24, 2026. Separate local concept requested by the user. Original `../about-concept/` is preserved unchanged for comparison. No shared styles, other concepts, theme or WordPress content edited.
+
+Preview: http://127.0.0.1:8784/homepage-preview/about-concept-v2/
+Original: http://127.0.0.1:8784/homepage-preview/about-concept/
+
+## Direction
+
+Reference: https://thehydrous.com/home#history, visually reviewed in preceding turn. Adapted staggered photographic composition, lighter headings and continuous open space to existing Proxima Nova, navy #1d2c3d, cream #f6f1e6, pool #8fc5d9. All main headings use weight400; body remains20–21px. Navy page-name band retained. Opening pairs smaller offset Early Rise portrait with larger Dick Taylor workshop photograph. Cream narrative continues through actual advisor portrait, Freeline workshop and regional landscape. Pool impact section provides a single change in color before partner context and closing advising action. No decorative eyebrows, lines, new vector art or image effects. Mobile stacks photography with modest alternating insets. Shared navigation, English language disclosure, MySBDC, links and complete footer retained.
+
+## Content and image provenance
+
+Retains original About concept's copy, dated FFY2022–2024 impact values and official source links; see its README for earlier verification and limitations. Reorganizes existing people copy into two photo-led passages. No new outcome claims, quotations or statistics.
+
+All photography reused from existing workspace studies, no generated imagery:
+- Laila O’Boyle / The Early Rise: same photo as About v1; https://www.norcalsbdc.org/shared/client-stories/from-oven-to-online-local-baker-scales-to-global-reach/
+- Adam Dick and Dustin Taylor: same public media as Advising v3, `https://www.norcalsbdc.org/wp-content/uploads/2020/07/Dick-Taylor-Adam-Dick-and-Dustin-Taylor.jpg`.
+- Melanie Barnett: real advisor portrait previously verified for About/Advising, linked to https://www.northcoastsbdc.org/team-members/melanie-barnett/ . Does not imply she is every visitor's assigned advisor.
+- Freeline Surfshop: existing About brand-study media, `https://www.norcalsbdc.org/wp-content/uploads/2022/09/freeline.jpg`; caption/alt reused from that study.
+- Golden Gate: existing `../assets/about-golden-gate.webp`. Original acquisition/license not independently re-established in this pass.
+
+## Validation and status
+
+HTTP200, JS syntax; oneH1, uniqueIDs, local references and anchor targets; footer exact-match against v1; v1 Git diff remains empty. Desktop994/1440 composition, people, region, impact and closing visually reviewed. Mobile390 opening/people and image crops reviewed. No overflow320/390/768/1440. All10 images loaded, Proxima Nova loaded and main heading computed weight400. Language keyboard Enter/Escape and focus return verified. Reduced-motion fallback included; no new animation. Viewport reset, temporary QA tabs closed; v2 preview retained.
+
+Current screenshots: desktop-preview.jpg, people-preview.jpg, mobile-preview.jpg.
+Local only: no push, PR, deployment or WordPress changes. User visual acceptance pending.

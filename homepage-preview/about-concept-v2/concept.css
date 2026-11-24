@@ -1,0 +1,52 @@
+/* Isolated About v2 study; original About and shared assets remain unchanged. */
+.about-v2 main h1,.about-v2 main h2,.about-v2 main h3{font-family:var(--nova);font-style:normal;font-weight:400;letter-spacing:-.045em}
+.about-v2 main h2{font-size:clamp(48px,5.1vw,76px);line-height:1.04}
+.about-v2 main h3{font-size:clamp(38px,4vw,58px);line-height:1.06}
+.about-v2 main p{font-size:21px;line-height:1.5}
+.about-v2 main figure{margin:0;min-width:0}
+.about-v2 main img{display:block;width:100%;height:auto;object-fit:cover;border:0;box-shadow:none}
+.about-v2 main figcaption{font-size:16px;line-height:1.4;margin-top:16px}
+.about-v2 main figcaption .concept-link{font-size:16px;margin:0}
+.about-v2 main .concept-link{margin-top:24px}
+.about-v2 .page-title-band{padding-bottom:38px}
+.about-v2 .page-title-band h1{font-size:clamp(56px,6vw,86px)}
+.v2-shell{width:min(1400px,90%);margin-inline:auto}
+.v2-opening{padding-top:66px}
+.v2-intro{display:grid;grid-template-columns:1.25fr 1fr;gap:9%;align-items:start}
+.about-v2 .v2-intro h2{font-size:clamp(54px,6.3vw,94px);line-height:1.02}
+.v2-intro>div{padding-top:5px;max-width:38ch}
+.v2-intro p+p{margin-top:20px}
+.opening-images{display:grid;grid-template-columns:4fr 7fr;gap:8%;align-items:start;margin-top:64px}
+.opening-portrait{padding-top:118px;padding-left:8%}
+.opening-portrait img{aspect-ratio:.83;object-position:52% 42%}
+.opening-workshop img{aspect-ratio:1.4;object-position:50% 50%}
+.v2-people{padding-top:120px}
+.people-statement{margin-left:34%;max-width:720px}
+.people-statement>p{max-width:43ch;margin-top:28px}
+.people-row{display:grid;align-items:center}
+.people-row-advisor{grid-template-columns:4fr 5fr;gap:14%;margin-top:80px;padding-inline:6%}
+.people-row-advisor figure{max-width:370px}
+.people-row-advisor img{aspect-ratio:.88;object-position:center}
+.narrative-copy{max-width:42ch}
+.narrative-copy p{margin-top:24px}
+.people-row-business{grid-template-columns:4fr 6fr;gap:13%;margin-top:105px;padding-left:10%}
+.people-row-business .narrative-copy{align-self:start;padding-top:48px}
+.people-row-business img{aspect-ratio:1.12;object-position:center}
+.v2-region{padding-top:125px;padding-bottom:110px}
+.region-heading{display:grid;grid-template-columns:1fr 1fr;gap:14%;align-items:start}
+.region-heading p+p{margin-top:20px}
+.region-landscape{display:grid;grid-template-columns:3fr 7fr;gap:8%;align-items:center;margin-top:60px}
+.region-number strong{font-size:clamp(110px,12vw,180px);font-weight:400;line-height:1;letter-spacing:-.065em;display:block}
+.region-number span{display:block;font-size:27px;line-height:1.2;margin-top:15px}
+.region-landscape img{aspect-ratio:1.55}
+.about-impact{background:var(--pool);padding:80px max(5%,calc((100% - 1400px)/2)) 65px}
+.impact-intro{display:grid;grid-template-columns:1.2fr 1fr;gap:10%;align-items:center}.impact-intro>p{max-width:37ch}
+.about-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6%;margin:60px 0 0}.about-results>div{display:flex;flex-direction:column}.about-results dt{order:2;font-size:22px;font-weight:600;line-height:1.25}.about-results dd:not(.result-note){order:1;font-size:clamp(60px,7.5vw,110px);font-weight:400;line-height:1;letter-spacing:-.055em;margin:0 0 20px}.about-results .result-note{order:3;font-size:18px;line-height:1.4;margin:9px 0 0}.impact-source{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:36px}.impact-source p{font-size:16px!important}.about-v2 .impact-source .concept-link{font-size:17px;margin:0;text-decoration-color:#1d2c3d55}
+.about-partners{width:min(1400px,90%);margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:14%;padding-block:95px 60px}.about-partners p+p{margin-top:20px}.partner-links{display:flex;flex-wrap:wrap;gap:0 26px}.partner-links .concept-link{font-size:18px}
+.about-invitation{width:min(1400px,90%);margin:auto;display:flex;justify-content:space-between;align-items:center;gap:40px;padding-block:35px 100px}.about-v2 .about-invitation h2{font-size:clamp(42px,4.5vw,66px)}.about-invitation p{margin-top:20px}.about-invitation .concept-button{flex-shrink:0}
+@media(min-width:1800px){.opening-portrait{padding-top:140px}.v2-opening{padding-top:80px}}
+@media(max-width:1000px) and (min-width:701px){.v2-intro{gap:6%;grid-template-columns:1.1fr 1fr}.about-v2 .v2-intro h2{font-size:58px}.opening-images{gap:6%}.opening-portrait{padding-top:85px;padding-left:0}.people-row-advisor{padding-inline:2%;gap:10%}.people-row-business{padding-left:4%;gap:8%}.region-heading{gap:8%}.about-partners{gap:8%}}
+@media(max-width:700px){
+.about-v2 main h2{font-size:44px}.about-v2 main h3{font-size:38px}.about-v2 main p{font-size:20px}.about-v2 main figcaption{font-size:15px;margin-top:12px}.v2-opening{padding-top:36px}.v2-intro{display:block}.about-v2 .v2-intro h2{font-size:clamp(46px,12vw,64px)}.v2-intro>div{padding-top:26px;max-width:none}.opening-images{grid-template-columns:1fr;gap:35px;margin-top:38px}.opening-portrait{padding:0 0 0 13%;width:83%}.opening-portrait img{aspect-ratio:1}.opening-workshop{width:100%}.opening-workshop img{aspect-ratio:1.15}.v2-people{padding-top:70px}.people-statement{margin-left:0}.people-statement>p{margin-top:24px}.people-row-advisor{grid-template-columns:1fr;gap:28px;margin-top:42px;padding:0}.people-row-advisor figure{width:76%;max-width:350px}.people-row-advisor img{aspect-ratio:1}.people-row-business{grid-template-columns:1fr;gap:30px;padding:0;margin-top:56px}.people-row-business .narrative-copy{padding:0}.people-row-business figure{width:88%;margin-left:auto}.people-row-business img{aspect-ratio:1}.narrative-copy{max-width:none}.v2-region{padding-block:70px}.region-heading{grid-template-columns:1fr;gap:26px}.region-landscape{grid-template-columns:1fr;gap:32px;margin-top:32px}.region-number strong{font-size:110px}.region-number span{font-size:26px}.region-landscape img{aspect-ratio:1.25}.about-impact{padding:58px 5%}.impact-intro{grid-template-columns:1fr;gap:24px}.about-results{grid-template-columns:1fr;gap:35px;margin-top:38px}.about-results dd:not(.result-note){font-size:80px;margin-bottom:12px}.impact-source{display:block;margin-top:32px}.about-v2 .impact-source .concept-link{margin-top:12px}.about-partners{grid-template-columns:1fr;gap:26px;padding-block:65px 38px}.about-invitation{display:block;padding-block:25px 65px}.about-invitation .concept-button{margin-top:28px}
+}
+@media(prefers-reduced-motion:reduce){.about-v2{scroll-behavior:auto}.about-v2 *{scroll-behavior:auto!important}}
