@@ -30,3 +30,7 @@ Checked desktop 994/1440 and mobile 390; no overflow. Computed styles verified h
 User requested navy extending farther beneath the hero image and a more minimalist story card. Navy now reaches 150–245px into the hero region (180px mobile), with the short hero copy placed entirely on cream. Jump Aero is reduced to name, one-sentence summary, existing verified funding figure and story link. Lower cards use linked business titles and one-sentence captions; redundant category/action labels and introductory paragraph removed. Circosphere copy shortened. Blue hero backing and red lower-image rules remain separate. All destinations, image assets, footer and previous studies unchanged.
 
 Observed at1440/768/390: readable hero contrast, loaded imagery, no overflow; linked title destinations verified. Whitespace check passed. Latest screenshots: minimal-hero-preview.jpg and minimal-stories-preview.jpg. Earlier previews are historical. No publish or WordPress changes.
+
+## All stories link — November 24
+
+Added an All stories link near the opening text, with the existing light-blue underline. Yarrow detail returns to the local Stories concept; Stories introduction links to the existing live full archive. Desktop/mobile placement and no overflow checked; detail-to-Stories navigation exercised. Current proof: all-stories-link-preview.jpg. No publishing.

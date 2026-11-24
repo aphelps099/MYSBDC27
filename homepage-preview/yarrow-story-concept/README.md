@@ -17,3 +17,7 @@ Related Early Rise and Jump Aero summaries/images reuse the previously verified 
 ## Validation
 
 Observed desktop1280 full flow and mobile390 opening/body/results/quote; responsive overflow checks at320,390,768,1280. All8 images loaded. Founder/Laila crops refined; mobile heading word spacing corrected. Language Enter/Escape exercised, final closed state verified; article anchor clicked. JS syntax, oneH1, unique IDs, internal anchors, local file references and diff whitespace checks passed. Reduced-motion rule present, not browser-emulated. QA tab closed and viewport reset; visible concept retained in canvas. Screenshots: opening-preview.jpg, desktop-preview.jpg, mobile-preview.jpg. User acceptance pending.
+
+## All stories link — November 24
+
+Added an All stories link near the opening text, with the existing light-blue underline. Yarrow detail returns to the local Stories concept; Stories introduction links to the existing live full archive. Desktop/mobile placement and no overflow checked; detail-to-Stories navigation exercised. Current proof: all-stories-link-preview.jpg. No publishing.
