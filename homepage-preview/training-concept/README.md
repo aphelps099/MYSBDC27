@@ -26,3 +26,7 @@ Copy is concept copy for review; no invented course durations, modules, attendan
 ## Validation
 
 HTTP200, JS syntax, SVG XML, Git whitespace. Desktop1440/994, mobile390/320 visually inspected; tablet768 width checked. No horizontal overflow, all10 images loaded. Filtered Marketing→1, combined In-person→empty state, Show all→3; mobile Online→1 and Clear filters restored results. Label associations, polite status, empty-state action and native selects included. Nav fixed to stay on one line at320px. Desktop hero/on-demand and mobile hero/calendar/on-demand checked; screenshots saved. Viewport reset and Training preview retained at opening. No push/PR/deployment/WP writes. User acceptance pending.
+
+## Header polish — November24,2026
+
+User rejected red photo edges and blue offset backing on these pages. Added a clear Training H1 within the navy band; former hero message is now H2. Both current studies load `../concept-page-headers.css` for consistent clean photo treatment, cream opening, aligned columns, restrained headlines and mobile spacing. Lower-page markup verified unchanged. Desktop/mobile390 inspected; no overflow; computed photo border0 and backing pseudo-element none. New header-polish-preview.jpg records the current opening; earlier screenshots are historical. No theme or WordPress changes.
