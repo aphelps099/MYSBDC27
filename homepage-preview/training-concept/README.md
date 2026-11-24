@@ -30,3 +30,7 @@ HTTP200, JS syntax, SVG XML, Git whitespace. Desktop1440/994, mobile390/320 visu
 ## Header polish — November24,2026
 
 User rejected red photo edges and blue offset backing on these pages. Added a clear Training H1 within the navy band; former hero message is now H2. Both current studies load `../concept-page-headers.css` for consistent clean photo treatment, cream opening, aligned columns, restrained headlines and mobile spacing. Lower-page markup verified unchanged. Desktop/mobile390 inspected; no overflow; computed photo border0 and backing pseudo-element none. New header-polish-preview.jpg records the current opening; earlier screenshots are historical. No theme or WordPress changes.
+
+## Section placement — November 24, 2026
+
+Keep learning now anchors the existing on-demand section, replacing Your time / Your pace. Updated introduction to recorded webinars and self-paced learning. Existing recordings, links and calendar preserved; no duplicate learning section. Current screenshot: keep-learning-preview.jpg. Desktop994 and mobile390 heading inspected, no overflow. No publication or WordPress changes.

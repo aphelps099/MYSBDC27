@@ -34,3 +34,7 @@ User supplied a reference with centered text and a small portrait on the left an
 Two new images generated using built-in image_gen: `assets/advisor-portrait-concept.png` and `assets/advising-conversation-concept.png`. Both depict fictional models, explicitly disclosed in visible copy and alt text; no real identities or biographies are attached. Full prompts and provenance: `assets/image-prompts.md`. Originals copied into project, no external generated-image dependency.
 
 Checked desktop 994/1440 and mobile 390: both images loaded, crops visually inspected, no horizontal overflow. Section becomes a single column on mobile. Rest of page markup compared unchanged; Training and shared styles untouched. No WordPress changes or publication. New composition awaits user review.
+
+## Section placement — November 24, 2026
+
+Moved the unchanged Meet your business person split section to the end of main, replacing Keep learning, after How it works and immediately before the footer. Removed trailing section margin for a clean transition. Other markup verified unchanged. Current context screenshot: advisors-closing-preview.jpg. No publication or WordPress changes.
