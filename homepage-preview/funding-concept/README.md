@@ -24,3 +24,11 @@ Removed unverified100+ lender count, certified-advisor qualification claim, FY20
 ## Validation
 
 Desktop default994 and1440 reviewed; all major sections checked using viewport and section captures. Mobile390 opening/options/closing reviewed;320 and768 checked for overflow, tablet opening visually inspected. All8 images loaded. Native grants and FAQ disclosure Enter toggle checked; language Enter/Escape closes and restores summary focus. Anchor navigation and link destinations inspected. Single H1, unique IDs, local assets/anchors, both SVG XML files, JS syntax and whitespace passed. Reduced-motion shared fallback inherited, not emulated. Temporary viewport overrides reset. Current screenshots: desktop-preview.jpg, options-preview.jpg, lower-page-preview.jpg, mobile-preview.jpg.
+
+## Photography revision — November 24
+
+User rejected the dollar vector art and requested an image/photo. Replaced hero illustration with an actual close-up photograph of US dollar bills; removed the smaller funding-plan SVG from the options section. Prior SVG files retained as historical assets, not rendered. Other copy/links/sections unchanged. Hero photo uses blue offset backing only, no red line; lower client photo retains its red rule.
+
+Photo: Andrew Dawes, “a close-up of a dollar bill” / pile of five, ten and twenty dollar bills, published December3,2022. Source https://unsplash.com/photos/a-close-up-of-a-dollar-bill-eJulYgJs7uQ . Actual image URL confirmed from source page: https://images.unsplash.com/photo-1670071480408-86f09890cbce . Free under https://unsplash.com/license (checked November24); source attribution retained here. Remote image used directly; no generated photo or illustration.
+
+Desktop994 and mobile390 reviewed; loaded photo, no overflow, no SVG illustration remaining in main. Whitespace passed. Current screenshot: photo-hero-preview.jpg. Original desktop/options/mobile screenshots show the rejected illustration study. Viewport reset; preview retained; no publishing.
