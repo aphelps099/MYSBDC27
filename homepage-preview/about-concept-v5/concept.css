@@ -37,7 +37,7 @@
 .about-v5 .region-count span{font-size:25px;line-height:1.18;margin:0}
 .about-v5 .region-count .concept-link{margin-top:17px}
 .region-landscape{margin:0;min-width:0}
-.region-landscape img{display:block;width:100%;height:480px;object-fit:cover;object-position:60% center;border-bottom:4px solid #b3343c}
+.region-landscape img{display:block;width:100%;height:480px;object-fit:cover;object-position:60% center;border-bottom:4px solid var(--pool)}
 .region-landscape figcaption{font-size:16px;line-height:1.4;margin-top:15px}
 .about-v5 .about-impact{padding:62px 5% 52px}
 .about-v5 .about-results{margin-top:40px}
@@ -47,3 +47,20 @@
 @media(min-width:1600px){.about-v5 .about-opening{padding-inline:max(4%,calc((100vw - 1500px)/2))}.about-v5 :is(.about-people,.about-region,.about-impact,.about-partners,.about-invitation){padding-inline:max(5%,calc((100vw - 1440px)/2))}.region-landscape img{height:540px}}
 @media(min-width:701px) and (max-width:1000px){.about-v5 .page-title-band{padding-bottom:86px}.about-v5 .about-opening{padding-inline:3%;gap:5%;padding-bottom:60px;grid-template-columns:.9fr 1.1fr}.about-v5 .about-opening-photo{margin-top:-60px}.about-v5 .about-opening-copy{padding-top:28px}.about-v5 .about-opening h2{font-size:44px}.about-v5 .about-opening-photo>img{aspect-ratio:.86}.about-v5 .about-people{gap:35px 6%;padding-inline:4%}.about-v5 .people-principles{gap:5%}.about-v5 .people-principles h3{font-size:27px}.about-v5 .about-region{gap:6%;padding-inline:4%;grid-template-columns:1fr 1fr}.region-landscape img{height:510px}.about-v5 .region-count strong{font-size:100px}.about-v5 .region-count span{font-size:23px}.about-v5 .region-count>p{gap:20px}}
 @media(max-width:700px){.about-v5 .page-title-band{padding-bottom:87px}.about-v5 .about-opening{grid-template-columns:1fr;gap:28px;padding:0 5% 56px}.about-v5 .about-opening-photo{grid-row:1;margin-top:-57px}.about-v5 .about-opening-photo>img{aspect-ratio:1.15;object-position:54% 40%}.about-v5 .about-opening-copy{padding:0}.about-v5 .about-opening h2{font-size:clamp(42px,10.8vw,58px);max-width:none}.about-v5 .about-people{grid-template-columns:1fr;gap:28px;padding:54px 5%}.about-v5 .people-intro{max-width:none}.about-v5 .people-principles{grid-column:1;grid-template-columns:1fr;gap:28px}.about-v5 .people-principles h3{font-size:28px;max-width:none}.about-v5 .people-principles p{margin-top:12px}.about-v5 .people-links{grid-column:1;gap:12px 24px}.about-v5 .about-region{grid-template-columns:1fr;gap:32px;padding:54px 5%}.region-summary>p{max-width:none}.about-v5 .region-count{margin-top:30px}.region-landscape img{height:auto;aspect-ratio:1.25;object-position:55% center}.region-landscape figcaption{font-size:15px}.about-v5 .about-impact{padding:54px 5%}.about-v5 .about-results{margin-top:34px}.about-v5 .about-partners{padding:54px 5% 30px}.about-v5 .about-invitation{padding:24px 5% 56px}}
+
+/* Regional gallery: quiet image underline, manual dots and touch navigation. */
+.region-carousel{position:relative;min-width:0}
+.region-slides{display:grid;touch-action:pan-y}
+.region-carousel .region-slide{grid-area:1/1;min-width:0;margin:0;opacity:0;visibility:hidden;transition:opacity .32s ease,visibility .32s ease}
+.region-carousel .region-slide.is-active{opacity:1;visibility:visible}
+.region-carousel .region-slide img{border-bottom-color:var(--pool);user-select:none;-webkit-user-drag:none}
+.region-carousel .region-slide figcaption{padding-right:100px;min-height:44px}
+.region-carousel-controls{position:absolute;right:-8px;bottom:0;display:flex;align-items:center;gap:0;height:44px}
+.region-dot{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;padding:0;background:transparent;cursor:pointer;color:var(--navy)}
+.region-dot span{width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;background:transparent;transition:background .2s,transform .2s}
+.region-dot[aria-pressed="true"] span{background:var(--navy);transform:scale(1.2)}
+.region-dot:hover span{background:var(--pool)}
+.region-dot:focus-visible{outline:3px solid #b3343c;outline-offset:-4px;border-radius:4px}
+.about-v5 main .region-carousel-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:700px){.region-carousel .region-slide figcaption{padding-right:92px;min-height:44px}}
+@media(prefers-reduced-motion:reduce){.region-carousel .region-slide,.region-dot span{transition:none}}

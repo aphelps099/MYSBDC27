@@ -4,6 +4,16 @@ User prefers V4's minimalist image overlap into the navy title band, but the ori
 
 Preview: http://127.0.0.1:8784/homepage-preview/about-concept-v5/
 
+## Current regional carousel update
+
+User requested a light-blue image underline and multiple regional views with dots. Replaced the red regional image rule with pool blue. Golden Gate and North Coast imagery now form a two-slide manual carousel with changing captions, native44px dot buttons, selected state, screen-reader announcements, arrow/Home/End keyboard navigation and horizontal touch/pen swipes. No autoplay. Both slides occupy one stable grid footprint; opacity transition respects reduced motion.
+
+North Coast reuses the supplied `../assets/about-redwoods-coast.webp` already referenced by About.dc.html. No new image generated/downloaded. Original acquisition/provenance was not re-established; treat as existing concept imagery. Geographic caption stays broad.
+
+Desktop994/1280 and mobile390 inspected; no overflow320/390/1280. Both images load; dot click and Enter activation, keyboard direction/wrapping, focus, live caption and selected states checked. Carousel height stayed539px across desktop transitions; mobile buttons44×44. Swipe and reduced-motion branches inspected in source, not emulated in browser. Local targets/IDs/files and JS syntax/whitespace checks pass. Current proofs are region-carousel-preview.jpg and region-carousel-mobile-preview.jpg; full-page screenshots below predate the carousel. Other copy/layout remains unchanged.
+
+## Initial V5 composition
+
 - Original main copy is preserved word for word, in the same reading order, including dated FFY2022–2024 impact figures, region/history, partner explanation and closing invitation.
 - Original Laila/The Early Rise photo and source story link retained. The photo extends78px into the navy band on desktop; clean edges, no offset shadow or red rule on the hero.
 - Headings use Proxima Nova600, matching the computed original page weight; body remains400 at original supporting sizes.
