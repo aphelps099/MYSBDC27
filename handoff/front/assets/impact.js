@@ -1,7 +1,7 @@
 /* Impact page (November 2026).
    1. Sentences: words rise in, in reading order, then the figure pills snap into place, fast, one after another.
-      In the three-year section a pool line draws across and the ghosted America's SBDC seal fades in, then drifts
-      slowly as the page scrolls (GSAP ScrollTrigger).
+      In the three-year section a pool line draws across, and the America's SBDC seal background moves with a gentle
+      parallax as the page scrolls (GSAP ScrollTrigger), as on californiasbdc.org.
       Reduced motion, no script or no GSAP leave everything static and visible.
    2. Stories carousel (photo stage): scroll-snap track with pill progress dots, previous/next, swipe and arrow keys. */
 (() => {
@@ -15,16 +15,13 @@
     const words = section.querySelectorAll('.ic-word');
     const pills = section.querySelectorAll('.ic-pill');
     const line = section.querySelector('.ic-record-line');
-    const seal = section.querySelector('.ic-seal');
     gsap.set(words, { opacity: 0, yPercent: 70 });
     gsap.set(pills, { opacity: 0, scale: 0.35 });
     gsap.set(section.querySelectorAll('.ic-period, h2'), { opacity: 0, y: 12 });
     if (line) gsap.set(line, { scaleX: 0 });
-    if (seal) gsap.set(seal, { opacity: 0 });
     section.dataset.motion = 'ready';
 
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
-    if (seal) tl.to(seal, { opacity: 0.08, duration: 1.6, ease: 'power2.out' }, 0);
     if (line) tl.to(line, { scaleX: 1, duration: 1.3, ease: 'power2.inOut' }, 0.15);
     tl.to(section.querySelectorAll('h2'), { opacity: 1, y: 0, duration: 0.5 }, 0)
       .to(words, { opacity: 1, yPercent: 0, duration: 0.7, stagger: 0.045 }, 0.1)
@@ -32,11 +29,12 @@
       .to(pills, { scale: 1, duration: 0.3, ease: 'back.out(2.6)', stagger: 0.11 }, '<')
       .to(section.querySelectorAll('.ic-period'), { opacity: 1, y: 0, duration: 0.5 }, '-=0.1');
 
-    // The seal drifts upward and turns slightly while the section passes through the window.
-    if (seal && window.ScrollTrigger) {
-      gsap.fromTo(seal, { yPercent: 14, rotation: -7 }, {
-        yPercent: -10, rotation: 5, ease: 'none',
-        scrollTrigger: { trigger: section, start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+    // The seal background shifts gently while the section passes through the window.
+    const bg = section.querySelector('.ic-record-bg');
+    if (bg && window.ScrollTrigger) {
+      gsap.fromTo(bg, { y: -50 }, {
+        y: 50, ease: 'none',
+        scrollTrigger: { trigger: section, start: 'top bottom', end: 'bottom top', scrub: true },
       });
     }
     return tl;
