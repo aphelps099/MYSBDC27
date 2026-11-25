@@ -17,9 +17,10 @@
   window.addEventListener('hashchange', openTarget);
   openTarget();
 
-  const language = nav.querySelector('.site-nav-language');
+  // The header and the footer each carry a language menu.
+  const languages = [...document.querySelectorAll('.site-nav-language, .site-footer-language')];
   document.addEventListener('click', event => {
-    if (language?.open && !language.contains(event.target)) language.open = false;
+    languages.forEach(language => { if (language.open && !language.contains(event.target)) language.open = false; });
   });
 
   // Escape closes the Advising panel even while the pointer or focus is still on it.
@@ -53,7 +54,8 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
       if (menu && !menu.hidden) { setMenu(false); return; }
-      if (language?.open) { language.open = false; language.querySelector('summary').focus(); return; }
+      const openLanguage = languages.find(language => language.open);
+      if (openLanguage) { openLanguage.open = false; openLanguage.querySelector('summary').focus(); return; }
       const openItem = panelItems.find(item => item.matches(':hover, :focus-within'));
       if (openItem) nav.classList.add('panel-dismissed');
       return;

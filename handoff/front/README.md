@@ -38,6 +38,17 @@ All seven pages share one header, built from the approved direction in the navig
 
 Checked at 1440, 1180 and 390: no horizontal overflow or script errors on any page; panel reachable by pointer and keyboard and dismissed with Escape; language menu opens and closes; small-screen menu moves focus in, makes the page inert and restores focus on close. Language remains English-only with the coming-soon notice.
 
+## Footer — November 25
+
+All seven pages share one footer, built from the footer study (direction "F4" on wide screens, the call-line layout on phones). File: `assets/site-footer.css`, loaded last on every page; the language menu behaviour lives in `assets/site-nav.js`. The earlier `.network-footer` rules remain in the shared stylesheets but no page uses them.
+
+- Wide screens: "Talk it through with a business advisor.", the phone number at a large but not full-width size and one advising button on the left; Explore and Get in touch lists on the right, starting on the same column as page headlines.
+- Phones: the same content with the phone number running edge to edge, then the button and the two lists side by side.
+- The official America's SBDC California, Northern CA Network logo (`assets/norcal-sbdc-logo-white.png`, copied from the WordPress theme) sits bottom-left. Social links are words, not icons. The `EN` language control now also lives here and opens upward.
+- The partner strip keeps all five logos and the full funding statement unchanged, with the logos beside the statement on wide screens.
+
+Checked at 1440, 1180, 820 and 390: no horizontal overflow or script errors on any page; the footer language menu opens within the viewport and closes with Escape. Footer height is about 605px at 1440 (was 832) and about 995px at 390 (was about 1,170).
+
 ## Status and limitations
 
 Local design handoff, not a WordPress deployment. No saved WordPress content was changed. Current versions were selected from this design conversation; homepage story composition remains a previously deferred refinement. Homepage figures were carried over, not newly audited during packaging. Training event listings are a dated static sample, not a live feed. Existing advisor concept images are placeholders and keep their disclosures. Language menus are English-only with a coming-soon notice. MySBDC remains the existing concept destination, not a newly connected authentication flow. Yarrow's833px source photo may soften at large sizes.
