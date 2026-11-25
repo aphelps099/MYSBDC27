@@ -1,0 +1,103 @@
+/* Site navigation, direction "A7" from the November 2026 nav study.
+   Self-contained: replaces the per-page .concept-nav header. Loaded last on every page. */
+
+.site-nav{
+  --nav-navy:#1d2c3d;--nav-deep:#102032;--nav-cream:#f6f1e6;--nav-pool:#8fc5d9;--nav-soft:#b6d1dd;--nav-berry:#b3343c;--nav-gutter:4%;
+  position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:32px;min-height:96px;padding:0 var(--nav-gutter);
+  background:var(--nav-navy);color:var(--nav-cream);font-family:var(--nova,"proxima-nova",Arial,Helvetica,sans-serif);
+  transition:min-height .25s ease,background-color .25s ease
+}
+.site-nav a{color:inherit;text-decoration:none}
+.site-nav.is-scrolled{min-height:68px}
+.site-nav:has(.site-nav-item:hover),.site-nav:has(.site-nav-item:focus-within){background:var(--nav-deep)}
+.site-nav.panel-dismissed{background:var(--nav-navy)}
+
+/* Home: the bar floats over the hero until the page scrolls. */
+.concept-page .site-nav{--nav-gutter:3.5%;position:fixed;left:0;right:0;background:transparent}
+.concept-page .site-nav.is-scrolled{background:var(--nav-navy)}
+.concept-page .site-nav:has(.site-nav-item:hover),.concept-page .site-nav:has(.site-nav-item:focus-within){background:var(--nav-deep)}
+.concept-page .site-nav.panel-dismissed:not(.is-scrolled){background:transparent}
+
+.site-nav-brand{font-size:20px;font-weight:700;letter-spacing:-.02em;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
+
+.site-nav-primary{display:flex;align-items:stretch;align-self:stretch;gap:36px;margin-left:32px;font-size:20px;font-weight:500;letter-spacing:-.01em}
+.site-nav-primary>a,.site-nav-item>a{display:flex;align-items:center;white-space:nowrap}
+.site-nav-item{display:flex;align-items:stretch}
+.site-nav-primary a:hover,.site-nav-mysbdc:hover,.site-nav-panel a:hover,.site-menu-links a:hover{text-decoration:underline;text-decoration-color:var(--nav-berry);text-decoration-thickness:2px;text-underline-offset:9px}
+.site-nav-primary a[aria-current="page"],.site-nav-item:hover>a,.site-nav-item:focus-within>a{text-decoration:underline;text-decoration-color:var(--nav-pool);text-decoration-thickness:2px;text-underline-offset:9px}
+
+.site-nav-utilities{position:relative;display:flex;align-items:center;gap:28px;margin-left:auto}
+.site-nav-mysbdc{display:inline-flex;align-items:center;min-height:44px;font-size:20px;font-weight:700;letter-spacing:-.01em}
+
+.site-nav-language summary{display:flex;align-items:center;gap:6px;min-height:44px;cursor:pointer;list-style:none;font-size:16px;font-weight:700;letter-spacing:.02em}
+.site-nav-language summary::-webkit-details-marker{display:none}
+.site-nav-language summary>svg{width:18px;height:18px}
+.site-nav-language summary>.site-nav-chevron{width:10px;height:10px;transition:transform .2s}
+.site-nav-language[open] .site-nav-chevron{transform:rotate(180deg)}
+.site-nav-language-options{position:absolute;right:0;top:calc(100% + 26px);width:280px;padding:22px 28px 24px;background:var(--nav-deep);color:var(--nav-cream);box-shadow:0 16px 32px #08101a47}
+.site-nav-language-options>span{display:flex;align-items:center;justify-content:space-between;font-size:22px;font-weight:500;letter-spacing:-.015em}
+.site-nav-language-options>span svg{width:18px;height:18px;color:var(--nav-pool)}
+.site-nav-language-options p{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--nav-soft)}
+
+/* The advising button joins the bar only after the hero's own button has scrolled away. */
+.site-nav-cta{display:none;align-items:center;min-height:44px;margin-left:auto;padding:0 22px;border-radius:999px;background:var(--nav-cream);color:var(--nav-navy)!important;font-size:16px;font-weight:700;white-space:nowrap}
+.site-nav.is-scrolled .site-nav-cta{display:inline-flex}
+.site-nav.is-scrolled .site-nav-utilities{display:none}
+.site-nav.is-scrolled .site-nav-brand,.site-nav.is-scrolled .site-nav-primary{font-size:18px}
+.site-nav.is-scrolled .site-nav-primary{gap:32px}
+
+/* Advising panel */
+.site-nav-panel{display:none;position:absolute;left:0;right:0;top:100%;padding:40px var(--nav-gutter) 60px;background:var(--nav-deep);color:var(--nav-cream);box-shadow:0 28px 40px #08101a33;grid-template-columns:minmax(0,52.2fr) minmax(0,19.9fr) minmax(0,19.9fr);column-gap:40px;align-items:start;font-weight:400;letter-spacing:0}
+.site-nav-item:hover>.site-nav-panel,.site-nav-item:focus-within>.site-nav-panel{display:grid}
+.site-nav.panel-dismissed .site-nav-panel{display:none}
+.site-nav-panel-lede{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+.site-nav-panel-lede p{margin:0;font-size:44px;font-weight:700;letter-spacing:-.035em;line-height:1.08}
+.site-nav-panel-lede a{display:inline-flex;align-items:center;min-height:44px;font-size:18px;font-weight:700;text-decoration:underline;text-decoration-color:var(--nav-pool);text-decoration-thickness:2px;text-underline-offset:8px}
+.site-nav-panel-list{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:0;padding:0;list-style:none}
+.site-nav-panel-list>li:first-child{margin-bottom:8px;font-size:15px;font-weight:500;color:var(--nav-soft)}
+.site-nav-panel-list a{display:inline-flex;align-items:center;min-height:36px;font-size:22px;font-weight:500;letter-spacing:-.015em}
+
+/* Small screens: wordmark and the word Menu */
+.site-nav-toggle,.site-menu-close{display:none;align-items:center;min-height:44px;margin-left:auto;padding:0;border:0;background:none;color:inherit;font:inherit;font-size:18px;font-weight:700;letter-spacing:-.01em;cursor:pointer}
+.site-menu-close{display:inline-flex}
+.site-menu{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:flex-start;padding:0 5% 20px;background:var(--nav-deep);color:var(--nav-cream);overflow-y:auto;overscroll-behavior:contain}
+.site-menu[hidden]{display:none}
+.site-menu-top{display:flex;align-items:center;width:100%;min-height:64px;flex:none}
+.site-menu-links{display:flex;flex-direction:column;align-items:flex-start;margin:28px 0 0 -3px;font-size:clamp(44px,14.8vw,58px);font-weight:700;letter-spacing:-.04em;line-height:1.08}
+.site-menu-links a[aria-current="page"]{color:var(--nav-pool)}
+.site-menu-links a:hover{text-decoration-thickness:3px;text-underline-offset:8px}
+.site-menu-cta{display:inline-flex;align-items:center;min-height:56px;margin-top:36px;padding:0 30px;border-radius:999px;background:var(--nav-cream);color:var(--nav-navy)!important;font-size:18px;font-weight:700}
+.site-menu-utilities{display:flex;flex-direction:column;align-items:flex-start;margin-top:32px;font-size:19px;font-weight:500}
+.site-menu-utilities>a,.site-menu-utilities>span{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.site-menu-utilities>a:first-child{font-weight:700}
+.site-menu-utilities small{font-size:15px;font-weight:400;color:var(--nav-soft)}
+.site-menu-phone{display:inline-flex;align-items:center;min-height:44px;margin-top:auto;padding-top:20px;font-size:16px;color:var(--nav-soft)!important}
+html.site-menu-open{overflow:hidden}
+
+.site-nav :focus-visible,.site-menu :focus-visible{outline:3px solid var(--nav-pool);outline-offset:4px}
+
+/* In-page links now sit in the navy title band beside the page title. */
+.page-title-band.has-anchors{display:flex;flex-wrap:wrap;align-items:baseline}
+.page-title-band.has-anchors h1{flex:0 0 52.2vw}
+.page-anchors{display:flex;align-items:baseline;gap:36px;font-size:18px;font-weight:500;color:#b6d1dd}
+.page-anchors a{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:none}
+.page-anchors a:hover{text-decoration:underline;text-decoration-color:#b3343c;text-decoration-thickness:2px;text-underline-offset:9px}
+
+@media(max-width:1100px){
+  .site-nav{--nav-gutter:3%;min-height:64px;gap:16px}
+  .site-nav.is-scrolled{min-height:64px}
+  .site-nav-primary,.site-nav-utilities,.site-nav .site-nav-cta,.site-nav.is-scrolled .site-nav-cta{display:none}
+  .site-nav-toggle{display:inline-flex}
+  .site-nav-brand,.site-nav.is-scrolled .site-nav-brand{font-size:19px}
+  .concept-page .site-nav{--nav-gutter:5%}
+}
+@media(max-width:1000px){
+  .page-title-band.has-anchors h1{flex-basis:100%}
+  .page-anchors{gap:28px;margin-top:6px;font-size:16px}
+}
+@media(max-width:700px){
+  .site-nav{--nav-gutter:5%}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-nav,.site-nav-language summary>.site-nav-chevron{transition:none}
+}
