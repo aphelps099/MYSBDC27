@@ -1,0 +1,31 @@
+/* America's SBDC star accent (November 2026), after the hero on californiasbdc.org/leadership.
+   A single ghosted star whose outline draws itself, then fills. Colour comes from `color`, strength from `opacity`.
+   It only starts hidden once site-star.js has run (html.sbdc-star-ready), so without script the star simply shows. */
+
+.sbdc-star{position:absolute;z-index:0;display:block;aspect-ratio:2107/2003;pointer-events:none;user-select:none}
+.sbdc-star svg{display:block;width:100%;height:100%;overflow:visible}
+.sbdc-star path{fill:currentColor;stroke:currentColor;stroke-width:8;stroke-linejoin:round}
+.sbdc-star-ready .sbdc-star path{fill-opacity:0;stroke-dasharray:1;stroke-dashoffset:1}
+.sbdc-star-ready .sbdc-star.is-drawn path{fill-opacity:1;animation:sbdc-star-draw 3s linear .2s forwards;transition:fill-opacity 1s ease 3.2s}
+@keyframes sbdc-star-draw{to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){
+  .sbdc-star-ready .sbdc-star path{fill-opacity:1;stroke-dashoffset:0;animation:none;transition:none}
+}
+
+/* ---------- Study placements ---------- */
+.star-s1 .site-footer-main,.star-s2 .site-footer-main{position:relative;overflow:hidden}
+:is(.star-s1,.star-s2) .site-footer-main>:not(.sbdc-star){position:relative;z-index:1}
+/* S1 · footer corner */
+.star-s1 .sbdc-star{width:min(560px,44vw);right:-6%;bottom:-26%;color:#fff;opacity:.1}
+/* S2 · large footer star, placed like the leadership hero */
+.star-s2 .sbdc-star{width:60%;right:-12%;top:12%;color:#fff;opacity:.08}
+/* S3 · Impact close on pool, navy star */
+.star-s3 .ic-close{position:relative;overflow:hidden}
+.star-s3 .ic-close-grid{position:relative;z-index:1}
+.star-s3 .ic-close .sbdc-star{width:min(620px,48vw);right:-7%;top:-22%;color:var(--ic-navy);opacity:.1}
+
+@media(max-width:700px){
+  .star-s1 .sbdc-star{width:86vw;right:-30%;bottom:-8%}
+  .star-s2 .sbdc-star{width:110vw;right:-40%;top:22%}
+  .star-s3 .ic-close .sbdc-star{width:90vw;right:-34%;top:auto;bottom:-24%}
+}
