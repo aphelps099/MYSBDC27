@@ -1,0 +1,16 @@
+/* Shared polish for the local Advising and Training studies only. */
+.page-title-band{padding:28px 4% 42px;background:var(--navy);color:var(--cream)}
+.page-title-band h1{font-size:clamp(56px,6.4vw,96px);line-height:1;letter-spacing:-.045em;margin:0;font-weight:600}
+.image-hero,.training-hero{grid-template-columns:1.15fr 1fr;gap:7%;align-items:start;padding:48px 4% 80px;background:var(--cream)}
+.image-hero-frame,.training-photo{margin:0;isolation:auto}
+.image-hero-frame:before,.training-photo:before{content:none}
+.image-hero-photo,.training-photo img{display:block;width:100%;height:auto;aspect-ratio:1.16;object-fit:cover;object-position:50% 48%;border:0;box-shadow:none}
+.image-hero-figure figcaption,.training-hero figcaption{margin-top:16px;max-width:none;font-size:16px;line-height:1.4}
+.image-hero-copy,.training-hero-copy{padding-top:24px}
+.image-hero h2,.training-hero h2{font-size:clamp(44px,4.7vw,70px);line-height:1.04;letter-spacing:-.04em;margin:0 0 28px}
+.image-hero-copy>p,.training-hero-copy>p{font-size:22px;line-height:1.45;margin-bottom:28px;max-width:32ch}
+.image-hero-assurance{margin-top:30px}
+.hero-book{width:125px;margin-top:24px}
+@media(min-width:1600px){.image-hero,.training-hero{grid-template-columns:1.12fr 1fr;gap:8%;padding-bottom:95px}.image-hero-photo,.training-photo img{aspect-ratio:1.25}}
+@media(max-width:1000px) and (min-width:701px){.page-title-band{padding:26px 3% 34px}.image-hero,.training-hero{padding:38px 3% 65px;gap:6%;grid-template-columns:1.05fr 1fr}.image-hero-copy,.training-hero-copy{padding-top:4px}.image-hero h2,.training-hero h2{font-size:4.6vw}.image-hero-copy>p,.training-hero-copy>p{font-size:20px}.image-hero-assurance{margin-top:24px}.hero-book{width:105px}.image-hero-photo,.training-photo img{aspect-ratio:1.02}}
+@media(max-width:700px){.page-title-band{padding:24px 5% 32px}.page-title-band h1{font-size:56px}.image-hero,.training-hero{display:grid;grid-template-columns:1fr;gap:32px;padding:28px 5% 60px;background:var(--cream)}.image-hero-photo,.training-photo img{aspect-ratio:1.2;height:auto}.image-hero-figure figcaption,.training-hero figcaption{font-size:15px;margin-top:13px}.image-hero-copy,.training-hero-copy{padding-top:0}.image-hero h2,.training-hero h2{font-size:clamp(39px,10.5vw,58px);margin-bottom:24px}.image-hero-copy>p,.training-hero-copy>p{font-size:20px;max-width:none;margin-bottom:25px}.image-hero-assurance{margin-top:26px}.hero-book{width:110px;margin-top:18px}}

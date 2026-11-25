@@ -27,3 +27,7 @@ Added an All stories link near the opening text, with the existing light-blue un
 Removed the redundant Read their story anchor and moved All stories beside Stories in the navy title band. Title is now plain text with a separate explicit archive link. Opening copy has no links. Desktop1280/mobile390 visually checked, no mobile overflow, destination retained. Current proof: title-navigation-preview.jpg. Earlier opening-link screenshots are historical. Stories listing untouched in this correction.
 
 Refinement: All stories now sits directly beneath Stories, left-aligned, at all breakpoints. Desktop appearance and below/aligned DOM geometry verified. title-navigation-preview.jpg updated.
+
+## Description hover and front collection — November24
+
+Removed parent-anchor hover decoration on related cards so description text stays plain while h3 title keeps its approved underline. Also applied to the new standalone handoff/front collection. Real browser hover confirmed parent/description text-decoration:none and title underline/red. See handoff/front/README.md for selected seven-page collection and routes. Earlier studies remain preserved.

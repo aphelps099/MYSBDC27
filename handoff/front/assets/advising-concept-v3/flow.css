@@ -1,0 +1,26 @@
+/* Advising V3 flow refinements only; Training shares concept.css, not this file. */
+.specialists{padding:72px 5% 76px}
+.specialists .section-intro{grid-template-columns:1fr 1fr;gap:7%;align-items:center}
+.specialists h2{font-size:clamp(44px,4.4vw,64px);line-height:1.04;letter-spacing:-.04em}
+.specialists .section-intro>p{max-width:32ch}
+.specialist-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px 7%;margin-top:46px}
+.specialist-directory article{min-width:0}
+.specialist-directory h3{font-size:clamp(28px,2.4vw,35px);line-height:1.12;letter-spacing:-.025em;color:var(--pool)}
+.specialist-directory p{font-size:21px;line-height:1.45;margin:14px 0 13px;max-width:36ch}
+.specialist-directory ul{display:flex;flex-wrap:wrap;gap:2px 24px;list-style:none;margin:0;padding:0}
+.specialist-directory li{margin:0;padding:0}
+.specialist-directory .concept-link{font-size:18px;min-height:44px;padding:9px 0 12px}
+.getting-started{padding:74px 5% 80px}
+.getting-started h2{font-size:clamp(44px,4.5vw,66px);line-height:1.04}
+.steps-grid{margin-top:38px;gap:5%}
+.steps-grid h3{font-size:clamp(27px,2.6vw,36px);line-height:1.13}
+.steps-grid p{margin-top:17px;font-size:21px;line-height:1.45}
+@media(max-width:700px){.specialists{padding:58px 5% 62px}.specialists .section-intro{grid-template-columns:1fr;gap:22px}.specialists h2{font-size:44px}.specialists .section-intro>p{max-width:none}.specialist-directory{grid-template-columns:1fr;gap:32px;margin-top:38px}.specialist-directory h3{font-size:29px}.specialist-directory p{font-size:20px;max-width:none;margin:12px 0 9px}.specialist-directory ul{gap:2px 22px}.getting-started{padding:58px 5% 62px}.getting-started h2{font-size:44px}.steps-grid{gap:28px;margin-top:32px}.steps-grid h3{font-size:29px}.steps-grid p{font-size:20px;margin-top:12px}}
+
+/* Keep the general topics and specialist directory at a consistent editorial scale. */
+.expertise-section{padding:30px 5% 76px}
+.expertise-section h2{font-size:clamp(44px,4.4vw,64px);line-height:1.04}
+.expertise-layout{margin-top:42px}
+.expertise-art img{max-width:360px}
+.expertise-art p{font-size:27px}
+@media(max-width:700px){.expertise-section{padding:15px 5% 58px}.expertise-section h2{font-size:44px}.expertise-layout{margin-top:30px}.expertise-art p{font-size:23px}}
