@@ -15,13 +15,15 @@
 .site-news-dialog .sn-inner p{margin:20px 0 0;font-size:21px;font-weight:500;line-height:1.4;text-wrap:balance}
 
 .site-news-dialog form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px;margin-top:34px}
-.site-news-dialog .sn-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.site-news-dialog .sn-field{display:flex;flex-direction:column;gap:8px;min-width:0}
 .site-news-dialog .sn-wide{grid-column:1/-1}
 .site-news-dialog label{font-size:16px;font-weight:700}
-.site-news-dialog input{box-sizing:border-box;width:100%;height:58px;padding:0 18px;border:2px solid #1d2c3d;border-radius:6px;background:#fdfcf9;color:#1d2c3d;font:inherit;font-size:18px}
+.site-news-dialog input{box-sizing:border-box;width:100%;height:68px;padding:0 22px;border:1px solid #1d2c3d47;border-radius:8px;background:#fdfcf9;color:#1d2c3d;font:inherit;font-size:20px;transition:border-color .2s}
+/* The fields are quiet at rest: a white fill and a soft edge. The firm navy outline appears only on hover and focus. */
+@media(hover:hover){.site-news-dialog input:hover{border-color:#1d2c3d}}
 .site-news-dialog :focus-visible{outline:3px solid #1d2c3d;outline-offset:2px}
 /* The button shares the last row with the ZIP field. */
-.site-news-dialog .sn-submit{justify-self:stretch;align-self:end;min-height:58px;padding:0 28px;border:0;border-radius:999px;background:#1d2c3d;color:#f6f1e6;font:inherit;font-size:19px;font-weight:700;cursor:pointer;transition:background-color .2s}
+.site-news-dialog .sn-submit{justify-self:stretch;align-self:end;min-height:68px;padding:0 28px;border:0;border-radius:999px;background:#1d2c3d;color:#f6f1e6;font:inherit;font-size:19px;font-weight:700;cursor:pointer;transition:background-color .2s}
 .site-news-dialog .sn-submit:hover{background:#243b50}
 .site-news-dialog .sn-inner .sn-status{grid-column:1/-1;margin:0;font-size:15px}
 .site-news-dialog .sn-status:empty{display:none}
@@ -32,9 +34,9 @@
   .site-news-dialog .sn-inner h2{font-size:52px}
   .site-news-dialog .sn-inner p{margin-top:16px;font-size:19px}
   .site-news-dialog form{gap:14px 12px;margin-top:22px}
-  .site-news-dialog input{height:54px;padding:0 14px;font-size:16px}
-  .site-news-dialog .sn-submit{min-height:54px;padding:0 16px;font-size:17px}
+  .site-news-dialog input{height:60px;padding:0 16px;font-size:18px}
+  .site-news-dialog .sn-submit{min-height:60px;padding:0 16px;font-size:17px}
 }
 @media(prefers-reduced-motion:reduce){
-  .site-news-dialog .sn-submit{transition:none}
+  .site-news-dialog .sn-submit,.site-news-dialog input{transition:none}
 }
