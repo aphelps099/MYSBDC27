@@ -31,7 +31,7 @@ Navy inner-page title bands; Proxima typography; shared footer; original content
 All seven pages share one header, built from the approved direction in the navigation study ("A7"). Files: `assets/site-nav.css` and `assets/site-nav.js`, loaded last on every page. The earlier per-page `.concept-nav` rules remain in the concept stylesheets but no page uses them.
 
 - One line: wordmark, Advising, Training, Funding, Stories, About, then a compact `EN` language control and MySBDC. The current page carries a light-blue underline.
-- Advising opens a full-width panel on hover or keyboard focus. Its topic links open the matching disclosure on the Advising page; program links keep their existing destinations.
+- Advising, Training and About each open a full-width panel on hover or keyboard focus: one statement on the left, two short lists on the right. Advising topic links open the matching disclosure on the Advising page; Training and About links point to existing page sections and destinations. The Training panel deliberately lists no individual sessions. Funding and Stories are plain links.
 - After scrolling, the bar tightens and a Get advising button replaces language and MySBDC, so the button never duplicates the hero's own action.
 - At 1100px and below the bar is the wordmark and the word Menu. Menu opens a full-screen index of the five pages with the advising action, MySBDC, Find your local SBDC and language.
 - The in-page links that used to sit in the header (Expertise, How it works and so on) moved into the navy title band on Advising, Training, Funding and About. Home, Stories and the Yarrow story no longer carry them.

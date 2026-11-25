@@ -20,8 +20,9 @@
 
 .site-nav-brand{font-size:20px;font-weight:700;letter-spacing:-.02em;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px}
 
-.site-nav-primary{display:flex;align-items:stretch;align-self:stretch;gap:36px;margin-left:32px;font-size:20px;font-weight:500;letter-spacing:-.01em}
-.site-nav-primary>a,.site-nav-item>a{display:flex;align-items:center;white-space:nowrap}
+.site-nav-primary{display:flex;align-items:stretch;align-self:stretch;gap:0;margin-left:14px;font-size:20px;font-weight:500;letter-spacing:-.01em}
+/* Links touch, so the pointer can slide from one panel to the next without a gap closing it. */
+.site-nav-primary>a,.site-nav-item>a{display:flex;align-items:center;padding-inline:18px;white-space:nowrap}
 .site-nav-item{display:flex;align-items:stretch}
 .site-nav-primary a:hover,.site-nav-mysbdc:hover,.site-nav-panel a:hover,.site-menu-links a:hover{text-decoration:underline;text-decoration-color:var(--nav-berry);text-decoration-thickness:2px;text-underline-offset:9px}
 .site-nav-primary a[aria-current="page"],.site-nav-item:hover>a,.site-nav-item:focus-within>a{text-decoration:underline;text-decoration-color:var(--nav-pool);text-decoration-thickness:2px;text-underline-offset:9px}
@@ -44,7 +45,7 @@
 .site-nav.is-scrolled .site-nav-cta{display:inline-flex}
 .site-nav.is-scrolled .site-nav-utilities{display:none}
 .site-nav.is-scrolled .site-nav-brand,.site-nav.is-scrolled .site-nav-primary{font-size:18px}
-.site-nav.is-scrolled .site-nav-primary{gap:32px}
+.site-nav.is-scrolled .site-nav-primary>a,.site-nav.is-scrolled .site-nav-item>a{padding-inline:16px}
 
 /* Advising panel */
 .site-nav-panel{display:none;position:absolute;left:0;right:0;top:100%;padding:40px var(--nav-gutter) 60px;background:var(--nav-deep);color:var(--nav-cream);box-shadow:0 28px 40px #08101a33;grid-template-columns:minmax(0,52.2fr) minmax(0,19.9fr) minmax(0,19.9fr);column-gap:40px;align-items:start;font-weight:400;letter-spacing:0}
