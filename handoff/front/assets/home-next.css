@@ -1,0 +1,15 @@
+/* Homepage "What's your next move?" (November 2026 homepage study).
+   The three-column layout is unchanged. Each column now opens with the matching MySBDC dashboard symbol
+   (door, coins, rising columns) with a pool fill, and the links take the red underline used on "Read story". */
+
+.nx-icon{display:block;width:76px;height:76px;margin:0 0 26px -4px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.nx-icon .icon-tone{fill:#8fc5d9;stroke:none}
+.nx-icon .icon-solid{fill:currentColor;stroke:none}
+.next-grid .concept-link{text-decoration-color:#bb3c46}
+
+@media(min-width:701px){
+  .next-section{padding:104px 5% 108px}
+}
+@media(max-width:700px){
+  .nx-icon{width:56px;height:56px;margin-bottom:16px}
+}

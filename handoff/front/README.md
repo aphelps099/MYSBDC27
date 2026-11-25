@@ -67,6 +67,10 @@ The hero keeps the video and drops the oversized wordmark, since the header alre
 
 The newsletter signup is a text link, "Get the newsletter", in the footer of every page (`assets/site-newsletter.css`, `assets/site-newsletter.js`). It opens a pool-blue dialog with a large headline, asking for first name, last name, email address and ZIP code. A sand band on the homepage was tried first and removed as too large. The form is not connected to a mailing service: submitting shows "Preview only. Nothing was sent or saved." and sends nothing. It needs a real destination before launch. In the same footer list, MySBDC is now a slim outlined button.
 
+## Homepage "What's your next move?" — November 25
+
+The three-column layout is unchanged. Each column now opens with the matching MySBDC dashboard symbol (door, coins, rising columns) with a pool fill, and the three links take the red underline used on "Read story" (`assets/home-next.css`).
+
 ## Status and limitations
 
 Local design handoff, not a WordPress deployment. No saved WordPress content was changed. Current versions were selected from this design conversation; homepage story composition remains a previously deferred refinement. Homepage figures were carried over, not newly audited during packaging. Training event listings are a dated static sample, not a live feed. Existing advisor concept images are placeholders and keep their disclosures. Language menus are English-only with a coming-soon notice. MySBDC remains the existing concept destination, not a newly connected authentication flow. Yarrow's833px source photo may soften at large sizes.
