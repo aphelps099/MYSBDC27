@@ -137,3 +137,15 @@
   .c-dup{display:none!important}
   .c-row{flex-wrap:wrap;gap:40px 64px;padding:0 var(--pa-gutter)}
 }
+
+/* ---------- A with rules: one ground, a 2px navy rule across the content width between sections ---------- */
+.pa-rules main>section:not(.pa-close){margin-inline:var(--pa-gutter);padding-inline:0;padding-block:88px;background:transparent;color:var(--pa-navy)}
+.pa-rules main>section:not(.pa-close)+section:not(.pa-close){border-top:2px solid var(--pa-navy)}
+.pa-rules .a-navy .a-meta p,.pa-rules .a-navy .pa-entry p{color:var(--pa-navy)}
+.pa-rules .a-navy .concept-link{color:var(--pa-navy)}
+.pa-rules .pa-logo.lg-bbb{background:var(--pa-navy);padding:16px 22px;border-radius:6px;box-sizing:content-box;height:80px}
+@media(max-width:700px){
+  .pa-rules main>section:not(.pa-close){padding-block:56px 64px}
+}
+/* Logos supplied on white backgrounds blend into the cream ground instead of sitting in white boxes. */
+.pa-rules :is(.pa-hosts img,.pa-logo:not(.lg-bbb)){mix-blend-mode:multiply}
