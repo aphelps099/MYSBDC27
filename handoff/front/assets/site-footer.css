@@ -24,7 +24,9 @@
 .site-footer-lists nav{display:flex;flex-direction:column;align-items:flex-start;gap:4px;font-size:20px;font-weight:500;letter-spacing:-.01em}
 .site-footer-lists p{margin:0 0 8px;font-size:15px;font-weight:500;letter-spacing:0;color:var(--ft-soft)}
 .site-footer-lists a{display:inline-flex;align-items:center;min-height:34px}
-.site-footer-lists .site-footer-mysbdc{font-weight:700}
+/* MySBDC is a sign-in, not a page in the list, so it reads as a slim outlined button. */
+.site-footer-lists .site-footer-mysbdc{min-height:36px;margin-top:10px;padding:0 18px;border:1.5px solid var(--ft-cream);border-radius:999px;font-size:16px;font-weight:600;letter-spacing:0;transition:background-color .2s,color .2s}
+.site-footer-lists .site-footer-mysbdc:hover{background:var(--ft-cream);color:var(--ft-navy);text-decoration:none}
 
 .site-footer-base{grid-column:1/-1;display:flex;align-items:flex-end;gap:40px}
 .site-footer-logo{display:block;margin-right:auto}
@@ -75,6 +77,7 @@
   .site-footer-lists nav{gap:0;font-size:18px}
   .site-footer-lists p{display:none}
   .site-footer-lists a{min-height:40px}
+  .site-footer-lists .site-footer-mysbdc{min-height:38px;margin-top:8px}
   .site-footer-base{flex-wrap:wrap;align-items:center;gap:12px 18px}
   .site-footer-logo{flex-basis:100%;margin:0}
   .site-footer-logo img{width:82px}
@@ -90,4 +93,5 @@
 }
 @media(prefers-reduced-motion:reduce){
   .site-footer-language summary>.site-nav-chevron{transition:none}
+  .site-footer-lists .site-footer-mysbdc{transition:none}
 }
