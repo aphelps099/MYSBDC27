@@ -1,0 +1,82 @@
+/* Partners page (November 2026). Grouped rows after californiasbdc.org/sbdc-partners, on one cream ground with a
+   2px navy rule across the content width between sections; the pool close is the one colour moment. */
+
+.partners-page{--pa-navy:#1d2c3d;--pa-cream:#f6f1e6;--pa-pool:#8fc5d9;--pa-slate:#243b50;--pa-red:#bb3c46;--pa-quiet:#4f5f6e;--pa-gutter:4%;background:var(--pa-cream);color:var(--pa-navy)}
+:where(.partners-page main) :is(h2,h3){font-family:"proxima-nova",Arial,sans-serif;font-weight:600;margin:0}
+:where(.partners-page main) h2{letter-spacing:-.04em;line-height:1.04}
+:where(.partners-page main) h3{letter-spacing:-.02em}
+:where(.partners-page main) :is(p,figure,ul){margin:0}
+.partners-page .concept-link{text-decoration-color:var(--pa-red)}
+
+/* Sections: one ground, separated by a 2px navy rule across the content width */
+.partners-page main>section:not(.pa-close){margin-inline:var(--pa-gutter);padding-block:88px}
+.partners-page main>section:not(.pa-close)+section:not(.pa-close){border-top:2px solid var(--pa-navy)}
+
+/* Partner entries: logo, name, description, link */
+.pa-logo{display:block;width:auto;max-width:100%;height:84px;object-fit:contain;object-position:left center}
+.pa-logo.lg-sba{height:96px}.pa-logo.lg-osba{height:104px}.pa-logo.lg-apex{height:96px}.pa-logo.lg-vboc{height:96px}
+/* The BBB mark is white artwork, so it sits on a small navy tile. */
+.pa-logo.lg-bbb{height:80px;padding:16px 22px;border-radius:6px;background:var(--pa-navy);box-sizing:content-box}
+/* Logos supplied on white backgrounds blend into the cream ground instead of sitting in white boxes. */
+:is(.pa-hosts img,.pa-logo:not(.lg-bbb)){mix-blend-mode:multiply}
+.pa-entry h3{margin-top:26px;font-size:24px;line-height:1.2}
+.pa-entry p{margin-top:12px;font-size:18px;line-height:1.55;max-width:44ch}
+.pa-entry .concept-link{margin-top:10px}
+.pa-corp .pa-logo{height:44px}
+.pa-corp .pa-logo.lg-aws{height:56px}
+.pa-corp p{max-width:34ch}
+.pa-todo{display:inline-block;padding:2px 10px;border-radius:999px;background:#bb3c461f;color:#8a2a33;font-size:15px;font-weight:600}
+
+/* Opening */
+.pa-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6%;align-items:end}
+.pa-intro h2{font-size:clamp(48px,5.2vw,80px)}
+.pa-intro p{font-size:21px;line-height:1.5;max-width:38ch}
+.pa-intro p+p{margin-top:16px}
+
+/* Grouped rows: a heading and short text beside the partners */
+.pa-row{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:6%}
+.pa-meta h2{font-size:clamp(34px,3.2vw,48px)}
+.pa-meta p{margin-top:18px;font-size:19px;line-height:1.5;max-width:34ch}
+.pa-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.pa-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}
+
+/* Financial hosting: copy left, campus photo right */
+.pa-split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:6%;align-items:center}
+.pa-split h2{font-size:clamp(40px,4.2vw,64px)}
+.pa-split h3{margin-top:32px;font-size:22px;line-height:1.2}
+.pa-split-copy p{margin-top:12px;font-size:19px;line-height:1.55;max-width:42ch}
+.pa-split-copy .concept-link{margin-top:14px}
+.pa-split-photo img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px}
+
+/* Host partners: open logo grid */
+.pa-hosts{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:56px 48px;align-items:center}
+.pa-hosts li{display:flex;align-items:center;justify-content:center;height:72px}
+.pa-hosts img{max-width:100%;max-height:72px;width:auto;height:auto;object-fit:contain}
+
+/* Close on pool */
+.pa-close{padding:100px var(--pa-gutter) 108px;background:var(--pa-pool)}
+.pa-close-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:6%;align-items:end}
+.pa-close h2{font-size:clamp(52px,6vw,96px)}
+.pa-close p{font-size:21px;line-height:1.45;max-width:32ch}
+.pa-button{display:inline-flex;align-items:center;min-height:56px;margin-top:40px;padding:0 30px;border-radius:999px;background:var(--pa-navy);color:#fff!important;font-size:18px;font-weight:700;text-decoration:none!important;transition:background-color .2s}
+.pa-button:hover{background:var(--pa-slate)}
+.pa-mail{display:block;width:max-content;margin-top:18px;font-size:17px;font-weight:600;text-decoration:underline;text-decoration-color:#1d2c3d66;text-decoration-thickness:2px;text-underline-offset:7px}
+
+@media(max-width:1000px){
+  .pa-intro,.pa-row,.pa-split,.pa-close-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .pa-hosts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pa-three{grid-template-columns:minmax(0,1fr);gap:56px}
+}
+@media(max-width:700px){
+  .partners-page{--pa-gutter:5%}
+  .partners-page main>section:not(.pa-close){padding-block:56px 64px}
+  .pa-intro p{font-size:19px}
+  .pa-pair{grid-template-columns:minmax(0,1fr);gap:48px}
+  .pa-hosts{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 28px}
+  .pa-hosts li{height:56px}.pa-hosts img{max-height:56px}
+  .pa-close{padding:72px var(--pa-gutter) 80px}
+  .pa-close h2{font-size:clamp(46px,13vw,62px)}
+  .pa-close p{font-size:19px}
+  .pa-button{margin-top:32px}
+}
+@media(prefers-reduced-motion:reduce){.pa-button{transition:none}}

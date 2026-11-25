@@ -12,6 +12,7 @@ Selected current designs, collected November 24, 2026. Start at [Homepage](index
 | Funding | [funding/](funding/index.html) | Current Funding concept with currency photography |
 | Yarrow Goods | [stories/yarrow-goods/](stories/yarrow-goods/index.html) | Latest detail, All stories underneath Stories |
 | Impact | [impact/](impact/index.html) | Direction C, built November 25, 2026 |
+| Partners | [partners/](partners/index.html) | Option A with rules, built November 25, 2026 |
 
 Preview from the running repository server: http://127.0.0.1:8784/handoff/front/ . Or run `python3 -m http.server 8784` from the repository root. No build step is required.
 
@@ -84,6 +85,18 @@ New page, `impact/index.html`, with `assets/impact.css` and `assets/impact.js`. 
 - Closing bookend on pool, echoing the opening: "Your business, next." left-aligned with "next." in a white pill, and beside it one sentence, the Get no-fee advising button and the (833) ASK-SBDC number.
 
 Checked at 1440, 820 and 390: no horizontal overflow or script errors, motion finishes with nothing left hidden, reduced-motion and blocked-GSAP fallbacks show all text, carousel buttons, dots and keys move one story at a time; the seal background stays still with reduced motion or without GSAP. The FY 2025 figures come from the demo impact page and homepage, and need final reporting confirmation before launch.
+
+## Partners page — November 25
+
+New page, `partners/index.html` with `assets/partners.css`, chosen on the Partners design canvas. Layout follows californiasbdc.org/sbdc-partners as grouped rows (a heading and short text beside the partners), without boxes, on one cream ground with a 2px navy rule across the content width between sections. The pool "Partner with us." close is the one colour moment. The About menu's "Our partners" on every page, and "Meet our partners" on About and Impact, now open it.
+
+- Content is from norcalsbdc.org/partners: SBA and GO-Biz (federal & state funding); Cal Poly Humboldt (financial hosting, copy beside the campus photo); BBB of Northeast California (local partner); and the 16 host partner logos in an open grid. Partner links are the ones that page uses.
+- Service partners: NorCal APEX Accelerators, and Pacific Northwest Regional VBOC, which its own site now describes as "formerly NorCal VBOC" (name, logo and description from norcalvboc.org).
+- Corporate partners: Amazon Web Services (the AWS Small Business Acceleration Initiative line from the AWS Initiative page), OpenAI and Verizon. OpenAI and Verizon show a marked "[Partnership description to come.]" placeholder until real copy is supplied. Their wordmarks are from Wikimedia Commons, saved in `assets/partners/`; replace them with brand-kit files if partner agreements require.
+- Logos supplied on white backgrounds blend into the cream; the white BBB mark sits on a small navy tile.
+- To confirm: the 16 hosts (norcalsbdc.org announces 2027 host partners have been selected) and two names read from logos, "San Francisco Office of Economic and Workforce Development" and "Siskiyou Economic Development Council" (used as image alt text).
+
+Checked at 1440, 820 and 390: no horizontal overflow or script errors, every image loads, one h1, local links resolve, the footer star draws.
 
 ## Status and limitations
 
