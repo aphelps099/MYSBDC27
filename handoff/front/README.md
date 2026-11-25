@@ -51,7 +51,7 @@ Checked at 1440, 1180, 820 and 390: no horizontal overflow or script errors on a
 
 ## Homepage stories — November 26
 
-The homepage stories section is now a compact layout (`assets/home-stories.css`): one featured business with a slate card beside its photo, and two smaller stories beneath. It replaces the tall staggered showcase so that stories read as proof on the way to advising, not as a destination. Same three businesses, copy and link destinations; the film link stays in the section heading. The category chips, the red rules under story photos and the separate closing line are gone. The section is about 1,190px tall at 1440 (was about 2,950) and about 1,350px at 390 (was about 2,510). The earlier `.v3-*` showcase rules remain in the concept stylesheet but the page no longer uses them, apart from the section's own `v3-showcase` class.
+The homepage stories section is now a compact layout (`assets/home-stories.css`): one featured business with a slate card beside its photo, and two smaller stories beneath. It replaces the tall staggered showcase so that stories read as proof on the way to advising, not as a destination. Same three businesses, copy and link destinations; the film link stays in the section heading. The category chips and the separate closing line are gone. The red rules stay under all three photos on wide screens; on narrow screens the featured photo drops its rule because the card overlaps it. The section is about 1,190px tall at 1440 (was about 2,950) and about 1,350px at 390 (was about 2,510). The earlier `.v3-*` showcase rules remain in the concept stylesheet but the page no longer uses them, apart from the section's own `v3-showcase` class.
 
 ## Status and limitations
 
