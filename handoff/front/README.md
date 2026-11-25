@@ -55,7 +55,7 @@ The homepage stories section is now a compact layout (`assets/home-stories.css`)
 
 ## Homepage figures — November 26
 
-The homepage figures band puts its four figures in one row on screens wider than 700px (`assets/home-figures.css`), at about 88px instead of 158px. The band is about 573px tall at 1440 (was 963). Wording, figures, colour and the impact link are unchanged, and phones keep the live two-by-two layout.
+The homepage figures band puts its four figures in one row on screens wider than 700px (`assets/home-figures.css`), at about 88px instead of 158px. The band is about 573px tall at 1440 (was 963). Each caption carries the matching MySBDC dashboard symbol at 24px (coins, storefront, two people, rising columns), since the four figures are the same four milestones the dashboard collects. Wording, figures, colour and the impact link are unchanged, and phones keep the live two-by-two layout.
 
 ## Status and limitations
 

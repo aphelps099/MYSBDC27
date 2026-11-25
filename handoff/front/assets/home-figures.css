@@ -1,5 +1,10 @@
 /* Homepage figures band (November 2026 homepage study).
-   Four figures share one row on wider screens. Phones keep the live two-by-two, which is already compact. */
+   Four figures share one row on wider screens. Phones keep the live two-by-two, which is already compact.
+   Each caption carries the matching MySBDC dashboard symbol: coins, storefront, people, rising columns. */
+
+.impact-panel .concept-metrics dt{display:flex;align-items:center;gap:10px}
+.fig-icon{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.fig-icon .tone{fill:currentColor;fill-opacity:.14;stroke:none}
 
 @media(min-width:701px){
   .impact-panel{padding:96px 5% 44px}
@@ -9,4 +14,9 @@
 }
 @media(min-width:701px) and (max-width:1000px){
   .impact-panel .concept-metrics{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}
+}
+@media(max-width:700px){
+  /* Captions may wrap in the narrow two-column layout; keep the symbol on the first line. */
+  .impact-panel .concept-metrics dt{align-items:flex-start;gap:8px}
+  .fig-icon{width:20px;height:20px;margin-top:1px}
 }
