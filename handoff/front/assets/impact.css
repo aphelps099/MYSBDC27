@@ -1,6 +1,6 @@
 /* Impact page (November 2026, direction C).
    Pool sentence with white pills, client story carousel (photo stage), three-year record on navy with a drawn line
-   over the America's SBDC seal artwork, partner thank-you with logos, centred close. Motion lives in impact.js. */
+   over the America's SBDC seal artwork, partner thank-you with logos, pool closing bookend. Motion lives in impact.js. */
 
 .impact-page{--ic-navy:#1d2c3d;--ic-cream:#f6f1e6;--ic-pool:#8fc5d9;--ic-slate:#243b50;--ic-red:#bb3c46;--ic-quiet:#4f5f6e;--ic-gutter:4%;background:var(--ic-cream);color:var(--ic-navy)}
 :where(.impact-page main) :is(h2,h3){font-family:"proxima-nova",Arial,sans-serif;font-weight:600;margin:0}
@@ -13,10 +13,13 @@
 
 /* Figures sit in soft capsules inside the sentences. */
 .ic-pill{display:inline-block;padding:.02em .36em .06em;border-radius:999px;white-space:nowrap;line-height:1.1;font-weight:600;letter-spacing:-.035em}
-.ic-word{display:inline-block}
+/* Mask-up reveal (after techfuturesgroup.org): each word and pill sits in a clipped box and rises into it. */
+.ic-word,.ic-mask{display:inline-block;overflow:hidden;vertical-align:bottom}
+.ic-word>span{display:inline-block}
 
 /* Motion: hidden only when impact.js will reveal them (see the head script); reduced motion never hides anything. */
-.ic-motion [data-motion] :is(.ic-word,.ic-pill,.ic-period,h2){opacity:0}
+.ic-motion [data-motion] :is(.ic-word>span,.ic-mask>.ic-pill){transform:translateY(110%)}
+.ic-motion [data-motion] .ic-period{opacity:0}
 .ic-motion [data-motion] .ic-record-line{transform:scaleX(0)}
 
 /* ---------- Sentence on pool ---------- */
@@ -79,12 +82,16 @@
 .ic-logos img{display:block;width:auto}
 .ic-logo-sba{height:92px}.ic-logo-scale{height:76px}.ic-logo-gobiz{height:52px}.ic-logo-asbdc{height:80px}.ic-logo-host{height:18px}
 
-/* ---------- Close ---------- */
-.ic-close{padding:112px var(--ic-gutter) 120px;text-align:center;background:var(--ic-cream)}
-.ic-close h2{font-size:clamp(48px,5.6vw,84px)}
-.ic-close p{font-size:21px;line-height:1.45;margin-top:22px}
-.ic-close .concept-button{margin-top:44px;background:var(--ic-navy);color:var(--ic-cream)}
-.ic-close .concept-button:hover{background:var(--ic-slate)}
+/* ---------- Close: pool bookend, "next." in a white pill ---------- */
+.ic-close{padding:104px var(--ic-gutter) 112px;background:var(--ic-pool)}
+.ic-close-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:6%;align-items:end}
+.ic-close h2{font-size:clamp(52px,6vw,96px);line-height:1.04;letter-spacing:-.05em}
+.ic-close .ic-pill{background:#fff;color:var(--ic-navy);padding:0 .3em .06em}
+.ic-close-side{padding-bottom:10px}
+.ic-close .ic-period{font-size:21px;line-height:1.45;max-width:30ch}
+.ic-close-button{display:inline-flex;align-items:center;min-height:56px;margin-top:44px;padding:0 30px;border-radius:999px;background:var(--ic-navy);color:#fff!important;font-size:18px;font-weight:700;text-decoration:none!important;transition:background-color .2s}
+.ic-close-button:hover{background:var(--ic-slate)}
+.ic-close-phone{display:block;width:max-content;margin-top:18px;font-size:17px;font-weight:600;text-decoration:underline;text-decoration-color:#1d2c3d66;text-decoration-thickness:2px;text-underline-offset:7px}
 
 /* ---------- Tablet ---------- */
 @media(max-width:1000px){
@@ -95,6 +102,7 @@
   .ic-record-bg{background-position:72% 50%}
   .ic-thanks-top{grid-template-columns:minmax(0,1fr);gap:28px}
   .ic-logos{justify-content:flex-start}
+  .ic-close-grid{grid-template-columns:minmax(0,1fr);gap:32px}
 }
 
 /* ---------- Phone ---------- */
@@ -117,9 +125,11 @@
   .ic-thanks p{font-size:18px}
   .ic-logos{gap:28px 36px;margin-top:48px}
   .ic-logo-sba{height:64px}.ic-logo-scale{height:54px}.ic-logo-gobiz{height:38px}.ic-logo-asbdc{height:58px}.ic-logo-host{height:13px}
-  .ic-close{padding:76px var(--ic-gutter) 84px}
-  .ic-close p{font-size:19px}
+  .ic-close{padding:72px var(--ic-gutter) 80px}
+  .ic-close h2{font-size:clamp(46px,13vw,62px)}
+  .ic-close .ic-period{font-size:19px}
+  .ic-close-button{margin-top:32px}
 }
 @media(prefers-reduced-motion:reduce){
-  .mc-dot,.mc-arrow,.mc-more{transition:none}
+  .mc-dot,.mc-arrow,.mc-more,.ic-close-button{transition:none}
 }

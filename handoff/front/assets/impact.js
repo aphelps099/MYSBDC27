@@ -1,5 +1,6 @@
 /* Impact page (November 2026).
-   1. Sentences: words rise in, in reading order, then the figure pills snap into place, fast, one after another.
+   1. Text: a mask-up reveal after techfuturesgroup.org. Every word sits in a clipped box and rises into it with a
+      plain ease-out, one line after another; the figure pills rise through their own masks last. No bounce or scale.
       In the three-year section a pool line draws across, and the America's SBDC seal background moves with a gentle
       parallax as the page scrolls (GSAP ScrollTrigger), as on californiasbdc.org.
       Reduced motion, no script or no GSAP leave everything static and visible.
@@ -9,25 +10,36 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const reveal = () => root.classList.remove('ic-motion');
 
-  /* ---------- Sentence motion ---------- */
+  // Group masked words by the line they sit on, in reading order.
+  const linesOf = (section) => {
+    const lines = [];
+    let top = null;
+    section.querySelectorAll('.ic-word').forEach((word) => {
+      const y = Math.round(word.getBoundingClientRect().top);
+      if (top === null || Math.abs(y - top) > 4) { lines.push([]); top = y; }
+      lines[lines.length - 1].push(word.firstElementChild);
+    });
+    return lines;
+  };
+
+  /* ---------- Text motion ---------- */
   const animate = (section) => {
     const gsap = window.gsap;
-    const words = section.querySelectorAll('.ic-word');
-    const pills = section.querySelectorAll('.ic-pill');
+    const lines = linesOf(section);
+    const pills = section.querySelectorAll('.ic-mask > .ic-pill');
+    const notes = section.querySelectorAll('.ic-period, .ic-close-button, .ic-close-phone');
     const line = section.querySelector('.ic-record-line');
-    gsap.set(words, { opacity: 0, yPercent: 70 });
-    gsap.set(pills, { opacity: 0, scale: 0.35 });
-    gsap.set(section.querySelectorAll('.ic-period, h2'), { opacity: 0, y: 12 });
+    gsap.set(lines.flat(), { y: 0, yPercent: 110 });
+    gsap.set(pills, { y: 0, yPercent: 110 });
+    gsap.set(notes, { opacity: 0 });
     if (line) gsap.set(line, { scaleX: 0 });
     section.dataset.motion = 'ready';
 
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
-    if (line) tl.to(line, { scaleX: 1, duration: 1.3, ease: 'power2.inOut' }, 0.15);
-    tl.to(section.querySelectorAll('h2'), { opacity: 1, y: 0, duration: 0.5 }, 0)
-      .to(words, { opacity: 1, yPercent: 0, duration: 0.7, stagger: 0.045 }, 0.1)
-      .to(pills, { opacity: 1, duration: 0.08, stagger: 0.11 }, '-=0.25')
-      .to(pills, { scale: 1, duration: 0.3, ease: 'back.out(2.6)', stagger: 0.11 }, '<')
-      .to(section.querySelectorAll('.ic-period'), { opacity: 1, y: 0, duration: 0.5 }, '-=0.1');
+    lines.forEach((words, i) => tl.to(words, { yPercent: 0, duration: 0.8 }, i * 0.11));
+    if (line) tl.to(line, { scaleX: 1, duration: 1.2, ease: 'power2.inOut' }, 0.2);
+    tl.to(pills, { yPercent: 0, duration: 0.7, stagger: 0.09 }, '-=0.45')
+      .to(notes, { opacity: 1, duration: 0.6, ease: 'power1.out', stagger: 0.08 }, '-=0.35');
 
     // The seal background shifts gently while the section passes through the window.
     const bg = section.querySelector('.ic-record-bg');
