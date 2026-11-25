@@ -71,7 +71,7 @@ The hero now fills 90% of the window height (90svh, at least 600px; it was the f
 
 ## News page — November 26
 
-New page, `news/index.html` with `assets/news.css` and `assets/news.js`, chosen on the News design canvas. One cream ground with 2px navy rules between sections, like Partners: the opening with three filter pills (All, Press releases, Announcements), the latest release large, then a dated list of the rest, closing on pool with Get the newsletter (opens the existing signup window) and media inquiries at info@norcalsbdc.org. The 11 posts, dates, types, summaries and links are from norcalsbdc.org/about/news; the uncategorised “A Typographic Legend: Jan Middendorp” post is left out. “News” is added to the About menu’s network list on every page. Checked at 1440, 820 and 390: no overflow or script errors; filters show 11, 3 and 9 posts; the newsletter window opens.
+New page, `news/index.html` with `assets/news.css` and `assets/news.js`. Rebuilt the same day as the "journal" direction from the News-as-a-blog canvas: one centred reading column (820px) on cream, the intro and three filter pills (All, Press releases, Announcements), then every post with a cover above it, its type, date and read time, a Proxima Sera headline, the summary and "Keep reading". Covers are solid 6px tiles in navy, pool, sand, sage or slate with a short topic in Proxima Sera; navy and slate ones carry the ghosted America's SBDC star. The one post with a real photo (Tim Murrill, State Star) uses it, and the three job posts run without a cover. Read times are each post's word count / 220, rounded. It closes on pool with Get the newsletter and media inquiries. The 11 posts, dates, types, summaries and links are from norcalsbdc.org/about/news; the uncategorised "A Typographic Legend: Jan Middendorp" post is left out. "News" is in the About menu's network list on every page. Checked at 1440, 820 and 390 with no overflow or script errors.
 
 ## Homepage hero and newsletter signup — November 25
 
@@ -120,11 +120,9 @@ All7 pages returned HTTP200, unique IDs/oneH1 and valid local anchors.112 local 
 ## Berry-glow gradient, menu and star timing (November 2026)
 
 - A gradient after the californiasbdc.org menu, made in our colours: a berry glow from the top left (`#bb3c46` at low
-  strength) over navy that deepens to the bottom right. It is used in two places only, to keep it special:
+  strength) over navy that deepens to the bottom right. It is used in one place only, to keep it special (it was tried on the open menu and taken off):
   - the About page "Local knowledge. Shared expertise." band (`assets/about-concept-v5/concept.css`, end of file),
     which is now one three-column grid: the headline spans two columns, the intro sits over the third principle, and
     the small headlines no longer orphan a word;
-  - the open desktop menu (`assets/site-nav.css`, end of file). The bar and panel share one viewport-fixed background
-    so the glow runs across both without a seam.
 - The footer star (`assets/site-star.css`, `site-star.js`) now rises and turns into place while its outline draws, in
   about 1.6 seconds instead of 4, and starts as soon as it enters the screen.
