@@ -38,6 +38,12 @@
 .a-host{display:grid;gap:48px}
 .a-photo img{display:block;width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:6px}
 .pa-logo.lg-vboc{height:96px}
+/* Corporate partners: three across, wordmarks set to a shared height */
+.a-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px}
+.pa-corp .pa-logo{height:44px}
+.pa-corp .pa-logo.lg-aws{height:56px}
+.pa-corp p{max-width:34ch}
+.pa-todo{display:inline-block;padding:2px 10px;border-radius:999px;background:#bb3c461f;color:#8a2a33;font-size:15px;font-weight:600}
 /* Financial hosting: copy left, campus photo right */
 .a-split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:6%;align-items:center;padding:96px var(--pa-gutter)}
 .a-split h2{font-size:clamp(40px,4.2vw,64px)}
@@ -104,7 +110,7 @@
   .a-intro,.a-row,.a-split,.pa-close-grid,.c-hosts-head{grid-template-columns:minmax(0,1fr);gap:32px}
   .pa-hosts{grid-template-columns:repeat(3,minmax(0,1fr))}
   .b-names{columns:2}
-  .b-three,.c-three{grid-template-columns:minmax(0,1fr);gap:56px}
+  .b-three,.c-three,.a-three{grid-template-columns:minmax(0,1fr);gap:56px}
   .c-hero{grid-template-columns:minmax(0,1fr)}
   .c-photo{min-height:0;aspect-ratio:16/10}
 }
