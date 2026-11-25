@@ -126,3 +126,14 @@ All7 pages returned HTTP200, unique IDs/oneH1 and valid local anchors.112 local 
     the small headlines no longer orphan a word;
 - The footer star (`assets/site-star.css`, `site-star.js`) now rises and turns into place while its outline draws, in
   about 1.6 seconds instead of 4, and starts as soon as it enters the screen.
+
+## News story page (November 2026)
+
+`news/sbdcs-google-grant-for-ai-training/index.html`, with `assets/news-story.css` and `assets/news-story.js` (loaded
+after `news.css`), the "journal" direction from the News story canvas. Built for the one post we have in full, the
+Google $10M AI grant release from America's SBDC, word for word. "All news" link, type, date and read time, a
+Proxima Sera headline across a 1120px header, the standfirst, the post's cover at the same width, then a 740px reading
+column: the source line, the release, one pull-quote taken from it (Lisa Gevelber), the two About sections on a sand
+tile, share links (LinkedIn, Email, Copy link), More news and the pool newsletter close. The News page links this post
+here; the other ten still link to norcalsbdc.org until their text is brought over. Same slug as the WordPress post.
+Checked at 1440, 820 and 390 with no overflow or script errors; Copy link works.

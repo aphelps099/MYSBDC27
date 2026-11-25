@@ -1,0 +1,39 @@
+/* News story page (November 2026), "journal" direction from the News story canvas. Loaded after news.css,
+   which holds the shared meta line, covers and the pool newsletter close. */
+
+.st-back{display:inline-flex;align-items:center;min-height:44px;font-size:17px;font-weight:700;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:7px}
+.st-body>p{font-size:20px;line-height:1.65}
+.st-body>p+p,.st-body>figure+p{margin-top:24px}
+.st-body a{text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:4px}
+.st-source{font-size:16px;font-weight:600;color:var(--q);margin-bottom:28px!important}
+.st-pull{margin:48px 0}
+.st-pull blockquote{margin:0}
+.st-pull p{font-family:"proxima-sera",Georgia,serif;font-weight:500;font-size:clamp(34px,3.4vw,48px);line-height:1.1;letter-spacing:-.02em}
+.st-pull figcaption{margin-top:16px;font-size:16px;font-weight:600;color:var(--q)}
+.st-about{display:grid;gap:28px;padding:36px 36px 40px;border-radius:6px;background:var(--sand)}
+.st-about h2{font-family:"proxima-nova",Arial,sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em}
+.st-about p{margin-top:8px!important;font-size:16px;line-height:1.55}
+.st-share{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}
+.st-share h2{font-family:"proxima-nova",Arial,sans-serif;font-weight:700;font-size:17px;margin-right:4px!important}
+.st-share a,.st-share button{display:inline-flex;align-items:center;min-height:44px;padding:0;border:0;background:none;font:inherit;font-size:17px;font-weight:600;color:var(--n);text-decoration:underline;text-decoration-color:#1d2c3d55;text-decoration-thickness:2px;text-underline-offset:6px;cursor:pointer}
+.st-more{padding:88px var(--g) 96px}
+.st-more>h2{font-size:clamp(36px,3.4vw,52px)}
+.st-more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5%;margin-top:36px}
+.st-more .cv{aspect-ratio:16/9}.st-more .cv-word{font-size:clamp(36px,3.6vw,56px)}
+.st-more .bl-meta{margin-top:18px}.st-more h3{margin-top:6px;font-size:clamp(24px,2.2vw,32px);line-height:1.12}
+.st-more>.bl-more{margin-top:40px}
+@media(max-width:700px){.st-body>p{font-size:18px}.st-about{padding:26px 22px 28px}.st-more{padding:64px var(--g) 72px}.st-more-grid{grid-template-columns:1fr;gap:48px}}
+
+.a-art{width:min(1120px,100% - 2*var(--g));margin:0 auto;padding:56px 0 0}
+.a-art .bl-meta{margin-top:48px}
+.a-art h1{margin:18px 0 0;font-family:"proxima-sera",Georgia,serif;font-weight:500;font-size:clamp(42px,5vw,76px);line-height:1.1;letter-spacing:-.015em;color:var(--n);max-width:22ch;text-wrap:balance}
+.a-stand{margin-top:30px!important;font-size:24px;line-height:1.5;max-width:46ch}
+.a-coverwrap{width:min(1120px,100% - 2*var(--g));margin:72px auto 0}
+.st-cover{aspect-ratio:16/7}.st-cover .cv-word{font-size:clamp(56px,7vw,120px)}
+.a-text{width:min(740px,100% - 2*var(--g));margin:80px auto 0}
+.a-text>p{line-height:1.72}
+.a-text>p+p,.a-text>figure+p{margin-top:30px}
+.a-text .st-pull{margin:64px 0}
+.a-text .st-about{margin-top:72px}
+.a-text .st-share{margin-top:44px}
+@media(max-width:700px){.a-art{padding-top:32px}.a-art .bl-meta{margin-top:36px}.a-art h1{font-size:36px;line-height:1.12}.a-stand{font-size:20px;margin-top:22px!important}.a-coverwrap{margin-top:44px}.a-text{margin-top:48px}.st-cover{aspect-ratio:16/10}.a-text .st-pull{margin:48px 0}}
