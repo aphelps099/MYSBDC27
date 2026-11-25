@@ -9,7 +9,7 @@
   dialog.setAttribute('aria-labelledby', 'sn-title');
   dialog.innerHTML = `<div class="sn-inner">
     <button type="button" class="sn-close">Close</button>
-    <h2 id="sn-title">Stay a step ahead.</h2>
+    <h2 id="sn-title">Stay a step<br> ahead.</h2>
     <p>Workshops, funding opportunities and practical ideas, by email.</p>
     <form>
       <div class="sn-field"><label for="sn-first">First name</label><input id="sn-first" name="first_name" autocomplete="given-name" required autofocus></div>

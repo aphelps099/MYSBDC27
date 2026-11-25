@@ -6,34 +6,34 @@
 .site-footer-lists .site-footer-newsletter{display:inline-flex;align-items:center;min-height:34px;padding:0;border:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;text-align:left;cursor:pointer}
 .site-footer-lists .site-footer-newsletter:hover{text-decoration:underline;text-decoration-color:var(--ft-berry);text-decoration-thickness:2px;text-underline-offset:8px}
 
-.site-news-dialog{box-sizing:border-box;width:min(560px,calc(100% - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;padding:0;border:0;border-radius:6px;overflow:auto;background:#e8d5a5;color:#1d2c3d;font-family:var(--nova,"proxima-nova",Arial,Helvetica,sans-serif)}
-.site-news-dialog::backdrop{background:#0f1c2dd1}
-.site-news-dialog .sn-inner{position:relative;padding:48px 44px 42px}
-.site-news-dialog .sn-close{position:absolute;top:10px;right:16px;min-height:44px;padding:0 8px;border:0;background:none;color:inherit;font:inherit;font-size:16px;font-weight:600;cursor:pointer}
+.site-news-dialog{box-sizing:border-box;width:min(640px,calc(100% - 32px));max-width:none;max-height:calc(100dvh - 32px);margin:auto;padding:0;border:0;border-radius:6px;overflow:auto;background:#8fc5d9;color:#1d2c3d;font-family:var(--nova,"proxima-nova",Arial,Helvetica,sans-serif)}
+.site-news-dialog::backdrop{background:#0f1c2de0}
+.site-news-dialog .sn-inner{position:relative;padding:60px 52px 52px}
+.site-news-dialog .sn-close{position:absolute;top:12px;right:20px;min-height:44px;padding:0 8px;border:0;background:none;color:inherit;font:inherit;font-size:16px;font-weight:700;cursor:pointer}
 .site-news-dialog .sn-close:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
-.site-news-dialog .sn-inner h2{margin:0;font-size:40px;font-weight:700;line-height:1.02;letter-spacing:-.04em}
-.site-news-dialog .sn-inner p{margin:12px 0 0;font-size:19px;line-height:1.45;text-wrap:balance}
+.site-news-dialog .sn-inner h2{margin:0;font-size:72px;font-weight:700;line-height:.92;letter-spacing:-.055em}
+.site-news-dialog .sn-inner p{margin:20px 0 0;font-size:21px;font-weight:500;line-height:1.4;text-wrap:balance}
 
-.site-news-dialog form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px;margin-top:28px}
+.site-news-dialog form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px;margin-top:34px}
 .site-news-dialog .sn-field{display:flex;flex-direction:column;gap:6px;min-width:0}
 .site-news-dialog .sn-wide{grid-column:1/-1}
-.site-news-dialog label{font-size:15px;font-weight:600}
-.site-news-dialog input{box-sizing:border-box;width:100%;height:52px;padding:0 16px;border:1.5px solid #1d2c3d;border-radius:6px;background:#fdfcf9;color:#1d2c3d;font:inherit;font-size:17px}
+.site-news-dialog label{font-size:16px;font-weight:700}
+.site-news-dialog input{box-sizing:border-box;width:100%;height:58px;padding:0 18px;border:2px solid #1d2c3d;border-radius:6px;background:#fdfcf9;color:#1d2c3d;font:inherit;font-size:18px}
 .site-news-dialog :focus-visible{outline:3px solid #1d2c3d;outline-offset:2px}
 /* The button shares the last row with the ZIP field. */
-.site-news-dialog .sn-submit{justify-self:end;align-self:end;min-height:52px;padding:0 28px;border:0;border-radius:999px;background:#1d2c3d;color:#f6f1e6;font:inherit;font-size:17px;font-weight:700;cursor:pointer;transition:background-color .2s}
+.site-news-dialog .sn-submit{justify-self:stretch;align-self:end;min-height:58px;padding:0 28px;border:0;border-radius:999px;background:#1d2c3d;color:#f6f1e6;font:inherit;font-size:19px;font-weight:700;cursor:pointer;transition:background-color .2s}
 .site-news-dialog .sn-submit:hover{background:#243b50}
 .site-news-dialog .sn-inner .sn-status{grid-column:1/-1;margin:0;font-size:15px}
 .site-news-dialog .sn-status:empty{display:none}
 
 @media(max-width:700px){
   .site-footer-lists .site-footer-newsletter{min-height:40px}
-  .site-news-dialog .sn-inner{padding:52px 24px 30px}
-  .site-news-dialog .sn-inner h2{font-size:34px}
-  .site-news-dialog .sn-inner p{font-size:18px}
+  .site-news-dialog .sn-inner{padding:56px 24px 30px}
+  .site-news-dialog .sn-inner h2{font-size:52px}
+  .site-news-dialog .sn-inner p{margin-top:16px;font-size:19px}
   .site-news-dialog form{gap:14px 12px;margin-top:22px}
-  .site-news-dialog input{font-size:16px}
-  .site-news-dialog .sn-submit{padding:0 22px}
+  .site-news-dialog input{height:54px;padding:0 14px;font-size:16px}
+  .site-news-dialog .sn-submit{min-height:54px;padding:0 16px;font-size:17px}
 }
 @media(prefers-reduced-motion:reduce){
   .site-news-dialog .sn-submit{transition:none}
