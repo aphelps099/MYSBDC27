@@ -47,6 +47,7 @@ All seven pages share one footer, built from the footer study (direction "F4" on
 - Phones: the same content with the phone number running edge to edge, then the button and the two lists side by side.
 - The official America's SBDC California, Northern CA Network logo (`assets/norcal-sbdc-logo-white.png`, copied from the WordPress theme) sits bottom-left. Social links are words, not icons. The `EN` language control now also lives here and opens upward.
 - The partner strip keeps all five logos and the full funding statement unchanged, with the logos beside the statement on wide screens.
+- November 25, later: a ghosted America's SBDC star (white at 10%) sits in the lower right of the navy footer on every page, cropped by the corner, after the hero on californiasbdc.org/leadership. When the footer scrolls into view its outline draws itself over about three seconds and then fills (`assets/site-star.css`, `assets/site-star.js`). Reduced motion or no script shows it filled straight away. Checked on all eight pages at 1440 and 390: no overflow or script errors, the star draws, and the footer language menu still opens fully inside the footer.
 
 Checked at 1440, 1180, 820 and 390: no horizontal overflow or script errors on any page; the footer language menu opens within the viewport and closes with Escape. Footer height is about 605px at 1440 (was 832) and about 995px at 390 (was about 1,170).
 

@@ -12,20 +12,10 @@
   .sbdc-star-ready .sbdc-star path{fill-opacity:1;stroke-dashoffset:0;animation:none;transition:none}
 }
 
-/* ---------- Study placements ---------- */
-.star-s1 .site-footer-main,.star-s2 .site-footer-main{position:relative;overflow:hidden}
-:is(.star-s1,.star-s2) .site-footer-main>:not(.sbdc-star){position:relative;z-index:1}
-/* S1 · footer corner */
-.star-s1 .sbdc-star{width:min(560px,44vw);right:-6%;bottom:-26%;color:#fff;opacity:.1}
-/* S2 · large footer star, placed like the leadership hero */
-.star-s2 .sbdc-star{width:60%;right:-12%;top:12%;color:#fff;opacity:.08}
-/* S3 · Impact close on pool, navy star */
-.star-s3 .ic-close{position:relative;overflow:hidden}
-.star-s3 .ic-close-grid{position:relative;z-index:1}
-.star-s3 .ic-close .sbdc-star{width:min(620px,48vw);right:-7%;top:-22%;color:var(--ic-navy);opacity:.1}
-
+/* ---------- Footer: lower right corner, on every page ---------- */
+.site-footer-main{position:relative;overflow:hidden}
+.site-footer-main>:not(.sbdc-star){position:relative;z-index:1}
+.site-footer .sbdc-star{width:min(560px,44vw);right:-6%;bottom:-26%;color:#fff;opacity:.1}
 @media(max-width:700px){
-  .star-s1 .sbdc-star{width:86vw;right:-30%;bottom:-8%}
-  .star-s2 .sbdc-star{width:110vw;right:-40%;top:22%}
-  .star-s3 .ic-close .sbdc-star{width:90vw;right:-34%;top:auto;bottom:-24%}
+  .site-footer .sbdc-star{width:86vw;right:-30%;bottom:-8%}
 }
