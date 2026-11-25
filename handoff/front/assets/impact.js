@@ -1,5 +1,5 @@
 /* Impact page (November 2026).
-   1. Sentences: words rise in, in reading order, then the figure pills float in last.
+   1. Sentences: words rise in, in reading order, then the figure pills snap into place, fast, one after another.
       Uses GSAP when it has loaded; reduced motion, no script or no GSAP leave the text static.
    2. Stories carousel: native scroll-snap track with previous/next buttons, a live count and arrow keys. */
 (() => {
@@ -14,14 +14,15 @@
     const pills = section.querySelectorAll('.ic-pill');
     const after = section.querySelectorAll('.ic-period, h2');
     gsap.set(words, { opacity: 0, yPercent: 70 });
-    gsap.set(pills, { opacity: 0, y: 48, scale: 0.72 });
+    gsap.set(pills, { opacity: 0, scale: 0.35 });
     gsap.set(after, { opacity: 0, y: 12 });
     section.dataset.motion = 'ready';
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
     tl.to(section.querySelectorAll('h2'), { opacity: 1, y: 0, duration: 0.5 })
       .to(words, { opacity: 1, yPercent: 0, duration: 0.7, stagger: 0.045 }, 0.1)
-      .to(pills, { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'back.out(1.7)', stagger: 0.22 }, '-=0.2')
-      .to(section.querySelectorAll('.ic-period'), { opacity: 1, y: 0, duration: 0.6 }, '-=0.5');
+      .to(pills, { opacity: 1, duration: 0.08, stagger: 0.11 }, '-=0.25')
+      .to(pills, { scale: 1, duration: 0.3, ease: 'back.out(2.6)', stagger: 0.11 }, '<')
+      .to(section.querySelectorAll('.ic-period'), { opacity: 1, y: 0, duration: 0.5 }, '-=0.1');
     return tl;
   };
 
