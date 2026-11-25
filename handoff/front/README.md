@@ -61,6 +61,12 @@ The homepage figures band puts its four figures in one row on screens wider than
 
 "Work with an advisor" on the homepage is now a split layout (`assets/home-advisor.css`): heading, sentence, button and a small round advisor portrait on the left, and a tall photograph filling the right half edge to edge. The four-topic accordion and the "Find your local SBDC" link left this section; the topics remain in the Advising menu and on the Advising page, and the link remains in the footer and the About menu. Both images (`assets/home-advisor-scene.jpg`, `assets/home-advisor-portrait.jpg`) are AI-generated concept images supplied by the user, and the section carries the same notice as the Advising page until real photographs replace them. The two images were generated separately, so the portrait and the advisor in the scene are not the same face.
 
+## Homepage hero and newsletter signup — November 25
+
+The hero keeps the video and drops the oversized wordmark, since the header already carries the name (`assets/home-hero.css`). The headline is now the large line along the foot of the video, with the sentence and button to its right; at 1000px and below the three stack in one column and the headline is sized to hold two lines.
+
+A newsletter signup returns to the homepage as a sand band between the advisor section and the footer (`assets/home-news.css`, `assets/home-news.js`). The button sits inside the email field. The form is not connected to a mailing service: submitting shows "Preview only. Your email isn’t sent or saved." and sends nothing. It needs a real destination before launch.
+
 ## Status and limitations
 
 Local design handoff, not a WordPress deployment. No saved WordPress content was changed. Current versions were selected from this design conversation; homepage story composition remains a previously deferred refinement. Homepage figures were carried over, not newly audited during packaging. Training event listings are a dated static sample, not a live feed. Existing advisor concept images are placeholders and keep their disclosures. Language menus are English-only with a coming-soon notice. MySBDC remains the existing concept destination, not a newly connected authentication flow. Yarrow's833px source photo may soften at large sizes.

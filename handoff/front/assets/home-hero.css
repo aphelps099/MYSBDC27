@@ -1,0 +1,25 @@
+/* Homepage hero, "headline leads" layout (November 2026 homepage study).
+   The oversized wordmark is gone; the header already carries the name.
+   The headline is the large line along the foot of the video, with the sentence and button to its right. */
+
+.concept-hero{align-items:flex-end}
+.hero-content{padding-bottom:96px}
+.hero-bottom{margin-top:0}
+.hero-bottom h1{line-height:.95;letter-spacing:-.055em}
+
+@media(min-width:1001px){
+  /* The right column is as wide as its sentence; the headline takes the rest and scales so both always fit on one row. */
+  .hero-bottom{grid-template-columns:minmax(0,1fr) auto;gap:48px}
+  .hero-bottom h1{font-size:min(7.4vw,11.5vw - 58px,112px);white-space:nowrap}
+  .hero-bottom p{white-space:nowrap}
+}
+@media(max-width:1000px){
+  /* One column: headline, sentence, button. The headline is sized to hold two lines at any width. */
+  .hero-content{padding-bottom:76px}
+  .hero-bottom{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:0}
+  .hero-bottom>div{justify-self:start}
+  .hero-bottom h1{font-size:10.8vw}
+}
+@media(max-width:700px){
+  .hero-bottom p{font-size:19px;text-wrap:balance}
+}
