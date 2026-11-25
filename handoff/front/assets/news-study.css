@@ -1,0 +1,94 @@
+/* News page direction study (November 2026). A press list with rules, B grouped by year, C open columns. */
+
+.news-page{--nw-navy:#1d2c3d;--nw-cream:#f6f1e6;--nw-pool:#8fc5d9;--nw-slate:#243b50;--nw-red:#bb3c46;--nw-quiet:#4f5f6e;--nw-gutter:4%;background:var(--nw-cream);color:var(--nw-navy)}
+:where(.news-page main) :is(h2,h3){font-family:"proxima-nova",Arial,sans-serif;font-weight:600;margin:0}
+:where(.news-page main) h2{letter-spacing:-.04em;line-height:1.04}
+:where(.news-page main) h3{letter-spacing:-.025em}
+:where(.news-page main) :is(p,ol,figure){margin:0}
+.news-page main h2 a,.news-page main h3 a{text-decoration:none}
+.news-page main h2 a:hover,.news-page main h3 a:hover{text-decoration:underline;text-decoration-color:var(--nw-red);text-decoration-thickness:2px;text-underline-offset:6px}
+.news-page .concept-link{text-decoration-color:var(--nw-red)}
+.nw-type{font-size:15px;font-weight:600;color:var(--nw-quiet)}
+.nw-excerpt{font-size:18px;line-height:1.5;max-width:60ch}
+[data-types][hidden]{display:none!important}
+
+/* Filter pills */
+.nw-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.nw-filter{min-height:44px;padding:0 20px;border:1.5px solid var(--nw-navy);border-radius:999px;background:transparent;color:var(--nw-navy);font-size:16px;font-weight:600;transition:background-color .2s,color .2s}
+.nw-filter:hover{background:#1d2c3d14}
+.nw-filter[aria-pressed="true"]{background:var(--nw-navy);color:#fff}
+
+/* Close on pool: newsletter */
+.nw-close{padding:100px var(--nw-gutter) 108px;background:var(--nw-pool)}
+.nw-close-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:6%;align-items:end}
+.nw-close h2{font-size:clamp(48px,5.6vw,88px)}
+.nw-close p{font-size:21px;line-height:1.45;max-width:34ch}
+.nw-button{display:inline-flex;align-items:center;min-height:56px;margin-top:40px;padding:0 30px;border:0;border-radius:999px;background:var(--nw-navy);color:#fff;font-size:18px;font-weight:700;transition:background-color .2s}
+.nw-button:hover{background:var(--nw-slate)}
+.nw-mail{display:block;width:max-content;margin-top:18px;font-size:17px;font-weight:600;text-decoration:underline;text-decoration-color:#1d2c3d66;text-decoration-thickness:2px;text-underline-offset:7px}
+
+/* ---------- A · press list on one ground, 2px rules ---------- */
+.option-a main>section:not(.nw-close){margin-inline:var(--nw-gutter);padding-block:80px}
+.option-a main>section:not(.nw-close)+section:not(.nw-close){border-top:2px solid var(--nw-navy)}
+.a-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6%;align-items:end}
+.a-intro h2{font-size:clamp(48px,5.2vw,80px)}
+.a-intro p{font-size:21px;line-height:1.5;max-width:38ch}
+.a-lead h2{margin-top:16px;font-size:clamp(44px,4.6vw,72px);max-width:18ch}
+.a-lead .nw-excerpt{margin-top:22px;font-size:21px;max-width:52ch}
+.a-lead .concept-link{margin-top:18px}
+.option-a .a-list{padding-block:0 40px!important}
+.a-items{list-style:none;padding:0}
+.a-item{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;padding:36px 0}
+.a-item+.a-item{border-top:2px solid #1d2c3d26}
+.a-item time{font-size:17px;font-weight:600;padding-top:4px}
+.a-item h3{margin-top:6px;font-size:clamp(24px,2.2vw,32px);line-height:1.15;max-width:30ch}
+.a-item .nw-excerpt{margin-top:10px}
+
+/* ---------- B · grouped by year ---------- */
+.b-intro{padding:88px var(--nw-gutter) 64px}
+.b-intro h2{font-size:clamp(48px,5.2vw,80px)}
+.b-intro p{margin-top:20px;font-size:21px;line-height:1.5;max-width:44ch}
+.b-year{display:grid;grid-template-columns:minmax(0,.45fr) minmax(0,1fr);gap:6%;padding:56px var(--nw-gutter) 64px;border-top:2px solid var(--nw-navy);margin-inline:var(--nw-gutter);padding-inline:0}
+.b-num{font-family:"proxima-sera",Georgia,serif!important;font-weight:400!important;font-size:clamp(96px,11vw,176px);line-height:.85;letter-spacing:-.04em}
+.b-items{list-style:none;padding:0;display:grid;gap:34px}
+.b-item h3{margin-top:6px;font-size:clamp(24px,2.3vw,34px);line-height:1.15;max-width:30ch}
+.b-year:last-of-type{margin-bottom:72px}
+
+/* ---------- C · open columns ---------- */
+.c-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6%;align-items:end;padding:88px var(--nw-gutter) 64px}
+.c-intro h2{font-size:clamp(48px,5.2vw,80px)}
+.c-intro p{font-size:21px;line-height:1.5;max-width:38ch}
+.c-lead{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;padding:0 var(--nw-gutter) 72px}
+.c-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:64px 40px;padding:72px var(--nw-gutter) 96px;margin-inline:var(--nw-gutter);padding-inline:0;border-top:2px solid var(--nw-navy)}
+.c-media{display:block;overflow:hidden;border-radius:6px;background:#fff;aspect-ratio:16/10}
+.c-media img{display:block;width:100%;height:100%;object-fit:cover}
+.c-logo img{object-fit:contain;padding:8%;box-sizing:border-box}
+.c-tile{display:flex;flex-direction:column;justify-content:flex-end;padding:24px 26px;background:var(--nw-navy);color:var(--nw-cream);text-decoration:none}
+.c-tile span:first-child{font-family:"proxima-sera",Georgia,serif;font-size:clamp(40px,3.6vw,56px);line-height:1;letter-spacing:-.03em}
+.c-tile span:last-child{margin-top:6px;font-size:16px;font-weight:600;color:var(--nw-pool)}
+.c-item .nw-type{margin-top:20px}
+.c-item h3{margin-top:8px;font-size:24px;line-height:1.2}
+.c-item .nw-excerpt{margin-top:10px;font-size:17px}
+.c-big h3{font-size:clamp(28px,2.8vw,40px);line-height:1.1}
+.c-big .nw-excerpt{font-size:19px}
+
+@media(max-width:1000px){
+  .a-intro,.c-intro,.nw-close-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .a-item{grid-template-columns:minmax(0,1fr);gap:8px}
+  .b-year{grid-template-columns:minmax(0,1fr);gap:24px}
+  .c-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .news-page{--nw-gutter:5%}
+  .option-a main>section:not(.nw-close){padding-block:56px}
+  .a-intro p,.b-intro p,.c-intro p{font-size:19px}
+  .a-lead .nw-excerpt{font-size:19px}
+  .b-intro,.c-intro{padding:56px var(--nw-gutter) 48px}
+  .b-num{font-size:96px}
+  .c-lead,.c-grid{grid-template-columns:minmax(0,1fr);gap:48px}
+  .nw-close{padding:72px var(--nw-gutter) 80px}
+  .nw-close h2{font-size:clamp(44px,12vw,60px)}
+  .nw-close p{font-size:19px}
+  .nw-button{margin-top:32px}
+}
+@media(prefers-reduced-motion:reduce){.nw-filter,.nw-button{transition:none}}
