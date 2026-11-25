@@ -23,6 +23,12 @@
 .ic-s1 .ic-pill{background:var(--ic-navy);color:var(--ic-cream)}
 .ic-s2 .ic-pill{background:#fff;color:var(--ic-navy)}
 .ic-s3 .ic-pill{background:var(--ic-cream);color:var(--ic-navy);padding-left:.24em}
+/* Sentence 3, navy pills: the symbol takes the text colour, its fill a softened pool. */
+:is(.ic-s4,.ic-s5) .ic-pill{background:var(--ic-navy);padding-left:.24em}
+.ic-s4 .ic-pill{color:var(--ic-pool)}
+.ic-s4 .ic-sym .tone{fill:var(--ic-pool);fill-opacity:.35}
+.ic-s5 .ic-pill{color:#fff}
+.ic-s5 .ic-sym .tone{fill:var(--ic-pool)}
 
 /* ---------- People ---------- */
 .ic-people{padding:100px var(--ic-gutter) 108px;background:var(--ic-cream)}
