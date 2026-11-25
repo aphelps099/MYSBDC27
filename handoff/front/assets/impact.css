@@ -1,0 +1,115 @@
+/* Impact page (November 2026, direction C).
+   Pool sentence with white pills, client story carousel, three-year record on navy,
+   partner thank-you with logos, centred close. Motion lives in impact.js. */
+
+.impact-page{--ic-navy:#1d2c3d;--ic-cream:#f6f1e6;--ic-pool:#8fc5d9;--ic-slate:#243b50;--ic-red:#bb3c46;--ic-quiet:#4f5f6e;--ic-gutter:4%;background:var(--ic-cream);color:var(--ic-navy)}
+:where(.impact-page main) :is(h2,h3){font-family:"proxima-nova",Arial,sans-serif;font-weight:600;margin:0}
+:where(.impact-page main) h2{letter-spacing:-.04em;line-height:1.02}
+:where(.impact-page main) h3{letter-spacing:-.025em}
+:where(.impact-page main) :is(p,dl,dd,dt){margin:0}
+.ic-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ic-period{font-size:16px;line-height:1.45}
+.impact-page .concept-link{text-decoration-color:var(--ic-red)}
+
+/* Figures sit in soft capsules inside the sentences. */
+.ic-pill{display:inline-block;padding:.02em .36em .06em;border-radius:999px;white-space:nowrap;line-height:1.1;font-weight:600;letter-spacing:-.035em}
+.ic-word{display:inline-block}
+
+/* Motion: words and pills start hidden only when impact.js will reveal them (see the head script). */
+.ic-motion [data-motion] :is(.ic-word,.ic-pill,.ic-period,h2){opacity:0}
+
+/* ---------- Sentence on pool ---------- */
+.ic-sentence{padding:104px var(--ic-gutter) 112px;background:var(--ic-pool)}
+.ic-big{font-size:clamp(44px,5.2vw,82px);font-weight:500;line-height:1.24;letter-spacing:-.04em;max-width:22ch}
+.ic-sentence .ic-pill{background:#fff;color:var(--ic-navy)}
+.ic-sentence .ic-period{margin-top:40px}
+
+/* ---------- Stories carousel ---------- */
+.ic-people{padding:100px 0 108px;background:var(--ic-cream)}
+.ic-people-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin:0 var(--ic-gutter) 56px}
+.ic-people-head h2{font-size:clamp(44px,4.6vw,70px)}
+.ic-arrows{display:flex;align-items:center;gap:14px}
+.ic-arrow{display:grid;place-items:center;width:52px;height:52px;padding:0;border:1.5px solid var(--ic-navy);border-radius:50%;background:transparent;color:var(--ic-navy);transition:background-color .2s,color .2s,opacity .2s}
+.ic-arrow svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic-arrow:hover:not(:disabled){background:var(--ic-navy);color:var(--ic-cream)}
+.ic-arrow:disabled{opacity:.3;cursor:default}
+.ic-count{min-width:3.4em;text-align:center;font-size:17px;font-weight:600;font-variant-numeric:tabular-nums}
+.ic-track{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:28px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding-inline:var(--ic-gutter);scroll-padding-inline:var(--ic-gutter);scrollbar-width:none}
+.ic-track::-webkit-scrollbar{display:none}
+.ic-track:focus-visible{outline:3px solid #6f9fc0;outline-offset:6px}
+.ic-slide{scroll-snap-align:start;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);border-radius:6px;overflow:hidden;background:#fff}
+.ic-slide-photo{margin:0;position:relative;min-height:580px;background:#f3eee8;overflow:hidden}
+.ic-slide-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* The Yarrow Goods portrait is a cut-out on a pale ground: lift it from the bottom so the owners fill the frame. */
+.ic-slide-photo .ic-cutout{object-position:50% 100%;transform:scale(1.15);transform-origin:50% 100%}
+.ic-slide-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:56px 52px}
+.ic-slide-meta{font-size:16px;color:var(--ic-quiet)}
+.ic-slide-copy h3{margin-top:10px;font-family:"proxima-sera",Georgia,serif;font-weight:400;font-size:clamp(40px,3.8vw,58px);line-height:1.04;letter-spacing:-.025em}
+.ic-slide-num{margin-top:32px!important;font-size:clamp(60px,5.6vw,88px);font-weight:600;letter-spacing:-.05em;line-height:.95}
+.ic-slide-label{margin-top:8px!important;font-size:17px;color:var(--ic-quiet);max-width:28ch}
+.ic-slide-text{margin-top:28px!important;font-size:19px;line-height:1.5;max-width:34ch}
+.ic-slide-copy .concept-link{margin-top:14px}
+.ic-more{display:inline-flex;align-items:center;min-height:50px;margin:44px var(--ic-gutter) 0;padding:0 26px;border:1.5px solid var(--ic-navy);border-radius:999px;font-size:17px;font-weight:700;text-decoration:none!important;transition:background-color .2s,color .2s}
+.ic-more:hover{background:var(--ic-navy);color:var(--ic-cream)}
+
+/* ---------- Three-year record ---------- */
+.ic-record{padding:96px var(--ic-gutter) 104px;background:var(--ic-navy);color:var(--ic-cream)}
+.ic-record h2{font-size:clamp(34px,3.4vw,52px);color:var(--ic-pool)}
+.ic-mid{font-size:clamp(32px,3.4vw,52px);font-weight:500;line-height:1.3;letter-spacing:-.03em;max-width:30ch;margin-top:12px!important}
+.ic-record .ic-pill{background:var(--ic-pool);color:var(--ic-navy)}
+.ic-record .ic-period{color:#b7c3cd;margin-top:36px}
+
+/* ---------- Thank you to our partners ---------- */
+.ic-thanks{padding:96px var(--ic-gutter) 100px;background:#fff}
+.ic-thanks-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:6%;align-items:start}
+.ic-thanks h2{font-size:clamp(40px,4.2vw,64px)}
+.ic-thanks p{font-size:19px;line-height:1.5;max-width:44ch}
+.ic-links{display:flex;flex-wrap:wrap;gap:0 32px;margin-top:18px}
+.ic-logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:36px 48px;margin-top:72px}
+.ic-logos img{display:block;width:auto}
+.ic-logo-sba{height:92px}.ic-logo-scale{height:76px}.ic-logo-gobiz{height:52px}.ic-logo-asbdc{height:80px}.ic-logo-host{height:18px}
+
+/* ---------- Close ---------- */
+.ic-close{padding:112px var(--ic-gutter) 120px;text-align:center;background:var(--ic-cream)}
+.ic-close h2{font-size:clamp(48px,5.6vw,84px)}
+.ic-close p{font-size:21px;line-height:1.45;margin-top:22px}
+.ic-close .concept-button{margin-top:44px;background:var(--ic-navy);color:var(--ic-cream)}
+.ic-close .concept-button:hover{background:var(--ic-slate)}
+
+/* ---------- Tablet ---------- */
+@media(max-width:1000px){
+  .ic-track{grid-auto-columns:88%}
+  .ic-slide{grid-template-columns:minmax(0,1fr)}
+  .ic-slide-photo{min-height:0;aspect-ratio:16/10}
+  .ic-slide-copy{padding:40px 40px 44px}
+  .ic-thanks-top{grid-template-columns:minmax(0,1fr);gap:28px}
+  .ic-logos{justify-content:flex-start}
+}
+
+/* ---------- Phone ---------- */
+@media(max-width:700px){
+  .impact-page{--ic-gutter:5%}
+  .ic-sentence{padding:64px var(--ic-gutter) 72px}
+  .ic-big{font-size:clamp(32px,9.2vw,44px);line-height:1.3}
+  .ic-people{padding:68px 0 76px}
+  .ic-people-head{margin-bottom:36px}
+  .ic-people-head .ic-arrows{width:100%}
+  .ic-arrow{width:46px;height:46px}
+  .ic-track{grid-auto-columns:90%;gap:16px}
+  .ic-slide-photo{aspect-ratio:4/3}
+  .ic-slide-copy{padding:28px 24px 30px}
+  .ic-slide-copy h3{font-size:36px}
+  .ic-slide-num{font-size:52px;margin-top:22px!important}
+  .ic-slide-text{margin-top:18px!important;font-size:18px}
+  .ic-record{padding:64px var(--ic-gutter) 72px}
+  .ic-mid{font-size:clamp(26px,7.4vw,34px)}
+  .ic-thanks{padding:64px var(--ic-gutter) 72px}
+  .ic-thanks p{font-size:18px}
+  .ic-logos{gap:28px 36px;margin-top:48px}
+  .ic-logo-sba{height:64px}.ic-logo-scale{height:54px}.ic-logo-gobiz{height:38px}.ic-logo-asbdc{height:58px}.ic-logo-host{height:13px}
+  .ic-close{padding:76px var(--ic-gutter) 84px}
+  .ic-close p{font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ic-arrow,.ic-more{transition:none}
+}

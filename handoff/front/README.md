@@ -11,6 +11,7 @@ Selected current designs, collected November 24, 2026. Start at [Homepage](index
 | Stories | [stories/](stories/index.html) | Current Stories concept |
 | Funding | [funding/](funding/index.html) | Current Funding concept with currency photography |
 | Yarrow Goods | [stories/yarrow-goods/](stories/yarrow-goods/index.html) | Latest detail, All stories underneath Stories |
+| Impact | [impact/](impact/index.html) | Direction C, built November 25, 2026 |
 
 Preview from the running repository server: http://127.0.0.1:8784/handoff/front/ . Or run `python3 -m http.server 8784` from the repository root. No build step is required.
 
@@ -70,6 +71,18 @@ The newsletter signup is a text link, "Get the newsletter", in the footer of eve
 ## Homepage "What's your next move?" — November 25
 
 The three-column layout is unchanged. Each column now opens with the matching MySBDC dashboard symbol (door, coins, rising columns) with a pool fill, and the three links take the red underline used on "Read story" (`assets/home-next.css`).
+
+## Impact page — November 25
+
+New page, `impact/index.html`, with `assets/impact.css` and `assets/impact.js`. Chosen from four directions and three review rounds on the Impact design canvas. The homepage "Explore our impact" link and the About menu's "Our results" link on every page now open it.
+
+- Navy title band, then the FY 2025 results as one sentence on pool: $549M capital accessed, 712 businesses started, 3,723 jobs created, $201M sales growth, each figure in a white pill. The words rise in, in reading order, and the pills float in last (GSAP 3.12.5 from cdnjs). The three-year sentence on navy animates the same way when it scrolls into view. Reduced motion shows everything at once; if GSAP fails to load the text appears on page load, and never stays hidden past four seconds.
+- "The people behind it": a carousel of five client stories (Yarrow Goods, Jump Aero, The Early Rise, Circosphere, Hella Nuts), one large photo and white panel at a time with the next peeking in. Results are shown only where the existing site publishes one ($138K, $12M). Round arrow buttons, a live count, swipe and arrow keys.
+- "Over three years" on navy: $1.56B, $474M, 111K and 99% from the live About page (FFY 2022–2024), with its note that no multipliers are used and results are verified annually by third-party research. Figures in pool pills.
+- "Thank you to our partners": the About page's funding and host statement, links to partners and funding disclosures, and the five partner logos in full colour on white.
+- Centred close with one Get no-fee advising button.
+
+Checked at 1440, 820 and 390: no horizontal overflow or script errors, motion finishes with nothing left hidden, reduced-motion and blocked-GSAP fallbacks show all text, carousel buttons and keys move one story at a time. The FY 2025 figures come from the demo impact page and homepage, and need final reporting confirmation before launch.
 
 ## Status and limitations
 
