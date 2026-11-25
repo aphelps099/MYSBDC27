@@ -6,7 +6,7 @@ const filmDialog=document.querySelector('.film-dialog');
 const filmMount=document.querySelector('.film-player-mount');
 const filmBackground=[document.querySelector('.site-nav'),document.querySelector('main'),document.querySelector('footer')];
 function closeFilm(){filmDialog.hidden=true;filmMount.replaceChildren();filmBackground.forEach(e=>e.inert=false);document.body.classList.remove('film-open');filmLaunch.focus()}
-filmLaunch.addEventListener('click',event=>{
+filmLaunch?.addEventListener('click',event=>{
   event.preventDefault();
   const player=document.createElement('iframe');
   player.src='https://www.youtube-nocookie.com/embed/5s8fBXxKaJc?autoplay=1&rel=0';
