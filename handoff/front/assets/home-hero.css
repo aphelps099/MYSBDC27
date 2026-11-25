@@ -2,7 +2,9 @@
    The oversized wordmark is gone; the header already carries the name.
    The headline is the large line along the foot of the video, with the sentence and button to its right. */
 
-.concept-hero{align-items:flex-end}
+.concept-hero{align-items:flex-end;height:90vh;height:90svh;min-height:600px}
+/* The regional network logo sits large above the headline (white artwork made from the 400px colour logo). */
+.hero-logo{display:block;width:clamp(170px,17vw,260px);height:auto;margin:0 0 40px -2px}
 .hero-content{padding-bottom:96px}
 .hero-bottom{margin-top:0}
 .hero-bottom h1{line-height:.95;letter-spacing:-.055em}
@@ -16,10 +18,12 @@
 @media(max-width:1000px){
   /* One column: headline, sentence, button. The headline is sized to hold two lines at any width. */
   .hero-content{padding-bottom:76px}
+  .hero-logo{margin-bottom:32px}
   .hero-bottom{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:0}
   .hero-bottom>div{justify-self:start}
   .hero-bottom h1{font-size:10.8vw}
 }
 @media(max-width:700px){
+  .hero-logo{width:150px;margin-bottom:24px}
   .hero-bottom p{font-size:19px;text-wrap:balance}
 }

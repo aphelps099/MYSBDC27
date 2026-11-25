@@ -13,6 +13,7 @@ Selected current designs, collected November 24, 2026. Start at [Homepage](index
 | Yarrow Goods | [stories/yarrow-goods/](stories/yarrow-goods/index.html) | Latest detail, All stories underneath Stories |
 | Impact | [impact/](impact/index.html) | Direction C, built November 25, 2026 |
 | Partners | [partners/](partners/index.html) | Option A with rules, built November 25, 2026 |
+| News | [news/](news/index.html) | Option A press list, built November 26, 2026 |
 
 Preview from the running repository server: http://127.0.0.1:8784/handoff/front/ . Or run `python3 -m http.server 8784` from the repository root. No build step is required.
 
@@ -63,6 +64,14 @@ The homepage figures band puts its four figures in one row on screens wider than
 ## Homepage advisor section — November 26
 
 "Work with an advisor" on the homepage is now a split layout (`assets/home-advisor.css`): heading, sentence, button and a small round advisor portrait on the left, and a tall photograph filling the right half edge to edge. The four-topic accordion and the "Find your local SBDC" link left this section; the topics remain in the Advising menu and on the Advising page, and the link remains in the footer and the About menu. Both images (`assets/home-advisor-scene.jpg`, `assets/home-advisor-portrait.jpg`) are AI-generated concept images supplied by the user, and the section carries the same notice as the Advising page until real photographs replace them. The two images were generated separately, so the portrait and the advisor in the scene are not the same face.
+
+## Homepage hero, network logo — November 26
+
+The hero now fills 90% of the window height (90svh, at least 600px; it was the full height with an 800px minimum), so the next section shows beneath it. The America’s SBDC California, Northern CA Network logo sits large above the headline (about 245px wide at 1440, 150px on phones). `assets/norcal-sbdc-logo-white-400.png` is a white version made from the 400px colour logo on norcalsbdc.org, with the CALIFORNIA lettering knocked out of its bar like the official white mark; replace it with a vector original from the brand files when available.
+
+## News page — November 26
+
+New page, `news/index.html` with `assets/news.css` and `assets/news.js`, chosen on the News design canvas. One cream ground with 2px navy rules between sections, like Partners: the opening with three filter pills (All, Press releases, Announcements), the latest release large, then a dated list of the rest, closing on pool with Get the newsletter (opens the existing signup window) and media inquiries at info@norcalsbdc.org. The 11 posts, dates, types, summaries and links are from norcalsbdc.org/about/news; the uncategorised “A Typographic Legend: Jan Middendorp” post is left out. “News” is added to the About menu’s network list on every page. Checked at 1440, 820 and 390: no overflow or script errors; filters show 11, 3 and 9 posts; the newsletter window opens.
 
 ## Homepage hero and newsletter signup — November 25
 

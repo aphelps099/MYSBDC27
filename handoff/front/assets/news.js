@@ -1,4 +1,4 @@
-/* News page: filter pills show all posts, press releases or announcements. Year groups in option B hide when empty. */
+/* News page: filter pills show all posts, press releases or announcements. */
 (() => {
   const buttons = [...document.querySelectorAll('[data-filter]')];
   if (!buttons.length) return;
