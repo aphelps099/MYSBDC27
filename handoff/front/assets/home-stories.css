@@ -1,0 +1,52 @@
+/* Homepage stories, compact layout (November 2026 homepage study).
+   One featured business with a slate card, two smaller stories beneath.
+   The section keeps the v3-showcase class so the film link and the figures band below still pick up their rules. */
+
+.v3-showcase.home-stories{padding:104px 5%}
+
+.hs-intro{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);column-gap:5%;align-items:end}
+.hs-intro h2{margin:0;font-size:clamp(44px,5vw,76px);line-height:1.02;letter-spacing:-.045em}
+.hs-intro p{margin:0 0 12px;font-size:21px;line-height:1.5}
+.hs-links{display:flex;flex-wrap:wrap;gap:0 32px}
+
+.hs-feature{display:grid;grid-template-columns:minmax(0,60.2%) minmax(0,1fr);align-items:center;margin-top:64px}
+.hs-feature>img{grid-column:1;grid-row:1;display:block;width:100%;aspect-ratio:1.6;object-fit:cover;object-position:center 35%;border-radius:6px}
+.hs-card{grid-column:2;grid-row:1;position:relative;margin:40px 0 0 -64px;padding:40px 44px 30px;border-radius:6px;background:#243b50}
+.hs-card h3{margin:0;font-family:var(--sera,"proxima-sera",Georgia,serif);font-weight:400;font-size:clamp(34px,3.2vw,46px);line-height:1.08;letter-spacing:-.02em}
+.hs-card>p{margin:14px 0 0;font-size:19px;line-height:1.5;color:#e4e8e8}
+.hs-facts{margin:24px 0 0;font-size:16px}
+.hs-facts div{display:flex;justify-content:space-between;gap:20px}
+.hs-facts dt{color:#beccd5}
+.hs-facts dd{margin:0;font-weight:600}
+.hs-card .concept-link{margin-top:12px}
+
+.hs-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;row-gap:40px;margin-top:72px}
+.hs-story{display:flex;align-items:flex-end;gap:28px}
+.hs-thumb{flex:0 0 46%;max-width:300px;display:block;border-radius:6px;overflow:hidden}
+.hs-thumb img{display:block;width:100%;aspect-ratio:1.36;object-fit:cover;transition:transform .6s}
+.hs-thumb:hover img{transform:scale(1.025)}
+.hs-freeline .hs-thumb img{object-position:55% 40%}
+.hs-story h3{margin:0;font-family:var(--sera,"proxima-sera",Georgia,serif);font-weight:400;font-size:clamp(24px,2.1vw,30px);line-height:1.12;letter-spacing:-.015em}
+.hs-story p{margin:8px 0 0;font-size:16px;color:#beccd5}
+.hs-story .concept-link{margin-top:4px}
+
+@media(max-width:1000px){
+  .hs-intro{grid-template-columns:minmax(0,1fr);row-gap:24px}
+  .hs-feature{grid-template-columns:minmax(0,1fr);margin-top:48px}
+  .hs-card{grid-column:1;grid-row:2;margin:-56px 0 0 8%}
+  .hs-pair{grid-template-columns:minmax(0,1fr);margin-top:56px}
+}
+@media(max-width:700px){
+  .v3-showcase.home-stories{padding:70px 6%}
+  .hs-intro p{font-size:20px}
+  .hs-feature{margin-top:36px}
+  .hs-feature>img{aspect-ratio:1.2}
+  .hs-card{margin:-40px 0 0 20px;padding:28px 26px 20px}
+  .hs-card>p{font-size:18px}
+  .hs-pair{margin-top:44px;row-gap:32px}
+  .hs-story{gap:18px}
+  .hs-thumb{flex-basis:42%}
+}
+@media(prefers-reduced-motion:reduce){
+  .hs-thumb img{transition:none}
+}
