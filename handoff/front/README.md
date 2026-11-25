@@ -65,7 +65,7 @@ The homepage figures band puts its four figures in one row on screens wider than
 
 The hero keeps the video and drops the oversized wordmark, since the header already carries the name (`assets/home-hero.css`). The headline is now the large line along the foot of the video, with the sentence and button to its right; at 1000px and below the three stack in one column and the headline is sized to hold two lines.
 
-A newsletter signup returns to the homepage as a sand band between the advisor section and the footer (`assets/home-news.css`, `assets/home-news.js`). The button sits inside the email field. The form is not connected to a mailing service: submitting shows "Preview only. Your email isn’t sent or saved." and sends nothing. It needs a real destination before launch.
+The newsletter signup is a text link, "Get the newsletter", in the footer of every page (`assets/site-newsletter.css`, `assets/site-newsletter.js`). It opens a sand dialog asking for first name, last name, email address and ZIP code. A sand band on the homepage was tried first and removed as too large. The form is not connected to a mailing service: submitting shows "Preview only. Nothing was sent or saved." and sends nothing. It needs a real destination before launch. In the same footer list, MySBDC is now a slim outlined button.
 
 ## Status and limitations
 
