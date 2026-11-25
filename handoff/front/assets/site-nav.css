@@ -102,3 +102,12 @@ html.site-menu-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){
   .site-nav,.site-nav-language summary>.site-nav-chevron{transition:none}
 }
+
+/* Open menu (November 2026): the berry-glow gradient after the californiasbdc.org menu, in our deep navy.
+   Bar and panel share one viewport-fixed background, so the glow runs across both without a seam. */
+.site-nav{--nav-glow:radial-gradient(70vw 70vh at 0% 0%,#bb3c4640 0%,#bb3c4617 38%,transparent 70%),radial-gradient(60vw 60vh at 100% 100%,#08121fcc 0%,transparent 75%),linear-gradient(165deg,#1a2638 0%,#122133 50%,#0d1a2a 100%)}
+.site-nav:has(.site-nav-item:hover),.site-nav:has(.site-nav-item:focus-within),
+.concept-page .site-nav:has(.site-nav-item:hover),.concept-page .site-nav:has(.site-nav-item:focus-within),
+.site-nav-panel{background:var(--nav-glow);background-attachment:fixed}
+.site-nav.panel-dismissed{background:var(--nav-navy)}
+.concept-page .site-nav.panel-dismissed:not(.is-scrolled){background:transparent}

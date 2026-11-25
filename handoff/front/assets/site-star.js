@@ -14,6 +14,6 @@
       draw(entry.target);
       io.unobserve(entry.target);
     });
-  }, { threshold: 0.25 });
+  }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
   stars.forEach((star) => io.observe(star));
 })();

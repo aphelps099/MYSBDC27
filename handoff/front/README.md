@@ -116,3 +116,15 @@ All source-specific claims, photo provenance and historical checks are retained 
 ## Collection verification — November24
 
 All7 pages returned HTTP200, unique IDs/oneH1 and valid local anchors.112 local references stay within this folder. All33 bundled assets byte-match their selected sources; JS syntax and whitespace checks passed. Desktop openings of Home/Advising/Training/About/Stories/Funding visually checked; all7 mobile390 layouts checked for overflow and font loading. Stories-to-Yarrow click, About five-slide carousel selection and local advisor image loading verified. Actual hovered related card has no parent/description underline; title remains underlined red. Screenshot: review/story-card-hover.jpg. No push, PR or deployment.
+
+## Berry-glow gradient, menu and star timing (November 2026)
+
+- A gradient after the californiasbdc.org menu, made in our colours: a berry glow from the top left (`#bb3c46` at low
+  strength) over navy that deepens to the bottom right. It is used in two places only, to keep it special:
+  - the About page "Local knowledge. Shared expertise." band (`assets/about-concept-v5/concept.css`, end of file),
+    which is now one three-column grid: the headline spans two columns, the intro sits over the third principle, and
+    the small headlines no longer orphan a word;
+  - the open desktop menu (`assets/site-nav.css`, end of file). The bar and panel share one viewport-fixed background
+    so the glow runs across both without a seam.
+- The footer star (`assets/site-star.css`, `site-star.js`) now rises and turns into place while its outline draws, in
+  about 1.6 seconds instead of 4, and starts as soon as it enters the screen.
