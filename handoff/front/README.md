@@ -177,8 +177,8 @@ conversation in the close. The open book and the video drawing are no longer use
 ## About page, images (November 26)
 
 - The "Local knowledge" band is flat navy again; the berry-glow gradient was dropped to keep the theme tight. Its
-  three-column grid stays.
+  three-column grid stays; its intro paragraph ("A business plan, a financing question…") is removed.
 - The closing "Let's work on your business." now pairs with the Churn grand-opening photo
-  (`assets/about-churn-grand-opening.jpg`, from norcalsbdc.org), bleeding off the left edge on a pool offset plate,
+  (`assets/about-churn-grand-opening.jpg`, from norcalsbdc.org), larger, bleeding off the left edge with a 4px red line beneath,
   captioned "A grand opening at Churn". The results band stays pool. Other images from the About images canvas (the
   client mosaics, the celebrating duotone, the accredited seal, the region collage) are not used for now.
