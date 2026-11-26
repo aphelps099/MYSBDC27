@@ -150,9 +150,10 @@ illustrations and `training-concept` assets are no longer used here.
   to the center's session page), one sentence, and Log in to register. A fuller calendar after `Training Calendar.dc.html`
   (month column, topic chips, tags, More details) was tried and set aside as too busy.
 - Keep learning (on demand), on navy, kept simple after the earlier page: the heading, one line and Watch in MySBDC, then
-  two featured recordings with their real norcalsbdc.org thumbnails (`assets/training/`): Planning Your Business large
-  on the left, How to SEO like a Pro beside it with More ways to learn (the learning library) below. Closes with the
-  advising statement.
+  two featured recordings as typographic cards after `Training Thumbnails.dc.html`: a solid 16:9 tile (pool or sand),
+  the navy network logo (`assets/norcal-sbdc-logo-navy-400.png`), a ghosted Proxima Sera initial, the title in Proxima
+  Sera, "Recorded webinar · presenter" and a navy play button. Planning Your Business large on the left, How to SEO like
+  a Pro beside it with More ways to learn (the learning library) below. Closes with the advising statement.
 - Only real content: the three December sessions (checked November 24, 2026) and two real webinars and presenters. Every
   Log in, Register and Watch link goes to the MySBDC concept link the menu uses, to be swapped for the real sign-in.
   Checked at 1440, 820 and 390: no overflow or script errors; the filter shows 3, 2 (in person) and 1 (online).
