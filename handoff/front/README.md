@@ -6,7 +6,7 @@ Selected current designs, collected November 24, 2026. Start at [Homepage](index
 | --- | --- | --- |
 | Homepage | [./](index.html) | Homepage V3 (`datalands-concept-v3`) |
 | Advising | [advising/](advising/index.html) | Advising V3, including advisor section and flow polish |
-| Training | [training/](training/index.html) | Current Training concept |
+| Training | [training/](training/index.html) | Rebuilt November 26: two paths, the calendar and on demand |
 | About | [about/](about/index.html) | About V5, five-image carousel, edge bleed |
 | Stories | [stories/](stories/index.html) | Current Stories concept |
 | Funding | [funding/](funding/index.html) | Current Funding concept with currency photography |
@@ -137,3 +137,20 @@ column: the source line, the release, one pull-quote taken from it (Lisa Gevelbe
 tile, share links (LinkedIn, Email, Copy link), More news and the pool newsletter close. The News page links this post
 here; the other ten still link to norcalsbdc.org until their text is brought over. Same slug as the WordPress post.
 Checked at 1440, 820 and 390 with no overflow or script errors; Copy link works.
+
+## Training page (November 26)
+
+`training/index.html` with `assets/training.css` and `assets/training.js`, direction B from the Training canvas, with the
+calendar after `Training Calendar.dc.html`. The old illustrations and `training-concept` assets are no longer used here.
+
+- Opening: two colour blocks, navy "Join a live session." (next session named) and pool "Learn on your own schedule."
+- On the calendar: a "Before you register" note (registration happens in MySBDC, browsing is open to everyone), topic and
+  format filters as pills, then the month on the left (Proxima Sera, with a live count) and each session on the right:
+  big date and weekday, topic and format tags, title (links to the center's session page), place, center and time,
+  More details (native disclosure: summary, time, length, format, center, session page) and Log in to register.
+- On demand on navy: seven recorded webinars from norcalsbdc.org/webinars with cover tiles, Watch in MySBDC, all
+  webinars and the learning library. Closes with the advising statement.
+- Only real content: the three December sessions (checked November 24, 2026) and real webinars and presenters. Lengths
+  come from the session times. Every Log in, Register and Watch link goes to the MySBDC concept link the menu uses, to be
+  swapped for the real sign-in when it exists. Checked at 1440, 820 and 390: no overflow or script errors; filters show
+  3, 1 (online), 0 with the empty message (online + funding) and 1 (funding).
