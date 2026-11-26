@@ -98,7 +98,16 @@
 
 /* Calendar: simple rows, after the earlier Training page */
 .tc{padding:104px var(--g) 104px}
-.tc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px 40px}
+.tc-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:end}
+.tc-head .tc-chips{margin-top:28px}
+.tc-art{display:block;width:clamp(160px,17vw,240px);height:auto}
+/* Close with the conversation illustration, kept from the earlier page */
+.tr-end{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:6%;align-items:center;padding:104px var(--g) 112px}
+.tr-end h2{font-size:clamp(48px,5.2vw,84px);letter-spacing:-.045em;line-height:1}
+.tr-end p{margin-top:22px!important;font-size:21px;line-height:1.5;max-width:40ch}
+.tr-end .tr-end-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:44px!important}
+.tr-end img{display:block;width:min(100%,440px);height:auto;justify-self:center}
+
 .tc-head h2{font-size:clamp(44px,4.6vw,72px);letter-spacing:-.04em;line-height:1}
 .tc-head p{margin-top:18px!important;font-size:20px;line-height:1.5;max-width:44ch}
 .tc-head p a{font-weight:700;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:5px}
@@ -123,6 +132,7 @@
 [data-format][hidden]{display:none!important}
 @media(max-width:1000px){.tc-row{grid-template-columns:88px minmax(0,1fr);gap:14px 28px}.tc-date{width:88px;height:88px}.tc-date b{font-size:36px}.tc-reg{grid-column:2;justify-self:start}}
 @media(max-width:700px){
+  .tc-head{grid-template-columns:1fr}.tc-art{grid-row:1;width:150px}.tr-end{grid-template-columns:1fr;gap:40px;padding:72px var(--g) 80px}.tr-end img{width:240px;justify-self:start}.tr-end p{font-size:19px}
   .tc{padding:72px var(--g)}.tc-head p{font-size:18px}.tc-list{margin-top:40px;gap:40px}
   .tc-row{grid-template-columns:72px minmax(0,1fr);gap:12px 18px;align-items:start}.tc-date{width:72px;height:72px}.tc-date span{font-size:15px}.tc-date b{font-size:30px}.tc-row h4{font-size:25px}.tc-sum{font-size:18px}.tc-meta{font-size:15px}.tc-reg{font-size:17px}
   .b-demand .b-head p{font-size:18px}

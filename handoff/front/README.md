@@ -140,8 +140,9 @@ Checked at 1440, 820 and 390 with no overflow or script errors; Copy link works.
 
 ## Training page (November 26)
 
-`training/index.html` with `assets/training.css` and `assets/training.js`, direction B from the Training canvas. The old
-illustrations and `training-concept` assets are no longer used here.
+`training/index.html` with `assets/training.css` and `assets/training.js`, direction B from the Training canvas. Two of
+the page's illustrations stay (`assets/training-concept/assets/`): the calendar beside "On the calendar." and the
+conversation in the close. The open book and the video drawing are no longer used.
 
 - Opening: the photo hero kept from the earlier page (Freeline Surf Shop, "Learn it. Put it to work."), then two colour
   blocks, navy "Join a live session." (next session named) and pool "Learn on your own schedule."
@@ -153,7 +154,8 @@ illustrations and `training-concept` assets are no longer used here.
   two featured recordings as typographic cards after `Training Thumbnails.dc.html`: a solid 16:9 tile (pool or sand),
   the navy network logo (`assets/norcal-sbdc-logo-navy-400.png`), a ghosted Proxima Sera initial, the title in Proxima
   Sera, "Recorded webinar · presenter" and a navy play button. Planning Your Business large on the left, How to SEO like
-  a Pro beside it with More ways to learn (the learning library) below. Closes with the advising statement.
+  a Pro beside it with More ways to learn (the learning library) below. Closes with "Make it work for your business.",
+  Get no-fee advising and Explore advising, beside the conversation illustration.
 - Only real content: the three December sessions (checked November 24, 2026) and two real webinars and presenters. Every
   Log in, Register and Watch link goes to the MySBDC concept link the menu uses, to be swapped for the real sign-in.
   Checked at 1440, 820 and 390: no overflow or script errors; the filter shows 3, 2 (in person) and 1 (online).
