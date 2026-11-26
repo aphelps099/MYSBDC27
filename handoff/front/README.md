@@ -182,3 +182,10 @@ conversation in the close. The open book and the video drawing are no longer use
   (`assets/about-churn-grand-opening.jpg`, from norcalsbdc.org), larger, bleeding off the left edge with a 4px red line beneath,
   captioned "A grand opening at Churn". The results band stays pool. Other images from the About images canvas (the
   client mosaics, the celebrating duotone, the accredited seal, the region collage) are not used for now.
+
+## Menu panels animate in (November 26)
+
+`assets/site-nav.js`: each desktop menu panel (Advising, Training, About) gets a very fast GSAP entrance when it opens:
+the panel fades in and drops 6px over 0.18s, then its statement and links rise 10px into place 18ms apart, all settled in
+about 0.45s. GSAP 3.12.5 core now loads on every page (before `site-nav.js`). Skipped for reduced motion; without GSAP
+the panel simply appears as before.

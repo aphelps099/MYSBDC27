@@ -68,3 +68,28 @@
     }
   });
 })();
+
+// Menu panels (November 2026): a very fast GSAP entrance each time a panel opens. The panel fades in and drops 6px,
+// then its statement and links step in 18ms apart (all settled in about 0.45s). Skipped for reduced motion or if GSAP is not on the page.
+(() => {
+  const nav = document.querySelector('[data-site-nav]');
+  if (!nav || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  nav.querySelectorAll('.site-nav-item').forEach(item => {
+    const panel = item.querySelector('.site-nav-panel');
+    if (!panel) return;
+    let open = false;
+    const play = () => {
+      if (open || !window.gsap) return;
+      open = true;
+      const bits = panel.querySelectorAll('.site-nav-panel-lede > *, .site-nav-panel-list > li');
+      window.gsap.killTweensOf([panel, ...bits]);
+      window.gsap.fromTo(panel, { opacity: 0, y: -6 }, { opacity: 1, y: 0, duration: 0.18, ease: 'power2.out', clearProps: 'opacity,transform' });
+      window.gsap.fromTo(bits, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.26, ease: 'power3.out', stagger: 0.018, delay: 0.03, clearProps: 'opacity,transform' });
+    };
+    const reset = () => { open = false; };
+    item.addEventListener('mouseenter', play);
+    item.addEventListener('focusin', play);
+    item.addEventListener('mouseleave', () => { if (!item.contains(document.activeElement)) reset(); });
+    item.addEventListener('focusout', event => { if (!item.contains(event.relatedTarget) && !item.matches(':hover')) reset(); });
+  });
+})();
