@@ -75,11 +75,9 @@
 .about-v5 .region-carousel{margin-inline:-5vw}
 }
 
-/* "Local knowledge" band (November 2026): the berry-glow gradient after the californiasbdc.org menu, in our navy,
-   and one three-column grid so the intro sits over the third principle and the small headlines don't orphan a word. */
+/* "Local knowledge" band (November 2026): flat navy (the berry-glow gradient was tried and dropped) and one three-column grid so the intro sits over the third principle and the small headlines don't orphan a word. */
 .about-v5 .about-people{
-  grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 5%;padding:76px 7% 72px;
-  background:radial-gradient(120% 110% at 0% 0%,#bb3c4638 0%,#bb3c4614 32%,transparent 62%),radial-gradient(90% 90% at 100% 100%,#0c1726cc 0%,transparent 70%),linear-gradient(165deg,#1f2c40 0%,#1a2638 55%,#142030 100%)
+  grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 5%;padding:76px 7% 72px
 }
 .about-v5 .people-heading{grid-column:1/3}
 .about-v5 .people-intro{grid-column:3;align-self:end;max-width:none}
@@ -96,3 +94,17 @@
   .about-v5 :is(.people-heading,.people-intro){grid-column:1}
   .about-v5 .people-links{margin-top:16px}
 }
+
+/* Closing invitation (November 2026): the Churn grand opening bleeds off the left edge on a pool offset plate,
+   beside the invitation. */
+.about-v5 .about-invitation.ab-invite{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:7%;align-items:center;padding:88px 5% 104px 0}
+.ab-invite-photo{margin:0}
+.ab-plate{position:relative;display:block;padding:0 26px 26px 0}
+.ab-plate::before{content:"";position:absolute;inset:26px 0 0 26px;background:var(--pool)}
+.ab-invite-photo img{position:relative;display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%}
+.ab-invite-photo figcaption{position:relative;margin-top:14px;padding-left:max(5vw,24px);font-size:15px;color:#4f5f6e}
+.ab-invite h2{font-size:clamp(44px,4.6vw,72px)!important}
+.ab-invite p{margin-top:20px;font-size:21px}
+.ab-invite .concept-button{margin-top:44px}
+@media(max-width:1000px){.about-v5 .about-invitation.ab-invite{grid-template-columns:1fr;gap:48px;padding:72px 5% 88px 0}.ab-invite>div{padding-left:5%}.ab-invite-photo{margin-right:8%}}
+@media(max-width:700px){.ab-plate{padding:0 16px 16px 0}.ab-plate::before{inset:16px 0 0 16px}.ab-invite p{font-size:19px}}

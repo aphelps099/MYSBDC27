@@ -173,3 +173,12 @@ conversation in the close. The open book and the video drawing are no longer use
     speeds while scrolling.
   Reduced motion skips all of it, and a head fallback shows everything if the script does not run within 4 seconds.
   Checked at 1440 and 390: no overflow or script errors; every headline ends visible and every figure ends exact.
+
+## About page, images (November 26)
+
+- The "Local knowledge" band is flat navy again; the berry-glow gradient was dropped to keep the theme tight. Its
+  three-column grid stays.
+- The closing "Let's work on your business." now pairs with the Churn grand-opening photo
+  (`assets/about-churn-grand-opening.jpg`, from norcalsbdc.org), bleeding off the left edge on a pool offset plate,
+  captioned "A grand opening at Churn". The results band stays pool. Other images from the About images canvas (the
+  client mosaics, the celebrating duotone, the accredited seal, the region collage) are not used for now.
