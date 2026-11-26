@@ -159,3 +159,17 @@ conversation in the close. The open book and the video drawing are no longer use
 - Only real content: the three December sessions (checked November 24, 2026) and two real webinars and presenters. Every
   Log in, Register and Watch link goes to the MySBDC concept link the menu uses, to be swapped for the real sign-in.
   Checked at 1440, 820 and 390: no overflow or script errors; the filter shows 3, 2 (in person) and 1 (online).
+
+## Homepage motion and menu (November 26)
+
+- "Our region" is removed from the About menu on every page.
+- `assets/home-motion.css` and `assets/home-motion.js` (GSAP 3.12.5 + ScrollTrigger from cdnjs), homepage only:
+  - section headlines (What's your next move, Northern California at work, Small business, Work with an advisor) rise
+    into place word by word, line by line, as they scroll into view; their supporting text fades up just after;
+  - the four figures roll like an odometer: each digit is its own wheel, starting about 3% below the final figure (never
+    from zero) and settling on the real number over about 2.4 seconds. Each wheel is sized to its final digit, so the
+    settled figure matches the original text; screen readers get the plain figure;
+  - three oversized plus signs at 5% cream sit along the right edge behind the stories, fade in, and drift at different
+    speeds while scrolling.
+  Reduced motion skips all of it, and a head fallback shows everything if the script does not run within 4 seconds.
+  Checked at 1440 and 390: no overflow or script errors; every headline ends visible and every figure ends exact.

@@ -1,0 +1,30 @@
+/* Homepage motion (November 2026): headline reveals, an odometer on the figures band and oversized plus signs behind
+   the stories. Driven by home-motion.js with GSAP. Nothing here hides content unless html.hm-motion is set, which only
+   happens when reduced motion is off; a fallback in the head clears it if the script never runs. */
+
+/* Headlines: each word sits in a mask and rises into place, line by line */
+.hm-mask{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.hm-in{display:inline-block;will-change:transform}
+html.hm-motion :is(.next-section>h2,.hs-intro h2,.impact-intro h2,.advising-lead h2):not(.hm-split){visibility:hidden}
+html.hm-motion [data-hm-fade]{opacity:0}
+
+/* Odometer: each digit is a wheel of 0–9 that rolls to the final figure */
+.hm-odo{display:inline-flex;align-items:flex-end;line-height:1}
+.hm-col{display:inline-block;height:1em;overflow:hidden}
+.hm-strip{display:flex;flex-direction:column;will-change:transform}
+.hm-strip>span{display:flex;justify-content:center;height:1em;line-height:1}
+.hm-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Stories: three giant plus signs along the right edge, about 5% strong */
+.v3-showcase.home-stories{position:relative;overflow:clip}
+.v3-showcase.home-stories>:not(.hm-plus){position:relative;z-index:1}
+.hm-plus{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hm-plus svg{position:absolute;display:block;fill:#f6f1e6;opacity:.05}
+.hm-plus svg:nth-child(1){width:min(560px,40vw);right:-12%;top:-6%}
+.hm-plus svg:nth-child(2){width:min(200px,14vw);right:4%;top:62%}
+.hm-plus svg:nth-child(3){width:min(420px,30vw);right:-14%;top:80%}
+@media(max-width:700px){
+  .hm-plus svg:nth-child(1){width:72vw;right:-34%;top:-2%}
+  .hm-plus svg:nth-child(2){width:26vw;right:4%;top:56%}
+  .hm-plus svg:nth-child(3){width:60vw;right:-30%;top:84%}
+}
