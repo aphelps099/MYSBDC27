@@ -140,18 +140,17 @@ Checked at 1440, 820 and 390 with no overflow or script errors; Copy link works.
 
 ## Training page (November 26)
 
-`training/index.html` with `assets/training.css` and `assets/training.js`, direction B from the Training canvas, with the
-calendar after `Training Calendar.dc.html`. The old illustrations and `training-concept` assets are no longer used here.
+`training/index.html` with `assets/training.css` and `assets/training.js`, direction B from the Training canvas. The old
+illustrations and `training-concept` assets are no longer used here.
 
 - Opening: the photo hero kept from the earlier page (Freeline Surf Shop, "Learn it. Put it to work."), then two colour
   blocks, navy "Join a live session." (next session named) and pool "Learn on your own schedule."
-- On the calendar: a "Before you register" note (registration happens in MySBDC, browsing is open to everyone), topic and
-  format filters as pills, then the month on the left (Proxima Sera, with a live count) and each session on the right:
-  big date and weekday, topic and format tags, title (links to the center's session page), place, center and time,
-  More details (native disclosure: summary, time, length, format, center, session page) and Log in to register.
+- On the calendar, kept simple after the earlier page: one line saying registration happens in MySBDC, three format
+  pills (All, In person, Online), then one row per session: a pool date tile, format, place and time, the title (links
+  to the center's session page), one sentence, and Log in to register. A fuller calendar after `Training Calendar.dc.html`
+  (month column, topic chips, tags, More details) was tried and set aside as too busy.
 - On demand on navy: seven recorded webinars from norcalsbdc.org/webinars with cover tiles, Watch in MySBDC, all
   webinars and the learning library. Closes with the advising statement.
-- Only real content: the three December sessions (checked November 24, 2026) and real webinars and presenters. Lengths
-  come from the session times. Every Log in, Register and Watch link goes to the MySBDC concept link the menu uses, to be
-  swapped for the real sign-in when it exists. Checked at 1440, 820 and 390: no overflow or script errors; filters show
-  3, 1 (online), 0 with the empty message (online + funding) and 1 (funding).
+- Only real content: the three December sessions (checked November 24, 2026) and real webinars and presenters. Every
+  Log in, Register and Watch link goes to the MySBDC concept link the menu uses, to be swapped for the real sign-in.
+  Checked at 1440, 820 and 390: no overflow or script errors; the filter shows 3, 2 (in person) and 1 (online).

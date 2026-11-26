@@ -1,5 +1,5 @@
-/* Training page (November 2026): direction B from the Training canvas (two paths), with the calendar after
-   "Training Calendar.dc.html": months on the left, sessions with tags, More details and Log in to register.
+/* Training page (November 2026): direction B from the Training canvas (two paths), with a simple
+   calendar (date tile, where and when, title, one line, Log in to register).
    Registration and on-demand viewing happen in MySBDC. Filters and counts: training.js. */
 
 .tr-page{--n:#1d2c3d;--c:#f6f1e6;--pool:#8fc5d9;--sand:#e8d5a5;--sage:#cddcd0;--slate:#243b50;--red:#bb3c46;--q:#4f5f6e;--g:4%;background:var(--c);color:var(--n)}
@@ -66,64 +66,35 @@
 .b-demand .b-head p{font-size:20px;line-height:1.5;max-width:40ch;color:#dfe6ea}
 .b-demand .b-foot{align-items:center}
 
-/* Calendar, after "Training Calendar.dc.html" */
+/* Calendar: simple rows, after the earlier Training page */
 .tc{padding:104px var(--g) 104px}
-.tc-head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px 72px;align-items:end}
+.tc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px 40px}
 .tc-head h2{font-size:clamp(44px,4.6vw,72px);letter-spacing:-.04em;line-height:1}
-.tc-head>div>p{margin-top:18px!important;font-size:20px;line-height:1.5;max-width:40ch}
-.tc-note{padding:26px 30px 28px;border-radius:6px;background:var(--n);color:var(--c)}
-.tc-note h3{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--pool)}
-.tc-note p{margin-top:8px!important;font-size:17px;line-height:1.5;color:#dfe6ea}
-.tc-note-links{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:14px!important}
-.tc-note-links a{display:inline-flex;align-items:center;min-height:40px;font-size:16px;font-weight:700;color:var(--c)!important;text-decoration:underline;text-decoration-color:var(--pool);text-decoration-thickness:2px;text-underline-offset:6px}
-.tc-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;margin-top:56px;padding-bottom:26px;border-bottom:2px solid var(--n)}
+.tc-head p{margin-top:18px!important;font-size:20px;line-height:1.5;max-width:44ch}
+.tc-head p a{font-weight:700;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:5px}
 .tc-chips{display:flex;flex-wrap:wrap;gap:8px}
 .tc-chip{min-height:44px;padding:0 18px;border:1.5px solid #1d2c3d40;border-radius:999px;background:transparent;color:var(--n);font:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
 .tc-chip:hover{border-color:var(--n)}
 .tc-chip[aria-pressed="true"]{background:var(--n);border-color:var(--n);color:#fff}
-.tc-month{display:grid;grid-template-columns:minmax(220px,.5fr) minmax(0,1.5fr);gap:64px;align-items:start;padding-top:56px}
-.tc-mhead{position:sticky;top:110px}
-.tc-mhead h3{font-family:"proxima-sera",Georgia,serif;font-weight:500;font-size:clamp(40px,3.4vw,54px);letter-spacing:-.03em;line-height:.95}
-.tc-mhead p{margin-top:14px!important;font-size:16px;font-weight:600;color:var(--q)}
-.tc-list{list-style:none;padding:0}
-.tc-row{display:grid;grid-template-columns:88px minmax(0,1fr) 200px;gap:28px;align-items:start;padding:30px 0}
-.tc-row+.tc-row{border-top:2px solid #1d2c3d1f}
-.tc-row:first-child{padding-top:0}
-.tc-day b{display:block;font-family:"proxima-sera",Georgia,serif;font-weight:500;font-size:48px;line-height:.9;letter-spacing:-.03em}
-.tc-day span{display:block;margin-top:8px;font-size:15px;font-weight:700;color:var(--q)}
-.tc-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tc-tag{display:inline-flex;align-items:center;min-height:28px;padding:0 12px;border-radius:999px;background:var(--pool);font-size:13px;font-weight:700}
-.tc-tag.is-format{background:#fff}
-.tc-row h4{margin:12px 0 0;font-size:clamp(22px,1.8vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.18}
+.tc-list{list-style:none;padding:0;margin-top:56px;display:grid;gap:44px}
+.tc-row{display:grid;grid-template-columns:76px minmax(0,1fr) auto;gap:32px;align-items:center}
+.tc-date{display:flex;flex-direction:column;align-items:center;justify-content:center;width:76px;height:76px;border-radius:6px;background:var(--pool)}
+.tc-date span{font-size:14px;font-weight:700;line-height:1}
+.tc-date b{margin-top:4px;font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.tc-meta{font-size:15px;font-weight:600;color:var(--q)}
+.tc-row h4{margin:6px 0 0;font-size:clamp(24px,2vw,30px);font-weight:600;letter-spacing:-.025em;line-height:1.12}
 .tc-row h4 a{text-decoration:none}
 .tc-row h4 a:hover{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:5px}
-.tc-meta{margin-top:6px!important;font-size:16px;color:var(--q)}
-.tc-more{margin-top:12px}
-.tc-more summary{display:inline-flex;align-items:center;gap:8px;min-height:36px;font-size:15px;font-weight:700;cursor:pointer;list-style:none}
-.tc-more summary span{text-decoration:underline;text-decoration-color:#1d2c3d55;text-decoration-thickness:2px;text-underline-offset:5px}
-.tc-more summary::-webkit-details-marker{display:none}
-.tc-more summary::before{content:"+";font-size:18px;line-height:1;width:12px}
-.tc-more[open] summary::before{content:"\2212"}
-.tc-more>div{margin-top:12px;padding:20px 22px;border-radius:6px;background:#fff}
-.tc-more>div>p:first-child{font-size:17px;line-height:1.55}
-.tc-facts{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:12px!important;font-size:15px;font-weight:700}
-.tc-source{display:inline-block;margin-top:12px;font-size:15px;font-weight:600;text-decoration:underline;text-decoration-color:#1d2c3d55;text-decoration-thickness:2px;text-underline-offset:5px}
-.tc-act{justify-self:end;text-align:right;padding-top:2px}
-.tc-reg{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;background:var(--n);color:#fff!important;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background-color .2s}
-.tc-reg:hover{background:var(--slate)}
-.tc-act span{display:block;margin-top:10px;font-size:15px;color:var(--q)}
-.tc-empty{padding:8px 0 24px;font-size:17px;color:var(--q)}
-.tc-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;margin-top:48px}
+.tc-sum{margin-top:8px!important;font-size:18px;line-height:1.5;max-width:56ch}
+.tc-reg{display:inline-flex;align-items:center;min-height:44px;font-size:17px;font-weight:700;white-space:nowrap;text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:7px}
+.tc-empty{margin-top:40px!important;font-size:17px;color:var(--q)}
+.tc-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;margin-top:56px}
 .tc-foot p{font-size:15px;color:var(--q)}
-[data-topic][hidden]{display:none!important}
-@media(max-width:1000px){
-  .tc-head{grid-template-columns:1fr;gap:28px}.tc-note{max-width:560px}
-  .tc-month{grid-template-columns:1fr;gap:28px}.tc-mhead{position:static;display:flex;align-items:baseline;gap:18px}.tc-mhead p{margin:0!important}
-  .tc-row{grid-template-columns:72px minmax(0,1fr);row-gap:16px}.tc-act{grid-column:2;justify-self:start;text-align:left;display:flex;align-items:center;gap:16px}.tc-act span{margin:0}
-}
+[data-format][hidden]{display:none!important}
+@media(max-width:1000px){.tc-row{grid-template-columns:76px minmax(0,1fr);row-gap:12px}.tc-reg{grid-column:2;justify-self:start}}
 @media(max-width:700px){
-  .tc{padding:72px var(--g)}.tc-head>div>p{font-size:18px}.tc-bar{margin-top:40px}
-  .tc-row{grid-template-columns:1fr;gap:12px}.tc-day{display:flex;align-items:baseline;gap:10px}.tc-day span{margin:0}.tc-act{grid-column:1}
+  .tc{padding:72px var(--g)}.tc-head p{font-size:18px}.tc-list{margin-top:40px;gap:40px}
+  .tc-row{grid-template-columns:64px minmax(0,1fr);gap:12px 18px;align-items:start}.tc-date{width:64px;height:64px}.tc-date b{font-size:26px}
   .b-demand .b-head p{font-size:18px}
 }
-@media(prefers-reduced-motion:reduce){.tc-chip,.tc-reg{transition:none}}
+@media(prefers-reduced-motion:reduce){.tc-chip{transition:none}}
