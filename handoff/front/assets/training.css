@@ -52,6 +52,15 @@
 .b-demand .b-foot{display:flex;flex-wrap:wrap;gap:8px 32px;margin-top:48px}
 @media(max-width:1000px){.b-paths{grid-template-columns:1fr}.b-path{min-height:0}.b-path:first-child{padding-left:5vw}.b-list{grid-template-columns:1fr}}
 @media(max-width:700px){.b-path,.b-path:first-child{padding-inline:5vw}.b-path{padding:48px var(--g)}.b-path>div>p{font-size:19px}.b-list li{grid-template-columns:88px minmax(0,1fr);gap:16px}.b-list .tr-cv span:last-child{font-size:13px}}
+/* Photo hero, kept from the earlier Training page */
+.tr-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:6%;align-items:center;padding:64px var(--g) 80px}
+.tr-hero figure{margin:0}
+.tr-hero img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 45%}
+.tr-hero figcaption{margin-top:12px;font-size:15px;color:var(--q)}
+.tr-hero h2{font-size:clamp(52px,5.4vw,88px);letter-spacing:-.045em;line-height:.98}
+.tr-hero p{margin-top:24px!important;font-size:21px;line-height:1.5;max-width:34ch}
+@media(max-width:1000px){.tr-hero{grid-template-columns:1fr;gap:36px}}
+@media(max-width:700px){.tr-hero{padding:40px var(--g) 56px}.tr-hero p{font-size:19px}}
 /* Opening extras */
 .b-demand .b-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px}
 .b-demand .b-head p{font-size:20px;line-height:1.5;max-width:40ch;color:#dfe6ea}

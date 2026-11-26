@@ -143,7 +143,8 @@ Checked at 1440, 820 and 390 with no overflow or script errors; Copy link works.
 `training/index.html` with `assets/training.css` and `assets/training.js`, direction B from the Training canvas, with the
 calendar after `Training Calendar.dc.html`. The old illustrations and `training-concept` assets are no longer used here.
 
-- Opening: two colour blocks, navy "Join a live session." (next session named) and pool "Learn on your own schedule."
+- Opening: the photo hero kept from the earlier page (Freeline Surf Shop, "Learn it. Put it to work."), then two colour
+  blocks, navy "Join a live session." (next session named) and pool "Learn on your own schedule."
 - On the calendar: a "Before you register" note (registration happens in MySBDC, browsing is open to everyone), topic and
   format filters as pills, then the month on the left (Proxima Sera, with a live count) and each session on the right:
   big date and weekday, topic and format tags, title (links to the center's session page), place, center and time,
