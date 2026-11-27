@@ -102,3 +102,7 @@ html.site-menu-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){
   .site-nav,.site-nav-language summary>.site-nav-chevron{transition:none}
 }
+
+/* "Specialty programs" heading in the Advising panel links to its page but keeps the quiet heading style. */
+.site-nav-panel-list .site-nav-panel-head{display:inline;min-height:0;font-size:inherit;font-weight:inherit;letter-spacing:inherit;color:inherit;text-decoration:underline;text-decoration-color:#b6d1dd66;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.site-nav-panel-list .site-nav-panel-head:hover{text-decoration-color:currentColor}

@@ -189,3 +189,15 @@ conversation in the close. The open book and the video drawing are no longer use
 the panel fades in and drops 6px over 0.18s, then its statement and links rise 10px into place 18ms apart, all settled in
 about 0.45s. GSAP 3.12.5 core now loads on every page (before `site-nav.js`). Skipped for reduced motion; without GSAP
 the panel simply appears as before.
+
+## Specialty programs page (November 27)
+
+New page `advising/programs/index.html` with `assets/programs.css`, direction A from the Specialty programs canvas:
+a title band with an Advising link above "Specialty programs", the intro "Specialist support, when you need it.", then
+one full-width band per program in pool, navy (with the ghosted star), cream and pool: SBDC Finance Center (to our
+Funding page), Tech Futures Group, ProBiz and Norcal APEX Accelerator. Each band has the name in Proxima Sera, a
+one-line purpose, a short description, its services and, where the program publishes one, a figure ($250M+ working
+capital since 2018; $700M+ raised, $68M+ grants, 2,700+ jobs; 870+ clients and $500M+ in contracts last year). Copy
+is from norcalsbdc.org, apexnorcal.org and our Funding page. Closes with "Not sure which program fits?" and Get no-fee
+advising. The "Specialty programs" heading in the Advising menu now links here on every page (`site-nav-panel-head`).
+Checked at 1440, 820 and 390: no overflow, no broken local links.
