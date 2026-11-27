@@ -397,3 +397,6 @@ at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal o
 - Corporate partners now span the shell in three equal columns under the heading: logo, one short line, "Visit …"
   link. The company name is kept for screen readers only. OpenAI and Verizon still need their one line
   (`[One line to come.]`). CSS at the end of `assets/partners.css`.
+- Later the same day: the star behind "Keep learning" was swapped for the homepage stories pattern, three oversized
+  plus signs at 5% that fade and scale in when the band comes into view and drift while scrolling
+  (`assets/training-plus.js`, with GSAP ScrollTrigger; static with reduced motion).

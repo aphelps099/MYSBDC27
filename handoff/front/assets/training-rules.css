@@ -13,9 +13,18 @@
 .tc-more:hover{background:var(--n);color:#fff}
 .tc-more[hidden]{display:none}
 
-/* "Two ways to learn" blocks removed (November 27): too much content. Their America's SBDC star now sits behind
-   "Keep learning", bleeding off the top-right corner of the navy band. */
+/* "Two ways to learn" blocks removed (November 27): too much content. "Keep learning" now carries the homepage
+   stories pattern instead: three oversized plus signs along the right edge, about 5% strong, that fade and scale in
+   when the band comes into view and drift at different speeds while scrolling (training-plus.js). */
 .od{position:relative;overflow:hidden}
-.od>*{position:relative;z-index:1}
-.od>.tr-star{position:absolute;z-index:0;width:min(46%,640px);right:-8%;top:-14%;opacity:.07}
-@media(max-width:700px){.od>.tr-star{width:78%;right:-24%;top:-6%}}
+.od>:not(.tr-plus){position:relative;z-index:1}
+.tr-plus{position:absolute;inset:0;z-index:0;pointer-events:none}
+.tr-plus svg{position:absolute;display:block;fill:#f6f1e6;opacity:.05}
+.tr-plus svg:nth-child(1){width:min(520px,38vw);right:-10%;top:-8%}
+.tr-plus svg:nth-child(2){width:min(180px,13vw);right:6%;top:52%}
+.tr-plus svg:nth-child(3){width:min(400px,28vw);right:-12%;top:78%}
+@media(max-width:700px){
+  .tr-plus svg:nth-child(1){width:68vw;right:-32%;top:-2%}
+  .tr-plus svg:nth-child(2){width:24vw;right:4%;top:50%}
+  .tr-plus svg:nth-child(3){width:56vw;right:-28%;top:84%}
+}
