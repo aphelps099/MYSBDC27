@@ -1,17 +1,17 @@
 /* Red rules on the Advising page (November 27, 2026; after the California SBDC client-story pages).
-   A 6px berry rule sits tight under the hero headline, and short dashes sit under the three step headings
+   A 5px berry rule sits tight under the hero headline, and short dashes sit under the three step headings
    in the pool band (navy there: berry on pool reads poorly). Headlines are set a touch tighter so the rule reads as part of the headline, not a divider. */
 
-.image-hero h2{line-height:.98;letter-spacing:-.045em;margin-bottom:0}
-.image-hero h2::after{content:"";display:block;height:6px;background:#C23C3C;margin:20px 0 30px}
+.image-hero h2{line-height:1;letter-spacing:-.045em;margin-bottom:0}
+.image-hero h2::after{content:"";display:block;height:5px;background:#C23C3C;margin:10px 0 30px}
 
-.getting-started h2{line-height:.98;letter-spacing:-.045em}
+.getting-started h2{line-height:1;letter-spacing:-.045em}
 .steps-grid h3{line-height:1.04;letter-spacing:-.035em}
 .steps-grid h3::after{content:"";display:block;width:48px;height:5px;background:#1d2c3d;margin-top:16px}
 .steps-grid p{margin-top:18px}
 
 @media(max-width:700px){
-  .image-hero h2::after{margin:16px 0 24px}
+  .image-hero h2::after{margin:10px 0 24px}
   .steps-grid h3::after{margin-top:12px}
   .steps-grid p{margin-top:14px}
 }

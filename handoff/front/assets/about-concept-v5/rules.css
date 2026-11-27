@@ -1,7 +1,7 @@
-/* Red rules on About (November 27, 2026): the 6px berry rule tight under the opening headline ("We're your business
+/* Red rules on About (November 27, 2026): the 5px berry rule tight under the opening headline ("We're your business
    people.") and under the closing invitation headline ("Let's work on your business."), as on Advising and the homepage. */
-.about-opening h2,.ab-invite h2{line-height:.98;letter-spacing:-.045em}
+.about-concept main .about-opening h2,.about-concept main .ab-invite h2{line-height:1;letter-spacing:-.045em}
 .about-opening h2{margin-bottom:28px}
-.about-opening h2::after,.ab-invite h2::after{content:"";display:block;height:6px;background:#C23C3C;margin-top:20px}
+.about-opening h2::after,.ab-invite h2::after{content:"";display:block;height:5px;background:#C23C3C;margin-top:10px}
 .ab-invite h2::after{margin-bottom:24px}
-@media(max-width:700px){.about-opening h2::after,.ab-invite h2::after{margin-top:16px}}
+

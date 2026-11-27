@@ -299,3 +299,9 @@ slim pool row: "What are you working on?", one line and a navy "Get no-fee advis
 `assets/about-concept-v5/rules.css`: the 6px berry rule sits tight under "We're your business people." and under the
 closing "Let's work on your business.", as on Advising and the homepage. The Churn photo's caption ("A grand opening at
 Churn") is removed. Checked at 1440, 820 and 390 with no overflow.
+
+## Red rule, final spec (November 27)
+
+Every red rule under a headline is now 5px of berry #C23C3C, 10px under the headline, with the headline at
+line-height 1: Advising hero, homepage "Work with an advisor.", About opening and closing, and the Stories hero.
+(Navy dashes on pool and the short dashes in the Stories grid are unchanged.)
