@@ -81,3 +81,22 @@
   .funding-close{padding:44px 5% 40px}
   .funding-close h2{font-size:38px!important}
 }
+
+/* Hero, simplified (November 27): the page title is the hero's own headline (no separate title band, no second
+   headline), with the button and one line under it; the photo is a closer crop of the Marin Auto Works team and starts
+   at the top of the band, level with the title. The capital tiles move lower, after the process. */
+.funding-hero{align-items:start;padding-top:28px;background:linear-gradient(var(--navy) 0 calc(100% - 96px),var(--cream) calc(100% - 96px))}
+.funding-hero-copy{padding:0 0 96px 1%}
+.funding-concept .funding-hero h1{font-size:clamp(56px,6.4vw,96px);font-weight:600;letter-spacing:-.045em;line-height:1;margin:0;color:var(--cream)}
+.funding-hero .concept-button{margin-top:40px}
+.funding-hero-photo{min-height:clamp(380px,34vw,500px);margin-top:12px}
+.funding-hero-photo img{object-position:50% 40%}
+.capital-tiles{padding-top:72px}
+@media(max-width:700px){
+  .funding-hero{padding-top:24px;background:linear-gradient(var(--navy) 0 calc(100% - 64px),var(--cream) calc(100% - 64px))}
+  .funding-hero-copy{padding-bottom:0}
+  .funding-concept .funding-hero h1{font-size:56px}
+  .funding-hero .concept-button{margin-top:28px}
+  .funding-hero-photo{margin-top:32px;min-height:0}
+  .capital-tiles{padding-top:56px}
+}

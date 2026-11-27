@@ -341,3 +341,13 @@ the story section above has less bottom padding.
 Impact story rebuilt (November 27): "One owner's numbers." now has the Marin Auto Works photo bleeding off the left edge
 and the copy opposite: the headline with the red rule (text width), two short sentences in place of the long paragraph,
 $503K and 3 as an even pair, and the story link. The "Results as published" note moves into the photo caption.
+
+## Impact story by the number, Funding hero (November 27)
+
+- Impact "One owner's numbers" becomes option C from the Impact story canvas with the figure leading: a huge $503K
+  (rolls in), "An SBA loan for Marin Auto Works, after the big banks said no.", "Chris Aguirre, owner · Mill Valley" and
+  the story link; the photo bleeds off the right edge. No headline, paragraph or second figure.
+- Funding hero: "Funding" is the hero's own headline (no title band, no "Let's work on your funding."), with the button
+  and one line; the photo is a closer crop of the Marin Auto Works team (`assets/funding-concept/marin-auto-works-team.jpg`,
+  from the 2048px original) and starts level with the title. The capital tiles move lower, after "A clearer path to
+  financing.", so the page opens with "What do you have in mind?".
