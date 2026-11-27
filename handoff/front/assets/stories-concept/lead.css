@@ -1,0 +1,35 @@
+/* Stories opening, direction A on the Stories opening canvas (November 27, 2026): a story hero after the California
+   SBDC client-story pages. The page title and the lead story share one navy band; the client name carries a 6px berry
+   rule across the text column; the photo bleeds off the right edge and drops into the cream below. */
+.st-hero{--berry:#C23C3C;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:6%;align-items:start;
+  padding:8px 0 0 5%;background:linear-gradient(var(--navy) 0 calc(100% - 120px),var(--cream) calc(100% - 120px));color:var(--cream)}
+.st-hero .st-copy{padding-bottom:150px}
+.stories-concept .st-hero h1{font-size:clamp(56px,6.4vw,96px);font-weight:600;letter-spacing:-.045em;line-height:.96;margin:20px 0 0}
+.stories-concept .st-hero h2{font-size:clamp(48px,4.4vw,68px)!important;font-weight:700;letter-spacing:-.045em;line-height:.96;margin:112px 0 0;color:var(--cream)}
+.st-rule{display:block;height:6px;background:var(--berry);border:0;margin:20px 0 30px}
+.stories-concept .st-hero .st-lede{font-size:clamp(22px,1.9vw,27px);line-height:1.4;max-width:28ch;margin:0}
+.st-fig{display:flex;align-items:center;gap:20px;margin-top:34px}
+.st-fig b{font-size:clamp(56px,5vw,80px);font-weight:700;letter-spacing:-.05em;line-height:1}
+.stories-concept .st-fig span{font-size:18px;line-height:1.35;max-width:18ch}
+.st-hero .st-link{display:inline-block;margin-top:36px;font-weight:700;font-size:19px;color:var(--cream);text-decoration:underline;text-decoration-color:var(--pool);text-decoration-thickness:2px;text-underline-offset:7px}
+.st-hero figure{margin:150px 0 0}
+.st-hero img{display:block;width:100%;aspect-ratio:1.1;object-fit:cover}
+.st-hero figcaption{font-size:15px;color:#495561;margin-top:12px}
+.businesses-intro{margin-bottom:22px!important}
+.businesses-section{padding-top:36px}
+.marin-story .story-photo-link{aspect-ratio:1.05;overflow:hidden}
+.marin-story img{height:100%;object-position:50% 50%}
+@media(max-width:1050px){
+  .st-hero{grid-template-columns:1fr;gap:0;padding:8px 0 0 5%;background:linear-gradient(var(--navy) 0 calc(100% - 90px),var(--cream) calc(100% - 90px))}
+  .st-hero .st-copy{padding:0 5% 36px 0}
+  .stories-concept .st-hero h1{font-size:56px}
+  .stories-concept .st-hero h2{font-size:46px!important;margin-top:64px}
+  .st-fig b{font-size:56px}
+  .st-hero figure{margin:0}
+  .st-hero figcaption{padding-right:5%}
+}
+@media(max-width:700px){
+  .st-hero{padding-left:20px}
+  .st-hero .st-copy{padding-right:20px}
+  .businesses-intro{margin-bottom:18px!important}
+}

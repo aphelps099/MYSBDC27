@@ -268,3 +268,12 @@ a 6px berry (#C23C3C) rule sits 20px under the hero headline "Big decisions. Eve
 the text column, and a short 48px navy dash (berry on pool read poorly) sits under each of the three step headings in the pool "A conversation.
 Then a plan." band. Those headlines are set tighter (line-height .98–1.04, a little more negative tracking) so the rule
 reads as part of the headline. Checked at 1440, 820 and 390 with no overflow.
+
+## Stories — story hero with the red rule (November 27)
+
+Direction A from the Stories opening canvas, in `assets/stories-concept/lead.css`. The page title and the lead story
+(Jump Aero, $12M) share one navy band: "Stories", then extra space, then the client name with a 6px berry rule across
+the text column, the line, the figure and the link. The aircraft image bleeds off the right edge and drops into the
+cream; the pool offset plate is gone. Less space under "More business stories." The Yarrow Goods photo is no longer
+used here: its card is replaced by Marin Auto Works (published story, $503,000 SBA loan). Below 1050px the hero stacks.
+Checked at 1440, 820 and 390: no overflow, no broken local links.
