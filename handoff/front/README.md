@@ -376,3 +376,12 @@ Overflow fixes (November 27): the no-orphan glue now only joins a short last pai
 itself if the block would overflow; it had made "Procurement Opportunities" too wide for a phone on News. The News post
 column is pinned to the page width, and the About region carousel is clipped at the screen edge (it overshot by 19px
 at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal overflow.
+
+## About people and News opening (November 27, 2026)
+
+- About, "Local knowledge. Shared expertise.": a short line on local expertise beside the headline and a row of eight
+  real advisor and staff headshots (from the brand site's photography page), natural colour, name and role under each.
+  Eight across on desktop, four on tablet, a swipeable row on phone. Images in `assets/about-concept-v5/people/`, CSS at
+  the end of `assets/about-concept-v5/rules.css`.
+- News: the navy title band is gone. The page opens on cream with an oversized "News" and the filters beside it
+  (option B on the News opening canvas); the intro line was cut. CSS at the end of `assets/news.css`.

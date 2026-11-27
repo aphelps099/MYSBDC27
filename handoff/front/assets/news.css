@@ -48,3 +48,15 @@
 /* Phone overflow fix (November 27): the post column can never grow wider than the page. */
 .b-posts{grid-template-columns:minmax(0,1fr)}
 .b-post{min-width:0}
+
+/* Opening on cream (November 27; option B on the News opening canvas, intro line cut): no navy title band, an
+   oversized "News" with the filters beside it on its baseline. Under 900px the filters drop below. */
+.b-wrap{padding-top:56px}
+.b-intro{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px 56px;align-items:end}
+.b-intro h1{margin:0;font-family:"proxima-nova",Arial,sans-serif;font-weight:600;font-size:clamp(120px,15vw,240px);letter-spacing:-.06em;line-height:.8;color:#1d2c3d;text-transform:none}
+.b-intro .bl-filters{margin:0 0 4px}
+@media(max-width:900px){
+  .b-intro{grid-template-columns:minmax(0,1fr);gap:32px}
+  .b-intro h1{font-size:clamp(96px,28vw,160px)}
+}
+@media(max-width:700px){.b-wrap{padding-top:36px}}

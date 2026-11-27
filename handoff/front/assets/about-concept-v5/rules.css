@@ -19,3 +19,23 @@
 
 /* The region carousel bleeds to the screen edge; clip it there so small phones never scroll sideways (November 27). */
 .about-region{overflow-x:clip}
+
+/* Our people (November 27): a short line on local expertise beside the headline and a row of real advisor and staff
+   headshots (from the brand site's photography page), natural colour, name and role under each. One row of eight on
+   desktop, four across on tablet, a swipeable row on phone. */
+.about-v5 .people-intro{grid-column:3;align-self:end;margin:0;font-size:19px;line-height:1.5;max-width:36ch;color:#f6f1e6}
+.people-faces{grid-column:1/-1;list-style:none;margin:4px 0 8px;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:14px}
+.people-faces li{margin:0;min-width:0}
+.people-faces img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:6px;background:#243b50}
+.people-faces strong{display:block;margin-top:12px;font-size:16px;line-height:1.25;font-weight:700;color:#f6f1e6}
+.people-faces span{display:block;margin-top:3px;font-size:14px;line-height:1.35;color:#b6c7d6}
+@media(min-width:701px) and (max-width:1000px){
+  .about-v5 .people-intro{grid-column:1;max-width:44ch}
+  .people-faces{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 16px}
+}
+@media(max-width:700px){
+  .about-v5 .people-intro{grid-column:1;font-size:19px;max-width:none}
+  .people-faces{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:5vw;margin-inline:-5vw;padding:0 5vw 6px;scrollbar-width:none}
+  .people-faces::-webkit-scrollbar{display:none}
+  .people-faces li{flex:0 0 42%;scroll-snap-align:start}
+}
