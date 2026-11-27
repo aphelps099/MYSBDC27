@@ -290,3 +290,6 @@ The separate Circosphere band is folded into the grid. Checked at 1440, 820 and 
 
 The same 6px berry rule as the Advising hero sits 20px under the "Work with an advisor." headline, across the text column
 (`assets/home-advisor.css`); the headline is set a touch tighter. Works with the headline reveal motion and reduced motion.
+
+Stories close (November 27): the two "There's more to the story" / "What are you working on?" blocks are replaced by one
+slim pool row: "What are you working on?", one line and a navy "Get no-fee advising" pill (`assets/stories-concept/grid.css`).
