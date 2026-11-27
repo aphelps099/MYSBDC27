@@ -3,3 +3,7 @@
 .tr-hero h2,.tr-end h2{line-height:1!important;width:fit-content;max-width:100%}
 .tr-hero h2::after,.tr-end h2::after{content:"";display:block;height:5px;background:#C23C3C;margin-top:10px}
 /* Every red rule is as wide as the headline's longest line, never the full column: the headline is fit-content. */
+
+/* Two paths, after the "Next up" / "Start with" lines were cut (November 27): no forced height, the pill 44px under the line. */
+.b-path{min-height:0;justify-content:flex-start;padding-bottom:64px}
+.b-path .tr-pill{margin-top:44px}

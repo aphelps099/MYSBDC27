@@ -327,3 +327,9 @@ matches the headline). The "Explore advising" text link beside the closing pill 
 Red rule width (November 27): a red rule is never full width. It is exactly as wide as the headline's longest line
 (the headline is `width:fit-content`), on About, Advising, the homepage, Stories and Training. The Stories hero rule
 moved from an `<hr>` to the headline's `::after` so it can match too.
+
+Training trims (November 27): cut the "Next up · Friday, December 4 · Arcata / Introduction to AI for Business" and
+"Start with / Planning Your Business" lines from the two path blocks (now shorter, pill 44px under the line), the
+"A few upcoming sessions… Registration happens in MySBDC." line under "On the calendar.", and the "Watch in MySBDC" link.
+On-demand learning lives on the LearnWorlds LMS (learn.norcalsbdc.org), not MySBDC, and is not integrated yet, so the
+copy stays neutral: "Build your skills on a schedule that works for you. Watch recorded webinars and self-paced courses."
