@@ -285,3 +285,8 @@ business stories." becomes an even three-column index of six published client st
 Circosphere, Hella Nuts, Kamet Automation, Cha-Cha Sweets): equal 4:3 photos, the name, a short berry dash, the place
 and one line, the whole card a link, with "All client stories" beside the heading. Two columns on tablets, one on phones.
 The separate Circosphere band is folded into the grid. Checked at 1440, 820 and 390: no overflow, no broken local links.
+
+## Homepage — red rule in "Work with an advisor." (November 27)
+
+The same 6px berry rule as the Advising hero sits 20px under the "Work with an advisor." headline, across the text column
+(`assets/home-advisor.css`); the headline is set a touch tighter. Works with the headline reveal motion and reduced motion.

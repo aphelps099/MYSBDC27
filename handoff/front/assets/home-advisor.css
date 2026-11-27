@@ -21,3 +21,8 @@
   .ha-photo{min-height:440px}
   .ha-photo img{object-position:50% 30%}
 }
+
+/* Red rule under the headline (November 27): the same 6px berry rule as the Advising hero, tight to the headline. */
+.home-advisor h2{line-height:.98;letter-spacing:-.045em}
+.home-advisor h2::after{content:"";display:block;height:6px;background:#C23C3C;margin:20px 0 6px}
+@media(max-width:700px){.home-advisor h2::after{margin:16px 0 4px}}
