@@ -362,3 +362,12 @@ $503K and 3 as an even pair, and the story link. The "Results as published" note
   space. The homepage motion splits headings on ordinary spaces only, so glued words stay together. "Join a live
   session." now breaks as "Join a / live session." A scan of every page at 1440, 820 and 390 finds no stranded words
   (two remaining hits are hyphen breaks inside "10-week" and a web address).
+
+## Training calendar first, with "See more sessions" (November 27)
+
+"On the calendar." now sits right under the Training hero, before the two path blocks. It lists every upcoming session
+from norcalsbdc.org/events (checked November 27, 2026: seven, Dec 1 to Jan 16), in date order. The first three that
+match the format filter show; "See more sessions" reveals the rest and moves focus to the first new one, and it is
+hidden when nothing more is scheduled for that filter. Each row keeps "Log in to register" (registration is in MySBDC).
+Added: Government Contracting Series (Dec 1, online), Boots to Business Reboot (Dec 5 and Jan 16, online), Cabrillo
+College Holiday Market & Biz Expo (Dec 5, Aptos). `assets/training.js` handles the filter and the button.

@@ -7,3 +7,8 @@
 /* Two paths, after the "Next up" / "Start with" lines were cut (November 27): no forced height, the pill 44px under the line. */
 .b-path{min-height:0;justify-content:flex-start;padding-bottom:64px}
 .b-path .tr-pill{margin-top:44px}
+
+/* "See more sessions" under the calendar list (November 27): an outline pill, gone once everything is shown. */
+.tc-more{display:inline-flex;align-items:center;min-height:52px;margin-top:48px;padding:0 26px;border:2px solid var(--n);border-radius:999px;background:transparent;color:var(--n);font:700 17px/1 "proxima-nova",Arial,sans-serif;cursor:pointer}
+.tc-more:hover{background:var(--n);color:#fff}
+.tc-more[hidden]{display:none}
