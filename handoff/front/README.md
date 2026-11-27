@@ -405,3 +405,8 @@ at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal o
 
 - Post titles, cover words, the article headline and pull quotes on the News page and the Google grant article now
   use Proxima Nova (overrides at the end of `assets/news.css` and `assets/news-story.css`).
+
+## Advising: "How it works" (November 27, 2026)
+
+- "A conversation. Then a plan." is now "How it works", with three plain steps: Tell us about your business / Get
+  matched with an advisor / Meet and make a plan, one short line each.
