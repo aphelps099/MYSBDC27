@@ -37,3 +37,7 @@
 .a-text .st-about{margin-top:72px}
 .a-text .st-share{margin-top:44px}
 @media(max-width:700px){.a-art{padding-top:32px}.a-art .bl-meta{margin-top:36px}.a-art h1{font-size:36px;line-height:1.12}.a-stand{font-size:20px;margin-top:22px!important}.a-coverwrap{margin-top:44px}.a-text{margin-top:48px}.st-cover{aspect-ratio:16/10}.a-text .st-pull{margin:48px 0}}
+
+/* No Proxima Sera on News (November 27): the article headline and pull quotes take Proxima Nova. */
+.a-art h1,.st-pull p,.a-art blockquote p{font-family:"proxima-nova",Arial,sans-serif;font-weight:600;letter-spacing:-.035em;line-height:1.05}
+.st-pull p,.a-art blockquote p{line-height:1.15;letter-spacing:-.025em}

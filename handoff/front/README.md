@@ -400,3 +400,8 @@ at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal o
 - Later the same day: the star behind "Keep learning" was swapped for the homepage stories pattern, three oversized
   plus signs at 5% that fade and scale in when the band comes into view and drift while scrolling
   (`assets/training-plus.js`, with GSAP ScrollTrigger; static with reduced motion).
+
+## News: no Proxima Sera (November 27, 2026)
+
+- Post titles, cover words, the article headline and pull quotes on the News page and the Google grant article now
+  use Proxima Nova (overrides at the end of `assets/news.css` and `assets/news-story.css`).

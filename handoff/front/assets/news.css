@@ -60,3 +60,8 @@
   .b-intro h1{font-size:clamp(96px,28vw,160px)}
 }
 @media(max-width:700px){.b-wrap{padding-top:36px}}
+
+/* No Proxima Sera on News (November 27): post titles, cover words and the article headline take Proxima Nova, as
+   the rest of the site's headlines do. */
+.bl-serif,.news-page main :is(h2,h3).bl-h,.cv-word{font-family:"proxima-nova",Arial,sans-serif;font-weight:600;letter-spacing:-.035em}
+.cv-word{line-height:1;letter-spacing:-.04em}
