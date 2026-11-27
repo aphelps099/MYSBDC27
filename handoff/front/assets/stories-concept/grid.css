@@ -1,0 +1,22 @@
+/* Stories, "More business stories" as an organised three-column index (November 27, 2026; option B on the Stories
+   canvas, after californiasbdc.org/about/clients): six published client stories, each an equal 4:3 photo, the name, a short
+   berry dash, the place and one line. The whole card is the link. Replaces the two-up pair and the separate Circosphere band. */
+.sg{--berry:#C23C3C}
+.sg-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:28px}
+.stories-concept .sg-head h2{font-size:clamp(36px,3.5vw,50px)!important;letter-spacing:-.04em;line-height:1;margin:0}
+.sg-all{font-weight:700;font-size:18px;color:inherit;text-decoration:underline;text-decoration-color:var(--berry);text-decoration-thickness:2px;text-underline-offset:6px;white-space:nowrap}
+.sg a.tile{color:inherit;text-decoration:none;display:block}
+.sg img{display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:700px){.sg-head{flex-direction:column;gap:12px;margin-bottom:22px}}
+
+.sg.is-b{padding:56px 5% 96px}
+.sg-b{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 28px}
+.sg-b .ph{aspect-ratio:4/3;overflow:hidden}
+.sg-b .ph img{transition:transform .6s}
+.sg-b .tile:hover .ph img{transform:scale(1.04)}
+.stories-concept .sg-b h3{font-size:clamp(26px,2.2vw,32px);font-weight:700;letter-spacing:-.035em;line-height:1.02;margin:22px 0 0}
+.sg-b .dash{display:block;width:40px;height:5px;background:var(--berry);margin:12px 0 14px}
+.stories-concept .sg-b .place{font-size:15px;font-weight:700;margin:0 0 6px;color:#495561}
+.stories-concept .sg-b p{font-size:18px;line-height:1.45;margin:0;max-width:34ch}
+@media(max-width:1000px){.sg-b{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.sg.is-b{padding:44px 20px 64px}.sg-b{grid-template-columns:1fr;gap:44px}}

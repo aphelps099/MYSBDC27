@@ -277,3 +277,11 @@ the text column, the line, the figure and the link. The aircraft image bleeds of
 cream; the pool offset plate is gone. Less space under "More business stories." The Yarrow Goods photo is no longer
 used here: its card is replaced by Marin Auto Works (published story, $503,000 SBA loan). Below 1050px the hero stacks.
 Checked at 1440, 820 and 390: no overflow, no broken local links.
+
+## Stories — organised story index (November 27)
+
+Option B from the Stories canvas, after californiasbdc.org/about/clients, in `assets/stories-concept/grid.css`. "More
+business stories." becomes an even three-column index of six published client stories (Marin Auto Works, The Early Rise,
+Circosphere, Hella Nuts, Kamet Automation, Cha-Cha Sweets): equal 4:3 photos, the name, a short berry dash, the place
+and one line, the whole card a link, with "All client stories" beside the heading. Two columns on tablets, one on phones.
+The separate Circosphere band is folded into the grid. Checked at 1440, 820 and 390: no overflow, no broken local links.
