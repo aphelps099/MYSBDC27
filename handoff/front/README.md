@@ -265,6 +265,6 @@ Checked at 1440, 820 and 390: no horizontal overflow or script errors, no broken
 
 After the California SBDC client-story pages (Red line study canvas). `assets/advising-concept-v3/rules.css`, Advising only:
 a 6px berry (#C23C3C) rule sits 20px under the hero headline "Big decisions. Everyday details.", running the width of
-the text column, and a short 48px berry dash sits under each of the three step headings in the pool "A conversation.
+the text column, and a short 48px navy dash (berry on pool read poorly) sits under each of the three step headings in the pool "A conversation.
 Then a plan." band. Those headlines are set tighter (line-height .98–1.04, a little more negative tracking) so the rule
 reads as part of the headline. Checked at 1440, 820 and 390 with no overflow.
