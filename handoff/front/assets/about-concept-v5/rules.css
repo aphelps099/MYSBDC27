@@ -16,3 +16,6 @@
 .about-results>div:nth-child(3)::before{content:"";position:absolute;top:0;left:0;width:56px;height:6px;background:var(--navy)}
 .about-results>div:not(:first-child) dd:not(.result-note){font-size:clamp(56px,5.4vw,84px)!important}
 @media(max-width:800px){.about-results{grid-template-columns:1fr!important}.about-results>div:first-child{grid-row:auto}.about-results>div:first-child dd:not(.result-note){font-size:clamp(96px,26vw,140px)!important}.about-results>div:nth-child(2){padding:30px 0}}
+
+/* The region carousel bleeds to the screen edge; clip it there so small phones never scroll sideways (November 27). */
+.about-region{overflow-x:clip}

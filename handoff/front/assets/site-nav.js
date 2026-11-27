@@ -112,7 +112,13 @@
         if (/\s/.test(t[j])) {
           if (seenWord) {
             if (nodes[i].previousSibling && nodes[i].previousSibling.nodeName === 'BR' && j === 0) return;
+            // Only short pairs: a long pair glued together could be wider than a narrow column.
+            const pair = (t.slice(j + 1) + ' ' + (nodes.slice(i + 1).map((n) => n.data).join(''))).trim();
+            const before = t.slice(0, j).split(/\s/).pop();
+            if ((before + pair).length > 20) return;
+            const original = t;
             nodes[i].data = t.slice(0, j) + NBSP + t.slice(j + 1);
+            if (el.scrollWidth > el.clientWidth + 1) nodes[i].data = original;
             return;
           }
         } else seenWord = true;

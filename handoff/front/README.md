@@ -371,3 +371,8 @@ match the format filter show; "See more sessions" reveals the rest and moves foc
 hidden when nothing more is scheduled for that filter. Each row keeps "Log in to register" (registration is in MySBDC).
 Added: Government Contracting Series (Dec 1, online), Boots to Business Reboot (Dec 5 and Jan 16, online), Cabrillo
 College Holiday Market & Biz Expo (Dec 5, Aptos). `assets/training.js` handles the filter and the button.
+
+Overflow fixes (November 27): the no-orphan glue now only joins a short last pair (20 characters or less) and undoes
+itself if the block would overflow; it had made "Procurement Opportunities" too wide for a phone on News. The News post
+column is pinned to the page width, and the About region carousel is clipped at the screen edge (it overshot by 19px
+at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal overflow.

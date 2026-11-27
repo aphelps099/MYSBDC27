@@ -44,3 +44,7 @@
 .b-post.is-small .cv{display:none}
 .b-post.is-small h2{font-size:clamp(28px,2.6vw,38px)}
 @media(max-width:700px){.b-wrap{padding:44px 0 72px}.b-intro p{font-size:19px}.b-posts{margin-top:52px;gap:64px}.b-post .bl-ex{font-size:17px}.b-post .cv{aspect-ratio:16/10}}
+
+/* Phone overflow fix (November 27): the post column can never grow wider than the page. */
+.b-posts{grid-template-columns:minmax(0,1fr)}
+.b-post{min-width:0}
