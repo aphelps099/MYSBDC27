@@ -333,3 +333,7 @@ Training trims (November 27): cut the "Next up · Friday, December 4 · Arcata /
 "A few upcoming sessions… Registration happens in MySBDC." line under "On the calendar.", and the "Watch in MySBDC" link.
 On-demand learning lives on the LearnWorlds LMS (learn.norcalsbdc.org), not MySBDC, and is not integrated yet, so the
 copy stays neutral: "Build your skills on a schedule that works for you. Watch recorded webinars and self-paced courses."
+
+Impact close (November 27): the tall centred pool block becomes one slim row aligned to the page shell, "Your next
+chapter starts here." on the left and the pill on the right (about 170px tall on desktop); the extra sentence is cut and
+the story section above has less bottom padding.
