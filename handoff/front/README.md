@@ -192,12 +192,18 @@ the panel simply appears as before.
 
 ## Specialty programs page (November 27)
 
-New page `advising/programs/index.html` with `assets/programs.css`, direction A from the Specialty programs canvas:
-a title band with an Advising link above "Specialty programs", the intro "Specialist support, when you need it.", then
-one full-width band per program in pool, navy (with the ghosted star), cream and pool: SBDC Finance Center (to our
-Funding page), Tech Futures Group, ProBiz and Norcal APEX Accelerator. Each band has the name in Proxima Sera, a
-one-line purpose, a short description, its services and, where the program publishes one, a figure ($250M+ working
-capital since 2018; $700M+ raised, $68M+ grants, 2,700+ jobs; 870+ clients and $500M+ in contracts last year). Copy
-is from norcalsbdc.org, apexnorcal.org and our Funding page. Closes with "Not sure which program fits?" and Get no-fee
-advising. The "Specialty programs" heading in the Advising menu now links here on every page (`site-nav-panel-head`).
-Checked at 1440, 820 and 390: no overflow, no broken local links.
+New page `advising/programs/index.html` with `assets/programs.css`. The "Specialty programs" heading in the Advising
+menu links here on every page (`site-nav-panel-head`).
+
+- Title band with an Advising link above "Specialty programs", then "Specialist support, when you need it."
+- The four main programs as a pool and navy mosaic (direction C from the canvas, without sand or sage): SBDC Finance
+  Center (to our Funding page), Tech Futures Group (with the ghosted star), ProBiz and Norcal APEX Accelerator, each with
+  a one-line purpose, a short description and, where published, a figure ($250M+ working capital since 2018; $700M+
+  raised, $68M+ grants, 2,700+ jobs; 870+ clients and $500M+ in contracts last year).
+- More programs as index rows: EATS (Restaurants & Hospitality), the AWS Small Business Acceleration Initiative (links
+  to `view/aws-initiative.html` at the repository root), Pacific Northwest Regional VBOC and Outsmart Disaster.
+- A navy quote band: Mieko and Kamari Scott of Hella Nuts (`assets/programs-hella-nuts.jpg`, from norcalsbdc.org) on a
+  pool offset plate, with Mieko's quote from their client story and a link to it.
+- Closes with "Not sure which program fits?" and Get no-fee advising.
+Copy is from norcalsbdc.org, apexnorcal.org, our Funding page and the AWS Initiative page. Checked at 1440, 820 and 390:
+no overflow, no broken local links.
