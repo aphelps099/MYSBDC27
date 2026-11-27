@@ -1,6 +1,21 @@
-/* Shell adapter for the approved Impact page (November 27, 2026).
-   The approved page (handoff-impact branch, commit d33e268) was built inside the older concept-nav header and
-   network footer. Here it sits inside the current site shell (site-nav, site-footer), unchanged otherwise.
-   These rules only stack the current footer above the fixed seal and give the menu bar the page's navy. */
+/* Site adapter for the approved Impact page (November 27, 2026).
+   The approved page (handoff-impact branch, commit d33e268) is used as is, with these deliberate changes for the site:
+   1. Shell: it sits inside the current site-nav header and site-footer; the footer stacks above the fixed seal.
+   2. Navy: the page uses the site's core navy #1d2c3d (the title-band navy) instead of #0b203d/#071c38. The seal
+      backdrop is the original image remapped onto #1d2c3d with the same faint lift (assets/fixed-seal-navy.jpg;
+      the original stays as assets/fixed-seal.jpg). Photo duotones keep their original Legacy filters.
+   3. Opening grid: four large squares over six smaller ones, full bleed with navy gutters (was 5 x 3). */
 .legacy-page .site-footer{position:relative;z-index:1}
-.legacy-page .site-nav{--nav-navy:#0b203d}
+body.legacy-page{--navy:#1d2c3d;background:#1d2c3d}
+.legacy-page .legacy-backdrop{background-color:#1d2c3d;background-image:url('assets/fixed-seal-navy.jpg')}
+
+.legacy-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;padding-block:10px}
+.legacy-grid .is-big{grid-column:span 3}
+.legacy-grid .is-small{grid-column:span 2}
+.legacy-grid .legacy-tile{aspect-ratio:1}
+@media(max-width:900px){.legacy-grid{gap:6px;padding-block:6px}}
+@media(max-width:600px){
+  .legacy-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:5px;padding-block:5px}
+  .legacy-grid .is-big{grid-column:span 6}
+  .legacy-grid .is-small{grid-column:span 4}
+}

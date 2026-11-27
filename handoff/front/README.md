@@ -11,7 +11,7 @@ Selected current designs, collected November 24, 2026. Start at [Homepage](index
 | Stories | [stories/](stories/index.html) | Current Stories concept |
 | Funding | [funding/](funding/index.html) | Current Funding concept with currency photography |
 | Yarrow Goods | [stories/yarrow-goods/](stories/yarrow-goods/index.html) | Latest detail, All stories underneath Stories |
-| Impact | [impact/](impact/index.html) | Approved Legacy-inspired page: fixed seal, 5×3 duotone grid, parallax collage |
+| Impact | [impact/](impact/index.html) | Approved Legacy-inspired page: fixed seal, 4-over-6 duotone grid, parallax collage |
 | Partners | [partners/](partners/index.html) | Option A with rules, built November 25, 2026 |
 | News | [news/](news/index.html) | Option A press list, built November 26, 2026 |
 
@@ -223,3 +223,15 @@ history. Checked against the approved original at 1440 and 390: the desktop body
 element sits at the same offset (0px difference); 15 grid cells, no overflow, all 21 images and Sentinel load; the seal
 stays at viewport top while scrolling; the collage translates independently (−77px to +47px); Pause sets all three
 crossfades to paused and Play resumes; the menu opens; no script errors.
+
+### Impact, November 27 later: grid and navy
+
+- Opening grid: four large squares over six smaller ones, full bleed with 10px navy gutters (6px under 900px, 5px on
+  phone, where it becomes two large per row then three small per row). Ten cells from the approved photos: New Age Meats,
+  Churn, Paul Bozzo, Dorenda Haynes; Circosphere, Dick Taylor, After-School Snack Attack, Shawn Walker-Smith, Marin Auto
+  Works, Cha-Cha Sweets. The three crossfades stay (Paul Bozzo, Dorenda Haynes, Shawn Walker-Smith cells); the detail
+  close-ups and the Freeline tile are dropped. Duotone filters are the original Legacy ones.
+- Navy: the page now uses the site's core navy #1d2c3d (was #0b203d / #071c38). The seal backdrop is the original
+  image remapped onto #1d2c3d with the same faint lift (`impact/assets/fixed-seal-navy.jpg`; the original remains).
+- Both changes live in `impact/shell.css`; `impact.css` is untouched. Checked at 1440, 820 and 390: 10 cells, square,
+  no overflow, all images load, no script errors.
