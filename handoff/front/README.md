@@ -385,3 +385,9 @@ at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal o
   the end of `assets/about-concept-v5/rules.css`.
 - News: the navy title band is gone. The page opens on cream with an oversized "News" and the filters beside it
   (option B on the News opening canvas); the intro line was cut. CSS at the end of `assets/news.css`.
+
+## Training: two-block section removed (November 27, 2026)
+
+- The navy and pool "Join a live session." / "Learn on your own schedule." blocks are gone (too much content; the
+  calendar and "Keep learning" already do both jobs). Their America's SBDC star now sits behind "Keep learning",
+  bleeding off the top-right corner (end of `assets/training-rules.css`).
