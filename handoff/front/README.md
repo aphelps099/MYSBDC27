@@ -317,3 +317,9 @@ navy dash between them. One column on phones. Checked at 1440, 820 and 390: no o
 The Funding hero loses its lead-in paragraph ("New equipment. A bigger space. Room to grow…"): headline, button and
 the assurance line only. A site-wide content sweep is logged in `notes/content-audit.md`, and the rule is now item 17
 in the root `CLAUDE.md`.
+
+## Training — red rules (November 27)
+
+`assets/training-rules.css`: the 5px berry rule, 10px under the headline, under "Learn it. Put it to work." and
+"Make it work for your business." (headlines at line-height 1; the closing headline is capped at 15.5ch so its rule
+matches the headline). The "Explore advising" text link beside the closing pill is removed.

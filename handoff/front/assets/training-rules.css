@@ -1,0 +1,5 @@
+/* Training red rules (November 27, 2026): the site's 5px berry rule, 10px under the headline, with the headline at
+   line-height 1, under "Learn it. Put it to work." and "Make it work for your business." */
+.tr-hero h2,.tr-end h2{line-height:1!important}
+.tr-hero h2::after,.tr-end h2::after{content:"";display:block;height:5px;background:#C23C3C;margin-top:10px}
+.tr-end h2{max-width:15.5ch}
