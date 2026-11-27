@@ -311,3 +311,9 @@ line-height 1: Advising hero, homepage "Work with an advisor.", About opening an
 Option C from the About results canvas, in `assets/about-concept-v5/rules.css`: in "Small businesses. Shared progress."
 $1.56B takes the left column at full size; 111K and 99% stack on the right, aligned with the intro text, with a short
 navy dash between them. One column on phones. Checked at 1440, 820 and 390: no overflow, no broken local links.
+
+## Content slop — first cut and the audit note (November 27)
+
+The Funding hero loses its lead-in paragraph ("New equipment. A bigger space. Room to grow…"): headline, button and
+the assurance line only. A site-wide content sweep is logged in `notes/content-audit.md`, and the rule is now item 17
+in the root `CLAUDE.md`.
