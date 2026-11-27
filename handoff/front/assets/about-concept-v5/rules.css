@@ -5,3 +5,14 @@
 .about-opening h2::after,.ab-invite h2::after{content:"";display:block;height:5px;background:#C23C3C;margin-top:10px}
 .ab-invite h2::after{margin-bottom:24px}
 
+
+/* Results, "one giant figure" (November 27; option C on the About results canvas): $1.56B takes the left at full size,
+   111K and 99% stack on the right with a short navy dash between them (navy, not berry, on pool). */
+.about-results{display:grid!important;grid-template-columns:1.15fr 1fr!important;grid-template-rows:auto auto;gap:0 8%!important;align-items:end}
+.about-results>div:first-child{grid-row:span 2;align-self:end}
+.about-results>div:first-child dd:not(.result-note){font-size:clamp(120px,14vw,220px)!important;letter-spacing:-.06em}
+.about-results>div:nth-child(2){padding-bottom:30px}
+.about-results>div:nth-child(3){padding-top:30px;position:relative}
+.about-results>div:nth-child(3)::before{content:"";position:absolute;top:0;left:0;width:56px;height:6px;background:var(--navy)}
+.about-results>div:not(:first-child) dd:not(.result-note){font-size:clamp(56px,5.4vw,84px)!important}
+@media(max-width:800px){.about-results{grid-template-columns:1fr!important}.about-results>div:first-child{grid-row:auto}.about-results>div:first-child dd:not(.result-note){font-size:clamp(96px,26vw,140px)!important}.about-results>div:nth-child(2){padding:30px 0}}

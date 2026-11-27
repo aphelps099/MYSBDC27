@@ -305,3 +305,9 @@ Churn") is removed. Checked at 1440, 820 and 390 with no overflow.
 Every red rule under a headline is now 5px of berry #C23C3C, 10px under the headline, with the headline at
 line-height 1: Advising hero, homepage "Work with an advisor.", About opening and closing, and the Stories hero.
 (Navy dashes on pool and the short dashes in the Stories grid are unchanged.)
+
+## About — one giant figure (November 27)
+
+Option C from the About results canvas, in `assets/about-concept-v5/rules.css`: in "Small businesses. Shared progress."
+$1.56B takes the left column at full size; 111K and 99% stack on the right, aligned with the intro text, with a short
+navy dash between them. One column on phones. Checked at 1440, 820 and 390: no overflow, no broken local links.
