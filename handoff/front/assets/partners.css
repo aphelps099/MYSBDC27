@@ -80,3 +80,18 @@
   .pa-button{margin-top:32px}
 }
 @media(prefers-reduced-motion:reduce){.pa-button{transition:none}}
+
+/* Corporate partners (November 27): the full shell width in three equal columns under the heading, each a logo on a
+   shared baseline, one short line and the link. The company name stays for screen readers; the logo says it. */
+#corporate{grid-template-columns:minmax(0,1fr);gap:72px}
+#corporate .pa-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 40px}
+#corporate .pa-meta p{margin-top:0;max-width:none}
+#corporate .pa-three{gap:6%}
+#corporate .pa-entry{display:flex;flex-direction:column;align-items:flex-start}
+#corporate .pa-logo{height:48px;margin-bottom:28px}
+#corporate .pa-logo.lg-aws{height:60px;margin-top:-6px;margin-bottom:22px}
+#corporate .pa-name{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
+#corporate .pa-entry p{margin-top:0;font-size:18px;max-width:30ch}
+#corporate .pa-entry .concept-link{margin-top:18px}
+@media(max-width:1000px){#corporate .pa-three{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}#corporate .pa-logo{height:36px}#corporate .pa-logo.lg-aws{height:46px}}
+@media(max-width:700px){#corporate{gap:36px}#corporate .pa-meta{display:block}#corporate .pa-meta p{margin-top:14px}#corporate .pa-three{grid-template-columns:minmax(0,1fr);gap:44px}#corporate .pa-logo{height:40px;margin-bottom:20px}#corporate .pa-logo.lg-aws{height:52px}}

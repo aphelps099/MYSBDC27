@@ -391,3 +391,9 @@ at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal o
 - The navy and pool "Join a live session." / "Learn on your own schedule." blocks are gone (too much content; the
   calendar and "Keep learning" already do both jobs). Their America's SBDC star now sits behind "Keep learning",
   bleeding off the top-right corner (end of `assets/training-rules.css`).
+
+## Partners: corporate row (November 27, 2026)
+
+- Corporate partners now span the shell in three equal columns under the heading: logo, one short line, "Visit …"
+  link. The company name is kept for screen readers only. OpenAI and Verizon still need their one line
+  (`[One line to come.]`). CSS at the end of `assets/partners.css`.
