@@ -10,6 +10,7 @@ Selected current designs, collected November 24, 2026. Start at [Homepage](index
 | About | [about/](about/index.html) | About V5, five-image carousel, edge bleed |
 | Stories | [stories/](stories/index.html) | Current Stories concept |
 | Funding | [funding/](funding/index.html) | Current Funding concept with currency photography |
+| Impact | [impact/](impact/index.html) | Legacy-inspired page with fixed seal, parallax collage, and full-bleed 5×3 grid |
 | Yarrow Goods | [stories/yarrow-goods/](stories/yarrow-goods/index.html) | Latest detail, All stories underneath Stories |
 
 Preview from the running repository server: http://127.0.0.1:8784/handoff/front/ . Or run `python3 -m http.server 8784` from the repository root. No build step is required.
@@ -18,7 +19,7 @@ Preview from the running repository server: http://127.0.0.1:8784/handoff/front/
 
 All referenced local CSS, JavaScript, photos and illustrations are included under assets/. This folder has no runtime dependency on homepage-preview or the dashboard assets. Remote business images, videos, logos and Adobe Fonts retain their existing URLs and require network access. No remote media was newly downloaded for packaging.
 
-The seven HTML files are editable handoff pages. The original concepts and earlier versions remain in homepage-preview for comparison. manifest.json maps the selected source pages/assets. notes/ holds original source READMEs as historical provenance; their relative preview links and screenshot references refer to the original studies, not files bundled here. Do not treat those notes as a build manifest or current route map.
+The eight HTML files are editable handoff pages. The original concepts and earlier versions remain in homepage-preview for comparison. manifest.json maps the selected source pages/assets. notes/ holds original source READMEs as historical provenance; their relative preview links and screenshot references refer to the original studies, not files bundled here. Do not treat those notes as a build manifest or current route map.
 
 Footer navigation and contextual page links connect the designs here. Yarrow cards in Stories and Funding open the included story detail. Its All stories link returns to the included Stories page. The Stories page's full-archive links, source citations, training registrations, intake, outside programs and existing MySBDC app links retain their real/prototype destinations. No backend or translation integration added.
 
@@ -35,3 +36,7 @@ All source-specific claims, photo provenance and historical checks are retained 
 ## Collection verification — November24
 
 All7 pages returned HTTP200, unique IDs/oneH1 and valid local anchors.112 local references stay within this folder. All33 bundled assets byte-match their selected sources; JS syntax and whitespace checks passed. Desktop openings of Home/Advising/Training/About/Stories/Funding visually checked; all7 mobile390 layouts checked for overflow and font loading. Stories-to-Yarrow click, About five-slide carousel selection and local advisor image loading verified. Actual hovered related card has no parent/description underline; title remains underlined red. Screenshot: review/story-card-hover.jpg. No push, PR or deployment.
+
+## Impact study — November 27
+
+Added a locally previewed Impact page based on the live California Legacy page and the user’s March 2023 Wayback capture. The homepage’s Explore our impact link now opens this collection route. The study uses Sentinel Light for display type, existing Proxima for supporting text, a fixed original seal backdrop, original blue/red duotones, and a parallax collage. See [Impact notes](impact/README.md) for sources, intentional adaptations, and checks. No deployment or WordPress changes.

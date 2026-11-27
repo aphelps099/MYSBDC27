@@ -1,0 +1,149 @@
+{
+  "reference": "https://www.californiasbdc.org/legacy/",
+  "photography": [
+    {
+      "file": "assets/brand-0.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/2025/12/Circosphere-Image-1.jpg",
+      "size": [
+        800,
+        649
+      ]
+    },
+    {
+      "file": "assets/brand-1.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/2024/07/churn-2-edited.jpg",
+      "size": [
+        800,
+        450
+      ]
+    },
+    {
+      "file": "assets/brand-2.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/2021/01/In-the-lab.jpg",
+      "size": [
+        800,
+        533
+      ]
+    },
+    {
+      "file": "assets/brand-3.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/2024/02/freeline-edited.jpg",
+      "size": [
+        800,
+        450
+      ]
+    },
+    {
+      "file": "assets/brand-4.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/2020/07/Dick-Taylor-Adam-Dick-and-Dustin-Taylor.jpg",
+      "size": [
+        800,
+        533
+      ]
+    },
+    {
+      "file": "assets/brand-5.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/sites/32/2026/03/Michelle-8-1-2.jpeg",
+      "size": [
+        702,
+        800
+      ]
+    },
+    {
+      "file": "assets/brand-6.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/sites/9/2025/09/Inside-with-cars-1200x900.jpg",
+      "size": [
+        800,
+        600
+      ]
+    },
+    {
+      "file": "assets/brand-7.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/sites/26/2025/11/Angel-Cha-Cha-Sweets-1-970x1200.jpeg",
+      "size": [
+        647,
+        800
+      ]
+    },
+    {
+      "file": "assets/brand-8.jpg",
+      "source": "https://www.techfuturesgroup.org/wp-content/uploads/2026/01/tfg-paulbozzo.jpeg",
+      "size": [
+        800,
+        800
+      ]
+    },
+    {
+      "file": "assets/brand-9.jpg",
+      "source": "https://www.solanonapasbdc.org/wp-content/uploads/sites/26/2022/12/shawn-walker-smith-2023.jpg",
+      "size": [
+        768,
+        768
+      ]
+    },
+    {
+      "file": "assets/brand-10.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/sites/26/2023/02/kofo-domingo.jpg",
+      "size": [
+        768,
+        768
+      ]
+    },
+    {
+      "file": "assets/brand-11.jpg",
+      "source": "https://www.norcalsbdc.org/wp-content/uploads/sites/13/2024/05/20-768x768.jpeg",
+      "size": [
+        768,
+        768
+      ]
+    },
+    {
+      "file": "assets/legacy-10.jpg",
+      "source": "https://www.californiasbdc.org/wp-content/uploads/sites/34/2023/02/TFG-pho-meats-edited.jpg",
+      "size": [
+        932,
+        933
+      ]
+    },
+    {
+      "file": "assets/legacy-11.jpg",
+      "source": "https://www.californiasbdc.org/wp-content/uploads/sites/34/2022/12/Steve-Hecheroth-WBDC-SBDC-8-edited-1.jpg",
+      "size": [
+        933,
+        933
+      ]
+    },
+    {
+      "file": "assets/legacy-12.jpg",
+      "source": "https://www.californiasbdc.org/wp-content/uploads/sites/34/2023/02/wind-dramatic-wind-turbine-farm-in-the-desert-of-califo-2022-10-17-01-15-23-utc-1024x683.jpg",
+      "size": [
+        1024,
+        683
+      ]
+    },
+    {
+      "file": "assets/fixed-seal.jpg",
+      "source": "https://www.californiasbdc.org/wp-content/uploads/sites/34/2022/12/menu-bg-idea-2-scaled-e1674693507674.jpg",
+      "size": [
+        1817,
+        1305
+      ]
+    },
+    {
+      "file": "assets/celebration-collage.jpg",
+      "source": "https://www.californiasbdc.org/wp-content/uploads/sites/34/2022/12/everyone-celebrating-in-blue.jpg",
+      "size": [
+        1900,
+        966
+      ]
+    }
+  ],
+  "font": {
+    "family": "Sentinel Light",
+    "source": "https://www.californiasbdc.org/wp-content/uploads/sites/34/useanyfont/2950reg.woff2"
+  },
+  "content": [
+    "https://www.norcalsbdc.org/",
+    "https://www.norcalsbdc.org/shared/client-stories/yarrow-goods/"
+  ]
+}

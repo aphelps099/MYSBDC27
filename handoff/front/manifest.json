@@ -7,7 +7,8 @@
     "about-concept-v5": "about/index.html",
     "stories-concept": "stories/index.html",
     "funding-concept": "funding/index.html",
-    "yarrow-story-concept": "stories/yarrow-goods/index.html"
+    "yarrow-story-concept": "stories/yarrow-goods/index.html",
+    "impact-legacy-concept": "impact/index.html"
   },
   "assets": {
     "about-concept-v5/assets/lake-tahoe.jpg": "assets/about-concept-v5/assets/lake-tahoe.jpg",
@@ -45,5 +46,5 @@
     "yarrow-story-concept/concept.js": "assets/yarrow-story-concept/concept.js"
   },
   "source_commit_before_copy": "46502f3",
-  "notes": "Yarrow card description hover fix applied before packaging. No live content or app changes."
+  "notes": "Yarrow card description hover fix applied before packaging. No live content or app changes. Impact Legacy study added November 27; its sources and motion notes are in impact/README.md and impact/sources.json."
 }
