@@ -260,3 +260,11 @@ Option B from the Funding colour study canvas, in `assets/funding-concept/capita
 Impact page: the figures now use Proxima Nova bold instead of Proxima Sera (less Sera across the site); Sera stays only for the opening line and the parallax statement.
 
 Checked at 1440, 820 and 390: no horizontal overflow or script errors, no broken local links.
+
+## Advising — red rules (November 27)
+
+After the California SBDC client-story pages (Red line study canvas). `assets/advising-concept-v3/rules.css`, Advising only:
+a 6px berry (#C23C3C) rule sits 20px under the hero headline "Big decisions. Everyday details.", running the width of
+the text column, and a short 48px berry dash sits under each of the three step headings in the pool "A conversation.
+Then a plan." band. Those headlines are set tighter (line-height .98–1.04, a little more negative tracking) so the rule
+reads as part of the headline. Checked at 1440, 820 and 390 with no overflow.
