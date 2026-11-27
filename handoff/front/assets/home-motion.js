@@ -21,7 +21,7 @@
     const lines = el.innerHTML.split(/<br\s*\/?>/i).map((part) => {
       const t = document.createElement('span');
       t.innerHTML = part;
-      const words = t.textContent.trim().split(/\s+/).filter(Boolean);
+      const words = t.textContent.trim().split(/[ \t\n\r]+/).filter(Boolean);
       counts.push(words.length);
       return words.map((w) => '<span class="hm-mask"><span class="hm-in">' + w.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span></span>').join(' ');
     });

@@ -93,3 +93,32 @@
     item.addEventListener('focusout', event => { if (!item.contains(event.relatedTarget) && !item.matches(':hover')) reset(); });
   });
 })();
+
+/* No orphans (November 27, 2026): glue the last two words of every block of copy with a no-break space, so a line never
+   ends on one stranded word whatever the width. Runs once on load, before the headline motion splits any heading.
+   Works across inline elements (links, bold), skips blocks of two words or fewer. */
+(() => {
+  const NBSP = ' ';
+  const glue = (el) => {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    for (let n = walker.nextNode(); n; n = walker.nextNode()) nodes.push(n);
+    if (el.textContent.trim().split(/\s+/).length < 3) return;
+    let seenWord = false;
+    for (let i = nodes.length - 1; i >= 0; i--) {
+      const t = nodes[i].data;
+      const end = seenWord ? t.length : t.replace(/\s+$/, '').length;
+      for (let j = end - 1; j >= 0; j--) {
+        if (/\s/.test(t[j])) {
+          if (seenWord) {
+            if (nodes[i].previousSibling && nodes[i].previousSibling.nodeName === 'BR' && j === 0) return;
+            nodes[i].data = t.slice(0, j) + NBSP + t.slice(j + 1);
+            return;
+          }
+        } else seenWord = true;
+      }
+    }
+  };
+  const run = () => document.querySelectorAll('main :is(p,li,dd,dt,figcaption,blockquote,h1,h2,h3,h4)').forEach(glue);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run, { once: true }); else run();
+})();

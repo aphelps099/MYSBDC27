@@ -351,3 +351,14 @@ $503K and 3 as an even pair, and the story link. The "Results as published" note
   and one line; the photo is a closer crop of the Marin Auto Works team (`assets/funding-concept/marin-auto-works-team.jpg`,
   from the 2048px original) and starts level with the title. The capital tiles move lower, after "A clearer path to
   financing.", so the page opens with "What do you have in mind?".
+
+## Stories hero on a plate; no orphans anywhere (November 27)
+
+- Stories hero, after the user's reference: one navy band, "Stories" at the top, the Jump Aero image on the left on a
+  pool offset plate with a berry line at its foot, the story opposite in the existing type (name with the red rule,
+  one line, $12M, link). Stacks below 1050px.
+- No orphans: a line of copy never ends on one stranded word. `assets/site-nav.css` sets `text-wrap: pretty` on copy and
+  `balance` on headings, and `assets/site-nav.js` (on every page) glues the last two words of each block with a no-break
+  space. The homepage motion splits headings on ordinary spaces only, so glued words stay together. "Join a live
+  session." now breaks as "Join a / live session." A scan of every page at 1440, 820 and 390 finds no stranded words
+  (two remaining hits are hyphen breaks inside "10-week" and a web address).

@@ -29,3 +29,5 @@ Public marketing pages follow the FAV NorCal SBDC design system plus these page-
 17. **No content slop** — every line of copy must say something the headline, button or next section does not. No filler lead-ins, no repeated "confidential, no fee" under every heading. A full page-by-page sweep is still open: see [handoff/front/notes/content-audit.md](handoff/front/notes/content-audit.md).
 
 18. **Red rule under headlines** — 5px berry #C23C3C, 10px under the headline, headline at line-height 1, and exactly as wide as the headline's longest line (never the full column). On cream or navy only; on pool use a short navy dash instead.
+
+19. **No orphans** — a line of copy never ends on one stranded word. `site-nav.css` (text-wrap pretty/balance) and `site-nav.js` (no-break space between the last two words) handle it on every page; deliberate `<br>` breaks in headlines must not leave one word alone either.
