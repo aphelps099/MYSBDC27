@@ -323,3 +323,7 @@ in the root `CLAUDE.md`.
 `assets/training-rules.css`: the 5px berry rule, 10px under the headline, under "Learn it. Put it to work." and
 "Make it work for your business." (headlines at line-height 1; the closing headline is capped at 15.5ch so its rule
 matches the headline). The "Explore advising" text link beside the closing pill is removed.
+
+Red rule width (November 27): a red rule is never full width. It is exactly as wide as the headline's longest line
+(the headline is `width:fit-content`), on About, Advising, the homepage, Stories and Training. The Stories hero rule
+moved from an `<hr>` to the headline's `::after` so it can match too.

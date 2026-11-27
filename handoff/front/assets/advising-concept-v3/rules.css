@@ -2,7 +2,7 @@
    A 5px berry rule sits tight under the hero headline, and short dashes sit under the three step headings
    in the pool band (navy there: berry on pool reads poorly). Headlines are set a touch tighter so the rule reads as part of the headline, not a divider. */
 
-.image-hero h2{line-height:1;letter-spacing:-.045em;margin-bottom:0}
+.image-hero h2{width:fit-content;max-width:100%;line-height:1;letter-spacing:-.045em;margin-bottom:0}
 .image-hero h2::after{content:"";display:block;height:5px;background:#C23C3C;margin:10px 0 30px}
 
 .getting-started h2{line-height:1;letter-spacing:-.045em}

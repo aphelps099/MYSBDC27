@@ -6,7 +6,9 @@
 .st-hero .st-copy{padding-bottom:150px}
 .stories-concept .st-hero h1{font-size:clamp(56px,6.4vw,96px);font-weight:600;letter-spacing:-.045em;line-height:.96;margin:20px 0 0}
 .stories-concept .st-hero h2{font-size:clamp(48px,4.4vw,68px)!important;font-weight:700;letter-spacing:-.045em;line-height:1;margin:112px 0 0;color:var(--cream)}
-.st-rule{display:block;height:5px;background:var(--berry);border:0;margin:10px 0 30px}
+.stories-concept .st-hero h2{width:fit-content;max-width:100%}
+.stories-concept .st-hero h2::after{content:"";display:block;height:5px;background:var(--berry);margin-top:10px}
+.st-hero .st-lede{margin-top:30px!important}
 .stories-concept .st-hero .st-lede{font-size:clamp(22px,1.9vw,27px);line-height:1.4;max-width:28ch;margin:0}
 .st-fig{display:flex;align-items:center;gap:20px;margin-top:34px}
 .st-fig b{font-size:clamp(56px,5vw,80px);font-weight:700;letter-spacing:-.05em;line-height:1}

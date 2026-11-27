@@ -23,6 +23,6 @@
 }
 
 /* Red rule under the headline (November 27): the same 5px berry rule as the Advising hero, tight to the headline. */
-.home-advisor h2{line-height:1;letter-spacing:-.045em}
+.home-advisor h2{width:fit-content;max-width:100%;line-height:1;letter-spacing:-.045em}
 .home-advisor h2::after{content:"";display:block;height:5px;background:#C23C3C;margin:10px 0 6px}
 @media(max-width:700px){.home-advisor h2::after{margin:10px 0 4px}}
