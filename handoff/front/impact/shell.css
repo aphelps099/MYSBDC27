@@ -1,0 +1,6 @@
+/* Shell adapter for the approved Impact page (November 27, 2026).
+   The approved page (handoff-impact branch, commit d33e268) was built inside the older concept-nav header and
+   network footer. Here it sits inside the current site shell (site-nav, site-footer), unchanged otherwise.
+   These rules only stack the current footer above the fixed seal and give the menu bar the page's navy. */
+.legacy-page .site-footer{position:relative;z-index:1}
+.legacy-page .site-nav{--nav-navy:#0b203d}

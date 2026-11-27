@@ -11,7 +11,7 @@ Selected current designs, collected November 24, 2026. Start at [Homepage](index
 | Stories | [stories/](stories/index.html) | Current Stories concept |
 | Funding | [funding/](funding/index.html) | Current Funding concept with currency photography |
 | Yarrow Goods | [stories/yarrow-goods/](stories/yarrow-goods/index.html) | Latest detail, All stories underneath Stories |
-| Impact | [impact/](impact/index.html) | Direction C, built November 25, 2026 |
+| Impact | [impact/](impact/index.html) | Approved Legacy-inspired page: fixed seal, 5×3 duotone grid, parallax collage |
 | Partners | [partners/](partners/index.html) | Option A with rules, built November 25, 2026 |
 | News | [news/](news/index.html) | Option A press list, built November 26, 2026 |
 
@@ -207,3 +207,19 @@ menu links here on every page (`site-nav-panel-head`).
 - Closes with "Not sure which program fits?" and Get no-fee advising.
 Copy is from norcalsbdc.org, apexnorcal.org, our Funding page and the AWS Initiative page. Checked at 1440, 820 and 390:
 no overflow, no broken local links.
+
+## Impact page — approved Legacy version (November 27)
+
+`impact/` is now the approved Impact page from the `handoff-impact` branch (commit d33e268, rebuild notes in
+`impact/CLAUDE-HANDOFF.md`). Everything inside `<main>`, the SVG duotone filters, the fixed seal backdrop, `impact.css`,
+the 17 local photographs and the 3 local fonts are byte-identical to that snapshot. Two deliberate changes put it in the
+current site shell: the page uses the current `site-nav` header and `site-footer` (the approved snapshot carried the older
+concept-nav header and network footer), with `impact/shell.css` stacking the footer above the fixed seal and giving the
+menu bar the page's #0b203d; and `impact.js` guards the old header lookup (`header?.classList`). `SHA256SUMS` describes the
+approved snapshot, so `index.html` and `impact.js` no longer match it by design; every other listed file does.
+The earlier Impact page (pool sentence, carousel, record with seal, partner thank-you) is replaced; its files
+(`assets/impact.css`, `assets/impact.js`, `assets/impact-seal-bg.jpg`) are no longer used by any page and remain in git
+history. Checked against the approved original at 1440 and 390: the desktop body is pixel-identical; on phone every
+element sits at the same offset (0px difference); 15 grid cells, no overflow, all 21 images and Sentinel load; the seal
+stays at viewport top while scrolling; the collage translates independently (−77px to +47px); Pause sets all three
+crossfades to paused and Play resumes; the menu opens; no script errors.
