@@ -235,3 +235,16 @@ crossfades to paused and Play resumes; the menu opens; no script errors.
   image remapped onto #1d2c3d with the same faint lift (`impact/assets/fixed-seal-navy.jpg`; the original remains).
 - Both changes live in `impact/shell.css`; `impact.css` is untouched. Checked at 1440, 820 and 390: 10 cells, square,
   no overflow, all images load, no script errors.
+
+## Impact page — told in numbers (November 27)
+
+Direction B from the Impact evolution II canvas, built on the approved Legacy page. The page was reading too dark, so it moves onto the site's cream ground and tells its story through figures. `impact/numbers.css` and `impact/numbers.js` load after `impact.css` and `shell.css`; the approved files are otherwise untouched.
+
+- Kept from the approved page: the four-over-six opening grid with its crossfades and Pause motion control, the blue parallax statement band (now cream Proxima Sera), the three-photo band and `impact.js`.
+- Ground and type: the standard navy "Impact" title band, then cream; the fixed seal backdrop is gone and navy is used for two bands only. Proxima Nova headlines, Proxima Sera for the opening line, the statement and every figure. Photos in natural colour, with no duotone, per the brand photography rules ("heavy brand-color filters" are a don't).
+- Chapters: 712 businesses started, 3,723 jobs created (navy), the statement band, $549M capital accessed with $201M sales growth (FY 2025), then "Over three years" on navy ($1.56B, $474M, 111K, 99%, FFY 2022–2024, with the no-multipliers note). Each figure rolls like the homepage odometer from about 3% below its value when its section scrolls into view; reduced motion or no GSAP shows the plain figures.
+- Story: "One owner's numbers" now features Marin Auto Works (published client story: $503,000 SBA loan after bank rejections, 3 full-time employees hired; advisor Richard Strezo) with the team photo and a 4px red line under it. It replaces the Yarrow Goods cut-out portrait.
+- Photo band: Freeline Surf Shop, Steve Heckeroth's electric tractor and Kamet Automation's lab (from brand.norcalsbdc.org photography), replacing a lab shot that repeated the grid and a stock-style wind farm.
+- Close: centred pool block, "Your next chapter starts here.", navy pill to no-fee advising.
+
+Checked at 1440, 820 and 390: no horizontal overflow or script errors, every figure settles on its exact published text. The FY 2025 figures still need final reporting confirmation before launch.

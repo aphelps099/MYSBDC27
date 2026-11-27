@@ -1,0 +1,116 @@
+/* Impact page, "told in numbers" (November 27, 2026; direction B on the Impact evolution II canvas).
+   Loaded after impact.css and shell.css. The approved mechanics stay: the four-over-six opening grid with its
+   crossfades, the blue parallax statement band and the three-photo band. What changes:
+   - the page sits on the site's cream ground under the standard navy title band, the fixed seal backdrop is gone,
+     and navy is used for two bands only;
+   - photos are in natural colour (no duotone), after the brand photography rules;
+   - Proxima Nova headlines, Proxima Sera for the opening line, the statement and every figure;
+   - the middle of the page is told in chapters, each led by one giant figure that rolls into place (numbers.js). */
+
+body.legacy-page{background:#f6f1e6;color:#1d2c3d}
+.legacy-page .legacy-backdrop{display:none}
+.legacy-page main{background:#f6f1e6}
+.legacy-page main h2{font-family:"proxima-nova","Impact Proxima",Arial,sans-serif;font-weight:600;letter-spacing:-.045em;line-height:1;text-transform:none;color:inherit;margin:0}
+.legacy-page main .page-title-band{text-align:left}
+.legacy-page main .page-title-band h1{font-family:"proxima-nova","Impact Proxima",Arial,sans-serif;font-weight:600;letter-spacing:-.045em;text-transform:none;font-size:clamp(56px,6.4vw,96px);line-height:1;color:#f6f1e6}
+
+/* Opening */
+.nb-shell{width:min(1400px,100% - 96px);margin-inline:auto}
+.nb-open{padding:104px 24px 72px;text-align:center}
+.nb-open h2{font-size:clamp(60px,6.6vw,108px)}
+.nb-lead{font-family:"proxima-sera",Georgia,serif;font-size:clamp(24px,2.1vw,30px);line-height:1.4;max-width:30ch;margin:30px auto 0}
+
+/* Grid and photo band on cream, natural colour */
+.legacy-grid,.legacy-photo-band{background:#f6f1e6}
+.legacy-grid{padding-block:0}
+.legacy-grid figure,.legacy-photo-band figure{background:#e9e1d1}
+.legacy-grid img,.legacy-photo-band img{filter:none}
+.legacy-grid-controls{padding:0 4% 12px}
+.legacy-page .motion-toggle{color:#1d2c3d}
+.legacy-photo-band{gap:10px}
+
+/* Links, notes, bands */
+.legacy-page .nb-link{display:inline-block;margin-top:36px;font-size:19px;font-weight:700;color:inherit;text-decoration:underline;text-decoration-color:#bb3c46;text-decoration-thickness:2px;text-underline-offset:7px}
+.legacy-page .nb-link:hover{text-underline-offset:4px}
+.nb-note{font-size:16px;line-height:1.5;color:#5a6876;margin:28px 0 0}
+.nb-note a{color:inherit}
+.nb-navy{background:#1d2c3d;color:#f6f1e6}
+.nb-navy .nb-note,.nb-navy .nb-note a{color:#b6c7d6}
+
+/* Chapters: one giant figure beside a short claim */
+.nb-ch{padding:112px 0}
+.nb-ch .nb-shell{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:7%;align-items:center}
+.nb-ch.is-flip .nb-num{order:2;text-align:right}
+.nb-num{font-family:"proxima-sera",Georgia,serif;font-weight:500;font-size:clamp(150px,17vw,280px);line-height:.86;letter-spacing:-.05em;margin:0;white-space:nowrap;color:#1d2c3d}
+.nb-navy .nb-num{color:#8fc5d9}
+.nb-ch h2{font-size:clamp(40px,4vw,60px)}
+.nb-ch p:not(.nb-num):not(.nb-note){font-size:21px;line-height:1.5;margin:22px 0 0;max-width:38ch}
+.nb-also{display:flex;flex-wrap:wrap;gap:24px 48px;margin:40px 0 0}
+.nb-also div{margin:0}
+.nb-also dd{margin:0;font-family:"proxima-sera",Georgia,serif;font-weight:500;font-size:clamp(52px,4.6vw,72px);line-height:1;letter-spacing:-.03em}
+.nb-also dt{margin-top:8px;font-size:17px;max-width:22ch}
+.nb-ch .nb-note{margin-top:30px}
+
+/* The blue parallax statement band, cream Sera on the collage */
+.legacy-page .legacy-statement h2{font-family:"proxima-sera",Georgia,serif;font-weight:500;color:#f6f1e6;font-size:clamp(40px,4vw,60px);line-height:1.08;letter-spacing:-.02em;max-width:20ch;margin-inline:auto;text-align:center}
+
+/* Three years */
+.nb-years{padding:120px 0 112px}
+.nb-years .nb-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:7%;align-items:end}
+.nb-years h2{font-size:clamp(44px,4.4vw,68px)}
+.nb-years dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 8%;margin:0}
+.nb-years dl div{margin:0}
+.nb-years dd{margin:0;font-family:"proxima-sera",Georgia,serif;font-weight:500;font-size:clamp(72px,7vw,116px);line-height:1;letter-spacing:-.04em;color:#8fc5d9}
+.nb-years dt{margin-top:12px;font-size:19px}
+.nb-years .nb-note{grid-column:2}
+
+/* One business's numbers */
+.nb-story{padding:120px 0}
+.nb-story .nb-shell{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:7%;align-items:center}
+.nb-story h2{font-size:clamp(44px,4.4vw,68px)}
+.nb-story p:not(.nb-note){font-size:21px;line-height:1.5;max-width:38ch;margin:22px 0 0}
+.nb-story .nb-also dd{font-size:clamp(64px,6vw,96px);letter-spacing:-.035em}
+.nb-photo{margin:0}
+.nb-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-bottom:4px solid #bb3c46}
+.nb-photo figcaption{margin-top:14px;font-size:15px;color:#5a6876}
+
+/* Close */
+.nb-close{padding:120px 24px 128px;text-align:center;background:#8fc5d9;color:#1d2c3d}
+.nb-close h2{font-size:clamp(56px,6vw,96px)}
+.legacy-page .nb-close p{font-size:21px;line-height:1.5;max-width:34ch;margin:26px auto 0}
+.nb-pill{display:inline-flex;align-items:center;gap:16px;min-height:58px;padding:0 30px;border-radius:999px;background:#1d2c3d;color:#f6f1e6;font-size:18px;font-weight:700;text-decoration:none;margin-top:44px;transition:background .2s}
+.nb-pill:hover{background:#243b50;color:#f6f1e6}
+.nb-pill svg{width:22px;height:22px}
+.legacy-page .nb-pill:focus-visible{outline-color:#1d2c3d}
+
+/* Odometer wheels for the figures (numbers.js) */
+.nb-odo{display:inline-flex;align-items:flex-end;line-height:1}
+.nb-col{display:inline-block;height:1em;overflow:hidden}
+.nb-strip{display:flex;flex-direction:column;will-change:transform}
+.nb-strip>span{display:flex;justify-content:center;height:1em;line-height:1}
+.nb-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media(max-width:1000px){
+  .nb-ch .nb-shell,.nb-years .nb-shell,.nb-story .nb-shell{grid-template-columns:1fr;gap:36px}
+  .nb-ch.is-flip .nb-num{order:0;text-align:left}
+  .nb-years .nb-note{grid-column:1}
+  .nb-story .nb-photo{order:-1}
+}
+@media(max-width:700px){
+  .nb-shell{width:calc(100% - 40px)}
+  .nb-open{padding:64px 20px 48px}.nb-open h2{font-size:54px}.nb-lead{font-size:23px}
+  .legacy-page main .page-title-band h1{font-size:56px}
+  .nb-ch,.nb-years,.nb-story{padding:72px 0}
+  .nb-num{font-size:min(31vw,132px)}
+  .nb-ch p:not(.nb-num):not(.nb-note),.nb-story p:not(.nb-note){font-size:19px}
+  .nb-also{gap:24px 32px}
+  .nb-years dl{gap:36px 6%}.nb-years dd{font-size:56px}
+  .nb-story .nb-also dd{font-size:56px}
+  .legacy-page .legacy-statement h2{font-size:32px;width:calc(100% - 40px)}
+  .legacy-photo-band{gap:5px}
+  .nb-close{padding:88px 20px 96px}.nb-close h2{font-size:48px}.legacy-page .nb-close p{font-size:19px}
+}
+
+/* Figure lists keep the label first in the markup (dt before dd) and show the figure on top */
+.nb-also{align-items:flex-start}
+.nb-also div,.nb-years dl div{display:flex;flex-direction:column-reverse;justify-content:flex-end;align-items:flex-start}
