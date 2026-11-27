@@ -1,0 +1,83 @@
+/* Funding, capital tiles and a slimmer page (November 27, 2026; option B on the Funding colour study canvas).
+   Loaded after concept.css. The brand's colour roles come in here first: berry (#C23C3C) for the one headline
+   figure, evergreen (#00675C, growth) for the second, pool for the advising promise. Everything is Proxima Nova.
+   The page is slimmer: tighter section padding, smaller headlines, a shorter hero photo, and the Yarrow Goods story
+   and the separate lenders section are gone (the client tile carries the story; lenders get one line in the close). */
+
+.funding-concept{--berry:#C23C3C;--evergreen:#00675C}
+.funding-concept main h2{font-size:clamp(38px,3.8vw,54px)}
+.funding-concept main p{font-size:20px}
+
+/* Hero: a real client photo, shorter */
+.funding-hero{padding-top:8px}
+.funding-hero-copy{padding:10px 0 92px 1%}
+.funding-hero h2{font-size:clamp(46px,4.8vw,70px)!important}
+.funding-hero-copy>p{margin-top:22px}
+.funding-hero .concept-button{margin-top:26px}
+.funding-hero-photo{min-height:clamp(360px,32vw,460px)}
+.funding-hero-photo img{object-position:50% 55%}
+
+/* Capital tiles */
+.capital-tiles{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px;padding:56px 4% 0}
+.capital-tile{margin:0;padding:34px 38px 36px;display:flex;flex-direction:column;justify-content:flex-end;min-height:250px}
+.funding-concept .capital-tile p{margin:0;max-width:none}
+.capital-photo{grid-column:span 5;grid-row:span 2;position:relative;padding:0;overflow:hidden;color:var(--cream);min-height:512px}
+.capital-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.capital-photo::after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,#0f1c2de0 62%,#0f1c2df2)}
+.capital-photo figcaption{position:relative;z-index:1;padding:0 34px 32px}
+.funding-concept .capital-photo .capital-quote{font-size:clamp(26px,2.2vw,32px);font-weight:600;line-height:1.08;letter-spacing:-.03em;max-width:15ch}
+.funding-concept .capital-photo .capital-who{font-size:16px;margin-top:12px;color:#e7ecf0}
+.capital-berry{grid-column:span 7;background:var(--berry);color:#fdfdfd}
+.capital-evergreen{grid-column:span 4;background:var(--evergreen);color:#fdfdfd}
+.capital-pool{grid-column:span 3;background:var(--pool);color:var(--navy)}
+.funding-concept .capital-big{font-size:clamp(84px,8.4vw,132px);font-weight:700;line-height:.9;letter-spacing:-.05em}
+.funding-concept .capital-evergreen .capital-big{font-size:clamp(68px,6vw,96px)}
+.funding-concept .capital-tile .capital-label{font-size:19px;line-height:1.4;margin-top:14px}
+.funding-concept .capital-pool .capital-head{font-size:28px;font-weight:600;line-height:1.08;letter-spacing:-.03em}
+.capital-pool a{margin-top:18px;align-self:flex-start;font-weight:700;color:var(--navy);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.funding-concept .capital-source{grid-column:1/-1;font-size:15px;color:#495561;margin-top:4px}
+.capital-source a{color:inherit;text-decoration:underline;text-underline-offset:4px}
+
+/* Slimmer sections */
+.funding-options{padding:72px 5% 56px}
+.options-heading>p{margin-top:20px}
+.funding-disclosures summary{font-size:clamp(24px,2.1vw,30px);padding-block:13px}
+.funding-disclosures details{padding-bottom:8px}
+.funding-process{padding:56px 5% 60px}
+.process-steps{margin-top:34px}
+.process-steps h3{font-size:clamp(26px,2.4vw,34px)}
+.process-steps p{margin-top:14px}
+.funding-faq{padding:56px 5% 40px}
+.funding-faq .funding-disclosures summary{font-size:clamp(22px,1.9vw,27px)}
+.funding-close{padding:56px 5% 48px}
+.funding-close h2{font-size:clamp(38px,3.8vw,54px)!important}
+.funding-concept .funding-close .funding-lenders{grid-column:1/-1;font-size:17px;margin-top:-6px}
+.funding-lenders a{font-weight:700;text-decoration:underline;text-decoration-color:var(--berry);text-decoration-thickness:2px;text-underline-offset:5px}
+
+@media(max-width:1050px){
+  .capital-photo{grid-column:1/-1;grid-row:auto;min-height:420px}
+  .capital-berry{grid-column:1/-1}
+  .capital-evergreen,.capital-pool{grid-column:span 6}
+}
+@media(max-width:700px){
+  .funding-concept main h2{font-size:38px}
+  .funding-hero h2{font-size:clamp(42px,11vw,56px)!important}
+  .funding-hero-copy{padding:0}
+  .funding-hero-photo{aspect-ratio:1.25;min-height:0}
+  .capital-tiles{gap:8px;padding:44px 5% 0}
+  .capital-tile{padding:26px 24px 28px;min-height:0}
+  .capital-photo{min-height:380px;padding:0}
+  .capital-photo figcaption{padding:0 24px 24px}
+  .capital-evergreen,.capital-pool{grid-column:1/-1}
+  .funding-concept .capital-big{font-size:76px}
+  .funding-concept .capital-evergreen .capital-big{font-size:64px}
+  .funding-concept .capital-tile .capital-label{font-size:17px}
+  .funding-options{padding:52px 5% 40px}
+  .funding-disclosures summary{font-size:24px}
+  .funding-process{padding:44px 5% 48px}
+  .process-steps{gap:26px;margin-top:28px}
+  .process-steps h3{font-size:27px}
+  .funding-faq{padding:44px 5% 28px}
+  .funding-close{padding:44px 5% 40px}
+  .funding-close h2{font-size:38px!important}
+}

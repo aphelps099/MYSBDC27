@@ -248,3 +248,15 @@ Direction B from the Impact evolution II canvas, built on the approved Legacy pa
 - Close: centred pool block, "Your next chapter starts here.", navy pill to no-fee advising.
 
 Checked at 1440, 820 and 390: no horizontal overflow or script errors, every figure settles on its exact published text. The FY 2025 figures still need final reporting confirmation before launch.
+
+## Funding — capital tiles, slimmer page (November 27)
+
+Option B from the Funding colour study canvas, in `assets/funding-concept/capital.css` (loaded after `concept.css`). This is where the brand site's other colours enter the site, each with its brand role: berry `#C23C3C` for the one headline figure, evergreen `#00675C` (growth) for the second, pool for the advising promise. Proxima Nova throughout.
+
+- Hero: the stock dollar-bill photo is replaced by the Marin Auto Works team in their shop (a real SBA-loan client, from its published story); the photo is shorter.
+- Results become a tile block: a Marin Auto Works photo tile ("Turned down by the banks. Approved for a $503,000 SBA loan."), a berry $250M+ tile, an evergreen 594+ tile and a pool "No fee. Confidential." tile with the funding-advisor link. Sources sit under the tiles.
+- Slimmer: tighter section padding and smaller headlines; the Yarrow Goods story and the separate lenders section are removed. Lenders get one line in the close. Desktop height went from 5,056px to 3,953px.
+
+Impact page: the figures now use Proxima Nova bold instead of Proxima Sera (less Sera across the site); Sera stays only for the opening line and the parallax statement.
+
+Checked at 1440, 820 and 390: no horizontal overflow or script errors, no broken local links.

@@ -114,3 +114,8 @@ body.legacy-page{background:#f6f1e6;color:#1d2c3d}
 /* Figure lists keep the label first in the markup (dt before dd) and show the figure on top */
 .nb-also{align-items:flex-start}
 .nb-also div,.nb-years dl div{display:flex;flex-direction:column-reverse;justify-content:flex-end;align-items:flex-start}
+
+/* Figures in Proxima Nova (November 27): less Sera across the site. The figures take the brand tiles' heavy Nova;
+   Sera stays only for the opening line and the parallax statement. */
+.legacy-page .nb-num,.legacy-page .nb-also dd,.legacy-page .nb-years dd{font-family:"proxima-nova","Impact Proxima",Arial,sans-serif;font-weight:700;letter-spacing:-.055em}
+.legacy-page .nb-num{line-height:.84}
