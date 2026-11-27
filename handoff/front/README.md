@@ -293,3 +293,9 @@ The same 6px berry rule as the Advising hero sits 20px under the "Work with an a
 
 Stories close (November 27): the two "There's more to the story" / "What are you working on?" blocks are replaced by one
 slim pool row: "What are you working on?", one line and a navy "Get no-fee advising" pill (`assets/stories-concept/grid.css`).
+
+## About — red rules (November 27)
+
+`assets/about-concept-v5/rules.css`: the 6px berry rule sits tight under "We're your business people." and under the
+closing "Let's work on your business.", as on Advising and the homepage. The Churn photo's caption ("A grand opening at
+Churn") is removed. Checked at 1440, 820 and 390 with no overflow.
