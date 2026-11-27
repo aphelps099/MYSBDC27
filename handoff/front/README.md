@@ -337,3 +337,7 @@ copy stays neutral: "Build your skills on a schedule that works for you. Watch r
 Impact close (November 27): the tall centred pool block becomes one slim row aligned to the page shell, "Your next
 chapter starts here." on the left and the pill on the right (about 170px tall on desktop); the extra sentence is cut and
 the story section above has less bottom padding.
+
+Impact story rebuilt (November 27): "One owner's numbers." now has the Marin Auto Works photo bleeding off the left edge
+and the copy opposite: the headline with the red rule (text width), two short sentences in place of the long paragraph,
+$503K and 3 as an even pair, and the story link. The "Results as published" note moves into the photo caption.
