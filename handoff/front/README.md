@@ -412,3 +412,5 @@ at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal o
   matched with an advisor / Meet and make a plan, one short line each.
 - Later: the hero headline is now "Get matched with an advisor." (was "Big decisions. Everyday details."), so step two
   became "We find the right fit." to avoid saying it twice.
+- Later: the hero's separate "Confidential advice. At no fee to you." block and its conversation icon are gone; the
+  line now ends the hero paragraph.
