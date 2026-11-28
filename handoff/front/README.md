@@ -414,3 +414,11 @@ at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal o
   became "We find the right fit." to avoid saying it twice.
 - Later: the hero's separate "Confidential advice. At no fee to you." block and its conversation icon are gone; the
   line now ends the hero paragraph.
+
+## Advising: specialists section (November 28, 2026)
+
+- "The right kind of expertise." is now "When you need a specialist.": six areas (Capital & financing, Tech startups,
+  AI & technology, Government contracting, Food & hospitality, Veterans), each a pool heading and one line, no inline
+  program links, then one light pill, "View specialty advising programs", to `advising/programs/`.
+- Planned structure: Advising > Specialty advising (`advising/programs/`) > one page per program from a shared
+  template (`advising/programs/<program>/`).
