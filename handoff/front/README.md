@@ -422,3 +422,18 @@ at 360px). A check of every page at 1440, 820, 390 and 360 finds no horizontal o
   program links, then one light pill, "View specialty advising programs", to `advising/programs/`.
 - Planned structure: Advising > Specialty advising (`advising/programs/`) > one page per program from a shared
   template (`advising/programs/<program>/`).
+
+## Specialty program pages (November 28, 2026)
+
+- One shared template (option B on the Program page template canvas) for each child of Specialty programs:
+  `advising/programs/probiz/` and `advising/programs/tech-futures-group/` so far. Styles in `assets/program.css`.
+- Sections: premium navy opening (crumb, program name, claim, one line, pill, then partner logos or figures),
+  What you get (four items), then events (ProBiz) or one client story (TFG) on navy, people on cream, and a slim
+  pool close. Navy and cream alternate.
+- ProBiz: content condensed from norcalsbdc.org/probiz; sign-up `join/?program=PROBIZ`; contact Scott Rogalski
+  (named in the 2024 launch release). No upcoming ProBiz event was listed, so the events block shows the most
+  recent summit and links to training.
+- TFG: figures from techfuturesgroup.org/impact ($1.4B+ raised, $74M+ in grants, 2,700+ jobs; 57% vs 15% SBIR Phase I),
+  newer than the $700M figure on norcalsbdc.org and the Specialty programs page. Story: Scoot Science. Apply link
+  goes to techfuturesgroup.org/apply/.
+- Every ProBiz and TFG link in the nav panels and pages now points to these pages.
